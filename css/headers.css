@@ -1,0 +1,255 @@
+/*------------------------------------------ DESKTOP -----------------------------------------*/
+
+.radialGrandientDark {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: repeating-radial-gradient(circle at -76px -9px, rgb(16, 77, 77) 10px, rgb(61, 19, 19) 20px);
+}
+
+.linearGrandientFrenchFlag {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: repeating-linear-gradient(10deg, rgb(245, 109, 109), rgb(114, 114, 238) 4px);
+}
+
+.linearGrandientGreenTrama {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: repeating-linear-gradient(103deg, #4ABF40, #B3B3E6 3px);
+}
+
+.linearGrandientRedToPink {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to right, rgb(76, 106, 190), #B3C0E6);
+}
+
+.linearGrandientBlueToButter {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to right,  #9fd8f5,  #f5ef9f );
+}
+
+.linearGrandientRedToBlackRed {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to top,  #D2797B, #E6B3B3, #B3CDE5);
+}
+
+.linearGrandientCoralViolet {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to right,  #FF6F61,  #6B5B95 );
+}
+
+
+.linearGrandientButter {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to right, rgb(255, 247, 153),  rgb(153, 240, 255) );
+}
+
+.linearGrandientBlue {
+    width: 100%;
+    height: 35em;
+    top: 0px;
+    padding: 8em;
+    box-sizing: border-box;
+    background: linear-gradient(to top, #DCE6B3, #7991D2);
+}
+
+
+
+/*------------------------------------------ @media queries  -----------------------------------------*/
+
+@media screen and (min-width: 760px) and (max-width: 1024px) {
+
+    .radialGrandientDark {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: repeating-radial-gradient(circle at -76px -9px, rgb(16, 77, 77) 10px, rgb(61, 19, 19) 20px);)
+    }
+
+    .linearGrandientFrenchFlag {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: repeating-linear-gradient(10deg, rgb(245, 109, 109), rgb(114, 114, 238) 4px);
+    }
+
+    .linearGrandientGreenTrama {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: repeating-linear-gradient(103deg, #4ABF40, #B3B3E6 3px);
+    }
+
+    .linearGrandientRedToPink {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to right, rgb(76, 106, 190), #B3C0E6);
+    }
+
+    .linearGrandientRedToBlackRed {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to top,  #D2797B, #E6B3B3, #B3CDE5);
+    }
+
+    .linearGrandientBlueToButter {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to right,  #9fd8f5,  #f5ef9f );
+    }
+
+    .linearGrandientCoralViolet {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to right,  #FF6F61,  #6B5B95 );
+    }
+
+    .linearGrandientButter {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to right, rgb(255, 247, 153),  rgb(153, 240, 255) );
+    } 
+
+    .linearGrandientBlue {
+        width: 100%;
+        height: 30em;
+        top: 0px;
+        padding: 5em;
+        box-sizing: border-box;
+        background: linear-gradient(to top, #DCE6B3, #7991D2);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 760px) {
+
+    .radialGrandientDark {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: repeating-radial-gradient(circle at -76px -9px, rgb(16, 77, 77) 10px, rgb(61, 19, 19) 20px);)
+    }
+
+    .linearGrandientFrenchFlag {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: repeating-linear-gradient(10deg, rgb(245, 109, 109), rgb(114, 114, 238) 4px);
+    }
+
+    .linearGrandientGreenTrama {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: repeating-linear-gradient(103deg, #4ABF40, #B3B3E6 3px);
+    }
+
+    .linearGrandientRedToPink {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to right, rgb(76, 106, 190), #B3C0E6);
+    }
+
+    .linearGrandientRedToBlackRed {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to top,  #D2797B, #E6B3B3, #B3CDE5);
+    }
+
+    .linearGrandientBlueToButter {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to right,  #9fd8f5,  #f5ef9f );
+    }
+
+    .linearGrandientCoralViolet {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to right,  #FF6F61,  #6B5B95 );
+    }
+
+    .linearGrandientButter {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to right, rgb(255, 247, 153),  rgb(153, 240, 255) );
+    } 
+
+    .linearGrandientBlue {
+        width: 100%;
+        height: 15em;
+        top: 0px;
+        padding: 3em;
+        box-sizing: border-box;
+        background: linear-gradient(to top, #DCE6B3, #7991D2);
+    }
+}
