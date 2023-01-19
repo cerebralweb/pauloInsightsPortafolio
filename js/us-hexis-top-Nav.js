@@ -18,13 +18,14 @@ const miNavEs = `<div class="topnav" id="myTopnav">
 </div>
 
 <div class="dropdown">
-    <button class="dropbtn">Ideas <i class="fa fa-caret-down"></i>
+    <button class="dropbtn">Books <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
         <a href="/a/design-fiction.html" /infografias.html">Design Fiction</a>
         <a href="/index.html">Blog</a>
         <a href="/a/podcasts.html">Podcast</a>
+        <a href="/a/podcasts.html">List</a>
         
     </div>
 </div>
