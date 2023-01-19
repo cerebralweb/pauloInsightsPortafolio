@@ -288,12 +288,25 @@
                                       PROGRESS bar
 *******************************************************************************************/
 
+.flexContainerForProgressBars{  
+  background-color: white;
+  flex-basis: 30%;
+  flex-grow: 1;
+  flex-shrink: 1;  
+  min-width: 16.5em;
+  max-height: 25em;
+  padding: 1rem;
+  border: 0px solid black;
+  margin: 1rem 0rem 1rem 2rem;
+  order: 2;
+}
+
 progress {
   opacity: 0;
 }
 
-.progress-element {
-  width: 400px;
+.progress-element {  
+  flex-basis: 100%;  
   margin: 0 0 10px;
 }
 
