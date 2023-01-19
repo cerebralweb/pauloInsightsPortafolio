@@ -5,7 +5,7 @@ const infoDeLa_web = `
 <p>Virginia Wolf</p>
 <a 
 class="class1"
-href="https://www.economist.com/business/2020/08/31/staycationers-are-saving-hotels-and-airbnb-from-covid-19?fsrc=newsletter&utm_campaign=the-economist-today&utm_medium=newsletter&utm_source=salesforce-marketing-cloud&utm_term=2020-09-01&utm_content=article-link-2&etear=nl_today_2">
+href="https://www.clpalacios.in/a/virginia-wolf-to-the-lighthouse-Free-Reading.html">
 To The Light House
 </a>
 
