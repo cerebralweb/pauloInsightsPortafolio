@@ -328,16 +328,20 @@ progress {
   background: turquoise;
 }
 
-.progress-element--html .progress-container::before {
-  animation: progress-html 1s ease-in forwards;
+.progress-element--designFiction .progress-container::before {
+  animation: progress-designFiction 1.4s ease-in forwards;
 }
 
-.progress-element--css .progress-container::before {
-  animation: progress-css 1s ease-in forwards;
+.progress-element--scenesDesign .progress-container::before {
+  animation: progress-scenesDesign 1.5s ease-in forwards;
 }
 
-.progress-element--javascript .progress-container::before {
-  animation: progress-javascript 1s ease-in forwards;
+.progress-element--writing .progress-container::before {
+  animation: progress-writing 1.6s ease-in forwards;
+}
+
+.progress-element--cover .progress-container::before {
+  animation: progress-cover 1.3s ease-in forwards;
 }
 
 .progress-label {
@@ -358,51 +362,66 @@ progress {
   right: 0;
 }
 
-.progress-element--html .progress-label::after {
-  animation: progress-text-html 1s ease-in forwards;
+.progress-element--designFiction .progress-label::after {
+  animation: progress-text-designFiction 1.5s ease-in forwards;
 }
 
-.progress-element--css .progress-label::after {
-  animation: progress-text-css 1s ease-in forwards;
+.progress-element--scenesDesign .progress-label::after {
+  animation: progress-text-scenesDesign 1.4s ease-in forwards;
 }
 
-.progress-element--javascript .progress-label::after {
-  animation: progress-text-javascript 1s ease-in forwards;
+.progress-element--writing .progress-label::after {
+  animation: progress-text-writing 1.6s ease-in forwards;
 }
 
-@keyframes progress-html {
+.progress-element--cover .progress-label::after {
+  animation: progress-text-cover 1.3s ease-in forwards;
+}
+
+@keyframes progress-designFiction {
   to {
-    width: 95%;
+    width: 35%;
   }
 }
 
-@keyframes progress-css {
+@keyframes progress-scenesDesign {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes progress-writing {
+  to {
+    width: 20%;
+  }
+}
+@keyframes progress-cover {
   to {
     width: 80%;
   }
 }
 
-@keyframes progress-javascript {
+@keyframes progress-text-designFiction {
   to {
-    width: 65%;
+    --num: 35;
   }
 }
 
-@keyframes progress-text-html {
+@keyframes progress-text-scenesDesign {
   to {
-    --num: 95;
+    --num: 40;
   }
 }
 
-@keyframes progress-text-css {
+@keyframes progress-text-writing {
+  to {
+    --num: 20;
+  }
+}
+
+@keyframes progress-text-cover {
   to {
     --num: 80;
-  }
-}
-
-@keyframes progress-text-javascript {
-  to {
-    --num: 65;
   }
 }
 /*******************************************************************************************

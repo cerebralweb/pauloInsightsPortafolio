@@ -1,17 +1,19 @@
 //create HTML content
 const miNavEs = `<div class="topnav" id="myTopnav">
 <img class="logo1" src="/favicon/logoHexis1.svg">
-<a href="" target="_self" id="traducir">ES</a>
-<a  href="/us-home.html">Hexis</a>
-<a href="/us-about.html">About</a>
+
+<!--<<<<<<<<<<< <a href="" target="_self" id="traducir">EN</a> >>>>>>>>>>>-->
+
+<a  href="/index.html">C.L. Palacios</a>
+<a href="/index.html#tip">About</a>
 <div class="dropdown">
-    <button class="dropbtn">Products <i class="fa fa-caret-down"></i>
+    <button class="dropbtn">Social Media
+     <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-        <a href="/us-technology.html">Technology</a>
-        <a href="/us-consultancy.html">Consulting</a>
-        <a href="/us-insights.html">Insights</a>
+        <a href="https://www.instagram.com/clpalacios.in/">Instagram</a>
+        <a href="">Twitter</a>
     </div>
 </div>
 
@@ -20,12 +22,13 @@ const miNavEs = `<div class="topnav" id="myTopnav">
     </button>
 
     <div class="dropdown-content">
-        <a href="/toc.html">Blog</a>
-        <a href="/us-podcast.html">Podcast</a>
-        <a href="/us-infographics.html">Infographics</a>
+        <a href="/a/design-fiction.html" /infografias.html">Design Fiction</a>
+        <a href="/index.html">Blog</a>
+        <a href="/a/podcasts.html">Podcast</a>
+        
     </div>
 </div>
-<a href="/toc.html">Toc</a>
+
 
 <a class="icon" onclick="responsiveIcon()">&#9776;</a>
 

@@ -1,12 +1,12 @@
 //SIRVE lista de contenido hot EN ESPAÑOL
 const infoDeLa_web = ` 
-<h4>Hot Analysis</h4>
+<h4>Free Reading</h4>
 
-<p>The Economist</p>
+<p>Virginia Wolf</p>
 <a 
 class="class1"
 href="https://www.economist.com/business/2020/08/31/staycationers-are-saving-hotels-and-airbnb-from-covid-19?fsrc=newsletter&utm_campaign=the-economist-today&utm_medium=newsletter&utm_source=salesforce-marketing-cloud&utm_term=2020-09-01&utm_content=article-link-2&etear=nl_today_2">
-Staycationers are saving hotels and Airbnb from covid-19
+To The Light House
 </a>
 
 <p>Bloomberg</p>
