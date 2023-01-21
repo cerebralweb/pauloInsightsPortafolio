@@ -614,13 +614,13 @@ th[scope="row"] {
   font-weight: 400;
   min-width: 10rem;
   max-width: 16.5rem;
-  height: 16em;
+  height: 19em;
   flex: auto;
   order: 0;
   background-color: white;
   border-top: 1px dotted black;
   border-bottom: 1px dotted black;
-  margin: 2.7em 2em 0em 2em;
+  margin: 2.3em 2em 0em 2em;
   padding: 1em;
   text-align: left;
 }
@@ -651,7 +651,7 @@ th[scope="row"] {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: 2em 2em 0em 2em;
+  margin: -0.8em 2em 0em 2em;
   padding: 0em;
   text-align: left;
   min-width: 16.5em;
