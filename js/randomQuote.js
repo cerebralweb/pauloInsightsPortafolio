@@ -1,6 +1,5 @@
-
 const clpalaciosQuoteMachine = function  (){
-    const tweetButton = document.getElementsById('twitter-share');
+    
     const quotes = [
         {
             quote: "Do not pity the dead, Harry. Pity the living, and, above all those who live without love.",
@@ -463,11 +462,19 @@ const clpalaciosQuoteMachine = function  (){
     let arrayLength = quotes.length;
     let randomNumberInArray = Math.round(Math.random() * arrayLength);
     let quoteAuthor = quotes[randomNumberInArray].author;
-    return `"${quotes[randomNumberInArray].quote}" <strong itemprop="author" ><em><i style="font-size: 1rem; color: rgb(175, 174, 174);" ">${quoteAuthor}</i></em></strong>`
+
+    return `"${quotes[randomNumberInArray].quote}" <strong itemprop="author" ><em><i style="font-size: 1rem; color: rgb(175, 174, 174);" ">${quoteAuthor}</i></em></strong>`;
 }
 
-//console.log(clpalaciosQuoteMachine())
+let slot1 = clpalaciosQuoteMachine();
+console.log(slot1);
 
-document.getElementById('quoteIntoHtml').innerHTML = clpalaciosQuoteMachine();
-tweetButton.href("https://twitter.com/intent/tweet?text="  + " @clpalacios_in");
+//console.log(clpalaciosQuoteMachine())
+//const slotForTweet = clpalaciosQuoteMachine();
+//console.log(slotForTweet);
+
+
+document.getElementById('quoteIntoHtml').innerHTML = slot1;
+
+document.getElementById ('shareTweet').href = "https://twitter.com/intent/tweet?text=" + slot1.replace('<strong itemprop="author" ><em><i style="font-size: 1rem; color: rgb(175, 174, 174);" ">','--').replace('</i></em></strong>','--') + " @clpalacios_in";
 document.getElementById('newQuote').addEventListener('click', clpalaciosQuoteMachine()+"@clpalacios_in");
