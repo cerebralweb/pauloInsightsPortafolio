@@ -1,6 +1,6 @@
 
 const clpalaciosQuoteMachine = function  (){
-    const tweetButton = document.getElementsByName('twitter-share');
+    const tweetButton = document.getElementsById('twitter-share');
     const quotes = [
         {
             quote: "Do not pity the dead, Harry. Pity the living, and, above all those who live without love.",
