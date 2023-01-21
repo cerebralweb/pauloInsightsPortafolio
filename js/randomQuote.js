@@ -117,5 +117,5 @@ let slot1 = clpalaciosQuoteMachine();
 
 document.getElementById('quoteIntoHtml').innerHTML = slot1;
 
-document.getElementById ('shareTweet').href = "https://twitter.com/intent/tweet?text=" + slot1.replace('<strong itemprop="author" ><em><i style="font-size: 1rem; color: rgb(175, 174, 174);" ">','--').replace('</i></em></strong>','--') + " @clpalacios_in";
-document.getElementById('newQuote').addEventListener('click', clpalaciosQuoteMachine()+ " #quote @clpalacios_in");
+document.getElementById ('shareTweet').href = "https://twitter.com/intent/tweet?text=" + slot1.replace('<strong itemprop="author" ><em><i style="font-size: 1rem; color: rgb(175, 174, 174);" ">','--').replace('</i></em></strong>','--') + "#quote @clpalacios_in";
+document.getElementById('newQuote').addEventListener('click', clpalaciosQuoteMachine());
