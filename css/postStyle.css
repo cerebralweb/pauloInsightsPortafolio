@@ -86,6 +86,21 @@ q:after {
 .smallerFont{
   font-size: .1rem;
 }
+
+button{
+  font-size: 1.2rem;
+    text-decoration: none;
+    border: 1px solid black;
+    box-shadow: 0px 0px black;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: .5rem;
+    transition-property: box-shadow;
+    transition-duration: .5s;
+}
+button:hover{
+  box-shadow: 2px 2px black;
+}
+
 a.shadowButton{
   font-size: 1.2rem;
   text-decoration: none;
@@ -1161,7 +1176,10 @@ font-size: 1.3rem;
   }
   .button {
     margin-top: 20px;
+
   }
 
 
+
+  
 }

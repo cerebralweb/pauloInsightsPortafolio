@@ -1,9 +1,9 @@
 //SIRVE EL NEWSLETTER EN ESPAÑOL
 const newsletter_es = `   
-<h4>Newsletter</h4>
+<h4>Subscribe</h4>
             
-<p>Every two weeks, the Toc editorial team curates a list of the best content on online consumption, 
-produced by Bloomberg, The Economist, YPulse, WARC and, of course, Hexis-Toc. Subscribe and receive it. </p>
+<p>Dear reader, subscribe and receive for free a collection of short stories. Subscribers can take part in
+marketing research projects (and get prizes), and being beta readers </p>
 <form 
     name="contact" 
     method="POST"
@@ -19,7 +19,7 @@ produced by Bloomberg, The Economist, YPulse, WARC and, of course, Hexis-Toc. Su
   >  
   
   <p>
-  <label for="email">Tu correo:
+  <label for="email">Your email:
     <input 
     name="email"
     type="email"

@@ -42,7 +42,7 @@ const us_footer = ` <div class="caja-child-footer">
 document.getElementById("us-footer").insertAdjacentHTML('afterbegin', us_footer);
 
 //COPY RIGHTS
-document.getElementById("copyRights").textContent = "Hexis© 2020";
+document.getElementById("copyRights").textContent = "C.L Palacios 2023";
 
 
 

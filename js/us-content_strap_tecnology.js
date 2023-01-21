@@ -13,8 +13,8 @@ const content_strap_tecnology = `
           <h6> # MARKETING </h6>
           <a href="/insight/us-podcast-jeisson-hurtado-marketing-mario-hernandez.html">
 
-            <img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
-                 title="The Gender Spectrum Collection">
+          <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
+          title="The Gender Spectrum Collection">-->            
 
           <h1 class="tituloPostPreview">There Was
               No Contact With The Final Client: We Interviewed a Former Carrefour Marketing
@@ -34,9 +34,11 @@ const content_strap_tecnology = `
           <h6> # NETNOGRAPHY </h6>
           <a href="/insight/us-successful-disruptive-advertisement-kotex-libresse.html">
 
-            <img src="/imagesToc/womenInBathroom.jpg" alt="Landscape"
-                 title="The Gender Spectrum Collection" class="imageInPostPreview ">
 
+          <!--<img src="/imagesToc/womenInBathroom.jpg" alt="Landscape"
+          title="The Gender Spectrum Collection" class="imageInPostPreview ">-->
+
+            
           <h1 class="tituloPostPreview"> The Success of Disruptive Advertising: Kotex and the "Blue
               Blood" </h1>
             
@@ -54,11 +56,13 @@ const content_strap_tecnology = `
   
 
         <div class="postPreviewContentUnit">
-          <h6># SHOPPING</h6>     
+          <h6># SHOPPING</h6>    
+          
+          
+          <!--<img src="/imagenes5/mensajeriaComprarDebeSerMagicoBannerBlog.jpg" alt="Landscape"
+          class="imageInPostPreview">-->
   
-          <img src="/imagenes5/mensajeriaComprarDebeSerMagicoBannerBlog.jpg" alt="Landscape"
-               class="imageInPostPreview">
-  
+          
           <h1 class="tituloPostPreview">International courier in Bogotá and shopping experience
           </h1>
           <p> International courier messaging is essential for any Millenial living in a city.
