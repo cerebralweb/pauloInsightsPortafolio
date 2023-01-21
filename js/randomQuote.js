@@ -469,5 +469,5 @@ const clpalaciosQuoteMachine = function  (){
 //console.log(clpalaciosQuoteMachine())
 
 document.getElementById('quoteIntoHtml').innerHTML = clpalaciosQuoteMachine();
-tweetButton.href("https://twitter.com/intent/tweet?text=" + clpalaciosQuoteMachine() + " @clpalacios_in");
+tweetButton.href("https://twitter.com/intent/tweet?text="  + " @clpalacios_in");
 document.getElementById('newQuote').addEventListener('click', clpalaciosQuoteMachine()+"@clpalacios_in");
