@@ -6,37 +6,32 @@ const us_footer = ` <div class="caja-child-footer">
 
 <div class="caja-child-footer contenedor-site-map">
 
-<p><a class="class2" href="/us-insights.html">Insights</a></p>
-<p><a class="class2" href="/us-about.html">About us</a></p>
-<p><a class="class2" href="/us-technology.html">Technology</a></p>                        
-<p><a class="class2" href="/us-consultancy.html">Consulting</a></p>
+<p><a href="#us-newsletter" class="class2" href="/us-insights.html">Subscribe</a></p>
+<p><a href="#tip" class="class2" href="/us-about.html">About me</a></p>
+<p><a class="class2" href="/index.html">TikTok</a></p>                        
+<p><a class="class2" href="https://www.facebook.com/clpalacios.in">Facebook</a></p>
 
 
 </div>
 <div class="caja-child-footer contenedor-site-map">
 
-<p><a class="class2" href="/us-home.html">Home</a></p>
-<p><a class="class2" href="/toc.html">Blog</a></p>
-<p><a class="class2" href="/us-podcast.html">Podcast</a></p>            
-<p><a class="class2" href="/us-infographics.html">Infographics</a></p>
+<p><a class="class2" href="/indez.html">Home</a></p>
+<p><a class="class2" href="clpalacios/toc/page1.html">Blog</a></p>
+<p><a class="class2" href="">Diary of a Z Girl</a></p>            
+<p><a  href="#free" class="class2" href="">Free Stories</a></p>
 
 </div>
 
 <div class="caja-child-footer contenedor-site-map">
 
-<p><a class="class2" href="https://twitter.com/hexisresearch">Twitter</a></p>
-<p><a class="class2" href="https://www.linkedin.com/company/hexis-research-consulting/">LinkedIn</a></p>            
-<p><a class="class2" href="https://www.instagram.com/hexistoc/">Instagram</a></p>            
-<p><a class="class2" href="https://www.facebook.com/HexisResearch">Facebook-Es</a></p>
 
 </div>
 
 <div class="caja-child-footer">
 <address class="contenedorAdress">    
-    <p>Bogotá</p>
-    <p>110221</p>            
-    <p><a class="class2" href="skype:paulocleon1?call"><span itemprop="availableChannel"> Talk in Skype</span></a> </p>
-    <p><span itemprop="availableChannel"> Teléfono (+57 1) 465 5570 </span> </p>
+    <p>Mexico City</p>
+    <p><a class="class2" href=""><span itemprop="availableChannel">Email Me</span></a> </p>
+    <p><span itemprop="availableChannel"> 324-546-8875 </span> </p>
 </address>
 </div>`
 document.getElementById("us-footer").insertAdjacentHTML('afterbegin', us_footer);
