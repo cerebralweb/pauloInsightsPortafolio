@@ -15,10 +15,10 @@ const us_footer = ` <div class="caja-child-footer">
 </div>
 <div class="caja-child-footer contenedor-site-map">
 
-<p><a class="class2" href="/indez.html">Home</a></p>
-<p><a class="class2" href="clpalacios/toc/page1.html">Blog</a></p>
+<p><a class="class2" href="/index.html">Home</a></p>
+<p><a class="class2" href="/toc/page1.html">Blog</a></p>
 <p><a class="class2" href="">Diary of a Z Girl</a></p>            
-<p><a  href="#free" class="class2" href="">Free Stories</a></p>
+<p><a  href="#freeReading" class="class2" href="">Free Stories</a></p>
 
 </div>
 
