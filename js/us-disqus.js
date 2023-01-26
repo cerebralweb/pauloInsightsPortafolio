@@ -13,6 +13,7 @@ var disqus_config = function () {
   d.getElementById("comentarios").insertAdjacentHTML('afterbegin', `<h1  style="margin: 3rem 0rem;" class="titulosMainForArticles recomendadosTitulos">Comments</h1>`);
   //Disqus code
   s = d.createElement("script");
+  //this url represents a New community
   s.src = "https://clpalacios.disqus.com/embed.js";
   s.setAttribute("data-timestamp", +new Date());
   (d.head || d.body).appendChild(s);
