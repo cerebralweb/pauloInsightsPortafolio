@@ -1,4 +1,4 @@
-//this function sets my var myCanonical, defined in the head of each Hexis page
+//this function sets my var myCanonical, defined in the head of each page
 
 var disqus_config = function () {
   this.page.url = myCanonical; 

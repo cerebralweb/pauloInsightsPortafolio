@@ -1,17 +1,13 @@
-const compartir_en_flex = `<h4> Share </h4>
-<p> Useful for public opinion? Post it to <a name="twitter-share" class = "class2"
-        href = ""> Twitter </a>. Useful the
-     business? Spread it in <a name="linkedIn-share" class = "class2"
-        href = ""> LinkedIn </a>.
-     Let your friends know? Like it on <a name="facebook-share" class = "class2"
-        href = ""> Facebook </a> </p>
-<p> <a class="class2" href="#insight"> Summary </a> </p>`;
-document.getElementById('us-shareInFlex').insertAdjacentHTML('afterbegin', compartir_en_flex);
+const share_in_flex_my_social_media = `<a class="class2" href=""> ◦
+TikTok</a>`;
+document.getElementById('my_social_media').insertAdjacentHTML('beforebegin', share_in_flex_my_social_media);
 
 
 
-
-let t = document.getElementsByName("twitter-share");
+/**ONCE, I served the container with names="twitter-share",etc, 
+ * I put the value stored in local var in each page into the attributte href, etc. I don't use this in clpalacios.in 
+ * 
+ * let t = document.getElementsByName("twitter-share");
 
 for(let i= 0; i < t.length; i++){
    t[i].href = twitterCard;
@@ -29,6 +25,10 @@ for(let k = 0; k < f.length; k++){
    f[k].href = facebookCard;
    f[k].target= "_blank";
 }
+
+ *   */
+
+
 
 
 
