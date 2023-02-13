@@ -29,15 +29,20 @@ const us_footer = ` <div class="caja-child-footer">
 
 <div class="caja-child-footer">
 <address class="contenedorAdress">    
-    <p>Mexico City</p>
-    <p><a class="class2" href=""><span itemprop="availableChannel">Email Me</span></a> </p>
-    <p><span itemprop="availableChannel"> 324-546-8875 </span> </p>
+<p>Thanks to:</p>
+<p><a class="class2" href="https://www.freecodecamp.org/">Freecodecamp</a></p>
+<p><a class="class2" href="https://www.netlify.com/pricing/">Netlify</a></p>
+<p><a class="class2" href="https://github.com/">Github</a></p>
+
+    
 </address>
-</div>`
+</div>
+
+`
 document.getElementById("us-footer").insertAdjacentHTML('afterbegin', us_footer);
 
 //COPY RIGHTS
-document.getElementById("copyRights").textContent = "C.L Palacios 2023";
+document.getElementById("copyRights").textContent = "C.L Palacios 2023, Mexico City";
 
 
 
