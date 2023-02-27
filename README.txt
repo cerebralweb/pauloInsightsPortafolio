@@ -15,5 +15,14 @@ paste the program in Index and each toc
 
 - serve   <link rel="canonical" ???
 
+MY SCRIPS ON TERMINAL
+
+map a list (each line in camel case) into a list of folders
+https://textedit.tools/camelcase
+https://planetcalc.com/7891/ or number list maker
+
+
+cat list.txt | xargs mkdir
+
 
 
