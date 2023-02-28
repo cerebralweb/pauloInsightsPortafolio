@@ -1,31 +1,19 @@
+google-site-verification=tL4ir5jK_lM-u9-p_dbCPHF1gAjPc8ZdH0eAIwi3qog
 
 
-TODO
+<h1 align="center">Hi 👋, I'm C. L. Palacios</h1>
+<h3 align="center">A Writer of Romance Science Fiction Novels</h3>
 
-- Upload articles
-- favicon
-- Put an Id at each image (to make an script in the future)
+- 🔭 I’m currently working on [Game Date](clpalacios.in/game-date-romance-science-fiction-novel)
 
-- serve paginator and change "toc" directory
+- 👯 I’m looking to collaborate on **Content Creation for Gen-Z**
 
-Program: 
-iterate 5 elements by nameA, put 0-9 from a dictionary in;
-iterate 5 elements by nameB, put 10-21 from a dictionary in;
-and so
+- 👨‍💻 All of my projects are available at [clpalacios.in](clpalacios.in)
 
-paste the program in Index and each toc 
+- 📝 I regularly write articles on [clpalacios.in](clpalacios.in)
 
-- serve   <link rel="canonical" ???
-
-MY SCRIPS ON TERMINAL
-
-map a list (each line in camel case) into a list of folders
-https://textedit.tools/camelcase
-https://planetcalc.com/7891/ or number list maker
-
-
-cat list.txt | xargs mkdir
-
-
-
-
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://twitter.com/@clpalacios_in" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="@clpalacios_in" height="30" width="40" /></a>
+<a href="https://instagram.com/clpalaciosbooks" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="clpalaciosbooks" height="30" width="40" /></a>
+</p>
