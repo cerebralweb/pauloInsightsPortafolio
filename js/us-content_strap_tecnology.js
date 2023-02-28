@@ -12,7 +12,7 @@ const content_strap_tecnology = `
 <!--------------------------------------- 1 --------------------------------------->
 
   <div class="postPreviewContentUnit">
-    <h6> # WRITING </h6>
+    <h6> # WRITING XXX</h6>
     <a href="/a/how-to-write-characters-that-keep-readers-excited.html">
 
           <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
