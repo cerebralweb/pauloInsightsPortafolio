@@ -12,7 +12,7 @@ const content_strap_tecnology = `
 <!--------------------------------------- 1 --------------------------------------->
 
   <div class="postPreviewContentUnit">
-    <h6> # WRITING XXX</h6>
+    <h6> # WRITING</h6>
     <a href="/a/how-to-write-characters-that-keep-readers-excited.html">
 
           <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
@@ -22,7 +22,7 @@ const content_strap_tecnology = `
     <p> How to apply psychology, narrative art, and sociology to make up characters that do their job (entertain and get money).</p>
     </a>
 
-    <div class="sectionButtonContainer"><a href="" class="section-button section-button-bigger">Jump Into</a></div>
+    <div class="sectionButtonContainer"><a href="/a/how-to-write-characters-that-keep-readers-excited.html" class="section-button section-button-bigger">Jump Into</a></div>
  </div>
         
  <!--------------------------------------- 2 --------------------------------------->
@@ -38,7 +38,7 @@ const content_strap_tecnology = `
     <p> Virginia Wolf's Best: To The Lighthouse.</p>
     </a>
 
-    <div class="sectionButtonContainer"><a href="" class="section-button section-button-bigger">Jump Into</a></div>
+    <div class="sectionButtonContainer"><a href="/a/virginia-wolf-to-the-lighthouse-Free-Reading.html" class="section-button section-button-bigger">Jump Into</a></div>
  </div>
   
  <!--------------------------------------- 3 --------------------------------------->
@@ -54,7 +54,7 @@ const content_strap_tecnology = `
  <p> How to apply psychology, narrative art, and sociology to make up characters that do their job (entertain and get money).</p>
  </a>
 
- <div class="sectionButtonContainer"><a href="" class="section-button section-button-bigger">Jump Into</a></div>
+ <div class="sectionButtonContainer"><a href="index.html" class="section-button section-button-bigger">Jump Into</a></div>
 </div>
 
 
