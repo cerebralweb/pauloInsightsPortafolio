@@ -15,7 +15,7 @@ and so
 
 paste the program in Index and each toc 
 
-- serve   <link rel="canonical" ???
+
 
 MY SCRIPS ON TERMINAL
 
