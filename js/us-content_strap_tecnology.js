@@ -13,7 +13,7 @@ const content_strap_tecnology = `
 
   <div class="postPreviewContentUnit">
     <h6> # WRITING </h6>
-    <a href="a/how-to-write-characters-that-keep-reders-excited.html">
+    <a href="/a/how-to-write-characters-that-keep-readers-excited.html">
 
           <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
           title="The Gender Spectrum Collection">-->            
@@ -29,7 +29,7 @@ const content_strap_tecnology = `
 
  <div class="postPreviewContentUnit">
     <h6> # FREE FICTION </h6>
-    <a href="https://www.clpalacios.in/a/virginia-wolf-to-the-lighthouse-Free-Reading.html">
+    <a href="/a/virginia-wolf-to-the-lighthouse-Free-Reading.html">
 
           <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
           title="The Gender Spectrum Collection">-->            
@@ -45,7 +45,7 @@ const content_strap_tecnology = `
 
  <div class="postPreviewContentUnit">
  <h6> # FLASH FICTION </h6>
- <a href="a/how-to-write-characters-that-keep-reders-excited.html">
+ <a href="index.html">
 
        <!--<img src="/imagesToc/businessWomen.jpg" alt="Landscape" class="imageInPostPreview"
        title="The Gender Spectrum Collection">-->            
