@@ -27,6 +27,8 @@ https://planetcalc.com/7891/ or number list maker
 2.
 rename a list of files
 
+Notice: if the list should start at 37, for example, I declare a=38
+
 a=1
 for i in *.jpg; do
   new=$(printf "%04d.jpg" "$a") #04 pad to length of 4
