@@ -457,7 +457,7 @@ progress {
   flex-basis: 33%;
   flex-grow: 1;  
   padding: .5rem;  
-  order: 3;
+    order: 3;
   max-width: 35rem;
 } 
 .narrowFlexBasis{
