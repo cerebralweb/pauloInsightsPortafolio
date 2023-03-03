@@ -7,7 +7,7 @@ const top_nav = `
 <a href="#us-newsletter" class="buttonUnit_topNav class1">Subscribe</a>
 <a href="#free" class="buttonUnit_topNav class1">Free Story</a>
 <!--<<<<<<<<<<< <a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">Podcast</a>>>>>>>>>>>>-->
-<a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">Diary of a Z Girl</a>
+<a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">Diary of Z </a>
 
 <a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">Instagram</a>
 <a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">TikTok</a>
