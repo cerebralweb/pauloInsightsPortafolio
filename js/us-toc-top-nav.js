@@ -12,7 +12,7 @@ const top_nav = `
 <a href="https://www.instagram.com/clpalacios.in/" target="_blank" class="buttonUnit_topNav class1">Instagram</a>
 <a href="https://www.instagram.com/clpalacios.in/" target="_blank" class="buttonUnit_topNav class1">TikTok</a>
 <a href="#tip" class="buttonUnit_topNav class1">About</a>
-<a href="https://www.clpalacios.in/" class="buttonUnit_topNav class1">Home</a>
+<a href="/index.html" class="buttonUnit_topNav class1">Home</a>
 
 `;
 

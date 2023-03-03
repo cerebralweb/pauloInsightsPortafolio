@@ -600,7 +600,7 @@ progress {
 *******************************************************************************************/
 .paginatorWrapper{
   text-align: center;
-  margin: 2rem;
+  margin: 6.5rem;
 }
 .paginator{
   display: flex;
