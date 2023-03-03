@@ -422,7 +422,7 @@ progress {
   left: 0;
   height: 100%;
   width: 0;
-  background: turquoise;
+  background: lightskyblue;
 }
 
 .progress-element--designFiction .progress-container::before {

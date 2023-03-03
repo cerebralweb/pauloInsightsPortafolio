@@ -202,23 +202,23 @@ a.blue-marker:active {
 }
 
 a.class6 {
-  color: rgb(97, 95, 95);
+  color: black;
 }
 a.class6:link {
   text-decoration: none;
-  color: grey;
+  color: black;
 }
 a.class6:visited {
   text-decoration: none;
-  color: rgb(104, 101, 101);
+  color: black;
 }
 a.class6:hover {
   text-decoration: none;
-  color: grey;
+  color: rgb(36, 55, 66);
 }
 a.class6:active {
   text-decoration: none;
-  color: grey;
+  color: rgb(35, 53, 64);
 }
 
 .contenedorBody {
