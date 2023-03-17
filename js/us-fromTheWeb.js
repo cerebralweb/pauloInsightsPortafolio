@@ -17,11 +17,11 @@ href="/a/the-satyricon-of-petronious.html"
 The Satyricon 
 </a>
 
-<p>The Economist</p>
+<p>Nathaniel Hawthorne's</p>
 <a 
 class="class1"
-href="https://www.economist.com/science-and-technology/2020/08/08/a-new-ai-language-model-generates-poetry-and-prose">
-A new AI language model generates poetry and prose
+href="/a/the-scarlet-letter-a-romance.html">
+The Scarlet Letter: A Romance
 </a>
 
 
