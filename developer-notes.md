@@ -41,6 +41,12 @@ Create folders from a .txt list
 
 cat list.txt | xargs mkdir
 
+4.
+regex to match all img tags (delete images of books)
+
+<img\s+[^>]*src="([^"]*)"[^>]*>
+
+
 
 
 

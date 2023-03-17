@@ -9,12 +9,12 @@ href="https://www.clpalacios.in/a/virginia-wolf-to-the-lighthouse-Free-Reading.h
 To The Light House
 </a>
 
-<p>Bloomberg</p>
+<p>Petronious</p>
 <a 
 class="class1"
-href="https://www.bloomberg.com/news/articles/2020-08-18/the-silicon-valley-tech-exodus-could-be-a-plus?srnd=premium"
+href="/a/the-satyricon-of-petronious.html"
 >
-What the ‘Tech Exodus’ Could Mean for Silicon Valley
+The Satyricon 
 </a>
 
 <p>The Economist</p>
