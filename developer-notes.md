@@ -45,6 +45,7 @@ cat list.txt | xargs mkdir
 regex to match all img tags (delete images of books)
 
 <img\s+[^>]*src="([^"]*)"[^>]*>
+<span\s+*>
 
 
 
