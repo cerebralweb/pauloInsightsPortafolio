@@ -33,12 +33,12 @@ href="/a/the-memoirs-of-dolly-morton.html"
 The Memoirs of Dolly Morton, 1899
 </a>
 
-<p>Hexis TOC</p>
+<p>Mary Wollstonecraft</p>
 <a 
 class="class1" 
-href="https://www.hexis.cc/insight/insight/us-simulating-decision-making-with-consumers.html"
+href="/a/a-vindication-of-the-rights-of-woman-by-mary-wollstonecraft.html"
 >
-Health Care: Simulating Consumption Experiences
+A Vindication of the Rights of Woman 
 </a>
 
 <p>Warc</p>

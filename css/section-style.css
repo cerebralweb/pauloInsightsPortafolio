@@ -183,6 +183,11 @@ ul li {
   font-size: 1.1em;
 }
 
+bannerTwitero li {
+  margin-left: 1em;
+  font-size: 1.1em;
+}
+
 /*---------------------------- @media flex nested flex -----------------------------------*/
 
 @media screen and (min-width: 760px) and (max-width: 1024px) {
