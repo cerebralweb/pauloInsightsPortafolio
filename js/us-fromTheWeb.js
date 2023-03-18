@@ -66,6 +66,15 @@ href="/a/the-yellow-wallpaper-by-charlotte-perkins-gilman.html"
 The Yellow Wallpaper 
 </a>
 
+<p>Ann Veronica</p>
+<a 
+class="class1" 
+href="/a/ann-veronica-a-modern-love-story-by-h-g-Wells.html"
+>
+Ann Veronica
+</a>
+
+
   
   `;
 document.getElementById('us-fromTheWeb').insertAdjacentHTML('afterbegin', infoDeLa_web);
