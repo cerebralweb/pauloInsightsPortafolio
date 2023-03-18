@@ -18,6 +18,14 @@ href="https://www.clpalacios.in/a/virginia-wolf-to-the-lighthouse-Free-Reading.h
 To The Light House
 </a>
 
+<p>H. G. Wells</p>
+<a 
+class="class1" 
+href="/a/ann-veronica-a-modern-love-story-by-h-g-Wells.html"
+>
+Ann Veronica
+</a>
+
 <p>Petronious</p>
 <a 
 class="class1"
@@ -64,14 +72,6 @@ class="class1"
 href="/a/the-yellow-wallpaper-by-charlotte-perkins-gilman.html"
 >
 The Yellow Wallpaper 
-</a>
-
-<p>Ann Veronica</p>
-<a 
-class="class1" 
-href="/a/ann-veronica-a-modern-love-story-by-h-g-Wells.html"
->
-Ann Veronica
 </a>
 
 
