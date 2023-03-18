@@ -12,7 +12,7 @@ const miNavEs = `<div class="topnav" id="myTopnav">
     </button>
 
     <div class="dropdown-content">
-        <a href="https://www.instagram.com/clpalacios.in/">Instagram</a>
+        <a href="https://www.instagram.com/clpalaciosbooks/">Instagram</a>
         <a href="https://twitter.com/clpalacios_in">Twitter</a>
     </div>
 </div>
