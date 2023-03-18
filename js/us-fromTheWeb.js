@@ -25,12 +25,12 @@ The Scarlet Letter: A Romance
 </a>
 
 
-<p>Feminist pornography?</p>
+<p>Feminist pornography</p>
 <a 
 class="class1"
 href="/a/the-memoirs-of-dolly-morton.html"
 >
-THE MEMOIRS OF DOLLY MORTON, 1899
+The Memoirs of Dolly Morton, 1899
 </a>
 
 <p>Hexis TOC</p>
