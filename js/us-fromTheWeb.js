@@ -74,7 +74,7 @@ href="/a/the-yellow-wallpaper-by-charlotte-perkins-gilman.html"
 The Yellow Wallpaper 
 </a>
 
-<p></p>
+<p>Charlotte M. Yonge</p>
 <a 
 class="class1"
 href="/a/the-clever-woman-of-the-family-by-charlotte-mary-yonge.html"
