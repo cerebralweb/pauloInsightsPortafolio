@@ -50,6 +50,14 @@ href="/a/a-vindication-of-the-rights-of-woman-by-mary-wollstonecraft.html"
 A Vindication of the Rights of Woman 
 </a>
 
+<p>Louisa May Alcott</p>
+<a 
+class="class1" 
+href="/a/behind-a-mask-or-a-womans-power.html"
+>
+Behind a Mask, or A Woman's Power 
+</a>
+
 
 
   
