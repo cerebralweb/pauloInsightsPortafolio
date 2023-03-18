@@ -25,12 +25,12 @@ The Scarlet Letter: A Romance
 </a>
 
 
-<p>Ypulse</p>
+<p>Feminist pornography?</p>
 <a 
 class="class1"
-href="https://www.ypulse.com/article/2020/03/02/3-tiktok-trends-brands-should-know/"
+href="/a/the-memoirs-of-dolly-morton.html"
 >
-3 TikTok Trends Brands Should Know
+THE MEMOIRS OF DOLLY MORTON, 1899
 </a>
 
 <p>Hexis TOC</p>
