@@ -2,6 +2,15 @@
 const infoDeLa_web = ` 
 <h4>Free Reading</h4>
 
+
+<p>Mary Shelley</p>
+<a 
+class="class1"
+href="/a/frankenstein-by-mary-wollstonecraft-shelley.html"
+>
+Frankenstein
+</a>
+
 <p>Virginia Wolf</p>
 <a 
 class="class1"
@@ -41,13 +50,6 @@ href="/a/a-vindication-of-the-rights-of-woman-by-mary-wollstonecraft.html"
 A Vindication of the Rights of Woman 
 </a>
 
-<p>Warc</p>
-<a 
-class="class1"
-href="https://www.hexis.cc/pdfs/89258_Netnography_research_-_community_.pdf"
->
-Netnography: community insights in the cosmetic industry
-</a>
 
 
   
