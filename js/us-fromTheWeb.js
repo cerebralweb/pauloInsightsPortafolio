@@ -17,7 +17,7 @@ href="/a/the-satyricon-of-petronious.html"
 The Satyricon 
 </a>
 
-<p>Nathaniel Hawthorne's</p>
+<p>Nathaniel Hawthorne</p>
 <a 
 class="class1"
 href="/a/the-scarlet-letter-a-romance.html">
