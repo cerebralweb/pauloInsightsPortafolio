@@ -58,7 +58,13 @@ href="/a/behind-a-mask-or-a-womans-power.html"
 Behind a Mask, or A Woman's Power 
 </a>
 
-
+<p>Charlotte Perkins Gilman</p>
+<a 
+class="class1" 
+href="/a/the-yellow-wallpaper-by-charlotte-perkins-gilman.html"
+>
+Behind a Mask, or A Woman's Power 
+</a>
 
   
   `;
