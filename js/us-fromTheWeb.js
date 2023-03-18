@@ -1,6 +1,6 @@
 //SIRVE lista de contenido hot EN ESPAÑOL
 const infoDeLa_web = ` 
-<h4>Free Reading</h4>
+<h4>Feminist Reading</h4>
 
 
 <p>Mary Shelley</p>
