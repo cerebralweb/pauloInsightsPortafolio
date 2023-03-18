@@ -13,7 +13,7 @@ const miNavEs = `<div class="topnav" id="myTopnav">
 
     <div class="dropdown-content">
         <a href="https://www.instagram.com/clpalacios.in/">Instagram</a>
-        <a href="">Twitter</a>
+        <a href="https://twitter.com/clpalacios_in">Twitter</a>
     </div>
 </div>
 
@@ -22,10 +22,10 @@ const miNavEs = `<div class="topnav" id="myTopnav">
     </button>
 
     <div class="dropdown-content">
-        <a href="/a/design-fiction.html" /infografias.html">Design Fiction</a>
+        <a href="/us-infographics-404.html">Design Fiction</a>
         <a href="/index.html">Blog</a>
-        <a href="/a/podcasts.html">Podcast</a>
-        <a href="/a/podcasts.html">List</a>
+        <a href="/us-infographics-404.html">Podcast</a>
+        
         
     </div>
 </div>
