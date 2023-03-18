@@ -63,7 +63,7 @@ Behind a Mask, or A Woman's Power
 class="class1" 
 href="/a/the-yellow-wallpaper-by-charlotte-perkins-gilman.html"
 >
-Behind a Mask, or A Woman's Power 
+The Yellow Wallpaper 
 </a>
 
   
