@@ -7,7 +7,7 @@ marketing research projects (and get prizes), and being beta readers </p>
 <form 
     name="contact" 
     method="POST"
-    action="/us-infographics-404.html"    
+     
     
     data-netlify="true"
     >
@@ -38,3 +38,4 @@ marketing research projects (and get prizes), and being beta readers </p>
 `;
 document.getElementById('us-newsletter').insertAdjacentHTML('afterbegin', newsletter_es);
 //problem ? in the regex: an escaped dot (just erase the regex)
+//action="/us-infographics-404.html"   
