@@ -7,8 +7,7 @@ marketing research projects (and get prizes), and being beta readers </p>
 <form 
     name="contact" 
     method="POST"
-    action="/success"    
-    netlify-honeypot="bot-field"
+
     data-netlify="true"
     >
   
