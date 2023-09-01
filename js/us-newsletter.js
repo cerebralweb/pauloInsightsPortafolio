@@ -15,7 +15,7 @@ marketing research projects (and get prizes), and being beta readers </p>
   name="form-name"
   value="contact"
   >  
-  <input type="hidden" name="form-name" value="contact" />
+  
   <p>
   <label for="email">Your email:
     <input 
