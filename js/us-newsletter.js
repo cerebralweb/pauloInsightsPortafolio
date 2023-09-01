@@ -6,7 +6,7 @@ const newsletter_es = `
 marketing research projects (and get prizes), and being beta readers </p>
 <form 
     name="contact" 
-    
+    action="/us-infographics-404"  
     
     netlify>
   
