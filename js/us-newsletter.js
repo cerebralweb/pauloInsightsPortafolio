@@ -5,16 +5,12 @@ const newsletter_es = `
 <p>Dear reader, subscribe and receive for free a collection of short stories. Subscribers can take part in
 marketing research projects (and get prizes), and being beta readers </p>
 <form 
-    name="contact" 
+    name="contact CL Palacios" 
     action="/us-thanks-for-your-submission"  
     
     netlify>
   
-  <input 
-  type="hidden"
-  name="form-name"
-  value="contact"
-  >  
+  
   
   <p>
   <label for="email">Your email:
