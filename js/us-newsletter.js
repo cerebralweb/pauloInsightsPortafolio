@@ -9,8 +9,7 @@ marketing research projects (and get prizes), and being beta readers </p>
     method="POST"
     action="/us-infographics-404.html"  
     
-    data-netlify="true"
-    >
+    netlify>
   
   <input 
   type="hidden"
