@@ -6,8 +6,7 @@ const newsletter_es = `
 marketing research projects (and get prizes), and being beta readers </p>
 <form 
     name="contact" 
-    method="POST"
-    action="/us-infographics-404.html"  
+    
     
     netlify>
   
@@ -39,4 +38,6 @@ document.getElementById('us-newsletter').insertAdjacentHTML('afterbegin', newsle
 //problem ? in the regex: an escaped dot (just erase the regex)
 //action="/us-infographics-404.html"  
 //    data-netlify="true"
+//method="POST"
+
  
