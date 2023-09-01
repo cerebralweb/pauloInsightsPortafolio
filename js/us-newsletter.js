@@ -2,8 +2,7 @@
 const newsletter_es = `   
 <h4>Subscribe</h4>
             
-<p>Dear reader, subscribe and receive for free a collection of short stories. Subscribers can take part in
-marketing research projects (and get prizes), and being beta readers </p>
+<p>Dear reader, subscribe and receive for free my Newsletter. Subscribers can also be ARC readers! </p>
 <form 
     name="contact CL Palacios" 
     action="https://api.staticforms.xyz/submit"
