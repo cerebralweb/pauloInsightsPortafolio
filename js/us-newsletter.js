@@ -8,7 +8,7 @@ marketing research projects (and get prizes), and being beta readers </p>
     name="contact CL Palacios" 
     action="/us-thanks-for-your-submission" 
     method="POST" 
-    data-netlify="true"
+    
     netlify>
   
   
