@@ -12,7 +12,7 @@ marketing research projects (and get prizes), and being beta readers </p>
     >
   
     <input type="hidden" name="accessKey" value="b22da0ec-8a32-4614-a194-9a4c43055aac">
-    <input type="hidden" name="redirectTo" value="https://www.clpalacios.in/us-infographics-404.html">
+    <input type="hidden" name="redirectTo" value="https://www.clpalacios.in/us-thanks-for-your-submission.html">
   
   <p>
   <label for="email">Your email:
@@ -31,9 +31,9 @@ marketing research projects (and get prizes), and being beta readers </p>
 `;
 document.getElementById('us-newsletter').insertAdjacentHTML('afterbegin', newsletter_es);
 //problem ? in the regex: an escaped dot (just erase the regex)
-//action="/us-infographics-404.html"  
-// data-netlify="true"
-//method="POST"
+
+//Currently, I used https://www.staticforms.xyz/ 
+//Access Key: b22da0ec-8a32-4614-a194-9a4c43055aac
 
 //required
 //title="It should be a valid email :)"
