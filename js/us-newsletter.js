@@ -4,22 +4,31 @@ const newsletter_es = `
             
 <p>Dear reader, subscribe and receive for free a collection of short stories. Subscribers can take part in
 marketing research projects (and get prizes), and being beta readers </p>
-<form action="https://api.staticforms.xyz/submit" method="post">
-        <!-- Replace with accesKey sent to your email -->
-        <input type="hidden" name="accessKey" value="b22da0ec-8a32-4614-a194-9a4c43055aac"> <!-- Required -->
-        <input type="text" name="name"> <!-- Optional -->
-        <input type="text" name="subject"> <!-- Optional -->
-        <input type="text" name="email"> <!-- Optional -->
-        <input type="text" name="phone"> <!-- Optional -->
-        <textarea name="message"></textarea> <!-- Optional -->
-        <!-- If you want replyTo to be set to specific email -->
-        <input type="text" name="replyTo" value="myreplytoemail@example.com"> <!-- Optional -->
-        <!-- Specify @ as reply to value if you want it to be customers email -->
-        <input type="hidden" name="replyTo" value="@"> <!-- Optional -->
-        <!-- If you want form to redirect to a specific url after submission -->
-        <input type="hidden" name="redirectTo" value="https://example.com/contact/success"> <!-- Optional -->
-        <input type="submit" value="Submit" />
-    </form>
+<form 
+    name="contact CL Palacios" 
+    action="/us-thanks-for-your-submission" 
+    
+    data-netlify="true"
+    netlify>
+  
+    <input type="hidden" name="accessKey" value="b22da0ec-8a32-4614-a194-9a4c43055aac">
+    <input type="hidden" name="redirectTo" value="https://example.com/us-infographics-404.html">
+  
+  <p>
+  <label for="email">Your email:
+    <input 
+    name="email"
+    type="email"
+    
+    >
+    
+  </label>
+  </p>
+ 
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 `;
 document.getElementById('us-newsletter').insertAdjacentHTML('afterbegin', newsletter_es);
 //problem ? in the regex: an escaped dot (just erase the regex)
