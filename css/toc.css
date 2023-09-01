@@ -477,19 +477,19 @@ progress {
 
 @keyframes progress-designFiction {
   to {
-    width: 35%;
+    width: 50%;
   }
 }
 
 @keyframes progress-scenesDesign {
   to {
-    width: 50%;
+    width: 90%;
   }
 }
 
 @keyframes progress-writing {
   to {
-    width: 20%;
+    width: 50%;
   }
 }
 @keyframes progress-cover {
@@ -500,19 +500,19 @@ progress {
 
 @keyframes progress-text-designFiction {
   to {
-    --num: 35;
+    --num: 50;
   }
 }
 
 @keyframes progress-text-scenesDesign {
   to {
-    --num: 40;
+    --num: 90;
   }
 }
 
 @keyframes progress-text-writing {
   to {
-    --num: 20;
+    --num: 50;
   }
 }
 
