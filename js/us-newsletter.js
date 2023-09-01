@@ -12,7 +12,7 @@ marketing research projects (and get prizes), and being beta readers </p>
     >
   
     <input type="hidden" name="accessKey" value="b22da0ec-8a32-4614-a194-9a4c43055aac">
-    <input type="hidden" name="redirectTo" value="https://example.com/us-infographics-404.html">
+    <input type="hidden" name="redirectTo" value="https://www.clpalacios.in/us-infographics-404.html">
   
   <p>
   <label for="email">Your email:
