@@ -13,7 +13,11 @@
  * 
  */
     const articlesDataBase = [
-
+        {
+            articleTitle: "Q&A Session About The Diary of a Z Girl",
+            articleDescription: "I wrote this interview to explain what is Diary of Z Girl.",
+            articleHref: "/a/diary-of-a-z-girl-interview.html"
+        },
         {
             articleTitle: "Are Science Fiction and Fantasy Different?",
             articleDescription: "Why is science fiction so hard to define? It tends to pay more attention to the harmful sides of civilization. The future is the safest laboratory to try out fiction ideas.",

@@ -1,4 +1,4 @@
-//SIRVE EL NEWSLETTER EN ESPAÑOL
+
 const newsletter_es = `   
 <h4>Subscribe</h4>
             
