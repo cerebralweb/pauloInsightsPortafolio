@@ -2,6 +2,8 @@
 
 //THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES OR ARTICLES AND CONTAINERS MUST HAVE THE SAME LENGTH:)
 
+//PAGINATION: 1) create a/article.html, 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
+
 
 /**SCHEDULED POST HERE
  * 
@@ -13,6 +15,11 @@
  * 
  */
     const articlesDataBase = [
+        {
+            articleTitle: "Q&A Session About CL Palacios",
+            articleDescription: "This are some curious facts about the writer behind Diary of a Z Girl.",
+            articleHref: "/a/cl-palacios-author-interview.html"
+        },
         {
             articleTitle: "Q&A Session About The Diary of a Z Girl",
             articleDescription: "I wrote this interview to explain what is Diary of Z Girl.",
