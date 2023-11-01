@@ -17,7 +17,7 @@
     const articlesDataBase = [
         {
             articleTitle: "Q&A Session About CL Palacios",
-            articleDescription: "This are some curious facts about the writer behind Diary of a Z Girl.",
+            articleDescription: "This are some curious facts about the writer behind Diary of a Z Girl!!.",
             articleHref: "/a/cl-palacios-author-interview.html"
         },
         {
