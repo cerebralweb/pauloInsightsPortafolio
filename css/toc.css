@@ -477,48 +477,48 @@ progress {
 
 @keyframes progress-designFiction {
   to {
-    width: 50%;
+    width: 100%;
   }
 }
 
 @keyframes progress-scenesDesign {
   to {
-    width: 90%;
+    width: 100%;
   }
 }
 
 @keyframes progress-writing {
   to {
-    width: 50%;
+    width: 80%;
   }
 }
 @keyframes progress-cover {
   to {
-    width: 80%;
+    width: 85%;
   }
 }
 
 @keyframes progress-text-designFiction {
   to {
-    --num: 50;
+    --num: 100;
   }
 }
 
 @keyframes progress-text-scenesDesign {
   to {
-    --num: 90;
+    --num: 100;
   }
 }
 
 @keyframes progress-text-writing {
   to {
-    --num: 50;
+    --num: 80;
   }
 }
 
 @keyframes progress-text-cover {
   to {
-    --num: 80;
+    --num: 85;
   }
 }
 /*******************************************************************************************

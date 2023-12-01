@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [
         {
+            articleTitle: "On Inspiration",
+            articleDescription: "Myths and marketing research are the main sources of inspiration for romance and fantasy writers.",
+            articleHref: "/a/where-writers-find-inspiration.html"
+        },
+        {
             articleTitle: "Q&A Session About CL Palacios",
             articleDescription: "This are some curious facts about the writer behind Diary of a Z Girl!!.",
             articleHref: "/a/cl-palacios-author-interview.html"
