@@ -35,14 +35,14 @@ const us_footer = ` <div class="caja-child-footer">
 <p><a class="class2" href="https://github.com/">Github</a></p>
 
     
-</address>
+</address>  
 </div>
 
 `
 document.getElementById("us-footer").insertAdjacentHTML('afterbegin', us_footer);
 
 //COPY RIGHTS
-document.getElementById("copyRights").textContent = "C.L Palacios 2023, New York City";
+document.getElementById("copyRights").textContent = "C.L Palacios 2024, Mexico City";
 
 
 

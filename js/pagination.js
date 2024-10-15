@@ -2,7 +2,7 @@
 
 //THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES OR ARTICLES AND CONTAINERS MUST HAVE THE SAME LENGTH:)
 
-//PAGINATION: 1) create a/article.html, 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
+//PAGINATION: 1) create a/article.html (copy an article and change everything), 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
 
 
 /**SCHEDULED POST HERE
@@ -16,9 +16,9 @@
  */
     const articlesDataBase = [
         {
-            articleTitle: "On Inspiration",
-            articleDescription: "Myths and marketing research are the main sources of inspiration for romance and fantasy writers.",
-            articleHref: "/a/where-writers-find-inspiration.html"
+            articleTitle: "La máquina de insights de Airbnb",
+            articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
+            articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },
         {
             articleTitle: "Q&A Session About CL Palacios",

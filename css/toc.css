@@ -425,20 +425,20 @@ progress {
   background: lightskyblue;
 }
 
-.progress-element--designFiction .progress-container::before {
-  animation: progress-designFiction 1.4s ease-in forwards;
+.progress-element--banking .progress-container::before {
+  animation: progress-banking 2s ease-in forwards;
 }
 
-.progress-element--scenesDesign .progress-container::before {
-  animation: progress-scenesDesign 1.5s ease-in forwards;
+.progress-element--women .progress-container::before {
+  animation: progress-women 2s ease-in forwards;
 }
 
-.progress-element--writing .progress-container::before {
-  animation: progress-writing 1.6s ease-in forwards;
+.progress-element--gini .progress-container::before {
+  animation: progress-gini 2s ease-in forwards;
 }
 
-.progress-element--cover .progress-container::before {
-  animation: progress-cover 1.3s ease-in forwards;
+.progress-element--genderGap .progress-container::before {
+  animation: progress-genderGap 2s ease-in forwards;
 }
 
 .progress-label {
@@ -459,66 +459,69 @@ progress {
   right: 0;
 }
 
-.progress-element--designFiction .progress-label::after {
-  animation: progress-text-designFiction 1.5s ease-in forwards;
+.progress-element--banking .progress-label::after {
+  animation: progress-text-banking 2s ease-in forwards;
 }
 
-.progress-element--scenesDesign .progress-label::after {
-  animation: progress-text-scenesDesign 1.4s ease-in forwards;
+.progress-element--women .progress-label::after {
+  animation: progress-text-women 2s ease-in forwards;
 }
 
-.progress-element--writing .progress-label::after {
-  animation: progress-text-writing 1.6s ease-in forwards;
+.progress-element--gini .progress-label::after {
+  animation: progress-text-gini 2s ease-in forwards;
 }
 
-.progress-element--cover .progress-label::after {
-  animation: progress-text-cover 1.3s ease-in forwards;
+.progress-element--genderGap .progress-label::after {
+  animation: progress-text-genderGap 2s ease-in forwards;
 }
 
-@keyframes progress-designFiction {
+
+
+@keyframes progress-women {
   to {
-    width: 100%;
+    width: 40%;
   }
 }
 
-@keyframes progress-scenesDesign {
+@keyframes progress-banking {
   to {
-    width: 100%;
+    width: 75%;
   }
 }
 
-@keyframes progress-writing {
+@keyframes progress-gini {
   to {
-    width: 80%;
+    width: 45%;
   }
 }
-@keyframes progress-cover {
+@keyframes progress-genderGap {
   to {
-    width: 85%;
-  }
-}
-
-@keyframes progress-text-designFiction {
-  to {
-    --num: 100;
+    width: 17%;
   }
 }
 
-@keyframes progress-text-scenesDesign {
+
+
+@keyframes progress-text-women {
   to {
-    --num: 100;
+    --num: 40;
+  }
+}
+@keyframes progress-text-banking {
+  to {
+    --num: 75;
   }
 }
 
-@keyframes progress-text-writing {
+@keyframes progress-text-gini {
   to {
-    --num: 80;
+    --num: 45;
   }
 }
 
-@keyframes progress-text-cover {
+@keyframes progress-text-genderGap {
   to {
-    --num: 85;
+    --num: 16;
   }
 }
 /*******************************************************************************************
