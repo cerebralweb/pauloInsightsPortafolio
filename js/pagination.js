@@ -16,9 +16,9 @@
  */
     const articlesDataBase = [
         {
-            articleTitle: "...",
-            articleDescription: "...",
-            articleHref: "..."
+            articleTitle: "Online Communities, wine and freedom",
+            articleDescription: "a research developed by the French brand Pernod Ricard in Latin America, focused on lifestyles",
+            articleHref: "/a/french-pernod-innovating-online-communities.html"
         },
         {
             articleTitle: "¿Cómo manejar tu marca durante una crisis social?",
