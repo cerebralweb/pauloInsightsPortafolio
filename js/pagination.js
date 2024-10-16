@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [
         {
+            articleTitle: "¿Cómo manejar tu marca durante una crisis social?",
+            articleDescription: "piénsenlo dos veces antes de recortar el presupuesto de investigación de mercados y publicidad durante los tiempos de crisis",
+            articleHref: "/a/como-manejo-mi-marca-durante-una-crisis-social.html"
+        },
+        {
             articleTitle: "Babies Safety Products",
             articleDescription: "How to sell to a generation of parents concerned about safety and success? In this study we analyze possible gaps in baby brands",
             articleHref: "/a/babies-safety-products.html"
@@ -30,11 +35,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "Q&A Session About CL Palacios",
-            articleDescription: "This are some curious facts about the writer behind Diary of a Z Girl!!.",
-            articleHref: "/a/cl-palacios-author-interview.html"
-        },
         {
             articleTitle: "Are Science Fiction and Fantasy Different?",
             articleDescription: "Why is science fiction so hard to define? It tends to pay more attention to the harmful sides of civilization. The future is the safest laboratory to try out fiction ideas.",
