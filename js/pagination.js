@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [
         {
+            articleTitle: "...",
+            articleDescription: "...",
+            articleHref: "..."
+        },
+        {
             articleTitle: "¿Cómo manejar tu marca durante una crisis social?",
             articleDescription: "piénsenlo dos veces antes de recortar el presupuesto de investigación de mercados y publicidad durante los tiempos de crisis",
             articleHref: "/a/como-manejo-mi-marca-durante-una-crisis-social.html"
@@ -35,11 +40,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "Are Science Fiction and Fantasy Different?",
-            articleDescription: "Why is science fiction so hard to define? It tends to pay more attention to the harmful sides of civilization. The future is the safest laboratory to try out fiction ideas.",
-            articleHref: "/a/are-science-fiction-fantasy-different.html"
-        },
         {
             articleTitle: "Think Like A Dinosaur is a Happy Exception in High Concept Science Fiction",
             articleDescription: "I explain you how Science Fiction and Fantasy are similar and Different, so you can decide which novel you'll write.",
