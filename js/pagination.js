@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [
         {
+            articleTitle: "Marketing recipes that end in small disasters",
+            articleDescription: "An essay on marketing cliches and their predictable consequences in everyday life",
+            articleHref: "/a/us-bad-marketing.html"
+        },
+        {
             articleTitle: "Online Communities, wine and freedom",
             articleDescription: "a research developed by the French brand Pernod Ricard in Latin America, focused on lifestyles",
             articleHref: "/a/french-pernod-innovating-online-communities.html"
@@ -40,11 +45,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "Think Like A Dinosaur is a Happy Exception in High Concept Science Fiction",
-            articleDescription: "I explain you how Science Fiction and Fantasy are similar and Different, so you can decide which novel you'll write.",
-            articleHref: "/a/think-like-a-dinosaur-james-Patrick-kelly-scifi.html"
-        },
         {
             articleTitle: "The Origins Of Matrix, Chrome, And A Bunch Of Hackers Fighting For Money And Love",
             articleDescription: "I tell the origins of the concept of Matrix and comment on a SciFi classic.",
