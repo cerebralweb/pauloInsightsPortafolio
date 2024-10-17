@@ -14,7 +14,17 @@
     } 
  * 
  */
-    const articlesDataBase = [
+    const articlesDataBase = [   
+        {
+            articleTitle: "El éxito de la publicidad disruptiva: mujeres, Nosotras y #Muéstranos",
+            articleDescription: "cómo cambio la publicidad de toallas sanitarias: el cambió se basó en insights relacionados con la vergüenza y la culpa",
+            articleHref: "/a/el-exito-de-la-publicidad-disruptiva-kotex-nosotras-libresse.html"
+        },       
+        {
+            articleTitle: "Testeando una app para healthcare",
+            articleDescription: "Una empresa de salud construye y testea un nuevo producto (y su app), combinando comunidades online e investigación cara a cara",
+            articleHref: "/a/origins-of-matrix-william-gibson-burning-chrome.html"
+        },
         {
             articleTitle: "Marketing recipes that end in small disasters",
             articleDescription: "An essay on marketing cliches and their predictable consequences in everyday life",
@@ -45,11 +55,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "The Origins Of Matrix, Chrome, And A Bunch Of Hackers Fighting For Money And Love",
-            articleDescription: "I tell the origins of the concept of Matrix and comment on a SciFi classic.",
-            articleHref: "/a/origins-of-matrix-william-gibson-burning-chrome.html"
-        },
         {
             articleTitle: "Best Viewpoints For Fiction And How To Build Them",
             articleDescription: "I talk about what viewpoint is, how to use it in writing, and how to shifting viewpoints",
