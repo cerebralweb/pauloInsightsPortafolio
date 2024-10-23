@@ -16,6 +16,21 @@
  */
     const articlesDataBase = [   
         {
+            articleTitle: "Sharing Is (S)Caring: What Web Browsing Tell Us About The Online Consumer",
+            articleDescription: "In 2018 Francois Erner and Jennifer Roberton made a very unusual experiment  ",
+            articleHref: "/a/what-web-navigation-tell-us-about-consumers.html"
+        },
+        {
+            articleTitle: "Inmersión cualitativa en el Dark Social",
+            articleDescription: "Analizamos el Dark Social, una red de redes sociales que descansa en el anonimato, el open source y un consumismo inteligente.",
+            articleHref: "/a/el-lado-oscuro-de-las-redes-y-la-investigacion-cualitativa.html"
+        },
+        {
+            articleTitle: "Netnography Can Tackle Consumer Reluctance to Participate in Marketing Research",
+            articleDescription: "Consumers are less and less interested in participating in market research. Netnography can help In the United States, for example...",
+            articleHref: "/a/netnography.html"
+        },
+        {
             articleTitle: "El éxito de la publicidad disruptiva: mujeres, Nosotras y #Muéstranos",
             articleDescription: "cómo cambio la publicidad de toallas sanitarias: el cambió se basó en insights relacionados con la vergüenza y la culpa",
             articleHref: "/a/el-exito-de-la-publicidad-disruptiva-kotex-nosotras-libresse.html"
@@ -55,21 +70,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "Best Viewpoints For Fiction And How To Build Them",
-            articleDescription: "I talk about what viewpoint is, how to use it in writing, and how to shifting viewpoints",
-            articleHref: "/a/best-viewpoints-for-fiction-and-how-to-build-them.html"
-        },
-        {
-            articleTitle: "Dialogue And Pace For Happy Audiences",
-            articleDescription: "Learn how scenes are combinations of Dramatic action (units of action and reaction) and Dialogue. Also: pointless conversation destroys a novel; and  the aftermath of good dialogue is conflict.",
-            articleHref: "/a/dialogue-and-pace-for-happy-audiences.html"
-        },
-        {
-            articleTitle: "Make The Reader Want To Know What Happens Next",
-            articleDescription: "Saavy writers know that the scenes are a line of domino pieces. But how do you align them correctly? ",
-            articleHref: "/a/how-to-create-a-page-turner-novel.html"
-        },
         {
             articleTitle: "Setting A Good Story And A Strong Bond Between The Reader And The Hero",
             articleDescription: "I explain you how to write a novel that provides an emotional elaboration and a rich plot.",

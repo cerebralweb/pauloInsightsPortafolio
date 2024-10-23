@@ -10,13 +10,13 @@
   display: inline-block;
   font-family: 'Source Serif Pro', serif;
   font-weight: 900;
-  font-size: 10rem;
+  font-size: 12rem;
   line-height: .7;
   opacity: .8;    
 }
 @media screen and (max-width: 1125px){
   .header_typo{
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     line-height: .8;
 }
 }
