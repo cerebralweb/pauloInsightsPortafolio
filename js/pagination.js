@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [   
         {
+            articleTitle: "Los supermercados son muertos vivientes",
+            articleDescription: "la gente continúa acudiendo a los supermercados para contemplar, tocar, analizar, filtrar y comprar",
+            articleHref: "/a/el-supermercado-es-mi-laboratorio-Herb-Sorensen.html"
+        },
+        {
             articleTitle: "Sharing Is (S)Caring: What Web Browsing Tell Us About The Online Consumer",
             articleDescription: "In 2018 Francois Erner and Jennifer Roberton made a very unusual experiment  ",
             articleHref: "/a/what-web-navigation-tell-us-about-consumers.html"
@@ -70,11 +75,6 @@
             articleDescription: "Airbnb tiene una fortuna en datos. Vienen de los 200 millones de personas que han reservado viajes",
             articleHref: "/a/arbnb-y-sus-estrategias-para-obtener-insights.html"
         },  
-        {
-            articleTitle: "Setting A Good Story And A Strong Bond Between The Reader And The Hero",
-            articleDescription: "I explain you how to write a novel that provides an emotional elaboration and a rich plot.",
-            articleHref: "/a/how-to-make-a-page-turner-reader-and-hero.html"
-        },
         {
             articleTitle: "How To Write A Good Scene",
             articleDescription: "I tell you how to use conflict in scenes, which are the types of scenes, and how to set The Big Scene",
