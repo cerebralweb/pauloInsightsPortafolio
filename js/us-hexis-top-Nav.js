@@ -7,25 +7,27 @@ const miNavEs = `<div class="topnav" id="myTopnav">
 <a  href="/index.html">C.L. Palacios</a>
 <a href="/index.html#tip">About</a>
 <div class="dropdown">
-    <button class="dropbtn">Social Media
+    <button class="dropbtn">Qualitative Research
      <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-        <a href="https://www.instagram.com/clpalaciosbooks/">Instagram</a>
-        <a href="https://twitter.com/clpalacios_in">Twitter</a>
+        <a href="href="/us-infographics-404.html">Focus Groups</a>
+        <a href="href="/us-infographics-404.html">Online Communities</a>
+        <a href="href="/us-infographics-404.html">Ethnography</a>
     </div>
 </div>
 
 <div class="dropdown">
-    <button class="dropbtn">Books <i class="fa fa-caret-down"></i>
+    <button class="dropbtn">Data Skills <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-        <a href="/us-infographics-404.html">Design Fiction</a>
-        <a href="/index.html">Blog</a>
-        <a href="/us-infographics-404.html">Podcast</a>
-        
+        <a href="/us-infographics-404.html">SQL</a>
+        <a href="/index.html">Python</a>
+        <a href="/index.html">Exceln</a>
+        <a href="/us-infographics-404.html">Power Bi</a>
+        <a href="/us-infographics-404.html">Tableau</a>       
         
     </div>
 </div>

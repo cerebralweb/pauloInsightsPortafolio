@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [   
         {
+            articleTitle: "Retail Sales Analysis in CDMX",
+            articleDescription: "Which store had the highest revenue last month? Uncover it with SQL.",
+            articleHref: "/a/sql-retail-project-circlek-mexico.html"
+        },
+        {
             articleTitle: "Los supermercados son muertos vivientes",
             articleDescription: "la gente continúa acudiendo a los supermercados para contemplar, tocar, analizar, filtrar y comprar",
             articleHref: "/a/el-supermercado-es-mi-laboratorio-Herb-Sorensen.html"
