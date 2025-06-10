@@ -479,24 +479,24 @@ progress {
 
 @keyframes progress-women {
   to {
-    width: 40%;
+    width: 80%;
   }
 }
 
 @keyframes progress-banking {
   to {
-    width: 75%;
+    width: 85%;
   }
 }
 
 @keyframes progress-gini {
   to {
-    width: 45%;
+    width: 70%;
   }
 }
 @keyframes progress-genderGap {
   to {
-    width: 17%;
+    width: 85%;
   }
 }
 
@@ -504,24 +504,24 @@ progress {
 
 @keyframes progress-text-women {
   to {
-    --num: 40;
+    --num: 80;
   }
 }
 @keyframes progress-text-banking {
   to {
-    --num: 75;
+    --num: 85;
   }
 }
 
 @keyframes progress-text-gini {
   to {
-    --num: 45;
+    --num: 75;
   }
 }
 
 @keyframes progress-text-genderGap {
   to {
-    --num: 16;
+    --num: 85;
   }
 }
 /*******************************************************************************************
