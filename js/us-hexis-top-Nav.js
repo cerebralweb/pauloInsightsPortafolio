@@ -25,7 +25,7 @@ const miNavEs = `<div class="topnav" id="myTopnav">
     <div class="dropdown-content">
         <a href="/us-infographics-404.html">SQL</a>
         <a href="/index.html">Python</a>
-        <a href="/index.html">Exceln</a>
+        <a href="/index.html">Excel</a>
         <a href="/us-infographics-404.html">Power Bi</a>
         <a href="/us-infographics-404.html">Tableau</a>       
         
