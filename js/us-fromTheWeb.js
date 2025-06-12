@@ -8,7 +8,7 @@ const infoDeLa_web = `
 class="class1"
 href="/a/sql-retail-project-circlek-mexico.html"
 >
-Mexicans buying houses
+Sales Insights with SQL
 </a>
 
 <p>Mexico City</p>

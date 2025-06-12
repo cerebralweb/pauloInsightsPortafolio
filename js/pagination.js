@@ -16,7 +16,7 @@
  */
     const articlesDataBase = [   
         {
-            articleTitle: "Retail Sales Analysis in CDMX",
+            articleTitle: "SQL: Retail Sales Insights in CDMX",
             articleDescription: "Which store had the highest revenue last month? Uncover it with SQL.",
             articleHref: "/a/sql-retail-project-circlek-mexico.html"
         },
