@@ -11,10 +11,10 @@ href="/a/sql-retail-project-circlek-mexico.html"
 Sales Insights with SQL
 </a>
 
-<p>Mexico City</p>
+<p>Queretaro</p>
 <a 
 class="class1"
-href="https://www.clpalacios.in/a/virginia-wolf-to-the-lighthouse-Free-Reading.html">
+href="/us-infographics-404.html"
 New Infrastructure and Purchase Habits
 </a>
 
@@ -26,7 +26,7 @@ href="/us-infographics-404.html"
 Software Engineers: Salaries and Segmentation
 </a>
 
-<p>Queretaro</p>
+<p>Tijuana</p>
 <a 
 class="class1" 
 href="/us-infographics-404.html"
@@ -42,14 +42,14 @@ href="/us-infographics-404.html"
 Impact of Trains and Buses over Consumption Journeys
 </a>
 
-<p>Morelia</p>
+<p>Monterrey</p>
 <a 
 class="class1"
 href="/us-infographics-404.html">
 Sneakers Beloved Brands
 </a>
 
-<p>Toluca</p>
+<p>Los cabos</p>
 <a 
 class="class1"
 href="/us-infographics-404.html"
