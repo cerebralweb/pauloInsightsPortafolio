@@ -1,12 +1,12 @@
 //SIRVE lista de contenido hot EN ESPAÑOL
 const infoDeLa_web = ` 
-<h4>The Mexican Market   </h4>
+<h4>My Portafolio   </h4>
 
 
-<p>Houston</p>
+<p>Mexico City</p>
 <a 
 class="class1"
-href="/a/frankenstein-by-mary-wollstonecraft-shelley.html"
+href="/a/sql-retail-project-circlek-mexico.html"
 >
 Mexicans buying houses
 </a>
@@ -21,7 +21,7 @@ New Infrastructure and Purchase Habits
 <p>Guadalajara</p>
 <a 
 class="class1" 
-href="/a/ann-veronica-a-modern-love-story-by-h-g-Wells.html"
+href="/us-infographics-404.html"
 >
 Software Engineers: Salaries and Segmentation
 </a>
@@ -29,7 +29,7 @@ Software Engineers: Salaries and Segmentation
 <p>Queretaro</p>
 <a 
 class="class1" 
-href="/a/the-woman-in-white-wilkie-collins.html"
+href="/us-infographics-404.html"
 >
 Comsumption Patterns
 </a>
@@ -37,7 +37,7 @@ Comsumption Patterns
 <p>Merida</p>
 <a 
 class="class1"
-href="/a/the-satyricon-of-petronious.html"
+href="/us-infographics-404.html"
 >
 Impact of Trains and Buses over Consumption Journeys
 </a>
@@ -45,14 +45,14 @@ Impact of Trains and Buses over Consumption Journeys
 <p>Morelia</p>
 <a 
 class="class1"
-href="/a/the-scarlet-letter-a-romance.html">
+href="/us-infographics-404.html">
 Sneakers Beloved Brands
 </a>
 
 <p>Toluca</p>
 <a 
 class="class1"
-href="/a/the-memoirs-of-dolly-morton.html"
+href="/us-infographics-404.html"
 >
 Social Expectations About the New Railroad
 </a>
