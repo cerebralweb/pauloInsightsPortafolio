@@ -14,7 +14,7 @@ Sales Insights with SQL
 <p>Mexico City</p>
 <a 
 class="class1" 
-href="a/survey-department-store-mexico.html"
+href="/ commenta/survey-department-store-mexico.html"
 >
 A survey for a Department Store
 </a>
