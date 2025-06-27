@@ -3,7 +3,7 @@ const infoDeLa_web = `
 <h4>My Portafolio   </h4>
 
 
-<p>Mexico City</p>
+<p>Mexican Pacific</p>
 <a 
 class="class1"
 href="/a/sql-retail-project-circlek-mexico.html"
@@ -11,19 +11,12 @@ href="/a/sql-retail-project-circlek-mexico.html"
 Sales Insights with SQL
 </a>
 
-<p>Queretaro</p>
-<a 
-class="class1"
-href="/us-infographics-404.html"
-New Infrastructure and Purchase Habits
-</a>
-
-<p>Guadalajara</p>
+<p>Mexico City</p>
 <a 
 class="class1" 
-href="/us-infographics-404.html"
+href="a/survey-department-store-mexico.html"
 >
-Software Engineers: Salaries and Segmentation
+A survey for a Department Store
 </a>
 
 <p>Tijuana</p>

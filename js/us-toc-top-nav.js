@@ -6,7 +6,7 @@ const top_nav = `
 
 <a href="#us-newsletter" class="buttonUnit_topNav class1">Subscribe</a>
 <a href="#free" class="buttonUnit_topNav class1">Shopper Insights</a>
-<a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">BI Discussion</a> 
+<a href="#BI"  class="buttonUnit_topNav class1">BI Discussion</a> 
 <!--<<<<<<<<<<< <a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">My CV</a>>>>>>>>>>>>-->
 <a href="https://www.linkedin.com/in/pauloanalyst/" target="_blank" class="buttonUnit_topNav class1">Linkedin</a>
 

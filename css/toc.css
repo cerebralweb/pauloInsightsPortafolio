@@ -479,7 +479,7 @@ progress {
 
 @keyframes progress-women {
   to {
-    width: 80%;
+    width: 70%;
   }
 }
 
@@ -491,12 +491,12 @@ progress {
 
 @keyframes progress-gini {
   to {
-    width: 70%;
+    width: 80%;
   }
 }
 @keyframes progress-genderGap {
   to {
-    width: 85%;
+    width: 90%;
   }
 }
 
@@ -504,7 +504,7 @@ progress {
 
 @keyframes progress-text-women {
   to {
-    --num: 80;
+    --num: 70;
   }
 }
 @keyframes progress-text-banking {
@@ -515,13 +515,13 @@ progress {
 
 @keyframes progress-text-gini {
   to {
-    --num: 75;
+    --num: 80;
   }
 }
 
 @keyframes progress-text-genderGap {
   to {
-    --num: 85;
+    --num: 90;
   }
 }
 /*******************************************************************************************
