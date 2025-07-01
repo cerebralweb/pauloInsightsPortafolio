@@ -19,12 +19,12 @@ href="/a/survey-department-store-mexico.html"
 A survey for a Department Store
 </a>
 
-<p>Tijuana</p>
+<p>Retail</p>
 <a 
 class="class1" 
-href="/us-infographics-404.html"
+href="/a/retail-nielsen-wizzer-milk-sales-.html"
 >
-Comsumption Patterns
+Nielsen + Byzzer + Qualitative: Milk Sales Study / Walmart
 </a>
 
 <p>Merida</p>

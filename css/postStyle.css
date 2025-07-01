@@ -428,7 +428,7 @@ a.class6:active {
 figcaption {
   font-size: 1.1rem;
   color: darkgray;
-  text-align: justify;
+  text-align: left;
   font-weight: 300;
 }
 h2 {
