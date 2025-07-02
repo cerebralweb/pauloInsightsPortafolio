@@ -8,8 +8,8 @@ const us_footer = ` <div class="caja-child-footer">
 
 <p><a href="#us-newsletter" class="class2" href="/us-insights.html">Subscribe</a></p>
 <p><a href="#tip" class="class2" href="/us-about.html">About me</a></p>
-<p><a class="class2" href="/index.html">TikTok</a></p>                        
-<p><a class="class2" href="https://www.facebook.com/clpalacios.in">Facebook</a></p>
+<p><a class="class2" href="/us-infographics-404.html">TikTok</a></p>                        
+<p><a class="class2" href="/us-infographics-404.html">Facebook</a></p>
 
 
 </div>
@@ -17,8 +17,8 @@ const us_footer = ` <div class="caja-child-footer">
 
 <p><a class="class2" href="/index.html">Home</a></p>
 <p><a class="class2" href="/toc/page1.html">Blog</a></p>
-<p><a class="class2" href="">Diary of a Z Girl</a></p>            
-<p><a  href="#freeReading" class="class2" href="">Free Stories</a></p>
+<p><a class="class2" href="us-infographics-404.html">BI Portafolio</a></p>            
+<p><a  href="#freeReading" class="class2" href="">More</a></p>
 
 </div>
 
