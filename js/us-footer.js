@@ -42,7 +42,7 @@ const us_footer = ` <div class="caja-child-footer">
 document.getElementById("us-footer").insertAdjacentHTML('afterbegin', us_footer);
 
 //COPY RIGHTS
-document.getElementById("copyRights").textContent = "C.L Palacios 2025, Mexico City";
+document.getElementById("copyRights").textContent = "Paulo C. León BI, 2025, Mexico City";
 
 
 
