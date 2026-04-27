@@ -20,6 +20,23 @@
     line-height: .8;
 }
 }
+.header_typo_headline{
+  align-items: flex-end;
+  background: white;
+  display: inline-block;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: .7;
+  opacity: .9;    
+  margin: 3.5rem;
+}
+@media screen and (max-width: 1125px){
+  .header_typo{
+    font-size: 3rem;
+    line-height: .8;
+}
+}
 .contenedorEncabezado {
   animation: titleBlogMotion 10s infinite;
   animation-iteration-count: infinite;
@@ -29,6 +46,7 @@
   padding: 2rem;
   text-align: center;
   }
+  
 
 @media screen and (max-width: 1125px){
   .contenedorEncabezado{
@@ -426,19 +444,19 @@ progress {
 }
 
 .progress-element--banking .progress-container::before {
-  animation: progress-banking 2s ease-in forwards;
+  animation: second-bar 2s ease-in forwards;
 }
 
 .progress-element--women .progress-container::before {
-  animation: progress-women 2s ease-in forwards;
+  animation: first-bar 2s ease-in forwards;
 }
 
 .progress-element--gini .progress-container::before {
-  animation: progress-gini 2s ease-in forwards;
+  animation: third-bar 2s ease-in forwards;
 }
 
 .progress-element--genderGap .progress-container::before {
-  animation: progress-genderGap 2s ease-in forwards;
+  animation: fourth-bar 2s ease-in forwards;
 }
 
 .progress-label {
@@ -459,69 +477,69 @@ progress {
   right: 0;
 }
 
-.progress-element--banking .progress-label::after {
-  animation: progress-text-banking 2s ease-in forwards;
+.progress-element--women .progress-label::after {
+  animation: progress-text-first-bar 2s ease-in forwards;
 }
 
-.progress-element--women .progress-label::after {
-  animation: progress-text-women 2s ease-in forwards;
+.progress-element--banking .progress-label::after {
+  animation: progress-text-second-bar 2s ease-in forwards;
 }
 
 .progress-element--gini .progress-label::after {
-  animation: progress-text-gini 2s ease-in forwards;
+  animation: progress-third-bar 2s ease-in forwards;
 }
 
 .progress-element--genderGap .progress-label::after {
-  animation: progress-text-genderGap 2s ease-in forwards;
+  animation: progress-text-fourth-bar 2s ease-in forwards;
 }
 
 
 
-@keyframes progress-women {
+@keyframes first-bar {
   to {
-    width: 70%;
+    width: 65%;
   }
 }
 
-@keyframes progress-banking {
+@keyframes second-bar {
   to {
-    width: 85%;
+    width: 4%;
   }
 }
 
-@keyframes progress-gini {
+@keyframes third-bar {
   to {
     width: 80%;
   }
 }
-@keyframes progress-genderGap {
+@keyframes fourth-bar {
   to {
-    width: 90%;
+    width: 19%;
   }
 }
 
 
 
-@keyframes progress-text-women {
+@keyframes progress-text-first-bar {
   to {
-    --num: 70;
+    --num: 65;
   }
 }
-@keyframes progress-text-banking {
+@keyframes progress-text-second-bar {
   to {
-    --num: 85;
-  }
-}
-
-@keyframes progress-text-gini {
-  to {
-    --num: 80;
+    --num: 4;
   }
 }
 
-@keyframes progress-text-genderGap {
+@keyframes progress-third-bar {
   to {
-    --num: 90;
+    --num: 26;
+  }
+}
+
+@keyframes progress-text-fourth-bar {
+  to {
+    --num: 19;
   }
 }
 /*******************************************************************************************

@@ -5,12 +5,17 @@ const top_nav = `
 </a>
 
 <a href="#us-newsletter" class="buttonUnit_topNav class1">Subscribe</a>
-<a href="#free" class="buttonUnit_topNav class1">Shopper Insights</a>
-<a href="#BI"  class="buttonUnit_topNav class1">BI Discussion</a> 
-<!--<<<<<<<<<<< <a href="/us-infographics-404.html" target="_blank" class="buttonUnit_topNav class1">My CV</a>>>>>>>>>>>>-->
+
+
+
+<!--<<<<<<<<<<< <a href="#free" class="buttonUnit_topNav class1">Research</a>>>>>>>>>>>>-->
+
+<!--<<<<<<<<<< <a href="https://scholar.google.com/citations?user=vTnUkG0AAAAJ&hl=en"  target="_blank" class="buttonUnit_topNav class1">Publications</a> >>>>>>>>>>>-->
+
 <a href="https://www.linkedin.com/in/pauloanalyst/" target="_blank" class="buttonUnit_topNav class1">Linkedin</a>
 
 <a href="#tip" class="buttonUnit_topNav class1">About</a>
+
 <a href="/index.html" class="buttonUnit_topNav class1">Home</a>
 
 `;

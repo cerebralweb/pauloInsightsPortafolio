@@ -6,30 +6,38 @@ const miNavEs = `<div class="topnav" id="myTopnav">
 
 <a  href="/index.html">C.L. Palacios</a>
 <a href="/index.html#tip">About</a>
+
+<!--<<<<<<<<<<
+
 <div class="dropdown">
-    <button class="dropbtn">Qualitative Research
-     <i class="fa fa-caret-down"></i>
+    <button class="dropbtn">Publications <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-        <a href="href="/us-infographics-404.html">Focus Groups</a>
-        <a href="href="/us-infographics-404.html">Online Communities</a>
-        <a href="href="/us-infographics-404.html">Ethnography</a>
+        <a href="/us-infographics-404.html">Peer-Reviewed</a>
+        <a href="/us-infographics-404.html">Books Reviews</a>
+        <a href="/us-infographics-404.html">Blogging</a>
+        
     </div>
 </div>
 
 <div class="dropdown">
-    <button class="dropbtn">Data Skills <i class="fa fa-caret-down"></i>
+    <button class="dropbtn">Research on AI
+     <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-        <a href="/us-infographics-404.html">SQL</a>
-        <a href="/index.html">Python</a>
-        <a href="/index.html">Excel</a>
-        <a href="/us-infographics-404.html">Power Bi</a>
-        <a href="/us-infographics-404.html">Tableau</a>       
-        
+        <a href="href="/us-infographics-404.html">Governance</a>
+        <a href="href="/us-infographics-404.html">AI in BI</a>
+        <a href="href="/us-infographics-404.html">Business</a>
+        <a href="href="/us-infographics-404.html">Human-Centered AI</a>
+        <a href="href="/us-infographics-404.html">Decisions + AI</a>
+        <a href="href="/us-infographics-404.html">Emotional Engineering</a>
+        <a href="href="/us-infographics-404.html">AI-Human Interaction</a>
     </div>
+
+    >>>>>>>>>>>-->
+    
 </div>
 
 

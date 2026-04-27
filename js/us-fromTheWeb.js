@@ -1,5 +1,61 @@
 //SIRVE lista de contenido hot EN ESPAÑOL
 const infoDeLa_web = ` 
+<h4>AI in Arxiv </h4>
+
+
+<p>AI Decisions</p>
+<a 
+class="class1"
+href="https://arxiv.org/abs/2510.13465"
+>
+Algorithmic decision-making
+</a>
+
+<p>Business Implemeting AI</p>
+<a 
+class="class1" 
+href="https://arxiv.org/abs/2509.14532"
+>
+AI for SME business growth
+</a>
+
+<p>AI Ethics</p>
+<a 
+class="class1" 
+href="https://arxiv.org/abs/2510.14676"
+>
+A novel ethical framework for artificial agents
+</a>
+
+<p>AI and Retail</p>
+<a 
+class="class1"
+href="https://arxiv.org/abs/2510.12049"
+>
+Generative AI in online retail
+</a>
+
+<p>AI Social Impact</p>
+<a 
+class="class1"
+href="https://arxiv.org/abs/2510.11530">
+AI impact on trust in business
+</a>
+
+<p>AI Cognition</p>
+<a 
+class="class1"
+href="https://arxiv.org/abs/2510.13826"
+>
+Toward AI human-like cognition
+</a>
+
+
+  
+  `;
+document.getElementById('us-fromTheWeb').insertAdjacentHTML('afterbegin', infoDeLa_web);
+
+const portafolio = ` 
 <h4>My Portafolio   </h4>
 
 
@@ -53,4 +109,3 @@ Social Expectations About the New Railroad
 
   
   `;
-document.getElementById('us-fromTheWeb').insertAdjacentHTML('afterbegin', infoDeLa_web);

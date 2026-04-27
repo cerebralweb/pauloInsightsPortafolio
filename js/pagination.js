@@ -15,11 +15,7 @@
  * 
  */
     const articlesDataBase = [   
-        {
-            articleTitle: "SQL: Retail Sales Insights in CDMX",
-            articleDescription: "Which store had the highest revenue last month? Uncover it with SQL.",
-            articleHref: "/a/sql-retail-project-circlek-mexico.html"
-        },
+       
         {
             articleTitle: "Los supermercados son muertos vivientes",
             articleDescription: "la gente continúa acudiendo a los supermercados para contemplar, tocar, analizar, filtrar y comprar",
