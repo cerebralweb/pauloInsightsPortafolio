@@ -203,10 +203,12 @@ a.blue-marker:active {
 
 a.class6 {
   color: black;
+  
 }
 a.class6:link {
   text-decoration: none;
   color: black;
+  
 }
 a.class6:visited {
   text-decoration: none;
