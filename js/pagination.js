@@ -15,7 +15,11 @@
  * 
  */
     const articlesDataBase = [   
-       
+       {
+            articleTitle: "The Hidden Arithmetic Of Enterprise Licensing ",
+            articleDescription: " Before a product reaches the market, companies must calculate how operational choices cascade into  figures.",
+            articleHref: "/a/the-hidden-arithmetic-of-enterprise-licensing`.html"    
+       },
         {
             articleTitle: "Los supermercados son muertos vivientes",
             articleDescription: "la gente continúa acudiendo a los supermercados para contemplar, tocar, analizar, filtrar y comprar",
@@ -47,7 +51,7 @@
             articleHref: "/a/origins-of-matrix-william-gibson-burning-chrome.html"
         },
         {
-            articleTitle: "Marketing recipes that end in small disasters",
+            articleTitle: "Marketing recipes that end in small disasters Text",
             articleDescription: "An essay on marketing cliches and their predictable consequences in everyday life",
             articleHref: "/a/us-bad-marketing.html"
         },

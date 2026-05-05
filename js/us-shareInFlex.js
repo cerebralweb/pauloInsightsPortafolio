@@ -1,5 +1,5 @@
-const share_in_flex_my_social_media = `<a class="class2" href="/us-infographics-404.html"> ◦
-Portafolio</a>`;
+const share_in_flex_my_social_media = `<a class="class2" href="https://www.linkedin.com/in/pauloanalyst/"> ◦
+LinkedIn</a>`;
 document.getElementById('my_social_media').insertAdjacentHTML('beforebegin', share_in_flex_my_social_media);
 
 

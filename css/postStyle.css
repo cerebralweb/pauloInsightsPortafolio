@@ -411,6 +411,102 @@ a.class6:active {
   box-sizing: border-box;
 }
 
+/* Inline code */
+code {
+  font-family: "Source Sans Pro", monospace;
+  font-size: 0.95em;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  color: black;
+}
+
+/* Block code */
+pre {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid rgb(14, 151, 241);
+  padding: 1.2em 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0em;
+}
+
+pre > code {
+  font-family: monospace;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1.6;
+}
+/* Python syntax highlighting */
+.py-keyword  { color: #43a7f9 !important; font-weight: bold; }
+.py-builtin  { color: #08c19c !important; font-weight: bold;}
+.py-string   { color: #f66126 !important; }
+.py-comment  { color: #6a9955 !important; font-style: italic; }
+.py-number   { color: #b5cea8 !important; }
+.py-function { color: #dcdcaa !important; }
+
+code[id] {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline;
+}
+
+/* Markdown code blocks */
+pre.md-code {
+  background-color: #f8f8f8;
+  border-left: 4px solid #f0a500;
+  padding: 1.2em 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0em;
+  border-radius: 3px;
+}
+
+pre.md-code > code {
+  font-family: monospace;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Markdown syntax highlighting classes */
+.md-heading  { color: #c0392b; font-weight: bold; }
+.md-bold     { color: #8e44ad; font-weight: bold; }
+.md-italic   { color: #2980b9; font-style: italic; }
+.md-link     { color: #27ae60; }
+.md-code     { color: #e67e22; }
+
+/* Button to copy-paste code */
+
+pre {
+  position: relative;
+}
+
+pre button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.2em 0.7em;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+pre button:hover {
+  opacity: 1;
+}
+
 /* oculto */
 .publicidadEnArticulo {
   display: none;
@@ -423,6 +519,7 @@ a.class6:active {
   box-sizing: border-box;
   border-left: 4px solid rgb(14, 151, 241)
 }
+
 .publicidadEnArticulo::before{
   content: "Ads";
 }
@@ -642,28 +739,30 @@ th[scope="row"] {
 /******************************************************* FLEX ARTICLE =============================================*/
 
 .articleFlexContainer {
-  display: flex;
-  flex-wrap: wrap;    
+  display: grid;
+  grid-template-columns: 18rem 1fr 18rem;
+  grid-template-areas: "left article right";
   width: 100%;
-  min-height: 100%;
   margin: 0em auto;
   box-sizing: border-box;
-  background-color: white;  
+  background-color: white;
+  align-items: start;
 }
+
 .flex_LeftColumnContainerInArticle{
   display: flex;
+  grid-area: left;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: -0.8em 2em 0em 2em;
+  margin: 0em 2em 0em 2em;
   padding: 0em;
   text-align: left;
-  min-width: 16.5em;
-  max-width: 16.5rem;
 }
+
 .articleInfoInTheFlexContainer {
   font-weight: 400;
   min-width: 16.5em;
-  max-height: 8rem;
+  max-height: 14rem;
   max-width: 16.5rem;
   flex: auto;
   order: 0;
@@ -725,14 +824,15 @@ th[scope="row"] {
 }
 
 .articleInTheFlexContainer{
-max-width: 34em;
-min-width: 15em;
-order: 1;
-margin: -6em 1em 1em 1em;
-font-size: 1.3rem;
+  grid-area: article;
+  max-width: 34em;
+  min-width: 15em;
+  margin: -1em 1em 1em 3em;
+  font-size: 1.3rem;
   line-height: 1.58;
   font-weight: 300;
 }
+
 .articleInfoInTheFlexContainer, .newsletterInTheFlexContainer  p {
   color: grey;
 }
@@ -741,16 +841,15 @@ font-size: 1.3rem;
   margin: 0rem 0rem .7rem 0rem;
 }
 
+
 .flex_RightColumnContainerInArticle{
   display: flex;
-  order: 2;
+  grid-area: right;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: -4em 2em 0em 2em;
+  margin: 0em 0em 0em -2em;
   padding: 0em;
   text-align: left;
-  min-width: 18em;
-  max-width: 18rem;
 }
 
 .newsletterInTheFlexContainer {
@@ -796,13 +895,31 @@ font-size: 1.3rem;
   order: 0;
   margin: 0em 1em 1em 1em;
 }
+.articleFlexContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "article"
+    "left"
+    "right";
+}
 .flex_LeftColumnContainerInArticle{
   order:2;
   margin: 1em 1em 1em 1em;
 }
+.flex_LeftColumnContainerInArticle{
+  order:2;
+  margin: 1em 1em 1em 1em;
+  align-self: flex-start;
+}
 .flex_RightColumnContainerInArticle{
-  order: 1;
-  margin: 1em 2em 0em 1em;
+  display: flex;
+  grid-area: right;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0em 0em 0em 4em;
+  padding: 0em;
+  text-align: left;
 }
 .titulosMainForArticles {
   color: black;

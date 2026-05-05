@@ -10,10 +10,10 @@
   display: inline-block;
   font-family: 'Source Serif Pro', serif;
   font-weight: 900;
-  font-size: 12rem;
+  font-size: 7rem;
   line-height: .7;
   opacity: .8;    
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 @media screen and (max-width: 1125px){
   .header_typo{
@@ -29,7 +29,8 @@
   font-weight: 500;
   font-size: 2rem;
   line-height: .7;
-  opacity: .9;    
+  opacity: .9;   
+  margin-top: 2rem; 
   
 }
 @media screen and (max-width: 1125px){
@@ -314,7 +315,7 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   font-style: italic;
-  margin: 0rem 1rem 1rem 0rem;
+  margin: 0.5rem;
 }
 .flexShowcase p{
   margin: 0rem 1rem 1rem 0rem;

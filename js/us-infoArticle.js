@@ -1,5 +1,10 @@
 //SIRVE hallazgos EN ESPAÑOL derecha arriba
-const info_del_articulo = `<h4>Interact</h4>
-<p><a class="class2" href="#comments">Comments</a></p>
-<p><a class="class2" href="#recommended">Recommended</a></p>`;
+const info_del_articulo = `<h4>Content</h4>
+<p><a class="class2" href="#business-problem">Business Problem</a></p>
+<p><a class="class2" href="#math-answer">Math answer</a></p>
+<p><a class="class2" href="#claude-skills-version">Claude Skills version</a></p>
+<p><a class="class2" href="#python-version">Python version</a></p>
+`
+;
+
 document.getElementById('us-infoArticle').insertAdjacentHTML('afterbegin', info_del_articulo);

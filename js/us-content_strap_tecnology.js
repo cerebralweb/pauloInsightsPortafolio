@@ -1,7 +1,7 @@
 
 //CONTENT STRAPS IN ENGLISH
 //strap: technology language: English
-const content_strap_tecnology = ` 
+/*const content_strap_tecnology = ` 
 
 <section class="tiraDeContenido_section" itemprop="pagination" itemscope itemtype="https://www.hexis.cc/blog.html">
 
@@ -61,3 +61,4 @@ const content_strap_tecnology = `
     </div>
 </section>`;
 document.getElementById('us-content_strap_tecnology').insertAdjacentHTML('afterbegin', content_strap_tecnology);
+*/
