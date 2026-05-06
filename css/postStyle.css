@@ -1303,3 +1303,8 @@ th[scope="row"] {
 
   
 }
+@media screen and (max-width: 1440px) and (min-width: 1126px) {
+  .flex_RightColumnContainerInArticle {
+    margin: 0em 0em 0em 1em;
+  }
+}
