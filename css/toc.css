@@ -39,7 +39,8 @@
     line-height: .8;
 }
 }
-.contenedorEncabezado {
+
+  .contenedorEncabezado {
   animation: titleBlogMotion 3s infinite;
   animation-iteration-count: infinite;
   width: 100%; 
@@ -47,14 +48,24 @@
   background: repeating-linear-gradient(80deg, rgb(0, 0, 0), rgb(209, 211, 204) 3px);
   padding: 2rem;
   text-align: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
   }
   
-
 @media screen and (max-width: 1125px){
   .contenedorEncabezado{
     height:  14rem; 
   }
   }
+  @media screen and (max-width: 1440px) and (min-width: 1126px) {
+  .header_typo {
+    font-size: 5rem;
+    line-height: 0.8;
+  }
+  .contenedorEncabezado {
+    height: 16rem;
+  }
+}
 @keyframes titleBlogMotion {
   1% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
   2% {background: repeating-linear-gradient(80.1deg, black, rgb(209, 211, 204) 3px);}
