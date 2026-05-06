@@ -52,18 +52,16 @@
   box-sizing: border-box;
   }
   
-@media screen and (max-width: 1125px){
-  .contenedorEncabezado{
-    height:  14rem; 
-  }
-  }
-  @media screen and (max-width: 1440px) and (min-width: 1126px) {
+@media screen and (max-width: 1440px) and (min-width: 1126px) {
   .header_typo {
     font-size: 5rem;
     line-height: 0.8;
   }
   .contenedorEncabezado {
     height: 16rem;
+  }
+  .flex_RightColumnContainerInArticle {
+    margin: 0em 0em 0em 1em;
   }
 }
 @keyframes titleBlogMotion {
