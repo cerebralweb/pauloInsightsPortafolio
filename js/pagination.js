@@ -16,6 +16,11 @@
  */
     const articlesDataBase = [   
        {
+            articleTitle: "Rate-Of-Change Decisions In Retail Planning",
+            articleDescription: "Retail operations teams make rate-of-change decisions every day — adjusting pricing levers,promotional intensity, or replenishment cadence to hit a precise endpoint.",
+            articleHref: "/a/rate-of-Change-decisions-in-retail-planning.html"    
+       },
+       {
             articleTitle: "The Hidden Arithmetic Of Enterprise Licensing ",
             articleDescription: " Before a product reaches the market, companies must calculate how operational choices cascade into  figures.",
             articleHref: "/a/the-hidden-arithmetic-of-enterprise-licensing`.html"    

@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="A step-by-step breakdown of how a constant daily sales rate determines whether a retail clearance sale depletes inventory exactly on the last day, with a Python diagnostic tool and a reusable Claude skill.">
+    <meta name="keywords"
+        content="sell-through, clearance sale, rate of change, inventory planning, Python, business math, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-75-becomes-41-7-the-sell-through-arithmetic-of-clearance-planning.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/when-75-becomes-41-7-the-sell-through-arithmetic-of-clearance-planning.html" />
+
+
+    <title>When 75 Becomes 41.7: The Sell-Through Arithmetic of Clearance Planning</title>
+
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+
+    <main class="contenedorMain">
+
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    RATE-OF-CHANGE DECISIONS IN RETAIL PLANNING
+
+                </h1>
+            </div>
+        </div>
+
+
+        <div class="articleFlexContainer">
+
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Retail operations teams make rate-of-change decisions every day — adjusting pricing levers,
+                        promotional intensity, or replenishment cadence to hit a precise endpoint. The most
+                        consequential of these is the clearance window: a bounded time frame in which every remaining
+                        unit must be sold before the clock runs out. <dfn>This article frames that constraint as a
+                            linear rate-of-change problem, builds a diagnostic Python tool around it, and packages the
+                            logic as a reusable Claude skill that any operations analyst can deploy without writing a
+                            line of code.</dfn></em></p>
+
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+
+                <h2 id="the-problem">The Problem</h2>
+
+
+                <p>A retail chain is clearing end-of-season inventory during a fixed-duration clearance sale. The
+                    operations team records the following checkpoints: with 5 days remaining, 275 units are still in
+                    stock; with 4 days remaining, 200 units; with 3 days remaining, 125 units.</p>
+
+
+                <p>The goal is for inventory and remaining sale days to reach zero at the same time — selling the last
+                    unit on the last day of the promotion. How must the sales pattern change for this to be possible?
+                </p>
+
+
+                <ul>
+                    <li>a) The store must sell more units per remaining sale day</li>
+                    <li>b) The store must sell fewer units per remaining sale day toward the end</li>
+                    <li>c) The store must maintain the same sales pace</li>
+                    <li>d) The store must accelerate sales</li>
+                </ul>
+
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+
+                    <p><strong>Correct Answer: b) fewer units per remaining sale day ✅</strong></p>
+
+
+                    <h2>Math Structure Preserved</h2>
+
+
+                    <p>The observed checkpoints reveal a <strong>constant daily rate of 75 units/day</strong> (275 − 200
+                        = 75; 200 − 125 = 75). At that pace, 125 remaining units would run out in 125 ÷ 75 ≈ 1.67 days —
+                        leaving more than a day of active promotion with nothing left to sell. To hit simultaneous zero,
+                        the required rate is <strong>125 ÷ 3 ≈ 41.7 units/day</strong>, which is well below the current
+                        75. The store must decelerate, not hold steady or accelerate.</p>
+
+
+                    <p
+                    >The simultaneous-zero condition forces a deceleration: the required rate equals remaining
+                        inventory divided by remaining time, and any pace above that ratio depletes stock before the
+                        sale window closes.</p>
+
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the required rate is derived:</p>
+                        <ol>
+                            <li><strong>Observed drop (day 5 → 4):</strong> 275 − 200 = 75 units/day</li>
+                            <li><strong>Observed drop (day 4 → 3):</strong> 200 − 125 = 75 units/day</li>
+                            <li><strong>Current rate confirmed:</strong> 75 units/day (constant)</li>
+                            <li><strong>Units remaining at checkpoint:</strong> 125 units</li>
+                            <li><strong>Days remaining at checkpoint:</strong> 3 days</li>
+                            <li><strong>Required rate:</strong> 125 ÷ 3 ≈ 41.7 units/day</li>
+                            <li><strong>Comparison:</strong> 75 &gt; 41.7 → current pace is too fast</li>
+                            <li><strong>Diagnosis:</strong> the store must slow down toward the end of the sale</li>
+                        </ol>
+                    </div>
+                </details>
+
+        <div class="bannerTwitero">
+        <h2>Step-by-Step Breakdown</h2>
+        <p>The following sequence shows how the misalignment is identified and the correct adjustment derived:</p>
+        <ol>
+            <li><strong>Actual daily sales rate:</strong> 275 − 200 = 75 units; 200 − 125 = 75 units → constant pace of
+                <strong>75 units/day</strong></li>
+            <li><strong>Required liquidation rate at each checkpoint:</strong> 275 ÷ 5 = <strong>55</strong>; 200 ÷ 4 =
+                <strong>50</strong>; 125 ÷ 3 ≈ <strong>41.7</strong> units per remaining day</li>
+            <li><strong>Gap at 3 days remaining:</strong> Actual rate (75) &gt; Required rate (41.7) → inventory will be
+                exhausted in ≈ 1.7 days, not 3</li>
+            <li><strong>Required adjustment:</strong> Reduce daily sales from 75 to ≈ 41.7 units/day to align depletion with the
+                end of the promotion</li>
+            <li><strong>Conclusion:</strong> The store must sell <strong>fewer units per remaining sale day</strong> — answer b)
+            </li>
+        </ol>
+        </div>
+        
+        <h2>Why This Math Matters for the Business Problem</h2>
+        
+        <p>Rate comparison and proportional reasoning are the foundation of inventory burn-down models in operations management.
+            Managers routinely check whether the current depletion rate is aligned with a target end-date — the same logic
+            applies in sprint planning, budget rundown tracking, and clinical trial enrollment. The ratio <em>inventory ÷ days
+                remaining</em> acts as a real-time benchmark: if actual daily sales exceed it, depletion arrives early and
+            unsold days remain; if they fall short, the promotion ends with leftover stock.</p>
+        
+        <p>A key conceptual trap in this problem is that the declining ratio (55 → 50 → 41.7) may suggest the store is already
+            slowing down. It is not. The ratio declines because the time window is shrinking while inventory is also dropping —
+            but the actual sales pace is unchanged at 75/day. Recognizing the difference between a <em>descriptive ratio</em>
+            and an <em>operational rate</em> is the core skill being tested.</p>
+        
+        <h2>Mathematical Background</h2>
+        
+        <p>This problem applies <strong>rate comparison</strong>, a branch of proportional reasoning in which two rates
+            expressing the same relationship — one observed, one required — are compared to determine whether a process is on
+            target. A rate expresses how one quantity changes relative to another (here, units per day). The ratio <em>inventory
+                ÷ days remaining</em> is a derived target rate: if matched exactly each day, it guarantees simultaneous
+            depletion of both quantities.</p>
+        
+        <p>A useful conceptual fact: proportional reasoning of this kind underlies the <strong>inventory burn-down
+                model</strong> in operations management, used in retail, manufacturing, and project management alike. The same
+            structure appears in Agile sprint velocity tracking, where teams compare actual throughput against the required pace
+            to complete a backlog by the sprint deadline.</p>
+        
+        <h2>Authoritative Reference</h2>
+        
+        <p>Khan Academy — <a class="class2"
+                href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic/cc-6th-rates/v/finding-unit-rates"
+                target="_blank">Rates and Unit Rates</a></p>
+
+
+
+                <h2 id="python-version">Python Version</h2>
+
+
+                <p>The function below encapsulates the entire diagnostic as a reusable tool: given any combination of
+                    units remaining, days remaining, and current daily rate, it returns the required rate, quantifies
+                    the gap, and prints a plain-English recommendation.</p>
+
+
+                <pre><code>def required_rate(units_remaining, days_remaining):
+    return units_remaining / days_remaining
+
+
+
+
+def sellthroughPlanner():
+    print("--- Clearance Sale Sell-Through Planner ---")
+    print("Will your inventory and sale window run out at the same time?\n")
+
+    units = float(input("Units remaining in inventory: "))
+    days = float(input("Days remaining in the sale: "))
+    current_rate = float(input("Current daily sales rate (units/day): "))
+
+    needed_rate = required_rate(units, days)
+    difference = current_rate - needed_rate
+
+    try:
+        if days &gt; 365:
+            raise ValueError(
+                "Warning: sale window exceeds 365 days — double-check your input."
+            )
+    except ValueError as e:
+        print(f"[Non-fatal error] {e}")
+
+
+    print(f"\nRequired rate to sell through exactly: {round(needed_rate, 2)} units/day")
+    print(f"Current rate: {round(current_rate, 2)} units/day")
+
+
+    if abs(difference) &lt; 0.01:
+        print("The current pace hits zero inventory exactly on the last day.")
+    elif difference &gt; 0:
+        print(
+            f"Selling too fast by {round(difference, 2)} units/day — stock runs out before the sale ends."
+        )
+        print("Recommendation: slow down the pace toward the end.")
+    else:
+        print(
+            f"Selling too slowly by {round(abs(difference), 2)} units/day — unsold units will remain after the sale."
+        )
+        print("Recommendation: increase the daily sales rate.")
+
+try:
+    sellthroughPlanner()
+except Exception as e:
+    print(f"Error: {e}")</code></pre>
+
+
+                <p>Run the script from the terminal, enter the three prompted values, and the program returns the
+                    required sell-through rate alongside a plain-English diagnosis — identifying whether the current
+                    pace is too fast, too slow, or exactly on target.</p>
+
+
+                <h2 id="the-skill-file">The Skill File</h2>
+
+
+                <p>The Markdown skill file below formalizes the diagnostic logic as a reusable Claude skill, defining
+                    the three required inputs, the four computation steps, and the trigger prompts that activate the
+                    skill in a conversational context.</p>
+
+
+                <pre><code>---
+name: clearance-sellthrough-planner
+description: Calculates the daily sales rate a retail team needs to deplete
+inventory exactly by the last day of a clearance sale, then diagnoses
+whether the current pace is too fast, too slow, or on target. Trigger
+this skill whenever the user wants to check if their sales tempo will
+clear stock on time, plan a liquidation window, or diagnose a
+sell-through timing problem, even if they don't use technical language.
+---
+
+
+# Clearance Sale Sell-Through Planner
+
+
+This skill takes three numbers — units remaining in inventory, days
+remaining in the sale, and the current daily sales rate — and tells
+the user whether their current pace will clear stock exactly on the
+last day. If the pace is off, the skill states the required rate,
+quantifies the gap, and gives a plain-English recommendation.
+
+
+---
+
+
+## Dependencies
+
+
+No external libraries required. All arithmetic uses basic division
+and subtraction.
+
+
+---
+
+
+## Inputs
+
+
+- **Units remaining**: The number of inventory units still unsold at
+  the time of the check. Must be a positive number. Decimals are
+  allowed if the unit of measure permits fractional quantities.
+- **Days remaining**: The number of days left in the clearance
+  promotion. Must be a positive number greater than zero.
+- **Current daily sales rate**: The number of units the team is
+  currently selling per day. Must be a positive number.
+
+
+---
+
+
+## Steps
+
+
+### Step 1 — Collect the Three Inputs
+
+
+Ask the user for the three required values one at a time:
+units remaining in inventory, days remaining in the sale, and
+current daily sales rate. Accept decimals for all three. Do not
+proceed until all three values are provided and are positive numbers.
+
+
+### Step 2 — Calculate the Required Rate
+
+
+Divide units remaining by days remaining. The result is the exact
+daily sales rate that would deplete inventory on the final day of
+the sale. Label this the required rate.
+
+
+### Step 3 — Diagnose the Gap
+
+
+Compare the current daily rate to the required rate by subtracting
+the required rate from the current rate.
+
+
+- If the difference is less than 0.01 in absolute terms, the current
+  pace is on target: inventory will reach zero exactly on the last day.
+- If the difference is positive, the team is selling too fast: stock
+  will run out before the sale ends.
+- If the difference is negative, the team is selling too slowly:
+  unsold units will remain after the sale closes.
+
+
+### Step 4 — Deliver the Result
+
+
+Report the required rate, the current rate, the diagnosis, and a
+one-sentence recommendation:
+
+
+- Too fast: recommend slowing the pace toward the end of the sale.
+- Too slow: recommend increasing the daily sales rate.
+- On target: confirm that no adjustment is needed.
+
+
+---
+
+
+## Example Trigger Prompts
+
+
+- "Will we sell out before the clearance event ends?"
+- "Check if our sales pace will clear all inventory by Friday."
+- "We have 125 units left and 3 days to go — are we on track?"
+- "Tell me if we need to slow down or speed up our liquidation."
+- "We're selling 75 units a day with 3 days left and 125 units — what should we do?"
+
+
+---
+
+
+## Quality Check Before Delivering
+
+
+- [x] The YAML frontmatter appears once at the top
+- [x] There is no Python code anywhere in the skill body
+- [x] Every step reads as a natural-language instruction
+- [x] Conditional logic is expressed in plain English
+- [x] Inputs and outputs are clearly named and described
+- [x] The description would realistically trigger from a non-technical user prompt</code></pre>
+
+
+                <span id="insight"></span>
+
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+
+                <div id="recommended"></div>
+
+
+            </article>
+        </div>
+
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+
+    </main>
+
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+
+</html>
