@@ -8,13 +8,18 @@
 /**SCHEDULED POST HERE
  * 
  *     {
-        articleTitle: "How To Write Exciting Characters Without Neglecting Your Mental Health",
-        articleDescription: "I explain how to apply psychology, narrative art, and sociology to make up characters that do their job (entertain and get money for you).",
-        articleHref: "/a/how-to-write-characters-that-keep-readers-excited.html"
+        articleTitle: "",
+        articleDescription: "Container planning sits at the intersection of arithmetic and operational risk",
+        articleHref: "/a/the-ceiling-function-in-supply-chain.html"
     } 
  * 
  */
     const articlesDataBase = [   
+        {
+        articleTitle:  "The Ceiling Function In Supply Chain: A Minimum-Container Problem For Pharmaceutical Distribution",
+        articleDescription: "Container planning sits at the intersection of arithmetic and operational risk",
+        articleHref: "/a/the-ceiling-function-in-supply-chain.html"
+        }, 
        {
             articleTitle: "Rate-Of-Change Decisions In Retail Planning",
             articleDescription: "Retail operations teams make rate-of-change decisions every day — adjusting pricing levers,promotional intensity, or replenishment cadence to hit a precise endpoint.",

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How integer division and the ceiling function solve pharmaceutical tray packing problems — with a dimensional division shortcut, Python script, and reusable Claude skill file.">
+    <meta name="keywords" content="ceiling function, floor division, integer division, dimensional division, container packing, pharmaceutical logistics, operations math, Python math, supply chain">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/400-blister-packs-three-trays-the-ceiling-function-in-supply-chain.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/400-blister-packs-three-trays-the-ceiling-function-in-supply-chain.html" />
+
+    <title>400 Blister Packs, Three Trays: The Ceiling Function in Supply Chain</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 8, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE CEILING FUNCTION IN SUPPLY CHAIN: A MINIMUM-CONTAINER PROBLEM FOR PHARMACEUTICAL DISTRIBUTION
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- INTRO -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Container planning sits at the intersection of arithmetic and operational risk — get it wrong and deliveries stall, costs climb, or product goes unpacked. The decision is rarely about total volume; it is about whole containers, which means fractional answers are never acceptable. <dfn>This article shows why the ceiling function is the operationally correct tool for any minimum-container calculation, introduces a dimensional division shortcut that makes the arithmetic faster, and packages the logic into both a Python script and a reusable Claude skill file.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- THE PROBLEM -->
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A supply chain analyst at a pharmaceutical distributor needs to pack 400 unit-dose blister packs into cold-storage trays before a hospital delivery. Each tray measures 18 cm by 12 cm by 6 cm, and each blister pack measures 2 cm by 2 cm by 2 cm.</p>
+                <p>How many trays will she need at minimum?</p>
+                <ul>
+                    <li>a) 2.4</li>
+                    <li>b) 8</li>
+                    <li>c) 3</li>
+                    <li>d) 2</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 3 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>The solution applies <strong>integer (floor) division</strong> along each of the three spatial axes to find how many blister packs fit per tray, then uses the <strong>ceiling function</strong> to convert the fractional tray count into the minimum number of whole trays required.</p>
+
+                    <p class="insight"><em>Rounding down would leave 238 packs without a tray — the ceiling function is not optional here, it is the operational constraint.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence derives the minimum tray count using dimensional division:</p>
+                        <ol>
+                            <li><strong>Fit along length:</strong> 18 ÷ 2 = 9</li>
+                            <li><strong>Fit along width:</strong> 12 ÷ 2 = 6</li>
+                            <li><strong>Fit along height:</strong> 6 ÷ 2 = 3</li>
+                            <li><strong>Packs per tray:</strong> 9 × 6 × 3 = 162</li>
+                            <li><strong>Trays needed:</strong> ⌈400 ÷ 162⌉ = ⌈2.47⌉ = 3</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- DIMENSIONAL DIVISION SHORTCUT -->
+                <h2 id="dimensional-shortcut">The Dimensional Division Shortcut</h2>
+
+                <p>The standard approach computes two large volumes (18 × 12 × 6 = 1,296 cm³ and 2 × 2 × 2 = 8 cm³) and divides them. The faster path skips total volume entirely: divide each tray dimension by the corresponding pack dimension, then multiply the three small quotients. Fewer digits, the same result, and each step is immediately verifiable.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tray dimension</th>
+                            <th>÷</th>
+                            <th>Pack dimension</th>
+                            <th>=</th>
+                            <th>Fit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>18 cm</td><td>÷</td><td>2 cm</td><td>=</td><td>9</td></tr>
+                        <tr><td>12 cm</td><td>÷</td><td>2 cm</td><td>=</td><td>6</td></tr>
+                        <tr><td>6 cm</td><td>÷</td><td>2 cm</td><td>=</td><td>3</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Packs per tray: 9 × 6 × 3 = <strong>162</strong>. Minimum trays: ⌈400 ÷ 162⌉ = <strong>3</strong>.</p>
+
+                <!-- BUSINESS RELEVANCE -->
+                <h2 id="business-relevance">Why This Math Matters for the Business Problem</h2>
+
+                <p>Storage and container planning is a recurring operations decision — whether in pharmaceutical distribution, logistics, or manufacturing. Knowing exactly how many trays, crates, or bins are needed before a shipment prevents two costly errors: under-ordering (items left unpacked, delivery delayed) and over-ordering (wasted space, excess cost). The ceiling function is what makes this operationally correct: a partially filled container still occupies a full physical slot, so fractional results must always round up, never down.</p>
+
+                <!-- MATHEMATICAL BACKGROUND -->
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>This problem combines two distinct concepts. The first is <strong>integer division</strong> (also called floor division), which determines how many whole items fit along a single spatial axis — no partial items are counted. The second is the <strong>ceiling function</strong> (⌈x⌉), which returns the smallest integer greater than or equal to a real number. Together they model any minimum-container problem: divide to find capacity, then apply the ceiling to find the minimum whole number of containers required. A useful conceptual fact: the ceiling function is the operational inverse of the floor function, and the two were formalized by the mathematician Kenneth Iverson in his 1962 work on programming notation — the same notation that later influenced APL and shaped how computer scientists think about integer arithmetic today.</p>
+
+                <!-- PYTHON VERSION -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script encodes the dimensional division shortcut as named variables — each axis division is explicit, and the final print mirrors the cross-shaped breakdown so the reasoning is visible at a glance.</p>
+
+<pre><code>import math
+
+def crates_needed(crate_l, crate_w, crate_h, box_l, box_w, box_h, total_boxes):
+    fit_l = crate_l // box_l
+    fit_w = crate_w // box_w
+    fit_h = crate_h // box_h
+    per_crate = fit_l * fit_w * fit_h
+    return fit_l, fit_w, fit_h, per_crate, math.ceil(total_boxes / per_crate)
+
+print("--- Crate Storage Planner ---")
+crate_l = int(input("Crate length (in): "))
+crate_w = int(input("Crate width (in): "))
+crate_h = int(input("Crate height (in): "))
+box_l   = int(input("Sensor box length (in): "))
+box_w   = int(input("Sensor box width (in): "))
+box_h   = int(input("Sensor box height (in): "))
+total   = int(input("Total sensor boxes to store: "))
+
+fit_l, fit_w, fit_h, per_crate, crates = crates_needed(
+    crate_l, crate_w, crate_h, box_l, box_w, box_h, total)
+
+print(f"\nDimensional fit:  {crate_l}÷{box_l}={fit_l}  ×  {crate_w}÷{box_w}={fit_w}  ×  {crate_h}÷{box_h}={fit_h}")
+print(f"Sensors per crate: {fit_l} × {fit_w} × {fit_h} = {per_crate}")
+print(f"Minimum crates needed: ⌈{total} ÷ {per_crate}⌉ = {crates}")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the script, and entering each dimension and quantity when prompted — the output prints the full dimensional breakdown and the final tray count.</p>
+
+                <!-- MD SKILL FILE -->
+                <h2 id="skill-file">Skill File</h2>
+
+                <p>The Markdown below packages this logic as a reusable Claude skill — drop it into <code>/mnt/skills/user/crate-storage-planner/SKILL.md</code> to trigger the same dimensional division workflow automatically in any future container-packing session.</p>
+
+<pre class="md-code"><code><span>---</span>
+<span class="md-bold">name:</span> crate-storage-planner
+<span class="md-bold">description:</span> Calculates the minimum number of storage crates needed to pack a given quantity of uniform boxes, using dimensional division to find how many boxes fit per crate. Trigger this skill whenever the user wants to figure out how many containers, bins, crates, or boxes are needed to store or ship a set of identically sized items, even if they don't use technical language.
+<span>---</span>
+
+<span class="md-heading"># Crate Storage Planner</span>
+
+This skill takes the dimensions of a storage crate and a smaller item box, along with the total number of item boxes to store, and calculates the minimum number of crates required. It uses dimensional division — dividing each crate dimension by the corresponding item dimension — to determine how many items fit per crate, then applies ceiling division to find the minimum whole number of crates needed.
+
+<span>---</span>
+
+<span class="md-heading">## Dependencies</span>
+
+- Python standard library only (<span class="md-code">`math.ceil`</span> for ceiling division). No third-party libraries required.
+
+<span>---</span>
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Crate dimensions**</span>: Length, width, and height in inches (whole numbers)
+- <span class="md-bold">**Item box dimensions**</span>: Length, width, and height in inches (whole numbers)
+- <span class="md-bold">**Total item boxes**</span>: The total quantity of item boxes to be stored (whole number)
+
+<span>---</span>
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect crate dimensions</span>
+
+Ask the user for the crate's length, width, and height in inches. Accept whole numbers only.
+
+<span class="md-heading">### Step 2 — Collect item box dimensions</span>
+
+Ask the user for the item box's length, width, and height in inches. Accept whole numbers only.
+
+<span class="md-heading">### Step 3 — Collect total quantity</span>
+
+Ask the user for the total number of item boxes that need to be stored.
+
+<span class="md-heading">### Step 4 — Apply dimensional division</span>
+
+For each dimension pair, divide the crate measurement by the item box measurement using integer (floor) division. This gives the number of item boxes that fit along each axis:
+
+- Fit along length = crate length ÷ item length
+- Fit along width = crate width ÷ item width
+- Fit along height = crate height ÷ item height
+
+<span class="md-heading">### Step 5 — Calculate items per crate</span>
+
+Multiply the three fit values together to get the total number of item boxes that fit inside one crate.
+
+<span class="md-heading">### Step 6 — Calculate minimum crates needed</span>
+
+Divide the total quantity of item boxes by the items-per-crate value. Round up to the nearest whole number (ceiling division) — a partially filled crate still counts as one crate.
+
+<span class="md-heading">### Step 7 — Display the result</span>
+
+Print the dimensional breakdown showing each division step, the items-per-crate calculation, and the final minimum crates needed. Format the output as three lines:
+
+- Line 1: each dimension division side by side (e.g., 18÷2=9 × 12÷2=6 × 6÷2=3)
+- Line 2: the multiplication of fit values and their product (e.g., 9 × 6 × 3 = 162)
+- Line 3: the ceiling division and final crate count (e.g., ⌈400 ÷ 162⌉ = 3)
+
+<span>---</span>
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many crates do I need to store 400 sensor boxes?"
+- "I have a storage bin and a bunch of small boxes — how many bins will I need?"
+- "Help me figure out the minimum number of shipping crates for my inventory"
+- "Each crate is 18×12×6 and each item is 2×2×2 — how many crates for 400 items?"
+- "I need to pack 500 units into storage containers. How many containers do I need?"</code></pre>
+
+                <!-- FURTHER READING -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/CeilingFunction.html" target="_blank" rel="noopener">Wolfram MathWorld — Ceiling Function</a></li>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-fifth-grade-math/cc-5th-volume" target="_blank" rel="noopener">Khan Academy — Volume and Packing</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ceiling-function" target="_blank" rel="noopener">Mathematics Stack Exchange — Ceiling Function</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 8, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
