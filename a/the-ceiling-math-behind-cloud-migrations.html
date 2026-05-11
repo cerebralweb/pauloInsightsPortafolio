@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Cloud migration teams need more than large transfer packages. Ceiling division tells you the exact minimum of small packages required to close the gap — and Python makes it reusable.">
+    <meta name="keywords" content="cloud migration, ceiling division, remainder, python, math, capacity planning, data transfer, packages, operations, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/subtract-then-divide-the-ceiling-math-behind-cloud-migrations.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/subtract-then-divide-the-ceiling-math-behind-cloud-migrations.html" />
+
+    <title>Subtract, Then Divide: The Ceiling Math Behind Cloud Migrations</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 11, 2025 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE CEILING MATH BEHIND CLOUD MIGRATIONS: HOW TO CALCULATE THE MINIMUM SMALL PACKAGES NEEDED
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- INTRO -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning in cloud operations rarely lines up perfectly. When teams allocate fixed-size transfer packages to move data, 
+                    the critical question is never just how much the large packages cover: it is how precisely to close the gap that remains.
+                     <dfn>This problem illustrates how ceiling division turns an imprecise remainder into an exact operational decision, and how 
+                        that same logic can be packaged into a reusable Python tool and a portable Claude skill.</dfn></em>
+                </p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- PROSE SECTION 1: The Business Problem -->
+                <h2 id="the-problem">The Business Problem</h2>
+
+                <p>A SaaS operations team needs to migrate <strong>15.6 GB</strong> of archived customer data to a new cloud storage system. The migration tool supports two transfer package sizes: <strong>large packages</strong>, each carrying <strong>2.4 GB</strong>, and <strong>small packages</strong>, each carrying <strong>1.2 GB</strong>. If the team runs <strong>5 large packages</strong>, what is the minimum number of small packages they must also run to complete the full migration?</p>
+
+                <ul>
+                    <li>a) 3</li>
+                    <li>b) 2</li>
+                    <li>c) 6</li>
+                    <li>d) 4</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 3 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>The problem applies <strong>division with remainders</strong> and <strong>ceiling division</strong>: subtract what the large packages cover, then divide the remainder by the small package size, rounding up to the nearest whole number. Every fraction of a gigabyte still demands a full additional package.</p>
+
+                    <p class="insight"><em>Key insight: 5 large packages cover exactly 12.0 GB, leaving 3.6 GB — which divides cleanly into exactly 3 small packages of 1.2 GB each.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final package count is derived:</p>
+                        <ol>
+                            <li><strong>Data covered by large packages:</strong> 5 × 2.4 GB = 12.0 GB</li>
+                            <li><strong>Remaining data:</strong> 15.6 GB − 12.0 GB = 3.6 GB</li>
+                            <li><strong>Small packages needed:</strong> 3.6 ÷ 1.2 = 3 packages</li>
+                            <li><strong>Conclusion:</strong> The team must run a minimum of <strong>3 small packages</strong> to complete the full 15.6 GB migration.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- WHY THIS MATH MATTERS -->
+                <h2 id="why-this-math-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>In cloud migration planning, operations teams rarely transfer data in perfectly sized batches. Knowing how to calculate remainders after fixed-capacity packages are applied is essential for determining the minimum number of additional transfers needed — avoiding both under-provisioning (incomplete migration) and over-provisioning (wasted compute and cost). This is exactly the kind of capacity-gap calculation that ops and infrastructure teams run when scheduling data pipelines, storage allocations, or batch processing jobs.</p>
+
+                <!-- MATHEMATICAL BACKGROUND -->
+                <h2 id="mathematical-background">Mathematical Background</h2>
+
+                <p>This problem applies <strong>division with remainders</strong> and basic <strong>linear combination reasoning</strong> — finding how many fixed-size units are needed to cover a target quantity after partial coverage is already accounted for. The core idea is subtracting the known contribution and then dividing the remainder by the smaller unit size, rounding up if necessary. This "ceiling division" concept dates back to ancient practical arithmetic and remains fundamental in computer science, where it governs memory allocation, pagination, and packet sizing in networking.</p>
+
+                <!-- PROSE SECTION 2: Python Version -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalises the calculation so any operations team can enter their own migration parameters and instantly receive the minimum small-package count — no manual arithmetic required.</p>
+
+<pre><code>import math
+
+def min_small_packages(total_gb, large_pkg_gb, large_pkg_count, small_pkg_gb):
+    data_covered = large_pkg_count * large_pkg_gb
+    remaining_gb = total_gb - data_covered
+    if remaining_gb <= 0:
+        return 0
+    return math.ceil(remaining_gb / small_pkg_gb)
+
+print("=== Cloud Migration Package Calculator ===")
+total_gb        = float(input("Total data to migrate (GB): "))
+large_pkg_gb    = float(input("Capacity per large package (GB): "))
+large_pkg_count = int(input("Number of large packages to run: "))
+small_pkg_gb    = float(input("Capacity per small package (GB): "))
+
+result = min_small_packages(total_gb, large_pkg_gb, large_pkg_count, small_pkg_gb)
+print(f"\nMinimum small packages needed to complete migration: {result}")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the code, and entering each value when prompted. With the problem's numbers, it returns <strong>3</strong>.</p>
+
+                <!-- PROSE SECTION 3: Claude Skill -->
+                <h2 id="claude-skill">The Claude Skill</h2>
+
+                <p>The Markdown below packages the same logic as a portable Claude skill — a natural-language standard operating procedure that any analyst can invoke without touching code.</p>
+
+<pre class="md-code"><code>---
+name: cloud-migration-package-calculator
+description: Calculates the minimum number of small transfer packages needed to complete
+a cloud data migration after a fixed number of large packages have already been allocated.
+Trigger this skill whenever the user wants to figure out how many additional transfer
+batches, packages, or units are required to cover a remaining capacity gap, even if they
+don&#39;t use technical language.
+---
+
+<span class="md-heading"># Cloud Migration Package Calculator</span>
+
+This skill solves a capacity-gap problem in cloud data migration planning. Given a total
+amount of data to migrate, the size of large and small transfer packages, and the number
+of large packages already allocated, it calculates the minimum number of small packages
+needed to complete the full migration without leaving any data behind. It uses ceiling
+division to ensure the result is always a whole number of packages, even when the
+remaining data is not a perfect multiple of the small package size.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- <span class="md-code">`math`</span> module from the Python standard library — used for ceiling division to ensure
+  the package count is always rounded up to the nearest whole number.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total data to migrate**</span>: A decimal number representing the full volume of data in
+  gigabytes (e.g., 15.6).
+- <span class="md-bold">**Large package capacity**</span>: The amount of data, in gigabytes, that one large transfer
+  package can carry (e.g., 2.4).
+- <span class="md-bold">**Number of large packages**</span>: A whole number indicating how many large packages will
+  be used in the migration run (e.g., 5).
+- <span class="md-bold">**Small package capacity**</span>: The amount of data, in gigabytes, that one small transfer
+  package can carry (e.g., 1.2).
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect Inputs</span>
+
+Ask the user to provide the four required values one at a time: the total volume of data
+to be migrated in GB, the capacity of one large package in GB, the number of large
+packages that will be used, and the capacity of one small package in GB. Accept decimal
+values for all GB figures and a whole number for the package count.
+
+<span class="md-heading">### Step 2 — Calculate Data Covered by Large Packages</span>
+
+Multiply the number of large packages by the capacity of each large package. This gives
+the total volume of data that the large packages will transfer.
+
+<span class="md-heading">### Step 3 — Calculate Remaining Data</span>
+
+Subtract the result from Step 2 from the total data to be migrated. This is the volume
+of data still left to transfer after all large packages have been used. If the remaining
+data is zero or negative — meaning the large packages alone are sufficient — report that
+no small packages are needed and stop.
+
+<span class="md-heading">### Step 4 — Calculate Minimum Small Packages Needed</span>
+
+Divide the remaining data by the capacity of one small package. Round the result
+<span class="md-bold">**up**</span> to the nearest whole number. This ceiling rounding is essential: any leftover
+fraction of data still requires a full additional package.
+
+<span class="md-heading">### Step 5 — Report the Result</span>
+
+Print the final answer with a brief, clear business-context message identifying how many
+small packages are needed to complete the migration — for example:
+<span class="md-italic">*"Minimum small packages needed to complete migration: 3"*</span>
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many small transfer batches do we need to finish the migration after running the large ones?"
+- "We&#39;re migrating 15.6 GB using large and small packages — how many small ones do we still need?"
+- "Calculate the minimum number of small packages to cover the remaining data after 5 large packages."
+- "We used up our large migration slots — how many small ones will fill the gap?"
+- "Figure out how many extra transfer packages we need to complete the data move."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [x] The YAML frontmatter appears <span class="md-bold">**once**</span> at the top
+- [x] There is <span class="md-bold">**no Python code**</span> anywhere in the skill body
+- [x] Every step reads as a natural-language instruction, not a code comment
+- [x] Conditional logic (remaining data ≤ 0) is expressed in plain English
+- [x] Inputs and outputs are clearly named and described
+- [x] The description field would realistically trigger this skill from a non-technical user prompt</code></pre>
+
+                <p>The skill's five steps map directly to the arithmetic above — collect, multiply, subtract, divide with ceiling, report — making it equally useful for analysts who prefer natural language over code.</p>
+
+                <!-- GO DEEPER -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-fourth-grade-math/division/remainders/a/remainders" target="_blank" rel="noopener">Khan Academy — Remainders and Division</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/CeilingFunction.html" target="_blank" rel="noopener">Wolfram MathWorld — Ceiling Function</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ceiling-function" target="_blank" rel="noopener">Mathematics Stack Exchange — Ceiling Function</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 11, 2025</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

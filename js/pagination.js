@@ -14,7 +14,22 @@
     } 
  * 
  */
-    const articlesDataBase = [   
+    const articlesDataBase = [  
+        {
+        articleTitle:  "Three Reps, One Baseline: The Multiplier Math Behind Every Sales Leaderboard",
+        articleDescription: "This problem explores the mathematical principles behind sales leaderboards, focusing on how multipliers can be leveraged.",
+        articleHref: "/a/the-multiplier-math-behind-every-sales-leaderboard.html"
+        },
+        {
+        articleTitle:  "Add Before You Convert: Unit Math For Biobank Sample Intake",
+        articleDescription: "Biobanks record weight in specific units for compliance. This problem demonstrates how unit conversion combined with mixed-number arithmetic underpins a routine but high-stakes data-entry task, and how a small Python tool can eliminate manual error",
+        articleHref: "/a/unit-math-for-biobank-sample-intake.html"
+        },
+        {
+        articleTitle:  "The Ceiling Function In Supply Chain",
+        articleDescription: "Capacity planning in cloud operations rarely lines up perfectly. This problem illustrates how ceiling division turns an imprecise remainder into an exact operational decision, and how that same logic can be packaged into a reusable Python tool and a portable Claude skill.",
+        articleHref: "/a/the-ceiling-function-in-supply-chain.html"
+        },
         {
         articleTitle:  "The Ceiling Function In Supply Chain: A Minimum-Container Problem For Pharmaceutical Distribution",
         articleDescription: "Container planning sits at the intersection of arithmetic and operational risk",
