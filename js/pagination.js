@@ -26,9 +26,9 @@
         articleHref: "/a/unit-math-for-biobank-sample-intake.html"
         },
         {
-        articleTitle:  "The Ceiling Function In Supply Chain",
+        articleTitle:  "The Ceiling Math Behind Cloud Migrations",
         articleDescription: "Capacity planning in cloud operations rarely lines up perfectly. This problem illustrates how ceiling division turns an imprecise remainder into an exact operational decision, and how that same logic can be packaged into a reusable Python tool and a portable Claude skill.",
-        articleHref: "/a/the-ceiling-function-in-supply-chain.html"
+        articleHref: "/a/the-ceiling-math-behind-cloud-migrations.html"
         },
         {
         articleTitle:  "The Ceiling Function In Supply Chain: A Minimum-Container Problem For Pharmaceutical Distribution",
