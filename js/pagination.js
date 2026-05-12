@@ -14,7 +14,22 @@
     } 
  * 
  */
-    const articlesDataBase = [  
+    const articlesDataBase = [ 
+        {
+        articleTitle:  " The Inventory Math Procurement Teams Skip",
+        articleDescription: "This article walks through the full chain: business problem transformation,step-by-step fraction arithmetic with a practical LCD shortcut, two Python implementations",
+        articleHref: "/a/the-inventory-math-procurement-teams-skip.html"
+        }, 
+        {
+        articleTitle:  "The Fraction Trap In Billable Hour Allocation",
+        articleDescription: "Resource allocation decisions hide some of the most consequential arithmetic in business.",
+        articleHref: "/a/the-fraction-trap-in-billable-hour-allocation.html"
+        },
+        {
+        articleTitle:  "The One-Step Equation That Turns Absences Into Headcount",
+        articleDescription: "how a single one-step equationtranslates that partial information into actionable team size, and how Python can make the same",
+        articleHref: "/a/the-one-step-equation-that-turns-absences-into-headcount.html"
+        },
         {
         articleTitle:  "Three Reps, One Baseline: The Multiplier Math Behind Every Sales Leaderboard",
         articleDescription: "This problem explores the mathematical principles behind sales leaderboards, focusing on how multipliers can be leveraged.",

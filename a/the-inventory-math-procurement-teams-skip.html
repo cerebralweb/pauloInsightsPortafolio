@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Learn how adding unlike fractions and converting fractional case orders to units resolves a real procurement comparison — with Python tools and a reusable XML skill.">
+    <meta name="keywords" content="fractions, unlike denominators, mixed numbers, unit conversion, inventory management, Python, procurement math, fractions.Fraction, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/from-fractions-to-units-the-inventory-math-procurement-teams-skip.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/from-fractions-to-units-the-inventory-math-procurement-teams-skip.html" />
+
+    <title>From Fractions to Units: The Inventory Math Procurement Teams Skip</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 12, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FROM FRACTIONS TO UNITS: THE INVENTORY MATH PROCUREMENT TEAMS SKIP
+                     
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     INTRO
+                ═══════════════════════════════════════════════════════════ -->
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Procurement decisions routinely arrive in fractional units — partial cases, split
+                    shipments, mixed-number quantities — and comparing two such orders requires more
+                    than intuition. The arithmetic is simple in principle, but only if the fractions
+                    share a common denominator and mixed numbers have been properly unpacked before
+                    the comparison begins.
+                    <dfn>This article walks through the full chain: business problem transformation,
+                    step-by-step fraction arithmetic with a practical LCD shortcut, two Python
+                    implementations (pure and standard-library), a mathematical background note, and
+                    a reusable XML skill that packages the entire workflow.</dfn></em>
+                </p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     BUSINESS PROBLEM
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="business-problem-section">The Business Problem</h2>
+
+                <p>Two purchasing managers are restocking inventory for an upcoming product launch.
+                The <strong>operations manager</strong> placed orders for <strong>7/8 of a case</strong>
+                of wireless earbuds and <strong>3/4 of a case</strong> of phone chargers.
+                The <strong>marketing manager</strong> placed a single order for
+                <strong>1½ cases</strong> of branded accessories. Each case holds
+                <strong>16 units</strong>. Which manager ordered more inventory in total,
+                and by how many units?</p>
+
+                <ul>
+                    <li>a) The marketing manager, 10 units</li>
+                    <li>b) The operations manager, 2 units</li>
+                    <li>c) The operations manager, 10 units</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+                    <p><strong>Correct Answer: b) The operations manager, 2 units ✅</strong></p>
+                </details>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     MATH STRUCTURE PRESERVED
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="math-structure">Math Structure Preserved</h2>
+
+                <p>This problem exercises <strong>addition of unlike fractions</strong> (7/8 + 3/4,
+                using LCD = 8), <strong>mixed-number conversion</strong> (1½ expressed as an improper
+                fraction), and <strong>unit conversion by multiplication</strong> (each fractional
+                case total multiplied by 16). The arithmetic structure of the original school problem —
+                two teachers buying fruit measured in pounds, with 16 oz per pound — is preserved
+                exactly; only the context and entities have changed.</p>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     STEP-BY-STEP BREAKDOWN — always visible, outside details
+                ═══════════════════════════════════════════════════════════ -->
+
+                <div class="bannerTwitero">
+                    <h2 id="step-by-step">Step-by-Step Mathematical Breakdown</h2>
+                    <p>The following sequence shows how the final unit counts are derived:</p>
+                    <ol>
+                        <li>
+                            <strong>Recognize the LCD shortcut:</strong> Check whether one denominator
+                            divides evenly into the other. Since 4 divides evenly into 8, the larger
+                            denominator (8) is <em>already</em> the LCD — no new number needs to be
+                            introduced at all. This is the key transferable insight: when one denominator
+                            is already a multiple of the other, you skip the full LCD calculation and
+                            reuse the larger one directly as the common denominator.
+                        </li>
+
+                        <li>
+                            <strong>Convert Order 2 to LCD 8:</strong> 3/4 = 6/8
+                        </li>
+
+                        <li>
+                            <strong>Add the operations manager's fractions:</strong>
+                            7/8 + 6/8 = 13/8 of a case
+                        </li>
+
+                        <li>
+                            <strong>Unpack the mixed number — four equivalent forms:</strong>
+                            The quantity 1½ is not a single fixed representation. You can think of it
+                            naturally as <em>"1 and ½"</em> — the intuitive reading and the best
+                            starting anchor before any formal conversion. From there it becomes 3/2
+                            as an improper fraction, 6/4 when scaled by 2, and 12/8 when scaled by 4.
+                            All four name the same quantity. Here, 12/8 is the most convenient because
+                            it already shares the denominator in use, making the unit conversion
+                            step clean.
+                        </li>
+
+                        <li>
+                            <strong>Convert operations manager total to units:</strong>
+                            13/8 × 16 = 208 ÷ 8 = <strong>26 units</strong>
+                        </li>
+
+                        <li>
+                            <strong>Convert marketing manager total to units:</strong>
+                            12/8 × 16 = 192 ÷ 8 = <strong>24 units</strong>
+                        </li>
+
+                        <li>
+                            <strong>Find the difference:</strong> 26 − 24 = <strong>2 units</strong>
+                        </li>
+
+                        <li>
+                            <strong>Conclusion:</strong> The operations manager ordered more inventory —
+                            26 units versus 24 units, a difference of 2 units.
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     WHY THIS MATH MATTERS
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="why-this-math-matters">Why This Math Matters for Procurement</h2>
+
+                <p>Purchasing and inventory decisions rarely arrive in whole numbers. Suppliers quote
+                partial cases, contracts specify fractional quantities, and reorder points are calculated
+                from usage rates that produce fractions. A purchasing manager who cannot add unlike
+                fractions accurately will miscount total inventory ordered, triggering either stockouts
+                or excess carrying costs. In this scenario, comparing two managers' orders requires
+                converting mixed fractional quantities to a common unit before any comparison is
+                meaningful — exactly the kind of calculation that appears in procurement dashboards,
+                warehouse management systems, and supply chain audits.</p>
+
+                <p>The LCD shortcut — reusing the larger denominator when one denominator divides evenly
+                into the other — is not just a classroom trick. In practice it eliminates one arithmetic
+                step from every such comparison, and across hundreds of SKUs and purchase orders that
+                saving compounds into measurable time gains for operations teams.</p>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     PYTHON — OPTION 1: PURE PYTHON
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="python-option-1">Python Version — Option 1: Pure Python</h2>
+
+                <p>The following script mirrors the arithmetic exactly: it finds the LCD using
+                <code>math.gcd</code>, adds the fractions, converts the mixed number, scales both
+                totals to units, and prints a plain-language comparison. Every step is explicit,
+                making the code readable as a teaching tool as well as a working calculator.</p>
+
+<pre><code>def compare_inventory_orders(num1, den1, num2, den2, whole, num3, den3, units_per_case):
+    from math import gcd
+    def add_fractions(n1, d1, n2, d2):
+        common = d1 * d2 // gcd(d1, d2)
+        total_num = n1 * (common // d1) + n2 * (common // d2)
+        return total_num, common
+    ops_num, ops_den = add_fractions(num1, den1, num2, den2)
+    mkt_num = whole * den3 + num3
+    mkt_den = den3
+    ops_units = ops_num * units_per_case // ops_den
+    mkt_units = mkt_num * units_per_case // mkt_den
+    return ops_units, mkt_units
+
+print("=== Inventory Order Comparison ===")
+print("Enter the operations manager's two fractional case orders.")
+num1 = int(input("  Order 1 — numerator: "))
+den1 = int(input("  Order 1 — denominator: "))
+num2 = int(input("  Order 2 — numerator: "))
+den2 = int(input("  Order 2 — denominator: "))
+print("Enter the marketing manager's order as a mixed number.")
+whole = int(input("  Whole part: "))
+num3 = int(input("  Fraction — numerator: "))
+den3 = int(input("  Fraction — denominator: "))
+units_per_case = int(input("Units per case: "))
+
+ops, mkt = compare_inventory_orders(num1, den1, num2, den2, whole, num3, den3, units_per_case)
+diff = abs(ops - mkt)
+winner = "Operations manager" if ops > mkt else "Marketing manager"
+print(f"\nOperations manager total: {ops} units")
+print(f"Marketing manager total:  {mkt} units")
+print(f"Winner: {winner} ordered more — difference: {diff} units")</code></pre>
+
+                <p>Paste this block into a Python interactive session in Windows Terminal,
+                enter each value when prompted, and the script returns both managers' unit
+                totals plus the winner and margin — reusable for any case size or fractional quantity.</p>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     PYTHON — OPTION 2: fractions.Fraction
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="python-option-2">Python Version — Option 2: <code>fractions.Fraction</code></h2>
+
+                <p><code>fractions.Fraction</code> from the Python standard library handles all
+                denominator logic internally and guarantees exact arithmetic — no manual LCD
+                calculation, no risk of integer rounding errors. This version is preferable when
+                inputs may include larger or less predictable denominators, or when the code
+                will be maintained by analysts unfamiliar with manual fraction reduction.</p>
+
+<pre><code>from fractions import Fraction
+
+def compare_inventory_orders(order1, order2, mixed_order, units_per_case):
+    ops_total = order1 + order2
+    ops_units = ops_total * units_per_case
+    mkt_units = mixed_order * units_per_case
+    return int(ops_units), int(mkt_units)
+
+print("=== Inventory Order Comparison ===")
+print("Enter the operations manager's two fractional case orders.")
+num1 = int(input("  Order 1 — numerator: "))
+den1 = int(input("  Order 1 — denominator: "))
+num2 = int(input("  Order 2 — numerator: "))
+den2 = int(input("  Order 2 — denominator: "))
+print("Enter the marketing manager's order as a mixed number.")
+whole = int(input("  Whole part: "))
+num3 = int(input("  Fraction — numerator: "))
+den3 = int(input("  Fraction — denominator: "))
+units_per_case = int(input("Units per case: "))
+
+order1 = Fraction(num1, den1)
+order2 = Fraction(num2, den2)
+mixed_order = whole + Fraction(num3, den3)
+
+ops, mkt = compare_inventory_orders(order1, order2, mixed_order, units_per_case)
+diff = abs(ops - mkt)
+winner = "Operations manager" if ops > mkt else "Marketing manager"
+print(f"\nOperations manager total: {ops} units")
+print(f"Marketing manager total:  {mkt} units")
+print(f"Winner: {winner} ordered more — difference: {diff} units")</code></pre>
+
+                <p>Both options produce identical output for this problem. Option 2 is the recommended
+                choice for production use due to its built-in exactness and simpler function body.</p>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     MATHEMATICAL BACKGROUND — always visible, outside details
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="mathematical-background">Mathematical Background</h2>
+
+                <p>This problem combines two foundational arithmetic skills. The first is
+                <strong>addition of unlike fractions</strong>: fractions can only be added when they
+                share a common denominator. A practical shortcut worth internalizing is that when one
+                denominator is already a multiple of the other — as 8 is a multiple of 4 — you can
+                simply reuse the larger denominator as the common denominator, converting only the
+                fraction with the smaller one (3/4 → 6/8). No separate LCD calculation is needed,
+                and no new number is introduced at all. This is what makes the shortcut a transferable
+                insight rather than a one-off trick: any time you spot the divisibility relationship,
+                you can skip straight to conversion.</p>
+
+                <p>The second skill is reading <strong>mixed numbers flexibly</strong>. The quantity
+                1½ is not a single fixed form. You can think of it as <em>"1 and ½"</em> — the
+                natural language anchor and the best place to start before any formal manipulation.
+                From there it becomes 3/2 as an improper fraction, 6/4 when scaled by 2, and 12/8
+                when scaled by 4. All four representations name exactly the same quantity.
+                Moving fluidly between them — and choosing the form that shares the denominator
+                already in play (12/8 here) — eliminates an extra conversion step and keeps the
+                arithmetic compact.</p>
+
+                <p>A useful conceptual fact: the requirement that fractions share a denominator before
+                addition reflects that you cannot combine quantities measured in different-sized parts.
+                Adding 7 eighths to 6 eighths is no different from adding 7 apples to 6 apples —
+                the unit must match first.</p>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     XML SKILL DOCUMENT
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="xml-skill">The Reusable XML Skill: <code>inventory-order-comparator</code></h2>
+
+                <p>The skill document below packages the entire workflow — inputs, arithmetic stages,
+                output format, and example trigger prompts — into a structured XML file that can be
+                loaded into a Claude skill library and invoked by non-technical users without knowledge
+                of the underlying Python.</p>
+
+<pre class="md-code"><code><span class="md-italic">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="md-heading">&lt;skill&gt;</span>
+
+  <span class="md-heading">&lt;metadata&gt;</span>
+    <span class="md-heading">&lt;name&gt;</span>inventory-order-comparator<span class="md-heading">&lt;/name&gt;</span>
+    <span class="md-heading">&lt;description&gt;</span>
+      Compares two managers' fractional inventory orders, converts totals to
+      individual units, and identifies which manager ordered more and by how much.
+      Trigger this skill whenever the user wants to compare fractional or mixed-number
+      quantities, convert case-based orders to unit counts, or determine a procurement
+      winner from partial-case inputs — even if they don't use technical language.
+    <span class="md-heading">&lt;/description&gt;</span>
+  <span class="md-heading">&lt;/metadata&gt;</span>
+
+  <span class="md-heading">&lt;dependencies&gt;</span>
+    <span class="md-heading">&lt;dependency&gt;</span>
+      <span class="md-heading">&lt;name&gt;</span>math.gcd<span class="md-heading">&lt;/name&gt;</span>
+      <span class="md-heading">&lt;source&gt;</span>Python standard library<span class="md-heading">&lt;/source&gt;</span>
+      <span class="md-heading">&lt;role&gt;</span>Computes the greatest common divisor to find the least common
+      denominator when adding unlike fractions — Option 1 only.<span class="md-heading">&lt;/role&gt;</span>
+    <span class="md-heading">&lt;/dependency&gt;</span>
+    <span class="md-heading">&lt;dependency&gt;</span>
+      <span class="md-heading">&lt;name&gt;</span>fractions.Fraction<span class="md-heading">&lt;/name&gt;</span>
+      <span class="md-heading">&lt;source&gt;</span>Python standard library<span class="md-heading">&lt;/source&gt;</span>
+      <span class="md-heading">&lt;role&gt;</span>Handles exact fraction arithmetic without manual denominator
+      logic — Option 2 only. Eliminates floating-point rounding errors.<span class="md-heading">&lt;/role&gt;</span>
+    <span class="md-heading">&lt;/dependency&gt;</span>
+  <span class="md-heading">&lt;/dependencies&gt;</span>
+
+  <span class="md-heading">&lt;inputs&gt;</span>
+    <span class="md-heading">&lt;input <span class="md-bold">id</span>="1"&gt;</span>
+      <span class="md-heading">&lt;label&gt;</span>Operations manager — Order 1<span class="md-heading">&lt;/label&gt;</span>
+      <span class="md-heading">&lt;format&gt;</span>Two integers: numerator and denominator (e.g., 7 and 8)<span class="md-heading">&lt;/format&gt;</span>
+    <span class="md-heading">&lt;/input&gt;</span>
+    <span class="md-heading">&lt;input <span class="md-bold">id</span>="2"&gt;</span>
+      <span class="md-heading">&lt;label&gt;</span>Operations manager — Order 2<span class="md-heading">&lt;/label&gt;</span>
+      <span class="md-heading">&lt;format&gt;</span>Two integers: numerator and denominator (e.g., 3 and 4)<span class="md-heading">&lt;/format&gt;</span>
+    <span class="md-heading">&lt;/input&gt;</span>
+    <span class="md-heading">&lt;input <span class="md-bold">id</span>="3"&gt;</span>
+      <span class="md-heading">&lt;label&gt;</span>Marketing manager — Mixed-number order<span class="md-heading">&lt;/label&gt;</span>
+      <span class="md-heading">&lt;format&gt;</span>Three integers: whole part, numerator, denominator (e.g., 1, 1, 2)<span class="md-heading">&lt;/format&gt;</span>
+    <span class="md-heading">&lt;/input&gt;</span>
+    <span class="md-heading">&lt;input <span class="md-bold">id</span>="4"&gt;</span>
+      <span class="md-heading">&lt;label&gt;</span>Units per case<span class="md-heading">&lt;/label&gt;</span>
+      <span class="md-heading">&lt;format&gt;</span>One integer (e.g., 16)<span class="md-heading">&lt;/format&gt;</span>
+    <span class="md-heading">&lt;/input&gt;</span>
+  <span class="md-heading">&lt;/inputs&gt;</span>
+
+  <span class="md-heading">&lt;steps&gt;</span>
+
+    <span class="md-heading">&lt;step <span class="md-bold">id</span>="1"&gt;</span>
+      <span class="md-heading">&lt;title&gt;</span>Receive Inputs<span class="md-heading">&lt;/title&gt;</span>
+      <span class="md-heading">&lt;instruction&gt;</span>
+        Prompt the user for each input in order: Order 1 numerator and denominator,
+        Order 2 numerator and denominator, the marketing manager's whole part and
+        fraction numerator and denominator, and the number of units per case.
+        Store all values as integers. Display a short heading that names the
+        business scenario before prompting begins.
+      <span class="md-heading">&lt;/instruction&gt;</span>
+    <span class="md-heading">&lt;/step&gt;</span>
+
+    <span class="md-heading">&lt;step <span class="md-bold">id</span>="2"&gt;</span>
+      <span class="md-heading">&lt;title&gt;</span>Add the Operations Manager's Two Fractional Orders<span class="md-heading">&lt;/title&gt;</span>
+      <span class="md-heading">&lt;instruction&gt;</span>
+        Find the least common denominator (LCD) of the two order fractions.
+        Check whether one denominator divides evenly into the other — if so,
+        the larger denominator is already the LCD and no new number is needed.
+        Convert both fractions to the LCD, then add their numerators.
+        The result is the operations manager's total order expressed as a
+        single fraction.
+      <span class="md-heading">&lt;/instruction&gt;</span>
+    <span class="md-heading">&lt;/step&gt;</span>
+
+    <span class="md-heading">&lt;step <span class="md-bold">id</span>="3"&gt;</span>
+      <span class="md-heading">&lt;title&gt;</span>Convert the Marketing Manager's Mixed Number<span class="md-heading">&lt;/title&gt;</span>
+      <span class="md-heading">&lt;instruction&gt;</span>
+        Express the mixed number as an improper fraction: multiply the whole
+        part by the denominator and add the numerator. The result is the
+        marketing manager's total order as a single fraction over the original
+        denominator.
+      <span class="md-heading">&lt;/instruction&gt;</span>
+    <span class="md-heading">&lt;/step&gt;</span>
+
+    <span class="md-heading">&lt;step <span class="md-bold">id</span>="4"&gt;</span>
+      <span class="md-heading">&lt;title&gt;</span>Convert Both Totals to Units<span class="md-heading">&lt;/title&gt;</span>
+      <span class="md-heading">&lt;instruction&gt;</span>
+        Multiply each fractional total by the number of units per case.
+        Perform the multiplication as integer arithmetic (numerator times
+        units per case, then divide by the denominator) to avoid any
+        floating-point error. The result for each manager is a whole number
+        of units.
+      <span class="md-heading">&lt;/instruction&gt;</span>
+    <span class="md-heading">&lt;/step&gt;</span>
+
+    <span class="md-heading">&lt;step <span class="md-bold">id</span>="5"&gt;</span>
+      <span class="md-heading">&lt;title&gt;</span>Compare and Report<span class="md-heading">&lt;/title&gt;</span>
+      <span class="md-heading">&lt;instruction&gt;</span>
+        Subtract the smaller unit total from the larger one to find the
+        difference. Identify the manager with the higher total as the winner.
+        Print both totals, identify the winner by role name, and state the
+        difference in units. If totals are equal, report a tie instead.
+      <span class="md-heading">&lt;/instruction&gt;</span>
+    <span class="md-heading">&lt;/step&gt;</span>
+
+  <span class="md-heading">&lt;/steps&gt;</span>
+
+  <span class="md-heading">&lt;output&gt;</span>
+    <span class="md-heading">&lt;format&gt;</span>Printed to terminal — three lines<span class="md-heading">&lt;/format&gt;</span>
+    <span class="md-heading">&lt;line <span class="md-bold">id</span>="1"&gt;</span>Operations manager total: [N] units<span class="md-heading">&lt;/line&gt;</span>
+    <span class="md-heading">&lt;line <span class="md-bold">id</span>="2"&gt;</span>Marketing manager total: [N] units<span class="md-heading">&lt;/line&gt;</span>
+    <span class="md-heading">&lt;line <span class="md-bold">id</span>="3"&gt;</span>Winner: [Role] ordered more — difference: [N] units<span class="md-heading">&lt;/line&gt;</span>
+  <span class="md-heading">&lt;/output&gt;</span>
+
+  <span class="md-heading">&lt;example_trigger_prompts&gt;</span>
+    <span class="md-heading">&lt;prompt&gt;</span>"Compare how much inventory each manager ordered and tell me who ordered more."<span class="md-heading">&lt;/prompt&gt;</span>
+    <span class="md-heading">&lt;prompt&gt;</span>"I have two partial-case orders from different teams — which one is larger?"<span class="md-heading">&lt;/prompt&gt;</span>
+    <span class="md-heading">&lt;prompt&gt;</span>"Convert these fractional case quantities to units and find the difference."<span class="md-heading">&lt;/prompt&gt;</span>
+    <span class="md-heading">&lt;prompt&gt;</span>"One manager ordered 7/8 and 3/4 of a case, the other ordered 1½ — who wins?"<span class="md-heading">&lt;/prompt&gt;</span>
+    <span class="md-heading">&lt;prompt&gt;</span>"Run the inventory order comparison for 16 units per case."<span class="md-heading">&lt;/prompt&gt;</span>
+  <span class="md-heading">&lt;/example_trigger_prompts&gt;</span>
+
+  <span class="md-heading">&lt;quality_checks&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>No Python code appears anywhere in this document.<span class="md-heading">&lt;/check&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>Every step reads as a natural-language instruction, not a code comment.<span class="md-heading">&lt;/check&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>Fraction addition logic preserves the LCD shortcut noted in the math breakdown.<span class="md-heading">&lt;/check&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>Mixed-number conversion is explicit and complete.<span class="md-heading">&lt;/check&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>Inputs and outputs are clearly named, typed, and described.<span class="md-heading">&lt;/check&gt;</span>
+    <span class="md-heading">&lt;check&gt;</span>The description would trigger this skill from a non-technical user prompt.<span class="md-heading">&lt;/check&gt;</span>
+  <span class="md-heading">&lt;/quality_checks&gt;</span>
+
+<span class="md-heading">&lt;/skill&gt;</span></code></pre>
+
+                <!-- ═══════════════════════════════════════════════════════════
+                     FURTHER READING
+                ═══════════════════════════════════════════════════════════ -->
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-add-and-subtract-fractions/a/adding-fractions-with-unlike-denominators-review" target="_blank" rel="noopener">Khan Academy — Adding Fractions with Unlike Denominators</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 12, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

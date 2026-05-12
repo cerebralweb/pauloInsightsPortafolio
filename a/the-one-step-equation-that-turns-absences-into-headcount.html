@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Learn how to calculate total team size from a known absence fraction. Includes a business math problem, step-by-step breakdown, Python script, and reusable Claude skill.">
+    <meta name="keywords" content="business math, fractions, team headcount, Python, one-step equations, absence tracking, SaaS, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-one-step-equation-that-turns-absences-into-headcount.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-one-step-equation-that-turns-absences-into-headcount.html" />
+
+    <title>The One-Step Equation That Turns Absences into Headcount</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 12, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE ONE-STEP EQUATION THAT TURNS ABSENCES INTO HEADCOUNT
+                     
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- INTRO -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Workforce decisions depend on accurate headcount data, but managers rarely have the full picture in front of them. A
+                    partial figure — the number of people absent on a given day — combined with a known fraction of the team it represents
+                    is often all that is needed to reconstruct total capacity. <dfn>This article shows how a single one-step equation
+                        translates that partial information into actionable team size, and how Python can make the same calculation reusable
+                        across any team or fraction.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- THE PROBLEM -->
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A SaaS company runs two sales teams. On Tuesday, one-third of the <strong>Account Executives</strong> team was out sick. Two-fifths of the <strong>Business Development Representatives</strong> team was also out sick. If exactly 4 people were absent from each team that day, how many people are on each team?</p>
+
+                <ul>
+                    <li>a) 12 and 9</li>
+                    <li>b) 12 and 10</li>
+                    <li>c) 10 and 12</li>
+                    <li>d) 10 and 9</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 12 and 10 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>The problem applies <strong>unit fraction equations</strong> twice: one-third of Team A equals 4, so Team A equals <strong>4 × 3 = 12</strong>; two-fifths of Team B equals 4, so Team B equals <strong>4 × (5/2) = 10</strong>. Both operations recover the whole by multiplying the known part by the reciprocal of the absence fraction.</p>
+
+                    <p class="insight"><em>The key insight: when a fraction of a whole equals a known quantity, the whole is always recovered by multiplying that quantity by the reciprocal of the fraction.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final headcounts are derived:</p>
+                        <ol>
+                            <li><strong>Absence fraction, Team A (AEs):</strong> 1/3 of total = 4 absent</li>
+                            <li><strong>Total AE headcount:</strong> 4 ÷ (1/3) = 4 × 3 = <strong>12</strong></li>
+                            <li><strong>Absence fraction, Team B (BDRs):</strong> 2/5 of total = 4 absent</li>
+                            <li><strong>Total BDR headcount:</strong> 4 ÷ (2/5) = 4 × (5/2) = 20/2 = <strong>10</strong></li>
+                            <li><strong>Conclusion:</strong> The Account Executives team has 12 members and the BDR team has 10 members — answer b).</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- WHY THIS MATH MATTERS -->
+                <h2 id="why-it-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>Knowing how to work backward from a partial count to a total headcount is a core operations and HR skill. When a manager knows that a fixed number of people represents a known fraction of a team, they can instantly calculate total team size — which matters for coverage planning, workload redistribution, and capacity forecasting. In this scenario, knowing that 4 absences represent one-third (or two-fifths) of a team tells you exactly how many people you need to backfill or reassign work to.</p>
+
+                <!-- MATHEMATICAL BACKGROUND -->
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>This problem uses the concept of solving a one-step equation with a simple fraction. The core idea is that multiplying both sides of an equation by the reciprocal of a fraction isolates the unknown: if (2/5) × n = 4, then n = 4 × (5/2). Ancient Egyptians primarily used unit fractions — fractions with a numerator of 1 — for practical calculations, and these appear prominently in the Rhind Mathematical Papyrus, a document dating to around 1,650 BC that served as a training manual for scribes solving allocation and measurement problems. The fraction-as-operator concept underpinning this problem has therefore been in continuous practical use for nearly 4,000 years.</p>
+
+                <!-- PYTHON VERSION -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalizes the calculation to any two teams, any absence fractions, and any absence counts — turning a one-time arithmetic step into a reusable operations tool.</p>
+
+<pre><code>def calculate_team_size(absent_count, numerator, denominator):
+    return absent_count * denominator / numerator
+
+print("How many people are on each sales team?")
+print("Enter the absence fraction and number of absences for each team.\n")
+
+team_a_numerator = int(input("Team A - Fraction numerator (e.g. 1): "))
+team_a_denominator = int(input("Team A - Fraction denominator (e.g. 3): "))
+team_a_absent = int(input("Team A - Number of absences: "))
+
+team_b_numerator = int(input("Team B - Fraction numerator (e.g. 2): "))
+team_b_denominator = int(input("Team B - Fraction denominator (e.g. 5): "))
+team_b_absent = int(input("Team B - Number of absences: "))
+
+team_a_size = calculate_team_size(team_a_absent, team_a_numerator, team_a_denominator)
+team_b_size = calculate_team_size(team_b_absent, team_b_numerator, team_b_denominator)
+
+team_a_size = int(team_a_size) if team_a_size.is_integer() else team_a_size
+team_b_size = int(team_b_size) if team_b_size.is_integer() else team_b_size
+
+print(f"\nAccount Executives team headcount: {team_a_size}")
+print(f"Business Development Representatives team headcount: {team_b_size}")</code></pre>
+
+                <p>Run the script in Windows Terminal by typing <code>python</code>, pasting the code, and entering each value when prompted. For edge cases involving non-trivial fractions, swap in the <code>fractions.Fraction</code> standard-library variant to guarantee exact integer results.</p>
+
+                <!-- MD SKILL FILE -->
+                <h2 id="claude-skill">Claude Skill</h2>
+
+                <p>The skill document below packages the same calculation logic as a reusable Claude instruction set, with structured XML inputs, step-by-step execution rules, and example trigger phrases.</p>
+
+<pre class="md-code"><code>---
+name: team-headcount-calculator
+description: Calculates total team size by working backward from a known number of
+absences and the fraction of the team those absences represent. Trigger this skill
+whenever the user wants to find a total group size from a partial count and a known
+fraction, even if they don&#39;t use technical language.
+---
+
+<span class="md-heading"># Team Headcount Calculator</span>
+
+Given the absence fraction and the number of people absent for one or more teams,
+this skill calculates the full headcount of each team. The user provides the numerator
+and denominator of the absence fraction and the number of absences; the skill returns
+the total team size for each group.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries required. Uses only Python built-in arithmetic and, optionally,
+the standard-library <span class="md-code">`fractions`</span> module for exact results with non-trivial fractions.
+
+---
+
+&lt;inputs&gt;
+
+<span class="md-heading">## Inputs</span>
+
+  &lt;input name=&quot;absence-fraction-numerator&quot;&gt;
+  The top number of the fraction representing the absent portion of the team
+  (e.g., 1 for one-third, 2 for two-fifths).
+  &lt;/input&gt;
+
+  &lt;input name=&quot;absence-fraction-denominator&quot;&gt;
+  The bottom number of that fraction (e.g., 3 for one-third, 5 for two-fifths).
+  &lt;/input&gt;
+
+  &lt;input name=&quot;number-of-absences&quot;&gt;
+  The actual headcount of people who were absent from that team.
+  &lt;/input&gt;
+
+  &lt;note&gt;Repeat all three inputs for each team being calculated.&lt;/note&gt;
+
+&lt;/inputs&gt;
+
+---
+
+&lt;steps&gt;
+
+<span class="md-heading">## Steps</span>
+
+  &lt;step id=&quot;1&quot; name=&quot;Greet and Orient the User&quot;&gt;
+  Print a short opening question that frames the scenario: explain that the program
+  will determine total team size from partial absence data, and prompt the user to
+  enter figures for each team in turn.
+  &lt;/step&gt;
+
+  &lt;step id=&quot;2&quot; name=&quot;Collect Inputs for Each Team&quot;&gt;
+  For each team, prompt the user to enter three whole numbers: the numerator of the
+  absence fraction, the denominator of the absence fraction, and the number of people
+  who were absent. Use labels that clearly name the team and the role of each number
+  (e.g., &quot;Team A &#8211; Fraction numerator&quot;).
+  &lt;/step&gt;
+
+  &lt;step id=&quot;3&quot; name=&quot;Calculate Total Team Size&quot;&gt;
+  For each team, divide the number of absences by the absence fraction. Multiply the
+  number of absences by the reciprocal of the fraction: total = absences &#215;
+  (denominator &#247; numerator). If the result is a whole number, display it as an
+  integer; if it is a decimal, preserve the decimal value.
+  &lt;/step&gt;
+
+  &lt;step id=&quot;4&quot; name=&quot;Display the Results&quot;&gt;
+  Print the total headcount for each team with a short, friendly label that names the
+  team in plain business language (e.g., &quot;Account Executives team headcount: 12&quot;).
+  Do not print the number alone.
+  &lt;/step&gt;
+
+&lt;/steps&gt;
+
+---
+
+&lt;quality_check&gt;
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] All three inputs are collected for every team before calculating
+- [ ] The calculation multiplies absences by the reciprocal of the fraction &#8212; not the fraction itself
+- [ ] Whole-number results display as integers, not floats
+- [ ] Every output line includes a team label, not just a bare number
+
+&lt;/quality_check&gt;
+
+---
+
+&lt;example_trigger_prompts&gt;
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- &quot;Figure out how many people are on each team if I know how many were absent&quot;
+- &quot;Work backward from absences to total team size&quot;
+- &quot;I know one-third of my team was out sick and 4 people were absent &#8212; how big is my team?&quot;
+- &quot;Calculate full headcount from a partial count and a fraction&quot;
+- &quot;How do I find total group size when I only know the fraction that was missing?&quot;
+
+&lt;/example_trigger_prompts&gt;</code></pre>
+
+                <!-- GO DEEPER -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-factors-and-multiples/cc-6th-unit-fractions/a/unit-fractions-review" target="_blank" rel="noopener">Khan Academy — Unit Fractions and One-Step Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/UnitFraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Unit Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 12, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

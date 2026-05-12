@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A consulting project splits 16 billable hours using a 2/5 fraction. Learn the shortcut method, spot two classic answer traps, and automate the allocation with Python.">
+    <meta name="keywords" content="fractions, billable hours, resource allocation, project management, Python, distributive property, fraction of a whole, math history, Egyptian mathematics, Rhind Papyrus">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-fifth-of-what-the-fraction-trap-in-billable-hour-allocation.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-fifth-of-what-the-fraction-trap-in-billable-hour-allocation.html" />
+
+    <title>One-Fifth of What? The Fraction Trap in Billable Hour Allocation</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 12, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ONE-FIFTH OF WHAT? THE FRACTION TRAP IN BILLABLE HOUR ALLOCATION
+                
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- ═══════════════════════════════════════════════════
+                     INTRO
+                ═══════════════════════════════════════════════════ -->
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Resource allocation decisions hide some of the most consequential arithmetic in business.
+                    When a fixed capacity — time, budget, headcount — is divided by a fraction, the size of each
+                    portion and the gap between them determines how projects are staffed, scoped, and delivered.
+                    <dfn>This article shows how a single fractional split becomes a project management calculation,
+                    a Python automation, and a reusable skill — and why reading the unit label is the most
+                    important step in all three.</dfn></em>
+                </p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- ═══════════════════════════════════════════════════
+                     THE PROBLEM
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A consulting team has 16 billable hours available for a client engagement. The project manager
+                allocates 2/5 of those hours to the discovery phase and the remaining hours to the delivery phase.</p>
+
+                <p>What is the difference in hours between the time allocated to the <strong>delivery phase</strong>
+                and the time allocated to the <strong>discovery phase</strong>?</p>
+
+                <ul>
+                    <li>a) 9 and 1/5</li>
+                    <li>b) 1/5</li>
+                    <li>c) 3 and 1/5</li>
+                    <li>d) 9.25</li>
+                </ul>
+
+                <!-- ═══════════════════════════════════════════════════
+                     ANSWER REVEAL
+                ═══════════════════════════════════════════════════ -->
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 3 and 1/5 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>This problem applies <strong>fraction of a whole</strong> — multiplying a total by a given
+                    fraction — and then <strong>subtraction of complementary parts</strong> to find the difference.
+                    The two fractions (2/5 and 3/5) sum to 1, so they partition the 16 hours without remainder;
+                    the difference equals (3/5 − 2/5) × 16 = 1/5 × 16 = 3.2 hours.</p>
+
+                    <p class="insight"><em>Key insight: subtracting the fractions before multiplying (1/5 × 16)
+                    is equivalent to multiplying each fraction separately and then subtracting — the distributive
+                    property makes both paths identical.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+
+                        <p><strong>Shortcut method — subtract the fractions first, then multiply:</strong></p>
+                        <ol>
+                            <li><strong>Difference in fractions:</strong> 3/5 − 2/5 = 1/5</li>
+                            <li><strong>Apply to total:</strong> 1/5 × 16 = 16/5 = 3.2 hours → <strong>3 and 1/5</strong></li>
+                        </ol>
+
+                        <p><strong>Long method — multiply each fraction separately, then subtract:</strong></p>
+                        <ol>
+                            <li><strong>Discovery phase allocation:</strong> 2/5 × 16 = 32/5 = 6.4 hours</li>
+                            <li><strong>Delivery phase allocation:</strong> 3/5 × 16 = 48/5 = 9.6 hours</li>
+                            <li><strong>Difference:</strong> 9.6 − 6.4 = 3.2 hours → <strong>3 and 1/5</strong></li>
+                        </ol>
+
+                        <p>Both methods yield the same result. The shortcut works because of the distributive
+                        property: 3/5 × 16 − 2/5 × 16 = (3/5 − 2/5) × 16.</p>
+
+                        <p><strong>Conclusion:</strong> The delivery phase receives 3 and 1/5 more hours than
+                        the discovery phase — answer <strong>c)</strong>.</p>
+                    </div>
+
+                    <h2>⚠️ Two Pitfalls in the Answer Choices</h2>
+
+                    <p><strong>Pitfall 1 — Answer b) "1/5":</strong> The fraction 1/5 appears in the shortcut
+                    and can feel like a complete answer, but it is not. 1/5 is only the fractional <em>difference</em>;
+                    the actual difference is 1/5 <em>of 16 hours</em> = 3.2 hours. Notice also that 1/5 of a
+                    <strong>pound</strong> (3.2 oz) and 1/5 of an <strong>ounce</strong> (0.2 oz) are two entirely
+                    different numbers — one is 16× larger than the other. Answer b) exploits exactly this confusion:
+                    it gives you the fraction and hopes you forget to ask, <em>one-fifth of what?</em></p>
+
+                    <p><strong>Pitfall 2 — Answer c) "3 and 1/5":</strong> The result 3.2 hours would not
+                    normally be written as "3 and 1/5" in everyday or business contexts — you would say 3.2.
+                    Yet c) is still the best available answer, and on a test that means it is correct. Do not
+                    let unconventional phrasing push you toward a numerically wrong choice.</p>
+
+                    <h2>📝 Test-Taking Lesson: The Words Tell You the Unit</h2>
+
+                    <p>When working through a problem quickly, it is tempting to focus only on the numbers and
+                    ignore the words. But the words tell you <em>what unit you are dealing with</em>. Whenever
+                    you see a fraction like 1/5, pause and ask: <strong>one-fifth of what?</strong> Is it 1/5 lb,
+                    1/5 oz, 1/5 of the total? That one-second check — "one-fifth of <em>what</em>?" — is what
+                    separates the right answer from a trap. All of the following are equivalent and valid:</p>
+
+                    <ul>
+                        <li>1/5 of 16 ounces</li>
+                        <li>(1/5) × 16 oz</li>
+                        <li>3.2 oz</li>
+                        <li>3 and 1/5 oz</li>
+                    </ul>
+
+                </details>
+
+                <!-- ═══════════════════════════════════════════════════
+                     WHY THIS MATH MATTERS
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="why-it-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>Resource allocation is one of the most common decisions in project management and consulting.
+                When a fixed capacity — billable hours, budget, headcount — must be split between phases or
+                workstreams, knowing the exact size of each portion and the gap between them is essential.
+                The difference between the delivery and discovery allocations tells the project manager how much
+                more execution capacity is committed relative to research, which directly informs staffing,
+                scheduling, and client expectations. Getting this wrong by even a fraction can cause scope creep
+                or under-resourcing.</p>
+
+                <!-- ═══════════════════════════════════════════════════
+                     MATHEMATICAL BACKGROUND
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>This problem applies <strong>fraction of a whole</strong> — finding a part of a quantity by
+                multiplying the total by a given fraction — combined with the <strong>distributive property</strong>,
+                which allows you to factor out a common multiplier and subtract the fractions before multiplying,
+                saving a step.</p>
+
+                <p>The history of fractions spans several civilizations. The earliest known systematic use appears
+                in ancient Egypt, where scribes recorded calculations almost exclusively using unit fractions
+                (fractions with numerator 1, such as 1/2, 1/3, 1/5) in documents like the Rhind Mathematical
+                Papyrus, dating to around 1650 BCE. Expressing 2/5 as an Egyptian scribe would have required
+                decomposing it into a sum of distinct unit fractions — a non-trivial exercise. Ancient Babylonian
+                mathematics used a base-60 (sexagesimal) positional system that allowed fractional quantities
+                to be expressed with great precision, and traces of it survive today in how we measure time and
+                angles. Greek mathematicians, particularly in the tradition of Euclid, treated ratios and
+                proportions geometrically rather than as standalone numbers. It was medieval Islamic scholars
+                — notably al-Khwārizmī and al-Uqlidisi — who advanced the notation and arithmetic of fractions
+                closer to the form we use today, work that was later transmitted to Europe through Latin
+                translations in the 12th century.</p>
+
+                <!-- ═══════════════════════════════════════════════════
+                     PYTHON VERSION — OPTION 1
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The following script generalizes the problem: enter any total, any fraction numerator, and
+                any denominator, and it returns both allocations and the difference between them. It mirrors
+                the same arithmetic used in the step-by-step breakdown above and runs directly in Windows
+                Terminal.</p>
+
+                <p><strong>Option 1 — Pure Python</strong> (no imports required):</p>
+
+<pre><code>def allocation_difference(total_hours, numerator, denominator):
+    phase_1 = (numerator / denominator) * total_hours
+    phase_2 = ((denominator - numerator) / denominator) * total_hours
+    difference = phase_2 - phase_1
+    return phase_1, phase_2, difference
+
+print("--- Consulting Project: Billable Hours Allocation ---")
+total_hours = float(input("Total billable hours available: "))
+numerator   = float(input("Numerator of the first-phase fraction (e.g. 2 for 2/5): "))
+denominator = float(input("Denominator of the fraction (e.g. 5 for 2/5): "))
+
+phase_1, phase_2, difference = allocation_difference(total_hours, numerator, denominator)
+
+def fmt(n):
+    return int(n) if n == int(n) else round(n, 4)
+
+print(f"\nDiscovery phase allocation : {fmt(phase_1)} hours")
+print(f"Delivery phase allocation  : {fmt(phase_2)} hours")
+print(f"Difference (delivery - discovery): {fmt(difference)} hours")</code></pre>
+
+                <p><strong>Option 2 — Exact Fractions</strong> using Python's built-in
+                <code>fractions.Fraction</code> module. When the denominator does not divide evenly into
+                the total, floating-point arithmetic can introduce small rounding errors; this variant
+                eliminates them entirely and displays each result as both an exact fraction and a decimal
+                approximation side by side:</p>
+
+<pre><code>from fractions import Fraction
+
+def allocation_difference(total_hours, numerator, denominator):
+    total  = Fraction(total_hours).limit_denominator(1000)
+    f1     = Fraction(numerator, denominator)
+    f2     = 1 - f1
+    phase_1    = f1 * total
+    phase_2    = f2 * total
+    difference = phase_2 - phase_1
+    return phase_1, phase_2, difference
+
+print("--- Consulting Project: Billable Hours Allocation (Exact Fractions) ---")
+total_hours = int(input("Total billable hours available (whole number): "))
+numerator   = int(input("Numerator of the first-phase fraction (e.g. 2 for 2/5): "))
+denominator = int(input("Denominator of the fraction (e.g. 5 for 2/5): "))
+
+p1, p2, diff = allocation_difference(total_hours, numerator, denominator)
+
+print(f"\nDiscovery phase allocation : {p1} hrs  ({float(p1):.4g} hrs)")
+print(f"Delivery phase allocation  : {p2} hrs  ({float(p2):.4g} hrs)")
+print(f"Difference (delivery - discovery): {diff} hrs  ({float(diff):.4g} hrs)")</code></pre>
+
+                <p>To run either option: open Windows Terminal, type <code>python</code>, paste the code,
+                press Enter, then enter the three requested values. For the original problem (16 hours, 2/5
+                split) both scripts return <strong>3.2 hours → 3 and 1/5</strong>.</p>
+
+                <!-- ═══════════════════════════════════════════════════
+                     THE SKILL FILE
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="skill-file">The Skill File</h2>
+
+                <p>The Python logic above was packaged as a reusable Claude skill. The Markdown document below
+                expresses every step in plain English — no code — so it can be executed by following
+                instructions, not by running the original script.</p>
+
+<pre class="md-code"><code><span class="md-heading">---</span>
+name: billable-hours-allocation-calculator
+description: Calculates the allocation of a fixed resource (such as billable hours or budget) between
+two complementary phases using a given fraction, then reports each phase's share and the difference
+between them. Trigger this skill whenever the user wants to split a total quantity into two fractional
+portions and find the gap between them, even if they don't use mathematical language — for example
+"how much more time goes to delivery than discovery?" or "split my hours between two phases."
+<span class="md-heading">---</span>
+
+<span class="md-heading"># Billable Hours Allocation Calculator</span>
+
+This skill takes a total quantity of a resource — such as billable hours, a budget, or inventory units
+— and a fraction that defines how much goes to the first phase. It computes both phase allocations using
+that fraction and its complement, then calculates the difference between the two. It also explains the
+arithmetic in two equivalent ways: a shortcut (subtract fractions first, then multiply) and a long method
+(multiply each fraction separately, then subtract). Results are displayed with friendly business-context labels.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+List any libraries or tools Claude needs to have available:
+- <span class="md-bold">**Pure arithmetic**</span> — uses only basic Python operations; no imports needed.
+- <span class="md-bold">**Exact-fraction variant**</span> — uses Python's built-in <span class="md-code">`fractions.Fraction`</span> module (part of the standard library) to eliminate floating-point rounding. Recommended when the fraction does not divide evenly into a decimal.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total resource quantity**</span>: A number representing the full amount to be allocated (e.g., 16 billable hours). Accepts whole numbers or decimals.
+- <span class="md-bold">**Fraction numerator**</span>: The top number of the fraction assigned to the first phase (e.g., 2 for a 2/5 split).
+- <span class="md-bold">**Fraction denominator**</span>: The bottom number shared by both phases (e.g., 5 for a 2/5 split). Must be a positive integer greater than the numerator.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and orient the user</span>
+
+Print a short header that names the business scenario so the user knows what the program is calculating. Example: <span class="md-code">`--- Consulting Project: Billable Hours Allocation ---`</span>
+
+<span class="md-heading">### Step 2 — Collect inputs interactively</span>
+
+Prompt the user to enter each of the three required values one at a time:
+1. Total billable hours available
+2. The numerator of the first-phase fraction
+3. The denominator of the fraction
+
+Accept decimal input for total hours. Accept whole-number input for the numerator and denominator. Do not use command-line arguments.
+
+<span class="md-heading">### Step 3 — Compute phase allocations</span>
+
+Calculate the first-phase share by multiplying the total by the given fraction (numerator ÷ denominator). Calculate the second-phase share by multiplying the total by the complementary fraction ((denominator − numerator) ÷ denominator). These two shares must sum exactly to the total.
+
+<span class="md-heading">### Step 4 — Compute the difference</span>
+
+Subtract the first-phase allocation from the second-phase allocation to find the gap. If the result is a whole number, display it without a decimal point. Otherwise, round to four decimal places for display (or present it as an exact fraction if using the exact-fraction variant).
+
+<span class="md-heading">### Step 5 — Display results with business-context labels</span>
+
+Print three clearly labelled output lines:
+- Discovery phase allocation: [value] hours
+- Delivery phase allocation: [value] hours
+- Difference (delivery − discovery): [value] hours
+
+Labels must reflect the business scenario, not generic variable names.
+
+---
+
+<span class="md-heading">## Exact-Fraction Variant (Optional)</span>
+
+When the denominator does not divide evenly into the total, floating-point arithmetic may introduce small rounding errors. In that case, use the exact-fraction variant:
+
+- Convert all inputs to exact <span class="md-code">`Fraction`</span> objects before performing any arithmetic.
+- Carry out all four operations (two multiplications, one subtraction for the complement, one subtraction for the difference) using exact fractions.
+- Display each result as both an exact fraction and a decimal approximation side by side, so the user sees both representations.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Split 16 billable hours so that 2/5 go to discovery and the rest go to delivery — how big is the gap?"
+- "I have a 40-hour project. Two-fifths is earmarked for research. How much more time goes to execution?"
+- "Allocate a budget of 16 units using a 2/5 fraction and tell me the difference between the two portions."
+- "Show me the allocation difference when I divide 16 hours with a 2 over 5 split."
+- "How do I calculate how much more delivery time I have compared to discovery time?"</code></pre>
+
+                <!-- ═══════════════════════════════════════════════════
+                     GO DEEPER
+                ═══════════════════════════════════════════════════ -->
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-fractions-of-whole-numbers/a/fractions-of-whole-numbers-review" target="_blank" rel="noopener">Khan Academy — Fractions of a Whole</a></li>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-arith-prop/pre-algebra-distributive-property/a/distributive-property-review" target="_blank" rel="noopener">Khan Academy — Distributive Property</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                    <li><a class="class2" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_papyri/" target="_blank" rel="noopener">MacTutor History of Mathematics — Egyptian Papyri and Unit Fractions</a></li>
+                    <li><a class="class2" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Babylonian_mathematics/" target="_blank" rel="noopener">MacTutor History of Mathematics — Babylonian Mathematics and Sexagesimal Fractions</a></li>
+                    <li><a class="class2" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Arabic_mathematics/" target="_blank" rel="noopener">MacTutor History of Mathematics — Arabic Mathematics and Fraction Notation</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 12, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
