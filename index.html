@@ -61,6 +61,7 @@
   <!--<<<<<<<<<<< link a style.css  >>>>>>>>>>>-->
 
   <link rel="stylesheet" href="css/toc.css">
+  
 
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
@@ -361,66 +362,64 @@
 
         <div id="free" class="article_bigExtent">
 
-          <h1 class="base_unit_for_flex featureShortStory"> LOS SUPERMERCADOS SON MUERTOS VIVIENTES </h1>
+          <h1 class="base_unit_for_flex featureShortStory"> FROM FRACTIONS TO UNITS: THE INVENTORY MATH THAT PROCUREMENT TEAMS SKIP</h1>
 
           <h2><a name="letter1"></a>Introducción</h2>
 
 
-          <p>
-            <strong>La relación física con el producto --y el acto de visitar ese lugar ordinario y ordenado que es el
-              supermercado-- no ha sido
-              reemplazada (sino complementada) por la tecnología</strong>. Un lugar monumental que es a la vez ordinario
-            y organizado, una
-            especie de matriz perfecta, produce confianza y relajación. Es verdad que uno siempre puede observar alguna
-            persona ofuscada en la
-            fila del super, pero es más frecuente observar familias enteras <em>paseando</em> como zarigüellas, con sus
-            pequeños al
-            hombro, y ancianas leyendo revistas, mientras las interminables filas de un día de promoción las llevan
-            hasta la caja
-            registradora.
-          </p>
-          <p>
-            Los supermercados no están muertos o son muertos vivientes. Herb Sorensen --uno de los expertos mundiales en
-            el
-            tema-- se sumerge en ellos como un espeleólogo. Usa lentes con cámaras inteligentes, aparatos de recolección
-            digital y
-            software diseñado por su empresa: usa tecnología para <strong>explorar un negocio que está lejos de ser
-              derrotado por la
-              tecnologías</strong>. Son legendarios sus proyectos con Unilever y P&G y sabias sus conclusiones sobre el
-            retail. En este artículo
-            discutiremos 5 tips basados en su experiencia como investigador de mercados.
-          </p>
+          <h2 id="business-problem-section">The Business Problem</h2>
 
-          <h2>Herb Sorensen: precursor de los insights sobre retail</h2>
+                <p>Two purchasing managers are restocking inventory for an upcoming product launch.
+                The <strong>operations manager</strong> placed orders for <strong>7/8 of a case</strong>
+                of wireless earbuds and <strong>3/4 of a case</strong> of phone chargers.
+                The <strong>marketing manager</strong> placed a single order for
+                <strong>1½ cases</strong> of branded accessories. Each case holds
+                <strong>16 units</strong>. Which manager ordered more inventory in total,
+                and by how many units?</p>
 
-          <p>
-            Es más probable que en sus años de estudiante Herb Sorensen se imaginara trabajando con ratas de laboratorio
-            que con
-            personas. Hoy, sin embargo, es un gurú del retail. Matt Ohligschlager --una de las cabezas del marketing en
-            Procter &
-            Gamble-- dijo de él que sus libros eran imprescindibles para entender por qué las personas hacen lo que
-            hacen cuando
-            están comprando; <dfn>Franz A. Dill --cofundador de la misma marca--- fue más certero al explicar que los
-              trabajos de
-              Sorensen habían intentado solucionar un viejo problema de la investigación de mercados, a saber,
-              <strong>cómo medir
-                los aspectos menos obvios de la relación entre los compradores y los anaqueles del supermercado.
-              </strong></dfn>
-          </p>
-          <p>
-            Pocos imaginarían que detrás de clásicos como <em>The Science of Retailing</em> estaba un doctor en
-            bioquímica. ¿Qué
-            tenían que ver la biología y la química con el comportamiento de las personas que acudían, digamos, a
-            Walmart, para
-            comprar Close all tabschichas y leche? La respuesta está, probablemente, en el círculo de amistades de
-            Sorensen. Puesto de una
-            manera simple: cuando tus amistades son directivos de P&G y tú eres <strong>una especie de Indiana Jones de
-              los supermercados,</strong>
-            es más o menos fácil que te inviten a trabajar para P&G. Puesta de una manera no tan simple, la historia es
-            la siguiente.
-          </p>
+                <ul>
+                    <li>a) The marketing manager, 10 units</li>
+                    <li>b) The operations manager, 2 units</li>
+                    <li>c) The operations manager, 10 units</li>
+                </ul>
 
-          <a href="a/el-supermercado-es-mi-laboratorio-Herb-Sorensen.html" class="shadowButton">Keep reading</a>
+                 <h2 id="python-option-2">Can you figure it out by reading the following program? </h2>
+
+       
+
+        <pre><code>from fractions import Fraction
+
+def compare_inventory_orders(order1, order2, mixed_order, units_per_case):
+    ops_total = order1 + order2
+    ops_units = ops_total * units_per_case
+    mkt_units = mixed_order * units_per_case
+    return int(ops_units), int(mkt_units)
+
+print("=== Inventory Order Comparison ===")
+print("Enter the operations manager's two fractional case orders.")
+num1 = int(input("  Order 1 — numerator: "))
+den1 = int(input("  Order 1 — denominator: "))
+num2 = int(input("  Order 2 — numerator: "))
+den2 = int(input("  Order 2 — denominator: "))
+print("Enter the marketing manager's order as a mixed number.")
+whole = int(input("  Whole part: "))
+num3 = int(input("  Fraction — numerator: "))
+den3 = int(input("  Fraction — denominator: "))
+units_per_case = int(input("Units per case: "))
+
+order1 = Fraction(num1, den1)
+order2 = Fraction(num2, den2)
+mixed_order = whole + Fraction(num3, den3)
+
+ops, mkt = compare_inventory_orders(order1, order2, mixed_order, units_per_case)
+diff = abs(ops - mkt)
+winner = "Operations manager" if ops > mkt else "Marketing manager"
+print(f"\nOperations manager total: {ops} units")
+print(f"Marketing manager total:  {mkt} units")
+print(f"Winner: {winner} ordered more — difference: {diff} units")</code></pre>
+
+
+          <a href="a/the-inventory-math-procurement-teams-skip.html" class="shadowButton">Solve it!</a>
 
         </div>
 
