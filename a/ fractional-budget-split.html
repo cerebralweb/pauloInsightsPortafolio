@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A fractional budget split hides a unit-conversion trap that costs analysts real money. Trace one problem through a business reframe, a Python calculator, and a deployable skill document.">
+    <meta name="keywords" content="fractions, budget allocation, unit ambiguity, Python, business math, skill document, training budget, onboarding, upskilling">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-unit-trap-hiding-inside-every-fractional-budget-split.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-unit-trap-hiding-inside-every-fractional-budget-split.html" />
+
+    <title>The Unit Trap Hiding Inside Every Fractional Budget Split</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE UNIT TRAP HIDING INSIDE EVERY FRACTIONAL BUDGET SPLIT
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- INTRO -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Budget allocation decisions look straightforward on paper — divide a resource by a fraction,
+                    compute the remainder, find the gap. The real difficulty appears not in the arithmetic but in
+                    the units: when an answer is expressed in thousands, the actual dollar figure remains invisible
+                    unless the analyst knows to multiply.
+                    <dfn>This article traces a single problem through three transformations — a business reframe,
+                    a reusable Python program, and a deployable skill document — to show how unit ambiguity turns
+                    simple fractions into a genuine analytical hazard.</dfn></em>
+                </p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- THE BUSINESS PROBLEM -->
+                <h2 id="math-answer">The Business Problem</h2>
+
+                <p>A software company has a total annual training budget of <strong>$16,000 USD</strong>.
+                Leadership allocates <strong>2/5 of the budget to onboarding new hires</strong> and the
+                remainder to upskilling existing staff.</p>
+
+                <p>What is the difference, in thousands of dollars, between the amount allocated to
+                onboarding and the amount allocated to upskilling?</p>
+
+                <ul>
+                    <li>a) 9 and 1/5</li>
+                    <li>b) 1/5</li>
+                    <li>c) 3 and 1/5</li>
+                    <li>d) 9.25</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 3 and 1/5 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>The total of 16 (thousands of USD here) is <strong>multiplied
+                    by the fraction 2/5</strong> to obtain the first share, and the <strong>remainder is
+                    found by subtraction</strong>; the answer is the difference between those two parts.
+                    </p>
+
+                    <p class="insight"><em>⚠️ Unit ambiguity alert: answer choice c) reads "3 and 1/5" but
+                    the problem asks for thousands of dollars — so the true dollar gap is
+                    <strong>$3,200 USD</strong>, a value never explicitly written in any answer choice.
+                    Recognising this discrepancy is itself a key analytical skill: a numeric answer always
+                    carries the unit in which the question was framed, and misreading a
+                    "thousands" figure as raw dollars is a common, costly error in budgeting and financial
+                    reporting.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Onboarding allocation:</strong> 16 × 2/5 = 32/5 = 6.4 (thousands of USD)</li>
+                            <li><strong>Upskilling allocation:</strong> 16 − 6.4 = 9.6 (thousands of USD)</li>
+                            <li><strong>Difference:</strong> 9.6 − 6.4 = 3.2 = 3 and 1/5 (thousands of USD)</li>
+                            <li><strong>Unit translation:</strong> 3.2 × 1,000 = $3,200 USD — the value the answer choice conceals</li>
+                            <li><strong>Conclusion:</strong> Upskilling receives $3,200 more than onboarding, expressed as 3 and 1/5 in the thousands-of-dollars unit the problem uses.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- WHY THIS MATH MATTERS -->
+                <h2 id="why-it-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>Budget allocation is one of the most common quantitative tasks in business. Managers and
+                analysts routinely divide a total resource — money, headcount, storage capacity, bandwidth —
+                into fractional shares for competing priorities. Knowing not just each share but the
+                <em>difference</em> between shares tells decision-makers how unequal the split is, which drives
+                conversations about rebalancing. In this scenario, confirming that upskilling receives $3,200
+                more than onboarding gives leadership a concrete, actionable gap to evaluate — not just two
+                separate line items.</p>
+
+                <!-- MATHEMATICAL BACKGROUND -->
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>Fraction-based partitioning is a foundational concept in arithmetic: a whole is split into
+                equal parts using a ratio, and one or more of those parts are assigned to a category. The
+                complement — the "rest" — is simply the whole minus the assigned fraction. Finding the
+                difference between two complementary parts reduces to subtraction after both values are
+                expressed in the same unit. One conceptual fact worth noting: the ancient Egyptians worked
+                almost exclusively with <em>unit fractions</em> (fractions with numerator 1), so an expression
+                like 2/5 would have been decomposed as 1/3 + 1/15 — a reminder that our compact fraction
+                notation is a relatively modern convenience that greatly simplifies this kind of partitioning.</p>
+
+                <!-- PYTHON VERSION -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below accepts any total budget and any allocation fraction as inputs, computes
+                both shares and their difference, and appends a mandatory unit-ambiguity reminder — making
+                the analytical hazard explicit every time the program runs.</p>
+
+<pre><code>def budget_allocation_difference(total, numerator, denominator):
+    onboarding = total * (numerator / denominator)
+    upskilling = total - onboarding
+    difference = upskilling - onboarding
+    return onboarding, upskilling, difference
+
+print("--- Training Budget Allocation Analyzer ---")
+total_budget     = float(input("Enter the total training budget (USD): "))
+frac_numerator   = float(input("Enter the numerator of the onboarding fraction (e.g. 2): "))
+frac_denominator = float(input("Enter the denominator of the onboarding fraction (e.g. 5): "))
+
+onboarding, upskilling, difference = budget_allocation_difference(
+    total_budget, frac_numerator, frac_denominator
+)
+
+print(f"\nOnboarding allocation:  ${onboarding:,.2f}")
+print(f"Upskilling allocation:  ${upskilling:,.2f}")
+print(f"Difference (upskilling minus onboarding): ${difference:,.2f}")
+print(f"\n⚠️  Watch the units: if your budget was entered in thousands, multiply the result by 1,000.")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the block, and entering
+                16000, 2, and 5 when prompted — the output will confirm a difference of $3,200.00 and display
+                the unit warning automatically. A second variant using <code>fractions.Fraction</code> from
+                the Python standard library is also available; it eliminates floating-point rounding on
+                repeating decimals such as 1/3, making it the safer choice for production budgeting tools.</p>
+
+                <!-- THE SKILL DOCUMENT -->
+                <h2 id="skill-document">The Skill Document</h2>
+
+                <p>The Markdown below packages the logic above as a deployable Claude skill — a plain-language
+                standard operating procedure any analyst can trigger without writing a single line of code.</p>
+
+<pre class="md-code"><code><span class="md-heading">---</span>
+name: budget-allocation-difference
+description: Calculates how a total budget is split into two complementary parts using a fraction, then computes the difference between those parts. Trigger this skill whenever the user wants to divide a budget (or any total resource) between two categories using a fraction and find out how much larger one share is than the other, even if they don't use technical language.
+<span class="md-heading">---</span>
+
+<span class="md-heading"># Budget Allocation Difference Calculator</span>
+
+This skill takes a total budget, a fractional allocation for one category (expressed as a numerator and denominator), and computes the dollar amount assigned to each category plus the difference between them. It also reminds the user to watch for unit ambiguity — for example, when the budget is expressed in thousands but the answer is expected in raw dollars. It can operate in standard decimal mode or in exact-fraction mode to avoid rounding errors on repeating decimals.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+List any libraries or tools Claude needs to have available:
+- <span class="md-bold">**Standard mode:**</span> No libraries required — uses basic arithmetic only.
+- <span class="md-bold">**Exact-fraction mode:**</span> Uses <span class="md-code">`fractions.Fraction`</span> from the Python standard library to eliminate floating-point rounding. No third-party installation needed.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total budget**</span>: A positive number representing the full resource to be divided (e.g., 16,000 for a $16,000 training budget). May be entered in raw dollars or in thousands — the user must be consistent.
+- <span class="md-bold">**Fraction numerator**</span>: The top number of the fraction that defines the first category's share (e.g., 2 in 2/5).
+- <span class="md-bold">**Fraction denominator**</span>: The bottom number of that fraction (e.g., 5 in 2/5). Must be greater than zero and must produce a fraction less than or equal to 1.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and orient the user</span>
+
+Print a short header that names the tool, for example: <span class="md-code">`--- Training Budget Allocation Analyzer ---`</span>. This signals to the user which program is running.
+
+<span class="md-heading">### Step 2 — Collect the three required inputs</span>
+
+Prompt the user to enter, one at a time:
+1. The total budget amount.
+2. The numerator of the allocation fraction.
+3. The denominator of the allocation fraction.
+
+Accept decimal values for all three inputs. In exact-fraction mode, accept the total budget as a fraction-compatible number and convert the numerator and denominator to integers before constructing the fraction.
+
+<span class="md-heading">### Step 3 — Compute the first category's allocation</span>
+
+Multiply the total budget by the fraction (numerator ÷ denominator). This is the amount assigned to the first category (onboarding). In exact-fraction mode, construct a <span class="md-code">`Fraction`</span> object from the numerator and denominator before multiplying, so the result stays exact.
+
+<span class="md-heading">### Step 4 — Compute the second category's allocation</span>
+
+Subtract the first category's allocation from the total budget. The remainder is the second category's share (upskilling). No additional fraction arithmetic is needed — this is always a simple subtraction.
+
+<span class="md-heading">### Step 5 — Compute the difference</span>
+
+Subtract the first category's allocation from the second category's allocation. If the result is negative, the first category is larger; if positive, the second category is larger.
+
+<span class="md-heading">### Step 6 — Print the results</span>
+
+Display three labeled lines:
+- Onboarding allocation, formatted as a dollar amount with two decimal places and comma separators.
+- Upskilling allocation, formatted the same way.
+- Difference (upskilling minus onboarding), formatted the same way.
+
+In exact-fraction mode, also display the exact fractional form of each value next to the decimal, for example: <span class="md-code">`$6,400.00  (exact: 32/5)`</span>.
+
+<span class="md-heading">### Step 7 — Print the unit-ambiguity reminder</span>
+
+Always append this warning after the results:
+
+&gt; ⚠️ Watch the units: if your budget was entered in thousands, multiply the result by 1,000.
+
+This step is mandatory. Omitting it removes a key learning objective of the problem — recognizing that a numeric answer must be interpreted in the context of the unit it represents.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Split my training budget between onboarding and upskilling and tell me the gap."
+- "I have a $16,000 budget and want to give 2/5 to one team — how much more does the other team get?"
+- "Calculate the difference between two budget allocations when one is a fraction of the total."
+- "Run the budget allocation calculator on my numbers."
+- "How much bigger is the upskilling budget than the onboarding budget?"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The YAML frontmatter appears <span class="md-bold">**once**</span> at the top
+- [ ] There is <span class="md-bold">**no Python code**</span> anywhere in the skill body
+- [ ] Every step reads as a natural-language instruction, not a code comment
+- [ ] The unit-ambiguity reminder (Step 7) is present and marked as mandatory
+- [ ] Both standard and exact-fraction modes are described
+- [ ] Inputs and outputs are clearly named and described
+- [ ] The description field would realistically trigger this skill from a non-technical user prompt</code></pre>
+
+                <p>The skill document separates the <em>what</em> from the <em>how</em>: it tells Claude what
+                each step must accomplish without binding it to the Python implementation — so the logic
+                remains reusable even as the underlying code evolves.</p>
+
+                <span id="insight"></span>
+
+                <!-- FURTHER READING -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

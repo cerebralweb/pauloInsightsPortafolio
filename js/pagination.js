@@ -16,6 +16,12 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle:  "The Unit Trap Hiding Inside Every Fractional Budget Split",
+        articleDescription: "This article traces a single problem through three transformations — a business reframe, a reusable Python program, and a deployable skill document",
+        articleHref: "/a/fractional-budget-split.html"
+
+        },
+        {
         articleTitle:  " The Inventory Math Procurement Teams Skip",
         articleDescription: "This article walks through the full chain: business problem transformation,step-by-step fraction arithmetic with a practical LCD shortcut, two Python implementations",
         articleHref: "/a/the-inventory-math-procurement-teams-skip.html"
