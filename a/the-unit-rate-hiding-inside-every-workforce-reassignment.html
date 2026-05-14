@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="When a manager reassigns a consultant mid-shift, one unit-rate conversion determines exactly how many audits fit in the remaining time. Here is the math, the Python, and the reusable skill.">
+    <meta name="keywords"
+        content="unit rate, rate conversion, capacity planning, workforce reassignment, operations math, Python, shift planning, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-unit-rate-hiding-inside-every-workforce-reassignment.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/the-unit-rate-hiding-inside-every-workforce-reassignment.html" />
+
+    <title>The Unit Rate Hiding Inside Every Workforce Reassignment</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 14, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE UNIT RATE HIDING INSIDE EVERY WORKFORCE REASSIGNMENT
+                                        
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <!-- ═══════════════════════════════════════════════
+                     INTRO
+                ═══════════════════════════════════════════════ -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Operations teams constantly shift staff between tasks with different durations — a move that
+                        looks simple on a schedule but demands a unit-rate conversion before any realistic capacity
+                        figure is possible. Without that conversion, planners risk committing to output numbers that are
+                        off by a factor of two or more.
+                        <dfn>This problem illustrates how deriving a per-task rate from a known baseline unlocks precise
+                            shift-capacity planning, and how Python can package that logic into a reusable tool any
+                            analyst can run on demand.</dfn></em>
+                </p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- ═══════════════════════════════════════════════
+                     THE PROBLEM
+                ═══════════════════════════════════════════════ -->
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A solutions consultant at a SaaS company normally spends 30 minutes per client onboarding call.
+                    Today, however, her manager has asked her to run software license audit checks instead.
+                    She can complete 2 license audits in the same time it takes to conduct one onboarding call.
+                    If she has 3.5 hours remaining in her workday, how many license audits will she be able to complete?
+                </p>
+
+                <ul>
+                    <li>a) 30</li>
+                    <li>b) 28</li>
+                    <li>c) 7</li>
+                    <li>d) 14</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 14 ✅</strong></p>
+
+
+                    <p class="insight"><em>The key insight is that the conversion rate runs in one direction only — 2
+                            audits fit inside 1 onboarding slot, so each audit takes 30 ÷ 2 = 15 minutes, not 30 × 2 =
+                            60 minutes.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final count is derived:</p>
+                        <ol>
+                            <li><strong>Duration of one onboarding call:</strong> 30 minutes (given)</li>
+                            <li><strong>Audits per onboarding slot:</strong> 2 audits fit inside 30 min → each audit =
+                                30 ÷ 2 = <strong>15 minutes</strong></li>
+                            <li><strong>Convert shift time to minutes:</strong> 3.5 hours × 60 = <strong>210
+                                    minutes</strong></li>
+                            <li><strong>Number of audits:</strong> 210 ÷ 15 = <strong>14</strong></li>
+                            <li><strong>Conclusion:</strong> With 3.5 hours remaining, the consultant can complete
+                                <strong>14 license audits</strong> — answer d)</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- ═══════════════════════════════════════════════
+                     WHY THIS MATH MATTERS
+                ═══════════════════════════════════════════════ -->
+                <h2 id="why-it-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>In SaaS operations and consulting, staff time is a constrained resource that must be allocated across
+                    tasks with
+                    different durations. When a manager reassigns a consultant from one task type to another mid-day,
+                    the team needs to
+                    know quickly how many units of the new task fit into the remaining capacity — without guessing. Unit
+                    rate conversion
+                    gives an exact answer in seconds, enabling realistic workload planning, SLA commitments, and shift
+                    scheduling.</p>
+
+                <p>In this scenario, knowing that each license audit takes 15 minutes (not 30) is what unlocks the
+                    correct capacity
+                    figure. Getting it wrong by using the onboarding rate instead would produce an estimate of 7 —
+                    cutting the planned
+                    output in half and potentially leaving compliance work unfinished.</p>
+
+                <!-- ═══════════════════════════════════════════════
+                     MATHEMATICAL BACKGROUND
+                ═══════════════════════════════════════════════ -->
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>This problem applies <strong>unit rate conversion</strong>, a foundational technique in ratio and
+                    proportion
+                    arithmetic. The core idea is to express a quantity in terms of a single unit — here, minutes per
+                    audit — so that
+                    a straightforward division yields the total count. The process has two moves: derive the new rate
+                    from a known
+                    relationship (2 audits per 30 min → 15 min/audit), then divide total available time by that rate.
+                </p>
+
+                <p>Unit rates underpin nearly every capacity and throughput calculation in operations management. A
+                    useful
+                    conceptual fact: the unit rate is simply a ratio reduced so that the denominator equals 1 — a
+                    normalization
+                    technique that appears across disciplines, from physics (meters per second) to finance (cost per
+                    unit)
+                    to HR (calls per agent per hour).</p>
+
+                <!-- ═══════════════════════════════════════════════
+                     PYTHON VERSION
+                ═══════════════════════════════════════════════ -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalizes the problem: it accepts any baseline task duration, any conversion rate,
+                    and
+                    any remaining shift length, then returns the maximum number of <em>complete</em> tasks — using
+                    <code>math.floor()</code> to exclude partial work, which is the operationally honest answer.
+                </p>
+
+                <h3>Option 1 — Pure Python</h3>
+
+                <pre><code>def license_audits_in_shift(baseline_minutes, audits_per_slot, shift_hours):
+    audit_duration = baseline_minutes / audits_per_slot
+    shift_minutes = shift_hours * 60
+    return shift_minutes / audit_duration
+
+print("License Audit Capacity Planner")
+print("How many audits can a consultant complete in the remaining shift?\n")
+
+baseline_minutes = float(input("Duration of one onboarding call (minutes): "))
+audits_per_slot  = float(input("How many audits fit inside one onboarding slot? "))
+shift_hours      = float(input("Remaining shift time (hours): "))
+
+result = license_audits_in_shift(baseline_minutes, audits_per_slot, shift_hours)
+result = int(result) if result.is_integer() else result
+
+print(f"\nLicense audits completable in remaining shift: {result}")</code></pre>
+
+                <h3>Option 2 — Standard Library (<code>math.floor</code>)</h3>
+
+                <p><code>math.floor()</code> ensures the result reflects only fully completable audits — a consultant
+                    cannot
+                    deliver half an audit, and a capacity plan that rounds up overstates output. Run either option in
+                    Windows Terminal
+                    by typing <code>python</code>, pasting the code, and entering the three prompted values.</p>
+
+                <pre><code>import math
+
+def license_audits_in_shift(baseline_minutes, audits_per_slot, shift_hours):
+    audit_duration = baseline_minutes / audits_per_slot
+    shift_minutes  = shift_hours * 60
+    return math.floor(shift_minutes / audit_duration)
+
+print("License Audit Capacity Planner")
+print("How many complete audits can a consultant finish in the remaining shift?\n")
+
+baseline_minutes = float(input("Duration of one onboarding call (minutes): "))
+audits_per_slot  = float(input("How many audits fit inside one onboarding slot? "))
+shift_hours      = float(input("Remaining shift time (hours): "))
+
+result = license_audits_in_shift(baseline_minutes, audits_per_slot, shift_hours)
+
+print(f"\nLicense audits completable in remaining shift: {result}")</code></pre>
+
+                <!-- ═══════════════════════════════════════════════
+                     XML SKILL DOCUMENT
+                ═══════════════════════════════════════════════ -->
+                <h2 id="reusable-skill">Reusable Skill — XML</h2>
+
+                <p>The skill document below packages the capacity-planning logic as a structured Claude skill. It
+                    defines
+                    inputs, calculation steps, and a quality checklist that generalizes the script to any
+                    task-reassignment
+                    scenario.</p>
+
+                <pre class="md-code"><code>---
+<span class="md-bold">name:</span> shift-capacity-calculator
+<span class="md-bold">description:</span> &gt;
+  Calculates how many units of a reassigned task a worker can complete in
+  remaining shift time, given the baseline task duration and the conversion
+  rate between the two task types. Trigger this skill whenever the user wants
+  to know how many tasks, audits, checks, or service items fit into a time
+  window after a workload reassignment.
+---
+
+&lt;skill&gt;
+
+  &lt;purpose&gt;
+    Accept three numeric inputs — a baseline task duration, a conversion rate
+    between two task types, and a remaining shift length — then compute the
+    maximum number of complete units of the new task that fit inside the
+    available time. Floor the result so the answer reflects only fully
+    completable tasks, not fractions of work.
+  &lt;/purpose&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;Python standard library: math (for math.floor)&lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;inputs&gt;
+    &lt;input&gt;
+      &lt;name&gt;baseline_minutes&lt;/name&gt;
+      &lt;description&gt;
+        Duration of the original, baseline task in minutes. Must be a positive
+        number. Accept decimals (e.g., 45.5).
+      &lt;/description&gt;
+    &lt;/input&gt;
+    &lt;input&gt;
+      &lt;name&gt;audits_per_slot&lt;/name&gt;
+      &lt;description&gt;
+        How many units of the new task fit inside one baseline task slot.
+        Must be a positive number greater than zero.
+      &lt;/description&gt;
+    &lt;/input&gt;
+    &lt;input&gt;
+      &lt;name&gt;shift_hours&lt;/name&gt;
+      &lt;description&gt;
+        Remaining shift time in hours. Must be a positive number. Accept
+        decimals (e.g., 3.5).
+      &lt;/description&gt;
+    &lt;/input&gt;
+  &lt;/inputs&gt;
+
+  &lt;steps&gt;
+
+    &lt;step id="1" name="Collect Inputs"&gt;
+      Print a short title and one-line description of the tool's purpose.
+      Then prompt the user for each of the three inputs in sequence:
+      baseline task duration in minutes, number of new tasks per slot, and
+      remaining shift time in hours. Cast each value to float.
+    &lt;/step&gt;
+
+    &lt;step id="2" name="Derive New Task Duration"&gt;
+      Divide the baseline task duration by the number of new tasks per slot.
+      The result is the duration of a single unit of the new task in minutes.
+    &lt;/step&gt;
+
+    &lt;step id="3" name="Convert Shift Time to Minutes"&gt;
+      Multiply the remaining shift hours by 60 to express the available window
+      in the same unit (minutes) as the task duration computed in Step 2.
+    &lt;/step&gt;
+
+    &lt;step id="4" name="Compute Maximum Completable Tasks"&gt;
+      Divide total available minutes by the single-task duration. Apply
+      math.floor() to the quotient so the result reflects only fully
+      completable tasks. A partial task is not counted.
+    &lt;/step&gt;
+
+    &lt;step id="5" name="Print Result"&gt;
+      Print the floored integer result with a short, friendly label that
+      names the task type and frames the number as a capacity figure.
+      Example output: "License audits completable in remaining shift: 14"
+    &lt;/step&gt;
+
+  &lt;/steps&gt;
+
+  &lt;example_trigger_prompts&gt;
+    &lt;prompt&gt;"How many audits can my consultant finish in the rest of her shift?"&lt;/prompt&gt;
+    &lt;prompt&gt;"We switched task types mid-day — how many can we complete before end of shift?"&lt;/prompt&gt;
+    &lt;prompt&gt;"Given a new task rate, how many items fit in the time I have left?"&lt;/prompt&gt;
+    &lt;prompt&gt;"Calculate remaining capacity after a workload reassignment."&lt;/prompt&gt;
+    &lt;prompt&gt;"How many checks can the team run in 3.5 hours if each takes 15 minutes?"&lt;/prompt&gt;
+  &lt;/example_trigger_prompts&gt;
+
+  &lt;quality_check_before_delivering&gt;
+    &lt;check&gt;Are all three inputs collected via input() and cast to float?&lt;/check&gt;
+    &lt;check&gt;Is the new task duration derived by dividing — not multiplying — baseline by rate?&lt;/check&gt;
+    &lt;check&gt;Is math.floor() applied so partial tasks are excluded?&lt;/check&gt;
+    &lt;check&gt;Does the printed output include friendly business-context text, not just a number?&lt;/check&gt;
+    &lt;check&gt;Does the program contain zero third-party library imports?&lt;/check&gt;
+  &lt;/quality_check_before_delivering&gt;
+
+&lt;/skill&gt;</code></pre>
+
+                <!-- ═══════════════════════════════════════════════
+                     FURTHER READING
+                ═══════════════════════════════════════════════ -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic/cc-6th-unit-rates/v/finding-unit-rates"
+                            target="_blank" rel="noopener">Khan Academy — Unit Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Rate.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Rate</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank"
+                            rel="noopener">Mathematics Stack Exchange — Ratio and Rate</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 14, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>

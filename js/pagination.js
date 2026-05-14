@@ -16,6 +16,12 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle:  "the unit rate hiding inside every workforce reassignment",
+        articleDescription: "Operations teams constantly shift staff between tasks with different durations",
+        articleHref: "/a/the-unit-rate-hiding-inside-every-workforce-reassignment.html"
+
+        },
+        {
         articleTitle:  "The Unit Trap Hiding Inside Every Fractional Budget Split",
         articleDescription: "This article traces a single problem through three transformations — a business reframe, a reusable Python program, and a deployable skill document",
         articleHref: "/a/fractional-budget-split.html"
