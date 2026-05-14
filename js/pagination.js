@@ -16,7 +16,7 @@
  */
     const articlesDataBase = [ 
         {
-        articleTitle:  "the unit rate hiding inside every workforce reassignment",
+        articleTitle:  "The unit rate hiding inside every workforce reassignment",
         articleDescription: "Operations teams constantly shift staff between tasks with different durations",
         articleHref: "/a/the-unit-rate-hiding-inside-every-workforce-reassignment.html"
 
