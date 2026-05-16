@@ -17,6 +17,17 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle: "The quarts hiding inside a mixed-number procurement sample",
+        articleDescription: "This problem illustrates how unit conversion with mixed numbers underpins everyday supply-chain arithmetic, and how aPython script and a reusable Claude skill can make that calculation repeatable and error-free",
+        articleHref: "/a/the-quarts-hiding-inside-a-mixed-number-procurement-sample.html"
+        },
+        {
+        articleTitle: "the allocation math behind field distribution",
+        articleDescription: "Field distribution decisions happen every time a manager allocates a fixed supply across a variable- size team. Knowing how many people you can serve — and how that number shifts when supply shrinks by a known fraction — is the kind of arithmetic that prevents both waste and shortfall. This article works through the calculation using a business scenario, two reusable Python programs, and a structured skill file that packages the logic for repeated use.",
+        articleHref: "/a/the-allocation-math-behind-field-distribution.html"
+
+        },
+        {
         articleTitle:  "The unit rate hiding inside every workforce reassignment",
         articleDescription: "Operations teams constantly shift staff between tasks with different durations",
         articleHref: "/a/the-unit-rate-hiding-inside-every-workforce-reassignment.html"

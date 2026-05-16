@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="How procurement teams convert mixed-number gallon quantities to quarts using unit conversion arithmetic — with a Python script and a reusable Claude skill.">
+    <meta name="keywords"
+        content="unit conversion, mixed numbers, improper fractions, quarts gallons, procurement math, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-quarts-hiding-inside-a-mixed-number-procurement-sample.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/the-quarts-hiding-inside-a-mixed-number-procurement-sample.html" />
+
+    <title>The Quarts Hiding Inside a Mixed-Number Procurement Sample</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 15, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE QUARTS HIDING INSIDE A MIXED-NUMBER PROCUREMENT SAMPLE
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Procurement teams routinely receive quantities in mixed units — some suppliers report in
+                        gallons, others in quarts. Without a reliable conversion step, combined totals are meaningless
+                        and purchase orders risk being underfilled or over-ordered. <dfn>This problem illustrates how
+                            unit conversion with mixed numbers underpins everyday supply-chain arithmetic, and how a
+                            Python script and a reusable Claude skill can make that calculation repeatable and
+                            error-free.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2>The Problem</h2>
+
+                <p>A procurement analyst at a beverage company is comparing two distribution centers' sample requests
+                    for a new industrial sanitizer. Distribution Center A requested a 3¾-gallon sample. Distribution
+                    Center B requested 7 quarts more than Distribution Center A. Each gallon equals 4 quarts. How many
+                    quarts of sanitizer did both distribution centers request in total?</p>
+
+                <ul>
+                    <li>a) 37 quarts</li>
+                    <li>b) 22/4</li>
+                    <li>c) 14/4</li>
+                    <li>d) 4/37</li>
+                </ul>
+
+                <h2>Why This Math Matters</h2>
+
+                <p>When procurement teams compare sample requests across distribution centers, quantities often arrive
+                    in mixed units — some in gallons, others in quarts. Without converting to a common unit first,
+                    totals are meaningless and orders can be under- or over-filled. This problem also tests
+                    <strong>critical reading</strong>: the phrase "7 quarts more than Distribution Center A" is easy to
+                    misread as simply "7 quarts." A reader who misses the word "more" skips the addition step entirely
+                    and reaches a wrong total — a costly error in a real purchase order.</p>
+
+                <h2>Step-by-Step Breakdown</h2>
+
+                <ol>
+                    <li><strong>Convert Center A's sample to quarts:</strong> 3¾ × 4 = 15/4 × 4 = 15 quarts</li>
+                    <li><strong>Calculate Center B's sample:</strong> 15 + 7 = 22 quarts</li>
+                    <li><strong>Calculate total quarts:</strong> 15 + 22 = 37 quarts</li>
+                    <li><strong>Conclusion:</strong> Both distribution centers requested a combined total of <strong>37
+                            quarts</strong>. Correct answer: <strong>a) ✅</strong></li>
+                </ol>
+
+                <h2>Mathematical Background</h2>
+
+                <p>This problem applies <strong>unit conversion with mixed numbers</strong> — converting a quantity
+                    expressed in one unit (gallons) into a smaller unit (quarts) using a fixed ratio (1:4), then
+                    performing addition. Mixed numbers like 3¾ must first be converted to improper fractions (15/4)
+                    before multiplying cleanly. An <strong>improper fraction</strong> has a numerator equal to or larger
+                    than its denominator: 15/4 means "15 parts where each whole contains 4 parts." It is the
+                    computation-ready form of a mixed number — you read in mixed numbers, you calculate in improper
+                    fractions.</p>
+
+                <p>Medieval Islamic scholars, particularly those working in the tradition of al-Khwārizmī, systematized
+                    fraction arithmetic precisely because commercial and measurement contexts constantly required moving
+                    between unit scales. Al-Khwārizmī's <em>Kitāb al-mukhtaṣar fī ḥisāb al-jabr waʾl-muqābala</em> (c.
+                    820 CE) included practical problems involving fractional land measurements in qirats — used to
+                    divide inherited property under Islamic inheritance law — where scribes needed to convert everything
+                    to a common unit before summing, exactly the operation above.</p>
+
+                <h2>Python Version</h2>
+
+                <p>The script below accepts five inputs — Center A's whole gallons, its fractional part as a numerator
+                    and denominator, the quarts-per-gallon conversion rate, and Center B's extra quarts — and returns
+                    the combined total. It uses Python's built-in <code>fractions.Fraction</code> class to keep the
+                    arithmetic exact, avoiding floating-point rounding on non-terminating decimals.</p>
+
+                <pre><code>from fractions import Fraction
+
+def total_sample_quarts(whole, frac_num, frac_den, conversion_rate, extra_quarts):
+    center_a_gallons = Fraction(whole) + Fraction(frac_num, frac_den)
+    center_a_quarts  = center_a_gallons * conversion_rate
+    center_b_quarts  = center_a_quarts + extra_quarts
+    total = center_a_quarts + center_b_quarts
+    return int(total) if total == int(total) else float(total)
+
+whole    = int(input("Distribution Center A sample — whole gallons (e.g. 3): "))
+frac_num = int(input("Fractional part — numerator (e.g. 3): "))
+frac_den = int(input("Fractional part — denominator (e.g. 4): "))
+rate     = int(input("Quarts per gallon (e.g. 4): "))
+extra    = int(input("Extra quarts Center B ordered above Center A (e.g. 7): "))
+
+result = total_sample_quarts(whole, frac_num, frac_den, rate, extra)
+print(f"\nCombined sample request — both distribution centers: {result} quarts")</code></pre>
+
+                <p>Paste the code into Windows Terminal, run <code>python</code>, and enter each value when prompted.
+                    The script returns the combined quart count for any valid pair of sample sizes.</p>
+
+                <h2>Claude Skill File</h2>
+
+                <p>The Markdown below is a Claude skill derived from this problem. It packages the procurement scenario,
+                    input requirements, and solution steps as a reusable natural-language procedure — no Python required
+                    to execute it.</p>
+
+                <pre class="md-code"><code>---
+name: sanitizer-sample-quarts-solver
+description: Solves procurement problems that require converting a mixed-number gallon quantity
+into quarts and computing the combined total across two distribution centers. Trigger this skill
+whenever the user wants to calculate combined sample volumes where one party holds a fractional
+gallon amount and a second party holds a fixed number of quarts above the first, even if they
+don&#39;t use technical language.
+---
+
+<span class="md-heading"># Sanitizer Sample Quarts Solver</span>
+
+This skill takes a mixed-number gallon quantity from Distribution Center A and a fixed quart
+surplus from Distribution Center B, converts everything to a common unit (quarts), and returns
+the combined total quarts requested by both centers. It handles the fractional part of the gallon
+amount as a separate numerator and denominator so the conversion remains exact.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries required. This skill uses only basic arithmetic and, optionally, exact
+fraction arithmetic available in Python&#39;s standard library.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Whole gallons (Center A):**</span> The whole-number part of Center A&#39;s gallon quantity. Must be a non-negative integer (e.g., 3).
+- <span class="md-bold">**Fraction numerator (Center A):**</span> The top number of the fractional gallon part (e.g., 3 for ¾).
+- <span class="md-bold">**Fraction denominator (Center A):**</span> The bottom number of the fractional gallon part (e.g., 4 for ¾). Must not be zero.
+- <span class="md-bold">**Quarts per gallon:**</span> The unit conversion rate. Standard value is 4, but the skill accepts any positive integer.
+- <span class="md-bold">**Extra quarts (Center B):**</span> The number of additional quarts Center B requested above Center A&#39;s quart equivalent. Must be a non-negative integer.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect Inputs</span>
+
+Prompt the user to supply each of the five inputs listed above, one at a time. Display a short,
+friendly label for each prompt that names the distribution center and the unit (e.g.,
+&#34;Distribution Center A sample — whole gallons&#34;). Accept only valid numbers; if a
+non-numeric value is entered, ask again.
+
+<span class="md-heading">### Step 2 — Reconstruct Center A&#39;s Gallon Quantity</span>
+
+Combine the whole gallon part and the fractional part into a single quantity by dividing the
+numerator by the denominator and adding the result to the whole number. This represents the
+exact gallon volume Center A requested.
+
+<span class="md-heading">### Step 3 — Convert Center A&#39;s Gallons to Quarts</span>
+
+Multiply Center A&#39;s full gallon quantity by the quarts-per-gallon conversion rate. The result
+is Center A&#39;s total request expressed in quarts.
+
+<span class="md-heading">### Step 4 — Compute Center B&#39;s Quart Quantity</span>
+
+Add the extra quarts to Center A&#39;s quart equivalent. The result is Center B&#39;s total quart request.
+
+<span class="md-heading">### Step 5 — Compute the Combined Total</span>
+
+Add Center A&#39;s quarts and Center B&#39;s quarts together. If the result is a whole number,
+display it without a decimal point. Otherwise, display the decimal value.
+
+<span class="md-heading">### Step 6 — Display the Result</span>
+
+Print a single output line in this format:
+
+Combined sample request — both distribution centers: [result] quarts
+
+The message must name both distribution centers and state the unit clearly.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- &#34;How many quarts did both distribution centers request in total?&#34;
+- &#34;Center A ordered 3 and 3/4 gallons and Center B ordered 7 quarts more — what&#39;s the combined total?&#34;
+- &#34;Calculate the total quarts from two centers where one ordered a fractional gallon sample&#34;
+- &#34;Convert a mixed gallon amount to quarts and add a surplus from a second center&#34;
+- &#34;Our two DCs requested different amounts — one in gallons, one in extra quarts. What&#39;s the total?&#34;
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [x] The YAML frontmatter appears once at the top
+- [x] There is no Python code anywhere in the skill body
+- [x] Every step reads as a natural-language instruction, not a code comment
+- [x] Conditional logic (whole-number display vs. decimal) is expressed in plain English
+- [x] Inputs and outputs are clearly named and described
+- [x] The description field would realistically trigger this skill from a non-technical user prompt</code></pre>
+
+                <p>The skill document translates every arithmetic step from the Python function into a natural-language
+                    instruction a non-programmer could follow, and packages the scenario context so Claude can
+                    re-execute the same logic without the original code.</p>
+
+                <h2>Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/cc-fourth-grade-math/imp-measurement-and-data-2/imp-unit-conversion/a/us-customary-unit-conversion"
+                            target="_blank" rel="noopener">Khan Academy — US Customary Unit Conversion</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/UnitConversion.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Unit Conversion</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/unit-conversion"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Unit Conversion</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 15, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>

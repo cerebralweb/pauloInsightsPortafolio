@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="A business math problem on field label distribution, solved step by step using fraction simplification, two Python programs, and a reusable Claude skill file.">
+    <meta name="keywords"
+        content="fraction simplification, division, field distribution, Python, business math, resource allocation, fractions module">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/simplify-first-then-divide-the-allocation-math-behind-field-distribution.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/simplify-first-then-divide-the-allocation-math-behind-field-distribution.html" />
+
+    <title>Simplify First, Then Divide: The Allocation Math Behind Field Distribution</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 15, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    SIMPLIFY FIRST, THEN DIVIDE: THE ALLOCATION MATH BEHIND FIELD DISTRIBUTION
+                     
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <!-- ARTICLE CONTENT -->
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Field distribution decisions happen every time a manager allocates a fixed supply across a
+                        variable-size team. Knowing how many people you can serve — and how that number shifts when
+                        supply shrinks by a known fraction — is the kind of arithmetic that prevents both waste and
+                        shortfall. <dfn>This article works through the calculation using a business scenario, two
+                            reusable Python programs, and a structured skill file that packages the logic for repeated
+                            use.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A regional sales manager at a packaging distributor shipped <strong>14.40 kg</strong> of specialty
+                    labels to field representatives. Each representative received a bundle of <strong>0.80 kg</strong>.
+                    The following day, the manager ran the same distribution but purchased only a <strong>third of the
+                        original quantity</strong>, because several reps were attending a trade conference.</p>
+
+                <p>How many field representatives does the team have in total? How many received labels on the second
+                    day?</p>
+                <ul>
+                    <li>a) 18 and 6</li>
+                    <li>b) 18 and 8</li>
+                    <li>c) 18 and 4.8</li>
+                    <li>d) 16 and 6</li>
+                </ul>
+
+                <details id="math-answer">
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 18 and 6 ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>The most important skill here is <strong>fraction simplification</strong>. Dividing 14.40 by 0.80
+                        is equivalent to simplifying 1440/80 to 18 — a clean whole number. Once the full team size is
+                        known, applying the unit fraction 1/3 × 18 yields 6 with no further complexity.</p>
+
+                    <p class="insight"><em>The key insight: decimals that look difficult often collapse to clean
+                            integers the moment you express them as fractions and cancel common factors.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amounts are derived:</p>
+                        <ol>
+                            <li><strong>Total team size:</strong> 14.40 ÷ 0.80 = <strong>18</strong> representatives
+                            </li>
+                            <li><strong>Day 2 supply:</strong> 1/3 × 14.40 = 4.80 kg</li>
+                            <li><strong>Day 2 recipients:</strong> 4.80 ÷ 0.80 = <strong>6</strong> — or equivalently,
+                                1/3 × 18 = 6</li>
+                            <li><strong>Conclusion:</strong> The full team has 18 reps; 6 received labels on the reduced
+                                second day.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="why-math-matters">Why This Math Matters for the Business Problem</h2>
+
+                <p>Allocation problems are routine in operations and logistics: given a fixed supply and a fixed unit
+                    rate, how many units can you serve? And if supply changes by a known fraction, how does the
+                    headcount change? Managers who can run these calculations quickly — without a spreadsheet — avoid
+                    over-ordering, under-staffing, or misallocating resources on reduced-capacity days like conferences
+                    or training sessions.</p>
+
+                <h2 id="python-option-1">Python Version — Option 1: Pure Python</h2>
+
+                <p>The function below accepts three inputs — total supply, allocation per rep, and the Day 2 fraction as
+                    a decimal — and returns both headcounts. It runs in Windows Terminal with no third-party libraries
+                    required.</p>
+
+                <pre><code>def label_distribution(total_supply, allocation_per_rep, day2_fraction):
+    total_reps = total_supply / allocation_per_rep
+    total_reps = int(total_reps) if total_reps == int(total_reps) else total_reps
+    day2_supply = total_supply * day2_fraction
+    day2_reps = day2_supply / allocation_per_rep
+    day2_reps = int(day2_reps) if day2_reps == int(day2_reps) else day2_reps
+    return total_reps, day2_reps
+
+print("Label Distribution Planner — Field Representatives")
+print("---------------------------------------------------")
+total_supply  = float(input("Total label supply on Day 1 (kg): "))
+allocation    = float(input("Allocation per representative (kg): "))
+day2_fraction = float(input("Fraction of supply available on Day 2 (e.g. 0.3333 for 1/3): "))
+
+total_reps, day2_reps = label_distribution(total_supply, allocation, day2_fraction)
+
+print(f"\nTotal field representatives on the team: {total_reps}")
+print(f"Representatives served on Day 2 (reduced supply): {day2_reps}")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the block, and pressing Enter.
+                    Enter each value when prompted to get both headcounts instantly.</p>
+
+                <h2 id="python-option-2">Python Version — Option 2: Standard Library <code>fractions.Fraction</code>
+                </h2>
+
+                <p>When the Day 2 fraction is a repeating decimal such as 1/3, floating-point arithmetic can introduce
+                    small rounding errors. This version uses Python's built-in <code>fractions</code> module so the user
+                    can enter <code>1/3</code> as a string and receive exact integer results every time — no
+                    approximation needed.</p>
+
+                <pre><code>from fractions import Fraction
+
+def label_distribution(total_supply, allocation_per_rep, day2_fraction):
+    total_reps  = Fraction(total_supply) / Fraction(allocation_per_rep)
+    day2_supply = Fraction(total_supply) * day2_fraction
+    day2_reps   = day2_supply / Fraction(allocation_per_rep)
+    return int(total_reps), int(day2_reps)
+
+print("Label Distribution Planner — Field Representatives")
+print("---------------------------------------------------")
+total_supply  = input("Total label supply on Day 1 (kg): ")
+allocation    = input("Allocation per representative (kg): ")
+day2_fraction = input("Fraction of supply available on Day 2 (e.g. 1/3): ")
+
+total_reps, day2_reps = label_distribution(total_supply, allocation, Fraction(day2_fraction))
+
+print(f"\nTotal field representatives on the team: {total_reps}")
+print(f"Representatives served on Day 2 (reduced supply): {day2_reps}")</code></pre>
+
+                <p>This version accepts <code>1/3</code> directly as input, making it the safer choice whenever the Day
+                    2 fraction does not terminate cleanly as a decimal.</p>
+
+                <h2 id="skill-file">Packaged as a Reusable Skill</h2>
+
+                <p>The logic above was also packaged as a Claude skill in Markdown with XML structure, ready to drop
+                    into any skill directory. The full skill file is shown below for reference and reuse.</p>
+
+                <pre class="md-code"><code>---
+name: label-distribution-planner
+description: Solves two-step resource allocation problems where a fixed supply is divided
+by a unit rate to find total recipients, then a fractional reduction is applied to find
+recipients on a reduced-capacity day. Trigger this skill whenever the user wants to
+calculate how many people can be served from a total supply at a fixed rate, and then
+recalculate for a day when only a fraction of that supply is available.
+---
+
+<span class="md-heading"># Label Distribution Planner</span>
+
+This skill solves two-step field-distribution problems. Given a total supply, a fixed
+allocation per recipient, and a fractional reduction for a second distribution day, it
+calculates (1) the total number of recipients the full supply can serve and (2) the number
+served when supply is reduced by a known fraction. The skill preserves exact arithmetic
+using Python's built-in `fractions` module when the reduction fraction does not terminate
+cleanly as a decimal.
+
+---
+
+&lt;skill&gt;
+
+  &lt;purpose&gt;
+    Accept a resource allocation scenario with three inputs — total supply, unit
+    allocation, and a day-two fraction — and produce two outputs: total recipients
+    (Day 1) and reduced recipients (Day 2). Offer both a pure-arithmetic version
+    and a fraction-safe version.
+  &lt;/purpose&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;Python 3 standard library only — no third-party packages required.&lt;/dependency&gt;
+    &lt;dependency&gt;Built-in <span class="md-code">`fractions.Fraction`</span> class for exact rational arithmetic in Option 2.&lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;inputs&gt;
+    &lt;input&gt;
+      &lt;name&gt;<span class="md-bold">**Total supply on Day 1**</span>&lt;/name&gt;
+      &lt;type&gt;float&lt;/type&gt;
+      &lt;description&gt;The full quantity available for distribution on the first day
+      (e.g., 14.40 kg of labels). Accept decimals.&lt;/description&gt;
+    &lt;/input&gt;
+    &lt;input&gt;
+      &lt;name&gt;<span class="md-bold">**Allocation per representative**</span>&lt;/name&gt;
+      &lt;type&gt;float&lt;/type&gt;
+      &lt;description&gt;The fixed quantity assigned to each recipient (e.g., 0.80 kg per rep).
+      Accept decimals.&lt;/description&gt;
+    &lt;/input&gt;
+    &lt;input&gt;
+      &lt;name&gt;<span class="md-bold">**Day 2 fraction**</span>&lt;/name&gt;
+      &lt;type&gt;float or rational string&lt;/type&gt;
+      &lt;description&gt;The proportion of Day 1 supply available on Day 2 (e.g., 0.3333 for
+      pure Python; "1/3" for the fractions version). Ask the user which format they
+      prefer if not specified.&lt;/description&gt;
+    &lt;/input&gt;
+  &lt;/inputs&gt;
+
+  &lt;steps&gt;
+
+    &lt;step id="1"&gt;
+      &lt;title&gt;Receive and validate inputs&lt;/title&gt;
+      &lt;instruction&gt;
+        Prompt the user for three values in sequence: total Day 1 supply, allocation per
+        recipient, and the Day 2 fraction. Use float() for the first two. For the Day 2
+        fraction, use float() in Option 1 and a rational string parsed by Fraction() in
+        Option 2. If any input is zero or negative, halt and ask the user to re-enter
+        a valid positive number.
+      &lt;/instruction&gt;
+    &lt;/step&gt;
+
+    &lt;step id="2"&gt;
+      &lt;title&gt;Calculate total recipients (Day 1)&lt;/title&gt;
+      &lt;instruction&gt;
+        Divide the total Day 1 supply by the allocation per recipient. This gives the full
+        team size. If the result is a whole number, display it as an integer. If not,
+        display it as a float and flag it as unexpected — a fractional headcount usually
+        signals a data-entry error.
+      &lt;/instruction&gt;
+    &lt;/step&gt;
+
+    &lt;step id="3"&gt;
+      &lt;title&gt;Calculate Day 2 supply&lt;/title&gt;
+      &lt;instruction&gt;
+        Multiply the total Day 1 supply by the Day 2 fraction. This gives the reduced
+        quantity available on the second day. In Option 2, perform this multiplication
+        using Fraction objects to avoid floating-point rounding.
+      &lt;/instruction&gt;
+    &lt;/step&gt;
+
+    &lt;step id="4"&gt;
+      &lt;title&gt;Calculate Day 2 recipients&lt;/title&gt;
+      &lt;instruction&gt;
+        Divide the Day 2 supply by the allocation per recipient. Apply the same
+        whole-number check as in Step 2. In Option 2, convert the final Fraction
+        result to int() before printing.
+      &lt;/instruction&gt;
+    &lt;/step&gt;
+
+    &lt;step id="5"&gt;
+      &lt;title&gt;Print results with business context&lt;/title&gt;
+      &lt;instruction&gt;
+        Print two clearly labeled output lines:
+        — "Total field representatives on the team: [result]"
+        — "Representatives served on Day 2 (reduced supply): [result]"
+        Do not print intermediate calculations unless the user requests them.
+      &lt;/instruction&gt;
+    &lt;/step&gt;
+
+  &lt;/steps&gt;
+
+  &lt;option_1&gt;
+    &lt;name&gt;<span class="md-bold">**Pure Python**</span>&lt;/name&gt;
+    &lt;when&gt;Use when the Day 2 fraction can be expressed as a decimal without
+    meaningful rounding error (e.g., 0.5, 0.25, 0.1).&lt;/when&gt;
+    &lt;arithmetic_structure&gt;
+      total_reps  = total_supply / allocation_per_rep
+      day2_supply = total_supply * day2_fraction
+      day2_reps   = day2_supply  / allocation_per_rep
+    &lt;/arithmetic_structure&gt;
+  &lt;/option_1&gt;
+
+  &lt;option_2&gt;
+    &lt;name&gt;<span class="md-bold">**Standard Library — fractions.Fraction**</span>&lt;/name&gt;
+    &lt;when&gt;Use when the Day 2 fraction is a repeating decimal (e.g., 1/3, 1/6, 2/3).
+    The user enters the fraction as a string such as "1/3" and Fraction() handles exact
+    rational arithmetic, eliminating rounding errors.&lt;/when&gt;
+    &lt;arithmetic_structure&gt;
+      total_reps  = Fraction(total_supply) / Fraction(allocation_per_rep)
+      day2_supply = Fraction(total_supply) * Fraction(day2_fraction_string)
+      day2_reps   = day2_supply / Fraction(allocation_per_rep)
+    &lt;/arithmetic_structure&gt;
+  &lt;/option_2&gt;
+
+  &lt;output_rules&gt;
+    &lt;rule&gt;Always print both results — total team size and Day 2 recipients.&lt;/rule&gt;
+    &lt;rule&gt;Display whole-number results as integers, not floats (18 not 18.0).&lt;/rule&gt;
+    &lt;rule&gt;Label each output line clearly with its business meaning.&lt;/rule&gt;
+    &lt;rule&gt;Do not print intermediate values unless the user asks.&lt;/rule&gt;
+  &lt;/output_rules&gt;
+
+  &lt;quality_check_before_delivering&gt;
+    &lt;check&gt;Does the program use input() and avoid command-line arguments?&lt;/check&gt;
+    &lt;check&gt;Does it use float() for supply and allocation, and the correct type
+    for the fraction depending on the option?&lt;/check&gt;
+    &lt;check&gt;Does it apply the whole-number display rule?&lt;/check&gt;
+    &lt;check&gt;Does it print two clearly labeled business-context output lines?&lt;/check&gt;
+    &lt;check&gt;Is Option 2 using fractions.Fraction, not decimal or numpy?&lt;/check&gt;
+    &lt;check&gt;Is there zero original Python code quoted in this skill body?&lt;/check&gt;
+  &lt;/quality_check_before_delivering&gt;
+
+  &lt;example_trigger_prompts&gt;
+    &lt;prompt&gt;"How many reps can I supply if I have 14.40 kg and each gets 0.80 kg?"&lt;/prompt&gt;
+    &lt;prompt&gt;"We're running a reduced distribution day — only a third of our usual stock.
+    How many people can we serve?"&lt;/prompt&gt;
+    &lt;prompt&gt;"Turn this label allocation problem into a Python program I can run in Terminal."&lt;/prompt&gt;
+    &lt;prompt&gt;"Build me a calculator for field distribution with a reduced second day."&lt;/prompt&gt;
+    &lt;prompt&gt;"I need to know how many team members get supplies at full capacity and at
+    one-third capacity."&lt;/prompt&gt;
+  &lt;/example_trigger_prompts&gt;
+
+&lt;/skill&gt;</code></pre>
+
+                <h2 id="mathematical-background">Mathematical Background</h2>
+
+                <p>The most important skill in this problem is <strong>simplifying fractions</strong>. The division
+                    14.40 ÷ 0.80 looks intimidating with decimals, but it becomes trivial once expressed as 1440/80 —
+                    which simplifies to 18/1. Fraction simplification is the art of canceling common factors from
+                    numerator and denominator until the expression is in its lowest terms. Once you have a whole number
+                    (18), the second question requires only a basic unit fraction: 1/3 × 18 = 6. </p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/dividing-fractions/a/dividing-fractions-review"
+                            target="_blank" rel="noopener">Khan Academy — Dividing Fractions Review</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 15, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>
