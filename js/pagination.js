@@ -17,6 +17,12 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle: "The allocation hiding in every cloud transfer budget",
+        articleDescription: "This article walks through the full pipeline: a business math problem, its step-by-step solution, the historical lineage of the least common denominator from Euclid to 9th-century Baghdad, a reusable Python program built on exact rational arithmetic, and a packaged Claude skill",
+        articleHref: "/a/the-allocation-hiding-in-every-cloud-transfer-budget.html"
+
+        },
+        {
         articleTitle: "the cascading fractions of sequential harvest allocation",
         articleDescription: "Agricultural and supply chain operations depend on sequential allocation logic",
         articleHref: "/a/the-cascading-fractions-of-sequential-harvest-allocation.html"
