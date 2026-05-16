@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="Step-by-step solution to a sequential fractional allocation problem, with two Python programs and a reusable Claude skill file. Covers fractions of a remainder using a coffee harvest scenario.">
+    <meta name="keywords"
+        content="fractions, sequential allocation, math problem, Python, coffee harvest, fractions of a remainder, fraction arithmetic">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-cascading-fractions-of-sequential-harvest-allocation.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/the-cascading-fractions-of-sequential-harvest-allocation.html" />
+
+    <title>The Cascading Fractions of Sequential Harvest Allocation</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE CASCADING FRACTIONS OF SEQUENTIAL HARVEST ALLOCATION
+
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Agricultural and supply chain operations depend on sequential allocation logic. Before any
+                        quantity reaches its final destination — a market, a warehouse, or a spot channel — it passes
+                        through multiple deduction steps, each applied not to the original total but to what remains
+                        after the previous cut. <dfn>This problem demonstrates how cascading fractional deductions work,
+                            and how Python can encode that logic into a reusable calculator that adapts to any quantity
+                            and any pair of fractions.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="the-problem">The Problem</h2>
+
+                <p>A farm finished its coffee harvest.</p>
+                <p>5/9 of the crop was stored in a large silo, 3/4 of the remainder in a small silo, and the rest was
+                    sent to the local market. If the total harvest weighed 18 tons, how many tons were sent to the
+                    market?</p>
+                <ul>
+                    <li>a) 2</li>
+                    <li>b) 1/9</li>
+                    <li>c) 9</li>
+                    <li>d) 1</li>
+                </ul>
+
+                <figure style="margin: 1.5rem 0; text-align: center;">
+                    <figcaption style="font-size: 0.85rem; color: #666; margin-bottom: 0.6rem;">Singapore Math bar model
+                        — coffee harvest allocation</figcaption>
+                    <svg width="100%" viewBox="0 0 640 310" xmlns="http://www.w3.org/2000/svg"
+                        style="max-width:640px; font-family: 'Source Sans Pro', system-ui, sans-serif;">
+
+                        <!-- 18 tons bracket above bar 1 -->
+                        <text x="320" y="18" text-anchor="middle" font-size="13" font-weight="600" fill="#2c2c2a">18
+                            tons</text>
+                        <line x1="40" y1="26" x2="600" y2="26" stroke="#666" stroke-width="0.8" />
+                        <line x1="40" y1="26" x2="40" y2="36" stroke="#666" stroke-width="0.8" />
+                        <line x1="600" y1="26" x2="600" y2="36" stroke="#666" stroke-width="0.8" />
+
+                        <!-- Bar 1: large silo (5/9 × 18 = 10 t): x=40 w=311 -->
+                        <rect x="40" y="36" width="311" height="50" fill="#9FE1CB" stroke="#0F6E56"
+                            stroke-width="0.5" />
+                        <!-- Hatch overlay on large silo -->
+                        <clipPath id="cp-teal">
+                            <rect x="40" y="36" width="311" height="50" />
+                        </clipPath>
+                        <g clip-path="url(#cp-teal)">
+                            <line x1="40" y1="86" x2="96" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="56" y1="86" x2="112" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="72" y1="86" x2="128" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="88" y1="86" x2="144" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="104" y1="86" x2="160" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="120" y1="86" x2="176" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="136" y1="86" x2="192" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="152" y1="86" x2="208" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="168" y1="86" x2="224" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="184" y1="86" x2="240" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="200" y1="86" x2="256" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="216" y1="86" x2="272" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="232" y1="86" x2="288" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="248" y1="86" x2="304" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="264" y1="86" x2="320" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="280" y1="86" x2="336" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                            <line x1="296" y1="86" x2="351" y2="36" stroke="#fff" stroke-width="1.4" opacity="0.35" />
+                        </g>
+                        <text x="196" y="57" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Large
+                            silo</text>
+                        <text x="196" y="74" text-anchor="middle" font-size="11" fill="#0F6E56">10 tons</text>
+
+                        <!-- Bar 1: remainder (4/9 × 18 = 8 t): x=351 w=249 -->
+                        <rect x="351" y="36" width="249" height="50" fill="#B5D4F4" stroke="#185FA5"
+                            stroke-width="0.5" />
+                        <text x="476" y="57" text-anchor="middle" font-size="13" font-weight="600"
+                            fill="#0C447C">Remainder</text>
+                        <text x="476" y="74" text-anchor="middle" font-size="11" fill="#185FA5">8 tons</text>
+
+                        <!-- Unit grid lines (every ~62.2px) within bar 1 -->
+                        <line x1="102" y1="36" x2="102" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="165" y1="36" x2="165" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="227" y1="36" x2="227" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="289" y1="36" x2="289" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="413" y1="36" x2="413" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="476" y1="36" x2="476" y2="86" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="538" y1="36" x2="538" y2="86" stroke="#aaa" stroke-width="0.5" />
+
+                        <!-- Heavy divider and outer border bar 1 -->
+                        <line x1="351" y1="36" x2="351" y2="86" stroke="#2c2c2a" stroke-width="1.5" opacity="0.5" />
+                        <rect x="40" y="36" width="560" height="50" fill="none" stroke="#555" stroke-width="1" />
+
+                        <!-- Brackets below bar 1 -->
+                        <line x1="40" y1="94" x2="600" y2="94" stroke="#666" stroke-width="0.8" />
+                        <line x1="40" y1="86" x2="40" y2="94" stroke="#666" stroke-width="0.8" />
+                        <line x1="351" y1="86" x2="351" y2="94" stroke="#666" stroke-width="0.8" />
+                        <line x1="600" y1="86" x2="600" y2="94" stroke="#666" stroke-width="0.8" />
+                        <text x="196" y="107" text-anchor="middle" font-size="11" fill="#555">5/9 of total</text>
+                        <text x="476" y="107" text-anchor="middle" font-size="11" fill="#555">4/9 of total =
+                            remainder</text>
+
+                        <!-- Dashed connectors remainder → bar 2 -->
+                        <line x1="351" y1="118" x2="351" y2="140" stroke="#aaa" stroke-width="0.8"
+                            stroke-dasharray="4 3" />
+                        <line x1="600" y1="118" x2="600" y2="140" stroke="#aaa" stroke-width="0.8"
+                            stroke-dasharray="4 3" />
+
+                        <!-- Labels above bar 2 -->
+                        <text x="450" y="136" text-anchor="middle" font-size="11" fill="#555">3/4 of 8 tons</text>
+                        <text x="563" y="136" text-anchor="middle" font-size="11" fill="#555">1/4 of 8 tons</text>
+
+                        <!-- Bar 2: small silo (3/4 × 8 = 6 t): x=351 w=187 -->
+                        <rect x="351" y="148" width="187" height="50" fill="#B5D4F4" stroke="#185FA5"
+                            stroke-width="0.5" />
+                        <text x="445" y="169" text-anchor="middle" font-size="13" font-weight="600" fill="#0C447C">Small
+                            silo</text>
+                        <text x="445" y="186" text-anchor="middle" font-size="11" fill="#185FA5">6 tons</text>
+
+                        <!-- Bar 2: market (1/4 × 8 = 2 t): x=538 w=62 — amber highlight -->
+                        <rect x="538" y="148" width="62" height="50" fill="#FAC775" stroke="#BA7517"
+                            stroke-width="1.5" />
+                        <text x="569" y="175" text-anchor="middle" font-size="14" font-weight="700"
+                            fill="#633806">?</text>
+
+                        <!-- Unit grid lines within bar 2 -->
+                        <line x1="413" y1="148" x2="413" y2="198" stroke="#aaa" stroke-width="0.5" />
+                        <line x1="476" y1="148" x2="476" y2="198" stroke="#aaa" stroke-width="0.5" />
+
+                        <!-- Heavy divider and outer border bar 2 -->
+                        <line x1="538" y1="148" x2="538" y2="198" stroke="#2c2c2a" stroke-width="1.5" opacity="0.5" />
+                        <rect x="351" y="148" width="249" height="50" fill="none" stroke="#555" stroke-width="1" />
+
+                        <!-- Answer bracket below market segment -->
+                        <line x1="538" y1="206" x2="600" y2="206" stroke="#666" stroke-width="0.8" />
+                        <line x1="538" y1="198" x2="538" y2="206" stroke="#666" stroke-width="0.8" />
+                        <line x1="600" y1="198" x2="600" y2="206" stroke="#666" stroke-width="0.8" />
+                        <line x1="569" y1="206" x2="569" y2="222" stroke="#666" stroke-width="0.8" />
+
+                        <!-- Answer callout box -->
+                        <rect x="514" y="224" width="110" height="44" rx="6" fill="#FAC775" stroke="#BA7517"
+                            stroke-width="1.2" />
+                        <text x="569" y="242" text-anchor="middle" font-size="13" font-weight="700"
+                            fill="#633806">Market</text>
+                        <text x="569" y="260" text-anchor="middle" font-size="13" font-weight="700" fill="#633806">= 2
+                            tons ✓</text>
+
+                    </svg>
+                </figure>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 2 tons ✅</strong></p>
+
+                    <h2>Math Structure Preserved</h2>
+
+                    <p>This problem applies <strong>sequential fractional reasoning</strong>: the second fraction (3/4)
+                        is not applied to the original 18-ton total but to the <strong>remainder</strong> left after the
+                        first allocation — a critical distinction that rules out simply adding or combining the two
+                        fractions directly.</p>
+
+                    <p class="insight"><em>The key insight is that each deduction changes the base: the first fraction
+                            operates on the whole, the second on what survives the first cut.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total harvest:</strong> 18 tons</li>
+                            <li><strong>Large silo (5/9 of total):</strong> 5/9 × 18 = 10 tons</li>
+                            <li><strong>Remainder after large silo:</strong> 18 − 10 = 8 tons</li>
+                            <li><strong>Small silo (3/4 of remainder):</strong> 3/4 × 8 = 6 tons</li>
+                            <li><strong>Sent to market (1/4 of remainder):</strong> 8 − 6 = 2 tons</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalizes the allocation logic into a reusable function: supply any total, any
+                    primary fraction, and any secondary fraction, and it returns the residual quantity that reaches the
+                    final destination.</p>
+
+                <pre><code>def harvest_to_market(total, large_num, large_den, small_num, small_den):
+    large_silo = total * large_num / large_den
+    remainder = total - large_silo
+    small_silo = remainder * small_num / small_den
+    to_market = remainder - small_silo
+    result = int(to_market) if to_market == int(to_market) else to_market
+    return result
+
+print("--- Coffee Harvest Allocation ---")
+total     = float(input("Total harvest weight (tons): "))
+large_num = float(input("Large silo fraction — numerator: "))
+large_den = float(input("Large silo fraction — denominator: "))
+small_num = float(input("Small silo fraction of remainder — numerator: "))
+small_den = float(input("Small silo fraction of remainder — denominator: "))
+
+sent = harvest_to_market(total, large_num, large_den, small_num, small_den)
+print(f"\nTons sent to the local market: {sent}")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the block, pressing Enter twice,
+                    and supplying each value when prompted. For the original problem the inputs are 18, 5, 9, 3, and 4 —
+                    and the program returns <code>Tons sent to the local market: 2</code>.</p>
+
+                <p>A second variant using <code>fractions.Fraction</code> from the Python standard library eliminates
+                    floating-point rounding errors. It is preferable when the inputs are large or the fractions do not
+                    divide evenly into whole numbers.</p>
+
+                <pre><code>from fractions import Fraction
+
+def harvest_to_market(total, large_num, large_den, small_num, small_den):
+    total      = Fraction(total)
+    large_silo = total * Fraction(large_num, large_den)
+    remainder  = total - large_silo
+    small_silo = remainder * Fraction(small_num, small_den)
+    to_market  = remainder - small_silo
+    result = int(to_market) if to_market.denominator == 1 else float(to_market)
+    return result
+
+print("--- Coffee Harvest Allocation (exact fractions) ---")
+total     = int(input("Total harvest weight (tons): "))
+large_num = int(input("Large silo fraction — numerator: "))
+large_den = int(input("Large silo fraction — denominator: "))
+small_num = int(input("Small silo fraction of remainder — numerator: "))
+small_den = int(input("Small silo fraction of remainder — denominator: "))
+
+sent = harvest_to_market(total, large_num, large_den, small_num, small_den)
+print(f"\nTons sent to the local market: {sent}")</code></pre>
+
+                <h2 id="skill-file">The Skill File</h2>
+
+                <p>The logic above has been packaged as a Claude skill — a Markdown document that expresses each
+                    calculation step as a plain-English instruction Claude can follow without running the original
+                    script.</p>
+
+                <pre class="md-code"><code>---
+name: harvest-allocation-calculator
+description: Computes how much of a harvest (or any stockpile) is left over after two sequential fractional allocations — a large storage share first, then a smaller-silo share of whatever remains. Trigger this skill whenever the user wants to calculate what is left after distributing a quantity in two successive fractional steps, even if they use informal language like &#34;how much is left after splitting the crop&#34; or &#34;what remains after two rounds of allocation.&#34;
+---
+
+<span class="md-heading"># Harvest Allocation Calculator</span>
+
+This skill takes a total harvest weight and two fractions — one for a primary allocation and one for a secondary allocation applied to the leftover — and calculates exactly how much reaches the final destination (the local market, the spot sale channel, or any residual use). It applies sequential fractional reasoning: compute the first share, subtract it from the total to get the remainder, compute the second share from that remainder, subtract again, and report what is left.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries required. All arithmetic uses basic Python operators. If exact fractional arithmetic is needed (no rounding), use the <span class="md-code">`fractions.Fraction`</span> class from the Python standard library.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total quantity**</span>: The full harvest weight or stockpile size, expressed as a whole number (e.g., 18 tons). Accept as an integer when the problem guarantees a whole number; accept as a decimal when it may not be.
+- <span class="md-bold">**Primary allocation fraction**</span>: The share of the total sent to the first destination, expressed as a numerator and a denominator (e.g., 5 and 9 for five-ninths). Both values must be positive integers.
+- <span class="md-bold">**Secondary allocation fraction**</span>: The share of the <span class="md-italic">*remainder*</span> sent to the second destination, also expressed as a numerator and a denominator (e.g., 3 and 4 for three-quarters). Both values must be positive integers.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and frame the problem</span>
+
+Print a short header that names the scenario — for example, &#34;Coffee Harvest Allocation&#34; — so the user knows which calculation is about to run.
+
+<span class="md-heading">### Step 2 — Collect the total quantity</span>
+
+Prompt the user for the total harvest weight in tons. Accept a decimal value in case the total is not a whole number.
+
+<span class="md-heading">### Step 3 — Collect the primary allocation fraction</span>
+
+Prompt the user for two separate values: the numerator and the denominator of the fraction that goes to the large silo (or primary destination). Accept both as integers.
+
+<span class="md-heading">### Step 4 — Collect the secondary allocation fraction</span>
+
+Prompt the user for two separate values: the numerator and the denominator of the fraction of the remainder that goes to the small silo (or secondary destination). Accept both as integers.
+
+<span class="md-heading">### Step 5 — Calculate the primary allocation</span>
+
+Multiply the total quantity by the primary fraction (numerator divided by denominator) to find how much goes to the large silo. This is the first deduction from the total.
+
+<span class="md-heading">### Step 6 — Calculate the remainder</span>
+
+Subtract the primary allocation from the total. This intermediate value is the quantity available for the second allocation and the final destination.
+
+<span class="md-heading">### Step 7 — Calculate the secondary allocation</span>
+
+Multiply the remainder by the secondary fraction (numerator divided by denominator) to find how much goes to the small silo. This is the second deduction.
+
+<span class="md-heading">### Step 8 — Calculate the residual sent to market</span>
+
+Subtract the secondary allocation from the remainder. This is the final answer: the quantity that reaches the local market or residual channel.
+
+<span class="md-heading">### Step 9 — Clean and display the result</span>
+
+If the result is a whole number (its decimal part equals zero), display it as an integer rather than a float. Print the result with a clear, friendly label — for example: &#34;Tons sent to the local market: 2&#34;.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- &#34;How many tons of coffee are left for the market after filling both silos?&#34;
+- &#34;Calculate what remains after two rounds of crop allocation&#34;
+- &#34;I have 18 tons of harvest — tell me how much reaches the local market after storing 5/9 and then 3/4 of what&#39;s left&#34;
+- &#34;Run the harvest allocation calculator&#34;
+- &#34;How much is left over after two fractional deductions from a stockpile?&#34;
+
+---</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic"
+                            target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>
