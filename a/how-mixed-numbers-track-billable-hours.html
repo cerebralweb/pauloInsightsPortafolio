@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="How fractional hour arithmetic helps consultants verify whether logged session time meets a billable target — with a Python calculator using fractions.Fraction and a reusable Claude skill.">
+    <meta name="keywords"
+        content="mixed numbers, fractions of an hour, billable hours, time tracking, Python fractions module, addition subtraction mixed numbers, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/add-the-fractions-first-how-mixed-numbers-track-billable-hours.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/add-the-fractions-first-how-mixed-numbers-track-billable-hours.html" />
+
+    <title>Add the Fractions First: How Mixed Numbers Track Billable Hours</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 18, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ADD THE FRACTIONS FIRST: HOW MIXED NUMBERS TRACK BILLABLE HOURS (AND WHICH ANCIENT NUMERAL SYSTEM MAKES IT ALL WORK)
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Consultants, project managers, and analysts log time across multiple sessions every week.
+                        Whether the context is client billing, sprint tracking, or compliance reporting, the ability to
+                        determine how much time remains in a planned block — when prior sessions are recorded as
+                        fractions of an hour — is a practical operational skill. <dfn>This problem illustrates how
+                            adding and subtracting mixed numbers models a real time-tracking scenario, and how Python
+                            and a reusable Claude skill can turn that logic into a repeatable, always-ready
+                            tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A project consultant needs to log <strong>6½ billable hours</strong> this weekend to meet a client
+                    deliverable milestone. On Friday, she logged <strong>1 hour and 15 minutes</strong> reviewing
+                    documentation. On Saturday, she logged <strong>2 hours and 2/3</strong> conducting stakeholder
+                    interviews.</p>
+                <p>How many hours does she still need to log on Sunday to reach the milestone?</p>
+                <ul>
+                    <li>a) 150 minutes</li>
+                    <li>b) 2 hours and 7/12</li>
+                    <li>c) 27/12</li>
+                    <li>d) 2 hours and 9/12</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 2 hours and 7/12 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The key move is converting every time value to a fraction over a <strong>common denominator of
+                            12</strong>, adding the logged hours, then <strong>subtracting from the target</strong>. The
+                        number 12 appears naturally because it is the least common multiple of 4 (from 15 minutes = ¼
+                        hour) and 3 (from the 2/3 session). A faster but more error-prone path is to add hours and
+                        minutes separately — reaching 3 hours and 55 minutes logged — then subtract from 6 hours 30
+                        minutes to get 2 hours 35 minutes, and convert 35 minutes to 7/12 by observing that 60 divides
+                        into 12 segments of 5 minutes, of which 35 contains 7.</p>
+
+                    <p class="insight"><em>The critical insight is that 60 minutes divides evenly into 12 equal segments
+                            of 5 minutes each — a structural property of the Babylonian base-60 system — which is why 35
+                            remaining minutes translates cleanly to 7/12 of an hour with no remainder.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived (Method A — systematic fraction
+                            conversion):</p>
+                        <ol>
+                            <li><strong>Convert Friday hours:</strong> 1 hour 15 min = 1¼ = 5/4</li>
+                            <li><strong>Convert Saturday hours:</strong> 2 and 2/3 = 8/3</li>
+                            <li><strong>Find common denominator (LCD of 4 and 3 = 12):</strong> 5/4 → 15/12
+                                &nbsp;|&nbsp; 8/3 → 32/12</li>
+                            <li><strong>Add logged hours:</strong> 15/12 + 32/12 = 47/12</li>
+                            <li><strong>Convert target to twelfths:</strong> 6½ = 13/2 = 78/12</li>
+                            <li><strong>Subtract:</strong> 78/12 − 47/12 = 31/12</li>
+                            <li><strong>Convert to mixed number:</strong> 31 ÷ 12 = 2 remainder 7 → <strong>2 and 7/12
+                                    hours</strong></li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The reason this problem resolves so cleanly in twelfths traces directly to Babylon. Around 2000 BCE,
+                    Mesopotamian scribes adopted a base-60 positional numeral system — the sexagesimal system — in large
+                    part because <strong>60 has an unusually high number of divisors</strong>: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, and
+                    60. This made it possible to express most common fractions as whole subdivisions without remainder,
+                    which was <strong>essential for astronomical calculation, land measurement, and timekeeping</strong>. When
+                    Hellenistic astronomers later formalized the 60-minute hour and 60-second minute, they were
+                    borrowing a computational convenience that Babylonian accountants had relied on for a millennium.
+                    Every time a consultant converts 15 minutes to ¼ hour or 40 minutes to ⅔ hour, they are using
+                    arithmetic that was designed in ancient Mesopotamia to make exactly these kinds of fractional
+                    relationships come out whole.</p>
+                <p>
+                    Our system (base-10) uses 10 digits (0–9) and resets every power of 10: ones, tens, hundreds.
+                    Every time you exhaust 10 combinations at one position, you increment the position to the left by 1 and reset the right
+                    position to 0. So 9 → 10, 99 → 100, 999 → 1000. Every multi-digit number is just a sum of digits multiplied by their
+                    positional power of 10: 347 = (3×100) + (4×10) + (7×1). The digits never change — always 0–9 — but their position
+                    determines their weight.
+                </p>
+                <p>Base-60 uses 60 distinct symbols before resetting. The practical payoff: 60 divides evenly by 2, 3, 4, 5, 6, 10, 12, 15,
+                20, and 30. Base-10 only divides evenly by 2 and 5.That's why splitting an hour into thirds (20 min), quarters (15 min), or sixths (10 min) always comes out whole — and
+                splitting a dollar into thirds doesn't.
+                </p>
+                <p>
+                    In base-10, you count: 1, 2, 3 … all the way to 9, and when you run out of single digits you borrow a slot on the left:
+                    10, 11, 12 … 99, then 100, and so on.
+                    Base-60 works exactly the same way — but instead of running out at 9, you don't borrow that left slot until you've
+                    counted all the way to 59. So you have 60 individual symbols (the Babylonians used combinations of two wedge marks
+                    pressed into clay to build them). Only after you hit 59 does a "1" appear in the left slot — meaning "one full group of
+                    sixty."
+                    The practical result: where we write "1:30" to mean one hour and thirty minutes, a Babylonian would write it as two
+                    symbols — one mark meaning "one sixty" and another meaning "thirty." Same idea, bigger bucket before the reset.
+                </p>
+                <p>In the original Babylonian cuneiform system, they only had two symbols:</p>
+
+<ul>
+    <li><strong>𒁹</strong> (a narrow vertical wedge) = 1</li>
+    <li><strong>𒌋</strong> (a wider corner wedge) = 10</li>
+</ul>
+
+<p>So they built numbers by combining them, exactly like tally marks:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Symbol</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>𒁹</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>𒌋</td>
+        </tr>
+        <tr>
+            <td>59</td>
+            <td>𒌋𒌋𒌋𒌋𒌋𒁹𒁹𒁹𒁹𒁹𒁹𒁹𒁹𒁹 (five 10s + nine 1s)</td>
+        </tr>
+        <tr>
+            <td><strong>60</strong></td>
+            <td><strong>𒁹</strong> (a single "1" — but now in the <em>left position</em>)</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>That last row is the key. "One sixty" looks identical to "one" — the only thing that
+distinguishes them is <strong>position</strong>, just like how the "1" in 10 looks like the
+"1" in 1, but sits one slot to the left.</p>
+
+<p>This is also why Babylonian math was occasionally ambiguous — they had no zero to hold
+an empty position for much of their history.</p>
+
+<p>In base-10, every multi-digit number is a sum of digits multiplied by their positional power of 10.
+The digit itself never changes — it is always 0–9 — but <strong>where it sits</strong>
+determines what it is worth.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Power</th>
+            <th>Value</th>
+            <th>Digit</th>
+            <th>Contribution</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Thousands</td>
+            <td>10³</td>
+            <td>1,000</td>
+            <td>3</td>
+            <td>3 × 1,000 = 3,000</td>
+        </tr>
+        <tr>
+            <td>Hundreds</td>
+            <td>10²</td>
+            <td>100</td>
+            <td>4</td>
+            <td>4 × 100 = 400</td>
+        </tr>
+        <tr>
+            <td>Tens</td>
+            <td>10¹</td>
+            <td>10</td>
+            <td>7</td>
+            <td>7 × 10 = 70</td>
+        </tr>
+        <tr>
+            <td>Ones</td>
+            <td>10⁰</td>
+            <td>1</td>
+            <td>2</td>
+            <td>2 × 1 = 2</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Total: 3,000 + 400 + 70 + 2 = <strong>3,472</strong>. A zero in any column contributes
+nothing to the total — but it must stay there as a placeholder so every other digit
+keeps its correct position.</p>
+
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below accepts a billable target and two logged session times — each entered as a whole
+                    number of hours plus a fraction given as numerator and denominator — and returns the hours still
+                    needed for the third session. Using Python's built-in <code>fractions.Fraction</code> type gives
+                    exact rational arithmetic with automatic simplification, eliminating the manual GCD step and any
+                    risk of floating-point rounding error.</p>
+
+                <pre><code>from fractions import Fraction
+
+def hours_remaining(target, day1, day2):
+    logged = day1 + day2
+    remaining = target - logged
+    return remaining
+
+print("Billable Hours Tracker — How much time is left for the final session?\n")
+
+target_w = int(input("Total billable target — whole hours: "))
+target_n = int(input("Total billable target — fraction numerator: "))
+target_d = int(input("Total billable target — fraction denominator: "))
+
+day1_w = int(input("\nDay 1 logged — whole hours: "))
+day1_n = int(input("Day 1 logged — fraction numerator: "))
+day1_d = int(input("Day 1 logged — fraction denominator: "))
+
+day2_w = int(input("\nDay 2 logged — whole hours: "))
+day2_n = int(input("Day 2 logged — fraction numerator: "))
+day2_d = int(input("Day 2 logged — fraction denominator: "))
+
+target  = Fraction(target_w) + Fraction(target_n, target_d)
+day1    = Fraction(day1_w)   + Fraction(day1_n,   day1_d)
+day2    = Fraction(day2_w)   + Fraction(day2_n,   day2_d)
+
+result  = hours_remaining(target, day1, day2)
+whole   = int(result)
+frac    = result - whole
+
+if frac == 0:
+    print(f"\nBillable hours still needed on Day 3: {whole} hours")
+else:
+    print(f"\nBillable hours still needed on Day 3: {whole} and {frac.numerator}/{frac.denominator} hours")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the code, and pressing Enter; using
+                    the original problem values (target: <code>6, 1, 2</code> — Day 1: <code>1, 1, 4</code> — Day 2:
+                    <code>2, 2, 3</code>) produces <code>Billable hours still needed on Day 3: 2 and 7/12 hours</code>.
+                </p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-add-sub-mixed-numbers/a/adding-and-subtracting-mixed-numbers"
+                            target="_blank" rel="noopener">Khan Academy — Adding and Subtracting Mixed Numbers</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/MixedFraction.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Mixed Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The skill document below packages the same time-balance logic as a natural-language SOP for Claude —
+                    no Python required. It accepts any three-session time-tracking scenario and returns the missing
+                    session duration as a correctly reduced mixed number. Save it as
+                    <code>billable-hours-tracker.md</code> in your skills directory.</p>
+
+                <pre class="md-code"><code>---
+name: billable-hours-tracker
+description: Calculates how many hours remain in a final work session to meet a total billable
+or study time target, given hours already logged across two prior sessions. Each time value is
+entered as a whole number plus a fraction (numerator and denominator). Trigger this skill
+whenever the user wants to find a missing time balance across sessions, check whether logged
+hours meet a target, or compute remaining hours from mixed-number time entries — even if they
+don't use technical language.
+---
+
+<span class="md-heading"># Billable Hours Tracker</span>
+
+This skill takes a total time target and two prior session logs — each expressed as a whole
+number of hours plus a fractional part — and calculates how many hours still need to be logged
+in a third session to meet the target. It produces a clean mixed-number result (e.g., "2 and
+7/12 hours") with brief business-context text. It is designed to run interactively, prompting
+the user for each value one at a time.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- No third-party libraries required.
+- <span class="md-bold">**Option A**</span> uses only basic arithmetic and a greatest-common-divisor helper.
+- <span class="md-bold">**Option B**</span> uses <span class="md-code">`fractions.Fraction`</span> from the Python standard library — available in all Python 3 installations without installation.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Billable target — whole hours**</span>: The full-hour portion of the total time goal (e.g., <span class="md-code">`6`</span> for a 6½-hour target).
+- <span class="md-bold">**Billable target — fraction numerator**</span>: The numerator of the fractional hour portion of the target (e.g., <span class="md-code">`1`</span> for ½).
+- <span class="md-bold">**Billable target — fraction denominator**</span>: The denominator of the fractional hour portion of the target (e.g., <span class="md-code">`2`</span> for ½).
+- <span class="md-bold">**Day 1 logged — whole hours**</span>: Full hours logged in the first session.
+- <span class="md-bold">**Day 1 logged — fraction numerator**</span>: Numerator of the fractional part logged on Day 1.
+- <span class="md-bold">**Day 1 logged — fraction denominator**</span>: Denominator of the fractional part logged on Day 1.
+- <span class="md-bold">**Day 2 logged — whole hours**</span>: Full hours logged in the second session.
+- <span class="md-bold">**Day 2 logged — fraction numerator**</span>: Numerator of the fractional part logged on Day 2.
+- <span class="md-bold">**Day 2 logged — fraction denominator**</span>: Denominator of the fractional part logged on Day 2.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Open the session and prompt the user</span>
+
+Print a short opening line that frames the task in business language — for example:
+<span class="md-italic">*"Billable Hours Tracker — How much time is left for the final session?"*</span>
+Then collect the nine inputs one at a time, in this order: target whole hours, target fraction
+numerator, target fraction denominator; Day 1 whole hours, fraction numerator, fraction
+denominator; Day 2 whole hours, fraction numerator, fraction denominator. Use clear,
+plain-language prompts for each entry.
+
+<span class="md-heading">### Step 2 — Convert each mixed number to a single fraction</span>
+
+For each of the three time values (target, Day 1, Day 2), combine the whole-hour part and the
+fractional part into a single fraction. Multiply the whole hours by the denominator, add the
+numerator, and keep the same denominator. This gives a single fraction for each value that
+represents the total time as a ratio of parts to a common unit.
+
+<span class="md-heading">### Step 3 — Add the two session logs together</span>
+
+Add the Day 1 fraction and the Day 2 fraction. To add fractions with different denominators,
+first find a common denominator by multiplying the two denominators together. Scale each
+fraction's numerator accordingly, then add the numerators. The result is the total time already
+logged, expressed as a single fraction.
+
+<span class="md-heading">### Step 4 — Subtract logged time from the target</span>
+
+Find a common denominator between the target fraction and the logged total fraction, then
+subtract the logged total from the target. The result is the remaining time the consultant must
+log on Day 3, expressed as a single fraction.
+
+<span class="md-heading">### Step 5 — Simplify the result</span>
+
+Reduce the resulting fraction to its lowest terms by dividing both the numerator and the
+denominator by their greatest common divisor. To find the GCD, repeatedly replace the larger
+value with the remainder of dividing the larger by the smaller until the remainder is zero;
+the last non-zero value is the GCD.
+
+<span class="md-heading">### Step 6 — Convert the simplified fraction to a mixed number</span>
+
+Divide the simplified numerator by the simplified denominator using integer division to get
+the whole-hour portion. The remainder becomes the new numerator, and the denominator stays the
+same. This gives the final mixed-number result (e.g., 2 and 7/12).
+
+<span class="md-heading">### Step 7 — Print the result with business-context text</span>
+
+If the remainder is zero, print only the whole hours
+(e.g., <span class="md-italic">*"Billable hours still needed on Day 3: 3 hours"*</span>).
+Otherwise, print the mixed number
+(e.g., <span class="md-italic">*"Billable hours still needed on Day 3: 2 and 7/12 hours"*</span>).
+The output must include a short descriptive label — never print the number alone.
+
+---
+
+<span class="md-heading">## Alternate Execution Path — Standard Library (Exact Rational Arithmetic)</span>
+
+When precision and code brevity are the priority, use the <span class="md-code">`Fraction`</span> type
+from Python's built-in <span class="md-code">`fractions`</span> module instead of manual arithmetic.
+
+- Build each time value by adding a whole-number Fraction to the fractional-part Fraction.
+- Add Day 1 and Day 2 directly using the <span class="md-code">`+`</span> operator.
+- Subtract the logged total from the target using the <span class="md-code">`-`</span> operator.
+- The result is already fully reduced automatically — no GCD step is needed.
+- Read the whole-hour portion by converting the result to an integer and subtracting it from the result.
+- Print using the same mixed-number format described in Step 7.
+
+This path eliminates the need for a manual GCD function, avoids floating-point rounding errors,
+and produces identical output to Option A.
+
+---
+
+<span class="md-heading">## Verification Case</span>
+
+To confirm the program is working correctly, run it with these values:
+
+- Target: <span class="md-bold">**6 whole hours, numerator 1, denominator 2**</span> (= 6½)
+- Day 1: <span class="md-bold">**1 whole hour, numerator 1, denominator 4**</span> (= 1¼ = 1 hour 15 minutes)
+- Day 2: <span class="md-bold">**2 whole hours, numerator 2, denominator 3**</span> (= 2⅔)
+
+Expected output: <span class="md-bold">**Billable hours still needed on Day 3: 2 and 7/12 hours**</span>
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "I need to log 6.5 hours this weekend. I worked 1h15m on Friday and 2h40m on Saturday. How much is left for Sunday?"
+- "How many hours do I still need to hit my billable target for the week?"
+- "I've tracked two sessions. How much time is left to reach my goal?"
+- "Help me calculate the missing hours for a three-day study plan."
+- "Turn this mixed-number time problem into a Python calculator."</code></pre>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 18, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>

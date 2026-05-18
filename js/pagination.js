@@ -17,6 +17,16 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle: "how mixed numbers track billable hours",
+        articleDescription: "Whether the context is client billing or compliance reporting, the ability to determine how much time remains in a block is a practical operational skill",
+        articleHref: "/a/how-mixed-numbers-track-billable-hours.html"
+        },
+        {
+        articleTitle: "26,104 tasks, two reps, one arithmetic rule",
+        articleDescription: "Multi-step arithmetic is the skeleton of nearly every operational decision in business. When teams scale, pricing tiers diverge, and resource consumption compounds, the ability to chain simple operations — add, multiply, subtract — without reaching for a calculator separates analysts who lead the room from analysts who confirm after the meeting.This problem demonstrates how a realistic SaaS scenario transforms classroom arithmetic into a decision-support tool, and how two mental math strategies — fast estimation and systematic decomposition — serve different moments in the same workflow.",
+        articleHref: "/a/two-reps-one-arithmetic-rule.html"
+        },
+        {
         articleTitle: "The allocation hiding in every cloud transfer budget",
         articleDescription: "This article walks through the full pipeline: a business math problem, its step-by-step solution, the historical lineage of the least common denominator from Euclid to 9th-century Baghdad, a reusable Python program built on exact rational arithmetic, and a packaged Claude skill",
         articleHref: "/a/the-allocation-hiding-in-every-cloud-transfer-budget.html"
