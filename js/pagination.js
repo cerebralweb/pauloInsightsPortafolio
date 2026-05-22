@@ -17,6 +17,11 @@
  */
     const articlesDataBase = [ 
         {
+        articleTitle: "The linear equation inside a mixed shipment",
+        articleDescription: "Operational teams that manage ingredient sourcing rarely deal with one shipment at a time.",
+        articleHref: "/a/the-linear-equation-inside-a-mixed-shipment.html"
+        },
+        {
         articleTitle: "The least common multiple that saved a launch budget",
         articleDescription: "When marketing funds are split across multiple channels, the question is not how much each allocation costs, but whether the sum of those allocations still leaves room for the unexpected",
         articleHref: "/a/the-least-common-multiple-that-saved-a-launch-budget.html"

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A food manufacturing company receives two ingredient shipments whose combined weight is known but whose individual weights are not. This article shows how a single linear equation recovers the missing quantity and how unit conversion turns it into a production count.">
+    <meta name="keywords" content="linear equations, algebra, systems of equations, unit conversion, business math, supply chain, sample bags, Python math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/1888-sample-bags-the-linear-equation-inside-a-mixed-shipment.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/1888-sample-bags-the-linear-equation-inside-a-mixed-shipment.html" />
+
+    <title>1,888 Sample Bags: The Linear Equation Inside a Mixed Shipment</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 22, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    1,888 SAMPLE BAGS: THE LINEAR EQUATION INSIDE A MIXED SHIPMENT
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Operational teams that manage ingredient sourcing rarely deal with one shipment at a time. When two deliveries arrive together and only the total weight and the gap between them are documented, recovering each individual quantity requires algebraic thinking — not just arithmetic. <dfn>This article shows how substitution in a linear equation unlocks the missing weight, and how a unit-conversion step turns that weight into an exact production count.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A food manufacturing company receives two ingredient shipments. The shipment of dried herbs weighs 17 pounds more than the shipment of spice blend. Together, both shipments weigh 253 pounds.</p>
+                <p>If the spice blend is to be repackaged into sample bags that each hold exactly one ounce, how many sample bags will be needed? (One pound equals 16 ounces.)</p>
+                <ul>
+                    <li>a) 1,888</li>
+                    <li>b) 1.8</li>
+                    <li>c) 188</li>
+                    <li>d) 118</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 1,888 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Because the two shipments together weigh a known total and differ by a known amount, the problem reduces to a single linear equation: <strong>2p + 17 = 253</strong>. Solving for <em>p</em> gives the spice blend weight in pounds, which is then <strong>multiplied by 16</strong> to convert to ounces — one ounce per sample bag, giving 1,888 bags.</p>
+
+                    <p class="insight"><em>The unit-conversion step is the operational bridge: skipping it or inverting it would produce a bag count that is off by a factor of 16 — a costly production error.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final count is derived:</p>
+                        <ol>
+                            <li><strong>Define the unknown:</strong> let <em>p</em> = weight of the spice blend shipment in pounds</li>
+                            <li><strong>Express the herbs shipment:</strong> dried herbs = <em>p</em> + 17 lb</li>
+                            <li><strong>Write the total-weight equation:</strong> <em>p</em> + (<em>p</em> + 17) = 253</li>
+                            <li><strong>Combine like terms:</strong> 2<em>p</em> + 17 = 253</li>
+                            <li><strong>Isolate the variable:</strong> 2<em>p</em> = 253 − 17 = 236 → <em>p</em> = 236 ÷ 2 = <strong>118 lb</strong></li>
+                            <li><strong>Convert to ounces:</strong> 118 lb × 16 oz/lb = <strong>1,888 oz</strong></li>
+                            <li><strong>Count sample bags:</strong> 1,888 oz ÷ 1 oz per bag = <strong>1,888 bags</strong></li>
+                            <li><strong>Conclusion:</strong> The spice blend shipment weighs 118 pounds, which fills exactly <strong>1,888 one-ounce sample bags</strong>.</li>
+                        </ol>
+                    </div>
+
+                    <svg width="100%" viewBox="0 0 680 230"
+                        role="img"
+                        style="display:block; margin: 1.5rem auto; font-family:'Source Sans Pro',sans-serif;">
+                        <title>Singapore Math bar model — spice blend and herbs shipment</title>
+                        <desc>Two horizontal bars. The spice blend bar shows p lb with a question mark. The dried herbs bar shows p lb plus a +17 lb segment. A bracket on the right labels the combined total as 253 lb.</desc>
+                        <defs>
+                            <marker id="bm-arrow" viewBox="0 0 10 10" refX="8" refY="5"
+                                markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </marker>
+                        </defs>
+
+                        <!-- Row labels -->
+                        <text x="112" y="90" text-anchor="end" dominant-baseline="central"
+                            style="font-size:14px; font-weight:500; fill:#2C2C2A;">Spice blend</text>
+                        <text x="112" y="154" text-anchor="end" dominant-baseline="central"
+                            style="font-size:14px; font-weight:500; fill:#2C2C2A;">Dried herbs</text>
+
+                        <!-- Spice blend bar (p lb, blue) -->
+                        <rect x="120" y="68" width="320" height="44" rx="4"
+                            fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                        <text x="280" y="90" text-anchor="middle" dominant-baseline="central"
+                            style="font-size:14px; font-weight:500; fill:#0C447C;">p lb &nbsp;( ? )</text>
+
+                        <!-- Dried herbs bar: p portion (teal) -->
+                        <rect x="120" y="132" width="320" height="44" rx="4"
+                            fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                        <text x="280" y="154" text-anchor="middle" dominant-baseline="central"
+                            style="font-size:14px; font-weight:500; fill:#085041;">p lb</text>
+
+                        <!-- Dried herbs bar: +17 portion (amber) -->
+                        <rect x="443" y="132" width="56" height="44" rx="4"
+                            fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+                        <text x="471" y="154" text-anchor="middle" dominant-baseline="central"
+                            style="font-size:12px; font-weight:400; fill:#633806;">+17 lb</text>
+
+                        <!-- Right bracket -->
+                        <line x1="506" y1="68"  x2="512" y2="68"  stroke="#5F5E5A" stroke-width="1.5"/>
+                        <line x1="512" y1="68"  x2="512" y2="176" stroke="#5F5E5A" stroke-width="1.5"/>
+                        <line x1="512" y1="176" x2="506" y2="176" stroke="#5F5E5A" stroke-width="1.5"/>
+                        <line x1="512" y1="122" x2="518" y2="122" stroke="#5F5E5A" stroke-width="1.5"/>
+                        <text x="524" y="122" dominant-baseline="central"
+                            style="font-size:14px; font-weight:500; fill:#2C2C2A;">253 lb total</text>
+
+                        <!-- Key equation below -->
+                        <text x="340" y="205" text-anchor="middle"
+                            style="font-size:12px; font-weight:400; fill:#5F5E5A;">
+                            p + (p + 17) = 253 &nbsp;→&nbsp; p = 118 lb &nbsp;→&nbsp; 118 × 16 oz = 1,888 bags
+                        </text>
+                    </svg>
+
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The Arabic word <em>al-jabr</em>, from which the English word <em>algebra</em> derives, first appeared in the title of a 9th-century treatise by the Baghdad scholar Muḥammad ibn Mūsā al-Khwārizmī: <em>Al-Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābala</em> ("The Concise Book on Calculation by Completion and Balancing," c. 820 CE). Al-Khwārizmī described <em>al-jabr</em> as the operation of moving a subtracted term to the other side of an equation — exactly what happens when 17 is subtracted from both sides to isolate 2<em>p</em>. His companion operation, <em>al-muqābala</em>, meant combining like terms — exactly what produces 2<em>p</em> + 17 from <em>p</em> + (<em>p</em> + 17).</p>
+
+                <p>Even older roots exist. The 3rd-century Alexandrian mathematician Diophantus, in his <em>Arithmetica</em>, solved problems involving multiple unknowns by expressing one quantity in terms of another and substituting — the same substitution technique at work here. Though Diophantus worked with specific numerical problems rather than general symbolic rules, historians of mathematics regard him as a forerunner of algebraic thinking in the Western tradition. Both traditions converge in this problem: set up two conditions, substitute one into the other, and solve.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalizes the calculation: it accepts any combined shipment weight, weight difference, and bag capacity, making it reusable across different ingredient pairs and packaging formats.</p>
+
+<pre><code>def calculate_sample_bags(total_weight_lb, weight_diff_lb, bag_capacity_oz):
+    oz_per_lb = 16
+    lighter_shipment_lb = (total_weight_lb - weight_diff_lb) / 2
+    lighter_shipment_oz = lighter_shipment_lb * oz_per_lb
+    bags = lighter_shipment_oz / bag_capacity_oz
+    return int(bags) if bags == int(bags) else bags
+
+print("Sample bag calculator — mixed ingredient shipment")
+total_weight = float(input("Total combined shipment weight (lb): "))
+weight_diff  = float(input("Weight difference between the two shipments (lb): "))
+bag_capacity = float(input("Capacity per sample bag (oz): "))
+
+result = calculate_sample_bags(total_weight, weight_diff, bag_capacity)
+print(f"Sample bags needed from the lighter shipment: {result}")</code></pre>
+
+                <p>Paste the code into a Python session in Windows Terminal, enter each value when prompted, and the program returns the exact bag count — for this problem's inputs, <code>1888</code>.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:solve-equations-inequalities" target="_blank" rel="noopener">Khan Academy — Solving Linear Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/linear-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 22, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
