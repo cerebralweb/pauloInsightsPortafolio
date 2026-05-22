@@ -1,21 +1,16 @@
 
 
-//THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES OR ARTICLES AND CONTAINERS MUST HAVE THE SAME LENGTH:)
+//THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES  AND CONTAINERS MUST HAVE THE SAME LENGTH:)
 
 //PAGINATION: 1) create a/article.html (copy an article and change everything), 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
 
 
-/**SCHEDULED POST HERE
- * Math Problems Counter=11
- * 
- *     {
-        articleTitle: "",
-        articleDescription: "Container planning sits at the intersection of arithmetic and operational risk",
-        articleHref: "/a/the-ceiling-function-in-supply-chain.html"
-    } 
- * 
- */
     const articlesDataBase = [ 
+        {
+        articleTitle: "the fractional math behind agenda planning",
+        articleDescription: "Before a director walks into a room, she can verify in seconds whether her fractional allocations are realistic or whether they silently consume most of the clock.",
+        articleHref: "/a/the-fractional-math-behind-agenda-planning.html"
+        },
         {
         articleTitle: "The linear equation inside a mixed shipment",
         articleDescription: "Operational teams that manage ingredient sourcing rarely deal with one shipment at a time.",

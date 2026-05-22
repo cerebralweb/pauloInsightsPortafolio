@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A business math problem on fractional time allocation in meetings, solved step by step, with a Python script and a reusable Claude skill file.">
+    <meta name="keywords" content="fractions, time allocation, business math, agenda planning, Python, meeting management, mental math, rational numbers">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/divide-before-you-add-the-fractional-math-behind-agenda-planning.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/divide-before-you-add-the-fractional-math-behind-agenda-planning.html" />
+
+    <title>Divide Before You Add: The Fractional Math Behind Agenda Planning</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 22, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    DIVIDE BEFORE YOU ADD: THE FRACTIONAL MATH BEHIND AGENDA PLANNING
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <!-- INTRO -->
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Meetings are a fixed resource, and the arithmetic of how agenda time gets divided is one of the
+                    most routine — and most overlooked — calculations in business planning. Before a director walks
+                    into a room, she can verify in seconds whether her fractional allocations are realistic or whether
+                    they silently consume most of the clock.
+                    <dfn>This problem shows how the divide-then-scale mental model turns fractional shares of a fixed
+                    whole into concrete minutes, and how that same logic extends to Python and a reusable Claude skill.</dfn>
+                </em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <!-- THE PROBLEM -->
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A marketing director has a 60-minute campaign review meeting. She allocates 2/5 of that time to
+                analyzing paid media performance and 1/4 to reviewing organic content results.</p>
+                <p>How many minutes did she spend in total on these two activities?</p>
+                <ul>
+                    <li>a) 9.23</li>
+                    <li>b) 4</li>
+                    <li>c) 39</li>
+                    <li>d) 3.9</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 39 minutes ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The key move is <strong>divide first, then scale</strong>. For each fraction, divide the
+                    total meeting time by the denominator to find one equal part, then multiply by the numerator
+                    to reach the target share. The two results are then added together to give the combined agenda
+                    time consumed.</p>
+
+                    <p class="insight"><em>The mental math anchor for 2/5 of 60 is the fact that 12 × 5 = 60,
+                    so one-fifth is 12 — making two-fifths simply 12 × 2 = 24. Quarters of 60 are always clean:
+                    15, 30, 45, 60.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Convert total time:</strong> 1 hour = 60 minutes → working unit is 60</li>
+                            <li><strong>Paid media block — 2/5 of 60:</strong> 60 ÷ 5 = 12 (one-fifth) → 12 × 2 = 24 minutes</li>
+                            <li><strong>Organic content block — 1/4 of 60:</strong> 60 ÷ 4 = 15 minutes</li>
+                            <li><strong>Combine both blocks:</strong> 24 + 15 = 39 minutes</li>
+                            <li><strong>Conclusion:</strong> The director uses 39 of her 60 minutes on these two agenda items, leaving 21 minutes for discussion and wrap-up.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- HISTORICAL BACKGROUND -->
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The operation of finding a fractional part of a given quantity — divide by the denominator, then
+                multiply by the numerator — was formalized in the 9th century by the Persian mathematician
+                al-Khwārizmī, whose treatise on arithmetic made rational operations available to merchants, land
+                surveyors, and inheritance lawyers across the Islamic world. His framework turned fractions from
+                an abstract concept into a practical computation tool: given any measurable whole, any named part
+                of it could be extracted through two integer steps. The rule has not changed in twelve centuries.
+                What has changed is the scale: a marketing director allocating meeting time is performing exactly
+                the same arithmetic that a medieval merchant used to divide a shipment into fractional consignments.</p>
+
+                <!-- PYTHON VERSION -->
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below generalises the problem: it accepts any total meeting duration and returns
+                the combined agenda time consumed by the two fixed fractional blocks (2/5 and 1/4).</p>
+
+<pre><code>def agenda_time(total, n1, d1, n2, d2):
+    return total * n1 / d1 + total * n2 / d2
+
+t = int(input("Total meeting time (min): "))
+result = agenda_time(t, 2, 5, 1, 4)
+print(f"Agenda time used: {int(result) if result == int(result) else result} min")</code></pre>
+
+                <p>Run it in Windows Terminal by entering <code>python</code>, pasting the block, pressing Enter,
+                and supplying the meeting duration — it returns the combined minutes consumed as a whole number
+                whenever the result is exact.</p>
+
+                <!-- CLAUDE SKILL FILE -->
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The Markdown below is the <code>agenda-time-calculator</code> Claude skill — a reusable
+                natural-language specification that lets Claude solve the same class of problem for any meeting
+                duration and any pair of fractional agenda allocations, without requiring the user to run code.</p>
+
+<pre class="md-code"><code>---
+name: agenda-time-calculator
+description: <span class="md-italic">Calculates the total time consumed by two agenda blocks in a meeting,
+given the meeting&#39;s total duration and the fractional share assigned to each block.
+Trigger this skill whenever the user wants to find out how many minutes two agenda
+items take, check if a meeting schedule is realistic, or verify that fractional time
+allocations add up correctly — even if they don&#39;t use technical language.</span>
+---
+
+<span class="md-heading"># Agenda Time Calculator</span>
+
+This skill takes a total meeting duration and two fractional time allocations, computes
+how many minutes each agenda block consumes, adds them together, and reports the combined
+time used. It is designed for marketing, operations, or project teams that assign portions
+of a meeting to specific activities and need to confirm the total before the meeting starts.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+List any libraries or tools Claude needs to have available:
+- No external libraries required. Works with Python&#39;s built-in <span class="md-code">`fractions`</span> module
+  if exact rational arithmetic is preferred over standard floating-point division.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total meeting time**</span>: A whole number representing the full meeting duration
+  in minutes (e.g., 60).
+- <span class="md-bold">**First agenda fraction**</span>: The share of meeting time assigned to the first
+  activity, expressed as a numerator and denominator (e.g., 2 out of 5).
+- <span class="md-bold">**Second agenda fraction**</span>: The share assigned to the second activity,
+  expressed the same way (e.g., 1 out of 4).
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Receive the Total Meeting Time</span>
+
+Ask the user for the total meeting duration in minutes. Expect a whole number. Store it
+as the working base for all subsequent calculations.
+
+<span class="md-heading">### Step 2 — Apply the First Fraction</span>
+
+Divide the total meeting time by the denominator of the first fraction to find one equal
+part. Multiply that part by the numerator to get the number of minutes assigned to the
+first agenda block.
+
+<span class="md-heading">### Step 3 — Apply the Second Fraction</span>
+
+Repeat the same process for the second fraction: divide the total time by its denominator,
+then multiply by its numerator to get the minutes for the second agenda block.
+
+<span class="md-heading">### Step 4 — Sum the Two Blocks</span>
+
+Add the minutes from Step 2 and Step 3 to produce the total time consumed by both
+agenda activities.
+
+<span class="md-heading">### Step 5 — Display the Result</span>
+
+Print the combined total with a short, plain-English label identifying it as the time
+used across both agenda blocks. If the result is a whole number, display it without
+a decimal point.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many minutes will paid media and organic review take in a 60-minute meeting?"
+- "I&#39;m giving 2/5 of my meeting to one topic and 1/4 to another — how much time is that total?"
+- "Check if my two agenda items fit in a one-hour meeting."
+- "Calculate total agenda time from fractional allocations."
+- "Will a 2/5 and 1/4 split leave me enough time in a 60-minute session?"</code></pre>
+
+                <p>Save the block above as <code>agenda-time-calculator.md</code> in your skills folder to make
+                it available as a slash command in any Claude session.</p>
+
+                <!-- GO DEEPER -->
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-fourth-grade-math/imp-fractions-2/imp-fractions-of-a-whole/v/fractions-of-a-whole" target="_blank" rel="noopener">Khan Academy — Fractions of a Whole</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 22, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
