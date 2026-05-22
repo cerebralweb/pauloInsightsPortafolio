@@ -17,7 +17,13 @@
  */
     const articlesDataBase = [ 
         {
-        articleTitle: "how mixed numbers track billable hours",
+        articleTitle: "The least common multiple that saved a launch budget",
+        articleDescription: "When marketing funds are split across multiple channels, the question is not how much each allocation costs, but whether the sum of those allocations still leaves room for the unexpected",
+        articleHref: "/a/the-least-common-multiple-that-saved-a-launch-budget.html"
+
+        },
+        {
+        articleTitle: "How mixed numbers track billable hours",
         articleDescription: "Whether the context is client billing or compliance reporting, the ability to determine how much time remains in a block is a practical operational skill",
         articleHref: "/a/how-mixed-numbers-track-billable-hours.html"
         },
@@ -33,7 +39,7 @@
 
         },
         {
-        articleTitle: "the cascading fractions of sequential harvest allocation",
+        articleTitle: "The cascading fractions of sequential harvest allocation",
         articleDescription: "Agricultural and supply chain operations depend on sequential allocation logic",
         articleHref: "/a/the-cascading-fractions-of-sequential-harvest-allocation.html"
         },
