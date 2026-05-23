@@ -7,7 +7,12 @@
 
     const articlesDataBase = [ 
         {
-        articleTitle: "the fractional math behind agenda planning",
+        articleTitle: "From fractions to minutes: the billing gap consultants calculate daily",
+        articleDescription: "Consultants often face the challenge of billing clients accurately",
+        articleHref: "/a/from-fractions-to-minutes-the-billing-gap-consultants-calculate-daily.html"
+        },
+        {
+        articleTitle: "The fractional math behind agenda planning",
         articleDescription: "Before a director walks into a room, she can verify in seconds whether her fractional allocations are realistic or whether they silently consume most of the clock.",
         articleHref: "/a/the-fractional-math-behind-agenda-planning.html"
         },

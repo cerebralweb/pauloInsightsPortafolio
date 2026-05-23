@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A consultant logs 3/4 and 7/10 of an hour toward a 2-hour daily billing target. This article solves the fractional gap in minutes, explains the Babylonian roots of base-60 time, and provides a reusable Python script and Claude skill.">
+    <meta name="keywords" content="fractions, unlike denominators, unit conversion, billable hours, business math, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/from-fractions-to-minutes-the-billing-gap-consultants-calculate-daily.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/from-fractions-to-minutes-the-billing-gap-consultants-calculate-daily.html" />
+
+    <title>From Fractions to Minutes: The Billing Gap Consultants Calculate Daily</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 22, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FROM FRACTIONS TO MINUTES: THE BILLING GAP CONSULTANTS CALCULATE DAILY
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Fractional billing is how most professional services firms track time — in tenths, quarters, or custom increments rather than whole hours. Knowing mid-day whether a billing target is within reach requires converting between units and working with unlike denominators, two skills that compound when time pressure is real. <dfn>This article walks through the arithmetic step by step, shows how a Python script automates the calculation for any inputs, and packages the full logic as a reusable Claude skill.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A management consultant tracks her billable hours using fractions of an hour. Her firm requires <strong>2 billable hours</strong> per client per day. This morning she logged <strong>¾ of an hour</strong> on the account, and after lunch she logged <strong>⁷⁄₁₀ of an hour</strong>.</p>
+                <p>How many more <strong>minutes</strong> does she need to bill to meet the daily requirement?</p>
+                <ul>
+                    <li>a) 3</li>
+                    <li>b) 33</li>
+                    <li>c) 75</li>
+                    <li>d) 7.5</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 33 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Convert the daily target to minutes (<strong>2 × 60 = 120</strong>), then convert each session. The morning session gives <strong>¾ × 60 = 45 minutes</strong>. The afternoon session requires finding <strong>⁷⁄₁₀ of 60</strong> — which is where the mental math pays off.</p>
+
+                    <p class="insight"><em>Divide 60 into 10 equal parts: each part is 6 units. Take 7 of those parts: 7 × 6 = 42 minutes — so ⁷⁄₁₀ of an hour is exactly 42 minutes.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the remaining billable minutes are derived:</p>
+                        <ol>
+                            <li><strong>Convert the daily target:</strong> 2 hours × 60 = 120 minutes</li>
+                            <li><strong>Convert the morning session:</strong> ¾ × 60 = 45 minutes</li>
+                            <li><strong>Convert the afternoon session — mental math dialog:</strong>
+                                <br><em>"What is ⁷⁄₁₀ of 60?"</em>
+                                <br><em>"If I divide 60 into 10 equal parts, each part is 6 units."</em>
+                                <br><em>"I need 7 of those parts: 7 × 6 = 42."</em>
+                                <br>→ ⁷⁄₁₀ of an hour = <strong>42 minutes</strong>
+                            </li>
+                            <li><strong>Sum the logged sessions:</strong> 45 + 42 = <strong>87 minutes</strong></li>
+                            <li><strong>Compute the gap:</strong> 120 − 87 = <strong>33 minutes</strong></li>
+                            <li><strong>Conclusion:</strong> The consultant needs to log <strong>33 more minutes</strong> to meet her daily billable requirement — option <strong>b)</strong>.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The base-60 number system — the reason 60 divides so cleanly into fractions like ⁷⁄₁₀ — was developed in Mesopotamia around 2000 BCE by Babylonian scribes who needed a number base divisible by many integers at once. Their choice of 60 was inherited by the Greeks, formalized in Hellenistic Alexandria, and eventually embedded in the 60-minute hour that governs billing systems today. When a consultant converts ⁷⁄₁₀ of an hour to exactly 42 minutes without a remainder, she is benefiting from an arithmetic decision made four thousand years ago.</p>
+
+                <p>The practice of adding fractions with unlike denominators — finding a common measure before combining parts — was already documented in cuneiform tablets from the Old Babylonian period and later systematized in medieval Islamic mathematics by scholars such as al-Khwārizmī, whose <em>Kitāb al-mukhtaṣar fī ḥisāb al-jabr</em> formalized rules for rational arithmetic that remain the foundation of modern fraction operations.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below uses the <code>fractions.Fraction</code> class from the Python standard library to perform exact arithmetic — no floating-point rounding — making it safe for billing and payroll contexts where a rounding error could compound across hundreds of entries.</p>
+
+<pre><code>from fractions import Fraction
+
+def billable_gap(target_hours, frac1, frac2):
+    target_minutes = Fraction(target_hours) * 60
+    session1_minutes = frac1 * 60
+    session2_minutes = frac2 * 60
+    total_logged = session1_minutes + session2_minutes
+    gap = target_minutes - total_logged
+    gap = int(gap) if gap.denominator == 1 else float(gap)
+    return gap
+
+print("--- Billable Hours Gap Calculator (Exact Fractions) ---")
+print("Enter your daily target and two logged sessions as fractions of an hour.\n")
+
+target  = int(input("Daily billable requirement (hours): "))
+n1      = int(input("Morning session — numerator (e.g. 3 for 3/4): "))
+d1      = int(input("Morning session — denominator (e.g. 4 for 3/4): "))
+n2      = int(input("Afternoon session — numerator (e.g. 7 for 7/10): "))
+d2      = int(input("Afternoon session — denominator (e.g. 10 for 7/10): "))
+
+result = billable_gap(target, Fraction(n1, d1), Fraction(n2, d2))
+print(f"\nMinutes still needed to meet your billable target: {result}")</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the code, and entering each value when prompted — the final line returns the exact number of minutes still owed for the day.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The skill file below packages the same logic as a natural-language instruction set that Claude can execute without running Python — useful for quick checks inside a conversation or for teams that do not have a development environment available.</p>
+
+<pre class="md-code"><code><span class="md-heading">---</span>
+name: billable-hours-gap-calculator
+description: Calculates how many minutes a consultant or analyst still needs to log to meet a daily billable hours target, given two fractional sessions already recorded. Accepts the daily target in hours and two work sessions expressed as fractions of an hour (numerator and denominator). Returns the remaining minutes needed. Trigger this skill whenever the user wants to check how much billable time is still needed before end of day, track progress toward a daily hours target, or compute a gap between logged fractional hours and a required total.
+<span class="md-heading">---</span>
+
+<span class="md-heading"># Billable Hours Gap Calculator</span>
+
+This skill computes the number of minutes a professional still needs to log in order to reach a daily billable hours target. It takes a target in whole hours and two sessions expressed as fractions of an hour. It converts all values to minutes, sums the logged sessions, and subtracts the total from the target to produce the remaining gap. The result is returned as a whole number of minutes when possible, or as a rounded decimal otherwise.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries required. For exact fraction arithmetic (zero floating-point error), the `fractions` module from the Python standard library may be used as an optional enhancement.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Daily billable requirement**</span>: A whole number representing the target hours to bill per day (e.g., 2)
+- <span class="md-bold">**Morning session — numerator**</span>: The top number of the fraction representing the first session (e.g., 3 for ¾)
+- <span class="md-bold">**Morning session — denominator**</span>: The bottom number of the fraction representing the first session (e.g., 4 for ¾)
+- <span class="md-bold">**Afternoon session — numerator**</span>: The top number of the fraction representing the second session (e.g., 7 for ⁷⁄₁₀)
+- <span class="md-bold">**Afternoon session — denominator**</span>: The bottom number of the fraction representing the second session (e.g., 10 for ⁷⁄₁₀)
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and Prompt</span>
+
+Print a short title and a brief description so the user knows what the program expects. Prompt the user to enter the five required values one at a time: the daily target in hours, then the numerator and denominator for the morning session, then the numerator and denominator for the afternoon session.
+
+Accept the daily target and session denominators and numerators as whole numbers. If a future version needs fractional targets (e.g., 1.5 hours), accept the target as a decimal instead.
+
+<span class="md-heading">### Step 2 — Convert the Daily Target to Minutes</span>
+
+Multiply the daily target in hours by 60 to obtain the total number of billable minutes required.
+
+<span class="md-heading">### Step 3 — Convert Each Session to Minutes</span>
+
+For each session, divide its numerator by its denominator to obtain the fraction of an hour, then multiply by 60 to convert to minutes.
+
+If exact arithmetic is required (for instance, in a billing or payroll context), represent each session as an exact fraction before multiplying, so no rounding error accumulates.
+
+<span class="md-heading">### Step 4 — Sum the Logged Minutes</span>
+
+Add the two session values in minutes to obtain the total time already logged for the day.
+
+<span class="md-heading">### Step 5 — Compute the Gap</span>
+
+Subtract the total logged minutes from the daily target in minutes. This is the remaining billable gap.
+
+If the result is a whole number, display it without a decimal point. If it is not a whole number, round it to two decimal places.
+
+<span class="md-heading">### Step 6 — Display the Result</span>
+
+Print the final result with a short, friendly message that frames it in business terms. The output should make clear that this number represents minutes still needed to meet the daily billable target — not a raw number in isolation.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many more minutes do I need to bill today?"
+- "I logged ¾ of an hour this morning and ⁷⁄₁₀ after lunch — how far am I from my 2-hour target?"
+- "Calculate my remaining billable time for the day"
+- "Check if I've hit my daily hours target yet"
+- "I need to bill 2 hours a day — how much do I still have to log?"
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [x] The YAML frontmatter appears once at the top
+- [x] There is no Python code anywhere in the skill body
+- [x] Every step reads as a natural-language instruction, not a code comment
+- [x] Conditional logic (whole number vs. decimal display, exact vs. float arithmetic) is expressed in plain English
+- [x] Inputs and outputs are clearly named and described
+- [x] The description field would realistically trigger this skill from a non-technical user prompt</code></pre>
+
+                <p>The skill is structured to trigger on intent rather than syntax — a user asking "how much do I still have to log today?" is enough. The six-step structure mirrors the Python function exactly, so either version of the tool produces the same result from the same inputs.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 22, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-add-sub-fractions/a/adding-fractions-with-unlike-denominators-review" target="_blank" rel="noopener">Khan Academy — Adding Fractions with Unlike Denominators</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
