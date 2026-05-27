@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Learn how unit rate reasoning reveals the exact lifespan of an API credit bundle. Includes step-by-step long division, Python divmod() solution, and a reusable Claude skill.">
+    <meta name="keywords" content="unit rate, long division, API credits, divmod Python, burn rate forecasting, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-day-count-hiding-inside-every-api-credit-bundle.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-day-count-hiding-inside-every-api-credit-bundle.html" />
+
+    <title>The Day Count Hiding Inside Every API Credit Bundle</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 23, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE DAY COUNT HIDING INSIDE EVERY API CREDIT BUNDLE
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Operations teams that run automated pipelines on prepaid compute resources face a recurring planning challenge: determining exactly when a fixed credit pool will be exhausted so that procurement can be triggered before service is disrupted. The answer lives in a single arithmetic ratio — credits consumed per day — derived from any observed window of usage. <dfn>This article shows how unit rate reasoning produces that ratio, how Python's built-in <code>divmod()</code> function mirrors the logic of long division to return both a complete-day count and a leftover-credit remainder, and how the same calculation can be packaged as a reusable Claude skill.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A SaaS operations team purchases a prepaid bundle of 2,560 API credits to power an automated data pipeline. After two weeks of continuous operation, 1,944 credits remain.</p>
+                <p>At this consumption rate, how many days will a full credit bundle last? <strong>Estimate.</strong></p>
+                <ul>
+                    <li>a) 64 days</li>
+                    <li>b) 48 days</li>
+                    <li>c) 58 days</li>
+                    <li>d) 66 days</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 58 days ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>First <strong>subtract</strong> credits remaining from the full bundle to find total consumption (616 credits over 14 days), then <strong>divide</strong> to get the daily burn rate (44 credits/day), then <strong>divide</strong> the full bundle by that rate to find the total duration.</p>
+
+                    <p class="insight"><em>The key insight is that 44 credits per day is the unit rate — the anchor that converts any bundle size into a projected runway.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Credits consumed in 14 days:</strong> 2,560 − 1,944 = 616 credits</li>
+                            <li><strong>Daily burn rate:</strong> 616 ÷ 14 = 44 credits/day</li>
+                            <li><strong>Estimation check:</strong> 44 × 60 = 2,640 &gt; 2,560, so the answer is just under 60 days → confirms option c)</li>
+                            <li><strong>Exact duration:</strong> 2,560 ÷ 44 = 58.18 → <strong>58 complete days</strong></li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Unit rate reasoning — expressing any quantity as a value "per one unit" — has been a cornerstone of practical arithmetic for over a millennium. The ninth-century Baghdad mathematician al-Khwārizmī systematized ratio and proportion methods in <em>Al-Kitāb al-mukhtaṣar fī ḥisāb al-jabr</em>, establishing the practice of normalizing quantities to a single reference unit as the foundation of applied calculation. His approach — find the per-unit value first, then scale — is precisely what an operations analyst does when deriving a daily credit burn rate from a two-week observation window.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below accepts three inputs at runtime and returns two values: the number of complete days the bundle covers and the credits remaining on the final partial day, computed using Python's built-in <code>divmod()</code> — the programmatic equivalent of long division.</p>
+
+<pre><code>def api_bundle_duration(total_credits, credits_remaining, days_observed):
+    credits_consumed = total_credits - credits_remaining
+    daily_rate = credits_consumed / days_observed
+    complete_days, leftover_credits = divmod(total_credits, daily_rate)
+    return int(complete_days), round(leftover_credits, 1)
+
+print("=== API Credit Bundle Duration Estimator ===")
+total_credits     = int(input("Total credits in bundle: "))
+credits_remaining = int(input("Credits remaining after observation period: "))
+days_observed     = int(input("Days in observation period: "))
+
+complete_days, leftover = api_bundle_duration(total_credits, credits_remaining, days_observed)
+print(f"Full bundle lasts: {complete_days} complete days.")
+print(f"Leftover on day {complete_days + 1}: ~{leftover} credits (partial day).")</code></pre>
+
+                <p>Run the script in a Python terminal, enter the three values when prompted, and read the two-line output — the first gives the full runway in days, the second gives the credit balance on the partial day that follows.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The Markdown skill below packages the same logic as a reusable Claude instruction document. Paste it into a Claude Project to make the workflow available across sessions without re-entering the calculation steps.</p>
+
+<pre class="md-code"><code>---
+name: api-bundle-duration-estimator-divmod
+description: Estimates how many days a prepaid API credit bundle will last by computing a daily burn rate from an observed consumption window, then splitting the result into complete days and leftover credits using tuple unpacking from divmod(). Trigger this skill whenever the user wants to forecast API credit runway, plan reorder timing, or project how long any fixed resource pool will last — even if they don't use technical language.
+---
+
+<span class="md-heading"># API Credit Bundle Duration Estimator — divmod Edition</span>
+
+This skill estimates the full lifespan of a prepaid API credit bundle. It takes three whole numbers as input: the total credits purchased, the credits still remaining after an observation window, and the length of that window in days. It computes the daily burn rate, then uses divmod() to split the total coverage into two separate values — complete days and leftover credits — which are cleaned up and printed as two distinct business-ready output lines.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries required. This skill uses only built-in Python arithmetic, the built-in <span class="md-code">`divmod()`</span> function, <span class="md-code">`int()`</span>, and <span class="md-code">`round()`</span>.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total credits in bundle**</span>: Whole number. The full size of the credit package as purchased (e.g. 2,560).
+- <span class="md-bold">**Credits remaining after observation**</span>: Whole number. Credits still unused at the end of the observation window (e.g. 1,944).
+- <span class="md-bold">**Days in observation period**</span>: Whole number. How many days the observation window covered (e.g. 14).
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Define the Calculation Function</span>
+
+Create a function that accepts three parameters: total bundle size, credits remaining, and days observed. All subsequent arithmetic happens inside this function. Define the function before asking for any user input.
+
+<span class="md-heading">### Step 2 — Compute Credits Consumed</span>
+
+Inside the function, subtract credits remaining from the total bundle size. Store the result as the credits consumed during the observation window.
+
+<span class="md-heading">### Step 3 — Compute Daily Burn Rate</span>
+
+Divide credits consumed by the number of days observed. Store the result as the daily rate. This is a decimal division — do not round at this stage, since precision here affects the final output.
+
+<span class="md-heading">### Step 4 — Split Duration into Complete Days and Leftover Credits</span>
+
+Pass the total bundle size and the daily rate into divmod() as the two arguments. Unpack the result directly into two separate variables in a single assignment: one for complete days, one for leftover credits. This mirrors long division — complete days is the quotient, leftover credits is the remainder.
+
+<span class="md-heading">### Step 5 — Clean Up the Return Values</span>
+
+Before returning, convert complete days to a whole number using int() — divmod() returns a float when its inputs involve decimals, and displaying "58.0 days" looks unnatural in a business message. Round leftover credits to one decimal place using round() with a precision of 1 — this prevents floating-point noise such as "7.9999999" from appearing in the output.
+
+Return both cleaned values as a pair.
+
+<span class="md-heading">### Step 6 — Prompt the User for Inputs</span>
+
+Print a short header line identifying the tool. Then prompt the user for each of the three inputs in sequence, converting each response to a whole number immediately. Use clear, scenario-specific prompt labels so the user knows exactly what to enter.
+
+<span class="md-heading">### Step 7 — Call the Function and Unpack the Result</span>
+
+Call the function with the three collected inputs. Unpack the returned pair directly into two variables — one for complete days and one for leftover credits — in a single assignment line, matching the same tuple-unpacking pattern used inside the function.
+
+<span class="md-heading">### Step 8 — Print Two Business-Context Output Lines</span>
+
+Print exactly two lines:
+- Line 1: State how many complete days the full bundle will sustain the pipeline. Use the complete days variable directly — it is already a whole number.
+- Line 2: State the approximate number of leftover credits remaining on the partial day that follows, identified by its day number (complete days plus one). Prefix the credit count with a tilde (~) to signal it is an estimate.
+
+Do not print raw numbers alone. Both lines must include surrounding business-context text so the output is immediately actionable for an operations team.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How long will our API credit bundle last at the current usage rate?"
+- "We bought 2,560 credits and have 1,944 left after two weeks — when do we run out?"
+- "Estimate the runway on our API credits so I can plan the reorder."
+- "How many days does a full credit pack cover if we've been burning through it for 14 days?"
+- "When should we reorder API credits based on what we've used so far?"
+
+---</code></pre>
+
+                <p>The skill expresses each Python step as a plain-language instruction, translating tuple unpacking and type conversion into actionable prose that Claude can execute directly.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic/cc-6th-unit-rates/a/unit-rates" target="_blank" rel="noopener">Khan Academy — Unit Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld — Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/division" target="_blank" rel="noopener">Mathematics Stack Exchange — Division</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 23, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

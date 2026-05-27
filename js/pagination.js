@@ -7,6 +7,21 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "The Anchor Price And The Two Tiers It Decides",
+        articleDescription: "This article walks through the full chain: a business problem transformation, step-by-step fraction arithmetic with a practical LCD shortcut, two Python implementations, and a reusable Claude skill.",
+        articleHref: "/a/the-anchor-price-and-the-two-tiers-it-decides.html"
+        },
+        {
+        articleTitle: "The Shortcut Field Estimators Use For Edge Installation Time",
+        articleDescription: "The trick that turns one-off arithmetic into a repeatable algorithm is recognizing which constants change",
+        articleHref: "/a/the-shortcut-field-estimators-use-for-edge-installation-time.html"
+        },
+        {
+        articleTitle: "The day count hiding inside every API credit bundle",
+        articleDescription: "This article shows how unit rate reasoning produces that ratio, how Python's built-in <code>divmod()</code> function mirrors the logic of long division to return both a complete-day count and a leftover-credit remainder, and how the same calculation can be packaged as a reusable Claude skill.",
+        articleHref: "/a/the-day-count-hiding-inside-every-api-credit-bundle.html"
+        },
+        {
         articleTitle: "From fractions to minutes: the billing gap consultants calculate daily",
         articleDescription: "Consultants often face the challenge of billing clients accurately",
         articleHref: "/a/from-fractions-to-minutes-the-billing-gap-consultants-calculate-daily.html"

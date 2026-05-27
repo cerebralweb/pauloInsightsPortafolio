@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a trade show installer converts panel geometry into installation minutes — and how flipping the working rate turns the calculation into a scalable algorithm.">
+    <meta name="keywords" content="perimeter, unit conversion, work rate problems, mental math, python, lru_cache, field estimation, trade show installation">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-shortcut-field-estimators-use-for-edge-installation-time.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-shortcut-field-estimators-use-for-edge-installation-time.html" />
+
+    <title>The Shortcut Field Estimators Use for Edge Installation Time</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>25 May 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE SHORTCUT FIELD ESTIMATORS USE FOR EDGE INSTALLATION TIME
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Field estimation and labor quoting depend on converting geometry into time before any tape, light, or trim touches a panel. The trick that turns one-off arithmetic into a repeatable algorithm is recognizing which constants change per job and which stay fixed for a given crew. <dfn>This problem illustrates how flipping a working rate at the start of a calculation produces both a cleaner mental model and a more scalable Python implementation.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A trade show installer is applying LED edge lighting around two rectangular display panels for an upcoming product launch. Each panel measures 9 feet long by 6 feet wide, and the lighting must run along the full perimeter of each one.</p>
+                <p>If the LED strip is installed at 3 inches per minute, how many minutes will the entire installation take? (One foot equals 12 inches)</p>
+                <ul>
+                    <li>a) 2,400</li>
+                    <li>b) 240</li>
+                    <li>c) 120</li>
+                    <li>d) 2,160</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 240 minutes ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The job reduces to <strong>perimeter × panel count × minutes-per-foot</strong>. Computing the perimeter of one rectangle as <strong>2 × (9 + 6) = 30 ft</strong>, doubling for two panels to <strong>60 ft</strong>, and applying a working rate of <strong>4 minutes per foot</strong> (since 12 ÷ 3 = 4) yields 240 minutes — no inches need to be carried through the calculation.</p>
+
+                    <p class="insight"><em>The key insight is that "3 inches per minute" is mathematically equivalent to "4 minutes per foot," and the second form is the one that scales across many jobs.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Perimeter of one panel:</strong> 2 × (9 + 6) = 30 feet</li>
+                            <li><strong>Total length for two panels:</strong> 2 × 30 = 60 feet</li>
+                            <li><strong>Invert the rate to minutes per foot:</strong> 12 ÷ 3 = 4 minutes per foot</li>
+                            <li><strong>Multiply length by inverted rate:</strong> 60 × 4 = 240 minutes</li>
+                            <li><strong>Final installation time:</strong> 240 minutes (option b)</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Practical mensuration problems of this exact shape — a length of work divided by a daily output rate to find how long a job will take — appear in the <em>Jiuzhang Suanshu</em> (Nine Chapters on the Mathematical Art), compiled in Han-dynasty China around the first century CE. Its opening chapter, <em>Fangtian</em> or "Rectangular Fields," works through perimeters, areas, and labor-rate problems for surveyors and tax officials administering irrigation projects and grain levies. The same logic later powered medieval European guild estimates for masonry, fencing, and roofing, and still drives modern construction quoting software: only the units and the trade have changed.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The first script encodes the mental-math shortcut directly: flip the rate once into minutes per foot, then multiply by total feet — no inches ever appear in the running calculation.</p>
+
+                <pre><code>def installation_minutes(length_ft, width_ft, panel_count, rate_in_per_min):
+    minutes_per_foot = 12 / rate_in_per_min          # flip the rate (mental math)
+    perimeter_ft = 2 * (length_ft + width_ft)
+    total_feet = perimeter_ft * panel_count
+    return total_feet * minutes_per_foot
+
+print("How long will the LED edge-lighting installation take?")
+length_ft = float(input("Panel length (feet): "))
+width_ft = float(input("Panel width (feet): "))
+panel_count = int(input("Number of panels: "))
+rate_in_per_min = float(input("Installation rate (inches per minute): "))
+
+result = installation_minutes(length_ft, width_ft, panel_count, rate_in_per_min)
+result = int(result) if result.is_integer() else round(result, 2)
+print(f"Total LED edge-lighting installation time: {result} minutes")</code></pre>
+
+                <p>Running this with 9, 6, 2, 3 returns 240 minutes — and because the rate inversion happens inside the function, the same script handles any geometry or working pace without modification.</p>
+
+                <p>The second version turns the mental-math insight into algorithmic scalability. A real install job is rarely one panel size; it is a batch of mixed dimensions sharing one crew rate. Caching the rate inversion with <code>functools.lru_cache</code> means 12 ÷ rate is computed exactly once and reused across every panel type in the batch — the algorithmic embodiment of memorizing "4 minutes per foot" before walking the show floor.</p>
+
+                <pre><code>from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def minutes_per_foot(rate_in_per_min):
+    return 12 / rate_in_per_min                      # computed once per crew rate
+
+def panel_minutes(length_ft, width_ft, count, rate_in_per_min):
+    perimeter_ft = 2 * (length_ft + width_ft)
+    return perimeter_ft * count * minutes_per_foot(rate_in_per_min)
+
+print("Total LED edge-lighting time across a batch of panel types.")
+rate_in_per_min = float(input("Crew installation rate (inches per minute): "))
+panel_types = int(input("How many panel types in this job? "))
+
+total = 0.0
+for i in range(1, panel_types + 1):
+    print(f"-- Panel type {i} --")
+    length_ft = float(input("  Length (feet): "))
+    width_ft = float(input("  Width (feet): "))
+    count = int(input("  Number of panels of this type: "))
+    total += panel_minutes(length_ft, width_ft, count, rate_in_per_min)
+
+total = int(total) if total.is_integer() else round(total, 2)
+print(f"Total LED edge-lighting installation time across the job: {total} minutes")</code></pre>
+
+                <p>Feeding this script rate 3, one panel type, 9 by 6, count 2 reproduces the original answer of 240 minutes; feeding it a hundred panel types at the same rate still inverts the rate only once.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter/basic-geo-perimeter" target="_blank" rel="noopener">Khan Academy — Perimeter</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Perimeter.html" target="_blank" rel="noopener">Wolfram MathWorld — Perimeter</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/perimeter" target="_blank" rel="noopener">Mathematics Stack Exchange — Perimeter</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 25, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
