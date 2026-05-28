@@ -7,6 +7,16 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "Cloud Capacity Math: Where The Remainder Gets Divided",
+        articleDescription: "This problem shows how a short arithmetic procedure can model that reality, and how a small Python program can turn the logic into a reusable tool for any team facing the same decision",
+        articleHref: "/a/cloud-capacity-math-where-the-remainder-gets-divided.html"
+        },
+        {
+        articleTitle: "The Three Moves That Split Any Whole Into Shares",
+        articleDescription: "Operations teams do not solve fractions of a whole with multiplication",
+        articleHref: "/a/the-three-moves-that-split-any-whole-into-shares.html"
+        },
+        {
         articleTitle: "Powers Of Ten, Radix Points, And The Conveyor Belts Of North America",
         articleDescription: "Logistics planning across borders depends on an arithmetic that looks ordinary until it goes wrong. A single miscounted column in a decimal addition can throw off procurement orders, shipping volumes, and capital allocation across an entire trade corridor. This problem traces the mechanics of decimal addition through a conveyor belt installation and shows how place value, radix points, and powers of ten turn separate measurements into a total a planner can act on.",
         articleHref: "/a/powers-of-ten-radix-points-and-the-conveyor-belts-of-north-america.html"

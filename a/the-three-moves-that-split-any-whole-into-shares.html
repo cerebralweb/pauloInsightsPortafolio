@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Splitting a whole quantity by a fraction follows the same three move sequence whether the question is tickets, leads, or invoices. The mental math hinges on one anchor number, the size of one equal part, and Python mirrors the order step for step.">
+    <meta name="keywords" content="fractions of a whole, mental math, parts method, business arithmetic, Python, operations math, Singapore bar model, ticket queue, lead allocation, IDC">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-three-moves-that-split-any-whole-into-shares.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-three-moves-that-split-any-whole-into-shares.html" />
+
+    <title>The Three Moves That Split Any Whole Into Shares</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE THREE MOVES THAT SPLIT ANY WHOLE INTO SHARES
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❯ </span>
+    Operations teams do not solve fractions of a whole with multiplication. They reach for the anchor number, the size of one equal part, because once that number is in hand every other fraction of the same total resolves in a single step. <dfn>The skill is naming the anchor before doing anything else.</dfn></em></p>
+
+<div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+<script src="/js/us-publicidadEnArticulo.js"></script>
+
+<h2 id="math-answer">The Problem</h2>
+
+<p>A support team received 32 tickets today. Three eighths of the tickets were resolved before noon. The rest will be escalated to the second tier.</p>
+
+<p>How many tickets were resolved before noon and how many will be escalated?</p>
+
+<ul>
+    <li>a) 12 and 20</li>
+    <li>b) 12 and 28</li>
+    <li>c) 8 and 24</li>
+    <li>d) 9 and 32</li>
+</ul>
+
+<details>
+    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+    <p><strong>Correct Answer — a) 12 and 20 ✅</strong></p>
+
+    <h2>Math Solution</h2>
+
+    <p>The fraction three eighths asks for three out of eight equal parts. Splitting 32 into eight equal parts gives <strong>one part of 4 tickets</strong>. Three of those parts is the resolved share, twelve tickets. <strong>Subtracting from the total</strong> leaves twenty tickets for the escalated share.</p>
+
+    <p class="insight"><em>The anchor for any fraction of 32 in eighths is the number 4. Once that is known, every other fraction with denominator 8 resolves in one multiplication.</em></p>
+
+    <div class="bannerTwitero">
+        <h2>Step by Step Breakdown</h2>
+        <p>The following sequence shows how the final amounts are derived:</p>
+        <ol>
+            <li><strong>Total tickets</strong> — 32 tickets received today</li>
+            <li><strong>Size of one part</strong> — 32 ÷ 8 = 4 tickets per part</li>
+            <li><strong>Resolved share</strong> — 3 × 4 = 12 tickets resolved before noon</li>
+            <li><strong>Escalated share</strong> — 32 − 12 = 20 tickets sent to the second tier</li>
+            <li><strong>Conclusion</strong> — 12 resolved and 20 escalated, which matches option (a)</li>
+        </ol>
+    </div>
+
+    <p>The Singapore bar model below makes every step visible. Each small rectangle holds 4 tickets. Three rectangles together show the resolved load. Five rectangles together show the escalated load.</p>
+
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif; max-width: 100%; height: auto; display: block; margin: 1.5em auto;">
+    <text x="350" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">Total tickets = 32</text>
+
+    <line x1="60" y1="50" x2="60" y2="60" stroke="#333" stroke-width="1.5"/>
+    <line x1="60" y1="50" x2="640" y2="50" stroke="#333" stroke-width="1.5"/>
+    <line x1="640" y1="50" x2="640" y2="60" stroke="#333" stroke-width="1.5"/>
+    <text x="350" y="45" text-anchor="middle" font-size="12" fill="#333">32</text>
+
+    <rect x="60" y="70" width="72.5" height="55" fill="#4a90d9" stroke="#1f3a5f" stroke-width="1.5"/>
+    <rect x="132.5" y="70" width="72.5" height="55" fill="#4a90d9" stroke="#1f3a5f" stroke-width="1.5"/>
+    <rect x="205" y="70" width="72.5" height="55" fill="#4a90d9" stroke="#1f3a5f" stroke-width="1.5"/>
+
+    <rect x="277.5" y="70" width="72.5" height="55" fill="#e8a04a" stroke="#7a4d12" stroke-width="1.5"/>
+    <rect x="350" y="70" width="72.5" height="55" fill="#e8a04a" stroke="#7a4d12" stroke-width="1.5"/>
+    <rect x="422.5" y="70" width="72.5" height="55" fill="#e8a04a" stroke="#7a4d12" stroke-width="1.5"/>
+    <rect x="495" y="70" width="72.5" height="55" fill="#e8a04a" stroke="#7a4d12" stroke-width="1.5"/>
+    <rect x="567.5" y="70" width="72.5" height="55" fill="#e8a04a" stroke="#7a4d12" stroke-width="1.5"/>
+
+    <text x="96.25" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="168.75" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="241.25" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="313.75" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="386.25" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="458.75" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="531.25" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+    <text x="603.75" y="103" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">4</text>
+
+    <line x1="60" y1="135" x2="60" y2="145" stroke="#1f3a5f" stroke-width="1.5"/>
+    <line x1="60" y1="145" x2="277.5" y2="145" stroke="#1f3a5f" stroke-width="1.5"/>
+    <line x1="277.5" y1="135" x2="277.5" y2="145" stroke="#1f3a5f" stroke-width="1.5"/>
+    <text x="168.75" y="165" text-anchor="middle" font-size="13" fill="#1f3a5f" font-weight="bold">Resolved = 12</text>
+    <text x="168.75" y="182" text-anchor="middle" font-size="11" fill="#1f3a5f">3 parts of 8</text>
+
+    <line x1="277.5" y1="135" x2="277.5" y2="145" stroke="#7a4d12" stroke-width="1.5"/>
+    <line x1="277.5" y1="145" x2="640" y2="145" stroke="#7a4d12" stroke-width="1.5"/>
+    <line x1="640" y1="135" x2="640" y2="145" stroke="#7a4d12" stroke-width="1.5"/>
+    <text x="458.75" y="165" text-anchor="middle" font-size="13" fill="#7a4d12" font-weight="bold">Escalated = 20</text>
+    <text x="458.75" y="182" text-anchor="middle" font-size="11" fill="#7a4d12">5 parts of 8</text>
+
+    <text x="350" y="220" text-anchor="middle" font-size="12" fill="#555" font-style="italic">One part = 32 ÷ 8 = 4 tickets. Read the bar, count the parts, get the answer.</text>
+</svg>
+
+    <p>Once the eye locks on the one part value of 4, the rest of the answer reads off the bar without arithmetic.</p>
+</details>
+
+<h2 id="history-version">Historical Background</h2>
+
+<p>Splitting a quantity into equal parts and recombining them is one of the oldest arithmetic moves on record. The Nine Chapters on the Mathematical Art, compiled in Han dynasty China around the first century, opens with field problems that treat fractions as parts of a whole rather than as ratios. The same move appears in commercial Babylonian tablets dealing with rations and in Renaissance double entry bookkeeping. Wherever a manager needed to divide a stock into shares for a defined purpose, the parts method was already the working tool, long before the modern fraction bar made it visible on the page.</p>
+
+<h2 id="python-version">Python Version</h2>
+
+<p>The function takes a total, a numerator, and a denominator, and returns the anchor, the matched share, and the rest. It mirrors the mental math order so the code can be read as a script of what a person would say out loud.</p>
+
+<pre><code class="language-python">def split_by_parts(total, numerator, denominator):
+    one_part = total // denominator        # 32 in eights, each part is 4
+    resolved = one_part * numerator        # 3 parts of 4 each, that is 12
+    escalated = total - resolved           # the rest, 20
+    return one_part, resolved, escalated
+
+print("How many tickets are you splitting between resolved and escalated?")
+total = int(input("Total tickets received today — "))
+numerator = int(input("Numerator of the resolved fraction — "))
+denominator = int(input("Denominator of the resolved fraction — "))
+
+one_part, resolved, escalated = split_by_parts(total, numerator, denominator)
+print(f"One part out of {denominator}, that is {one_part} tickets")
+print(f"Resolved share, {numerator} parts of {one_part}, that is {resolved} tickets")
+print(f"Escalated share, the rest, {escalated} tickets")</code></pre>
+
+<p>Run the program in Windows Terminal, enter the three numbers when prompted, and read off the three lines. The first line is the anchor, the value to keep in mind for any other fraction of the same total.</p>
+
+<h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: fraction-of-a-whole-mental-math
+description: Solve any problem that splits a whole quantity by a fraction using the mental math parts method. The skill divides the total into equal parts, takes the share that matches the numerator, and returns the complement. Trigger this skill whenever a problem involves dividing a total into a number of equal parts and selecting a portion of them, even if the user does not mention the words fraction or mental math.
+---
+
+<span class="md-heading"># Fraction of a whole, mental math parts method</span>
+
+This skill solves any word problem where a total whole quantity is split using a fraction, then asks for both the share that matches the fraction and the remaining complement. It models the same sequence a person would use in their head. First, divide the total into equal parts. Second, take as many parts as the numerator asks for. Third, subtract from the total to find the rest. The skill accepts a total, a numerator, and a denominator, and returns the size of one part, the matched share, and the remaining share, each labeled with the business context provided by the user.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- Pure Python arithmetic, no third party libraries required
+- Optional, the built in <span class="md-code">`divmod`</span> function from the Python standard library, used only as a safety check that the total splits evenly into the requested number of parts
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total**</span> — the whole quantity to be split, a positive whole number, for example 32 tickets, 240 leads, 96 invoices
+- <span class="md-bold">**Numerator**</span> — the count of parts that belong to the first share, a positive whole number
+- <span class="md-bold">**Denominator**</span> — the total number of equal parts the whole is to be split into, a positive whole number
+- <span class="md-bold">**Business labels, optional**</span> — short names for the two shares, for example resolved and escalated, contacted and pending, dispatched and held. If the user does not supply labels, fall back to neutral wording such as matched share and remaining share
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1, read the problem and pull the three numbers</span>
+
+Read the user prompt and identify the total whole quantity, the numerator of the fraction, and the denominator of the fraction. Confirm all three are positive whole numbers. If the prompt uses a phrase such as three eighths or 3/8, treat the number on top as the numerator and the number on the bottom as the denominator.
+
+<span class="md-heading">### Step 2, find the size of one part</span>
+
+Divide the total by the denominator. This number is the size of one equal part. Treat this as the central mental math anchor. Every later answer is built from this one number.
+
+If the total does not divide evenly into the denominator, flag this to the user before continuing. The mental math shortcut assumes a clean split. State the remainder and ask whether the user wants to round, redistribute, or revise the inputs.
+
+<span class="md-heading">### Step 3, take the matched share</span>
+
+Multiply the size of one part by the numerator. The result is the share that matches the fraction, for example the tickets resolved, the leads contacted, the invoices paid.
+
+<span class="md-heading">### Step 4, find the complement</span>
+
+Subtract the matched share from the total. The result is the remaining share, for example the tickets escalated, the leads pending, the invoices outstanding.
+
+<span class="md-heading">### Step 5, return the answer with business context</span>
+
+Print three short lines in the same order a person would speak the mental math out loud.
+
+- Line 1, the size of one part, stated as one part of the denominator equals the one part size
+- Line 2, the matched share, stated as numerator parts of the one part size, total matched share
+- Line 3, the remaining share, stated as the rest of the total
+
+If the user provided business labels, attach them to each share so the final output reads in plain business language rather than abstract math.
+
+<span class="md-heading">### Step 6, surface the mental math anchor</span>
+
+End the response by restating the size of one part on its own. This is the number the user should keep in their head if they need to redo the calculation later with a different numerator. For example, once 32 in eighths is known to be 4, any other fraction with denominator 8 can be solved instantly.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- &quot;We received 240 leads this week. Three fifths were contacted. How many were contacted, how many are still pending?&quot;
+- &quot;Of the 96 invoices the team issued last month, five eighths have been paid. How many are still outstanding?&quot;
+- &quot;Split 480 enterprise licenses by 7/12 for the EMEA region. How many for EMEA, how many for the rest?&quot;
+- &quot;There are 32 tickets in the queue. 3/8 were resolved before noon. Walk me through the mental math.&quot;
+- &quot;I have 56 boxes and need to ship 3/7 today. How many ship today, how many tomorrow?&quot;
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- The YAML frontmatter appears once at the top
+- No Python code appears anywhere in the skill body
+- Every step reads as a natural language instruction, not a code comment
+- The conditional, when the total does not divide evenly into the denominator, is expressed in plain English in Step 2
+- Inputs and outputs are named in business terms, not Python variable names
+- The description would realistically trigger this skill from a non technical user prompt
+</code></pre>
+
+<h2 id="further-reading">Go Deeper</h2>
+
+<ul>
+    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-multiply-fractions" target="_blank" rel="noopener">Khan Academy — Multiplying fractions by whole numbers</a></li>
+    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+</ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">Wednesday, May 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

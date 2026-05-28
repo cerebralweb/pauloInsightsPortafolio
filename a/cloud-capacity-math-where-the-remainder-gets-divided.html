@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A school arithmetic problem rewritten as a cloud capacity allocation across virtual machines, with the math solution, historical background, a reusable Python program, and the Claude skill that powered the transformation.">
+    <meta name="keywords" content="business math, arithmetic, cloud capacity, resource allocation, Python, Claude skills, subtraction, division">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/cloud-capacity-math-where-the-remainder-gets-divided.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/cloud-capacity-math-where-the-remainder-gets-divided.html" />
+
+    <title>Cloud Capacity Math Where the Remainder Gets Divided</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>27 May 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    CLOUD CAPACITY MATH WHERE THE REMAINDER GETS DIVIDED
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+<p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+Capacity planning rarely starts with an empty pool. Some portion of every resource is already committed or reserved before equitable allocation begins, whether the resource is storage, budget, headcount, or bandwidth. <dfn>This problem shows how a short arithmetic procedure can model that reality, and how a small Python program can turn the logic into a reusable tool for any team facing the same decision.</dfn></em></p>
+
+<div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+<script src="/js/us-publicidadEnArticulo.js"></script>
+
+<h2 id="math-answer">The Problem</h2>
+
+<p>A DevOps team has 128 GB of storage to provision across 12 virtual machines for a new project. They configure 5 machines with 15.75 GB each. From the remaining capacity, they split storage equally across the other 7 machines. The team also reserves 2 GB for system overhead that cannot be allocated.</p>
+<p>How much storage does each of the 7 machines receive?</p>
+<ul>
+    <li>a) 4</li>
+    <li>b) 6.968</li>
+    <li>c) 6.75</li>
+    <li>d) 11</li>
+</ul>
+
+<details>
+    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+    <p><strong>Correct Answer: c) 6.75 GB ✅</strong></p>
+
+    <h2>Math Solution</h2>
+
+    <p>The procedure is a two stage arithmetic. First, <strong>subtract</strong> the storage already committed to the 5 fixed machines and the reserved overhead from the total capacity. Then, <strong>divide</strong> the remaining capacity into equal shares for the 7 unassigned machines.</p>
+
+    <p class="insight"><em>Every allocation problem hides the same conversion. Total minus committed minus reserved gives the pool that division operates on.</em></p>
+
+    <div class="bannerTwitero">
+        <h2>Step-by-Step Breakdown</h2>
+        <p>The following sequence shows how the final amount is derived:</p>
+        <ol>
+            <li><strong>Storage for the 5 fixed machines:</strong> 5 × 15.75 = 78.75 GB committed to known workloads</li>
+            <li><strong>Total committed plus reserve:</strong> 78.75 + 2 = 80.75 GB unavailable for the remaining machines</li>
+            <li><strong>Remaining capacity:</strong> 128 − 80.75 = 47.25 GB pool available for equal split</li>
+            <li><strong>Per machine allocation:</strong> 47.25 ÷ 7 = 6.75 GB equal share for each of the 7 machines</li>
+        </ol>
+    </div>
+</details>
+
+<h2 id="history-version">Historical Background</h2>
+
+<p>The combination of subtraction and division to allocate a remainder is one of the oldest practical computations in commerce. The Treviso Arithmetic, printed in Venice in 1478, was the first arithmetic textbook produced on a printing press, and it was written for merchants and apprentices who needed to handle exactly this kind of calculation. Its problems involved splitting a shipment after costs, distributing profits among partners after deducting expenses, and dividing leftover goods among buyers. The book helped establish arithmetic as a working tool for traders and clerks rather than a purely scholarly subject, and the same logic now governs how teams allocate cloud storage, software licenses, and operating budgets.</p>
+
+<h2 id="python-version">Python Version</h2>
+
+<p>The script accepts any total capacity, any number of fixed machines with any preset size, any reserved overhead, and any count of remaining machines, then returns the equal share for each unassigned machine. It is reusable for storage, budget, license, and bandwidth allocation problems with the same structure.</p>
+
+<pre><code>def storage_per_remaining_machine(total_capacity, fixed_count, fixed_size, reserved, remaining_count):
+    committed = fixed_count * fixed_size
+    available = total_capacity - committed - reserved
+    per_machine = available / remaining_count
+    return int(per_machine) if per_machine.is_integer() else per_machine
+
+print("Cloud storage allocation across virtual machines")
+print("How much storage does each remaining VM receive after fixed allocations and reserved overhead?")
+print()
+
+total_capacity = float(input("Enter total storage capacity in GB: "))
+fixed_count = int(input("Enter the number of machines with fixed allocations: "))
+fixed_size = float(input("Enter the storage per fixed machine in GB: "))
+reserved = float(input("Enter the reserved overhead in GB: "))
+remaining_count = int(input("Enter the number of remaining machines that share leftover capacity: "))
+
+result = storage_per_remaining_machine(total_capacity, fixed_count, fixed_size, reserved, remaining_count)
+
+print()
+print(f"Each of the {remaining_count} remaining virtual machines receives {result} GB of storage.")</code></pre>
+
+<p>Run it in a terminal by opening Python, pasting the block, and entering the five values when prompted. The final line returns the per machine allocation in plain language.</p>
+
+<h2 id="skill-file">Claude Skills Version</h2>
+
+<p>The transformation from school problem to business scenario was driven by the math-into-business-transformer skill. The full source of that skill is reproduced below.</p>
+
+<pre class="md-code"><code>---
+<span class="md-bold">name</span>: math-into-business-transformer
+<span class="md-bold">description</span>: Transform standard school math problems into realistic business math problems, then explain the business relevance, provide a step-by-step breakdown, and cover the mathematical background after approval. Use this skill whenever the user submits a math problem and wants it reframed in a business context, even if they don't use the words "transform" or "business."
+---
+
+&lt;skill&gt;
+  &lt;purpose&gt;
+    Transform standard school math problems into realistic business math problems while preserving the same mathematical skill, numbers, relationships, difficulty level, and answer logic.
+
+    The Skill has two stages:
+
+    Stage 1: Transformation.
+    Rewrite the school math problem as a realistic business math problem. End this stage by asking the user whether they approve the transformation.
+
+    Stage 2: Actionability.
+    Begin only after the user approves the transformed problem. Explain why the mathematical concept is relevant for solving the business problem, explain the mathematical background, and include one authoritative reference link.
+  &lt;/purpose&gt;
+
+  &lt;stage_1_transformation&gt;
+    &lt;goal&gt;
+      Rewrite the original school math problem as a realistic business math problem.
+    &lt;/goal&gt;
+
+    &lt;requirements&gt;
+      &lt;requirement&gt;Identify the mathematics topic addressed by the original problem.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the same mathematical skill.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the same numbers.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the same quantitative relationships.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the same answer logic.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the same difficulty level.&lt;/requirement&gt;
+      &lt;requirement&gt;Transform only the context, entities, and wording.&lt;/requirement&gt;
+      &lt;requirement&gt;Use realistic business situations.&lt;/requirement&gt;
+      &lt;requirement&gt;Use varied business topics across problems.&lt;/requirement&gt;
+      &lt;requirement&gt;Preserve the direction of every ratio and rate relationship.
+If the original problem divides quantity A by a rate to obtain quantity B,
+the transformed problem must also divide — not multiply.
+If the original multiplies, the transformed problem must also multiply.&lt;/requirement&gt;
+    &lt;/requirements&gt;
+
+    &lt;business_context_rules&gt;
+      &lt;rule&gt;Use realistic business settings, not artificial corporate wording.&lt;/rule&gt;
+      &lt;rule&gt;Vary the business domain across problems when possible.&lt;/rule&gt;
+      &lt;rule&gt;Use concrete business objects such as licenses, orders, subscriptions, shipments, invoices, leads, customers, employees, tickets, devices, inventory units, budgets, campaigns, or service packages.&lt;/rule&gt;
+      &lt;rule&gt;Make the scenario plausible for managers, analysts, founders, operations teams, finance teams, marketing teams, technology teams, or consultants.&lt;/rule&gt;
+      &lt;rule&gt;Avoid using the same business topic repeatedly unless the user requests it.&lt;/rule&gt;
+      &lt;rule&gt;When translating a ratio or rate into business language, verify that
+the wording unambiguously implies the same arithmetic operation as the original.
+If the original says "2 boxes make 1 liter" (division), the business version
+must say "every 2 [units] produce 1 [output]" — never "each [output] requires
+2 [units]," which implies multiplication and inverts the operation.&lt;/rule&gt;
+    &lt;/business_context_rules&gt;
+
+    &lt;possible_business_domains&gt;
+      &lt;domain&gt;Retail and inventory management&lt;/domain&gt;
+      &lt;domain&gt;Logistics and supply chain&lt;/domain&gt;
+      &lt;domain&gt;Software subscriptions and SaaS&lt;/domain&gt;
+      &lt;domain&gt;AI operations and automation&lt;/domain&gt;
+      &lt;domain&gt;Marketing campaigns and lead generation&lt;/domain&gt;
+      &lt;domain&gt;Finance, budgeting, and revenue planning&lt;/domain&gt;
+      &lt;domain&gt;Human resources and staffing&lt;/domain&gt;
+      &lt;domain&gt;Customer support and service tickets&lt;/domain&gt;
+      &lt;domain&gt;Cybersecurity operations&lt;/domain&gt;
+      &lt;domain&gt;Manufacturing and production planning&lt;/domain&gt;
+      &lt;domain&gt;Cloud computing and infrastructure&lt;/domain&gt;
+      &lt;domain&gt;Consulting projects and deliverables&lt;/domain&gt;
+    &lt;/possible_business_domains&gt;
+
+    &lt;answer_choice_rules&gt;
+      &lt;rule&gt;If the original problem includes answer choices, preserve the same answer choices unless the user asks to rewrite them.&lt;/rule&gt;
+      &lt;rule&gt;If answer choices are preserved, ensure the correct answer remains the same option.&lt;/rule&gt;
+      &lt;rule&gt;If the original problem does not include answer choices, do not add them unless the user asks.&lt;/rule&gt;
+    &lt;/answer_choice_rules&gt;
+
+    &lt;stage_1_output_format&gt;
+      &lt;section&gt;
+        <span class="md-heading">## Transformed Business Math Problem</span>
+
+        [Rewrite the problem as a realistic business math problem.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Math Structure</span>
+
+        - <span class="md-bold">**Topic:**</span> [Mathematics topic.]
+        - [One bullet per key quantity or rate, stated in business terms — no reference to the original wording.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Answer Choices</span>
+
+        [Include the answer choices if the original problem has them.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Correct Answer</span>
+
+        [Correct option and answer.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Approval Question</span>
+
+        Do you approve this transformation?
+      &lt;/section&gt;
+    &lt;/stage_1_output_format&gt;
+
+    &lt;approval_gate&gt;
+      &lt;rule&gt;After Stage 1, stop and ask whether the user approves the transformation.&lt;/rule&gt;
+      &lt;rule&gt;Do not proceed to Stage 2 until the user clearly approves.&lt;/rule&gt;
+      &lt;rule&gt;If the user does not approve, ask what should be improved and revise the transformation.&lt;/rule&gt;
+      &lt;rule&gt;Possible revision areas include realism, business domain, wording, difficulty, answer choices, or mathematical fidelity.&lt;/rule&gt;
+      &lt;rule&gt;Once the user approves, ask: "Would you like me to continue with Why This Math Matters for the Business Problem and Mathematical Background?" before proceeding to Stage 2.&lt;/rule&gt;
+      &lt;rule&gt;If the user says yes or similar, proceed to Stage 2 in full.&lt;/rule&gt;
+      &lt;rule&gt;If the user says no or declines, stop immediately. Do not produce any Stage 2 content.&lt;/rule&gt;
+    &lt;/approval_gate&gt;
+  &lt;/stage_1_transformation&gt;
+
+  &lt;stage_2_actionability_and_math_background&gt;
+    &lt;goal&gt;
+      Explain why the mathematical concept is useful for solving the approved business problem, then provide mathematical background and one authoritative reference link.
+    &lt;/goal&gt;
+
+    &lt;requirements&gt;
+      &lt;requirement&gt;Begin only after the user approves the Stage 1 transformation AND confirms they want Why This Math Matters and Mathematical Background.&lt;/requirement&gt;
+      &lt;requirement&gt;YOU MUST produce all three sections in this exact order: (1) Why This Math Matters for the Business Problem, (2) Step-by-Step Breakdown, (3) Mathematical Background. Omitting any section is a violation.&lt;/requirement&gt;
+      &lt;requirement&gt;Explain why the mathematical concept or technique is relevant to solving the business problem.&lt;/requirement&gt;
+      &lt;requirement&gt;Provide a step-by-step numbered breakdown showing how to solve the transformed business problem. Each step must have a bold label, the arithmetic or logic, and the result. End with a Conclusion line.&lt;/requirement&gt;
+      &lt;requirement&gt;Explain the mathematical background of the concept used.&lt;/requirement&gt;
+      &lt;requirement&gt;Include one historical fact or one conceptual fact about the mathematics involved.&lt;/requirement&gt;
+      &lt;requirement&gt;Include exactly one authoritative reference link.&lt;/requirement&gt;
+      &lt;requirement&gt;Keep the explanation practical, concise, and business-oriented.&lt;/requirement&gt;
+    &lt;/requirements&gt;
+
+    &lt;computation_integrity_rules&gt;
+      &lt;rule&gt;Always solve the problem by working through the arithmetic before looking at the answer choices.&lt;/rule&gt;
+      &lt;rule&gt;NEVER pattern-match or guess the correct answer from the answer choices list. The presence of answer choices does not replace computation.&lt;/rule&gt;
+      &lt;rule&gt;Complete the full arithmetic sequence first. Only after obtaining a computed result may you match it against the answer choices.&lt;/rule&gt;
+      &lt;rule&gt;If the computed result does not match any answer choice, flag the discrepancy explicitly. Do not silently select the closest option.&lt;/rule&gt;
+    &lt;/computation_integrity_rules&gt;
+
+    &lt;step_by_step_breakdown_rules&gt;
+      &lt;rule&gt;Produce a sequential numbered breakdown showing how to solve the transformed business problem.&lt;/rule&gt;
+      &lt;rule&gt;Each step must have a bold label identifying what is being calculated (e.g., "Daily sales rate:", "Required adjustment:").&lt;/rule&gt;
+      &lt;rule&gt;Show the arithmetic explicitly: formula → calculation → result.&lt;/rule&gt;
+      &lt;rule&gt;Use arrows (→) to connect intermediate results to their meaning.&lt;/rule&gt;
+      &lt;rule&gt;The last item must be a bold "Conclusion:" line stating the final answer in plain business language.&lt;/rule&gt;
+      &lt;rule&gt;Do not skip steps. The sequence must be complete enough for the reader to verify the answer without external work.&lt;/rule&gt;
+      &lt;rule&gt;Keep steps concise. One to two lines per step.&lt;/rule&gt;
+    &lt;/step_by_step_breakdown_rules&gt;
+
+    &lt;Why This Math Matters for the Business Problem&gt;
+      &lt;rule&gt;Explain how the mathematical concept supports business decision-making.&lt;/rule&gt;
+      &lt;rule&gt;Connect the math to concrete business uses such as planning, forecasting, allocation, budgeting, operations, pricing, staffing, or performance measurement.&lt;/rule&gt;
+      &lt;rule&gt;Do not give a generic explanation. Tie the explanation directly to the transformed business problem.&lt;/rule&gt;
+    &lt;/Why This Math Matters for the Business Problem&gt;
+
+    &lt;mathematical_background_rules&gt;
+      &lt;rule&gt;Explain the concept in plain English.&lt;/rule&gt;
+      &lt;rule&gt;Include the core idea behind the mathematical technique.&lt;/rule&gt;
+      &lt;rule&gt;Include one historical or conceptual fact.&lt;/rule&gt;
+      &lt;rule&gt;Do not overload the explanation with advanced theory unless the problem requires it.&lt;/rule&gt;
+      &lt;rule&gt;Use standard English capitalization and correct grammar.&lt;/rule&gt;
+      &lt;rule&gt;Historical facts must range across all periods of mathematical history. Do not default to the same era. Draw from ancient Mesopotamia, ancient Egypt, classical Greece, Hellenistic Alexandria, imperial Rome, medieval Islamic scholarship, Song and Ming dynasty China, Renaissance Europe, the Scientific Revolution, the Enlightenment, the 19th century, or the early 20th century — whichever is most naturally connected to the mathematics at hand.&lt;/rule&gt;
+      &lt;rule&gt;Mention the Rhind Mathematical Papyrus occasionally — as a surprise, not as a default. It is relevant when the topic has a plausible ancient Egyptian connection (fractions, unit fractions, area, division, proportion, or practical measurement), but it must not appear in every response. If it has appeared recently, choose a different source or period instead.&lt;/rule&gt;
+    &lt;/mathematical_background_rules&gt;
+
+    &lt;reference_rules&gt;
+      &lt;rule&gt;Include exactly one authoritative reference link.&lt;/rule&gt;
+      &lt;rule&gt;Prefer references from educational, institutional, or recognized mathematical sources.&lt;/rule&gt;
+      &lt;rule&gt;Good sources include Khan Academy, Encyclopaedia Britannica, Wolfram MathWorld, NIST, OpenStax, university pages, or official documentation when relevant.&lt;/rule&gt;
+      &lt;rule&gt;The link must be relevant to the mathematics topic, not just the business scenario.&lt;/rule&gt;
+      &lt;rule&gt;Do not include more than one link unless the user explicitly asks.&lt;/rule&gt;
+    &lt;/reference_rules&gt;
+
+    &lt;stage_2_output_format&gt;
+      &lt;enforcement&gt;You MUST output all four sections below, with exactly these headings, in this exact order. Do not merge sections, skip sections, or rename headings.&lt;/enforcement&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Why This Math Matters for the Business Problem</span>
+
+        [Explain why the mathematical concept or technique helps solve the business problem. Connect directly to the transformed scenario.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Step-by-Step Mathematical Breakdown</span>
+
+        The following sequence shows how the problem is solved:
+
+        - <span class="md-bold">**[Step label]:**</span> [arithmetic] → [result]
+        - <span class="md-bold">**[Step label]:**</span> [arithmetic] → [result]
+        - ... (continue for all required steps)
+        - <span class="md-bold">**Conclusion:**</span> [Final answer in plain business language]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Mathematical Background</span>
+
+        [Explain the mathematics used in plain English. Include one historical or conceptual fact.]
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        <span class="md-heading">## Authoritative Reference</span>
+
+        [One relevant authoritative link.]
+      &lt;/section&gt;
+    &lt;/stage_2_output_format&gt;
+  &lt;/stage_2_actionability_and_math_background&gt;
+
+  &lt;language_and_style_rules&gt;
+    &lt;rule&gt;Use standard English capitalization.&lt;/rule&gt;
+    &lt;rule&gt;Use correct grammar.&lt;/rule&gt;
+    &lt;rule&gt;Write the transformed problem in English.&lt;/rule&gt;
+    &lt;rule&gt;Keep the wording clear and concise.&lt;/rule&gt;
+    &lt;rule&gt;Do not make the business story longer than necessary.&lt;/rule&gt;
+    &lt;rule&gt;Do not over-explain inside the transformed problem.&lt;/rule&gt;
+    &lt;rule&gt;Use practical business language.&lt;/rule&gt;
+  &lt;/language_and_style_rules&gt;
+
+  &lt;diagram_rules&gt;
+    &lt;rule&gt;When the user asks for a diagram, always use the Singapore Math bar model style.&lt;/rule&gt;
+    &lt;rule&gt;Represent quantities as labeled rectangular bars. Use proportional widths to reflect relative size when quantities differ.&lt;/rule&gt;
+    &lt;rule&gt;Label each bar with the business entity it represents (e.g., "Revenue Q1", "Budget Used") and its value.&lt;/rule&gt;
+    &lt;rule&gt;Show unknown quantities as a bar segment marked with a question mark.&lt;/rule&gt;
+    &lt;rule&gt;Use bracket annotations above or below bars to indicate totals, differences, or relationships between segments.&lt;/rule&gt;
+    &lt;rule&gt;Keep the diagram clean and minimal: no decorative elements, no axes, no grid lines — just bars, labels, brackets, and values.&lt;/rule&gt;
+    &lt;rule&gt;Always render diagrams as SVG. Do not use plain-text box drawing. SVG is required because diagrams will later be transformed into HTML for web publication.&lt;/rule&gt;
+    &lt;rule&gt;Structure the SVG for clean HTML embedding: use a viewBox attribute, no hardcoded pixel dimensions on the root element, and inline styles only (no external stylesheets or classes that depend on a parent document).&lt;/rule&gt;
+    &lt;rule&gt;Use only standard SVG elements: rect, text, line, path. Avoid SVG features that do not render reliably in all major browsers (e.g. foreignObject).&lt;/rule&gt;
+    &lt;rule&gt;All text inside the SVG must use a web-safe font (Arial, Helvetica, or sans-serif fallback) so it renders correctly without font loading when embedded in HTML.&lt;/rule&gt;
+  &lt;/diagram_rules&gt;
+
+  &lt;math_structure_rules&gt;
+    &lt;rule&gt;The mathematics topic must be the first item under Math Structure.&lt;/rule&gt;
+    &lt;rule&gt;Use clear labels for each quantity or relationship.&lt;/rule&gt;
+    &lt;rule&gt;State each quantity in business terms only — do not reference how it appeared in the original problem.&lt;/rule&gt;
+    &lt;rule&gt;Do not add unnecessary steps.&lt;/rule&gt;
+    &lt;rule&gt;Do not solve with a different mathematical method unless the structure remains equivalent.&lt;/rule&gt;
+  &lt;/math_structure_rules&gt;
+
+  &lt;quality_check_before_answering&gt;
+    &lt;stage_1_checks&gt;
+      &lt;check&gt;Does the transformed problem preserve the original mathematical skill?&lt;/check&gt;
+      &lt;check&gt;Are all numbers preserved?&lt;/check&gt;
+      &lt;check&gt;Are the relationships preserved?&lt;/check&gt;
+      &lt;check&gt;Does the correct answer remain correct?&lt;/check&gt;
+      &lt;check&gt;Is the business context realistic?&lt;/check&gt;
+      &lt;check&gt;Is the "## Math Structure" section present with Topic listed first?&lt;/check&gt;
+      &lt;check&gt;Does Math Structure list each key quantity or relationship in business terms only, without referencing the original wording?&lt;/check&gt;
+      &lt;check&gt;Does the response stop with an approval question?&lt;/check&gt;
+      &lt;check&gt;For every ratio or rate in the problem, confirm that the transformed
+wording implies the same operation (multiplication or division) as the original.
+Read the transformed sentence in isolation and ask: does this sentence, taken
+alone, lead a reader to multiply or to divide? It must match the original.&lt;/check&gt;
+    &lt;/stage_1_checks&gt;
+
+    &lt;stage_2_checks&gt;
+      &lt;check&gt;Was the correct answer obtained by working through the arithmetic — not by pattern-matching from the answer choices list?&lt;/check&gt;
+      &lt;check&gt;Did the user approve the transformation AND confirm they want Stage 2 before it began?&lt;/check&gt;
+      &lt;check&gt;Is the heading "## Why This Math Matters for the Business Problem" present and does its content connect the math to the specific transformed scenario?&lt;/check&gt;
+      &lt;check&gt;Is the heading "## Step-by-Step Breakdown" present with numbered/bulleted steps, each having a bold label, explicit arithmetic, and a Conclusion line?&lt;/check&gt;
+      &lt;check&gt;Is the heading "## Mathematical Background" present and does it explain the concept clearly in plain English with one historical or conceptual fact?&lt;/check&gt;
+      &lt;check&gt;Is there exactly one authoritative reference link under "## Authoritative Reference"?&lt;/check&gt;
+      &lt;check&gt;Are all four headings in the correct order: Why This Math Matters → Step-by-Step Breakdown → Mathematical Background → Authoritative Reference?&lt;/check&gt;
+    &lt;/stage_2_checks&gt;
+  &lt;/quality_check_before_answering&gt;
+&lt;/skill&gt;</code></pre>
+
+<p>The skill enforces a strict two stage flow with an approval gate, so the business framing is locked in before any math explanation is produced. It also preserves the original numbers and relationships, which is what made the answer for the storage problem land cleanly on 6.75 GB.</p>
+
+<h2 id="further-reading">Go Deeper</h2>
+
+<ul>
+    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic" target="_blank" rel="noopener">Khan Academy — Arithmetic</a></li>
+    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld — Division</a></li>
+    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange — Arithmetic</a></li>
+</ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
