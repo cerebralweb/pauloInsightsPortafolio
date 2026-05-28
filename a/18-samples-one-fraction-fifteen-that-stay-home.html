@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A business math problem about fractional allocation, paired with a Python program and a reusable Claude Skill, showing how a distributor splits 18 samples when one sixth goes to a partner.">
+    <meta name="keywords" content="fractions, business math, mental math, Python, Claude Skill, fraction of a quantity, sample allocation, Fibonacci, Liber Abaci">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/18-samples-one-fraction-fifteen-that-stay-home.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/18-samples-one-fraction-fifteen-that-stay-home.html" />
+
+    <title>18 Samples, One Fraction, Fifteen That Stay Home</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    18 SAMPLES, ONE FRACTION, FIFTEEN THAT STAY HOME
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Allocation decisions in distribution rarely land on clean whole numbers the first time. Operations teams need to know what share of inventory leaves the door to a partner and what stays for direct channels, and the fraction in the question often signals where coverage and margin decisions follow. <dfn>This problem shows how a simple fraction operation maps onto a real allocation choice, and how a small Python routine can replay the same reasoning out loud.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A regional distributor received 18 product samples valued at 2,000 pesos each. The distributor sent one sixth of them to a partner reseller and kept the rest for in store demos.</p>
+                <p>How many samples did the distributor end up with?</p>
+                <ul>
+                    <li>a) 15 samples</li>
+                    <li>b) 16 samples</li>
+                    <li>c) 24,000</li>
+                    <li>d) 32,000</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer a) 15 samples ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The clean approach finds one sixth of 18 by splitting 18 into <strong>six equal groups of three</strong>, then <strong>subtracts</strong> that one group from the total. The partner takes 3 samples, so 15 stay with the distributor.</p>
+
+                    <p class="insight"><em>When the total divides cleanly by the denominator, the fraction collapses to a single subtraction step.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Frame the question.</strong> 18 samples, one sixth leaves for the partner.</li>
+                            <li><strong>Test the clean split.</strong> 18 divided by 6 is 3, since 6 times 3 is 18.</li>
+                            <li><strong>Calculate the share sent.</strong> One group of 3 samples is 3 samples.</li>
+                            <li><strong>Subtract from the total.</strong> 18 minus 3 is 15.</li>
+                            <li><strong>Cross check with the kept fraction.</strong> Five sixths of 18 is 90 divided by 6, which is 15.</li>
+                            <li><strong>Conclusion.</strong> 15 samples stay with the distributor.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Fraction problems shaped by partnership and distribution have a long commercial lineage. Leonardo of Pisa, known as Fibonacci, devoted entire chapters of Liber Abaci in 1202 to splitting goods among partners using Hindu Arabic numerals, helping Italian merchant towns replace the older Roman counting system. The same arithmetic mechanism still drives modern allocation choices between resellers, demo channels, and direct accounts.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script narrates the calculation out loud, mirroring the inner monologue a person uses when working through the fraction in their head. It runs on any total quantity and any fractional share.</p>
+
+<pre><code>def samples_kept(total, num, den):
+    print()
+    print(f"Okay, I have {total} samples. The partner is taking {num} out of every {den}.")
+
+    if total % den == 0:
+        per_group = total // den
+        print(f"Can I split {total} into {den} equal groups? {den} times {per_group} is {total}, so yes.")
+        sent = num * per_group
+        group_word = "group" if num == 1 else "groups"
+        print(f"Each group has {per_group} samples. The partner takes {num} {group_word}, which is {sent} samples.")
+    else:
+        sent_numer = num * total
+        if sent_numer % den == 0:
+            sent = sent_numer // den
+            print(f"{total} does not split cleanly into {den} groups. Let me try the other way.")
+            print(f"{num} times {total} is {sent_numer}, and {sent_numer} divided by {den} is {sent}.")
+        else:
+            print(f"{total} does not split cleanly, and {num} times {total} is not divisible by {den} either.")
+            print("The partner share is not a whole number of samples. Stopping here.")
+            return None
+
+    kept = total - sent
+    print(f"So {total} minus {sent} is {kept}. I keep {kept}.")
+
+    kept_num = den - num
+    cross = (kept_num * total) // den
+    print(f"Quick check the other way. If the partner took {num}/{den}, I keep {kept_num}/{den}.")
+    print(f"{kept_num} times {total} is {kept_num * total}, divided by {den} is {cross}.")
+    print("Same answer, good.")
+
+    return kept
+
+
+print("How many samples does the distributor keep after sending a share to the partner?")
+print()
+total = int(input("How many samples did the distributor receive? "))
+num = int(input("Numerator of the fraction sent to the partner. "))
+den = int(input("Denominator of the fraction sent to the partner. "))
+
+result = samples_kept(total, num, den)
+if result is not None:
+    print()
+    print(f"Samples kept by the distributor {result}.")
+</code></pre>
+
+                <p>Run it in a terminal, enter the total and then the numerator and denominator of the partner share. The narration prints as the function thinks, and the final line reports the kept value.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a Claude Skill, so the reasoning can be invoked from a chat session without code.</p>
+
+<pre class="md-code"><code>---
+name: fraction-share-mental-math
+description: Solve "fraction of a whole" problems out loud, narrating the mental math the way a person would actually think through it. Use this skill whenever the user wants to compute how much of a quantity goes to one party and how much stays with another, given a fractional share, especially when the user asks for a mental math walk through, a thinking out loud explanation, or wants to verify a textbook style fraction problem. Trigger this skill whenever the user pastes a problem shaped as "X items, send 1/n to a partner, how many remain", even if they do not use the words "mental math".
+---
+
+&lt;skill&gt;
+  &lt;purpose&gt;
+    Compute how many items remain after a fractional share is sent to another party. Narrate the calculation out loud, in the voice of someone reasoning through it step by step. The skill tries the cleanest division first and falls back to numerator first multiplication when the clean split fails. It always runs a cross check using the complementary fraction.
+  &lt;/purpose&gt;
+
+  &lt;inputs&gt;
+    &lt;input name="total" type="integer"&gt;
+      The total quantity the originator received. Positive whole number.
+    &lt;/input&gt;
+    &lt;input name="num" type="integer"&gt;
+      The numerator of the fraction sent to the receiving party. Positive integer.
+    &lt;/input&gt;
+    &lt;input name="den" type="integer"&gt;
+      The denominator of the fraction sent to the receiving party. Positive integer.
+    &lt;/input&gt;
+    &lt;input name="scenario_noun" type="string"&gt;
+      The business word for the items being counted (samples, licenses, vouchers, units, tickets). Used in the spoken narration.
+    &lt;/input&gt;
+  &lt;/inputs&gt;
+
+  &lt;output&gt;
+    &lt;field name="kept" type="integer or null"&gt;
+      The quantity that stays with the originator. Null when the share does not land on a whole number.
+    &lt;/field&gt;
+  &lt;/output&gt;
+
+  &lt;steps&gt;
+    &lt;step id="1" name="Open the question"&gt;
+      State the scenario in one sentence, restating the total and the fraction in natural language. Example wording, "Okay, I have {total} {scenario_noun}. The receiving party is taking {num} out of every {den}."
+    &lt;/step&gt;
+
+    &lt;step id="2" name="Try the clean split"&gt;
+      Test whether total divides evenly by den.
+
+      If total mod den equals zero, the clean split works.
+        Compute per_group as total divided by den.
+        Say, "Can I split {total} into {den} equal groups? {den} times {per_group} is {total}, so yes."
+        Compute sent as num multiplied by per_group.
+        Say, "Each group has {per_group} {scenario_noun}. The receiving party takes {num} group(s), which is {sent} {scenario_noun}."
+
+      If total mod den is not zero, move to step 3.
+    &lt;/step&gt;
+
+    &lt;step id="3" name="Fall back to numerator first"&gt;
+      Multiply num by total. Call the product sent_numer.
+
+      If sent_numer is divisible by den, the share is still a whole number.
+        Compute sent as sent_numer divided by den.
+        Say, "{total} does not split cleanly into {den} groups. Let me try the other way."
+        Say, "{num} times {total} is {sent_numer}, and {sent_numer} divided by {den} is {sent}."
+
+      If sent_numer is not divisible by den, the share is fractional.
+        Say, "{total} does not split cleanly, and {num} times {total} is not divisible by {den} either."
+        State that the share is not a whole number of {scenario_noun}. Return null for kept and stop.
+    &lt;/step&gt;
+
+    &lt;step id="4" name="Find what stays"&gt;
+      Subtract sent from total to get kept.
+      Say, "So {total} minus {sent} is {kept}. I keep {kept}."
+    &lt;/step&gt;
+
+    &lt;step id="5" name="Cross check with the complementary fraction"&gt;
+      Compute kept_num as den minus num.
+      Multiply kept_num by total, then divide by den, to get cross.
+      Say, "Quick check the other way. If the receiving party took {num}/{den}, I keep {kept_num}/{den}."
+      Say, "{kept_num} times {total} is {kept_num × total}, divided by {den} is {cross}."
+
+      If cross equals kept, say "Same answer, good."
+      If cross does not equal kept, flag the inconsistency and do not return a result.
+    &lt;/step&gt;
+
+    &lt;step id="6" name="Report the result"&gt;
+      Print a closing line that names the scenario and the kept value. Example, "{scenario_noun} kept by the originator {kept}." Match the business language the user supplied.
+    &lt;/step&gt;
+  &lt;/steps&gt;
+
+  &lt;design_rules&gt;
+    &lt;rule&gt;Narrate in first person, as inner monologue. Use everyday connectors like "Okay", "Let me try", "Same answer, good."&lt;/rule&gt;
+    &lt;rule&gt;Never skip the cross check, even when the clean split succeeds on the first try.&lt;/rule&gt;
+    &lt;rule&gt;Use the variable names total, num, den inside the logic only. In the spoken narration, use the business word the user supplied.&lt;/rule&gt;
+    &lt;rule&gt;Round nothing. Exact integer outcomes only. A fractional share triggers a stop with a clear message.&lt;/rule&gt;
+    &lt;rule&gt;If num is greater than or equal to den, the receiving party would take all or more than all of the quantity. Flag this and ask the user to confirm before proceeding.&lt;/rule&gt;
+    &lt;rule&gt;The Fraction class from the Python standard library is the conceptual model. Apply the same exact arithmetic discipline whether the skill is implemented in code or run by Claude in text.&lt;/rule&gt;
+  &lt;/design_rules&gt;
+
+  &lt;quality_check_before_answering&gt;
+    &lt;check&gt;Did the narration appear in plain language, not as code?&lt;/check&gt;
+    &lt;check&gt;Was the clean split tested before the fallback?&lt;/check&gt;
+    &lt;check&gt;Did the cross check run and confirm the result?&lt;/check&gt;
+    &lt;check&gt;Is the closing line tied to the user's business scenario rather than generic items?&lt;/check&gt;
+    &lt;check&gt;If the share is fractional, did the skill stop cleanly instead of rounding?&lt;/check&gt;
+  &lt;/quality_check_before_answering&gt;
+
+  &lt;example_trigger_prompts&gt;
+    &lt;prompt&gt;I have 18 samples and I send one sixth to a partner. How many do I keep, with the mental math?&lt;/prompt&gt;
+    &lt;prompt&gt;Walk me through the thinking for taking 2/5 out of 30 licenses.&lt;/prompt&gt;
+    &lt;prompt&gt;Solve this fraction problem out loud, step by step.&lt;/prompt&gt;
+    &lt;prompt&gt;I want to check a textbook answer. 24 vouchers, give 1/4 to the reseller, how many stay.&lt;/prompt&gt;
+    &lt;prompt&gt;What share stays with us if the partner takes 3/8 of the 40 trial accounts?&lt;/prompt&gt;
+  &lt;/example_trigger_prompts&gt;
+&lt;/skill&gt;
+</code></pre>
+
+                <p>Drop the file into the skills folder under the name <code>fraction-share-mental-math.md</code>. Claude loads it the next time the trigger phrases appear in a chat.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">May 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

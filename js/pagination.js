@@ -7,6 +7,11 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "18 Samples, One Fraction, Fifteen That Stay Home",
+        articleDescription: "Allocation decisions in distribution rarely land on clean whole numbers the first time",
+        articleHref: "/a/18-samples-one-fraction-fifteen-that-stay-home.html"
+        },
+        {
         articleTitle: "Cloud Capacity Math: Where The Remainder Gets Divided",
         articleDescription: "This problem shows how a short arithmetic procedure can model that reality, and how a small Python program can turn the logic into a reusable tool for any team facing the same decision",
         articleHref: "/a/cloud-capacity-math-where-the-remainder-gets-divided.html"
