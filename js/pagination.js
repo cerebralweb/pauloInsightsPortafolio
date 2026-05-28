@@ -6,7 +6,11 @@
 
 
     const articlesDataBase = [ 
-       
+        {
+        articleTitle: "Powers Of Ten, Radix Points, And The Conveyor Belts Of North America",
+        articleDescription: "Logistics planning across borders depends on an arithmetic that looks ordinary until it goes wrong. A single miscounted column in a decimal addition can throw off procurement orders, shipping volumes, and capital allocation across an entire trade corridor. This problem traces the mechanics of decimal addition through a conveyor belt installation and shows how place value, radix points, and powers of ten turn separate measurements into a total a planner can act on.",
+        articleHref: "/a/powers-of-ten-radix-points-and-the-conveyor-belts-of-north-america.html"
+        },
         {
         articleTitle: "The Shortcut Field Estimators Use For Edge Installation Time",
         articleDescription: "The trick that turns one-off arithmetic into a repeatable algorithm is recognizing which constants change",

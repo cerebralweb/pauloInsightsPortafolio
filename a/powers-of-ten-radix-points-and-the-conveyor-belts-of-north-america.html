@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Decimal addition powers a conveyor belt logistics problem across Mexico City, Monterrey, and Dallas. Place value, radix points, and powers of ten explained with a Python solution.">
+    <meta name="keywords" content="decimal addition, place value, radix point, positional notation, powers of ten, business math, Python decimal, Fibonacci, Liber Abaci, conveyor belt logistics, Mexico USA corridor">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/powers-of-ten-radix-points-and-the-conveyor-belts-of-north-america.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/powers-of-ten-radix-points-and-the-conveyor-belts-of-north-america.html" />
+
+    <title>Powers Of Ten, Radix Points, And The Conveyor Belts Of North America</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>May 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    POWERS OF TEN, RADIX POINTS, AND THE CONVEYOR BELTS OF NORTH AMERICA
+
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Logistics planning across borders depends on a kind of arithmetic that looks ordinary until it goes wrong. A single miscounted column in a decimal addition can throw off procurement orders, shipping volumes, and capital allocation across an entire trade corridor. <dfn>This problem traces the mechanics of decimal addition through a conveyor belt installation and shows how place value, radix points, and powers of ten turn separate measurements into a total a planner can act on.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics company installs conveyor belts across three distribution centers along the Mexico and USA trade corridor. At the Mexico City center, the belt run measures 1.28 km. At the Monterrey center, the belt run is 1.02 km longer than at Mexico City. At the Dallas center, the belt run is 0.242 km longer than at Monterrey.</p>
+
+                <p>Find the Dallas belt run, the Monterrey belt run, and the total length installed across all three centers.</p>
+
+                <ul>
+                    <li>a) 2.542 km, 2.300 km, 6.122 km</li>
+                    <li>b) 2.058 km, 2.300 km, 5.638 km</li>
+                    <li>c) 2.5 km, 2.3 km, 4.8 km</li>
+                    <li>d) 2.6 km, 2.3 km, 6.18 km</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer is a) 2.542 km, 2.300 km, 6.122 km ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Each subsequent belt run is built from the previous one by <strong>adding a small fractional increment</strong>. Monterrey is Mexico City plus 1.02 km. Dallas is Monterrey plus 0.242 km. The total is the <strong>sum of all three</strong> aligned by decimal place value.</p>
+
+                    <p class="insight"><em>Decimal addition only works when digits sit in the same column. The radix point is the anchor that keeps every value lined up.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Calculation Breakdown</h2>
+                        <p>The following sequence shows how the final total is derived.</p>
+                        <ol>
+                            <li><strong>Mexico City belt run.</strong> Given as 1.28 km</li>
+                            <li><strong>Monterrey belt run.</strong> 1.28 + 1.02 = 2.30 km</li>
+                            <li><strong>Dallas belt run.</strong> 2.30 + 0.242 = 2.542 km</li>
+                            <li><strong>Total belt installed.</strong> 1.28 + 2.30 + 2.542 = 6.122 km</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>Place Value Model</h2>
+
+                <p>Positional notation, also called place value notation, is a feature of any numeral system in which the value of each written symbol "depends not only on its appearance but also on its position" (Wikipedia, <a class="class2" href="https://en.wikipedia.org/wiki/Positional_notation" target="_blank" rel="noopener">"Positional notation"</a>). What you write is half the information. Where you write it carries the rest.</p>
+
+                <p>Lining numbers up by place value makes addition reliable. Digits in the same column belong to the same place and sum directly. A missing trailing digit is treated as zero so every column stays complete. The chart below stacks the three belt runs by place value. Black dots mark the radix point between the Ones and Tenths columns in every row, anchoring the alignment that lets the columns sum.</p>
+
+                <div style="margin: 1.5em 0; text-align: center;">
+                <svg width="100%" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, Helvetica, sans-serif; max-width: 700px; height: auto;" role="img" aria-label="Place value chart for decimal addition with radix point markers">
+                    <rect x="40" y="40" width="140" height="44" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                    <text x="110" y="62" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">Number</text>
+                    <rect x="180" y="40" width="100" height="44" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                    <text x="230" y="62" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">Ones</text>
+                    <rect x="280" y="40" width="100" height="44" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                    <text x="330" y="62" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">Tenths</text>
+                    <rect x="380" y="40" width="130" height="44" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                    <text x="445" y="62" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">Hundredths</text>
+                    <rect x="510" y="40" width="130" height="44" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                    <text x="575" y="62" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">Thousandths</text>
+
+                    <rect x="40" y="84" width="140" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="110" y="106" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">1.28</text>
+                    <rect x="180" y="84" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="230" y="106" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">1</text>
+                    <rect x="280" y="84" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="330" y="106" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2</text>
+                    <rect x="380" y="84" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="445" y="106" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">8</text>
+                    <rect x="510" y="84" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="575" y="106" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#888780">0</text>
+                    <circle cx="280" cy="113" r="4" fill="#2C2C2A"/>
+
+                    <rect x="40" y="128" width="140" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="110" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2.30</text>
+                    <rect x="180" y="128" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="230" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2</text>
+                    <rect x="280" y="128" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="330" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">3</text>
+                    <rect x="380" y="128" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="445" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">0</text>
+                    <rect x="510" y="128" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="575" y="150" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#888780">0</text>
+                    <circle cx="280" cy="157" r="4" fill="#2C2C2A"/>
+
+                    <rect x="40" y="172" width="140" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="110" y="194" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2.542</text>
+                    <rect x="180" y="172" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="230" y="194" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2</text>
+                    <rect x="280" y="172" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="330" y="194" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">5</text>
+                    <rect x="380" y="172" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="445" y="194" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">4</text>
+                    <rect x="510" y="172" width="130" height="44" rx="4" fill="#FFFFFF" stroke="#73726C" stroke-width="0.5"/>
+                    <text x="575" y="194" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#3D3D3A">2</text>
+                    <circle cx="280" cy="201" r="4" fill="#2C2C2A"/>
+
+                    <text x="230" y="232" text-anchor="middle" font-size="12" fill="#A32D2D">+1</text>
+                    <text x="330" y="232" text-anchor="middle" font-size="12" fill="#A32D2D">+1</text>
+
+                    <line x1="40" y1="240" x2="640" y2="240" stroke="#3D3D3A" stroke-width="1"/>
+
+                    <rect x="40" y="244" width="140" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                    <text x="110" y="266" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">6.122</text>
+                    <rect x="180" y="244" width="100" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                    <text x="230" y="266" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">6</text>
+                    <rect x="280" y="244" width="100" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                    <text x="330" y="266" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">1</text>
+                    <rect x="380" y="244" width="130" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                    <text x="445" y="266" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">2</text>
+                    <rect x="510" y="244" width="130" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+                    <text x="575" y="266" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">2</text>
+                    <circle cx="280" cy="273" r="4" fill="#2C2C2A"/>
+
+                    <text x="340" y="312" text-anchor="middle" font-size="12" fill="#73726C" font-style="italic">Total cable installed across the corridor</text>
+                </svg>
+                </div>
+
+                <p>The teal row at the bottom is the total. The red marks above the divider are the two carries. The hundredths column sums to 12, which writes 2 and carries 1 into the tenths column. The tenths column then sums to 11, which writes 1 and carries 1 into the ones column. The ones column sums to 6. The result is 6.122 km of cable installed across the corridor.</p>
+
+                <h2>Moving a Digit to the Left</h2>
+
+                <p>Each step to the left raises a digit's value by a factor of ten. The digit itself stays the same. Only its position changes, and position is what gives the digit its size. A 2 in the ones column is worth 2. Shift that same 2 one column left into the tens column and it is worth 20. Shift it again into the hundreds column and it is worth 200. Moving in the opposite direction reverses the rule. Each step to the right divides the value by ten.</p>
+
+                <div style="margin: 1.5em 0; text-align: center;">
+                <svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, Helvetica, sans-serif; max-width: 700px; height: auto;" role="img" aria-label="The digit 2 placed across five place value columns with a radix point marker between ones and tenths">
+                    <defs>
+                        <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M2 1L8 5L2 9" fill="none" stroke="#3D3D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </marker>
+                    </defs>
+
+                    <text x="80" y="22" text-anchor="middle" font-size="14" fill="#3D3D3A">Hundreds</text>
+                    <text x="210" y="22" text-anchor="middle" font-size="14" fill="#3D3D3A">Tens</text>
+                    <text x="340" y="22" text-anchor="middle" font-size="14" fill="#3D3D3A">Ones</text>
+                    <text x="470" y="22" text-anchor="middle" font-size="14" fill="#3D3D3A">Tenths</text>
+                    <text x="600" y="22" text-anchor="middle" font-size="14" fill="#3D3D3A">Hundredths</text>
+
+                    <text x="80" y="40" text-anchor="middle" font-size="12" fill="#73726C">100</text>
+                    <text x="210" y="40" text-anchor="middle" font-size="12" fill="#73726C">10</text>
+                    <text x="340" y="40" text-anchor="middle" font-size="12" fill="#73726C">1</text>
+                    <text x="470" y="40" text-anchor="middle" font-size="12" fill="#73726C">0.1</text>
+                    <text x="600" y="40" text-anchor="middle" font-size="12" fill="#73726C">0.01</text>
+
+                    <rect x="40" y="55" width="80" height="70" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                    <text x="80" y="96" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#042C53">2</text>
+                    <rect x="170" y="55" width="80" height="70" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                    <text x="210" y="96" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#042C53">2</text>
+                    <rect x="300" y="55" width="80" height="70" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                    <text x="340" y="96" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#042C53">2</text>
+                    <rect x="430" y="55" width="80" height="70" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                    <text x="470" y="96" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#042C53">2</text>
+                    <rect x="560" y="55" width="80" height="70" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+                    <text x="600" y="96" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#042C53">2</text>
+
+                    <line x1="165" y1="90" x2="125" y2="90" stroke="#3D3D3A" stroke-width="1.5" marker-end="url(#arrA)"/>
+                    <line x1="295" y1="90" x2="255" y2="90" stroke="#3D3D3A" stroke-width="1.5" marker-end="url(#arrA)"/>
+                    <line x1="425" y1="90" x2="385" y2="90" stroke="#3D3D3A" stroke-width="1.5" marker-end="url(#arrA)"/>
+                    <line x1="555" y1="90" x2="515" y2="90" stroke="#3D3D3A" stroke-width="1.5" marker-end="url(#arrA)"/>
+
+                    <text x="145" y="84" text-anchor="middle" font-size="12" fill="#73726C">×10</text>
+                    <text x="275" y="84" text-anchor="middle" font-size="12" fill="#73726C">×10</text>
+                    <text x="405" y="84" text-anchor="middle" font-size="12" fill="#73726C">×10</text>
+                    <text x="535" y="84" text-anchor="middle" font-size="12" fill="#73726C">×10</text>
+
+                    <circle cx="405" cy="118" r="6" fill="#2C2C2A"/>
+
+                    <text x="80" y="155" text-anchor="middle" font-size="14" fill="#3D3D3A">200</text>
+                    <text x="210" y="155" text-anchor="middle" font-size="14" fill="#3D3D3A">20</text>
+                    <text x="340" y="155" text-anchor="middle" font-size="14" fill="#3D3D3A">2</text>
+                    <text x="470" y="155" text-anchor="middle" font-size="14" fill="#3D3D3A">0.2</text>
+                    <text x="600" y="155" text-anchor="middle" font-size="14" fill="#3D3D3A">0.02</text>
+
+                    <text x="340" y="195" text-anchor="middle" font-size="12" fill="#73726C" font-style="italic">Same digit, different value</text>
+                </svg>
+                </div>
+
+                <p>In the conveyor belt problem, this rule is what makes the carries work. When the hundredths column sums to 12, the extra 10 hundredths equal 1 tenth, so a 1 moves one place to the left and joins the tenths column. The carry is the same digit gaining ten times its value as it shifts position.</p>
+
+                <h2>Powers of Ten</h2>
+
+                <p>Every column in the decimal system is a power of ten, and what a digit represents is the digit itself multiplied by the power belonging to its column. Quoting Wikipedia, "each of ten numerical digits is a distinct symbol representing one [of] the numbers zero through nine, and in the context of the full numeral, each symbol's value is the digit multiplied by a power of ten" (Wikipedia, <a class="class2" href="https://en.wikipedia.org/wiki/Positional_notation" target="_blank" rel="noopener">"Positional notation"</a>).</p>
+
+                <p>The ones column is 10<sup>0</sup>, equal to 1. The tens column is 10<sup>1</sup>, equal to 10. The hundreds column is 10<sup>2</sup>, equal to 100. Each step to the left raises the exponent by 1, and the value the digit represents grows tenfold.</p>
+
+                <div style="margin: 1.5em 0; text-align: center;">
+                <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, Helvetica, sans-serif; max-width: 700px; height: auto;" role="img" aria-label="Powers of ten across place value positions with a radix point marker">
+                    <text x="80" y="22" text-anchor="middle" font-size="12" fill="#73726C">Hundreds</text>
+                    <text x="210" y="22" text-anchor="middle" font-size="12" fill="#73726C">Tens</text>
+                    <text x="340" y="22" text-anchor="middle" font-size="12" fill="#73726C">Ones</text>
+                    <text x="470" y="22" text-anchor="middle" font-size="12" fill="#73726C">Tenths</text>
+                    <text x="600" y="22" text-anchor="middle" font-size="12" fill="#73726C">Hundredths</text>
+
+                    <rect x="40" y="40" width="80" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+                    <text x="80" y="81" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">10<tspan dy="-6" font-size="11">2</tspan></text>
+                    <rect x="170" y="40" width="80" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+                    <text x="210" y="81" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">10<tspan dy="-6" font-size="11">1</tspan></text>
+                    <rect x="300" y="40" width="80" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+                    <text x="340" y="81" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">10<tspan dy="-6" font-size="11">0</tspan></text>
+                    <rect x="430" y="40" width="80" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+                    <text x="470" y="81" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">10<tspan dy="-6" font-size="11">−1</tspan></text>
+                    <rect x="560" y="40" width="80" height="70" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+                    <text x="600" y="81" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">10<tspan dy="-6" font-size="11">−2</tspan></text>
+
+                    <circle cx="405" cy="75" r="6" fill="#2C2C2A"/>
+
+                    <text x="80" y="140" text-anchor="middle" font-size="14" fill="#3D3D3A">= 100</text>
+                    <text x="210" y="140" text-anchor="middle" font-size="14" fill="#3D3D3A">= 10</text>
+                    <text x="340" y="140" text-anchor="middle" font-size="14" fill="#3D3D3A">= 1</text>
+                    <text x="470" y="140" text-anchor="middle" font-size="14" fill="#3D3D3A">= 0.1</text>
+                    <text x="600" y="140" text-anchor="middle" font-size="14" fill="#3D3D3A">= 0.01</text>
+
+                    <text x="340" y="180" text-anchor="middle" font-size="12" fill="#73726C" font-style="italic">Each step right lowers the exponent by 1</text>
+                </svg>
+                </div>
+
+                <p>The same logic continues past the decimal point. Wikipedia again, "Numbers that are not integers use places beyond the radix point. For every position behind this point (and thus after the units digit), the exponent n of the power b<sup>n</sup> decreases by 1" (Wikipedia, <a class="class2" href="https://en.wikipedia.org/wiki/Positional_notation" target="_blank" rel="noopener">"Positional notation"</a>). The radix point is the general name for what we have been calling the decimal point. Crossing it does not break the rule. The exponent simply keeps ticking downward. Tenths is 10<sup>−1</sup>. Hundredths is 10<sup>−2</sup>. Thousandths is 10<sup>−3</sup>.</p>
+
+                <p>A negative exponent is shorthand for the reciprocal of the matching positive power. 10<sup>−1</sup> means 1 divided by 10<sup>1</sup>, which equals 0.1. 10<sup>−2</sup> means 1 divided by 10<sup>2</sup>, which equals 0.01. The rule that connects a base to its exponent works for any integer, positive or negative. Negative exponents flip positive powers into their reciprocals, and everything else carries over without change. This is what makes 1.28 add cleanly to 2.30 and 2.542. Every digit, on either side of the decimal point, is anchored to a specific power of ten, and addition lines them up by that anchor.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The place value system we just used to add 1.28 plus 2.30 plus 2.542 looks ordinary today, but in medieval Europe it was a competitive advantage. Until the 13th century, most European merchants kept their books in Roman numerals. Adding XXVIII to LIV is awkward. Multiplying CDLIX by XIII is worse. Roman numerals have no fixed column for ones, tens, or hundreds, so digits do not stack and you cannot carry. Every calculation needed an abacus, a counting board, or a trained specialist, and the result then had to be transcribed back into Roman form. Bookkeeping was slow, error prone, and expensive.</p>
+
+                <p>Leonardo of Pisa, known later as Fibonacci, grew up watching this friction up close. His father was a customs officer representing Pisan merchants in Bugia, a busy trading port on the North African coast. Pisa was a maritime republic and its commerce ran on the western Mediterranean. As a boy, Leonardo accompanied his father and was taught arithmetic by Arab mathematicians and traders who already used the new numeral system from India and the Islamic world, along with the place value structure that powered it. Traveling around the Mediterranean on business, he saw the same pattern in every port. Merchants who could compute fast, on paper, in writing, settled disputes faster, priced goods more accurately, and held a clear edge over competitors still working in Roman numerals.</p>
+
+                <p>He returned to Pisa and wrote <em>Liber Abaci</em> in 1202. The book is one of the most influential pieces of applied math in European history. It taught the new numerals, the place value system, and the algorithms for addition, subtraction, multiplication, and division. Crucially, it did not stop at theory. It worked through bookkeeping, conversion of weights and measures, calculation of interest, currency exchange, and a long sequence of practical merchant problems. Commerce was the proving ground. Within two centuries, Italian merchants and bankers had adopted the system across Europe, and the modern accounting profession was built on top of it.</p>
+
+                <p>This is the alliance the conveyor belt problem belongs to. Aligning 1.28 and 2.30 and 2.542 by place value, summing column by column, carrying when a column exceeds nine, none of this is possible without a notation that gives every digit a fixed positional weight. The same machinery that lets a logistics planner reconcile cable lengths across three centers is what let a cloth merchant in 13th century Pisa close his books in an afternoon instead of a week. Math becomes useful to business precisely when its notation is built for transactions. Place value is the first and most consequential example.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The following script accepts three measurements and returns the Monterrey belt, the Dallas belt, and the total length installed across the corridor. Replace the inputs with any other three values and the same arithmetic applies.</p>
+
+<pre><code>def calculate_belt_runs(mexico_city_km, monterrey_extra_km, dallas_extra_km):
+    monterrey_km = mexico_city_km + monterrey_extra_km
+    dallas_km = monterrey_km + dallas_extra_km
+    total_km = mexico_city_km + monterrey_km + dallas_km
+    return monterrey_km, dallas_km, total_km
+
+print("How long are the conveyor belts across the Mexico USA corridor?")
+mexico_city_km = float(input("Mexico City belt run in km "))
+monterrey_extra_km = float(input("How much longer is Monterrey than Mexico City in km "))
+dallas_extra_km = float(input("How much longer is Dallas than Monterrey in km "))
+
+monterrey_km, dallas_km, total_km = calculate_belt_runs(
+    mexico_city_km, monterrey_extra_km, dallas_extra_km
+)
+
+print(f"Mexico City belt run is {round(mexico_city_km, 3)} km")
+print(f"Monterrey belt run is {round(monterrey_km, 3)} km")
+print(f"Dallas belt run is {round(dallas_km, 3)} km")
+print(f"Total belt installed across all three centers is {round(total_km, 3)} km")</code></pre>
+
+                <p>Run the script in any Python interpreter. Enter 1.28, then 1.02, then 0.242 to reproduce the worked example and print 6.122 km as the total. The <code>round(value, 3)</code> calls are there because float arithmetic stores 1.28 and 1.02 in binary, which produces tiny representation errors when summed. Rounding to three places restores the expected display.</p>
+
+                <p>A second version using <code>Decimal</code> from the standard library removes the precision issue entirely by storing numbers in base 10. The total comes out to exactly 6.122 with no rounding needed, mirroring the manual column addition shown in the place value chart.</p>
+
+<pre><code>from decimal import Decimal
+
+def calculate_belt_runs(mexico_city_km, monterrey_extra_km, dallas_extra_km):
+    monterrey_km = mexico_city_km + monterrey_extra_km
+    dallas_km = monterrey_km + dallas_extra_km
+    total_km = mexico_city_km + monterrey_km + dallas_km
+    return monterrey_km, dallas_km, total_km
+
+print("How long are the conveyor belts across the Mexico USA corridor?")
+mexico_city_km = Decimal(input("Mexico City belt run in km "))
+monterrey_extra_km = Decimal(input("How much longer is Monterrey than Mexico City in km "))
+dallas_extra_km = Decimal(input("How much longer is Dallas than Monterrey in km "))
+
+monterrey_km, dallas_km, total_km = calculate_belt_runs(
+    mexico_city_km, monterrey_extra_km, dallas_extra_km
+)
+
+print(f"Mexico City belt run is {mexico_city_km} km")
+print(f"Monterrey belt run is {monterrey_km} km")
+print(f"Dallas belt run is {dallas_km} km")
+print(f"Total belt installed across all three centers is {total_km} km")</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-decimals" target="_blank" rel="noopener">Khan Academy — Decimals and Place Value</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Decimal.html" target="_blank" rel="noopener">Wolfram MathWorld — Decimal</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/decimal-expansion" target="_blank" rel="noopener">Mathematics Stack Exchange — Decimal Expansion</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">Wednesday, May 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
