@@ -6,11 +6,7 @@
 
 
     const articlesDataBase = [ 
-        {
-        articleTitle: "The Anchor Price And The Two Tiers It Decides",
-        articleDescription: "This article walks through the full chain: a business problem transformation, step-by-step fraction arithmetic with a practical LCD shortcut, two Python implementations, and a reusable Claude skill.",
-        articleHref: "/a/the-anchor-price-and-the-two-tiers-it-decides.html"
-        },
+       
         {
         articleTitle: "The Shortcut Field Estimators Use For Edge Installation Time",
         articleDescription: "The trick that turns one-off arithmetic into a repeatable algorithm is recognizing which constants change",
