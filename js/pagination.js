@@ -7,6 +7,16 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "Why 5.6666 Never Belongs On A Consultant Timesheet",
+        articleDescription: "Resource allocation rarely lands on a clean integer",
+        articleHref: "/a/why-certain-numbers-never-belong-on-a-consultant-timesheet.html"
+        },
+        {
+        articleTitle: "The Inverse Operation That Recovers What The Narrative Buries",
+        articleDescription: "When companies audit historical contracts",
+        articleHref: "/a/the-inverse-operation-that-recovers-what-the-narrative-buries.html"
+        },
+        {
         articleTitle: "18 Samples, One Fraction, Fifteen That Stay Home",
         articleDescription: "Allocation decisions in distribution rarely land on clean whole numbers the first time",
         articleHref: "/a/18-samples-one-fraction-fifteen-that-stay-home.html"
