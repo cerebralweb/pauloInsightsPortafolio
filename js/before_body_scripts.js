@@ -11,6 +11,14 @@ function firstBodyElem(){
     document.getElementById('close').addEventListener("click", function(){
         this.parentElement.style.display = 'none';
     })
+
+    // Inject favicon into head
+var favicon = document.createElement('link');
+favicon.rel = 'icon';
+favicon.type = 'image/png';
+favicon.sizes = '32x32';
+favicon.href = 'https://www.clpalacios.in/favicon/favicon-32x32.png';
+document.head.appendChild(favicon);
 }
 
 setTimeout(function() {
