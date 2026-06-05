@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A leftover math problem shows how one figure can mean an absolute amount or a share, why that ambiguity mirrors the BANI framework, and how a written procedure settles meaning before arithmetic.">
+    <meta name="keywords" content="fractions, decimals, business math, BANI, ambiguity, Python, Claude skill, market research">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-leftover-number-two-answers-and-the-question-nobody-asked.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-leftover-number-two-answers-and-the-question-nobody-asked.html" />
+
+    <title>One Leftover Number, Two Answers, and the Question Nobody Asked</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>05 June 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ONE LEFTOVER NUMBER, TWO ANSWERS, AND THE QUESTION NOBODY ASKED
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Operational dashboards rarely fail because the arithmetic is wrong. They fail because a single figure can carry two meanings at once, an amount in real units or a share of some larger whole, and nobody writes down which one is meant. When two teams read the same cell and move in opposite directions, the gap was never mathematical. <dfn>This piece follows one small leftover problem to show that unstated meaning, not unstated math, is the real source of error, and that a written procedure can close the gap before the numbers ever arrive.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A telecom operations team runs a network diagnostics campaign on a fixed store of processed telemetry data. One diagnostic run consumes 2/5 GB. After that run, 1.25 GB remained in the pipeline.</p>
+                <p>How much data would remain if the team ran the diagnostic twice instead of once?</p>
+                <ul>
+                    <li>a) 9/10</li>
+                    <li>b) 7/10</li>
+                    <li>c) 15/20</li>
+                    <li>d) 17/20</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 17/20 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The starting total never appears in the prompt. Rebuild it by adding what one run used to what was left, so <strong>0.4 plus 1.25 gives 1.65 GB</strong>. Two runs <strong>consume 0.8 GB</strong>, which means <strong>1.65 minus 0.8 leaves 0.85 GB</strong>, the value written as 17/20.</p>
+
+                    <p class="insight"><em>Reading 0.85 as 85 over 100 and reducing it turns a measured amount into the fraction the answer choices quietly expect.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total pipeline</strong> 0.4 plus 1.25 gives 1.65 GB</li>
+                            <li><strong>Two runs consumed</strong> 2 times 0.4 gives 0.8 GB</li>
+                            <li><strong>Remaining</strong> 1.65 minus 0.8 gives 0.85 GB</li>
+                            <li><strong>As a fraction</strong> 0.85 equals 85 over 100, which reduces to 17/20</li>
+                            <li><strong>Conclusion</strong> 0.85 GB, or 17/20 of a GB, stays in the pipeline</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <p>Notice what the question never settles. The words "how much would remain" do not say remain out of what. One reader treats 0.85 as an absolute quantity of GB. Another treats it as a portion of the original store. The four answer choices make this worse, since every option is a bare fraction below one, which quietly signals a share even though the intended answer is really a measured amount. That is a framing trap, not a slip in anyone's arithmetic.</p>
+
+                <p>This kind of trap has a name in the language of strategy. It belongs to the BANI framework, which describes brittle, anxious, nonlinear, and incomprehensible conditions. The leftover figure lives in the last of those four, the incomprehensible, a precise number that resists a single reading until someone supplies the missing context. In a working business it is the dashboard value two teams act on in opposite directions because nobody wrote down "of what."</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The futurist Jamais Cascio named BANI in 2020 as a successor to the older VUCA vocabulary, yet each of its four ideas was worked out across twentieth century economics and sociology long before the acronym existed.</p>
+
+                <p>The economist Frank Knight drew the first sharp line in 1921, separating measurable risk from true uncertainty, the condition where outcomes cannot even be assigned odds. That distinction sits underneath the anxious in BANI. A generation later Herbert Simon argued that real decision makers operate under bounded rationality, never able to hold or process all the information a choice involves. His work, which earned the Nobel Prize in economics, is the direct ancestor of the incomprehensible, the sense that data now arrives faster than meaning.</p>
+
+                <p>Sociology supplied the other half. Ulrich Beck described a risk society in 1986, a modern world that manufactures its own hazards and lives in permanent unease about them, deepening the anxious thread. Edward Lorenz, working in meteorology in the early 1960s, showed how tiny changes in starting conditions produce wildly divergent results, the mathematical face of the nonlinear. Even brittle has a lineage, in the postwar study of complex systems that look stable until they snap without warning.</p>
+
+                <p>The sociologist Niklas Luhmann pushed this further. In his systems theory, uncertainty is not a flaw to be removed but the permanent condition every organization works inside. An organization survives by reducing the overwhelming complexity of its environment to selections it can act on, and Luhmann borrowed the idea of uncertainty absorption to describe what happens next. As a result passes from one part of a system to another, the doubts and qualifications around it are stripped away, and what arrives at the next desk is a clean conclusion whose original contingency has quietly vanished. Meaning, for Luhmann, is produced by the system itself, never carried whole inside a single figure.</p>
+
+                <p>Applied to business, this is exactly the life of the leftover number. The 0.85 begins inside a context that knows it is GB and knows the total it came from. As it travels up a reporting chain it sheds that context, and a later team receives a tidy value that looks self explanatory and is not. Luhmann's lesson for a market researcher or an operations lead is that a figure means only what its system of communication makes it mean, so the fix is never a better number alone. It is preserving the selection that produced it, the unit and the whole, as the number moves.</p>
+
+                <p>So BANI is less an invention than a recent label fastened onto a century of thinking about uncertainty, limited knowledge, and fragile systems. The leftover problem above is a miniature of the incomprehensible strand, a clean figure that means nothing definite until its unit and its whole are named.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script rebuilds the hidden starting total, then subtracts one fixed chunk per run, so it answers the same leftover question for any amounts and any number of runs.</p>
+
+<pre><code># What this does: works out how much pipeline data is left after several runs.
+# Where it came from: a team used some data in one run and had some left over.
+# The math idea: rebuild the starting total, then take away one chunk per run.
+# You type in: the data used in one run, the data left after it, and how many runs.
+# It prints: the data still in the pipeline after that many runs.
+
+# This function does the math.
+def data_left(used_one_run, left_after_one, runs):
+    # The starting total is what was left plus what one run already used.
+    starting_total = left_after_one + used_one_run
+    # Each run eats the same chunk, so multiply the chunk by the number of runs.
+    total_used = used_one_run * runs
+    # Take all the used data off the starting total.
+    return starting_total - total_used
+
+# Tell the reader what we will figure out.
+print("Let's find how much telemetry data is left after the runs.")
+
+# Ask for the data used in one run.
+used_one_run = float(input("Data used in one run (GB): "))
+
+# Ask for the data left after that one run.
+left_after_one = float(input("Data left after one run (GB): "))
+
+# Ask for how many runs to model.
+runs = int(input("Number of runs: "))
+
+# Do the math.
+result = data_left(used_one_run, left_after_one, runs)
+
+# Show a whole number when it lands clean, otherwise keep the decimals.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Data remaining in the pipeline (GB):", result)</code></pre>
+
+                <p>Run it in a terminal, type 0.4 then 1.25 then 2, and it returns 0.85 GB, the same value as 17/20.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The procedure below is built so that meaning is settled before measurement. Its first step refuses to collect a single number until the reader has decided whether "remaining" means an absolute amount in real units or a share of the original total. It reads the stated unit and the shape of the answer choices as competing signals, and when those signals disagree it stops and asks rather than guessing. Only once the reading is fixed does it gather inputs, rebuild the hidden total, subtract the repeated use, and bend the final figure back to whichever meaning was chosen at the start. That ordering is the whole point. The skill resolves the ambiguity first and the inputs second.</p>
+
+<pre class="md-code"><code>---
+name: leftover-after-repeated-use
+description: Works out how much of a resource is left after a process is repeated several times, given how much one pass uses and how much was left after one pass. Resolves what "remaining" means (absolute amount versus share of the original, and the unit) before collecting any numbers. Trigger this skill whenever the user asks how much is left after running something more than once, how much budget or data or stock survives repeated use, or pastes a leftover style word problem, even if they do not use technical language.
+---
+
+<span class="md-heading"># Leftover After Repeated Use</span>
+
+This skill answers one family of question. A process uses a fixed amount of some resource each time it runs. You know how much one run uses and how much was left after that single run. The skill rebuilds the starting total, then works out how much survives after the process repeats a chosen number of times. Before any arithmetic, it settles what the question is actually asking, because the word "remaining" is ambiguous and the wrong reading produces a confident wrong answer.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. The work is plain arithmetic, one addition, one multiplication, one subtraction.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Amount one run uses**</span>: how much of the resource a single pass consumes, in a stated unit such as GB, kg, dollars, or units of stock.
+- <span class="md-bold">**Amount left after one run**</span>: how much remained once that single pass finished, in the same unit.
+- <span class="md-bold">**Number of runs**</span>: how many times the process runs in the scenario you want to model.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Resolve the ambiguity first</span>
+
+Do this before asking for or using any number.
+
+The phrase "how much is left" hides two separate questions. Read the request and decide which one is meant.
+
+- <span class="md-bold">**Absolute amount.**</span> The user wants a concrete quantity in real units, for example how many GB or kg are still in the pipeline. The answer is a measured amount.
+- <span class="md-bold">**Share of the original.**</span> The user wants a fraction or percent of the starting total, for example what portion of the batch survives. The answer is a ratio with no unit.
+
+Two signals point one way or the other. First, the unit. If the question names a unit (GB, kg, dollars), it wants an absolute amount. Second, the answer choices, if any. If every option is a bare fraction or percent below one, the question is likely asking for a share, even though a value like 0.85 can be written as a fraction and still mean an absolute amount. When the wording and the answer format disagree, say so plainly and ask the user which reading they want. Do not guess silently.
+
+State the chosen reading in one line before moving on, for example "Reading this as an absolute amount in GB."
+
+<span class="md-heading">### Step 2 — Collect the numbers</span>
+
+Once the reading is fixed, gather the three inputs. Ask for the amount one run uses, the amount left after one run, and the number of runs. Keep the amounts as decimals, since they may not be whole. Keep the number of runs as a whole number.
+
+<span class="md-heading">### Step 3 — Rebuild the starting total</span>
+
+The starting total is never given directly. Recover it by adding the amount left after one run to the amount that one run already used. That sum is what the resource began with.
+
+<span class="md-heading">### Step 4 — Subtract the repeated use</span>
+
+Multiply the amount one run uses by the number of runs to get the total consumed across all runs. Subtract that total from the starting total. The difference is the absolute amount left.
+
+<span class="md-heading">### Step 5 — Shape the answer to match Step 1</span>
+
+If Step 1 chose the absolute reading, report the difference directly in its unit. Show it as a whole number when it lands clean, otherwise keep the decimals.
+
+If Step 1 chose the share reading, divide the amount left by the starting total and report that as a fraction or percent. When the scenario expects a fraction over a specific denominator such as twentieths, express it that way, for example 0.85 becomes 17/20.
+
+<span class="md-heading">### Step 6 — Report with context</span>
+
+Never return a bare number. State the result with a short line that names the resource and the reading, for example "Data remaining in the pipeline, 0.85 GB" or "Share of the original batch remaining, 17/20."
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "I used some of my data quota on one job and had a bit left. How much is left if I run the job twice?"
+- "We spent part of the budget on one campaign. How much survives after three rounds?"
+- "A run uses 0.4 kg and 1.25 kg was left after. What remains after two runs?"
+- "Turn this leftover problem into a reusable calculation."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The reading of "remaining" is settled in Step 1 before any number is collected
+- [ ] When wording and answer format disagree, the skill asks rather than guesses
+- [ ] The starting total is rebuilt, not assumed to be given
+- [ ] The repeated use is multiplied by the number of runs before subtracting
+- [ ] The final answer matches the reading chosen in Step 1
+- [ ] The result is reported with a short line naming the resource and unit</code></pre>
+
+                <p>Packaged this way, the leftover calculation stops being a one time answer and becomes a reusable guard against the very ambiguity that the original wording smuggled in.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &#8212; Fractions and Decimals</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Fractions</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 5, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

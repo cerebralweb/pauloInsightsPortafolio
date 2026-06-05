@@ -7,6 +7,21 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "One Leftover Number, Two Answers, And The Question Nobody Asked",
+        articleDescription: "Operational dashboards rarely fail because the arithmetic is wrong. They fail because a single figure can carry two meanings at once",
+        articleHref: "/a/one-leftover-number-two-answers-and-the-question-nobody-asked.html"
+        },
+        {
+        articleTitle: "The Three Step Calculation Behind An Even Weekly Shipping Split",
+        articleDescription: "Weekly shipping commitments rarely break down into equal daily loads. This problem shows how a short chain of decimal subtraction and equal division turns a fixed weekly target into a clear daily plan, and how a small Python script can repeat that logic for any week",
+        articleHref: "/a/the-three-step-calculation-behind-an-even-weekly-shipping-split.html"
+        },
+        {
+        articleTitle: "The Number Hiding Inside Every Exported Data Bundle",
+        articleDescription: "Data teams rarely see the size of a single table on its own",
+        articleHref: "/a/the-number-hiding-inside-every-exported-data-bundle.html"
+        },
+        {
         articleTitle: "Why 5.6666 Never Belongs On A Consultant Timesheet",
         articleDescription: "Resource allocation rarely lands on a clean integer",
         articleHref: "/a/why-certain-numbers-never-belong-on-a-consultant-timesheet.html"

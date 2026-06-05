@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A business math problem that finds the size of one data table by removing a known weight from a bundle total and splitting the rest, with a reusable Python script.">
+    <meta name="keywords" content="linear equation, subtraction then division, data bundle, fact table, dimension table, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-number-hiding-inside-every-exported-data-bundle.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-number-hiding-inside-every-exported-data-bundle.html" />
+
+    <title>The Number Hiding Inside Every Exported Data Bundle</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 2, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE NUMBER HIDING INSIDE EVERY EXPORTED DATA BUNDLE
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Data teams rarely see the size of a single table on its own. It usually arrives folded into a larger export, mixed with reference tables that have nothing to do with the metric you care about, so the figure you need is whatever remains once the known weight is stripped out. <dfn>This problem shows how a short chain of arithmetic can model a storage question, and how Python turns that logic into a tool you can reuse on any bundle.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A BI analyst exports one dataset bundle that holds 6 fact tables and 2 dimension tables. The full bundle is 3.80 GB. The 2 dimension tables together take 1.4 GB.</p>
+                <p>How large is each fact table?</p>
+                <ul>
+                    <li>a) 0.4 GB</li>
+                    <li>b) 4 GB</li>
+                    <li>c) 0.40 MB</li>
+                    <li>d) 2.4 GB</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 0.4 GB &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>First <strong>subtract</strong> the dimension tables from the bundle to isolate what the fact tables claim, then <strong>divide</strong> that remainder across the 6 fact tables.</p>
+
+                    <p class="insight"><em>The trap is the unit. Option c keeps the right figure but swaps GB for MB, so the number is correct and the size is wrong.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Name the unknown:</strong> let x be the size of one fact table</li>
+                            <li><strong>Write the equation:</strong> 6x + 1.4 = 3.80</li>
+                            <li><strong>Isolate the fact tables:</strong> 6x = 3.80 &minus; 1.4 = 2.40</li>
+                            <li><strong>Divide across the tables:</strong> x = 2.40 &divide; 6 = 0.40</li>
+                            <li><strong>Conclusion:</strong> each fact table is 0.4 GB</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Writing the unknown quantity as x is a habit only about four centuries old. René Descartes set out the convention in La Géométrie in 1637, reserving the late letters of the alphabet for unknowns and the early letters for values already in hand.</p>
+                <p>That single choice is what lets a storage question collapse into one readable line. Accountants and merchants had been splitting a known total into shares for centuries, but the modern notation made the move legible at a glance, and finance, engineering, and data work have leaned on it ever since.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script removes the known weight from any bundle and splits the rest across the fact tables, so it answers the same question for any set of numbers.</p>
+
+                <pre><code>def fact_table_size(total_gb, dimension_gb, fact_count):
+    fact_total = total_gb - dimension_gb
+    size = fact_total / fact_count
+    return int(size) if size.is_integer() else size
+
+print("How large is each fact table in the bundle?")
+total_gb = float(input("Total bundle size in GB: "))
+dimension_gb = float(input("Combined size of the dimension tables in GB: "))
+fact_count = int(input("Number of fact tables: "))
+
+size = fact_table_size(total_gb, dimension_gb, fact_count)
+print(f"Each fact table is {size} GB")</code></pre>
+
+                <p>Run it, enter 3.80, 1.4, and 6, and it returns that each fact table is 0.4 GB.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra-basics/alg-basics-linear-equations-and-inequalities" target="_blank" rel="noopener">Khan Academy &mdash; Linear Equations in One Variable</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/algebra-precalculus" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Algebra and Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 2, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

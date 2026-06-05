@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A logistics team locks in two daily shipping loads, then splits the remaining weekly tonnage evenly across the open days. A short chain of decimal subtraction and division gives the daily figure, with a reusable Python script.">
+    <meta name="keywords" content="decimal arithmetic, equal division, weekly planning, logistics, shipping, operations math, python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-three-step-calculation-behind-an-even-weekly-shipping-split.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-three-step-calculation-behind-an-even-weekly-shipping-split.html" />
+
+    <title>The Three Step Calculation Behind an Even Weekly Shipping Split</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 2, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE THREE STEP CALCULATION BEHIND AN EVEN WEEKLY SHIPPING SPLIT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Weekly shipping commitments rarely break down into equal daily loads. Once the early days are locked in by orders already out the door, an operations team has to spread whatever volume remains across the days that are left, evenly enough to keep the schedule predictable. <dfn>This problem shows how a short chain of decimal subtraction and equal division turns a fixed weekly target into a clear daily plan, and how a small Python script can repeat that logic for any week.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics team shipped 42.6 tons of inventory in one week. On Monday they shipped 13.45 tons, and on Tuesday they shipped 9.5 tons. They shipped the rest in equal amounts across Wednesday, Thursday, and Friday.</p>
+                <p>How many tons did they ship on each of those three remaining days?</p>
+                <ul>
+                    <li>a) 7</li>
+                    <li>b) 6.5</li>
+                    <li>c) 6.55</li>
+                    <li>d) 3.2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer is c) 6.55 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Add the Monday and Tuesday loads to get 22.95 tons, then <strong>subtract</strong> that from the weekly total of 42.6 tons to find 19.65 tons still unshipped. <strong>Divide</strong> that remainder by the three open days to land on 6.55 tons per day.</p>
+
+                    <p class="insight"><em>The whole answer hinges on one idea, that the days already shipped are fixed and only the leftover volume gets spread evenly.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Known load</strong> &mdash; 13.45 + 9.5 = 22.95 tons</li>
+                            <li><strong>Remaining load</strong> &mdash; 42.6 &minus; 22.95 = 19.65 tons</li>
+                            <li><strong>Daily split</strong> &mdash; 19.65 &divide; 3 = 6.55 tons</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a fixed quantity into equal shares is one of the oldest tasks in commerce, and doing it with fractional amounts pushed early merchants toward decimal thinking. The mathematician al Uqlidisi, working in tenth century Damascus, described how to handle fractional quantities with the same positional digits used for whole numbers, work that made everyday division and measurement far easier for traders and tax officials. Centuries later the same positional decimals spread through European trade, where they became the standard way to apportion goods, costs, and shipments across days and partners.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script takes the weekly total, the two fixed daily loads, and the number of open days, then returns the even amount to ship on each remaining day.</p>
+
+                <pre><code>def tons_per_remaining_day(total, monday, tuesday, remaining_days):
+    remaining = total - (monday + tuesday)
+    per_day = remaining / remaining_days
+    return int(per_day) if float(per_day).is_integer() else per_day
+
+print("How many tons must the team ship each remaining day to hit the weekly total?")
+total = float(input("Total tons for the week "))
+monday = float(input("Tons shipped Monday "))
+tuesday = float(input("Tons shipped Tuesday "))
+remaining_days = int(input("Number of remaining days "))
+
+answer = tons_per_remaining_day(total, monday, tuesday, remaining_days)
+print("Tons to ship each remaining day", answer)</code></pre>
+
+                <p>Run it in a terminal, enter the four values, and it prints the daily figure, which is 6.55 for the numbers in this problem.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-decimals" target="_blank" rel="noopener">Khan Academy &mdash; Decimals</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 2, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
