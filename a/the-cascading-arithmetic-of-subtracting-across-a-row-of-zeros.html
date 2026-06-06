@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Why subtracting 127.05 from a round 1,300.00 forces one borrow to travel through a row of zeros, the bar models and mental routes that explain it, a left to right method, and two Python programs that reuse the method.">
+    <meta name="keywords" content="subtraction, regrouping, borrowing across zeros, place value, mental math, left to right subtraction, Python, decimal, arithmetic">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-cascading-arithmetic-of-subtracting-across-a-row-of-zeros.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-cascading-arithmetic-of-subtracting-across-a-row-of-zeros.html" />
+
+    <title>The Cascading Arithmetic of Subtracting Across a Row of Zeros</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE CASCADING ARITHMETIC OF SUBTRACTING ACROSS A ROW OF ZEROS
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Subtraction feels finished the moment someone can stack digits and carry a borrow, yet the operation still hides a trap that only certain numbers spring. When a balance is round and the amount taken from it is not, a single borrow can be forced to travel through a long stretch of empty columns, and the strain has nothing to do with how large the figures are. <dfn>This article follows one such subtraction from the column algorithm into the mental shortcuts that step around it, and ends with two Python programs that turn the method into a tool you can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A prepaid account holds a balance of 1,300.00. A single charge of 127.05 is applied to it.</p>
+                <p>What balance remains after the charge?</p>
+                <ul>
+                    <li>a) 1,172.95</li>
+                    <li>b) 1,172.05</li>
+                    <li>c) 1,173.05</li>
+                    <li>d) 1,182.95</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 1,172.95 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Lining the numbers up on the decimal point and working from the right, the hundredths column cannot take 5 from 0, so it <strong>borrows</strong>. Because the tens, ones, and tenths are all 0, that one borrow <strong>cascades</strong> left until it reaches the 3 in the hundreds, turning every 0 it passes into a 9 before the columns subtract cleanly.</p>
+
+                    <p class="insight"><em>The trouble is never the size of the numbers. It is the run of zeros, which makes one borrow do the work of many.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Align</strong> the two numbers on the decimal point, 1,300.00 over 127.05.</li>
+                            <li><strong>Start at the hundredths</strong> where 0 cannot give 5, so a borrow is needed.</li>
+                            <li><strong>Send the borrow left</strong> through the empty tens, ones, and tenths until it reaches the hundreds.</li>
+                            <li><strong>Regroup</strong> so every 0 the borrow crosses becomes 9 and the hundredths becomes 10.</li>
+                            <li><strong>Subtract each column</strong> to read, from the right, 5, 9, 2, 7, 1, then 1.</li>
+                            <li><strong>Read the answer</strong>, which is 1,172.95.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <p>The chart below shows that single borrow traveling right across the empty columns. The amber row is the regrouping, where each crossed 0 becomes a 9 and the far right column holds the 10.</p>
+
+                <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Place value chart for 1,300.00 minus 127.05</title>
+                    <defs><marker id="arrC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+                    <text x="155" y="20" text-anchor="middle" font-size="10.5" fill="#666">Thousands</text>
+                    <text x="229" y="20" text-anchor="middle" font-size="10.5" fill="#666">Hundreds</text>
+                    <text x="303" y="20" text-anchor="middle" font-size="10.5" fill="#666">Tens</text>
+                    <text x="377" y="20" text-anchor="middle" font-size="10.5" fill="#666">Ones</text>
+                    <text x="467" y="20" text-anchor="middle" font-size="10.5" fill="#666">Tenths</text>
+                    <text x="541" y="20" text-anchor="middle" font-size="10.5" fill="#666">Hundredths</text>
+
+                    <text x="110" y="56" text-anchor="end" font-size="12" fill="#555">Start</text>
+                    <rect x="120" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="194" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="268" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="342" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="432" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="506" y="36" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="155" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">1</text>
+                    <text x="229" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">3</text>
+                    <text x="303" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">0</text>
+                    <text x="377" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">0</text>
+                    <text x="420" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">.</text>
+                    <text x="467" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">0</text>
+                    <text x="541" y="56" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">0</text>
+
+                    <text x="118" y="92" text-anchor="end" font-size="11" fill="#BA7517">one borrow</text>
+                    <line x1="232" y1="88" x2="548" y2="88" stroke="#BA7517" stroke-width="1" marker-end="url(#arrC)"/>
+
+                    <text x="110" y="120" text-anchor="end" font-size="12" fill="#555">Regroup</text>
+                    <rect x="120" y="100" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="194" y="100" width="70" height="40" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <rect x="268" y="100" width="70" height="40" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <rect x="342" y="100" width="70" height="40" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <rect x="432" y="100" width="70" height="40" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <rect x="506" y="100" width="70" height="40" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="155" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">1</text>
+                    <text x="229" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#854F0B">2</text>
+                    <text x="303" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#854F0B">9</text>
+                    <text x="377" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#854F0B">9</text>
+                    <text x="420" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">.</text>
+                    <text x="467" y="120" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#854F0B">9</text>
+                    <text x="541" y="120" text-anchor="middle" dominant-baseline="central" font-size="20" fill="#854F0B">10</text>
+
+                    <text x="110" y="178" text-anchor="end" font-size="12" fill="#555">Take away</text>
+                    <rect x="120" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="194" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="268" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="342" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="432" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <rect x="506" y="158" width="70" height="40" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="229" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">1</text>
+                    <text x="303" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">2</text>
+                    <text x="377" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">7</text>
+                    <text x="420" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">.</text>
+                    <text x="467" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">0</text>
+                    <text x="541" y="178" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#222">5</text>
+
+                    <line x1="110" y1="204" x2="580" y2="204" stroke="#222" stroke-width="1"/>
+
+                    <text x="110" y="230" text-anchor="end" font-size="12" fill="#555">Result</text>
+                    <rect x="120" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <rect x="194" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <rect x="268" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <rect x="342" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <rect x="432" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <rect x="506" y="210" width="70" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="155" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">1</text>
+                    <text x="229" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">1</text>
+                    <text x="303" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">7</text>
+                    <text x="377" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">2</text>
+                    <text x="420" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">.</text>
+                    <text x="467" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">9</text>
+                    <text x="541" y="230" text-anchor="middle" dominant-baseline="central" font-size="22" fill="#0F6E56">5</text>
+
+                    <text x="345" y="272" text-anchor="middle" font-size="11.5" fill="#555">Every 0 the borrow crosses becomes 9, and the hundredths becomes 10.</text>
+                    <text x="345" y="290" text-anchor="middle" font-size="11.5" fill="#555">1,300.00 minus 127.05 is 1,172.95.</text>
+                </svg>
+
+                <h2 id="double-duty">Why One Borrow Does Double Duty</h2>
+
+                <p>In base ten you never really borrow 2. A borrow is always 1, and that 1 is worth 10 in the column to its right. What feels like borrowing 2 is one column being asked to give value in two directions at once. Take the ones column. It reads 0 and must subtract 7. The tempting move is 10 minus 7, which is 3. The true result is 2, and the bar model shows why. When the borrow reaches the ones column it arrives as a full ten, but one unit of that ten was already promised to the tenths on its right, so before the 7 is taken, 1 is gone. Ten, less the one lent right, less the seven taken here, leaves 2.</p>
+
+                <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Bar model of the ones column, ten minus one minus seven equals two</title>
+                    <defs><marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+                    <rect x="120" y="40" width="110" height="56" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="175" y="56" text-anchor="middle" font-size="12" fill="#555">Tens</text>
+                    <text x="175" y="80" text-anchor="middle" font-size="14" fill="#222">0</text>
+                    <rect x="285" y="40" width="110" height="56" rx="8" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="340" y="56" text-anchor="middle" font-size="12" fill="#854F0B">Ones</text>
+                    <text x="340" y="80" text-anchor="middle" font-size="14" fill="#854F0B">0 &#8722; 7</text>
+                    <rect x="450" y="40" width="110" height="56" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="505" y="56" text-anchor="middle" font-size="12" fill="#555">Tenths</text>
+                    <text x="505" y="80" text-anchor="middle" font-size="14" fill="#222">0</text>
+
+                    <text x="257" y="60" text-anchor="middle" font-size="12" fill="#555">10 in</text>
+                    <line x1="234" y1="68" x2="281" y2="68" stroke="#888" stroke-width="1" marker-end="url(#arrB)"/>
+                    <text x="422" y="60" text-anchor="middle" font-size="12" fill="#555">1 out</text>
+                    <line x1="399" y1="68" x2="446" y2="68" stroke="#888" stroke-width="1" marker-end="url(#arrB)"/>
+
+                    <line x1="340" y1="96" x2="340" y2="116" stroke="#bbb" stroke-width="1" stroke-dasharray="3 3"/>
+
+                    <text x="92" y="126" text-anchor="end" font-size="14" fill="#222">10</text>
+                    <path d="M110 126 L110 118 L570 118 L570 126" fill="none" stroke="#555" stroke-width="1"/>
+
+                    <rect x="110" y="130" width="46" height="44" rx="4" fill="#E8E6DE" stroke="#888"/>
+                    <text x="133" y="152" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#444">1</text>
+                    <rect x="156" y="130" width="414" height="44" rx="4" fill="#EEEDFE" stroke="#534AB7"/>
+                    <text x="317" y="152" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#26215C">7</text>
+                    <rect x="478" y="130" width="92" height="44" rx="4" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="524" y="152" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#0F6E56">2</text>
+
+                    <line x1="133" y1="174" x2="133" y2="188" stroke="#bbb" stroke-width="1" stroke-dasharray="3 3"/>
+                    <text x="120" y="198" font-size="12" fill="#555">Lent right to the tenths</text>
+                    <line x1="317" y1="174" x2="317" y2="210" stroke="#bbb" stroke-width="1" stroke-dasharray="3 3"/>
+                    <text x="270" y="220" font-size="12" fill="#555">Taken away, the 7 below</text>
+                    <line x1="524" y1="174" x2="524" y2="188" stroke="#bbb" stroke-width="1" stroke-dasharray="3 3"/>
+                    <text x="470" y="198" font-size="12" fill="#555">Answer, the 2</text>
+
+                    <text x="340" y="248" text-anchor="middle" font-size="14" fill="#222">0 &#8722; 7 becomes 10 &#8722; 1 &#8722; 7 = 2</text>
+                    <text x="340" y="272" text-anchor="middle" font-size="12" fill="#555">Not 10 &#8722; 7. One unit of the ten was lent right, so take 1 first.</text>
+
+                    <rect x="150" y="290" width="14" height="14" rx="3" fill="#E8E6DE" stroke="#888"/>
+                    <text x="170" y="301" font-size="12" fill="#555">lent right (1)</text>
+                    <rect x="300" y="290" width="14" height="14" rx="3" fill="#EEEDFE" stroke="#534AB7"/>
+                    <text x="320" y="301" font-size="12" fill="#555">taken away (7)</text>
+                    <rect x="470" y="290" width="14" height="14" rx="3" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="490" y="301" font-size="12" fill="#555">answer (2)</text>
+                </svg>
+
+                <h2 id="rebuilt-method">A Handwritten Method, Rebuilt</h2>
+
+                <p>The same operation can be written as a rising staircase of steps, the way many people scribble it by hand. Each amber step takes ten in, lends one to the right, then takes the digit below. The rightmost step has no lent one, because the hundredths end the chain and only receive.</p>
+
+                <svg viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Rebuilt staircase of the handwritten cascade for 1,300.00 minus 127.05</title>
+                    <defs><marker id="arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+                    <text x="40" y="40" font-size="12" fill="#555">Estimate first, around 1,173</text>
+
+                    <rect x="250" y="305" width="110" height="24" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="305" y="317" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">3 &#8722; 1 &#8722; 1 = 1</text>
+                    <rect x="315" y="268" width="110" height="24" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="370" y="280" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">10 &#8722; 1 &#8722; 2 = 7</text>
+                    <rect x="380" y="231" width="110" height="24" rx="6" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.5"/>
+                    <text x="435" y="243" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">10 &#8722; 1 &#8722; 7 = 2</text>
+                    <rect x="445" y="194" width="110" height="24" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="500" y="206" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">10 &#8722; 1 &#8722; 0 = 9</text>
+                    <rect x="510" y="157" width="90" height="24" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="555" y="169" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">10 &#8722; 5 = 5</text>
+
+                    <text x="382" y="226" font-size="12" fill="#555">your line</text>
+
+                    <line x1="220" y1="334" x2="278" y2="329" stroke="#BA7517" stroke-width="1" marker-end="url(#arrS)"/>
+                    <line x1="260" y1="334" x2="343" y2="292" stroke="#BA7517" stroke-width="1" marker-end="url(#arrS)"/>
+                    <line x1="300" y1="334" x2="408" y2="255" stroke="#BA7517" stroke-width="1" marker-end="url(#arrS)"/>
+                    <line x1="350" y1="334" x2="473" y2="218" stroke="#BA7517" stroke-width="1" marker-end="url(#arrS)"/>
+                    <line x1="390" y1="334" x2="538" y2="181" stroke="#BA7517" stroke-width="1" marker-end="url(#arrS)"/>
+
+                    <text x="180" y="350" text-anchor="middle" font-size="14" fill="#222">1</text>
+                    <text x="200" y="350" text-anchor="middle" font-size="14" fill="#222">,</text>
+                    <text x="220" y="350" text-anchor="middle" font-size="14" fill="#222">3</text>
+                    <text x="260" y="350" text-anchor="middle" font-size="14" fill="#222">0</text>
+                    <text x="300" y="350" text-anchor="middle" font-size="14" fill="#222">0</text>
+                    <text x="325" y="350" text-anchor="middle" font-size="14" fill="#222">.</text>
+                    <text x="350" y="350" text-anchor="middle" font-size="14" fill="#222">0</text>
+                    <text x="390" y="350" text-anchor="middle" font-size="14" fill="#222">0</text>
+
+                    <text x="150" y="388" text-anchor="middle" font-size="14" fill="#222">&#8722;</text>
+                    <text x="220" y="388" text-anchor="middle" font-size="14" fill="#222">1</text>
+                    <text x="260" y="388" text-anchor="middle" font-size="14" fill="#222">2</text>
+                    <text x="300" y="388" text-anchor="middle" font-size="14" fill="#222">7</text>
+                    <text x="325" y="388" text-anchor="middle" font-size="14" fill="#222">.</text>
+                    <text x="350" y="388" text-anchor="middle" font-size="14" fill="#222">0</text>
+                    <text x="390" y="388" text-anchor="middle" font-size="14" fill="#222">5</text>
+
+                    <line x1="150" y1="404" x2="410" y2="404" stroke="#222" stroke-width="1"/>
+
+                    <rect x="160" y="414" width="252" height="34" rx="6" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="180" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">1</text>
+                    <text x="200" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">,</text>
+                    <text x="220" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">1</text>
+                    <text x="260" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">7</text>
+                    <text x="300" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">2</text>
+                    <text x="325" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">.</text>
+                    <text x="350" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">9</text>
+                    <text x="390" y="438" text-anchor="middle" font-size="14" fill="#0F6E56">5</text>
+
+                    <text x="40" y="466" font-size="12" fill="#555">Each amber step means ten in, one lent right, then take the digit below.</text>
+                </svg>
+
+                <h2 id="curriculum">Why a Curriculum Keeps This Problem</h2>
+
+                <p>This operation earns its place because it is the hardest form of regrouping. Ordinary subtraction can be passed by copying the steps without grasping them, but a long run of zeros removes that shortcut. To get the answer right, a student has to know that one unit in any column is worth ten in the column to its right, and apply that idea across several places in a row. The decimal part adds a second lesson, since it pushes the student to line numbers up by the point rather than by counting digits in from the edge, and to treat tenths and hundredths as real values that follow the same ten times rule.</p>
+
+                <p>For a student who already lands every subtraction, the value shifts from the answer to the awareness. The zeros make the difficulty visible, so the student can estimate first that the result sits near 1,173, check the column work against that estimate, and choose a cleaner route when one exists. That is the move from running a procedure to reasoning about it, and reasoning about a procedure is the skill the rest of mathematics keeps asking for. The shape is common in real life too, since making change from a round amount or spending against a round budget produces the same tidy minus untidy pattern.</p>
+
+                <h2 id="dialogue">A Dialogue at the Counter</h2>
+
+                <p><strong>Lena</strong> When you took 127.05 off the 1,300.00 balance, what made it feel slower than the size of the numbers suggested?</p>
+                <p><strong>Theo</strong> The middle of the top number is all zeros. None of those columns could pay on their own.</p>
+                <p><strong>Lena</strong> So where does the borrow begin?</p>
+                <p><strong>Theo</strong> At the far right. The hundredths needed to cover 5 and had nothing, so it borrowed, and that borrow walked left through the tens, ones, and tenths until it reached the 3 in the hundreds.</p>
+                <p><strong>Lena</strong> And each empty column it passed?</p>
+                <p><strong>Theo</strong> Turned into a 9. The hundredths became 10. After that the columns subtract cleanly, 5, 9, 2, 7, 1, 1.</p>
+                <p><strong>Lena</strong> Look at the ones column on its own. It reads 0 and has to give 7. Why is the answer 2 and not 3?</p>
+                <p><strong>Theo</strong> Because the ten it received was not free. One unit had already been lent to the tenths on its right, so it is ten minus one minus seven, which is 2.</p>
+                <p><strong>Lena</strong> Now suppose you had to do it in your head at the counter.</p>
+                <p><strong>Theo</strong> I would not borrow at all. I would peel 127.05 off in round pieces, 1,300 down to 1,200, then 1,180, then 1,173, then 1,172.95. Round pieces never force a borrow.</p>
+                <p><strong>Lena</strong> Two routes, then.</p>
+                <p><strong>Theo</strong> The columns for an exact figure on any numbers, the jumps for speed and a sense of size. Each one checks the other.</p>
+
+                <h2 id="two-sequences">Two Sequences, One Answer</h2>
+
+                <p>Holding both routes matters because each one teaches what the other hides. The column algorithm is the safe machine that runs from the smallest place to the largest and works for any pair of numbers, but it buries the sense of size. Mental math runs the other way, peeling the charge off in friendly round pieces and watching the running total fall, so a wrong result stands out at a glance. The jump line below shows that mental route.</p>
+
+                <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Mental math jump line for 1,300 minus 127.05</title>
+                    <defs><marker id="arrJ" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+                    <line x1="80" y1="170" x2="635" y2="170" stroke="#888" stroke-width="1"/>
+
+                    <path d="M610 165 Q547 118 487 165" fill="none" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrJ)"/>
+                    <path d="M485 165 Q422 118 362 165" fill="none" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrJ)"/>
+                    <path d="M360 165 Q297 118 237 165" fill="none" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrJ)"/>
+                    <path d="M235 165 Q172 118 112 165" fill="none" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrJ)"/>
+
+                    <rect x="523" y="94" width="48" height="20" rx="6" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="547" y="104" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">&#8722;100</text>
+                    <rect x="400" y="94" width="44" height="20" rx="6" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="422" y="104" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">&#8722;20</text>
+                    <rect x="280" y="94" width="34" height="20" rx="6" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="297" y="104" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">&#8722;7</text>
+                    <rect x="145" y="94" width="54" height="20" rx="6" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="172" y="104" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">&#8722;0.05</text>
+
+                    <line x1="110" y1="165" x2="110" y2="175" stroke="#888" stroke-width="1"/>
+                    <line x1="235" y1="165" x2="235" y2="175" stroke="#888" stroke-width="1"/>
+                    <line x1="360" y1="165" x2="360" y2="175" stroke="#888" stroke-width="1"/>
+                    <line x1="485" y1="165" x2="485" y2="175" stroke="#888" stroke-width="1"/>
+                    <line x1="610" y1="165" x2="610" y2="175" stroke="#888" stroke-width="1"/>
+
+                    <text x="110" y="192" text-anchor="middle" font-size="14" fill="#0F6E56">1,172.95</text>
+                    <text x="235" y="192" text-anchor="middle" font-size="12" fill="#555">1,173</text>
+                    <text x="360" y="192" text-anchor="middle" font-size="12" fill="#555">1,180</text>
+                    <text x="485" y="192" text-anchor="middle" font-size="12" fill="#555">1,200</text>
+                    <text x="610" y="192" text-anchor="middle" font-size="14" fill="#222">1,300</text>
+
+                    <text x="357" y="216" text-anchor="middle" font-size="12" fill="#555">Each hop is one digit of 127.05, from the biggest place down. Tenths is 0, so no hop.</text>
+                </svg>
+
+                <p>Set against each other, the same problem reads in two directions. The mental path moves from the biggest place down and never borrows, while the column path moves from the smallest place up and borrows whenever a column cannot pay.</p>
+
+                <svg viewBox="0 0 680 365" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Comparison of the column method and mental jumps</title>
+                    <defs>
+                        <marker id="arrT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                        <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                    </defs>
+                    <text x="340" y="36" text-anchor="middle" font-size="14" fill="#222">1,300.00 &#8722; 127.05 = 1,172.95</text>
+
+                    <text x="320" y="78" text-anchor="middle" font-size="12" fill="#555">Mental, from the biggest place</text>
+                    <line x1="75" y1="92" x2="560" y2="92" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrT)"/>
+
+                    <rect x="55" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="100" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Thousands</text>
+                    <rect x="151" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="196" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Hundreds</text>
+                    <rect x="247" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="292" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Tens</text>
+                    <rect x="343" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="388" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Ones</text>
+                    <rect x="439" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="484" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Tenths</text>
+                    <rect x="535" y="112" width="90" height="44" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="580" y="134" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#333">Hundredths</text>
+
+                    <line x1="560" y1="180" x2="75" y2="180" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrA)"/>
+                    <text x="320" y="200" text-anchor="middle" font-size="12" fill="#555">Column, from the smallest place</text>
+
+                    <rect x="55" y="230" width="265" height="120" rx="12" fill="#E1F5EE" stroke="#0F6E56"/>
+                    <text x="72" y="256" font-size="14" fill="#0F6E56">Mental jumps</text>
+                    <text x="72" y="284" font-size="12" fill="#0F6E56">Start from the biggest chunk</text>
+                    <text x="72" y="308" font-size="12" fill="#0F6E56">No borrowing at all</text>
+                    <text x="72" y="332" font-size="12" fill="#0F6E56">Round numbers, easy to check</text>
+
+                    <rect x="360" y="230" width="265" height="120" rx="12" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="377" y="256" font-size="14" fill="#854F0B">Column method</text>
+                    <text x="377" y="284" font-size="12" fill="#854F0B">Start from the smallest place</text>
+                    <text x="377" y="308" font-size="12" fill="#854F0B">Borrow when a column is short</text>
+                    <text x="377" y="332" font-size="12" fill="#854F0B">Exact for any numbers</text>
+                </svg>
+
+                <h2 id="left-to-right">Subtracting Left to Right</h2>
+
+                <p>Subtraction runs left to right too, and the rule flips the usual one. Instead of starting small and carrying borrows leftward, you start large and look rightward. The rule has two beats. Subtract the column in front of you, top less bottom, then glance one column to the right, and lower the figure you just found by 1 if that neighbor cannot cover its own subtraction. The catch is the tie. A column like the tenths here is 0 minus 0, which neither clearly pays nor clearly borrows on its own, so when you reach the ones and glance right, you have to look past the tie to the hundredths, where the 5 finally forces the borrow. That is why the ones digit lands on 2 and not 3.</p>
+
+                <svg viewBox="0 0 680 232" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif;width:100%;height:auto;" role="img">
+                    <title>Left to right digit subtraction of 1,300.00 minus 127.05</title>
+                    <defs><marker id="arrL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+                    <text x="344" y="72" text-anchor="middle" font-size="12" fill="#555">Work left to right</text>
+                    <line x1="60" y1="86" x2="628" y2="86" stroke="#888" stroke-width="1.5" marker-end="url(#arrL)"/>
+
+                    <rect x="50" y="110" width="92" height="72" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="96" y="128" text-anchor="middle" font-size="12" fill="#555">Thousands</text>
+                    <text x="96" y="150" text-anchor="middle" font-size="12" fill="#555">1 &#8722; 0</text>
+                    <text x="96" y="174" text-anchor="middle" font-size="14" fill="#222">1</text>
+
+                    <rect x="148" y="110" width="92" height="72" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="194" y="128" text-anchor="middle" font-size="12" fill="#555">Hundreds</text>
+                    <text x="194" y="150" text-anchor="middle" font-size="12" fill="#555">3 &#8722; 1</text>
+                    <text x="194" y="174" text-anchor="middle" font-size="14" fill="#222">1</text>
+                    <rect x="200" y="102" width="34" height="18" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="217" y="111" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">&#8722;1</text>
+
+                    <rect x="246" y="110" width="92" height="72" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="292" y="128" text-anchor="middle" font-size="12" fill="#555">Tens</text>
+                    <text x="292" y="150" text-anchor="middle" font-size="12" fill="#555">10 &#8722; 2</text>
+                    <text x="292" y="174" text-anchor="middle" font-size="14" fill="#222">7</text>
+                    <rect x="298" y="102" width="34" height="18" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="315" y="111" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">&#8722;1</text>
+
+                    <rect x="344" y="110" width="92" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+                    <text x="390" y="128" text-anchor="middle" font-size="12" fill="#0F6E56">Ones</text>
+                    <text x="390" y="150" text-anchor="middle" font-size="12" fill="#0F6E56">10 &#8722; 7</text>
+                    <text x="390" y="174" text-anchor="middle" font-size="14" fill="#0F6E56">2</text>
+                    <rect x="396" y="102" width="34" height="18" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="413" y="111" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">&#8722;1</text>
+
+                    <rect x="442" y="110" width="92" height="72" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="488" y="128" text-anchor="middle" font-size="12" fill="#555">Tenths</text>
+                    <text x="488" y="150" text-anchor="middle" font-size="12" fill="#555">10 &#8722; 0</text>
+                    <text x="488" y="174" text-anchor="middle" font-size="14" fill="#222">9</text>
+                    <rect x="494" y="102" width="34" height="18" rx="6" fill="#FAEEDA" stroke="#BA7517"/>
+                    <text x="511" y="111" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">&#8722;1</text>
+
+                    <rect x="540" y="110" width="92" height="72" rx="8" fill="#f4f2ec" stroke="#ccc"/>
+                    <text x="586" y="128" text-anchor="middle" font-size="12" fill="#555">Hundredths</text>
+                    <text x="586" y="150" text-anchor="middle" font-size="12" fill="#555">10 &#8722; 5</text>
+                    <text x="586" y="174" text-anchor="middle" font-size="14" fill="#222">5</text>
+
+                    <line x1="390" y1="182" x2="390" y2="192" stroke="#bbb" stroke-width="1" stroke-dasharray="3 3"/>
+                    <text x="390" y="204" text-anchor="middle" font-size="12" fill="#555">looks past the 0 &#8722; 0 tie</text>
+
+                    <text x="344" y="224" text-anchor="middle" font-size="12" fill="#555">Peek one column right and drop 1 if it borrows. A tie passes the borrow on.</text>
+                </svg>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The whole method rests on treating zero as a real placeholder rather than an empty gap, an idea set out clearly by the Indian mathematician Brahmagupta in the seventh century and carried into Europe much later through medieval Islamic scholarship. Once zero held its own column, merchants and clerks could keep ledgers in a fixed place value layout and subtract a payment from a round balance with confidence. The awkward borrow across zeros is the small price that bookkeeping paid for a writing system powerful enough to run an economy on.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This first program turns the mental jump method into a reusable tool, peeling the amount to take away off in round place pieces and printing each step down to the final balance. It works in whole cents so the decimals stay exact.</p>
+
+                <pre><code># What this does: subtracts one amount from another the mental way, by peeling off round pieces.
+# Where it came from: working out 1,300.00 take away 127.05 in your head by jumping down.
+# The math idea: break the amount you take away into place pieces, then take them off, biggest first.
+# You type in: the starting amount and the amount to take away.
+# It prints: each jump down and the final amount left.
+
+# This function does the subtraction by chunks and remembers each jump.
+def subtract_by_chunks(start, take_away):
+    # Turn both amounts into whole cents so the decimals stay exact.
+    running = round(start * 100)
+    left_to_take = round(take_away * 100)
+    # The place sizes in cents, biggest first. These are 1000, 100, 10, 1, then 0.10 and 0.01.
+    place_sizes = [100000, 10000, 1000, 100, 10, 1]
+    # We will collect each jump here.
+    jumps = []
+    # Go through each place, biggest first.
+    for place in place_sizes:
+        # How many whole pieces of this place are still to take away.
+        count = left_to_take // place
+        # The size of this piece in cents.
+        piece = count * place
+        # Skip a place that is zero, just like in your head.
+        if piece &gt; 0:
+            # Take the piece off the running amount.
+            running = running - piece
+            # Lower what is still left to take away.
+            left_to_take = left_to_take - piece
+            # Remember this jump, back in normal money.
+            jumps.append((piece / 100, running / 100))
+    # Send back the final amount and the list of jumps.
+    return running / 100, jumps
+
+# Tell the reader what we will do.
+print("Let's subtract by jumping down in round pieces.")
+
+# Ask for the starting amount.
+start = float(input("Starting amount: "))
+
+# Ask for the amount to take away.
+take_away = float(input("Amount to take away: "))
+
+# Do the chunk subtraction.
+final_amount, jumps = subtract_by_chunks(start, take_away)
+
+# Show the starting point.
+print(f"Start at {start:,.2f}")
+
+# Show each jump down, one line at a time.
+for piece, running in jumps:
+    print(f"  take off {piece:,.2f}, now at {running:,.2f}")
+
+# Print the final answer with words that fit the scenario.
+print(f"Amount left after taking away {take_away:,.2f} is {final_amount:,.2f}")</code></pre>
+
+                <p>The second program does the same chunking with the decimal tool from the standard library, which keeps money exact on its own, so the place pieces can stay as real money sizes like 0.01 without turning anything into cents.</p>
+
+                <pre><code># What this does: subtracts one amount from another by peeling off round pieces, biggest first.
+# Where it came from: working out 1,300.00 take away 127.05 in your head by jumping down.
+# The math idea: break the amount you take away into place pieces, then take them off, biggest first.
+# You type in: the starting amount and the amount to take away.
+# It prints: each jump down and the final amount left.
+
+# This standard tool keeps money exact, so we do not have to turn it into whole cents.
+from decimal import Decimal
+
+# This function does the subtraction by chunks and remembers each jump.
+def subtract_by_chunks(start, take_away):
+    # Keep track of where we are now.
+    running = start
+    # Keep track of what is still to take away.
+    left_to_take = take_away
+    # The place sizes in money, biggest first.
+    place_sizes = [Decimal("1000"), Decimal("100"), Decimal("10"), Decimal("1"), Decimal("0.1"), Decimal("0.01")]
+    # We will collect each jump here.
+    jumps = []
+    # Go through each place, biggest first.
+    for place in place_sizes:
+        # How many whole pieces of this place are still to take away.
+        count = left_to_take // place
+        # The size of this piece.
+        piece = count * place
+        # Skip a place that is zero, just like in your head.
+        if piece &gt; 0:
+            # Take the piece off the running amount.
+            running = running - piece
+            # Lower what is still left to take away.
+            left_to_take = left_to_take - piece
+            # Remember this jump.
+            jumps.append((piece, running))
+    # Send back the final amount and the list of jumps.
+    return running, jumps
+
+# Tell the reader what we will do.
+print("Let's subtract by jumping down in round pieces.")
+
+# Ask for the starting amount, read as exact money.
+start = Decimal(input("Starting amount: "))
+
+# Ask for the amount to take away, read as exact money.
+take_away = Decimal(input("Amount to take away: "))
+
+# Do the chunk subtraction.
+final_amount, jumps = subtract_by_chunks(start, take_away)
+
+# Show the starting point.
+print(f"Start at {start:,.2f}")
+
+# Show each jump down, one line at a time.
+for piece, running in jumps:
+    print(f"  take off {piece:,.2f}, now at {running:,.2f}")
+
+# Print the final answer with words that fit the scenario.
+print(f"Amount left after taking away {take_away:,.2f} is {final_amount:,.2f}")</code></pre>
+
+                <p>Paste either one into a Python session, type 1300.00 and then 127.05, and both print the same fall, 1,200.00, then 1,180.00, then 1,173.00, then 1,172.95.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic-home/addition-subtraction/add-sub-greater-1000/v/regrouping-borrowing-twice-example" target="_blank" rel="noopener">Khan Academy &#8212; Multi Digit Subtraction with Regrouping</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Subtraction.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Subtraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

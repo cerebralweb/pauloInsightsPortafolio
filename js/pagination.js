@@ -7,6 +7,11 @@
 
     const articlesDataBase = [ 
         {
+        articleTitle: "The Cascading Arithmetic Of Subtracting Across A Row Of Zeros",
+        articleDescription: "Subtraction feels finished the moment someone can stack digits and carry a borrow, yet the operation still hides a trap that only certain numbers spring. When a balance is round and the amount taken from it is not, a single borrow can be forced to travel through a long stretch of empty columns, and the strain has nothing to do with how large the figures are. This article follows one such subtraction from the column algorithm into the mental shortcuts that step around it, and ends with two Python programs that turn the method into a tool you can reuse",
+        articleHref: "/a/the-cascading-arithmetic-of-subtracting-across-a-row-of-zeros.html"
+        },
+        {
         articleTitle: "One Leftover Number, Two Answers, And The Question Nobody Asked",
         articleDescription: "Operational dashboards rarely fail because the arithmetic is wrong. They fail because a single figure can carry two meanings at once",
         articleHref: "/a/one-leftover-number-two-answers-and-the-question-nobody-asked.html"
