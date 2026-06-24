@@ -2,19 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "Python",
+            "type": "debugpy",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/js/randomQuote.js"
-        },
-        {
-            "type": "node",
-            "name": "Run Current File",
-            "request": "launch",
-            "program": "${workspaceFolder}/js/pagination.js"
+            "program": "${file}"
         }
     ]
 }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a returned share reshapes a shared credit pool, worked by hand and reproduced with a short Python function.">
+    <meta name="keywords" content="division, decimals, resource allocation, business math, python, credit pool, redistribution">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/42-credits-per-team-after-one-share-returns.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/42-credits-per-team-after-one-share-returns.html" />
+
+    <title>42 Credits Per Team After One Share Returns</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 10, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    42 CREDITS PER TEAM AFTER ONE SHARE RETURNS
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Resource pools rarely stay fixed once a project starts. When one team steps back and hands back what it was given, that amount does not vanish; it flows to the teams still working, and the per team total shifts upward. <dfn>This problem shows how two rounds of even splitting plus a final addition can model a real reallocation, and how a short Python function turns that logic into a tool you can reuse for any pool size.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations lead splits 126 compute credits among 4 product teams for a round of testing. One team already has enough credits and gives its full share equally to the other 3 teams.</p>
+                <p>How many credits does each of those 3 teams end up with in total?</p>
+                <ul>
+                    <li>a) 10.5 credits</li>
+                    <li>b) 31.5 credits</li>
+                    <li>c) 42 credits</li>
+                    <li>d) 4.2 credits</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 42 credits &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>First the pool is <strong>divided</strong> by the four teams, giving each a starting share. The one returned share is then <strong>divided</strong> among the three teams that remain, and that result is <strong>added</strong> to each team's starting share.</p>
+
+                    <p class="insight"><em>Every returned share lifts each remaining team by a third of one starting share, which is why the final figure lands well above the plain even split.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Starting share:</strong> 126 &divide; 4 = 31.5 credits per team</li>
+                            <li><strong>Returned share:</strong> one team passes on its full 31.5 credits</li>
+                            <li><strong>Spread across three teams:</strong> 31.5 &divide; 3 = 10.5 credits each</li>
+                            <li><strong>Final per receiving team:</strong> 31.5 + 10.5 = 42 credits</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a common pot and then re sharing what someone gives back is one of the oldest moves in commerce, from merchant ventures that pooled capital to guilds that absorbed a departing member's stake. The arithmetic stayed clumsy until Simon Stevin published De Thiende in 1585 and showed traders how to write fractional amounts in plain decimal form. That small change in notation is what lets a modern operations lead read a third of a share as 10.5 rather than wrestling with raw fractions.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script reproduces the whole reallocation for any pool and any team count, so the same logic holds whether you split 126 credits or a six figure budget.</p>
+
+                <pre><code># What this does. It finds how many credits each receiving team ends with.
+# Where it came from. A lead split credits among teams and one team gave its share to the rest.
+# The math idea. Divide to share evenly, divide again to pass one share on, then add.
+# You type in. The total credits and the number of teams.
+# It prints. The final credits held by each receiving team.
+
+# This function does the math.
+def credits_per_receiving_team(total_credits, number_of_teams):
+    # First split the credits evenly across all teams.
+    starting_share = total_credits / number_of_teams
+    # One team passes its full share to the teams that are left.
+    passed_to_each = starting_share / (number_of_teams - 1)
+    # Each remaining team keeps its own share and adds the passed amount.
+    return starting_share + passed_to_each
+
+# Tell the reader what we will work out.
+print("Let's find the credits each receiving team ends with.")
+
+# Ask for the total credits to share.
+total_credits = float(input("Total credits to share "))
+
+# Ask for how many teams share the credits at the start.
+number_of_teams = int(input("Number of teams "))
+
+# Do the math.
+result = credits_per_receiving_team(total_credits, number_of_teams)
+
+# Show a whole number cleanly when there is no decimal part.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Each receiving team ends with", result, "credits")</code></pre>
+
+                <p>Run it in a terminal, type the total credits and then the team count, and it prints the final credits each receiving team holds.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-decimals" target="_blank" rel="noopener">Khan Academy &mdash; Dividing Decimals</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">Wednesday, June 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

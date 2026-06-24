@@ -7,6 +7,21 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "Find The Whole From A Part, From Budgets To Bread",
+            articleDescription: "Many business figures are known only in part",
+            articleHref: "/a/find-the-whole-from-a-part-from-budgets-to-bread.html"
+        },
+        {
+            articleTitle: "Multiply First, Then Split The Marketing Budget Across Every Office",
+            articleDescription: "Marketing budgets are rarely built one line at a time. Teams often set one channel as a fixed multiple of another, then push the combined pool out to regions that each carry an equal share.",
+            articleHref: "/a/multiply-first-then-split-the-marketing-budget-across-every-office.html"
+        },
+        {
+            articleTitle: "42-credits-per-team-after-one-share-returns",
+            articleDescription: "This problem shows how two rounds of even splitting plus a final addition can model a real reallocation",
+            articleHref: "/a/42-credits-per-team-after-one-share-returns.html"
+        },
+        {
         articleTitle: "The Cascading Arithmetic Of Subtracting Across A Row Of Zeros",
         articleDescription: "Subtraction feels finished the moment someone can stack digits and carry a borrow, yet the operation still hides a trap that only certain numbers spring. When a balance is round and the amount taken from it is not, a single borrow can be forced to travel through a long stretch of empty columns, and the strain has nothing to do with how large the figures are. This article follows one such subtraction from the column algorithm into the mental shortcuts that step around it, and ends with two Python programs that turn the method into a tool you can reuse",
         articleHref: "/a/the-cascading-arithmetic-of-subtracting-across-a-row-of-zeros.html"

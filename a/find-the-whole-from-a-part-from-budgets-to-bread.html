@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Find a whole from a known part using fractions, shown through a marketing budget problem, Egyptian unit fractions, a bread sharing example, bar models, and a reusable Python program.">
+    <meta name="keywords" content="fractions, part of a whole, Egyptian fractions, unit fractions, Rhind papyrus, bar model, Singapore math, Python, budget math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/find-the-whole-from-a-part-from-budgets-to-bread.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/find-the-whole-from-a-part-from-budgets-to-bread.html" />
+
+    <title>Find the Whole From a Part, From Budgets to Bread</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Jun 22, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FIND THE WHOLE FROM A PART, FROM BUDGETS TO BREAD
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Many business figures are known only in part. A team often sees one committed line of spend, one share of a total, one slice of a plan, and has to work back to the full amount before it can decide anything. Recovering a whole from a single known part is one of the quietest and most useful moves in everyday finance. <dfn>This article shows how a known fraction of a budget rebuilds the full budget, how the same idea once fed an ancient economy that paid in bread, and how a short Python program turns the method into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A marketing manager runs one ad placement that costs 24,000. This amount is four sevenths of the campaign budget. No other money has been spent yet.</p>
+                <p>How large was the campaign budget before the ad placement?</p>
+                <ul>
+                    <li>a) 48,000</li>
+                    <li>b) 50,000</li>
+                    <li>c) 8/7</li>
+                    <li>d) 42,000</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 42,000 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The known cost is four sevenths of the budget, so one seventh is the cost shared into four parts, and the whole is that seventh taken seven times. <strong>Divide</strong> 24,000 by 4 to get 6,000, then <strong>multiply</strong> by 7 to reach 42,000.</p>
+
+                    <p class="insight"><em>Once you know what fraction of a total a number represents, dividing by the top number and multiplying by the bottom number rebuilds the total.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Known part:</strong> 24,000 is four sevenths of the budget.</li>
+                            <li><strong>Value of one seventh:</strong> 24,000 &divide; 4 = 6,000.</li>
+                            <li><strong>Whole budget:</strong> 6,000 &times; 7 = 42,000.</li>
+                            <li><strong>Check:</strong> four sevenths of 42,000 is 24,000.</li>
+                            <li><strong>Conclusion:</strong> the budget was 42,000 before the ad placement.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>Why This Math Matters</h2>
+
+                <p>The manager knows the cost of one item and what slice of the budget it covers, but not the budget itself. This is the part to whole question that shows up across budgeting and planning. When you know what fraction of a total a known amount represents, you can recover the total. Finance teams use this to size a full budget from a single committed line, to back into total spend from a tracked share, and to check whether remaining funds match the plan. Here it confirms the campaign budget was 42,000 and that 18,000 remains.</p>
+
+                <h2>Bar Model Walkthrough</h2>
+
+                <p>The solution reads cleanly as a Singapore style bar model, one step at a time, using the real numbers from the problem.</p>
+
+                <p>Step one. A fraction names a part of a whole split into equal pieces. The budget is the whole bar, cut into seven equal lengths.</p>
+
+                <svg width="100%" viewBox="0 0 680 172" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="The whole split into seven equal pieces.">
+                    <text x="340" y="40" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">the whole split into 7 equal pieces</text>
+                    <path d="M60 64 L60 52 L620 52 L620 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <rect x="60" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="140" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="220" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="300" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="380" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="460" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="540" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="340" y="150" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">the campaign budget</text>
+                </svg>
+
+                <p>Step two. The bottom number says how many equal pieces make the whole. Here the seven counts every piece in the budget.</p>
+
+                <svg width="100%" viewBox="0 0 680 172" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="The bottom number seven counts the pieces in the whole.">
+                    <text x="340" y="40" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">the bottom number 7 counts the pieces in the whole</text>
+                    <path d="M60 64 L60 52 L620 52 L620 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <rect x="60" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="140" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="220" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="300" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="380" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="460" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="540" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="100" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">1</text>
+                    <text x="180" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">2</text>
+                    <text x="260" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">3</text>
+                    <text x="340" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">4</text>
+                    <text x="420" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">5</text>
+                    <text x="500" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">6</text>
+                    <text x="580" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">7</text>
+                </svg>
+
+                <p>Step three. The top number says how many of those pieces you hold. Four pieces are filled, and together they are the known amount of 24,000.</p>
+
+                <svg width="100%" viewBox="0 0 680 178" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="The top number four is the pieces you hold, equal to twenty four thousand.">
+                    <text x="220" y="40" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">the top number 4 is the pieces you hold</text>
+                    <path d="M60 64 L60 52 L380 52 L380 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <rect x="60" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="140" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="220" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="300" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="380" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="460" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="540" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="220" y="153" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">four pieces you hold equal 24,000</text>
+                </svg>
+
+                <p>Step four. Find the size of one piece by dividing the known amount by the top number. Sharing 24,000 across the four held pieces gives 6,000 each.</p>
+
+                <svg width="100%" viewBox="0 0 680 196" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="Twenty four thousand shared across four pieces gives six thousand each.">
+                    <text x="220" y="40" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">share 24,000 across the 4 held pieces</text>
+                    <path d="M60 64 L60 52 L380 52 L380 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <rect x="60" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="140" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="220" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="300" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="380" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="460" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="540" y="72" width="80" height="54" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="100" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="180" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="260" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="340" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="340" y="168" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">24,000 &divide; 4 = 6,000 in one piece</text>
+                </svg>
+
+                <p>Step five. Rebuild the whole by multiplying that piece by the bottom number. All seven pieces hold 6,000, so the full budget is 6,000 times 7.</p>
+
+                <svg width="100%" viewBox="0 0 680 196" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="All seven pieces of six thousand make forty two thousand.">
+                    <text x="340" y="40" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">the whole is 7 pieces of 6,000</text>
+                    <path d="M60 64 L60 52 L620 52 L620 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <rect x="60" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="140" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="220" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="300" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="380" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="460" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="540" y="72" width="80" height="54" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <text x="100" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="180" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="260" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="340" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="420" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="500" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="580" y="99" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">6,000</text>
+                    <text x="340" y="168" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">6,000 &times; 7 = 42,000 is the full budget</text>
+                </svg>
+
+                <h2>The Mathematical Background</h2>
+
+                <p>A fraction names a part of a whole split into equal pieces. The bottom number says how many equal pieces make the whole, and the top number says how many of those pieces you hold. When a known amount equals a fraction of an unknown total, you first find the size of one piece by dividing by the top number, then rebuild the whole by multiplying that piece by the bottom number.</p>
+
+                <p>The same reasoning can be written with a symbol for the unknown. Let b stand for the budget. The statement that 24,000 is four sevenths of the budget becomes one equation, (4 &divide; 7) &times; b = 24,000. <strong>To isolate b</strong>, multiply both sides by the reciprocal of the fraction, which is seven over four, giving b = 24,000 &times; (7 &divide; 4) = 42,000. This is the heart of algebra. You hold an unknown as a letter, write the relationship as a balanced equation, then undo each operation in turn until the letter stands alone. The word algebra comes from al jabr, a term used by the Persian scholar al Khwarizmi in Baghdad around 820 CE, meaning the restoring or rebalancing of an equation.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Scribes in ancient Egypt worked this way thousands of years ago. The Rhind Mathematical Papyrus, a copy made by the scribe Ahmes around 1550 BCE from an older original, is full of problems that split quantities into parts and reassemble them, and it relied almost entirely on unit fractions such as one half and one seventh. The British Museum, which holds most of it, describes a scroll of more than eighty problems used to train scribes in real calculation. Sources differ on the date, with the copy placed near 1550 BCE and the underlying original often set around 1650 BCE or earlier.</p>
+
+                <p>They built so many problems of this kind because <strong>the Egyptian state ran on redistribution rather than money</strong>. There was no currency in pharaonic Egypt, so pay was made in measures of grain, with a basic unit called the ration scaled to a worker's rank. Grain, bread, and beer were the real wages, and a central administration collected these goods as tax and stored them in state and temple granaries, then paid them back out to workers, soldiers, priests, and officials. <strong>Someone had to divide a fixed store of loaves among a work crew</strong>, set aside the correct share for a temple, or size a total harvest from the portion already counted.</p>
+
+                <p>That work fell to scribes, the trained officials who kept the granaries, the labor rolls, and the tax records. Once grain left the fields it passed under administrative control, measured, recorded, and sealed for redistribution, and the papyrus reads less as pure theory than as a training manual for the people who held the economy together.</p>
+
+                <p>The fraction style followed from the physical act of sharing. When you cut a few loaves among ten workers, you literally divide each loaf and hand out the pieces, so <strong>expressing the answer as a sum of unit fractions mirrored what your hands were doing</strong>. Land added a second pressure. The Nile flood erased field boundaries every year, and the same scribes had to remeasure plots and reset who owed what, which meant constant work with areas, proportions, and parts of a whole. Egyptian geometry grew directly out of this surveying, and Herodotus, writing in the fifth century BCE, reports that the king sent men to measure how much land each flood had taken so that tax could be cut in proportion. Part to whole reasoning was not an abstract exercise for them. It was how the kingdom fed its people, built its monuments, and collected what it was owed, and the problems in the papyrus preserved those methods so the next generation of scribes could carry the system forward.</p>
+
+                <h2>A Bread Example, Singapore Style</h2>
+
+                <p>The arithmetic opening of the papyrus is exactly this kind of sharing. Its first problems divide loaves of bread equally among ten men. For seven loaves among ten men, each worker receives seven tenths of a loaf, and the scribe wrote that share as two unit fraction pieces, two thirds of a loaf plus one thirtieth of a loaf. Both bars below are one whole loaf, so the shaded parts are directly comparable.</p>
+
+                <svg width="100%" viewBox="0 0 680 312" role="img" style="max-width:680px;display:block;margin:1rem auto" aria-label="Seven loaves shared among ten workers, each share two thirds plus one thirtieth of a loaf.">
+                    <text x="300" y="36" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">7 loaves shared among 10 workers</text>
+                    <text x="300" y="58" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">each worker gets 7/10 of a loaf, written the Egyptian way</text>
+                    <rect x="90" y="86" width="140" height="46" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="230" y="86" width="140" height="46" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="370" y="86" width="140" height="46" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="160" y="109" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">1/3</text>
+                    <text x="300" y="109" text-anchor="middle" dominant-baseline="central" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">1/3</text>
+                    <text x="440" y="109" text-anchor="middle" dominant-baseline="central" style="fill:#2b2b2b;font:400 12px 'Source Sans Pro',sans-serif">1/3</text>
+                    <text x="525" y="109" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">2/3 loaf</text>
+                    <text x="300" y="156" text-anchor="middle" style="fill:#2b2b2b;font:500 16px 'Source Sans Pro',sans-serif">+</text>
+                    <rect x="90" y="170" width="14" height="46" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="104" y="170" width="406" height="46" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <text x="525" y="193" dominant-baseline="central" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">1/30 loaf</text>
+                    <line x1="90" y1="236" x2="510" y2="236" style="stroke:#888780;stroke-width:1"/>
+                    <text x="300" y="262" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">2/3 + 1/30 = 7/10 of a loaf for each worker</text>
+                    <text x="300" y="286" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">from the Rhind papyrus, problem 4</text>
+                </svg>
+
+                <p>That mirrors what the scribe's hands were doing, cut most of the loaf into thirds, take two, then shave one thin thirtieth to finish the share. A greedy modern split writes the same seven tenths as one half plus one fifth, which is also correct, so the method finds a valid sum, not always the one on the papyrus.</p>
+
+                
+                 
+                <h2 id="history-version">A Dialogue Between Socrates and the Scribe</h2>
+ 
+                <p><em>A portico in Heliopolis. Socrates has sought out Ahmose, a scribe of the granary, who once copied an old book of reckoning.</em></p>
+ 
+                <p><strong>Socrates.</strong> Ahmose, I watched a workman take his bread today. He held one loaf, knew it was a part of the day's baking, and from that part he judged the whole, and so judged whether his portion was fair. Tell me, does the man who decides the portions reason in the same way?</p>
+ 
+                <p><strong>Ahmose.</strong> He reasons with the same parts and wholes, Socrates, but he walks the road the other way.</p>
+ 
+                <p><strong>Socrates.</strong> The other way. How so?</p>
+ 
+                <p><strong>Ahmose.</strong> The workman holds a part and seeks the whole. I hold the whole and must cut the parts. The grain in the store is known to me before any man is paid. My task is to divide it by a rule.</p>
+ 
+                <p><strong>Socrates.</strong> Then your art is mere division. You take the heap and share it into equal piles.</p>
+ 
+                <p><strong>Ahmose.</strong> When the men are equal, yes. But they are seldom equal. A foreman, a watchman, a boatman stand above the rest, and the rule gives them more.</p>
+ 
+                <p><strong>Socrates.</strong> Show me, then, how you divide a hundred loaves among ten such men.</p>
+ 
+                <p><strong>Ahmose.</strong> Three of the ten draw a double portion. So I do not count ten shares. I count thirteen.</p>
+ 
+                <p><strong>Socrates.</strong> Thirteen? There are ten men.</p>
+ 
+                <p><strong>Ahmose.</strong> Ten men, but thirteen base shares. Seven men take one share each, and three men take two each, which is six. Seven and six make thirteen. I let one base share stand as the thing I do not yet know. Thirteen of them must fill the hundred loaves.</p>
+ 
+                <svg width="100%" viewBox="0 0 700 236" role="img" style="max-width:700px;display:block;margin:1.25rem auto" aria-label="One hundred loaves split into thirteen equal base shares, seven men taking one share and three men taking two, solved for the base share.">
+                    <text x="349" y="30" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">100 loaves among 10 men, 3 draw double rations</text>
+                    <path d="M70 64 L70 54 L629 54 L629 64" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <text x="349" y="48" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">100 loaves</text>
+                    <rect x="70" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="113" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="156" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="199" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="242" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="285" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="328" y="72" width="43" height="44" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.6"/>
+                    <rect x="371" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="414" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="457" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="500" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="543" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <rect x="586" y="72" width="43" height="44" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.6"/>
+                    <path d="M70 124 L70 132 L371 132 L371 124" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <text x="220" y="148" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">7 men, 1 share each</text>
+                    <path d="M371 124 L371 132 L629 132 L629 124" style="fill:none;stroke:#888780;stroke-width:1"/>
+                    <text x="500" y="148" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">3 men, 2 shares each, so 6 units</text>
+                    <text x="349" y="178" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">7 s + 3 (2 s) = 100</text>
+                    <text x="349" y="200" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">13 s = 100</text>
+                    <text x="349" y="222" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">s = 100 &divide; 13 &asymp; 7.7 loaves, so a double share &asymp; 15.4</text>
+                </svg>
+ 
+                <p><strong>Socrates.</strong > <dfn class="highlight-line"> So the unknown is not a man's portion but the single share from which all portions are built.</dfn></p>
+ 
+                <p><strong>Ahmose.</strong> Just so. Thirteen shares make a hundred loaves, so one share is a hundred divided by thirteen, near seven and a half loaves. The double men take twice that. I found the part by first naming the whole and counting how many parts it owed.</p>
+ 
+                <p><strong>Socrates.</strong><dfn class="highlight-line"> The workman names a part to find the whole. You name the whole to find the part. Two readings of one share.</dfn>  </p>
+ 
+                <p><strong>Ahmose.</strong> That is the heart of it.</p>
+ 
+                <p><strong>Socrates.</strong> Yet bread is not the only thing you weigh. I am told you trade one good for another, loaf for jar, though they are not alike.</p>
+ 
+                <p><strong>Ahmose.</strong> For that we keep a number called the pefsu. It tells how many loaves, or how many jars of beer, come from one measure of grain.</p>
+ 
+                <p><strong>Socrates.</strong> A strange number. Is a high pefsu a rich loaf or a poor one?</p>
+ 
+                <p><strong>Ahmose.</strong> A poor one. The more loaves drawn from one measure of grain, the thinner each must be. A low pefsu is the dense bread and the strong beer, and that is the bread of higher men. So the number that feeds the baker also marks the rank of the eater.</p>
+ 
+                <p><strong>Socrates.</strong> Then to be just you must reach past the bread and the beer to the grain inside them.</p>
+ 
+                <p><strong>Ahmose.</strong> That is the whole secret. To trade a hundred loaves of pefsu ten for beer, I first ask how much grain they hold. A hundred loaves divided by ten is ten measures of grain. Then I ask how many jars that grain yields at the beer's pefsu of two. Ten measures times two is twenty jars. The loaves and the jars are unlike, but the grain in them is equal, and so the trade is fair.</p>
+ 
+                <svg width="100%" viewBox="0 0 700 250" role="img" style="max-width:700px;display:block;margin:1.25rem auto" aria-label="One hundred loaves at pefsu ten reduce to ten measures of grain, which make twenty beer jars at pefsu two.">
+                    <defs><marker id="arrowSite" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" style="fill:none;stroke:#5F5E5A;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/></marker></defs>
+                    <text x="349" y="30" text-anchor="middle" style="fill:#2b2b2b;font:500 14px 'Source Sans Pro',sans-serif">pefsu, loaves or jars made from one hekat of grain</text>
+                    <text x="349" y="56" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">grain &times; pefsu = loaves, so loaves &divide; pefsu = grain</text>
+                    <text x="349" y="86" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">audit, 5 hekat &times; pefsu 20 = 100 loaves a baker owes</text>
+                    <text x="349" y="112" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">exchange, Rhind papyrus problem 78</text>
+                    <rect x="40" y="124" width="160" height="60" rx="4" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.8"/>
+                    <text x="120" y="148" text-anchor="middle" style="fill:#04342C;font:400 14px 'Source Sans Pro',sans-serif">100 loaves</text>
+                    <text x="120" y="168" text-anchor="middle" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">pefsu 10</text>
+                    <rect x="270" y="124" width="160" height="60" rx="4" style="fill:#D3D1C7;stroke:#5F5E5A;stroke-width:0.8"/>
+                    <text x="350" y="148" text-anchor="middle" style="fill:#2b2b2b;font:400 14px 'Source Sans Pro',sans-serif">10 hekat</text>
+                    <text x="350" y="168" text-anchor="middle" style="fill:#2b2b2b;font:400 12px 'Source Sans Pro',sans-serif">of grain</text>
+                    <rect x="500" y="124" width="160" height="60" rx="4" style="fill:#9FE1CB;stroke:#0F6E56;stroke-width:0.8"/>
+                    <text x="580" y="148" text-anchor="middle" style="fill:#04342C;font:400 14px 'Source Sans Pro',sans-serif">20 beer jars</text>
+                    <text x="580" y="168" text-anchor="middle" style="fill:#04342C;font:400 12px 'Source Sans Pro',sans-serif">pefsu 2</text>
+                    <line x1="200" y1="154" x2="270" y2="154" style="stroke:#5F5E5A;stroke-width:1.2" marker-end="url(#arrowSite)"/>
+                    <text x="235" y="146" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">&divide; 10</text>
+                    <line x1="430" y1="154" x2="500" y2="154" style="stroke:#5F5E5A;stroke-width:1.2" marker-end="url(#arrowSite)"/>
+                    <text x="465" y="146" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">&times; 2</text>
+                    <text x="349" y="216" text-anchor="middle" style="fill:#5F5E5A;font:400 12px 'Source Sans Pro',sans-serif">equal grain on both sides balances the trade, 100 loaves for 20 jars</text>
+                </svg>
+ 
+                <p><strong>Socrates.</strong> And the same number guards you against the dishonest baker.</p>
+ 
+                <p><strong>Ahmose.</strong> It does. I give him grain, and the pefsu tells me the loaves he owes. Grain times pefsu is the count. If he returns fewer, the reckoning finds him out.</p>
+ 
+                <p><strong>Socrates.</strong> So your one number serves three masters. It sets the rank, it balances the trade, and it keeps the account.</p>
+ 
+                <p><strong>Ahmose.</strong> One ratio, read forward or backward as the task demands.</p>
+ 
+                <p><strong>Socrates.</strong> Then let me say back to you what I have learned, that you may correct me. The man who receives holds a part and infers the whole, to ask whether he was used justly. The man who distributes holds the whole and builds each part, then proves the parts by adding them again. The reasoning is one. Only the direction differs.</p>
+ 
+                <p><strong>Ahmose.</strong> You have it, Socrates.</p>
+ 
+                <p><strong>Socrates.</strong> And yet neither of you writes the unknown as a letter, nor sets it on one side of a balanced line.</p>
+ 
+                <p><strong>Ahmose.</strong> We follow the steps and prove the end. The letter and the balance came long after us, from a scholar of Baghdad who named the act of restoring what is owed. We did the restoring without the name.</p>
+ 
+                <p><strong>Socrates.</strong> Perhaps the name could wait, because the method already worked. A way of reckoning that fed a kingdom did not depend on a notation.</p>
+ 
+                <h2>What the Dialogue Shows</h2>
+ 
+                <p>The receiver and the administrator share one logic and split on direction. <dfn class="highlight-line">The receiver moves from a part to the whole and tests fairness. The administrator moves from the whole to the parts and then proves the sum.</dfn>  Unequal rations make the base share the unknown, recovered by counting shares and dividing. The pefsu turns one ratio into three uses, setting rank, balancing a trade through the grain that bread and beer share, and auditing what a baker owes. The symbolic equation arrived later, with al Khwarizmi in Baghdad. The working logic was already in the scribe's hands.</p>
+ 
+                <span id="insight"></span>
+ 
+                <h2 id="further-reading">Go Deeper</h2>
+ 
+                <ul>
+                    <li><a class="class2" href="https://www.britishmuseum.org/blog/learn-maths-egyptian-secrets-rhind-mathematical-papyrus" target="_blank" rel="noopener">British Museum &mdash; The Rhind Mathematical Papyrus</a></li>
+                    <li><a class="class2" href="https://en.wikipedia.org/wiki/Moscow_Mathematical_Papyrus" target="_blank" rel="noopener">Moscow Mathematical Papyrus &mdash; pefsu problems</a></li>
+                    <li><a class="class2" href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi" target="_blank" rel="noopener">Al Khwarizmi and the naming of algebra</a></li>
+                </ul>
+
+
+                <h3>Sources</h3>
+
+                <p>Papers and articles. The British Museum blog, <a class="class2" href="https://www.britishmuseum.org/blog/learn-maths-egyptian-secrets-rhind-mathematical-papyrus" target="_blank" rel="noopener">Learn maths like an Egyptian</a>; the Mathematical Association of America, <a class="class2" href="https://old.maa.org/press/periodicals/convergence/mathematical-treasure-the-rhind-and-moscow-mathematical-papyri" target="_blank" rel="noopener">Mathematical Treasure, the Rhind and Moscow Papyri</a>; Wikipedia, <a class="class2" href="https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus" target="_blank" rel="noopener">Rhind Mathematical Papyrus</a> and <a class="class2" href="https://en.wikipedia.org/wiki/Egyptian_geometry" target="_blank" rel="noopener">Egyptian geometry</a>; <a class="class2" href="https://www.researchgate.net/publication/278692048_Surveying_in_Ancient_Egypt" target="_blank" rel="noopener">Surveying in Ancient Egypt</a>; Hana Vymazalova, Ration System, UCLA Encyclopedia of Egyptology, summarized at <a class="class2" href="https://africame.factsanddetails.com/article/entry-1160.html" target="_blank" rel="noopener">Facts and Details</a>; and <a class="class2" href="https://historyrise.com/what-type-of-money-did-ancient-egypt-use/" target="_blank" rel="noopener">money and rations in ancient Egypt</a>.</p>
+
+                <p>Books. T. Eric Peet, The Rhind Mathematical Papyrus, British Museum 10057 and 10058 (1923); Gay Robins and Charles Shute, The Rhind Mathematical Papyrus, An Ancient Egyptian Text (British Museum Press, 1987); Richard J. Gillings, Mathematics in the Time of the Pharaohs (MIT Press, 1972); Marshall Clagett, Ancient Egyptian Science, Volume 3, Ancient Egyptian Mathematics (American Philosophical Society, 1999); Annette Imhausen, Mathematics in Ancient Egypt, A Contextual History (Princeton University Press, 2016); Carl Boyer and Uta Merzbach, A History of Mathematics (Wiley, 1991); Barry J. Kemp, Ancient Egypt, Anatomy of a Civilization (Routledge); Joyce Tyldesley, Daily Life in Ancient Egypt (Penguin). Primary source, Herodotus, The Histories, Book 2.</p>
+
+                <h2 id="python-version">Python Versions</h2>
+
+                <p>This short program shares loaves equally among workers and writes one worker's share as a sum of unit fractions, so it solves the bread problem for any whole numbers.</p>
+                <p>This firs version is by far the most complicated but is the most educational sin it shows how to use the Euclidian gcd algorithm to simplify fractions in computer programs.</p>
+
+                <pre><code>
+# What this does. It shares loaves equally among workers and writes one worker's share as a sum of unit fractions.
+# Where it came from. An old bread problem shares a few loaves equally among a group of workers, e.g. 6 loaves into 4 workers.
+# The math idea. A part of a whole, then build that part from fractions that each have 1 on top.
+# You type in. The number of loaves and the number of workers.
+# It prints. What one worker gets, written as a sum like 1/2 plus 1/5 of a loaf.
+
+# 6 workers TIMES an unknown(s) make 4 loaves OR that I should distribute 4 loaves equally among 6 workers.
+# Once we identify the value of the unknown in the context of the equation
+# if 6(?) = 4 then ? = 4/6 = 2/3, so each worker gets 2/3 of a loaf.
+# In the context of the program, we  use the gcd algorithm to reduce the fraction to its simplest form. The gcd is the "simplifier"
+def greatest_common_divisor(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# This function works out one worker's share.
+def share_in_unit_fractions(loaves, workers):
+    # Reduce the share, loaves over workers, to its simplest form.
+    g = greatest_common_divisor(loaves, workers)
+    num = loaves // g
+    den = workers // g
+
+    # Pull out the whole loaves each worker gets.
+    # E.g., For 4 loaves and 6 workers the share is less than 1, so whole is 0 and nothing is pulled out. But for, say, 9 loaves and 4 workers, the share is 9/4, and this step takes out 2 whole loaves and leaves 1/4.
+    whole = num // den
+    num = num - whole * den
+
+    # Build the leftover part as unit fractions, biggest piece first.
+    pieces = []
+    while num != 0:
+        # Smallest piece 1 over x that still fits in what is left.
+        x = -(-den // num)
+        pieces.append(x)
+        # Take that piece away and simplify what remains.
+        num, den = num * x - den, den * x
+        g = greatest_common_divisor(num, den)
+        num //= g
+        den //= g
+    return whole, pieces
+
+# Tell the reader what we will figure out.
+print("Let's share loaves among workers and write one worker's share as unit fractions.")
+
+# Ask how many loaves there are.
+loaves = int(input("Number of loaves "))
+
+# Ask how many workers share them.
+workers = int(input("Number of workers "))
+
+# Do the math.
+whole, pieces = share_in_unit_fractions(loaves, workers)
+
+# Turn the pieces into readable text like 1/2 plus 1/5.
+fraction_text = " plus ".join("1/" + str(x) for x in pieces)
+
+# Print the answer in plain bread terms.
+if whole and pieces:
+    print("Each worker gets", whole, "whole loaves plus", fraction_text, "of a loaf.")
+elif whole:
+    print("Each worker gets exactly", whole, "loaves.")
+else:
+    print("Each worker gets", fraction_text, "of a loaf.")
+</code></pre>
+
+                <p>Run it in a terminal, type the loaves and workers, and it prints the share. For seven loaves and ten workers it returns one half plus one fifth of a loaf, a valid unit fraction sum equal to seven tenths.</p>
+
+                <p>A cleaner version uses Python's built in fractions module. The Fraction type reduces every step automatically and keeps the arithmetic exact, so the manual divisor helper disappears and the logic gets shorter.</p>
+
+                <pre><code># What this does. It shares loaves equally among workers and writes one worker's share as a sum of unit fractions.
+# Where it came from. An old bread problem shares a few loaves equally among a group of workers.
+# The math idea. A part of a whole, then build that part from fractions that each have 1 on top.
+# You type in. The number of loaves and the number of workers.
+# It prints. What one worker gets, written as a sum like 1/2 plus 1/5 of a loaf.
+
+from fractions import Fraction
+
+# This function works out one worker's share.
+def share_in_unit_fractions(loaves, workers):
+    # The share, already in simplest form.
+    share = Fraction(loaves, workers)
+
+    # Pull out the whole loaves each worker gets.
+    whole = share.numerator // share.denominator
+    rest = share - whole
+
+    # Build the leftover part as unit fractions, biggest piece first.
+    pieces = []
+    while rest &gt; 0:
+        # Smallest piece 1 over x that still fits in what is left.
+        x = -(-rest.denominator // rest.numerator)
+        pieces.append(x)
+        # Take that piece away. Fraction simplifies the rest for us.
+        rest -= Fraction(1, x)
+    return whole, pieces
+
+# Tell the reader what we will figure out.
+print("Let's share loaves among workers and write one worker's share as unit fractions.")
+
+# Ask how many loaves there are.
+loaves = int(input("Number of loaves "))
+
+# Ask how many workers share them.
+workers = int(input("Number of workers "))
+
+# Do the math.
+whole, pieces = share_in_unit_fractions(loaves, workers)
+
+# Turn the pieces into readable text like 1/2 plus 1/5.
+fraction_text = " plus ".join("1/" + str(x) for x in pieces)
+
+# Print the answer in plain bread terms.
+if whole and pieces:
+    print("Each worker gets", whole, "whole loaves plus", fraction_text, "of a loaf.")
+elif whole:
+    print("Each worker gets exactly", whole, "loaves.")
+else:
+    print("Each worker gets", fraction_text, "of a loaf.")
+</code></pre>
+
+                <p>Both versions return the same share, so the difference is readability, not result.</p>
+
+<p>The cleanest version is:</p>
+<pre>
+    <code>
+# What this does. It shares loaves among workers and prints the share in simplest form.
+# The math idea. The share is loaves over workers, reduced by the greatest common divisor.
+# You type in. The number of loaves and the number of workers.
+# It prints. The share each worker gets, like 2/3 of a loaf.
+
+from math import gcd
+
+# Ask for the two numbers.
+loaves = int(input("Number of loaves "))
+workers = int(input("Number of workers "))
+
+# Reduce loaves over workers to its simplest form.
+g = gcd(loaves, workers)
+num = loaves // g
+den = workers // g
+
+# Print the share.
+if den == 1:
+    print("Each worker gets", num, "loaves.")
+else:
+    print("Each worker gets", num, "/", den, "of a loaf.")
+    </code>
+</pre>
+    
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &mdash; Fractions and Part of a Whole</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/EgyptianFraction.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Egyptian Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 22, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

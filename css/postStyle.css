@@ -558,6 +558,24 @@ h3 {
   padding: .6em 0em;
 }
 
+
+.highlight-line {
+    text-decoration: none;
+    background-image: linear-gradient(90deg, #00ff6e, #00cfff);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-image 0.3s ease, background-size 0.4s ease;
+    padding-bottom: 3px;
+}
+
+.highlight-line:hover {
+    background-image: linear-gradient(90deg, #a855f7, #ff6e00, #00ff6e);
+    background-size: 100% 3px;
+    letter-spacing: 0.00em;
+    transition: all 3s ease;
+}
+
 .highlight {
   background: rgb(201, 231, 251);
   font-size: 1.6rem;
