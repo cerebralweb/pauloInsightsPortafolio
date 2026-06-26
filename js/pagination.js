@@ -7,6 +7,16 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "60 Hours, 24 Attendees, And One Division Rule That Settles It",
+            articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/60-hours-24-attendees-and-one-division-rule-that-settles-it.html"
+        },
+        {
+            articleTitle: "The Credits Hiding Inside Every Leftover Budget Fraction",
+            articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-credits-hiding-inside-every-leftover-budget-fraction.html"
+        },
+        {
             articleTitle: "95 Licenses, One Ratio Rule, One Clean Profit Figure",
             articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
             articleHref: "/a/95-licenses-one-ratio-rule-one-clean-profit-figure.html"

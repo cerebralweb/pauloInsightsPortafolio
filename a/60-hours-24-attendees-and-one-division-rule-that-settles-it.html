@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a fixed total of workshop hours splits evenly among the people who attended once an absent share is removed, with a reusable Python program.">
+    <meta name="keywords" content="equal division, fractions, attendee share, resource allocation, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/60-hours-24-attendees-and-one-division-rule-that-settles-it.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/60-hours-24-attendees-and-one-division-rule-that-settles-it.html" />
+
+    <title>60 Hours, 24 Attendees, and One Division Rule That Settles It</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Jun 26, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    60 HOURS, 24 ATTENDEES, AND ONE DIVISION RULE THAT SETTLES IT
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Teams routinely commit a fixed pool of time, budget, or seats before they know who will take part. When some members drop out, the share that each remaining person receives shifts, and a short arithmetic step keeps the plan accurate. <dfn>This problem shows how a small chain of operations can model who gets what when a group shrinks, and how Python turns that logic into a tool you can reuse for any team and any pool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A learning lead at a software firm booked 5 blocks of 12 hours of workshop time, 60 hours in total, to share with the team during an onboarding week. The team has 27 members. On the workshop day, 1/9 of the members were out.</p>
+                <p>If the lead splits the 60 hours equally among the members who showed up, how many hours does each one receive?</p>
+                <ul>
+                    <li>a) 2 and 1/2</li>
+                    <li>b) 1</li>
+                    <li>c) 2</li>
+                    <li>d) 5 and 1/3</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 2 and 1/2 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>First <strong>multiply</strong> the blocks to get the total, then find the absent count and <strong>subtract</strong> it from the team. <strong>Divide</strong> the total hours by the members present to reach the share per person.</p>
+
+                    <p class="insight"><em>The absent share is removed before the division, so the same total is split across fewer people and each share rises.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total hours:</strong> 5 &#215; 12 = 60</li>
+                            <li><strong>Absent count:</strong> 27 &#215; 1/9 = 3</li>
+                            <li><strong>Present count:</strong> 27 &#8722; 3 = 24</li>
+                            <li><strong>Share per person:</strong> 60 &#247; 24 = 2 and 1/2</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a shared pool among the people who take part is one of the oldest tasks in commercial arithmetic. Medieval merchants and guilds divided costs, profits, and goods among active partners, and Leonardo of Pisa, known as Fibonacci, spread these methods across Europe in his 1202 Liber Abaci, which taught traders how to share quantities fairly. The same reasoning still governs how teams allocate hours, seats, and budgets once the final headcount is known.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script builds the total, removes the absent share, and divides the rest among the people present, so it works for any team and any pool.</p>
+
+                <pre><code># What this does. Works out how many workshop hours each present member gets.
+# Where it came from. A learning lead booked blocks of hours and split them among the people who showed up.
+# The math idea. Find the total, take out the absent share, then divide the rest.
+# You type in. The number of blocks, the hours per block, the team size, and the absent share as two numbers.
+# It prints. How many hours each present member receives.
+
+# This function does the math.
+def hours_per_member(blocks, hours_each_block, team_size, absent_top, absent_bottom):
+    # Build the total hours from the blocks.
+    total_hours = blocks * hours_each_block
+    # Work out how many people were absent.
+    absent = team_size * absent_top / absent_bottom
+    # The rest showed up.
+    present = team_size - absent
+    # Split the total hours among the people present.
+    return total_hours / present
+
+# Tell the reader what we will figure out.
+print("Let's find how many hours each person gets.")
+
+# Ask for the number of blocks.
+blocks = int(input("Number of blocks "))
+
+# Ask for the hours in one block.
+hours_each_block = int(input("Hours per block "))
+
+# Ask for the team size.
+team_size = int(input("Team size "))
+
+# Ask for the top of the absent share. For one ninth this is 1.
+absent_top = int(input("Absent share top number "))
+
+# Ask for the bottom of the absent share. For one ninth this is 9.
+absent_bottom = int(input("Absent share bottom number "))
+
+# Do the math.
+result = hours_per_member(blocks, hours_each_block, team_size, absent_top, absent_bottom)
+
+# Show a whole number when it comes out even.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Hours each present member receives", result)</code></pre>
+
+                <p>For an exact fraction instead of a decimal, the Fraction class keeps the answer clean.</p>
+
+                <pre><code># What this does. Works out the exact hours each present member gets, as a fraction.
+# Where it came from. A learning lead booked blocks of hours and split them among the people who showed up.
+# The math idea. Find the total, take out the absent share, then divide, keeping an exact fraction.
+# You type in. The number of blocks, the hours per block, the team size, and the absent share as two numbers.
+# It prints. The exact hours each present member receives, as a fraction.
+
+# Bring in a tool that keeps exact fractions instead of decimals.
+from fractions import Fraction
+
+# This function does the math.
+def hours_per_member(blocks, hours_each_block, team_size, absent_top, absent_bottom):
+    # Build the total hours from the blocks.
+    total_hours = blocks * hours_each_block
+    # The part of the team that was absent, kept exact.
+    absent_share = Fraction(absent_top, absent_bottom)
+    # The people who showed up.
+    present = team_size - team_size * absent_share
+    # Split the total hours among the people present, kept exact.
+    return Fraction(total_hours) / present
+
+# Tell the reader what we will figure out.
+print("Let's find the exact hours each person gets.")
+
+# Ask for the number of blocks.
+blocks = int(input("Number of blocks "))
+
+# Ask for the hours in one block.
+hours_each_block = int(input("Hours per block "))
+
+# Ask for the team size.
+team_size = int(input("Team size "))
+
+# Ask for the top of the absent share. For one ninth this is 1.
+absent_top = int(input("Absent share top number "))
+
+# Ask for the bottom of the absent share. For one ninth this is 9.
+absent_bottom = int(input("Absent share bottom number "))
+
+# Do the math.
+result = hours_per_member(blocks, hours_each_block, team_size, absent_top, absent_bottom)
+
+# Print the answer as an exact fraction with words that fit the scenario.
+print("Hours each present member receives", result)</code></pre>
+
+                <p>Run either one in a terminal, type the five numbers when prompted, and it returns the hours each present member receives.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic, written as a reusable Claude Skill so the steps can be followed without the code.</p>
+
+                <pre class="md-code"><code>---
+name: share-per-attendee-calculator
+description: Works out how much of a fixed resource each attendee receives when a total is split equally among the people who showed up, after a fractional share of the group is absent. Trigger this skill whenever the user wants to divide a total amount among present members after some are away, even if they do not use technical language. Phrases like split equally among those who attended, share per head after absences, or allocate a budget across the people present should all trigger it.
+---
+
+<span class="md-heading"># Share Per Attendee Calculator</span>
+
+This skill takes a total resource built from equal blocks, removes a fractional share of the group that was absent, and divides the total equally among the people who attended. It asks for a few numbers, runs the division, and reports how much each present member receives. It can report the answer as a plain number or as an exact fraction.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- None for the plain version.
+- The Fraction class from the standard fractions library for the exact fraction version. This keeps the answer as a clean fraction such as 5/2 rather than the decimal 2.5.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Number of blocks**</span> &#8212; how many equal blocks make up the total. A whole number.
+- <span class="md-bold">**Hours per block**</span> &#8212; the size of one block. A whole number.
+- <span class="md-bold">**Team size**</span> &#8212; the full count of members before anyone is marked absent. A whole number.
+- <span class="md-bold">**Absent share top number**</span> &#8212; the top of the absent fraction. For one ninth this is 1.
+- <span class="md-bold">**Absent share bottom number**</span> &#8212; the bottom of the absent fraction. For one ninth this is 9.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; State the question</span>
+
+Open with a short line that tells the reader what will be worked out, that each person who attended gets an equal slice of the total.
+
+<span class="md-heading">### Step 2 &#8212; Collect the inputs</span>
+
+Ask for each value in turn. Read the number of blocks, the hours per block, the team size, the absent share top number, and the absent share bottom number. Treat all five as whole numbers.
+
+<span class="md-heading">### Step 3 &#8212; Build the total</span>
+
+Multiply the number of blocks by the hours per block. This gives the full resource to be shared.
+
+<span class="md-heading">### Step 4 &#8212; Find the absent count</span>
+
+Take the absent share, the top number over the bottom number, and apply it to the team size. This gives how many members were away.
+
+<span class="md-heading">### Step 5 &#8212; Find the present count</span>
+
+Subtract the absent count from the team size. This gives the number of people who attended.
+
+<span class="md-heading">### Step 6 &#8212; Divide the total among those present</span>
+
+Divide the full resource by the present count. The result is the amount each attendee receives.
+
+<span class="md-heading">### Step 7 &#8212; Choose how to show the result</span>
+
+If a plain number is wanted, show a whole number when the result comes out even, otherwise show the decimal. If an exact answer is wanted, carry the absent share and the division as fractions throughout so the result prints as an exact fraction.
+
+<span class="md-heading">### Step 8 &#8212; Report with context</span>
+
+Print the result inside a short line that fits the scenario, naming what each present member receives. Never print the bare number alone.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Split these workshop hours equally among the people who showed up."
+- "One ninth of the team was out. How much does each attendee get from the total."
+- "Divide the budget across present staff after the absences."
+- "Give me the exact fraction each person receives, not a decimal."
+- "Allocate the total per head among those who attended."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The frontmatter appears once at the top.
+- [ ] No code appears anywhere in the body.
+- [ ] Every step reads as a plain instruction.
+- [ ] The absent share logic is stated in plain words.
+- [ ] Inputs and outputs are named and described.
+- [ ] The result is reported with scenario text, never as a bare number.</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &#8212; Fractions and Division</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 26, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
