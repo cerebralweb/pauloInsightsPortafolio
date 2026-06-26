@@ -7,6 +7,42 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "95 Licenses, One Ratio Rule, One Clean Profit Figure",
+            articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/95-licenses-one-ratio-rule-one-clean-profit-figure.html"
+        },
+        {
+            articleTitle: "The Fraction Hiding In A Half Cleared Backlog",
+            articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-fraction-hiding-in-a-half-cleared-backlog.html"
+        },
+        {
+            articleTitle: "Cloud Billing Math And The Unit Rate Hiding In One Invoice",
+            articleDescription: "Cloud bills arrive as one total for a whole tier, yet decisions get made one unit at a time. Finance teams need the cost of a single block to compare tiers, set chargeback rates, and spot waste. This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/cloud-billing-math-and-the-unit-rate-hiding-in-one-invoice.html"
+        },
+        {
+            articleTitle: "The Number Hiding Inside A Data Center Power Bill",
+            articleDescription: "Before a team can budget, forecast, or size cooling, it must turn one figure into a rate per machine per period",
+            articleHref: "/a/the-number-hiding-inside-a-data-center-power-bill.html"
+        },
+        {
+            articleTitle: "The Leftover Share Every Budget Decides Before You Do",
+            articleDescription: "Budget lines are not all chosen",
+            articleHref: "/a/the-leftover-share-every-budget-decides-before-you-do.html"
+        },
+        {
+          articleTitle: "The Missing Dimension In Every Warehouse Floor Decision",
+          articleDescription: "Space decisions hinge on numbers that a listing often omits. A team weighing one floor against another must recover the measurement that was not handed, because area and fencing drive both storage capacity and cost. This problem shows how area, a square root, and a perimeter ratio each return a missing dimension, and how Python turns that work into a reusable tool",
+          articleHref: "/a/the-missing-dimension-in-every-warehouse-floor-decision.html"  
+        },
+        {
+            articleTitle: "The Distributive Trick Behind A Three Week Energy Total",
+            articleDescription: "The harder part is doing the arithmetic fast and without slips, which is where one small algebraic habit earns its keep",
+            articleHref: "/a/the-distributive-trick-behind-a-three-week-energy-total.html"
+
+        },
+        {
             articleTitle: "Find The Whole From A Part, From Budgets To Bread",
             articleDescription: "Many business figures are known only in part",
             articleHref: "/a/find-the-whole-from-a-part-from-budgets-to-bread.html"

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A data center power bill spread across 20 servers and 4 weeks becomes a clean rate per server per week through one division, with a reusable Python tool and a Claude skill.">
+    <meta name="keywords" content="unit rate, division, cost allocation, data center, per server cost, business math, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-number-hiding-inside-a-data-center-power-bill.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-number-hiding-inside-a-data-center-power-bill.html" />
+
+    <title>The Number Hiding Inside a Data Center Power Bill</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 24, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE NUMBER HIDING INSIDE A DATA CENTER POWER BILL
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Infrastructure costs arrive as bulk totals that hide what each machine consumes. Before a team can budget, forecast, or size cooling, it must turn one figure into a rate per machine per period. <dfn>This problem shows how a chain of division converts a bill into a planning unit, and how Python turns that logic into a tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data center runs 20 servers. Over 4 weeks, those servers consume 9,732.8 kWh of electricity. Assuming each server consumes the same amount, the team needs the consumption for one server.</p>
+                <p>How much electricity does one server consume in a week?</p>
+                <ul>
+                    <li>a) 86.66</li>
+                    <li>b) 120</li>
+                    <li>c) 87</li>
+                    <li>d) 122</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 122 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Multiply</strong> 20 servers by 4 weeks to get 80 server weeks. <strong>Divide</strong> 9,732.8 by 80 to get 121.66, which rounds to 122.</p>
+
+                    <p class="insight"><em>Collapsing two divisions into one division by 80 turns the whole problem into a single step.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total billing units:</strong> 20 servers &times; 4 weeks = 80 server weeks</li>
+                            <li><strong>Rate per unit:</strong> 9,732.8 &divide; 80 = 121.66 kWh</li>
+                            <li><strong>Round to whole:</strong> 121.66 becomes 122</li>
+                            <li><strong>Conclusion:</strong> one server consumes about 122 kWh per week</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Merchants have reduced bulk quantities to per unit rates since antiquity, when traders split a shipment across partners and seasons to price a single share. Babylonian scribes kept reciprocal tables so they could turn division into multiplication and settle accounts fast. The same move underlies cost allocation today, where one invoice becomes a rate per server, per seat, or per hour.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script reduces any bulk total to a rate per resource per period, so it works for power bills, fuel, or fleet usage alike.</p>
+
+                <pre><code># What this does: works out how much electricity one server uses in one week.
+# Where it came from: a data center ran some servers for some weeks and got one big power total.
+# The math idea: divide the big total down to one server for one week.
+# You type in: the total power used, the number of servers, and the number of weeks.
+# It prints: the power one server uses in one week.
+
+# This function does the math.
+def power_per_server_per_week(total_kwh, servers, weeks):
+    # Count how many server weeks the total covers.
+    server_weeks = servers * weeks
+    # Split the big total evenly across all those server weeks.
+    return total_kwh / server_weeks
+
+# Tell the reader what we will figure out.
+print("Let's find how much power one server uses in one week.")
+
+# Ask for the total power used.
+total_kwh = float(input("Total electricity used in kWh: "))
+
+# Ask for the number of servers.
+servers = int(input("Number of servers: "))
+
+# Ask for the number of weeks.
+weeks = int(input("Number of weeks: "))
+
+# Do the math.
+result = power_per_server_per_week(total_kwh, servers, weeks)
+
+# Round to two decimals so it reads cleanly.
+result = round(result, 2)
+
+# Show a whole number when there is no leftover.
+result = int(result) if result == int(result) else result
+
+# Print the answer with words that fit the scenario.
+print("Electricity one server uses per week in kWh:", result)</code></pre>
+
+                <p>Run it in a terminal, enter 9732.8, then 20, then 4, and it returns 121.66 kWh per server per week.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: unit-rate-per-resource-calculator
+description: Computes how much one resource consumes or costs in one time period when given a bulk total spread across many resources over many periods. Translates a single bulk figure into a per resource per period rate. Trigger this skill whenever the user has one large total (electricity, cost, output, usage) covering several units and several time periods and wants the amount for a single unit in a single period, even if they do not use technical language.
+---
+
+<span class="md-heading"># Unit Rate Per Resource Calculator</span>
+
+This skill takes a bulk total spread across a number of resources and a number of time periods, then works out how much a single resource accounts for in a single period. The input is three numbers: the total amount, the count of resources, and the count of periods. The output is one number stated in plain business terms, the amount per resource per period.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. This uses basic arithmetic only. No libraries are needed.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total amount**</span>: The full bulk figure to split, for example total electricity in kWh. May be a decimal.
+- <span class="md-bold">**Number of resources**</span>: How many resources shared the total, for example servers. A whole number.
+- <span class="md-bold">**Number of periods**</span>: How many time periods the total covers, for example weeks. A whole number.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and state the goal</span>
+
+Print a short line telling the reader what will be figured out, framed to the scenario, for example finding how much power one server uses in one week.
+
+<span class="md-heading">### Step 2 — Collect the three inputs</span>
+
+Ask for the total amount and accept a decimal. Ask for the number of resources and accept a whole number. Ask for the number of periods and accept a whole number.
+
+<span class="md-heading">### Step 3 — Count the resource periods</span>
+
+Multiply the number of resources by the number of periods. This gives the total count of resource periods the bulk figure covers, for example server weeks.
+
+<span class="md-heading">### Step 4 — Divide the total</span>
+
+Divide the total amount by the resource period count from Step 3. The result is the amount for one resource in one period.
+
+<span class="md-heading">### Step 5 — Clean the result</span>
+
+Round the result to two decimals so it reads cleanly. If the rounded result has no leftover decimal, show it as a whole number instead.
+
+<span class="md-heading">### Step 6 — Report the answer</span>
+
+Print the result with short text that fits the scenario, naming the resource and the period, for example electricity one server uses per week.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "20 servers used this much power over 4 weeks. How much per server per week?"
+- "Our fleet burned a total of fuel across all trucks last month. What is that per truck per week?"
+- "We paid one bill for all the office printers over the quarter. Break it down per printer per month."
+- "Split this total usage down to a single machine for a single week."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The YAML frontmatter appears once at the top
+- [ ] There is no Python code anywhere in the skill body
+- [ ] Every step reads as a natural language instruction
+- [ ] Inputs and outputs are clearly named
+- [ ] The two stage divide logic, count resource periods then split the total, is preserved in plain English</code></pre>
+
+                <p>The skill carries the same two stage logic as the script, so Claude can run the calculation from plain instructions without the original code.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-rates" target="_blank" rel="noopener">Khan Academy &mdash; Rates and Unit Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 24, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

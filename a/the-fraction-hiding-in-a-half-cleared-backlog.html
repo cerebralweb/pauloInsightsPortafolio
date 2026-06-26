@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How to recover a missing fraction of a whole when one share and the leftover are known, with two solution paths and a reusable Python tool.">
+    <meta name="keywords" content="fractions, subtracting fractions, least common multiple, business math, Python fractions, missing share">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-fraction-hiding-in-a-half-cleared-backlog.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-fraction-hiding-in-a-half-cleared-backlog.html" />
+
+    <title>The Fraction Hiding in a Half Cleared Backlog</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 26, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE FRACTION HIDING IN A HALF CLEARED BACKLOG
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Backlog work rarely sits with one person. When several people chip away at the same queue, a manager often knows one share and the leftover but not the rest. <dfn>This problem shows how the parts of a whole sum to one, and how that single rule recovers any missing share.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Two support analysts, Leidi and Jimi, are clearing a backlog of customer tickets. Leidi cleared 1/5 of the backlog. Jimi cleared only a very small part. After both finished their shift, 2/3 of the backlog still remained open.</p>
+                <p>What fraction of the backlog did Jimi clear?</p>
+                <ul>
+                    <li>a) 2/15</li>
+                    <li>b) 7/15</li>
+                    <li>c) 2.15</li>
+                    <li>d) 0.215</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 2/15 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The whole backlog equals 1. Since 2/3 stayed open, the two analysts cleared 1/3 together. <strong>Subtract</strong> Leidi's 1/5 from that 1/3 and Jimi's share is what remains, 2/15.</p>
+
+                    <p class="insight"><em>The two shares only combine once they share a denominator, fifteenths, which is the least common multiple of 3 and 5.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>Two paths reach the same share. The following sequences show each one.</p>
+
+                        <p><strong>Path A. Work back from what is left</strong></p>
+                        <ol>
+                            <li><strong>Whole.</strong> the full backlog equals 1</li>
+                            <li><strong>Cleared together.</strong> 1 minus 2/3 leaves 1/3</li>
+                            <li><strong>Common denominator.</strong> 1/3 becomes 5/15 and 1/5 becomes 3/15</li>
+                            <li><strong>Jimi.</strong> 5/15 minus 3/15 leaves 2/15</li>
+                        </ol>
+
+                        <p><strong>Path B. Make the parts sum to one whole</strong></p>
+                        <ol>
+                            <li><strong>Equation.</strong> 1/5 plus 2/3 plus j equals 1</li>
+                            <li><strong>Common denominator.</strong> 3/15 plus 10/15 equals 13/15</li>
+                            <li><strong>Isolate j.</strong> j equals 1 minus 13/15</li>
+                            <li><strong>Jimi.</strong> j equals 2/15</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a whole into shares is one of the oldest uses of arithmetic. Scribes in ancient Egypt recorded grain and labor as parts of a single unit, and merchants later tracked partial payments the same way. Euclid set the formal ground for combining such parts in the Elements around 300 BCE, where he studied common measures and the method now named after him for finding a greatest common divisor.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script recovers any missing share once you give it the known share and the leftover, so it works far beyond this one backlog.</p>
+
+                <pre><code># What this does. Works out the fraction of the backlog Jimi cleared.
+# Where it came from. Two analysts cleared a ticket backlog. Leidi did part, some stayed open, and we want Jimi's part.
+# The math idea. The whole is 1. Subtract what stayed open and what Leidi did. What is left is Jimi's part.
+# You type in. Leidi's share and the share still open, each as a top and bottom number.
+# It prints. The fraction of the backlog Jimi cleared.
+
+# Find the biggest number that divides both, so we can shrink the fraction.
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# This function does the math and gives back a top and bottom number.
+def jimi_share(leidi_top, leidi_bottom, rem_top, rem_bottom):
+    # The whole backlog is 1, written as rem_bottom over rem_bottom.
+    # Work cleared by both is 1 minus the open share.
+    done_top = rem_bottom - rem_top
+    done_bottom = rem_bottom
+
+    # Jimi's part is the cleared work minus Leidi's part.
+    # Put both over the same bottom number, then subtract the top numbers.
+    top = done_top * leidi_bottom - leidi_top * done_bottom
+    bottom = done_bottom * leidi_bottom
+
+    # Shrink the fraction to its simplest form.
+    g = gcd(top, bottom)
+    return top // g, bottom // g
+
+# Tell the reader what we will figure out.
+print("Let's find the share of the backlog Jimi cleared.")
+
+# Ask for Leidi's share.
+leidi_top = int(input("Leidi share top number "))
+leidi_bottom = int(input("Leidi share bottom number "))
+
+# Ask for the share still open.
+rem_top = int(input("Open backlog top number "))
+rem_bottom = int(input("Open backlog bottom number "))
+
+# Do the math.
+top, bottom = jimi_share(leidi_top, leidi_bottom, rem_top, rem_bottom)
+
+# Print the answer with words that fit the scenario.
+print("Jimi cleared this share of the backlog", str(top) + "/" + str(bottom))</code></pre>
+
+                <p>For an exact result with no rounding, the standard library version keeps the fraction and reduces it on its own.</p>
+
+                <pre><code># What this does. Works out the fraction of the backlog Jimi cleared.
+# Where it came from. Two analysts cleared a ticket backlog. Leidi did part, some stayed open, and we want Jimi's part.
+# The math idea. The whole is 1. Subtract the open share and Leidi's share. What is left is Jimi's part.
+# You type in. Leidi's share and the share still open, each as a top and bottom number.
+# It prints. The fraction of the backlog Jimi cleared.
+
+# This tool stores exact fractions and shrinks them for us.
+from fractions import Fraction
+
+# This function does the math and gives back one exact fraction.
+def jimi_share(leidi_top, leidi_bottom, rem_top, rem_bottom):
+    # The whole backlog is 1.
+    whole = Fraction(1)
+    # Take away the open share and Leidi's share.
+    return whole - Fraction(rem_top, rem_bottom) - Fraction(leidi_top, leidi_bottom)
+
+# Tell the reader what we will figure out.
+print("Let's find the share of the backlog Jimi cleared.")
+
+# Ask for Leidi's share.
+leidi_top = int(input("Leidi share top number "))
+leidi_bottom = int(input("Leidi share bottom number "))
+
+# Ask for the share still open.
+rem_top = int(input("Open backlog top number "))
+rem_bottom = int(input("Open backlog bottom number "))
+
+# Do the math.
+result = jimi_share(leidi_top, leidi_bottom, rem_top, rem_bottom)
+
+# Print the answer with words that fit the scenario.
+print("Jimi cleared this share of the backlog", result)</code></pre>
+
+                <p>Run either one in a terminal, type each top and bottom number, and it returns the missing share as a reduced fraction.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic is packaged as a reusable skill, so the steps run without the script.</p>
+
+                <pre class="md-code"><code>---
+name: remaining-share-finder
+description: Finds the missing share of a whole when one party's share and the leftover share are known. Works on fractions and reports the answer as a reduced fraction. Trigger this skill whenever the user has a whole split into parts, knows some parts, and wants the missing part, even if they do not use technical language.
+---
+
+<span class="md-heading"># Remaining Share Finder</span>
+
+This skill finds one missing part of a whole. The whole equals 1. You know one party's share and the share that is still left. The skill subtracts both from the whole and reports the missing party's share as a reduced fraction. It came from a backlog problem where two analysts cleared tickets, one share was known, part stayed open, and the third share was unknown.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+Standard tools only. No third party libraries.
+
+- Basic arithmetic for the plain method
+- The <span class="md-code">`fractions`</span> module from the standard library for the exact method
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Known share**</span>, a fraction given as a top number and a bottom number. The part one party completed.
+- <span class="md-bold">**Leftover share**</span>, a fraction given as a top number and a bottom number. The part still not done.
+
+Both fractions describe parts of the same whole, which equals 1.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &mdash; Collect the two fractions</span>
+
+Ask for the known share as a top number and a bottom number. Ask for the leftover share as a top number and a bottom number. Treat each pair as one fraction.
+
+<span class="md-heading">### Step 2 &mdash; Find the completed work</span>
+
+The whole is 1. Subtract the leftover share from 1. The result is the total work done by everyone except the leftover. Keep it as a fraction over the leftover's bottom number.
+
+<span class="md-heading">### Step 3 &mdash; Remove the known share</span>
+
+Subtract the known share from the completed work. Put both fractions over a common bottom number first, then subtract the top numbers. The result is the missing party's share.
+
+<span class="md-heading">### Step 4 &mdash; Reduce the fraction</span>
+
+Find the largest number that divides both the top and the bottom. Divide both by it. This gives the answer in simplest form. Use the exact <span class="md-code">`fractions`</span> method if you want this reduction handled for you and want to avoid rounding.
+
+<span class="md-heading">### Step 5 &mdash; Report the answer</span>
+
+Print the missing share as a fraction with text that fits the scenario, e.g. the share of the backlog the third party cleared. Do not print only the number.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "One worker did a fifth, two thirds is still left, how much did the other do"
+- "The budget is split three ways, I know two slices, find the third"
+- "A wall is part painted, part left, one painter's share is known, find the other"
+- "Find the missing fraction of the project so the parts add to one whole"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+Before reporting the answer, verify:
+
+- The whole is treated as 1
+- Both inputs are read as fractions with a top and a bottom number
+- The two known parts are subtracted from the whole
+- The answer is reduced to simplest form
+- The result is shown with scenario text, not as a bare number</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &mdash; Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LeastCommonMultiple.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 26, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Dividing one cloud tier total across equal blocks to find the cost per block, with a Python tool and a reusable skill.">
+    <meta name="keywords" content="unit rate, division, cost per unit, cloud billing, decimals, long division, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/cloud-billing-math-and-the-unit-rate-hiding-in-one-invoice.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/cloud-billing-math-and-the-unit-rate-hiding-in-one-invoice.html" />
+
+    <title>Cloud Billing Math and the Unit Rate Hiding in One Invoice</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>06.25.2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    CLOUD BILLING MATH AND THE UNIT RATE HIDING IN ONE INVOICE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Cloud bills arrive as one total for a whole tier, yet decisions get made one unit at a time. Finance teams need the cost of a single block to compare tiers, set chargeback rates, and spot waste. <dfn>This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud team reviews its monthly storage bill. The invoice shows 23 dollars for one service tier. The bill lists 92 equal storage blocks under that tier.</p>
+                <p>What is the cost of one block in dollars?</p>
+                <ul>
+                    <li>a) 0.25</li>
+                    <li>b) 0.261</li>
+                    <li>c) 0.26</li>
+                    <li>d) 0.025</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 0.25 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Divide the tier total by the block count. <strong>23 &divide; 92 = 0.25</strong>. Each block carries one equal share of the bill.</p>
+
+                    <p class="insight"><em>The unit rate is the bridge between a tier total and any single block, so any block count can be priced from one division.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Setup:</strong> 23 &divide; 92, written as 23.000 &divide; 92</li>
+                            <li><strong>First digit:</strong> 92 into 230 goes 2, remainder 46, quotient 0.2</li>
+                            <li><strong>Bring down:</strong> attach the next 0 to 46 to make 460</li>
+                            <li><strong>Second digit:</strong> 92 into 460 goes 5, remainder 0, quotient 0.25</li>
+                            <li><strong>Result:</strong> 0.25 dollars per block</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Long division and decimal fractions made per unit pricing routine. Jamshid al-Kashi, working in Samarkand in the early fifteenth century, set out a clear decimal fraction system and used it to compute pi to sixteen places.</p>
+                <p>Treasuries and merchants later leaned on the same place value method to split bulk totals into per unit costs. That everyday arithmetic sits behind any rate card, from grain in a market stall to storage blocks on a cloud bill.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script divides any tier total by any block count, so the same logic serves every future bill.</p>
+
+                <pre><code># What this does: works out the cost of one storage block.
+# Where it came from: a cloud bill showed one tier total split over equal blocks.
+# The math idea: division to find the cost of one part.
+# You type in: the total tier cost and the number of blocks.
+# It prints: the cost of one block.
+
+# This function does the math.
+def cost_per_block(tier_cost, block_count):
+    # Split the total cost evenly across all blocks.
+    return tier_cost / block_count
+
+# Tell the reader what we will figure out.
+print("Let's find the cost of one storage block.")
+
+# Ask for the total tier cost.
+tier_cost = float(input("Total tier cost in dollars: "))
+
+# Ask for the number of blocks.
+block_count = float(input("Number of blocks: "))
+
+# Do the math.
+result = cost_per_block(tier_cost, block_count)
+
+# Round money to two decimals.
+result = round(result, 2)
+
+# Print the answer with words that fit the scenario.
+print("Cost per storage block in dollars:", result)</code></pre>
+
+                <p>Run it in a terminal, enter the two numbers, and it returns the cost per block rounded to two decimals.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a reusable skill, so the per unit rate can be requested in plain language without touching the code.</p>
+
+                <pre class="md-code"><code>---
+name: cost-per-unit-calculator
+description: Splits one total cost evenly across a count of equal units and returns the cost of a single unit. Use this skill whenever the user has a lump sum and a number of equal parts and wants the per unit rate, even if they don't use technical language. Trigger on requests like "what does one block cost", "cost per unit", "split this total across N items", or any cloud or billing total divided across equal blocks.
+---
+
+<span class="md-heading"># Cost Per Unit Calculator</span>
+
+This skill takes a total cost and a count of equal units, then divides the total evenly to find the cost of one unit. It takes two numbers as input, a total cost and a unit count, and produces one number as output, the cost per unit, stated in plain business terms.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Standard arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total cost**</span>: the full amount for the whole tier or group, in dollars. A number that may have decimals.
+- <span class="md-bold">**Unit count**</span>: how many equal units the total is split across. A number.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the total cost</span>
+
+Ask for the full cost of the whole tier or group. Accept decimal values.
+
+<span class="md-heading">### Step 2 — Collect the unit count</span>
+
+Ask how many equal units share that total. Confirm the count is greater than zero, since dividing by zero has no answer.
+
+<span class="md-heading">### Step 3 — Divide</span>
+
+Divide the total cost by the unit count. The result is the cost of one unit.
+
+<span class="md-heading">### Step 4 — Round and report</span>
+
+Round the result to two decimals for money. Report it with text that names the unit, e.g. "Cost per storage block in dollars: 0.25". Do not return the bare number.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "My storage tier costs 23 dollars across 92 blocks. What is one block?"
+- "Split this 4800 dollar total over 60 seats and tell me the seat cost."
+- "What does a single unit cost if the bundle is 150 for 12 units?"
+- "Give me the per item rate from this invoice total."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The total and the count are both collected before dividing.
+- [ ] The count is checked to be greater than zero.
+- [ ] The output names the unit and is not a bare number.
+- [ ] Money is rounded to two decimals.</code></pre>
+
+                <p>One division, three forms: a worked answer, a portable script, and a skill that anyone on the team can call.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-decimals/arith-review-div-decimals" target="_blank" rel="noopener">Khan Academy &mdash; Dividing to a Decimal Quotient</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LongDivision.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Long Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 25, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

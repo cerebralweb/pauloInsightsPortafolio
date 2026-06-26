@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How two daily energy figures scale into a three week total, why the distributive property makes the arithmetic easy in your head, and how Python and a Claude skill capture the same logic.">
+    <meta name="keywords" content="distributive property, mental math, multiplying decimals, daily rate, energy total, Python, business math, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-distributive-trick-behind-a-three-week-energy-total.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-distributive-trick-behind-a-three-week-energy-total.html" />
+
+    <title>The Distributive Trick Behind a Three Week Energy Total</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 23, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE DISTRIBUTIVE TRICK BEHIND A THREE WEEK ENERGY TOTAL
+                    
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Operations teams rarely care about a single day. They care about what a daily draw becomes across a billing period, because that figure drives budgets, capacity planning, and forecasts. The harder part is doing the arithmetic fast and without slips, which is where one small algebraic habit earns its keep. <dfn>This article shows how two daily figures scale into a period total, why the distributive property turns an awkward multiplication into easy mental math, and how Python and a reusable Claude skill capture the same logic.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data center runs one server. Each day the server uses 0.35 kWh for cooling and 0.6 kWh for the processor. How much energy does the server use over 3 weeks?</p>
+                <ul>
+                    <li>a) 19.85</li>
+                    <li>b) 19.95</li>
+                    <li>c) 0.930</li>
+                    <li>d) 1.995</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 19.95 kWh &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Add the two daily draws to get <strong>0.95 kWh per day</strong>. Rewrite 0.95 as 1 minus 0.05, then <strong>distribute</strong> across one week to get 7 minus 0.35, which is 6.65 kWh. <strong>Multiply</strong> the weekly figure by 3 to reach 19.95 kWh over the period.</p>
+
+                    <p class="insight"><em>Rewriting 0.95 as 1 minus 0.05 turns a hard multiplication into an easy subtraction.</em></p>
+
+                    <p>First, three weeks is three equal blocks of 7 days. Reading the period as a sum lets one week carry the whole calculation.</p>
+
+                    <svg viewBox="0 0 680 175" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:680px;width:100%;height:auto;display:block;margin:1em auto;font-family:Arial,Helvetica,sans-serif"><title>Twenty one days split into three weeks of seven</title><desc>A bar of twenty one days divided into three equal segments of seven days each</desc>
+                        <path d="M60 52 L60 42 L620 42 L620 52" fill="none" stroke="#555555" stroke-width="2"/>
+                        <text x="340" y="32" text-anchor="middle" font-size="15" fill="#222222">21 days = 7 + 7 + 7</text>
+                        <rect x="60" y="62" width="186.67" height="55" fill="#cfe3f5" stroke="#2b6cb0" stroke-width="2"/>
+                        <rect x="246.67" y="62" width="186.66" height="55" fill="#cfe3f5" stroke="#2b6cb0" stroke-width="2"/>
+                        <rect x="433.33" y="62" width="186.67" height="55" fill="#cfe3f5" stroke="#2b6cb0" stroke-width="2"/>
+                        <text x="153.3" y="94" text-anchor="middle" font-size="14" fill="#222222">Week 1 (7 days)</text>
+                        <text x="340" y="94" text-anchor="middle" font-size="14" fill="#222222">Week 2 (7 days)</text>
+                        <text x="526.7" y="94" text-anchor="middle" font-size="14" fill="#222222">Week 3 (7 days)</text>
+                        <text x="340" y="148" text-anchor="middle" font-size="13" fill="#555555">Read as a sum, so one week can carry the calculation</text>
+                    </svg>
+
+                    <p>Next, one week. Imagine each day used a full 1 kWh, so 7 days would be 7 kWh. Each day actually uses 0.05 less, so over 7 days remove 7 times 0.05, which is 0.35. What stays is 6.65 kWh. That removal is the distributive property at work.</p>
+
+                    <svg viewBox="0 0 680 215" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:680px;width:100%;height:auto;display:block;margin:1em auto;font-family:Arial,Helvetica,sans-serif"><title>One week energy by distribution</title><desc>A full bar of seven kilowatt hours with a small piece of zero point three five removed leaving six point six five</desc>
+                        <text x="325" y="28" text-anchor="middle" font-size="15" fill="#222222">0.95 = 1 minus 0.05</text>
+                        <text x="325" y="52" text-anchor="middle" font-size="13" fill="#555555">If each day used a full 1 kWh, 7 days would be 7 kWh</text>
+                        <rect x="80" y="62" width="490" height="38" fill="none" stroke="#888888" stroke-width="2" stroke-dasharray="5 4"/>
+                        <text x="325" y="86" text-anchor="middle" font-size="13" fill="#555555">7 kWh reference</text>
+                        <rect x="80" y="112" width="465.5" height="46" fill="#cdeccf" stroke="#2e7d32" stroke-width="2"/>
+                        <rect x="545.5" y="112" width="24.5" height="46" fill="#f6c6c6" stroke="#c0392b" stroke-width="2"/>
+                        <text x="312.75" y="140" text-anchor="middle" font-size="14" fill="#222222">Used 6.65 kWh</text>
+                        <path d="M545.5 166 L545.5 176 L570 176 L570 166" fill="none" stroke="#c0392b" stroke-width="2"/>
+                        <text x="557.75" y="195" text-anchor="middle" font-size="12" fill="#c0392b">7 x 0.05 = 0.35</text>
+                        <text x="312.75" y="195" text-anchor="middle" font-size="13" fill="#555555">7 x 0.95 = 7 minus 0.35 = 6.65</text>
+                    </svg>
+
+                    <p>Last, put the three equal weeks together. Each week is 6.65 kWh, so the three weeks total 19.95 kWh.</p>
+
+                    <svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:680px;width:100%;height:auto;display:block;margin:1em auto;font-family:Arial,Helvetica,sans-serif"><title>Total across three weeks</title><desc>Three equal bars of six point six five kilowatt hours adding to nineteen point nine five</desc>
+                        <text x="330" y="32" text-anchor="middle" font-size="13" fill="#555555">Three identical weeks</text>
+                        <rect x="60" y="48" width="180" height="50" fill="#cdeccf" stroke="#2e7d32" stroke-width="2"/>
+                        <rect x="240" y="48" width="180" height="50" fill="#cdeccf" stroke="#2e7d32" stroke-width="2"/>
+                        <rect x="420" y="48" width="180" height="50" fill="#cdeccf" stroke="#2e7d32" stroke-width="2"/>
+                        <text x="150" y="78" text-anchor="middle" font-size="14" fill="#222222">6.65 kWh</text>
+                        <text x="330" y="78" text-anchor="middle" font-size="14" fill="#222222">6.65 kWh</text>
+                        <text x="510" y="78" text-anchor="middle" font-size="14" fill="#222222">6.65 kWh</text>
+                        <path d="M60 110 L60 122 L600 122 L600 110" fill="none" stroke="#555555" stroke-width="2"/>
+                        <text x="330" y="146" text-anchor="middle" font-size="15" fill="#222222">Total  6.65 x 3 = 19.95 kWh</text>
+                    </svg>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Daily energy.</strong> 0.35 plus 0.6 equals 0.95 kWh per day.</li>
+                            <li><strong>Rewrite the rate.</strong> 0.95 equals 1 minus 0.05.</li>
+                            <li><strong>Weekly total.</strong> 7 minus (7 times 0.05) equals 7 minus 0.35 equals 6.65 kWh.</li>
+                            <li><strong>Three week total.</strong> 6.65 times 3 equals 19.95 kWh.</li>
+                            <li><strong>Answer.</strong> 19.95 kWh, option b.</li>
+                        </ol>
+                    </div>
+
+                    <h2>The Distributive Theorem</h2>
+
+                    <p>For any numbers a, b, and c,</p>
+
+                    <p>a &times; (b + c) = (a &times; b) + (a &times; c)</p>
+
+                    <p>The subtraction form follows, since subtracting is adding a negative,</p>
+
+                    <p>a &times; (b &minus; c) = (a &times; b) &minus; (a &times; c)</p>
+
+                    <p>That second form is what made the weekly step easy. Setting a equal to 7, b equal to 1, and c equal to 0.05 gives 7 &times; 0.95 = 7 &minus; 0.35 = 6.65. Multiplying by 1 and by a small round number is light work, so distribution trades one awkward multiplication for two easy ones plus a subtraction.</p>
+
+                    <h2>Quick proof</h2>
+
+                    <p>Here is the rule applied to the weekly step, line by line.</p>
+
+                    <p>0.95 = 1 &minus; 0.05</p>
+
+                    <p>7 &times; 0.95 = 7 &times; (1 &minus; 0.05)</p>
+
+                    <p>With a equal to 7, b equal to 1, and c equal to 0.05, the rule a &times; (b &minus; c) = (a &times; b) &minus; (a &times; c) gives</p>
+
+                    <p>7 &times; (1 &minus; 0.05) = (7 &times; 1) &minus; (7 &times; 0.05) = 7 &minus; 0.35 = 6.65</p>
+
+                    <p>Then 6.65 &times; 3 = 19.95, which is option b.</p>
+
+                    <p>The gain shows when you set it beside a direct multiplication that skips the rule. Both reach 19.95, but the work differs.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Distributive complement method</th>
+                                <th>Direct multiplication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Daily total</td>
+                                <td>0.35 + 0.6 = 0.95</td>
+                                <td>0.35 + 0.6 = 0.95</td>
+                            </tr>
+                            <tr>
+                                <td>Core operation</td>
+                                <td>0.95 = 1 &minus; 0.05, then 7 &minus; 0.35</td>
+                                <td>0.95 &times; 21 worked in full</td>
+                            </tr>
+                            <tr>
+                                <td>Hardest single step</td>
+                                <td>7 &times; 0.05 = 0.35</td>
+                                <td>95 &times; 21 = 1995 with carries</td>
+                            </tr>
+                            <tr>
+                                <td>Numbers handled</td>
+                                <td>small and round, 0.05, 0.35, 6.65</td>
+                                <td>two digit by two digit, then a decimal shift</td>
+                            </tr>
+                            <tr>
+                                <td>Done in the head</td>
+                                <td>yes</td>
+                                <td>rare without writing</td>
+                            </tr>
+                            <tr>
+                                <td>Error risk</td>
+                                <td>low</td>
+                                <td>higher</td>
+                            </tr>
+                            <tr>
+                                <td>Result</td>
+                                <td>19.95</td>
+                                <td>19.95</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The complement method keeps every number small and round, so it runs in the head. The direct method forces a two digit multiplication and a decimal shift, work that needs paper and invites slips.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Merchants needed fast, dependable arithmetic long before calculators. In 1585 the Flemish engineer Simon Stevin argued in De Thiende that ordinary traders could work with tenths and hundredths as readily as with whole numbers, which put figures like a daily rate within reach of everyday commerce. The habit of splitting a number into a round part and a small remainder, the heart of the distributive property, is what made such figures quick to scale by hand in ledgers and account books.</p>
+
+                <h2 id="distributive-history">Where the Distributive Property Came From</h2>
+
+                <p>The idea is older than algebra. In Euclid's Elements, around 300 BCE, Book II states the rule in the language of areas. A rectangle built from one side and a sum of parts equals the sum of the smaller rectangles, which is a(b + c + d) = ab + ac + ad drawn in geometry rather than written in symbols.</p>
+
+                <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:680px;width:100%;height:auto;display:block;margin:1em auto;font-family:Arial,Helvetica,sans-serif"><title>Euclid rectangle showing the distributive law as area</title><desc>A rectangle of height a with its width cut into parts b, c, and d, splitting the area into a times b, a times c, and a times d</desc>
+                    <text x="340" y="26" text-anchor="middle" font-size="15" fill="#222222">Euclid, Elements Book II. The rectangle equals the sum of its parts.</text>
+
+                    <path d="M120 72 L120 62 L320 62 L320 72" fill="none" stroke="#555555" stroke-width="2"/>
+                    <text x="220" y="54" text-anchor="middle" font-size="15" fill="#222222">b</text>
+                    <path d="M320 72 L320 62 L470 62 L470 72" fill="none" stroke="#555555" stroke-width="2"/>
+                    <text x="395" y="54" text-anchor="middle" font-size="15" fill="#222222">c</text>
+                    <path d="M470 72 L470 62 L620 62 L620 72" fill="none" stroke="#555555" stroke-width="2"/>
+                    <text x="545" y="54" text-anchor="middle" font-size="15" fill="#222222">d</text>
+
+                    <path d="M112 80 L104 80 L104 220 L112 220" fill="none" stroke="#555555" stroke-width="2"/>
+                    <text x="90" y="155" text-anchor="middle" font-size="15" fill="#222222">a</text>
+
+                    <rect x="120" y="80" width="200" height="140" fill="#cfe3f5" stroke="#2b6cb0" stroke-width="2"/>
+                    <rect x="320" y="80" width="150" height="140" fill="#bcd9f0" stroke="#2b6cb0" stroke-width="2"/>
+                    <rect x="470" y="80" width="150" height="140" fill="#a9cfeb" stroke="#2b6cb0" stroke-width="2"/>
+
+                    <text x="220" y="156" text-anchor="middle" font-size="16" fill="#222222">a &times; b</text>
+                    <text x="395" y="156" text-anchor="middle" font-size="16" fill="#222222">a &times; c</text>
+                    <text x="545" y="156" text-anchor="middle" font-size="16" fill="#222222">a &times; d</text>
+
+                    <text x="340" y="256" text-anchor="middle" font-size="16" fill="#222222">a (b + c + d) = (a &times; b) + (a &times; c) + (a &times; d)</text>
+                    <text x="340" y="282" text-anchor="middle" font-size="13" fill="#555555">Cut one side into parts and the area splits the same way.</text>
+                </svg>
+
+                <p>The name arrived much later. In 1814 the French mathematician Fran&ccedil;ois Joseph Servois introduced the word distributive in a memoir on the properties of operators, published in Gergonne's Annales de math&eacute;matiques. The Scottish mathematician Duncan Gregory drew the commutative and distributive laws into sharper form in an 1839 paper on symbolic algebra. So the rule was used for two thousand years before it had a name, and named a century before most classrooms taught it.</p>
+
+                <p>Picture buying 6 items at 1.99 dollars each. No calculator needed. You think 6 times 2 is 12, then take off 6 times 0.01, which is 0.06, leaving 11.94. That is the distributive property in action. You split 1.99 into 2 minus 0.01 and spread the 6 across both parts.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script generalizes the problem to any two daily amounts and any number of days, so the same tool serves energy, cost, or output.</p>
+
+                <pre><code># What this does. Works out the total energy a server uses over a stretch of days.
+# Where it came from. A data center server drew energy each day for storage and for the processor.
+# The math idea. Add the two daily amounts, then multiply by the number of days.
+# You type in. The storage energy per day, the processor energy per day, and the number of days.
+# It prints. The total energy the server used over that time.
+
+# This function does the math.
+def server_energy(storage_per_day, processor_per_day, days):
+    # Add the two daily amounts to get the energy used in one day.
+    daily_total = storage_per_day + processor_per_day
+    # Multiply the one day amount by how many days.
+    return daily_total * days
+
+# Tell the reader what we will work out.
+print("Let's find the total energy this server uses.")
+
+# Ask for the storage energy used in one day.
+storage_per_day = float(input("Storage energy per day in kWh "))
+
+# Ask for the processor energy used in one day.
+processor_per_day = float(input("Processor energy per day in kWh "))
+
+# Ask for how many days.
+days = float(input("Number of days "))
+
+# Do the math.
+result = server_energy(storage_per_day, processor_per_day, days)
+
+# Show a whole number when the result has no fraction.
+result = int(result) if float(result).is_integer() else round(result, 4)
+
+# Print the answer with words that fit the scenario.
+print("Total energy the server uses over that time in kWh", result)
+</code></pre>
+
+                <p>Run it in a Python prompt, enter the two daily figures and the day count, and it returns the total over the period. With 0.35, 0.6, and 21 it returns 19.95.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic also lives as a reusable Claude skill, so the steps can run from plain language without any code.</p>
+
+                <pre class="md-code"><code>---
+name: daily-rate-period-total
+description: Computes a total from two daily amounts spread across a number of days. Takes a per day amount for one source, a per day amount for a second source, and a day count, then returns the combined total over the period. Trigger this skill whenever the user wants a running total built from two daily figures and a length of time, for example energy use, recurring cost, or daily output, even if they do not use technical language.
+
+---
+
+<span class="md-heading"># Daily Rate Period Total</span>
+
+This skill works out a total that builds up over time from two daily amounts. It takes two per day figures and a number of days, adds the two figures to get a single daily amount, then multiplies that amount by the number of days. It returns the total with short scenario text. The original case was a data center server drawing energy each day for storage and for the processor over three weeks.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No external libraries. Plain arithmetic only, so any standard Python setup runs it.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**First daily amount.**</span> A per day figure for the first source. May be a decimal. Example, storage energy per day in kWh.
+- <span class="md-bold">**Second daily amount.**</span> A per day figure for the second source. May be a decimal. Example, processor energy per day in kWh.
+- <span class="md-bold">**Number of days.**</span> How many days the total covers. May be a decimal, though it is usually whole.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Gather the three inputs</span>
+
+Ask the user for the first daily amount, the second daily amount, and the number of days. Treat all three as numbers that may carry decimals. If any value is missing, ask for it before continuing.
+
+<span class="md-heading">### Step 2 &#8212; Combine the two daily amounts</span>
+
+Add the first daily amount and the second daily amount. The sum is the total used in a single day.
+
+<span class="md-heading">### Step 3 &#8212; Scale across the period</span>
+
+Multiply the single day total from Step 2 by the number of days. The product is the total over the whole period.
+
+<span class="md-heading">### Step 4 &#8212; Tidy the number</span>
+
+If the total has no fractional part, show it as a whole number. Otherwise round it to four decimal places.
+
+<span class="md-heading">### Step 5 &#8212; Report the result</span>
+
+State the total with short text that fits the scenario, naming the unit. For the energy case, report the total energy in kWh over the period. Do not print only the bare number.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Each day a server uses 0.35 kWh for storage and 0.6 kWh for the processor. How much over 3 weeks?"
+- "Add up two daily costs across a month for me."
+- "I have two per day numbers and a day count, give me the total."
+- "Work out total daily output over a stretch of days from two sources."
+</code></pre>
+
+                <p>With the skill in place, a request like the one above resolves to the period total without rebuilding the arithmetic each time.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/7th-grade-foundations-engageny/7th-m2-engage-ny-foundations/7th-m2-tc-foundations/a/distributive-intro" target="_blank" rel="noopener">Khan Academy &#8212; Distributive Property</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/DistributiveProperty.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Distributive Property</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 23, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

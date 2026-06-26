@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a fixed cost to profit ratio lets you recover the profit on a single unit from one total sales figure with two divisions.">
+    <meta name="keywords" content="ratios, proportional parts, profit per unit, business math, python, unit economics">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/95-licenses-one-ratio-rule-one-clean-profit-figure.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/95-licenses-one-ratio-rule-one-clean-profit-figure.html" />
+
+    <title>95 Licenses, One Ratio Rule, One Clean Profit Figure</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>26 Jun 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    95 LICENSES, ONE RATIO RULE, ONE CLEAN PROFIT FIGURE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Margin questions often arrive backward. A team knows the money that came in and the count of units sold, but not how that money split between what each unit cost and what each unit earned. A fixed relationship between cost and profit turns this fog into a clean division, because it lets you treat every sale as a stack of equal shares. <dfn>This problem shows how a single ratio rule recovers the profit on one unit from a lone total, and how Python turns that rule into a tool you reuse on any future sale.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A small team resells cloud monitoring licenses. In one month they sell 95 licenses for a combined 230,085 pesos. For each license, the acquisition cost is twice the profit earned on that license.</p>
+                <p>What is the profit per license?</p>
+                <ul>
+                    <li>a) 807.30</li>
+                    <li>b) 80.73</li>
+                    <li>c) 8.07</li>
+                    <li>d) 403.7</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer a) 807.30 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Each sale divides into three equal shares, two for cost and one for profit, because cost equals twice profit. <strong>Divide</strong> the total 230,085 by 95 units to get the revenue on one license, then <strong>divide</strong> that by 3 to value the single profit share.</p>
+
+                    <p class="insight"><em>When two amounts hold a fixed ratio, you can treat the whole as a sum of equal shares and solve it with one division.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Define the unknown.</strong> Let p be the profit per license.</li>
+                            <li><strong>Express the cost.</strong> Cost per license is 2p.</li>
+                            <li><strong>Express unit revenue.</strong> Revenue per license is 2p plus p, so 3p.</li>
+                            <li><strong>Express total revenue.</strong> 95 units give 95 times 3p, so 285p.</li>
+                            <li><strong>Set up the equation.</strong> 285p equals 230,085.</li>
+                            <li><strong>Solve.</strong> p equals 230,085 divided by 285, so 807.3158.</li>
+                            <li><strong>Round to money.</strong> 807.32, and the nearest choice is a) 807.30.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a shared sum by fixed proportion is one of the oldest tasks in commerce. Medieval merchants in the Italian trading cities divided the returns of a joint venture among partners by agreed shares, a method their account books called the rule of company. Leonardo of Pisa, the merchant son known later as Fibonacci, gave long passages of his 1202 Liber Abaci to these partnership and profit splitting cases, and the merchant schools of Florence and Venice taught them for centuries to clerks who would never write an equation.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script recovers the profit on one unit from a total sale figure under any fixed cost to profit ratio, so it works on this license example and on any future one.</p>
+
+                <pre><code># What this does: works out the profit on each license from total sales.
+# Where it came from: a team resold licenses, and each unit's cost was a fixed multiple of its profit.
+# The math idea: split each sale into equal parts, then find the value of one part.
+# You type in: the total revenue, the number of licenses, and how many parts the cost equals.
+# It prints: the profit earned on one license.
+
+# This function does the math.
+def profit_per_unit(total_revenue, units, cost_parts):
+    # Each sale is the cost parts plus one profit part.
+    total_parts = cost_parts + 1
+    # Revenue on one license.
+    revenue_each = total_revenue / units
+    # One part is the profit. Split the unit revenue into the parts.
+    return revenue_each / total_parts
+
+# Tell the reader what we will figure out.
+print("Let's find the profit earned on each license.")
+
+# Ask for the total revenue from all licenses.
+total_revenue = float(input("Total revenue: "))
+
+# Ask for how many licenses were sold.
+units = float(input("Number of licenses: "))
+
+# Ask how many parts the cost equals, when profit is one part.
+cost_parts = float(input("Cost parts per license (profit is 1 part): "))
+
+# Do the math.
+result = profit_per_unit(total_revenue, units, cost_parts)
+
+# Round money to two decimals.
+result = round(result, 2)
+
+# Print the answer with words that fit the scenario.
+print("Profit per license:", result)
+</code></pre>
+
+                <p>Run it in a terminal, enter 230085, then 95, then 2, and it prints 807.32, the profit on one license.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a reusable Claude skill, so the calculation can run from a plain request rather than a script.</p>
+
+                <pre class="md-code"><code>---
+name: profit-per-unit-from-fixed-cost-ratio
+description: Finds the profit earned on each unit sold when the per unit cost is a fixed multiple of the per unit profit. Takes total revenue, the number of units, and the cost ratio, then returns profit per unit. Trigger this skill whenever the user wants to back out per unit profit from a total sales figure under a fixed cost to profit split, even if they do not use technical language.
+---
+
+<span class="md-heading"># Profit Per Unit From a Fixed Cost Ratio</span>
+
+This skill finds the profit earned on one unit when every sale splits into cost and profit in a fixed ratio. It takes the total revenue from all units, the number of units sold, and how many parts the cost equals when profit is one part. It returns the profit per unit. The method treats each sale as a set of equal parts, finds the revenue on one unit, then divides that into parts to value the single profit part.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Basic arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total revenue**</span>: the combined money from all units sold. A number, may include decimals.
+- <span class="md-bold">**Number of units**</span>: how many units were sold. A number.
+- <span class="md-bold">**Cost parts per unit**</span>: how many parts the cost equals when profit is one part. For a cost twice the profit, this is 2.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Collect the three inputs</span>
+
+Ask for the total revenue, the number of units, and the cost parts per unit. Treat all three as numbers that may carry decimals.
+
+<span class="md-heading">### Step 2 &#8212; Find the total number of parts</span>
+
+Add one to the cost parts. The cost parts plus the single profit part give the total parts in each sale. For a cost twice the profit, that is 2 plus 1, so 3 parts.
+
+<span class="md-heading">### Step 3 &#8212; Find the revenue on one unit</span>
+
+Divide the total revenue by the number of units. This gives the money from a single sale.
+
+<span class="md-heading">### Step 4 &#8212; Find the profit on one unit</span>
+
+Divide the revenue on one unit by the total parts. One part is the profit, so this value is the profit per unit.
+
+<span class="md-heading">### Step 5 &#8212; Round and report</span>
+
+Round the result to two decimals for money. Report it with text that names the scenario, e.g. "Profit per unit: 807.32".
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "We sold 95 licenses for 230,085 total and cost is twice the profit. What is the profit on each one?"
+- "Find the profit per item when each sale splits into cost and profit at a fixed ratio."
+- "Total sales were 50,000 across 200 units, cost is three times the profit. Profit per unit?"
+- "Back out the per unit margin from our total revenue and a known cost to profit split."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] Total parts equals cost parts plus one.
+- [ ] Revenue per unit comes from total revenue divided by units.
+- [ ] Profit per unit comes from revenue per unit divided by total parts.
+- [ ] Money is rounded to two decimals.
+- [ ] The final line names the scenario, not just the number.
+</code></pre>
+
+                <p>Saved as a skill file, this turns a one off answer into a repeatable tool any teammate can call.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic" target="_blank" rel="noopener">Khan Academy &#8212; Ratios and Proportional Relationships</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 26, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
