@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Adding three route segments measured in unlike fractions, then dividing by a fixed interval, gives the station count. Shown as solution routes, numeric matrices, a bar model, and two Python scripts.">
+    <meta name="keywords" content="adding fractions, mixed numbers, dividing by a fraction, route planning, station spacing, python fractions, bar model">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-arithmetic-that-turns-three-route-segments-into-twenty-eight-stations.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-arithmetic-that-turns-three-route-segments-into-twenty-eight-stations.html" />
+
+    <title>The Arithmetic That Turns Three Route Segments Into Twenty Eight Stations</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE ARITHMETIC THAT TURNS THREE ROUTE SEGMENTS INTO TWENTY EIGHT STATIONS
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Route and coverage planning rarely starts with one clean measurement. Operations teams combine segments recorded in different ways, then turn the total into a count of equipment or staff placed at a fixed interval. <dfn>This problem shows how adding unlike fractions and dividing by a rate models a real placement decision, and how Python turns that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics team is mapping a delivery route that runs through three zones. The first zone covers 2.5 km, the second covers 2 and 1/3 km, and the third covers 2 and 1/6 km. The team must place a scanning station every quarter kilometer along the full route.</p>
+                <p>How many scanning stations are needed?</p>
+                <ul>
+                    <li>a) 28</li>
+                    <li>b) 5</li>
+                    <li>c) 4</li>
+                    <li>d) 2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 28 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Add</strong> the three segment lengths on a common base to reach the full route of 7 km, then <strong>divide</strong> by the station spacing. Dividing by a quarter is the same as multiplying by four, so the total maps straight to the station count.</p>
+
+                    <p class="insight"><em>Dividing by 0.25 is the same as multiplying by 4.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Whole kilometers:</strong> 2 + 2 + 2 = 6</li>
+                            <li><strong>Fraction kilometers:</strong> 1/2 + 1/3 + 1/6 = 1</li>
+                            <li><strong>Total route:</strong> 6 + 1 = 7 km</li>
+                            <li><strong>Station count:</strong> 7 &divide; 0.25 = 7 &times; 4 = 28</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>Three Solution Routes</h2>
+
+                <p>The same answer can be reached three ways. Each one combines the lengths to 7, then turns 7 into 28.</p>
+
+                <ol>
+                    <li><strong>Mental math.</strong> Each zone is at least 2 km, so 2 &times; 3 = 6 km, which already covers 24 stations. The leftover fractions 1/3 + 1/6 = 3/6 = 1/2, plus the remaining 1/2, give 1 more km and 4 more stations. 24 + 4 = 28.</li>
+                    <li><strong>Decimals.</strong> Add the whole numbers, then the fractions. 2.5 + 2.333 + 2.166 = 7, then 7 &times; 4 = 28. A third has no clean decimal, so keep the full repeating value or the total falls just short of 7.</li>
+                    <li><strong>Direct.</strong> Total 7 km, and dividing by a quarter is multiplying by 4, so 7 &times; 4 = 28.</li>
+                </ol>
+
+                <h2>The Same Logic As Pure Numbers</h2>
+
+                <p>Each zone splits into a whole part and a fraction part. On a base of six, the fractions add to one whole.</p>
+
+                <table>
+                    <thead>
+                        <tr><th>zone</th><th>whole</th><th>fraction</th><th>sixths</th><th>decimal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>2</td><td>1/2</td><td>3/6</td><td>2.500</td></tr>
+                        <tr><td>2</td><td>2</td><td>1/3</td><td>2/6</td><td>2.333</td></tr>
+                        <tr><td>3</td><td>2</td><td>1/6</td><td>1/6</td><td>2.166</td></tr>
+                        <tr><td><strong>sum</strong></td><td><strong>6</strong></td><td><strong>1</strong></td><td><strong>6/6</strong></td><td><strong>7.000</strong></td></tr>
+                        <tr><td><strong>&times;4</strong></td><td></td><td></td><td></td><td><strong>28</strong></td></tr>
+                    </tbody>
+                </table>
+
+                <p>The three solution routes hold the same two operations, step by step.</p>
+
+                <table>
+                    <thead>
+                        <tr><th>method</th><th>step 1</th><th>step 2</th><th>step 3</th><th>step 4</th><th>result</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>mental math</td><td>2&times;3=6</td><td>6&times;4=24</td><td>1/3+1/6=3/6</td><td>3/6+1/2=1 &rarr; 6+1=7</td><td>7&times;4=28</td></tr>
+                        <tr><td>decimals</td><td>2+2+2=6</td><td>0.5+0.333+0.166=1</td><td>6+1=7</td><td></td><td>7&times;4=28</td></tr>
+                        <tr><td>direct</td><td>total=7</td><td>7&times;4=28</td><td></td><td></td><td>28</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>Bar Model</h2>
+
+                <p>The top bar shows the three zones forming one route of 7 km. The lower bar shows that same length cut into 28 quarter kilometer pieces.</p>
+
+                <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar model of the route length and station count" font-family="'Source Sans Pro', Arial, sans-serif" style="width:100%;height:auto;">
+                  <title>Route length and station count</title>
+                  <text x="30" y="40" font-size="20" font-weight="700" fill="#1b3a5c">Route length and station count</text>
+                  <rect x="30" y="70" width="250" height="60" fill="#cfe3f7" stroke="#2f5e8f" stroke-width="2"/>
+                  <rect x="280" y="70" width="233.33" height="60" fill="#bcd6f0" stroke="#2f5e8f" stroke-width="2"/>
+                  <rect x="513.33" y="70" width="216.67" height="60" fill="#a9c9ea" stroke="#2f5e8f" stroke-width="2"/>
+                  <text x="155" y="95" font-size="14" fill="#1b3a5c" text-anchor="middle">Zone 1</text>
+                  <text x="155" y="115" font-size="14" fill="#1b3a5c" text-anchor="middle">2.5 km</text>
+                  <text x="396" y="95" font-size="14" fill="#1b3a5c" text-anchor="middle">Zone 2</text>
+                  <text x="396" y="115" font-size="14" fill="#1b3a5c" text-anchor="middle">2 1/3 km</text>
+                  <text x="621" y="95" font-size="14" fill="#1b3a5c" text-anchor="middle">Zone 3</text>
+                  <text x="621" y="115" font-size="14" fill="#1b3a5c" text-anchor="middle">2 1/6 km</text>
+                  <path d="M30 145 L30 155 L730 155 L730 145" fill="none" stroke="#1b3a5c" stroke-width="2"/>
+                  <text x="380" y="178" font-size="16" font-weight="700" fill="#1b3a5c" text-anchor="middle">Total route 7 km</text>
+                  <rect x="30" y="220" width="700" height="50" fill="#eef5fc" stroke="#2f5e8f" stroke-width="2"/>
+                  <g stroke="#7fa8d0" stroke-width="1">
+                    <line x1="55" y1="220" x2="55" y2="270"/><line x1="80" y1="220" x2="80" y2="270"/><line x1="105" y1="220" x2="105" y2="270"/><line x1="130" y1="220" x2="130" y2="270"/><line x1="155" y1="220" x2="155" y2="270"/><line x1="180" y1="220" x2="180" y2="270"/><line x1="205" y1="220" x2="205" y2="270"/><line x1="230" y1="220" x2="230" y2="270"/><line x1="255" y1="220" x2="255" y2="270"/><line x1="280" y1="220" x2="280" y2="270"/><line x1="305" y1="220" x2="305" y2="270"/><line x1="330" y1="220" x2="330" y2="270"/><line x1="355" y1="220" x2="355" y2="270"/><line x1="380" y1="220" x2="380" y2="270"/><line x1="405" y1="220" x2="405" y2="270"/><line x1="430" y1="220" x2="430" y2="270"/><line x1="455" y1="220" x2="455" y2="270"/><line x1="480" y1="220" x2="480" y2="270"/><line x1="505" y1="220" x2="505" y2="270"/><line x1="530" y1="220" x2="530" y2="270"/><line x1="555" y1="220" x2="555" y2="270"/><line x1="580" y1="220" x2="580" y2="270"/><line x1="605" y1="220" x2="605" y2="270"/><line x1="630" y1="220" x2="630" y2="270"/><line x1="655" y1="220" x2="655" y2="270"/><line x1="680" y1="220" x2="680" y2="270"/><line x1="705" y1="220" x2="705" y2="270"/>
+                  </g>
+                  <text x="380" y="300" font-size="14" fill="#1b3a5c" text-anchor="middle">One station every 0.25 km, so 28 equal pieces</text>
+                  <path d="M30 315 L30 325 L730 325 L730 315" fill="none" stroke="#1b3a5c" stroke-width="2"/>
+                  <text x="380" y="350" font-size="16" font-weight="700" fill="#1b3a5c" text-anchor="middle">28 stations</text>
+                  <text x="380" y="400" font-size="18" font-weight="700" fill="#2f5e8f" text-anchor="middle">7 km &#247; 0.25 km = 7 &#215; 4 = 28</text>
+                </svg>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Combining parts measured in halves, thirds, and sixths is one of the oldest recorded calculations. Egyptian scribes wrote almost every fraction as a sum of unit fractions, each with one on top, and the Rhind Mathematical Papyrus copied around 1550 BCE is full of such sums. The identity 1/2 + 1/3 + 1/6 = 1 is exactly the kind of unit fraction sum it drills, so the zone fractions here reproduce a piece of arithmetic more than three thousand years old. The same instinct survives in commerce and engineering, where a quantity is split into convenient parts, recombined into one total, then divided by a fixed rate to plan supplies, staff, or equipment along a line.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>Two scripts solve the same problem. The first uses plain arithmetic. The second keeps the fractions exact so thirds and sixths never drift, which makes it reliable for any route and any interval.</p>
+
+                <p>Option 1, pure Python.</p>
+
+                <pre><code># What this does. Counts the scanning stations a route needs.
+# Where it came from. A logistics team maps a route through three zones and places a station every quarter km.
+# The math idea. Add the three lengths, then divide by the spacing.
+# You type in. The three zone lengths and the spacing, all in km.
+# It prints. How many scanning stations the route needs.
+
+# This function does the math.
+def stations_needed(zone1, zone2, zone3, spacing):
+    # Add the three zone lengths to get the full route.
+    total = zone1 + zone2 + zone3
+    # Divide the route by the spacing to get the station count.
+    return total / spacing
+
+# Tell the reader what we will work out.
+print("Let's count the scanning stations the route needs.")
+
+# Ask for each zone length in km.
+zone1 = float(input("Zone 1 length in km "))
+zone2 = float(input("Zone 2 length in km "))
+zone3 = float(input("Zone 3 length in km "))
+
+# Ask for the spacing between stations in km.
+spacing = float(input("Spacing between stations in km "))
+
+# Do the math.
+result = stations_needed(zone1, zone2, zone3, spacing)
+
+# Show a whole number when the result has no leftover.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Scanning stations the route needs", result)</code></pre>
+
+                <p>Option 2, exact fractions with the Fraction class.</p>
+
+                <pre><code># What this does. Counts the scanning stations a route needs, with exact fractions.
+# Where it came from. A logistics team maps a route through three zones and places a station every quarter km.
+# The math idea. Add the three lengths as exact fractions, then divide by the spacing.
+# You type in. The three zone lengths and the spacing, as a fraction like 7/3 or a decimal like 2.5.
+# It prints. How many scanning stations the route needs.
+
+# Bring in a tool that keeps fractions exact, so a third stays a third.
+from fractions import Fraction
+
+# This function does the math.
+def stations_needed(zone1, zone2, zone3, spacing):
+    # Add the three zone lengths to get the full route.
+    total = zone1 + zone2 + zone3
+    # Divide the route by the spacing to get the station count.
+    return total / spacing
+
+# Tell the reader what we will work out.
+print("Let's count the scanning stations the route needs.")
+
+# Ask for each zone length. A fraction like 7/3 or a decimal like 2.5 both work.
+zone1 = Fraction(input("Zone 1 length in km "))
+zone2 = Fraction(input("Zone 2 length in km "))
+zone3 = Fraction(input("Zone 3 length in km "))
+
+# Ask for the spacing between stations.
+spacing = Fraction(input("Spacing between stations in km "))
+
+# Do the math. The result stays exact.
+result = stations_needed(zone1, zone2, zone3, spacing)
+
+# Show a whole number when the result has no leftover.
+result = int(result) if result.denominator == 1 else result
+
+# Print the answer with words that fit the scenario.
+print("Scanning stations the route needs", result)</code></pre>
+
+                <p>Run either in a terminal, enter 2.5, 7/3, 13/6, and 0.25 when prompted, and it returns 28.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &mdash; Adding and Subtracting Fractions</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

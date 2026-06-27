@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A square server room is split into two cooling zones, and one zone perimeter gives the full floor area through the fixed shape of a square and a reusable Python script.">
+    <meta name="keywords" content="area of a square, rectangle perimeter, geometry, business math, python, clpalacios">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/how-a-single-zone-perimeter-reveals-the-whole-square-floor-area.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/how-a-single-zone-perimeter-reveals-the-whole-square-floor-area.html" />
+
+    <title>How a Single Zone Perimeter Reveals the Whole Square Floor Area</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    HOW A SINGLE ZONE PERIMETER REVEALS THE WHOLE SQUARE FLOOR AREA
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Space planning in a data center starts from limits, not from open room. A team often knows the size of one zone before it knows the size of the whole floor, so it must work backward from a boundary measurement to the area it controls. <dfn>This problem shows how the fixed shape of a square turns one perimeter figure into a full area, and how a short Python script makes that step reusable for any room.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data center architect is partitioning a square server room into two identical rectangular cooling zones. Each zone has a perimeter of 39 meters.</p>
+                <p>What is the area of the original square server room in square meters?</p>
+                <ul>
+                    <li>a) 169</li>
+                    <li>b) 144</li>
+                    <li>c) 225</li>
+                    <li>d) 84 and 1/2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 169 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The cut halves the square, so each zone keeps the full side as its length and half the side as its height. The zone perimeter equals <strong>three</strong> of the square sides, so the side is the perimeter <strong>divided by 3</strong>, and the area is the side <strong>multiplied by itself</strong>.</p>
+
+                    <h2>Reading the Square and the Cut</h2>
+                    <p><strong>How the square helps.</strong> A square has four equal sides, so the two dimensions of the room are the same number. Find one side and you know them all, and that full side becomes the longer side of each cooling zone after the cut.</p>
+                    <p><strong>How the two zone dimensions relate.</strong> The cut splits the square and halves it, so each zone keeps the full side as its length and gets half the side as its height. The length is twice the height.</p>
+                    <p><strong>What unit we count.</strong> The unit is the shorter side, the height. The longer side equals two of those units, which is why 39 splits into six equal parts of 6.5.</p>
+
+                    <p class="insight"><em>Every zone perimeter holds the square side three times, so one measurement fixes the whole floor.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>Three solutions reach the same area.</p>
+
+                        <p><strong>Solution 1. Counting units</strong></p>
+                        <ol>
+                            <li><strong>Set the ratio:</strong> length is twice the height, so two units of length and one unit of height</li>
+                            <li><strong>Count the units in the perimeter:</strong> two lengths and two heights make six equal units</li>
+                            <li><strong>Find one unit:</strong> 39 divided by 6 equals 6.5, the height</li>
+                            <li><strong>Find the side:</strong> 6.5 times 2 equals 13, the square side</li>
+                            <li><strong>Compute the area:</strong> 13 times 13 equals 169 square meters</li>
+                        </ol>
+
+                        <p><strong>Solution 2. Algebra from the height</strong></p>
+                        <ol>
+                            <li>Let a be the height and 2a the length</li>
+                            <li>a + a + 2a + 2a = 39</li>
+                            <li>6a = 39, so a = 6.5</li>
+                            <li>The side is 2a = 13</li>
+                            <li>The area is 13 × 13 = 169 square meters</li>
+                        </ol>
+
+                        <p><strong>Solution 3. Algebra from the length</strong></p>
+                        <ol>
+                            <li>Let l be the length and one half l the height</li>
+                            <li>l + l + (1/2)l + (1/2)l = 39</li>
+                            <li>3l = 39, so l = 13</li>
+                            <li>The side is l = 13</li>
+                            <li>The area is 13 × 13 = 169 square meters</li>
+                        </ol>
+                    </div>
+
+                    <figure>
+                        <svg viewBox="0 0 640 500" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:640px; height:auto; display:block; margin:1em auto;">
+                          <rect x="0" y="0" width="640" height="500" fill="#ffffff"/>
+                          <g font-family="Arial, Helvetica, sans-serif">
+
+                            <text x="60" y="30" font-size="14" font-weight="bold" fill="#33475b">Perimeter split into 6 equal units</text>
+
+                            <text x="320" y="50" font-size="15" font-weight="bold" fill="#1f2d3d" text-anchor="middle">Perimeter = 39 m</text>
+                            <path d="M60,58 L580,58 M60,58 L60,66 M580,58 L580,66 M320,58 L320,53" stroke="#33475b" stroke-width="1.5" fill="none"/>
+
+                            <rect x="60" y="78" width="86.667" height="56" fill="#cfe0f1" stroke="#33475b" stroke-width="1.5"/>
+                            <rect x="146.667" y="78" width="86.667" height="56" fill="#cfe0f1" stroke="#33475b" stroke-width="1.5"/>
+                            <rect x="233.333" y="78" width="86.667" height="56" fill="#cfe0f1" stroke="#33475b" stroke-width="1.5"/>
+                            <rect x="320" y="78" width="86.667" height="56" fill="#cfe0f1" stroke="#33475b" stroke-width="1.5"/>
+                            <rect x="406.667" y="78" width="86.667" height="56" fill="#f3e2cd" stroke="#33475b" stroke-width="1.5"/>
+                            <rect x="493.333" y="78" width="86.667" height="56" fill="#f3e2cd" stroke="#33475b" stroke-width="1.5"/>
+
+                            <text x="103.33" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+                            <text x="190" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+                            <text x="276.67" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+                            <text x="363.33" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+                            <text x="450" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+                            <text x="536.67" y="111" font-size="15" fill="#1f2d3d" text-anchor="middle">6.5</text>
+
+                            <path d="M60,146 L233.333,146 M60,146 L60,138 M233.333,146 L233.333,138" stroke="#33475b" stroke-width="1.5" fill="none"/>
+                            <text x="146.67" y="160" font-size="12" fill="#1f2d3d" text-anchor="middle">length = 13</text>
+
+                            <path d="M233.333,146 L406.667,146 M233.333,146 L233.333,138 M406.667,146 L406.667,138" stroke="#33475b" stroke-width="1.5" fill="none"/>
+                            <text x="320" y="160" font-size="12" fill="#1f2d3d" text-anchor="middle">length = 13</text>
+
+                            <path d="M406.667,146 L493.333,146 M406.667,146 L406.667,138 M493.333,146 L493.333,138" stroke="#33475b" stroke-width="1.5" fill="none"/>
+                            <text x="450" y="160" font-size="11" fill="#1f2d3d" text-anchor="middle">height 6.5</text>
+
+                            <path d="M493.333,146 L580,146 M493.333,146 L493.333,138 M580,146 L580,138" stroke="#33475b" stroke-width="1.5" fill="none"/>
+                            <text x="536.67" y="160" font-size="11" fill="#1f2d3d" text-anchor="middle">height 6.5</text>
+
+                            <text x="320" y="186" font-size="13" fill="#4a5b6e" text-anchor="middle">Each unit = 39 ÷ 6 = 6.5      Length = 2 units = 13</text>
+
+                            <text x="60" y="224" font-size="14" font-weight="bold" fill="#33475b">The square room and the cut</text>
+
+                            <text x="340" y="248" font-size="13" fill="#1f2d3d" text-anchor="middle">13 m</text>
+                            <path d="M250,253 L430,253 M250,253 L250,261 M430,253 L430,261" stroke="#33475b" stroke-width="1.5" fill="none"/>
+
+                            <text transform="rotate(-90 232 352)" x="232" y="352" font-size="13" fill="#1f2d3d" text-anchor="middle">13 m</text>
+                            <path d="M242,262 L242,442 M242,262 L250,262 M242,442 L250,442" stroke="#33475b" stroke-width="1.5" fill="none"/>
+
+                            <rect x="250" y="262" width="180" height="180" fill="#eef3f8" stroke="#33475b" stroke-width="1.5"/>
+
+                            <line x1="250" y1="352" x2="430" y2="352" stroke="#b5651d" stroke-width="1.5" stroke-dasharray="6 4"/>
+                            <text x="438" y="349" font-size="10" fill="#b5651d" text-anchor="start">cut</text>
+
+                            <text x="340" y="312" font-size="12" fill="#1f2d3d" text-anchor="middle">zone 13 × 6.5</text>
+                            <text x="340" y="402" font-size="12" fill="#1f2d3d" text-anchor="middle">zone 13 × 6.5</text>
+
+                            <text x="340" y="474" font-size="16" font-weight="bold" fill="#1f2d3d" text-anchor="middle">Area = 13 × 13 = 169 m²</text>
+
+                          </g>
+                        </svg>
+                        <figcaption>The perimeter splits into six equal units of 6.5. Four units form the two lengths and two form the two heights. The square has side 13 and each zone is 13 by 6.5.</figcaption>
+                    </figure>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Measuring land from its edges is one of the oldest tasks in mathematics. In ancient Egypt the rope stretchers reset field boundaries after each Nile flood, and the Rhind Mathematical Papyrus, copied around 1550 BCE, already recorded methods for the area of squares and rectangles used to assess farmland. The same reasoning, an area fixed by a known boundary, still drives how planners size floors and plots today.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script turns the same geometry into a tool that finds the square floor area from any single zone perimeter.</p>
+
+                <pre><code># What this does. It finds the floor area of a square server room.
+# Where it came from. A square room was cut in half into two rectangular cooling zones.
+# The math idea. Divide the zone perimeter by 3 to get the side, then multiply the side by itself.
+# You type in. The perimeter of one cooling zone.
+# It prints. The floor area of the square room.
+
+# This function does the math.
+def square_room_area(zone_perimeter):
+    # Divide the perimeter by 3 to get one side of the square.
+    side = zone_perimeter / 3
+    # Multiply the side by itself to get the area.
+    return side * side
+
+# Tell the reader what we will find.
+print("Let's find the floor area of the square server room.")
+
+# Ask for the perimeter of one cooling zone.
+zone_perimeter = float(input("Perimeter of one cooling zone in meters "))
+
+# Do the math.
+area = square_room_area(zone_perimeter)
+
+# If the area is a whole number, show it without a decimal.
+area = int(area) if area.is_integer() else area
+
+# Print the answer with words that fit the scenario.
+print(f"Floor area of the square server room is {area} square meters")</code></pre>
+
+                <p>Run it in a terminal, type the perimeter of one cooling zone, and it returns the floor area of the square room in square meters.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter" target="_blank" rel="noopener">Khan Academy — Area and Perimeter</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Square.html" target="_blank" rel="noopener">Wolfram MathWorld — Square</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/geometry" target="_blank" rel="noopener">Mathematics Stack Exchange — Geometry</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

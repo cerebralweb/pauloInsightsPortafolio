@@ -7,6 +7,26 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "How A Single Zone Perimeter Reveals The Whole Square Floor Area",
+            articleDescription: " A team often knows the size of one zone before it knows the size of the whole floor, so it must work backward from a boundary measurement to the area it controls. This problem shows how the fixed shape of a square turns one perimeter figure into a full area, and how a short Python script makes that step reusable for any room",
+            articleHref: "/a/how-a-single-zone-perimeter-reveals-the-whole-square-floor-area.html"
+        },
+        {
+            articleTitle: "12 Warehouse Slots, One Fraction Chain, Zero Guesswork",
+            articleDescription: "One sub-group, one category, one verified number",
+            articleHref: "/a/12-warehouse-slots-one-fraction-chain-zero-guesswork.html"
+        },
+        {
+            articleTitle: "The Arithmetic That Turns Three Route Segments Into Twenty Eight Stations",
+            articleDescription: "Route and coverage planning rarely starts with one clean measurement. Operations teams combine segments recorded in different ways, then turn the total into a count of equipment or staff placed at a fixed interval. This problem shows how adding unlike fractions and dividing by a rate models a real placement decision, and how Python turns that logic into a reusable tool",
+            articleHref: "/a/the-arithmetic-that-turns-three-route-segments-into-twenty-eight-stations.html"
+        },
+        {
+            articleTitle: "Multiply A Packing Time By One And A Half For The Next Order",
+            articleDescription: "Operations teams rarely plan a job from nothing. They size a new run against one they already measured, scaling that known time to fit a larger or repeat task, which sets the schedule and the staffing window before any work starts. This problem shows how multiplying a known duration by a simple factor turns one measured time into a planning number, and how Python can hold that logic as a reusable tool",
+            articleHref: "/a/multiply-a-packing-time-by-one-and-a-half-for-the-next-order.html"
+        },
+        {
             articleTitle: "60 Hours, 24 Attendees, And One Division Rule That Settles It",
             articleDescription: "This problem shows how a single division turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
             articleHref: "/a/60-hours-24-attendees-and-one-division-rule-that-settles-it.html"

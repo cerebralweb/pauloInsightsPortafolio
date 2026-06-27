@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A warehouse packing time scaled by one and a half, solved as a decimal and as an exact fraction, with a reusable Python script and a Claude skill.">
+    <meta name="keywords" content="mixed numbers, multiplying fractions, scaling a duration, business math, Python fractions, Claude skill, unit fractions">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/multiply-a-packing-time-by-one-and-a-half-for-the-next-order.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/multiply-a-packing-time-by-one-and-a-half-for-the-next-order.html" />
+
+    <title>Multiply a Packing Time by One and a Half for the Next Order</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    MULTIPLY A PACKING TIME BY ONE AND A HALF FOR THE NEXT ORDER
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Operations teams rarely plan a job from nothing. They size a new run against one they already measured, scaling that known time to fit a larger or repeat task, which sets the schedule and the staffing window before any work starts. <dfn>This problem shows how multiplying a known duration by a simple factor turns one measured time into a planning number, and how Python can hold that logic as a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A warehouse team packed the first order in 13.5 minutes. The second order took 1 and 1/2 times as long as the first.</p>
+                <p>How many minutes did the second order take?</p>
+                <ul>
+                    <li>a) 20</li>
+                    <li>b) 6.75</li>
+                    <li>c) 2</li>
+                    <li>d) 20.25</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 20.25 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Read one and a half as the full first time plus half of it again. <strong>Multiply</strong> 13.5 by 1.5, or <strong>add</strong> 13.5 and 6.75, and either route lands on 20.25 minutes.</p>
+
+                    <p class="insight"><em>The extra 6.75 minutes is just half of the first order, so the second order is the first order and its half combined.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Full first time:</strong> 13.5 minutes</li>
+                            <li><strong>Half of the first time:</strong> 6.75 minutes</li>
+                            <li><strong>Add the parts:</strong> 13.5 + 6.75 = 20.25 minutes</li>
+                            <li><strong>As mixed numbers:</strong> 13 and 1/2 plus 6 and 3/4 gives 19 and 5/4</li>
+                            <li><strong>Carry the extra fourths:</strong> 19 and 5/4 = 20 and 1/4</li>
+                            <li><strong>Second order time:</strong> 20.25 minutes</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Scaling a quantity by halves is one of the oldest moves in arithmetic. Egyptian scribes multiplied by doubling and halving and wrote each fraction as a sum of unit parts, a method preserved in the Rhind Mathematical Papyrus that the scribe Ahmes copied around 1650 BCE. The same instinct, take a known amount and add half of it again, still sits behind everyday estimates of time, cost, and capacity.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script multiplies any first duration by any factor, so it answers the whole family of these problems, not just one set of numbers.</p>
+
+                <pre><code># What this does — works out how long the second order takes when it runs longer than the first.
+# Where it came from — a warehouse packed the first order, and the second order took a set number of times as long.
+# The math idea — multiply a time by a factor.
+# You type in — the first order time in minutes and how many times as long the second order is.
+# It prints — the second order time in minutes.
+
+# This function does the math.
+def second_order_time(first_minutes, factor):
+    # Multiply the first time by the factor.
+    return first_minutes * factor
+
+# Tell the reader what we will figure out.
+print("Let's find how long the second order takes.")
+
+# Ask for the first order time in minutes.
+first_minutes = float(input("How many minutes did the first order take? "))
+
+# Ask how many times as long the second order is. For one and a half, type 1.5
+factor = float(input("How many times as long is the second order? "))
+
+# Do the math.
+result = second_order_time(first_minutes, factor)
+
+# Show a whole number when it comes out even, else keep the decimal.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("The second order takes", result, "minutes.")</code></pre>
+
+                <p>The exact version keeps the value as a fraction and also prints the mixed number, which matches the fraction path above.</p>
+
+                <pre><code># What this does — works out the second order time and keeps it exact as a fraction.
+# Where it came from — a warehouse packed the first order, and the second order took a set number of times as long.
+# The math idea — multiply a time by a factor, shown as a fraction.
+# You type in — the first order time and how many times as long the second order is.
+# It prints — the answer as a fraction, a mixed number, and a decimal.
+
+# This tool gives exact fractions.
+from fractions import Fraction
+
+# This function does the math.
+def second_order_time(first_amount, factor):
+    # Multiply the first time by the factor.
+    return first_amount * factor
+
+# Tell the reader what we will figure out.
+print("Let's find the second order time and keep it exact.")
+
+# Ask for the first order time. Type 13.5 or a fraction like 27/2.
+first_amount = Fraction(input("How many minutes did the first order take? "))
+
+# Ask how many times as long the second order is. Type 1.5 or 3/2.
+factor = Fraction(input("How many times as long is the second order? "))
+
+# Do the math. The answer stays an exact fraction.
+total = second_order_time(first_amount, factor)
+
+# Split the fraction into a whole part and a leftover part.
+whole = total.numerator // total.denominator
+leftover = total - whole
+
+# Build a friendly mixed number text.
+if leftover == 0:
+    mixed = str(whole)
+else:
+    mixed = str(whole) + " and " + str(leftover)
+
+# Show the answer three ways so both paths line up.
+print("As a fraction, that is", total, "minutes.")
+print("As a mixed number, that is", mixed, "minutes.")
+print("As a decimal, that is", float(total), "minutes.")</code></pre>
+
+                <p>Run either one in a terminal, type the first time and the factor, and it prints the second duration.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic also lives as a Claude skill, so the steps can run without any Python at all.</p>
+
+                <pre class="md-code"><code>---
+name: scaled-duration-calculator
+description: Computes how long a second job takes when it runs a set number of times as long as a known first job. Reports the answer as a decimal, and on request as an exact fraction and a mixed number. Trigger this skill whenever the user wants to scale a duration by a factor, such as a repeat or larger task that takes a number of times as long as a first one, even when they use plain language.
+---
+
+<span class="md-heading"># Scaled Duration Calculator</span>
+
+This skill takes a first job time and a factor, multiplies them, and reports how long a second job takes. It reads the first time in minutes and the factor as a decimal or a simple fraction. It prints the second time as a number, and when asked it also shows the answer as an exact fraction and a mixed number.
+
+&lt;skill&gt;
+
+  &lt;purpose&gt;
+    Take a first duration and a factor. Multiply them to get the second duration. Report the second duration in plain business terms. When asked, keep the math exact and also show the answer as a fraction and a mixed number.
+
+    The scenario behind it. A warehouse packs a first order, and a second order takes a set number of times as long. The skill answers how long the second order takes, for any first duration and any factor.
+  &lt;/purpose&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;None beyond standard Python.&lt;/dependency&gt;
+    &lt;dependency&gt;For the exact mode, the Fraction tool from Python's standard fractions module. It keeps values exact and avoids rounding.&lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;inputs&gt;
+    &lt;input&gt;<span class="md-bold">**First duration**</span> — the first job time in minutes. May carry a decimal, e.g. 13.5.&lt;/input&gt;
+    &lt;input&gt;<span class="md-bold">**Factor**</span> — how many times as long the second job runs. May be a decimal such as 1.5 or a simple fraction such as 3/2.&lt;/input&gt;
+  &lt;/inputs&gt;
+
+  &lt;steps&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 1 — State the goal&lt;/name&gt;
+      Tell the user the skill will work out how long the second job takes.
+    &lt;/step&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 2 — Get the first duration&lt;/name&gt;
+      Ask for the first job time in minutes. Read it as a number that may carry a decimal.
+    &lt;/step&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 3 — Get the factor&lt;/name&gt;
+      Ask how many times as long the second job runs. Accept a decimal such as 1.5 or a simple fraction such as 3/2.
+    &lt;/step&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 4 — Multiply&lt;/name&gt;
+      Multiply the first duration by the factor. The product is the second duration.
+    &lt;/step&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 5 — Choose how to report&lt;/name&gt;
+      Pick one of two modes.
+
+      Plain mode. Show the second duration as a number. If it comes out even, show a whole number. Otherwise show the decimal.
+
+      Exact mode. Keep the math exact with the Fraction tool. Split the exact value into a whole part and a leftover part. The whole part is the value with the leftover dropped. The leftover is what remains. If the leftover is zero, the mixed number is just the whole part. Otherwise the mixed number is the whole part and the leftover fraction together.
+    &lt;/step&gt;
+
+    &lt;step&gt;
+      &lt;name&gt;Step 6 — Report the answer&lt;/name&gt;
+      In plain mode, print the second duration with text that fits the job, e.g. the second order takes 20.25 minutes.
+
+      In exact mode, print the answer three ways so both reading paths line up. Show it as a fraction, then as a mixed number, then as a decimal.
+    &lt;/step&gt;
+
+  &lt;/steps&gt;
+
+  &lt;example_trigger_prompts&gt;
+    &lt;prompt&gt;The first order took 13.5 minutes and the next one runs one and a half times as long. How long is that?&lt;/prompt&gt;
+    &lt;prompt&gt;Scale this task time by 1.5 for me.&lt;/prompt&gt;
+    &lt;prompt&gt;A repeat job takes twice as long as the first. Work out the new time.&lt;/prompt&gt;
+    &lt;prompt&gt;Give me the second run time as a fraction and a decimal.&lt;/prompt&gt;
+  &lt;/example_trigger_prompts&gt;
+
+  &lt;quality_check&gt;
+    &lt;check&gt;The frontmatter appears once at the top.&lt;/check&gt;
+    &lt;check&gt;No Python code anywhere in the body.&lt;/check&gt;
+    &lt;check&gt;Every step reads as a plain instruction, not a code line.&lt;/check&gt;
+    &lt;check&gt;The two report modes, plain and exact, are described in plain words.&lt;/check&gt;
+    &lt;check&gt;Inputs and outputs are named and described.&lt;/check&gt;
+    &lt;check&gt;The description would trigger the skill from a plain user request.&lt;/check&gt;
+  &lt;/quality_check&gt;
+
+&lt;/skill&gt;</code></pre>
+
+                <p>The skill keeps the two report modes, plain and exact, as plain language steps.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-fifth-grade-math/5th-multiply-fractions/imp-multiplying-mixed-numbers/v/multiplying-mixed-numbers" target="_blank" rel="noopener">Khan Academy — Multiplying Mixed Numbers</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fractions</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A logistics problem shows how a single known sub-group count unlocks the total when slots are split by chained fractions. Includes Python and a Claude skill file.">
+    <meta name="keywords" content="fractions, nested remainder, business math, warehouse, Python, logistics, fractional allocation, inventory">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/12-warehouse-slots-one-fraction-chain.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/12-warehouse-slots-one-fraction-chain.html" />
+
+    <title>12 Warehouse Slots, One Fraction Chain, Zero Guesswork</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 27, 2025 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    12 WAREHOUSE SLOTS, ONE FRACTION CHAIN, ZERO GUESSWORK
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Inventory managers rarely know everything at once. Often a single confirmed count — one sub-group, one category, one verified number — is the only anchor available, and the total must be reconstructed from it. <dfn>This problem illustrates how a chain of fractional allocations can be reversed from a known partial count, and how Python and a Claude skill file turn that logic into a reusable operational tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics manager is tracking a shipment of product boxes stored across several warehouse slots. One third of the slots hold refrigerated goods. One sixth hold fragile goods. One third of the remaining slots hold oversize goods.</p>
+                <p>The manager confirms there are 2 slots with oversize goods. How many warehouse slots are there in total?</p>
+                <ul>
+                    <li>a) 24</li>
+                    <li>b) 12</li>
+                    <li>c) 8</li>
+                    <li>d) 16</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 12 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Refrigerated and fragile slots together consume <strong>1/3 + 1/6 = 1/2</strong> of the total. The remaining half is then divided, with <strong>one third of that remainder</strong> going to oversize goods — giving oversize slots a share of <strong>1/6 of the total</strong>. Since 2 oversize slots equal 1/6 of T, the total is <strong>T = 12</strong>.</p>
+
+                    <p class="insight"><em>The key move is treating the remainder as a new whole: one third of one half equals one sixth of the original total.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the total is derived:</p>
+                        <ol>
+                            <li><strong>Refrigerated share:</strong> 1/3 of T</li>
+                            <li><strong>Fragile share:</strong> 1/6 of T</li>
+                            <li><strong>Combined assigned share:</strong> 1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2</li>
+                            <li><strong>Remainder after two groups:</strong> 1 − 1/2 = 1/2 of T</li>
+                            <li><strong>Oversize share (one third of remainder):</strong> 1/2 × 1/3 = 1/6 of T</li>
+                            <li><strong>Set equal to known count:</strong> T/6 = 2 → T = 12</li>
+                            <li><strong>Conclusion:</strong> The warehouse holds 12 slots in total.</li>
+                        </ol>
+                    </div>
+
+                    <h2>Singapore Bar Model</h2>
+                    <p>Each row below is one group. Each unit block represents one slot. The known count (oversize = 2) is the anchor that unlocks the total.</p>
+
+                    <svg width="100%" viewBox="0 0 680 460" role="img" style="display:block;margin:1rem 0;">
+                        <title>Singapore Math bar model for warehouse slot problem</title>
+                        <desc>Bar model showing how 12 total warehouse slots split into refrigerated (4), fragile (2), remainder (6), and oversize (2) groups, with the oversize count anchoring the reverse calculation T = 12.</desc>
+
+                        <!--
+                            Layout:
+                            Label column: x=20..159 (text-anchor=end at x=155)
+                            Bar left edge: x=160 (ALL rows start here — uniform)
+                            Bar area width: 400px = 10 units × 40px
+                              Total bar: 480px (12 units) → right edge x=640
+                              Refrigerated: 160px (4 units) → x=320
+                              Fragile: 80px (2 units) → x=240
+                              Remainder: 240px (6 units) → x=400
+                              Oversize: 80px (2 units) → x=240
+                            Reverse annotation column: x=530..560 (well inside 680)
+                            Row pitch: 80px
+                        -->
+
+                        <!-- ROW 1: Total (12 units = 480px, right edge x=640) -->
+                        <text x="155" y="34" text-anchor="end" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#444">Total (T)</text>
+                        <rect x="160" y="18" width="480" height="36" rx="4" fill="none" stroke="#888" stroke-width="0.75" stroke-dasharray="4 3"/>
+                        <text x="400" y="40" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#666">T = ?</text>
+                        <!-- bracket -->
+                        <line x1="160" y1="58" x2="640" y2="58" stroke="#aaa" stroke-width="0.5"/>
+                        <line x1="160" y1="54" x2="160" y2="62" stroke="#aaa" stroke-width="0.5"/>
+                        <line x1="640" y1="54" x2="640" y2="62" stroke="#aaa" stroke-width="0.5"/>
+
+                        <!-- ROW 2: Refrigerated (4 units = 160px, right edge x=320) -->
+                        <text x="155" y="104" text-anchor="end" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#444">Refrigerated</text>
+                        <rect x="160" y="88" width="160" height="36" rx="4" fill="#DBEAFE" stroke="#3B82F6" stroke-width="0.75"/>
+                        <text x="240" y="110" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="12" font-weight="600" fill="#1D4ED8">1/3 of T</text>
+                        <!-- bracket -->
+                        <line x1="160" y1="128" x2="320" y2="128" stroke="#3B82F6" stroke-width="0.5"/>
+                        <line x1="160" y1="124" x2="160" y2="132" stroke="#3B82F6" stroke-width="0.5"/>
+                        <line x1="320" y1="124" x2="320" y2="132" stroke="#3B82F6" stroke-width="0.5"/>
+                        <text x="240" y="142" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="11" fill="#1D4ED8">4 slots</text>
+
+                        <!-- ROW 3: Fragile (2 units = 80px, right edge x=240) -->
+                        <text x="155" y="184" text-anchor="end" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#444">Fragile</text>
+                        <rect x="160" y="168" width="80" height="36" rx="4" fill="#CCFBF1" stroke="#0D9488" stroke-width="0.75"/>
+                        <text x="200" y="190" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="12" font-weight="600" fill="#0F766E">1/6 of T</text>
+                        <!-- bracket -->
+                        <line x1="160" y1="208" x2="240" y2="208" stroke="#0D9488" stroke-width="0.5"/>
+                        <line x1="160" y1="204" x2="160" y2="212" stroke="#0D9488" stroke-width="0.5"/>
+                        <line x1="240" y1="204" x2="240" y2="212" stroke="#0D9488" stroke-width="0.5"/>
+                        <text x="200" y="222" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="11" fill="#0F766E">2 slots</text>
+
+                        <!-- ROW 4: Remainder (6 units = 240px, right edge x=400, dashed) -->
+                        <text x="155" y="264" text-anchor="end" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#444">Remainder</text>
+                        <rect x="160" y="248" width="240" height="36" rx="4" fill="none" stroke="#888" stroke-width="0.75" stroke-dasharray="5 3"/>
+                        <text x="280" y="270" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#555">1/2 of T = 6 slots</text>
+
+                        <!-- ROW 5: Oversize (2 units = 80px, right edge x=240) -->
+                        <text x="155" y="344" text-anchor="end" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#444">Oversize</text>
+                        <rect x="160" y="328" width="80" height="36" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="0.75"/>
+                        <text x="200" y="350" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="12" font-weight="600" fill="#92400E">1/3 of rem.</text>
+
+                        <!-- Anchor annotation: arrow down from bar bottom, label below -->
+                        <line x1="200" y1="366" x2="200" y2="378" stroke="#D97706" stroke-width="0.75"/>
+                        <polygon points="196,378 204,378 200,384" fill="#D97706"/>
+                        <text x="200" y="396" text-anchor="middle" font-family="Source Sans Pro, sans-serif" font-size="11" font-weight="600" fill="#92400E">= 2 slots (known)</text>
+
+                        <!-- Reverse arrow: dashed vertical line from oversize row up to Total row, x=510 -->
+                        <line x1="510" y1="390" x2="510" y2="30" stroke="#999" stroke-width="0.75" stroke-dasharray="4 3"/>
+                        <polygon points="506,30 514,30 510,24" fill="#999"/>
+                        <!-- Label beside arrow -->
+                        <text x="530" y="300" text-anchor="start" font-family="Source Sans Pro, sans-serif" font-size="11" fill="#666">T/6 = 2</text>
+                        <text x="530" y="316" text-anchor="start" font-family="Source Sans Pro, sans-serif" font-size="12" font-weight="700" fill="#333">T = 12</text>
+                    </svg>
+
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Chained fractional reasoning — taking a fraction of a fraction to find a share of a remainder — was a standard tool of medieval Islamic commercial arithmetic. Scholars working in the tradition of al-Khwarizmi in ninth-century Baghdad used it to partition inheritances and trade goods across multiple recipients, where each heir's share was defined as a fraction of what remained after prior distributions. The method was formalized in treatises on practical arithmetic (<em>hisab</em>) and traveled through Andalusia into Renaissance European accounting texts, eventually becoming a core technique in early probability and combinatorics.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below solves the same problem for any set of fractions and any known sub-group count, making it reusable for any inventory allocation scenario with the same structure.</p>
+
+<pre><code># What this does: finds the total number of warehouse slots from one known sub-group count.
+# Where it came from: a logistics problem where slots are split by fractions and a remainder.
+# The math idea: fractions of a whole with a nested remainder, solved in reverse.
+# You type in: three fractions and the count of one sub-group.
+# It prints: the total number of slots in the warehouse.
+
+def total_slots(frac_group1, frac_group2, frac_of_remainder, known_count):
+    # Add up the two main fractions to find what share is already assigned.
+    assigned = frac_group1 + frac_group2
+
+    # What is left over after the two main groups.
+    remainder_frac = 1 - assigned
+
+    # The third group is a fraction of that remainder.
+    third_group_frac = remainder_frac * frac_of_remainder
+
+    # We know how many slots the third group has, so divide to find the total.
+    total = known_count / third_group_frac
+
+    return total
+
+print("Let's find the total number of warehouse slots.")
+
+# Ask for the fraction going to the first group (type as a decimal, e.g. 0.333 for 1/3).
+frac_group1 = float(input("Fraction of total for group 1 (e.g. 0.3333 for 1/3): "))
+
+# Ask for the fraction going to the second group.
+frac_group2 = float(input("Fraction of total for group 2 (e.g. 0.1667 for 1/6): "))
+
+# Ask for the fraction of the remainder going to the third group.
+frac_of_remainder = float(input("Fraction of the remainder for group 3 (e.g. 0.3333 for 1/3): "))
+
+# Ask for the known slot count of the third group.
+known_count = int(input("Known count for group 3: "))
+
+# Do the math.
+result = total_slots(frac_group1, frac_group2, frac_of_remainder, known_count)
+
+# Show as a whole number if the result is exact.
+result = int(result) if result == int(result) else round(result, 2)
+
+print("Total warehouse slots:", result)</code></pre>
+
+                <p>Run it in Windows Terminal by typing <code>python</code>, pasting the code, and entering each fraction and the known count when prompted.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The Markdown skill file below packages the same logic as a deployable Claude skill. Paste it into any Claude Project to make the calculation available on demand, without retyping the problem structure.</p>
+
+<pre class="md-code"><code>---
+name: warehouse-slot-calculator
+description: Finds the total number of warehouse slots when slots are split into groups by fractions and only one sub-group count is known. Solves a chained fractional reasoning problem in reverse. Trigger this skill whenever the user wants to recover a total from a known partial count and a set of fractional allocations, even if they don't use technical language.
+---
+
+<span class="md-heading"># Warehouse Slot Calculator</span>
+
+This skill finds the total number of slots in a warehouse when three groups each receive a fractional share and only the count of the third group is known. It reconstructs the total by reversing the chain of fractions. It takes four inputs: two main fractions, one fraction of the remainder, and the known count of the third group. It prints the total slot count.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No libraries required. Runs on standard Python.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Group 1 fraction**</span>: The share of the total going to the first slot group. Enter as a decimal (e.g. 0.3333 for one third) in Option 1, or as a numerator and denominator pair in Option 2.
+- <span class="md-bold">**Group 2 fraction**</span>: The share of the total going to the second slot group. Same format as Group 1.
+- <span class="md-bold">**Group 3 fraction of the remainder**</span>: The share of what remains after Groups 1 and 2 that goes to the third group. Same format.
+- <span class="md-bold">**Known count for Group 3**</span>: The exact number of slots in Group 3. A whole number.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet the user</span>
+
+Print a short sentence telling the user what the program will figure out.
+
+<span class="md-heading">### Step 2 — Collect Group 1 fraction</span>
+
+Ask the user to type in the fraction of the total assigned to Group 1.
+
+In Option 1, accept a decimal. In Option 2, ask for the numerator first, then the denominator, and combine them into an exact fraction.
+
+<span class="md-heading">### Step 3 — Collect Group 2 fraction</span>
+
+Ask the same way for the fraction of the total assigned to Group 2.
+
+<span class="md-heading">### Step 4 — Collect the Group 3 fraction of the remainder</span>
+
+Ask the user for the fraction of what remains after Groups 1 and 2 that goes to Group 3. Use the same format as above.
+
+<span class="md-heading">### Step 5 — Collect the known count for Group 3</span>
+
+Ask the user to type in the exact number of slots in Group 3. This must be a whole number.
+
+<span class="md-heading">### Step 6 — Calculate the total</span>
+
+Add the Group 1 and Group 2 fractions together to find how much of the total is already assigned.
+
+Subtract that combined share from 1 to find what fraction of the total remains.
+
+Multiply the remainder fraction by the Group 3 fraction to find what share of the total Group 3 represents.
+
+Divide the known Group 3 count by that share to recover the total.
+
+<span class="md-heading">### Step 7 — Print the result</span>
+
+If the result is a whole number, print it as a whole number. If not, round it to two decimal places.
+
+Print the result with a short label that names the scenario: "Total warehouse slots: [result]".
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many total slots does the warehouse have if I know only the oversize count?"
+- "Find the total from a known sub-group count and a set of fractions"
+- "Work backwards from a partial count to the full total"
+- "I know 2 slots are oversize. The rest are split by fractions. What is the total?"
+- "Reverse a fractional allocation to find the original whole"</code></pre>
+
+                <p>The skill file carries no code. Each step is written in plain language so any analyst can follow the logic, adapt the fractions, and reuse the structure for any allocation problem with the same shape.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 27, 2025</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
