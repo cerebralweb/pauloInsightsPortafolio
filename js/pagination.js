@@ -7,6 +7,16 @@
 
     const articlesDataBase = [ 
         {
+          articleTitle: "Your Cloud Bill Has A Job Limit. Here Is The Math",
+            articleDescription: "Cloud and data platforms rarely charge one flat rate. A setup fee, a premium first run, and a lower rate for every run after it pull a single budget in three directions at once, and the number of runs a team can afford falls out of that mix. This problem shows how a fixed fee, a tiered rate, and floor division combine into a capacity question, and how Python turns that logic into a tool the team reuses every session",  
+            articleHref: "/a/your-cloud-bill-has-a-job-limit-here-is-the-math.html"  
+        },
+        {
+            articleTitle: "Two Mixed Pallets Reveal The Weight Of Every Single Box",
+            articleDescription: "This problem shows how two mixed measurements can pin down two unknown values exactly, and how a short Python routine turns that logic into a tool you can reuse for any pair of items",
+            articleHref: "/a/two-mixed-pallets-reveal-the-weight-of-every-single-box.html"
+        },
+        {
             articleTitle: "The Unit Conversion That Decides Which Panel Coatings Fit A Budget",
             articleDescription: "This problem shows how a single unit conversion turns a known quantity into a per unit rate, and how Python preserves that step as a reusable tool",
             articleHref: "/a/the-unit-conversion-that-decides-which-panel-coatings-fit-a-budget.html"

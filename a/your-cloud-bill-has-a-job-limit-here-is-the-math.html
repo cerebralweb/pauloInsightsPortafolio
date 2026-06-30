@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a fixed cluster fee, a premium first job, and floor division turn a fixed compute budget into a whole job count, with a reusable Python tool and a Claude skill.">
+    <meta name="keywords" content="floor division, compute budget, linear cost, fixed fee, per unit rate, Python, Fraction, Claude skill, unit economics, capacity planning">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-floor-division-that-turns-a-compute-budget-into-a-job-count.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-floor-division-that-turns-a-compute-budget-into-a-job-count.html" />
+
+    <title>The Floor Division That Turns a Compute Budget Into a Job Count</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 30, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    YOUR CLOUD BILL HAS A JOB LIMIT. HERE IS THE MATH
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Cloud and data platforms rarely charge one flat rate. A setup fee, a premium first run, and a lower rate for every run after it pull a single budget in three directions at once, and the number of runs a team can afford falls out of that mix. <dfn>This problem shows how a fixed fee, a tiered rate, and floor division combine into a capacity question, and how Python turns that logic into a tool the team reuses every session.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data engineer runs transformation jobs on a managed Spark service. Each session carries a flat cluster provisioning fee of $2.50. The first job runs against a cold cluster and costs $1.75. Each additional job in the same session runs warm and costs $1.05. The engineer has a compute budget of $20 for the session.</p>
+                <p>How many jobs can the engineer run in one session?</p>
+                <ul>
+                    <li>a) 18 jobs</li>
+                    <li>b) 10 jobs</li>
+                    <li>c) 16 jobs</li>
+                    <li>d) 30 jobs</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 16 jobs &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Strip the fixed costs first. <strong>Subtract</strong> the $2.50 provisioning fee and the $1.75 first job from the $20 budget, which leaves $15.75. <strong>Divide</strong> that by the $1.05 warm rate and <strong>drop the remainder</strong> to get 15 warm jobs, then add the first job back.</p>
+
+                    <p class="insight"><em>The first job is the only run priced at the cold rate, so the budget buys one premium run plus as many discounted runs as the leftover allows.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Budget:</strong> $20.00</li>
+                            <li><strong>Remove provisioning fee:</strong> $20.00 &minus; $2.50 = $17.50</li>
+                            <li><strong>Remove first job, cold rate:</strong> $17.50 &minus; $1.75 = $15.75</li>
+                            <li><strong>Warm jobs the leftover buys:</strong> $15.75 &divide; $1.05 = 15</li>
+                            <li><strong>Add the first job:</strong> 15 + 1 = 16</li>
+                            <li><strong>Total jobs:</strong> 16</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="scaffolding">Think It Through</h2>
+
+                <p>Three questions expose why this problem needs more than one division.</p>
+
+                <p><strong>Will all of the $20 go to running jobs? Why not?</strong></p>
+                <p>No. The $2.50 provisioning fee starts the cluster and buys no job on its own. It comes off the top, so only $17.50 is left for jobs.</p>
+
+                <p><strong>Do all the jobs cost the same? How do we account for that in the model?</strong></p>
+                <p>No. The first job runs on a cold cluster at $1.75. Every later job runs warm at $1.05. The model prices the first job on its own, then charges the flat warm rate for the rest. Total spend is the fee plus the first job plus the warm rate times the additional jobs.</p>
+
+                <p><strong>How would you solve this if all jobs cost the same? What if the provisioning fee equaled a warm job?</strong></p>
+                <p>If every job cost the warm rate of $1.05, remove the $2.50 fee and divide. $17.50 &divide; $1.05 is 16 jobs once the partial is dropped, with no premium first job to handle. If the fee also equaled $1.05, it behaves like one more job and the whole budget divides at a single rate. $20 &divide; $1.05 is 19 units once the partial is dropped, and one of those units is the fee, which leaves 18 jobs. One rate, one division, no special cases.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a payment into a fixed charge and a per use rate is one of the oldest pricing ideas in commerce. Telephone and telegraph companies built two part tariffs in the nineteenth century, charging a standing fee for the line and a separate rate for each message, and gas and electric utilities soon did the same. The question of how many units a fixed sum can buy once the standing charge is paid is the same one a data engineer now asks of a cloud bill.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script generalizes the problem to any budget, setup fee, first run cost, and per run cost, so the team can recompute capacity whenever prices change.</p>
+
+                <pre><code># What this does: counts how many jobs a compute budget can run in one session.
+# Where it came from: a data engineer pays a setup fee, then a higher price for the first job and a lower price for each later job.
+# The math idea: take off the fixed costs, then divide and drop the leftover.
+# You type in: the budget, the setup fee, the first job cost, and the warm job cost.
+# It prints: how many jobs the session can run.
+
+# This function does the math.
+def jobs_in_budget(budget, setup_fee, first_job_cost, warm_job_cost):
+    # Work in whole cents so there are no fractions of a penny.
+    budget_cents = round(budget * 100)
+    setup_cents = round(setup_fee * 100)
+    first_cents = round(first_job_cost * 100)
+    warm_cents = round(warm_job_cost * 100)
+
+    # Money left after the setup fee and the first job.
+    money_left = budget_cents - setup_cents - first_cents
+
+    # If the budget cannot cover the first job, no jobs run.
+    if money_left &lt; 0:
+        return 0
+
+    # See how many warm jobs the leftover buys. Drop any partial job.
+    warm_jobs = money_left // warm_cents
+
+    # Add the first job to the warm jobs.
+    return 1 + warm_jobs
+
+# Tell the reader what we will figure out.
+print("How many jobs can this compute budget run?")
+
+# Ask for the compute budget.
+budget = float(input("Compute budget in dollars: "))
+
+# Ask for the cluster setup fee.
+setup_fee = float(input("Cluster provisioning fee in dollars: "))
+
+# Ask for the first job cost on a cold cluster.
+first_job_cost = float(input("First job cost, cold cluster, in dollars: "))
+
+# Ask for the cost of each later warm job.
+warm_job_cost = float(input("Each warm job cost in dollars: "))
+
+# Do the math.
+total_jobs = jobs_in_budget(budget, setup_fee, first_job_cost, warm_job_cost)
+
+# Print the answer with words that fit the scenario.
+print("Jobs you can run this session:", total_jobs)</code></pre>
+
+                <p>An exact money version removes any doubt. Holding each amount as a fraction avoids the rounding that makes plain decimals undercount by one whole job.</p>
+
+                <pre><code># What this does: counts how many jobs a compute budget can run in one session, with exact money.
+# Where it came from: a data engineer pays a setup fee, then a higher price for the first job and a lower price for each later job.
+# The math idea: take off the fixed costs, then divide and drop the leftover.
+# You type in: the budget, the setup fee, the first job cost, and the warm job cost.
+# It prints: how many jobs the session can run.
+
+# This tool keeps money exact, with no computer rounding.
+from fractions import Fraction
+
+# This function does the math.
+def jobs_in_budget(budget, setup_fee, first_job_cost, warm_job_cost):
+    # Money left after the setup fee and the first job.
+    money_left = budget - setup_fee - first_job_cost
+
+    # If the budget cannot cover the first job, no jobs run.
+    if money_left &lt; 0:
+        return 0
+
+    # See how many warm jobs the leftover buys. Drop any partial job.
+    warm_jobs = money_left // warm_job_cost
+
+    # Add the first job to the warm jobs.
+    return 1 + warm_jobs
+
+# Tell the reader what we will figure out.
+print("How many jobs can this compute budget run?")
+
+# Ask for each amount and keep it exact.
+budget = Fraction(input("Compute budget in dollars: "))
+setup_fee = Fraction(input("Cluster provisioning fee in dollars: "))
+first_job_cost = Fraction(input("First job cost, cold cluster, in dollars: "))
+warm_job_cost = Fraction(input("Each warm job cost in dollars: "))
+
+# Do the math.
+total_jobs = jobs_in_budget(budget, setup_fee, first_job_cost, warm_job_cost)
+
+# Print the answer with words that fit the scenario.
+print("Jobs you can run this session:", total_jobs)</code></pre>
+
+                <p>Run either version in a Python prompt, type the four amounts, and it prints the job count. With 20, 2.50, 1.75, and 1.05 it returns 16.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packages as a Claude skill, with every step written as a plain instruction instead of code.</p>
+
+                <pre class="md-code"><code>---
+name: compute-budget-job-counter
+description: Counts how many jobs a compute budget can run in one session given a one time provisioning fee, a higher first job cost on a cold cluster, and a flat cost per warm job. Trigger this skill whenever the user gives a budget, a setup fee, a first unit cost, and a per unit cost and wants to know how many whole units fit, even if they do not use technical language.
+---
+
+<span class="md-heading"># Compute Budget Job Counter</span>
+
+This skill counts how many jobs a fixed compute budget can run in one session. It takes four amounts: the total budget, a one time provisioning fee for starting the cluster, the cost of the first job on a cold cluster, and the cost of each later warm job. It removes the fixed costs, counts how many warm jobs the leftover money buys, adds the first job, and reports the total count.
+
+<span class="md-heading">## Dependencies</span>
+
+- Python standard library only. No third party libraries.
+- The fractions module is optional. Use it to hold money as exact values when you want to remove rounding drift.
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Compute budget**</span>: total dollars available for the session. A number that may include cents.
+- <span class="md-bold">**Provisioning fee**</span>: dollars charged once to start the cluster. A number that may include cents.
+- <span class="md-bold">**First job cost**</span>: dollars for the first job on a cold cluster. Higher than a warm job. A number that may include cents.
+- <span class="md-bold">**Warm job cost**</span>: dollars for each later job on a warm cluster. A number greater than zero.
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &mdash; Ask the question and collect the inputs</span>
+
+Print a short question about how many jobs the budget can run. Then ask for the four amounts in this order: the compute budget, the provisioning fee, the first job cost, and the warm job cost. Read each one as a number that may include cents.
+
+<span class="md-heading">### Step 2 &mdash; Make the money exact</span>
+
+Convert the amounts so there is no rounding drift. Either work in whole cents by multiplying each dollar amount by 100 and rounding to the nearest whole cent, or read each amount as an exact fraction. This matters because plain decimal division can undercount by one whole job. For example, a leftover that should buy 15 warm jobs can return 14 if the prices are stored as ordinary decimals.
+
+<span class="md-heading">### Step 3 &mdash; Remove the fixed costs</span>
+
+Subtract the provisioning fee and the first job cost from the budget. Call the result the leftover. This is the money available for warm jobs.
+
+<span class="md-heading">### Step 4 &mdash; Check that the budget covers the first job</span>
+
+If the leftover is below zero, the budget cannot cover the provisioning fee and the first job together. Report zero jobs and stop.
+
+<span class="md-heading">### Step 5 &mdash; Count the warm jobs</span>
+
+Divide the leftover by the warm job cost and drop any partial job. The whole number that remains is how many additional warm jobs the leftover can pay for.
+
+<span class="md-heading">### Step 6 &mdash; Add the first job</span>
+
+Add one to the warm job count. This includes the first job that the budget already paid for.
+
+<span class="md-heading">### Step 7 &mdash; Report the result</span>
+
+Print the total with text that fits the scenario, for example "Jobs you can run this session: 16". State the count in words, not as a bare number.
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "I have 20 dollars of compute. Setup is 2.50, the first job is 1.75, each later job is 1.05. How many jobs can I run?"
+- "How many runs fit my budget if the first one costs more and the rest are cheaper?"
+- "Work out how many jobs this session affords after the cluster fee."
+- "Given a budget, a setup fee, and a per run price, how many runs can I do?"</code></pre>
+
+                <p>Dropped into a skills folder, it lets Claude answer the same capacity question for any budget and price set, with no code to run.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/x18ca194a:divide-with-remainders" target="_blank" rel="noopener">Khan Academy &mdash; Divide with Remainders</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/FloorFunction.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Floor Function</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ceiling-and-floor-functions" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Ceiling and Floor Functions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 30, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

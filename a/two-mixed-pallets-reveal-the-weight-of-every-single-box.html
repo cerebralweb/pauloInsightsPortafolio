@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A logistics system of two equations and two unknowns, solved from two mixed pallet totals, with a bar model, a reusable Python routine, and a Claude skill.">
+    <meta name="keywords" content="system of equations, linear equations, two unknowns, elimination, business math, logistics, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/two-mixed-pallets-reveal-the-weight-of-every-single-box.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/two-mixed-pallets-reveal-the-weight-of-every-single-box.html" />
+
+    <title>Two Mixed Pallets Reveal the Weight of Every Single Box</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>2026.06.30 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    TWO MIXED PALLETS REVEAL THE WEIGHT OF EVERY SINGLE BOX
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Operations teams rarely weigh a single item in isolation. They record mixed totals, then work backward to the value of one unit, whether that unit is a box, a license, or a line on a bundled invoice. <dfn>This problem shows how two mixed measurements can pin down two unknown values exactly, and how a short Python routine turns that logic into a tool you can reuse for any pair of items.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics team ships two box types, type A and type B. One pallet holds 3 type A boxes and 2 type B boxes and weighs 27.5 pounds. A second pallet holds 4 type A boxes and 3 type B boxes and weighs 37.5 pounds. Every box of one type weighs the same as the others of that type.</p>
+                <p>How much does one type A box and one type B box weigh?</p>
+                <ul>
+                    <li>a) 7.5 and 5</li>
+                    <li>b) 7.5 and 2.5</li>
+                    <li>c) 2.5 and 7.5</li>
+                    <li>d) 5 and 5</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) Type A box 7.5 lb and type B box 2.5 lb &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Subtract</strong> the first pallet from the second to get a clean unit of one type A box plus one type B box equal to 10. <strong>Subtract</strong> that unit twice from the base pallet to <strong>isolate</strong> one type A box at 7.5, then <strong>back substitute</strong> to get type B at 2.5.</p>
+
+                    <p class="insight"><em>One subtraction removes a whole box pair and exposes the single difference that unlocks both weights.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Base equation</strong> 3 type A plus 2 type B equal 27.5</li>
+                            <li><strong>Second equation</strong> 4 type A plus 3 type B equal 37.5</li>
+                            <li><strong>Difference</strong> second minus base gives 1 type A plus 1 type B equal 10</li>
+                            <li><strong>Isolate</strong> base minus the difference twice gives 1 type A equal 7.5</li>
+                            <li><strong>Back substitute</strong> 7.5 plus 1 type B equal 10, so type B equal 2.5</li>
+                            <li><strong>Result</strong> type A box 7.5 lb and type B box 2.5 lb</li>
+                        </ol>
+                    </div>
+
+                    <figure>
+                        <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif" role="img" aria-label="Bar model showing the two pallets, their difference, and the per box weights">
+                            <rect x="0" y="0" width="640" height="380" fill="#ffffff"/>
+                            <rect x="20" y="20" width="22" height="18" fill="#2f5496"/>
+                            <text x="48" y="34" font-size="14" fill="#222222">Type A box</text>
+                            <rect x="160" y="20" width="22" height="18" fill="#c55a11"/>
+                            <text x="188" y="34" font-size="14" fill="#222222">Type B box</text>
+
+                            <text x="20" y="82" font-size="13" fill="#222222">Base pallet</text>
+                            <rect x="120" y="64" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="210" y="64" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="300" y="64" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="390" y="64" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <rect x="420" y="64" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <line x1="120" y1="104" x2="450" y2="104" stroke="#222222" stroke-width="1"/>
+                            <line x1="120" y1="100" x2="120" y2="108" stroke="#222222" stroke-width="1"/>
+                            <line x1="450" y1="100" x2="450" y2="108" stroke="#222222" stroke-width="1"/>
+                            <text x="285" y="122" font-size="13" fill="#222222" text-anchor="middle">27.5 lb</text>
+
+                            <text x="20" y="158" font-size="13" fill="#222222">Second pallet</text>
+                            <rect x="120" y="140" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="210" y="140" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="300" y="140" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="390" y="140" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="480" y="140" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <rect x="510" y="140" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <rect x="540" y="140" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <line x1="120" y1="180" x2="570" y2="180" stroke="#222222" stroke-width="1"/>
+                            <line x1="120" y1="176" x2="120" y2="184" stroke="#222222" stroke-width="1"/>
+                            <line x1="570" y1="176" x2="570" y2="184" stroke="#222222" stroke-width="1"/>
+                            <text x="345" y="198" font-size="13" fill="#222222" text-anchor="middle">37.5 lb</text>
+
+                            <text x="20" y="234" font-size="13" fill="#222222">Difference</text>
+                            <rect x="120" y="216" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <rect x="210" y="216" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <line x1="120" y1="256" x2="240" y2="256" stroke="#222222" stroke-width="1"/>
+                            <line x1="120" y1="252" x2="120" y2="260" stroke="#222222" stroke-width="1"/>
+                            <line x1="240" y1="252" x2="240" y2="260" stroke="#222222" stroke-width="1"/>
+                            <text x="180" y="274" font-size="13" fill="#222222" text-anchor="middle">10 lb</text>
+
+                            <text x="20" y="316" font-size="13" fill="#222222">Each box</text>
+                            <rect x="120" y="298" width="90" height="30" fill="#2f5496" stroke="#ffffff"/>
+                            <text x="165" y="318" font-size="13" fill="#ffffff" text-anchor="middle">7.5 lb</text>
+                            <rect x="230" y="298" width="30" height="30" fill="#c55a11" stroke="#ffffff"/>
+                            <text x="245" y="318" font-size="11" fill="#ffffff" text-anchor="middle">2.5</text>
+                            <text x="290" y="318" font-size="13" fill="#222222">Type A 7.5 lb and type B 2.5 lb</text>
+                        </svg>
+                        <figcaption><em>Bar widths are proportional. A type A box is three times the width of a type B box, matching 7.5 against 2.5.</em></figcaption>
+                    </figure>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Methods for solving several linked quantities at once are ancient. The Chinese classic the Nine Chapters on the Mathematical Art set out a column array procedure for several unknowns more than two thousand years ago, long before similar methods reached Europe. Merchants and tax officials applied the same reasoning to split mixed shipments and shared costs back into single unit values, the exact task a logistics team faces with a pallet.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This routine recovers the weight of each box type from any two mixed pallet rows, so the same logic serves unit cost from two bundle invoices.</p>
+
+                <pre><code># What this does: finds the weight of one type A box and one type B box from two pallet totals.
+# Where it came from: a logistics team had two pallets, each with a mix of type A and type B boxes, and knew only the total weight of each pallet.
+# The math idea: solve two equations with two unknowns by cross multiplying and dividing.
+# You type in: how many of each box are on each pallet, and the total weight of each pallet.
+# It prints: the weight of one type A box and one type B box.
+
+# This function does the math.
+def box_weights(a1, b1, total1, a2, b2, total2):
+    # This is the shared bottom value used for both answers.
+    bottom = a1 * b2 - a2 * b1
+    # Weight of one type A box.
+    weight_a = (total1 * b2 - total2 * b1) / bottom
+    # Weight of one type B box.
+    weight_b = (a1 * total2 - a2 * total1) / bottom
+    return weight_a, weight_b
+
+# Tell the reader what we will figure out.
+print("Let's find the weight of one type A box and one type B box.")
+
+# Ask about the first pallet.
+a1 = float(input("First pallet, number of type A boxes: "))
+b1 = float(input("First pallet, number of type B boxes: "))
+total1 = float(input("First pallet, total weight: "))
+
+# Ask about the second pallet.
+a2 = float(input("Second pallet, number of type A boxes: "))
+b2 = float(input("Second pallet, number of type B boxes: "))
+total2 = float(input("Second pallet, total weight: "))
+
+# Do the math.
+weight_a, weight_b = box_weights(a1, b1, total1, a2, b2, total2)
+
+# Show whole numbers cleanly when the answer has no decimals.
+weight_a = int(weight_a) if weight_a.is_integer() else round(weight_a, 2)
+weight_b = int(weight_b) if weight_b.is_integer() else round(weight_b, 2)
+
+# Print the answer with words that fit the scenario.
+print("Type A box weight:", weight_a)
+print("Type B box weight:", weight_b)</code></pre>
+
+                <p>Run it in Windows Terminal, type the six numbers when prompted, and it returns both box weights.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same procedure packaged as a Claude skill, so the solve runs from a plain request without code.</p>
+
+                <pre class="md-code"><code>---
+name: pallet-box-weight-solver
+description: Finds the weight of one type A box and one type B box from two mixed pallet totals. Translates a two equations two unknowns system into a runnable procedure. Trigger this skill whenever the user knows the box counts and total weight of two pallets and wants the per box weight, even when they describe it in plain language like "two pallets, same boxes, what does each box weigh".
+---
+
+<span class="md-heading"># Pallet Box Weight Solver</span>
+
+This skill recovers two hidden per item weights from two known mixtures. The user supplies two pallets. Each pallet holds a count of type A boxes and a count of type B boxes, plus one total weight. The skill returns the weight of a single type A box and a single type B box. The same procedure works for any two item allocation where only mixed totals are recorded, such as unit cost from two bundle invoices.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only. No external libraries.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**First pallet**</span>. Count of type A boxes, count of type B boxes, and the total weight of that pallet.
+- <span class="md-bold">**Second pallet**</span>. Count of type A boxes, count of type B boxes, and the total weight of that pallet.
+
+The two pallets must differ in mix. If both rows describe the same ratio, the system has no single answer.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Collect the two pallet rows</span>
+
+Ask for the first pallet. Record how many type A boxes, how many type B boxes, and the total weight. Ask for the second pallet and record the same three values. Accept decimals for weights.
+
+<span class="md-heading">### Step 2 &#8212; Compute the shared bottom value</span>
+
+Multiply the first pallet type A count by the second pallet type B count. Multiply the second pallet type A count by the first pallet type B count. Subtract the second product from the first. This single value is the divisor for both answers. If it equals zero, stop and tell the user the two pallets do not give a unique solution.
+
+<span class="md-heading">### Step 3 &#8212; Solve for the type A box weight</span>
+
+Multiply the first pallet total by the second pallet type B count. Multiply the second pallet total by the first pallet type B count. Subtract the second from the first. Divide the result by the shared bottom value from Step 2. This is the weight of one type A box.
+
+<span class="md-heading">### Step 4 &#8212; Solve for the type B box weight</span>
+
+Multiply the first pallet type A count by the second pallet total. Multiply the second pallet type A count by the first pallet total. Subtract the second from the first. Divide the result by the shared bottom value. This is the weight of one type B box.
+
+<span class="md-heading">### Step 5 &#8212; Present the result</span>
+
+Show whole numbers without trailing zeros. Round any fractional weight to two places. Report both weights with scenario text, e.g. "Type A box weight 7.5, type B box weight 2.5".
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Two pallets of mixed boxes, I know each total weight, what does one box weigh"
+- "Solve for the unit weight of each box type from these two shipments"
+- "I have two bundle invoices with the same two items, find each item price"
+- "Work out the per box weight from these pallet totals"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- The frontmatter appears once at the top.
+- No Python code appears in the body.
+- Every step reads as a plain instruction.
+- The zero divisor case is handled in words.
+- Inputs and outputs are named by role, not by code identifier.</code></pre>
+
+                <p>One math problem now ships as three artifacts. A solved answer with a bar model, a portable Python routine, and a Claude skill that runs the same logic on request.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations" target="_blank" rel="noopener">Khan Academy &#8212; Systems of Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearSystemofEquations.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Linear System of Equations</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/systems-of-equations" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Systems of Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 30, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
