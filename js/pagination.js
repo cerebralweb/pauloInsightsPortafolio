@@ -7,6 +7,11 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "The Unit Conversion That Decides Which Panel Coatings Fit A Budget",
+            articleDescription: "This problem shows how a single unit conversion turns a known quantity into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-unit-conversion-that-decides-which-panel-coatings-fit-a-budget.html"
+        },
+        {
             articleTitle: "The Cascading Arithmetic Behind A Per Seat Cloud Budget",
             articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
             articleHref: "/a/the-cascading-arithmetic-behind-a-per-seat-cloud-budget.html"  

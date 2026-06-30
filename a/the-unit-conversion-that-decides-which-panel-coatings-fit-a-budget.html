@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Price two panel coatings quoted in different units, then find which combinations stay within budget. Includes a reusable Python tool and a Claude skill.">
+    <meta name="keywords" content="area, unit conversion, budget constraint, cost comparison, combinations, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-unit-conversion-that-decides-which-panel-coatings-fit-a-budget.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-unit-conversion-that-decides-which-panel-coatings-fit-a-budget.html" />
+
+    <title>The Unit Conversion That Decides Which Panel Coatings Fit a Budget</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>29 Jun 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE UNIT CONVERSION THAT DECIDES WHICH PANEL COATINGS FIT A BUDGET
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Finishing decisions on hardware rarely come down to a single surface. Teams pick a coating per panel, and each coating may be quoted in a different unit, which makes the budget comparison easy to get wrong. The fix is to convert every area to a common basis, price each option, then test each pairing against the limit. <dfn>This problem shows how a short chain of area, conversion, and addition can model a real spending decision, and how Python can turn that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A hardware team finishes two enclosure panels for a new edge server unit. One square panel, one meter per side, mounts the main board. A second panel, 200 centimeters wide by 100 centimeters high, mounts the cooling assembly. The team has a budget of $38,000 to coat both panels. Two coatings are available. A conformal lacquer protects against moisture and costs $1.2 per square centimeter. A thermal white coating improves heat dissipation and costs $14,000 per square meter.</p>
+                <p>Which coating combinations let the team stay within budget?</p>
+                <ul>
+                    <li>a) Lacquer-White and White-White</li>
+                    <li>b) White-Lacquer and Lacquer-Lacquer</li>
+                    <li>c) White-white or Lacquer-white</li>
+                    <li>d) Lacquer and white and White and white</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) White-Lacquer and Lacquer-Lacquer &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Convert each panel to a common basis, then <strong>multiply</strong> area by each rate to price the options. <strong>Add</strong> the two panel costs for every pairing and compare to the budget. Only the two lowest totals, $38,000 and $36,000, stay at or under the limit.</p>
+
+                    <p class="insight"><em>One square meter holds 10,000 square centimeters, so the unit you convert to controls the whole comparison.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Square panel area:</strong> 10,000 cm&#178; and 1 m&#178;</li>
+                            <li><strong>Cooling panel area:</strong> 20,000 cm&#178; and 2 m&#178;</li>
+                            <li><strong>Square panel lacquer:</strong> 10,000 &#215; 1.2 = $12,000</li>
+                            <li><strong>Square panel white:</strong> 1 &#215; 14,000 = $14,000</li>
+                            <li><strong>Cooling panel lacquer:</strong> 20,000 &#215; 1.2 = $24,000</li>
+                            <li><strong>Cooling panel white:</strong> 2 &#215; 14,000 = $28,000</li>
+                            <li><strong>White then Lacquer:</strong> 14,000 + 24,000 = $38,000, fits</li>
+                            <li><strong>Lacquer then Lacquer:</strong> 12,000 + 24,000 = $36,000, fits</li>
+                            <li><strong>Lacquer then White:</strong> 12,000 + 28,000 = $40,000, over</li>
+                            <li><strong>White then White:</strong> 14,000 + 28,000 = $42,000, over</li>
+                        </ol>
+                    </div>
+
+                    <h2>Visual Walkthrough</h2>
+
+                    <p>The first chart compares each combination total to the budget line. The second lays out every combination across the panels, grouped by how many white coatings it uses.</p>
+
+                    <figure>
+                        <svg width="100%" viewBox="0 0 620 252" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif">
+                            <text x="12" y="20" style="font-size:15px;font-weight:bold;fill:#222">Coating cost by combination vs budget</text>
+                            <text x="459" y="40" text-anchor="middle" style="font-size:12px;fill:#444">$38,000 budget</text>
+                            <line x1="459.5" y1="48" x2="459.5" y2="232" stroke="#888" stroke-width="1" stroke-dasharray="4 4"/>
+                            <rect x="170" y="58" width="274.3" height="30" rx="2" fill="#2f7d4f"/>
+                            <rect x="170" y="104" width="289.5" height="30" rx="2" fill="#2f7d4f"/>
+                            <rect x="170" y="150" width="304.8" height="30" rx="2" fill="#b5524a"/>
+                            <rect x="170" y="196" width="320.0" height="30" rx="2" fill="#b5524a"/>
+                            <text x="152" y="73" text-anchor="end" dominant-baseline="central" style="font-size:12px;fill:#333">Lacquer, Lacquer</text>
+                            <text x="152" y="119" text-anchor="end" dominant-baseline="central" style="font-size:12px;fill:#333">White, Lacquer</text>
+                            <text x="152" y="165" text-anchor="end" dominant-baseline="central" style="font-size:12px;fill:#333">Lacquer, White</text>
+                            <text x="152" y="211" text-anchor="end" dominant-baseline="central" style="font-size:12px;fill:#333">White, White</text>
+                            <text x="450.3" y="73" dominant-baseline="central" style="font-size:12px;fill:#2f7d4f">$36,000 fits</text>
+                            <text x="465.5" y="119" dominant-baseline="central" style="font-size:12px;fill:#2f7d4f">$38,000 fits</text>
+                            <text x="480.8" y="165" dominant-baseline="central" style="font-size:12px;fill:#b5524a">$40,000 over</text>
+                            <text x="496.0" y="211" dominant-baseline="central" style="font-size:12px;fill:#b5524a">$42,000 over</text>
+                        </svg>
+                        <figcaption>Combination totals against the $38,000 budget line. Two mixes fit.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <svg width="100%" viewBox="0 0 680 350" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,Helvetica,sans-serif">
+                            <text x="40" y="20" style="font-size:12px;fill:#333">l = lacquer, $12,000 per board       t = white, $14,000 per board</text>
+                            <text x="40" y="38" style="font-size:12px;fill:#333">Budget $38,000. One coating per board.</text>
+
+                            <rect x="40" y="76" width="600" height="32" fill="#eaf3ee"/>
+                            <rect x="40" y="108" width="600" height="96" fill="#eaf3ee"/>
+                            <rect x="40" y="204" width="600" height="96" fill="#faecea"/>
+                            <rect x="40" y="300" width="600" height="32" fill="#faecea"/>
+                            <rect x="40" y="48" width="600" height="28" fill="#f1efe8"/>
+
+                            <rect x="40" y="48" width="600" height="284" fill="none" stroke="#999" stroke-width="0.8"/>
+                            <line x1="170" y1="48" x2="170" y2="332" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="300" y1="48" x2="300" y2="332" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="430" y1="48" x2="430" y2="332" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="530" y1="48" x2="530" y2="332" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="76" x2="640" y2="76" stroke="#999" stroke-width="0.8"/>
+                            <line x1="40" y1="108" x2="640" y2="108" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="140" x2="640" y2="140" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="172" x2="640" y2="172" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="204" x2="640" y2="204" stroke="#888" stroke-width="1"/>
+                            <line x1="40" y1="236" x2="640" y2="236" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="268" x2="640" y2="268" stroke="#ccc" stroke-width="0.5"/>
+                            <line x1="40" y1="300" x2="640" y2="300" stroke="#ccc" stroke-width="0.5"/>
+
+                            <text x="105" y="64" text-anchor="middle" dominant-baseline="central" style="font-size:12px;font-weight:bold;fill:#333">Board 1</text>
+                            <text x="235" y="64" text-anchor="middle" dominant-baseline="central" style="font-size:12px;font-weight:bold;fill:#333">Board 2</text>
+                            <text x="365" y="64" text-anchor="middle" dominant-baseline="central" style="font-size:12px;font-weight:bold;fill:#333">Board 3</text>
+                            <text x="480" y="64" text-anchor="middle" dominant-baseline="central" style="font-size:12px;font-weight:bold;fill:#333">Total</text>
+                            <text x="585" y="64" text-anchor="middle" dominant-baseline="central" style="font-size:12px;font-weight:bold;fill:#333">Status</text>
+
+                            <text x="105" y="92" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="105" y="103" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="235" y="92" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="235" y="103" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="365" y="92" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="365" y="103" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="480" y="96" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#2f7d4f">$36,000</text>
+                            <text x="585" y="96" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#2f7d4f">Fits</text>
+
+                            <text x="105" y="124" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="105" y="135" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="235" y="124" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="235" y="135" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="365" y="124" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="365" y="135" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="480" y="128" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#2f7d4f">$38,000</text>
+                            <text x="585" y="128" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#2f7d4f">Fits</text>
+
+                            <text x="105" y="156" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="105" y="167" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="235" y="156" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="235" y="167" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="365" y="156" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="365" y="167" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="480" y="160" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#2f7d4f">$38,000</text>
+                            <text x="585" y="160" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#2f7d4f">Fits</text>
+
+                            <text x="105" y="188" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="105" y="199" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="235" y="188" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="235" y="199" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="365" y="188" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="365" y="199" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="480" y="192" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#2f7d4f">$38,000</text>
+                            <text x="585" y="192" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#2f7d4f">Fits</text>
+
+                            <text x="105" y="220" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="105" y="231" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="235" y="220" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="235" y="231" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="365" y="220" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="365" y="231" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="480" y="224" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#b5524a">$40,000</text>
+                            <text x="585" y="224" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#b5524a">Over</text>
+
+                            <text x="105" y="252" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="105" y="263" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="235" y="252" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="235" y="263" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="365" y="252" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="365" y="263" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="480" y="256" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#b5524a">$40,000</text>
+                            <text x="585" y="256" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#b5524a">Over</text>
+
+                            <text x="105" y="284" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">l</text><text x="105" y="295" text-anchor="middle" style="font-size:10px;fill:#777">$12k</text>
+                            <text x="235" y="284" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="235" y="295" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="365" y="284" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="365" y="295" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="480" y="288" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#b5524a">$40,000</text>
+                            <text x="585" y="288" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#b5524a">Over</text>
+
+                            <text x="105" y="316" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="105" y="327" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="235" y="316" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="235" y="327" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="365" y="316" text-anchor="middle" style="font-size:16px;font-weight:bold;fill:#1a1a1a">t</text><text x="365" y="327" text-anchor="middle" style="font-size:10px;fill:#777">$14k</text>
+                            <text x="480" y="320" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:bold;fill:#b5524a">$42,000</text>
+                            <text x="585" y="320" text-anchor="middle" dominant-baseline="central" style="font-size:13px;fill:#b5524a">Over</text>
+                        </svg>
+                        <figcaption>Every combination by board, grouped by white count. Each white board adds $2,000.</figcaption>
+                    </figure>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Estimating coating cost by surface area is old practice in manufacturing and construction, where painters and platers have long priced work by the square unit. The trouble has always been mixed units, a problem the metric system was built to ease when France defined the meter and a decimal scale in the 1790s. That base ten structure is why a square meter converts cleanly to ten thousand square centimeters, which keeps area based estimates fast and consistent across suppliers.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script prices every coating mix for any two panel sizes and two rates, then flags which mixes fit a budget, so it works far beyond the original numbers.</p>
+
+<pre><code># What this does. Works out which coating mixes fit the budget.
+# Where it came from. Two enclosure panels for an edge server, each gets one coating.
+# The math idea. Area times a cost rate, then compare each total to the budget.
+# You type in. The two panel sizes, the budget, and the two coating rates.
+# It prints. Each coating mix with its total and whether it fits.
+
+# This function does all the math and returns every mix.
+def coating_plan(side_m, w_cm, h_cm, lacquer_per_cm2, white_per_m2, budget):
+    # Area of the square panel in square centimeters. One meter is 100 centimeters.
+    panel1_cm2 = (side_m * 100) * (side_m * 100)
+    # Same panel in square meters.
+    panel1_m2 = side_m * side_m
+    # Area of the second panel in square centimeters.
+    panel2_cm2 = w_cm * h_cm
+    # Same panel in square meters.
+    panel2_m2 = (w_cm / 100) * (h_cm / 100)
+
+    # Cost to coat each panel with each option.
+    p1_lacquer = panel1_cm2 * lacquer_per_cm2
+    p1_white = panel1_m2 * white_per_m2
+    p2_lacquer = panel2_cm2 * lacquer_per_cm2
+    p2_white = panel2_m2 * white_per_m2
+
+    # The two choices for each panel.
+    panel1_options = [("lacquer", p1_lacquer), ("white", p1_white)]
+    panel2_options = [("lacquer", p2_lacquer), ("white", p2_white)]
+
+    # Try every pairing, one coating per panel.
+    plans = []
+    for name1, cost1 in panel1_options:
+        for name2, cost2 in panel2_options:
+            total = cost1 + cost2
+            # A mix fits when its total is at or under the budget.
+            plans.append((name1 + " then " + name2, total, total &lt;= budget))
+    return plans
+
+# Make money read cleanly. Whole when it can be, else two decimals.
+def tidy(amount):
+    return int(amount) if float(amount).is_integer() else round(amount, 2)
+
+# Tell the reader what we will figure out.
+print("Let's find which coating mixes fit your budget.")
+
+# Ask for the square panel side in meters.
+side_m = float(input("Square panel side in meters? "))
+
+# Ask for the second panel width in centimeters.
+w_cm = float(input("Second panel width in centimeters? "))
+
+# Ask for the second panel height in centimeters.
+h_cm = float(input("Second panel height in centimeters? "))
+
+# Ask for the budget.
+budget = float(input("Budget in dollars? "))
+
+# Ask for the lacquer rate per square centimeter.
+lacquer_per_cm2 = float(input("Lacquer cost per square centimeter? "))
+
+# Ask for the white rate per square meter.
+white_per_m2 = float(input("White cost per square meter? "))
+
+# Do the math for every mix.
+plans = coating_plan(side_m, w_cm, h_cm, lacquer_per_cm2, white_per_m2, budget)
+
+# Print each mix with words that fit the scenario.
+print("Edge server panels. Pairs read as square panel then second panel.")
+for label, total, fits in plans:
+    status = "fits" if fits else "over"
+    print(label + "  total " + str(tidy(total)) + "  " + status)
+</code></pre>
+
+                <p>Run it in a terminal, type the six values, and it lists each mix with its total and a fits or over tag. A second version uses Python's itertools to build the pairings, which keeps the code short if more panels or coatings are added.</p>
+
+<pre><code># What this does. Works out which coating mixes fit the budget.
+# Where it came from. Two enclosure panels for an edge server, each gets one coating.
+# The math idea. Area times a cost rate, then compare each total to the budget.
+# You type in. The two panel sizes, the budget, and the two coating rates.
+# It prints. Each coating mix with its total and whether it fits.
+
+# This tool pairs the options for us, so the code stays short if panels are added.
+from itertools import product
+
+# This function does all the math and returns every mix.
+def coating_plan(side_m, w_cm, h_cm, lacquer_per_cm2, white_per_m2, budget):
+    # Areas in both units. One meter is 100 centimeters.
+    panel1_cm2 = (side_m * 100) * (side_m * 100)
+    panel1_m2 = side_m * side_m
+    panel2_cm2 = w_cm * h_cm
+    panel2_m2 = (w_cm / 100) * (h_cm / 100)
+
+    # Cost to coat each panel with each option.
+    panel1_options = [("lacquer", panel1_cm2 * lacquer_per_cm2), ("white", panel1_m2 * white_per_m2)]
+    panel2_options = [("lacquer", panel2_cm2 * lacquer_per_cm2), ("white", panel2_m2 * white_per_m2)]
+
+    # Let the tool pair one option from each panel, every way.
+    plans = []
+    for (name1, cost1), (name2, cost2) in product(panel1_options, panel2_options):
+        total = cost1 + cost2
+        # A mix fits when its total is at or under the budget.
+        plans.append((name1 + " then " + name2, total, total &lt;= budget))
+    return plans
+
+# Make money read cleanly.
+def tidy(amount):
+    return int(amount) if float(amount).is_integer() else round(amount, 2)
+
+print("Let's find which coating mixes fit your budget.")
+side_m = float(input("Square panel side in meters? "))
+w_cm = float(input("Second panel width in centimeters? "))
+h_cm = float(input("Second panel height in centimeters? "))
+budget = float(input("Budget in dollars? "))
+lacquer_per_cm2 = float(input("Lacquer cost per square centimeter? "))
+white_per_m2 = float(input("White cost per square meter? "))
+
+plans = coating_plan(side_m, w_cm, h_cm, lacquer_per_cm2, white_per_m2, budget)
+
+print("Edge server panels. Pairs read as square panel then second panel.")
+for label, total, fits in plans:
+    status = "fits" if fits else "over"
+    print(label + "  total " + str(tidy(total)) + "  " + status)
+</code></pre>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: panel-coating-budget-check
+description: Checks which coating mixes for two panels stay within a budget when each coating is priced in a different unit, one per square centimeter and one per square meter. Reports every combination with its total and whether it fits. Trigger this skill whenever the user wants to find feasible finishing or coating combinations under a budget, even if they do not use technical language.
+---
+
+<span class="md-heading"># Panel Coating Budget Check</span>
+
+This skill takes two panel sizes, a budget, and two coating rates priced in different units, then works out the cost of every coating mix and reports which ones stay within budget. Each panel gets exactly one coating. The input is six numbers typed by the user. The output is a short list naming every mix with its total and a fits or over tag.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None beyond Python's standard library. No external packages are needed.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Square panel side**</span> in meters. The length of one side of the square panel.
+- <span class="md-bold">**Second panel width**</span> in centimeters.
+- <span class="md-bold">**Second panel height**</span> in centimeters.
+- <span class="md-bold">**Budget**</span> in dollars. The most the user can spend on both panels.
+- <span class="md-bold">**Lacquer rate**</span> in dollars per square centimeter.
+- <span class="md-bold">**White rate**</span> in dollars per square meter.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1. Collect the inputs</span>
+
+Ask for the six values listed above. Treat all of them as decimals, since sizes and money may not be whole numbers.
+
+<span class="md-heading">### Step 2. Find each panel area in both units</span>
+
+The two coatings are priced in different units, so each panel needs an area in square centimeters and an area in square meters.
+
+For the square panel, multiply the side by itself to get the area in square meters. Convert the side to centimeters first by multiplying by 100, then multiply that by itself to get the area in square centimeters.
+
+For the second panel, multiply width by height to get the area in square centimeters. Divide each side by 100 before multiplying to get the area in square meters.
+
+<span class="md-heading">### Step 3. Price each coating on each panel</span>
+
+For each panel, work out two prices. The lacquer price is the square centimeter area times the lacquer rate. The white price is the square meter area times the white rate. This produces four numbers, a lacquer price and a white price for each of the two panels.
+
+<span class="md-heading">### Step 4. List every coating mix</span>
+
+Each panel takes exactly one coating, so pair one option from the first panel with one option from the second. There are four pairings. For each pairing, add the two panel prices to get a total. Label each pairing by the square panel coating first and the second panel coating next.
+
+<span class="md-heading">### Step 5. Mark each mix against the budget</span>
+
+A mix fits when its total is at or under the budget. Mark any mix with a total above the budget as over.
+
+<span class="md-heading">### Step 6. Report the result</span>
+
+Print one short line naming the scenario, then list every mix with its total and a fits or over tag. Show whole dollar amounts without decimals when the value is whole, otherwise round money to two decimals. State that pairs read as the square panel coating first and the second panel coating next.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "I have two panels to coat and a fixed budget. Which finish combinations can I afford?"
+- "One coating is priced per square centimeter and another per square meter. Show me what fits my budget."
+- "Check which paint mixes for these two boards stay under my budget."
+- "Work out the cost of every coating option for two surfaces and tell me which ones are within budget."
+- "Two enclosure panels, one budget. List the coating mixes that work."
+</code></pre>
+
+                <p>The skill restates the same logic as instructions, so Claude can run it without the script. The Python stays the exact reference for anyone who wants to execute or extend it.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter" target="_blank" rel="noopener">Khan Academy &#8212; Area and Perimeter</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Area.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Area</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/area" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Area</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 29, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
