@@ -7,6 +7,16 @@
 
     const articlesDataBase = [ 
         {
+            articleTitle: "The Cascading Arithmetic Behind A Per Seat Cloud Budget",
+            articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-cascading-arithmetic-behind-a-per-seat-cloud-budget.html"  
+        },
+        {
+            articleTitle: "When Three Feet Become Nine: The Flooring Cost Everyone Miscalculates",
+            articleDescription: "This problem shows how a single multiplication turns a known length into a total area, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/when-three-feet-become-nine-the-flooring-cost-everyone-miscalculates.html"
+        },
+        {
             articleTitle: "How A Single Zone Perimeter Reveals The Whole Square Floor Area",
             articleDescription: " A team often knows the size of one zone before it knows the size of the whole floor, so it must work backward from a boundary measurement to the area it controls. This problem shows how the fixed shape of a square turns one perimeter figure into a full area, and how a short Python script makes that step reusable for any room",
             articleHref: "/a/how-a-single-zone-perimeter-reveals-the-whole-square-floor-area.html"

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A data center flooring problem shows why a price per square yard must square the linear conversion before scaling to room size, with a reusable Python program and a Claude skill.">
+    <meta name="keywords" content="area conversion, square yard to square feet, unit pricing, flooring cost, dimensional analysis, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-three-feet-become-nine-the-flooring-cost-everyone-miscalculates.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/when-three-feet-become-nine-the-flooring-cost-everyone-miscalculates.html" />
+
+    <title>When Three Feet Become Nine: The Flooring Cost Everyone Miscalculates</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Jun 29, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHEN THREE FEET BECOME NINE: THE FLOORING COST EVERYONE MISCALCULATES
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Procurement quotes often arrive in one unit while the space they apply to is measured in another. The risk is not the multiplication at the end but the conversion in the middle, where a length ratio quietly governs an area ratio. <dfn>This problem shows how an area price must square its conversion factor before it scales to a room, and how Python turns that rule into a tool that never forgets the step.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data center operator wants to install raised floor panels in a new server room. The vendor quotes 45,000 for one square yard of paneling. The operator needs the cost based on the room layout, which is measured in square feet. One yard equals 3 feet, and the server room area is 120 square feet.</p>
+                <p>How much will the floor paneling cost?</p>
+                <ul>
+                    <li>a) 180,000</li>
+                    <li>b) 6,000,000</li>
+                    <li>c) 600,000</li>
+                    <li>d) 1,800,000</li>
+                </ul>
+
+                <figure style="margin:1.5em 0; text-align:center;">
+                    <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:480px; height:auto; font-family:Arial,Helvetica,sans-serif;" role="img" aria-label="One yard equals three feet, squared into nine square feet">
+                        <text x="20" y="28" style="font-size:16px;font-weight:bold;fill:#222">Step 1. One yard as a line</text>
+                        <line x1="40" y1="70" x2="440" y2="70" style="stroke:#222;stroke-width:2"/>
+                        <line x1="40" y1="60" x2="40" y2="80" style="stroke:#222;stroke-width:2"/>
+                        <line x1="173" y1="62" x2="173" y2="78" style="stroke:#999;stroke-width:1"/>
+                        <line x1="306" y1="62" x2="306" y2="78" style="stroke:#999;stroke-width:1"/>
+                        <line x1="440" y1="60" x2="440" y2="80" style="stroke:#222;stroke-width:2"/>
+                        <text x="106" y="98" style="font-size:13px;fill:#555" text-anchor="middle">1 ft</text>
+                        <text x="240" y="98" style="font-size:13px;fill:#555" text-anchor="middle">1 ft</text>
+                        <text x="373" y="98" style="font-size:13px;fill:#555" text-anchor="middle">1 ft</text>
+                        <text x="240" y="54" style="font-size:14px;font-weight:bold;fill:#1d9e75" text-anchor="middle">1 yard = 3 feet</text>
+
+                        <text x="20" y="160" style="font-size:16px;font-weight:bold;fill:#222">Step 2. Square the line into area</text>
+                        <rect x="40" y="180" width="240" height="240" style="fill:#e1f5ee;stroke:#222;stroke-width:1.5"/>
+                        <line x1="120" y1="180" x2="120" y2="420" style="stroke:#9fd9c5;stroke-width:1"/>
+                        <line x1="200" y1="180" x2="200" y2="420" style="stroke:#9fd9c5;stroke-width:1"/>
+                        <line x1="40" y1="260" x2="280" y2="260" style="stroke:#9fd9c5;stroke-width:1"/>
+                        <line x1="40" y1="340" x2="280" y2="340" style="stroke:#9fd9c5;stroke-width:1"/>
+                        <text x="80" y="226" style="font-size:13px;fill:#555" text-anchor="middle">1</text>
+                        <text x="160" y="226" style="font-size:13px;fill:#555" text-anchor="middle">2</text>
+                        <text x="240" y="226" style="font-size:13px;fill:#555" text-anchor="middle">3</text>
+                        <text x="80" y="306" style="font-size:13px;fill:#555" text-anchor="middle">4</text>
+                        <text x="160" y="306" style="font-size:13px;fill:#555" text-anchor="middle">5</text>
+                        <text x="240" y="306" style="font-size:13px;fill:#555" text-anchor="middle">6</text>
+                        <text x="80" y="386" style="font-size:13px;fill:#555" text-anchor="middle">7</text>
+                        <text x="160" y="386" style="font-size:13px;fill:#555" text-anchor="middle">8</text>
+                        <text x="240" y="386" style="font-size:13px;fill:#555" text-anchor="middle">9</text>
+                        <text x="370" y="262" style="font-size:14px;font-weight:bold;fill:#1d9e75" text-anchor="middle">1 square yard</text>
+                        <text x="370" y="284" style="font-size:14px;font-weight:bold;fill:#1d9e75" text-anchor="middle">= 9 square feet</text>
+                        <text x="370" y="318" style="font-size:13px;fill:#555" text-anchor="middle">45,000 / 9</text>
+                        <text x="370" y="338" style="font-size:13px;fill:#555" text-anchor="middle">= 5,000 per sq ft</text>
+                    </svg>
+                    <figcaption style="font-size:13px;color:#777;margin-top:6px;">A length factor of 3 becomes an area factor of 9.</figcaption>
+                </figure>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 600,000 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>One square yard equals <strong>3 feet times 3 feet</strong>, which is <strong>9 square feet</strong>. <strong>Dividing</strong> the 45,000 price by 9 gives 5,000 per square foot. <strong>Multiplying</strong> 5,000 by the 120 square foot room gives 600,000.</p>
+
+                    <p class="insight"><em>The linear ratio squares. A factor of 3 between lengths becomes a factor of 9 between areas.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Convert one square yard:</strong> 3 ft &times; 3 ft = 9 square feet</li>
+                            <li><strong>Price per square foot:</strong> 45,000 / 9 = 5,000</li>
+                            <li><strong>Total for the room:</strong> 5,000 &times; 120 = 600,000</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Measuring area for a price is one of the oldest practical uses of mathematics. In ancient Egypt, surveyors known as rope stretchers re-laid field boundaries each year after the Nile flood erased them, and the value of land followed directly from the area they recorded. The Rhind Mathematical Papyrus, copied around 1550 BCE, preserves worked methods for the area of rectangular and triangular plots, written for scribes who had to settle taxes and contracts.</p>
+                <p>The squaring trap in this problem is just as old. Whenever a society priced cloth, tiling, or land by one unit and measured the parcel in another, someone had to remember that doubling a side does not double the surface. The rule that a length ratio becomes its square in area has governed honest measurement, and honest billing, since the first surveyed field.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script converts any price per square yard into a total cost for a room measured in square feet, so the same logic works for carpet, tile, or paneling.</p>
+
+                <pre><code># What this does: works out the total cost of floor paneling for a room.
+# Where it came from: a data center operator priced paneling per square yard but measured the room in square feet.
+# The math idea: change the price to a per square foot rate, then multiply by the area.
+# You type in: the price per square yard, how many feet are in a yard, and the room area in square feet.
+# It prints: the total cost to panel the room.
+
+# This function does the math.
+def paneling_cost(price_per_sq_yard, feet_per_yard, area_sq_feet):
+    # One square yard holds this many square feet. The side count is multiplied by itself.
+    sq_feet_per_sq_yard = feet_per_yard * feet_per_yard
+    # Find the price for one square foot.
+    price_per_sq_foot = price_per_sq_yard / sq_feet_per_sq_yard
+    # Multiply that price by the whole room area.
+    return price_per_sq_foot * area_sq_feet
+
+# Tell the reader what we will figure out.
+print("Let's find the total cost to panel the server room.")
+
+# Ask for the price of one square yard.
+price_per_sq_yard = float(input("Price per square yard: "))
+
+# Ask how many feet are in one yard.
+feet_per_yard = float(input("Feet per yard: "))
+
+# Ask for the room area in square feet.
+area_sq_feet = float(input("Room area in square feet: "))
+
+# Do the math.
+result = paneling_cost(price_per_sq_yard, feet_per_yard, area_sq_feet)
+
+# Show as a whole number when there is no leftover.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Total floor paneling cost for the server room:", result)</code></pre>
+
+                <p>Run it in a terminal, type the three numbers, and it returns 600,000 for this room.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic, written as a reusable skill so the conversion rule is followed every time, not just in code.</p>
+
+                <pre class="md-code"><code>---
+name: area-price-converter
+description: Converts a price quoted per unit of area into a total cost for a room measured in a different unit, correctly squaring the linear conversion ratio. Trigger this skill whenever the user has a price per square yard, square meter, or square foot and needs the total cost for a space measured in another area unit, even if they do not use technical language.
+---
+
+<span class="md-heading"># Area Price Converter</span>
+
+This skill takes a price quoted per one unit of area, a linear conversion factor between two length units, and a room area in the smaller unit. It returns the total cost to cover that room. The key step is squaring the linear factor before converting the price, since area scales with the square of the linear ratio.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Price per square yard**</span>: the quoted cost for one square unit, in money.
+- <span class="md-bold">**Feet per yard**</span>: the linear conversion factor between the two length units, e.g. 3.
+- <span class="md-bold">**Room area in square feet**</span>: the size of the space to cover, in the smaller unit.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &mdash; Collect the three values</span>
+
+Ask for the price per square yard, the number of feet in one yard, and the room area in square feet. Treat all three as numbers that may have decimals.
+
+<span class="md-heading">### Step 2 &mdash; Square the linear factor</span>
+
+Multiply the feet per yard by itself to find how many square feet fit in one square yard. With 3 feet per yard, one square yard holds 9 square feet. Do not skip the squaring. Using the linear factor alone gives a cost wrong by that factor.
+
+<span class="md-heading">### Step 3 &mdash; Find the price per square foot</span>
+
+Divide the price per square yard by the squared factor from Step 2. This gives the cost of one square foot.
+
+<span class="md-heading">### Step 4 &mdash; Apply to the room</span>
+
+Multiply the price per square foot by the room area in square feet to get the total cost.
+
+<span class="md-heading">### Step 5 &mdash; Report the result</span>
+
+State the total cost in plain language tied to the scenario. Show it as a whole number when there is no leftover. Example output. Total floor cost for the room. 600,000.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Carpet is priced per square yard but my floor plan is in square feet. What is the total?"
+- "Tile costs 45000 per square yard and the room is 120 square feet. How much total?"
+- "Convert this per square meter price to a total for a room measured in square feet."
+- "I have a price per square yard and a room size in square feet. Work out the cost."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The linear factor was squared before converting the price.
+- [ ] The price per smaller unit comes from dividing, not multiplying.
+- [ ] The final total uses the room area in the smaller unit.
+- [ ] The result is reported with scenario specific text, not a bare number.</code></pre>
+
+                <p>Code enforces the rule for one machine. The skill enforces it for any request phrased in plain words.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic/cc-6th-rates/v/conversion-between-metric-units" target="_blank" rel="noopener">Khan Academy &mdash; Unit Conversion and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Area.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Area</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/units" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Units</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 29, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
