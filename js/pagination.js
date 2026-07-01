@@ -7,6 +7,11 @@
 
     const articlesDataBase = [ 
         {
+            ArticleTitle: "When Two Thirds Meets Three Fifths In A Perfect Pairing",
+            articleDescription: "This problem shows how two unlike fractions can combine into a single whole, and how a short Python routine turns that logic into a tool you can reuse for any pair of items",
+            articleHref: "/a/when-two-thirds-meets-three-fifths-in-a-perfect-pairing.html"
+        },
+        {
           articleTitle: "Your Cloud Bill Has A Job Limit. Here Is The Math",
             articleDescription: "Cloud and data platforms rarely charge one flat rate. A setup fee, a premium first run, and a lower rate for every run after it pull a single budget in three directions at once, and the number of runs a team can afford falls out of that mix. This problem shows how a fixed fee, a tiered rate, and floor division combine into a capacity question, and how Python turns that logic into a tool the team reuses every session",  
             articleHref: "/a/your-cloud-bill-has-a-job-limit-here-is-the-math.html"  

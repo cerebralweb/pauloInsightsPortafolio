@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="A buddy program pairs two teams one to one. Two thirds of one team and three fifths of the other join. See how the pairing forces one answer, with tape and array diagrams and a reusable Python tool.">
+    <meta name="keywords"
+        content="fractions, equivalent fractions, common numerator, least common multiple, ratio, tape diagram, array model, pairing, proportion, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-two-thirds-meets-three-fifths-in-a-perfect-pairing.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/when-two-thirds-meets-three-fifths-in-a-perfect-pairing.html" />
+
+    <title>When Two Thirds Meets Three Fifths In A Perfect Pairing</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>June 30, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHEN TWO THIRDS MEETS THREE FIFTHS IN A PERFECT PAIRING
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                        Many staffing choices come down to matching two groups where every match needs one member from
+                        each side. Recruiting pairs interviewers with candidates. Mentoring pairs seniors with juniors.
+                        Onboarding pairs new hires with guides. The moment a program runs on pairs, the count drawn from
+                        one group is locked to the count drawn from the other, and fractions of each group have to land
+                        on the same whole number. <dfn>This problem shows how a pairing constraint turns two fractions
+                            into a single answer, and how a small Python tool can solve the same shape of question for
+                            any two shares.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>The engineering team and the design team at a software firm run a buddy program. Each buddy pair has
+                    one engineer and one designer. Two thirds of the engineering team and three fifths of the design
+                    team will join. Every participant forms exactly one pair, so the number of engineers who join equals
+                    the number of designers who join.</p>
+                <p>What is the total headcount of the two teams, and how many people will join the program?</p>
+                <ul>
+                    <li>a) There are 19 people, and 12 will join</li>
+                    <li>b) There are 30 people, and 19 will join</li>
+                    <li>c) There are 10 people, and 7 will join</li>
+                    <li>d) There are 10 people, and 8 will join</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer a) There are 19 people, and 12 will join &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Two thirds of engineering equals three fifths of
+                            design</strong>. Clearing the fractions (finding a common denominator) gives <strong>10E =
+                            9D</strong>, whose smallest
+                        whole solution is 9 engineers and 10 designers: the simplest way 10E = 9D is true is by
+                        replacing E with 3/5 and D with
+                        2/3, which would yield 6=6. Two thirds of 9 is 6. Three fifths of 10 is 6. Note that those
+                        two fractions are not the team sizes but the smallest values that satisfy the equation.
+                    </p>
+
+                    <!-- Paste into the article body. CSS scoped under #qa-start-equation. -->
+                    <section id="qa-start-equation">
+                        <style>
+                            #qa-start-equation {
+                                border-left: 3px solid #2E8468;
+                                padding: 14px 18px;
+                                margin: 22px 0;
+                                background: #F7FAF8;
+                                border-radius: 0 10px 10px 0;
+                            }
+
+                            #qa-start-equation .q {
+                                font-weight: 700;
+                                color: #22241E;
+                                margin: 0 0 10px;
+                            }
+
+                            #qa-start-equation .q .tag {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                color: #2E8468;
+                                letter-spacing: .08em;
+                                display: block;
+                                margin-bottom: 4px;
+                            }
+
+                            #qa-start-equation p {
+                                margin: 0 0 10px;
+                                color: #33342D;
+                            }
+
+                            #qa-start-equation .eq {
+                                font-family: ui-monospace, Menlo, monospace;
+                                background: #EEF4F1;
+                                padding: 2px 6px;
+                                border-radius: 5px;
+                            }
+
+                            #qa-start-equation h4 {
+                                margin: 14px 0 4px;
+                                font-size: 15px;
+                                color: #22241E;
+                            }
+                        </style>
+
+                        <p class="q"><span class="tag">QUESTION</span>Can you also start the exploration of the problem
+                            by stating (2/3)x = (3/5)y?? In the end, that is the information you start with.</p>
+
+                        <p>Yes. That equation is the true starting point. Each pair takes one engineer and one designer,
+                            so the joiners are equal. The engineers who join are <span class="eq">(2/3)&#183;x</span>.
+                            The designers who join are <span class="eq">(3/5)&#183;y</span>. Setting them equal gives
+                            <span class="eq">(2/3)&#183;x = (3/5)&#183;y</span>. Everything else follows from that one
+                            line.</p>
+
+                        <p>From there two routes open.</p>
+
+                        <h4>Clear the fractions</h4>
+                        <p>Multiply both sides by 15. <dfn class="highlight-line" >Multiplying both sides by 15 clears the denominators and turns the equation into whole numbers</dfn> You get <span class="eq">10x = 9y</span>. The smallest whole
+                            solution is x = 9, y = 10.</p>
+
+                        <h4>Match the numerators</h4>
+                        <p><dfn class="highlight-line" >Rewrite each share with a common top number.</dfn> <span class="eq">2/3 = 6/9</span> and <span
+                                class="eq">3/5 = 6/10</span>. The denominators are the team sizes, 9 and 10. The top
+                            number 6 is the joiners on each side.</p>
+
+                        <p>Both routes start from <span class="eq">(2/3)&#183;x = (3/5)&#183;y</span> and land on the
+                            same pair. The earlier substitution, x = 3/5 and y = 2/3, is the same equation read as a
+                            ratio. It gives the direction 9 to 10 without the total, which you then scale to whole
+                            people.</p>
+                    </section>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Set the equality.</strong> Joiners from engineering equal joiners from design,
+                                so (2/3)&#183;E = (3/5)&#183;D.</li>
+                            <li><strong>Clear the fractions.</strong> Multiply both sides by 15, giving 10E = 9D.</li>
+                            <li><strong>Find the smallest whole sizes.</strong> E must be a multiple of 9 and D a
+                                multiple of 10, so E = 9 and D = 10.</li>
+                            <li><strong>Check the shares.</strong> Two thirds of 9 is 6, and three fifths of 10 is 6.
+                                Equal, as the pairing requires.</li>
+                            <li><strong>Sum the headcount.</strong> 9 plus 10 is 19.</li>
+                            <li><strong>Sum the joiners.</strong> 6 plus 6 is 12.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="what-units-means">What a Unit Means Here</h2>
+
+                <p>A unit is one equal share of a group, not a fixed count of people. Two thirds of the engineers means
+                    you cut the engineering team into 3 equal shares and 2 of them join. Three fifths of the designers
+                    means you cut the design team into 5 equal shares and 3 of them join. Each of those shares is a
+                    unit.</p>
+
+                <p>The trap is that an engineering share is not the same size as a design share. The two teams hold
+                    different numbers of people, so one third of one team and one fifth of the other cover different
+                    headcounts. That is why you cannot compare the shares directly yet.</p>
+
+                <p>Here is the move to hold onto. The same number of people join from each side, because every pair is
+                    one engineer and one designer. So the joining part of the engineering bar and the joining part of
+                    the design bar must contain the same headcount. On the engineering side that joining part is 2
+                    units. On the design side it is 3 units. For 2 units to hold the same headcount as 3 units, the
+                    engineering unit has to be bigger than the design unit.</p>
+
+                <p>To count actual people you make the units the same size. You cut every unit into smaller equal pieces
+                    until an engineering piece and a design piece match. Each small piece is then one person. The
+                    engineering bar becomes 9 pieces. The design bar becomes 10 pieces. Now you can add them, because
+                    they are the same size. The yards and feet case is the same idea. 2 yards equals 6 feet because the
+                    yard is the larger unit and the foot the smaller. Toggle the diagram below from coarse units to one
+                    piece per person to watch the shares refine while the joining stretch keeps its width.</p>
+
+
+                <div id="tape-fig">
+                    <style>
+                        #tape-fig {
+                            background: #fff;
+                            border: 1px solid #CFCDC1;
+                            border-radius: 14px;
+                            padding: 18px 16px 6px;
+                            margin: 22px 0;
+                        }
+
+                        #tape-fig .tape-controls {
+                            display: inline-flex;
+                            padding: 4px;
+                            background: #ECEADF;
+                            border-radius: 999px;
+                            margin-bottom: 6px;
+                            gap: 4px;
+                        }
+
+                        #tape-fig .tape-controls button {
+                            font: 550 13px/1 inherit;
+                            border: 0;
+                            background: transparent;
+                            color: #71716A;
+                            padding: 8px 15px;
+                            border-radius: 999px;
+                            cursor: pointer;
+                        }
+
+                        #tape-fig .tape-controls button[aria-pressed="true"] {
+                            background: #fff;
+                            color: #22241E;
+                            box-shadow: 0 1px 2px rgba(0, 0, 0, .09);
+                        }
+
+                        #tape-fig svg {
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                        }
+
+                        #tape-fig .bar-rest {
+                            fill: #ECEADF;
+                        }
+
+                        #tape-fig .bar-join {
+                            fill: #A6DFCC;
+                        }
+
+                        #tape-fig .bar-frame {
+                            fill: none;
+                            stroke: #22241E;
+                            stroke-width: 1.5;
+                        }
+
+                        #tape-fig .tick-main {
+                            stroke: #8f8d82;
+                            stroke-width: 1.2;
+                        }
+
+                        #tape-fig .tick-sub {
+                            stroke: #b7b5a8;
+                            stroke-width: 1;
+                            opacity: 0;
+                            transition: opacity 320ms ease;
+                        }
+
+                        #tape-fig svg.fine .tick-sub {
+                            opacity: 1;
+                        }
+
+                        #tape-fig .join-edge {
+                            stroke: #14795F;
+                            stroke-width: 1.5;
+                        }
+
+                        #tape-fig .guide {
+                            stroke: #14795F;
+                            stroke-width: 1.4;
+                            stroke-dasharray: 4 5;
+                        }
+
+                        #tape-fig .lbl {
+                            font: 600 14px sans-serif;
+                            fill: #22241E;
+                        }
+
+                        #tape-fig .cap {
+                            font: 12px ui-monospace, monospace;
+                            fill: #71716A;
+                        }
+
+                        #tape-fig .count {
+                            font: 600 15px ui-monospace, monospace;
+                            fill: #22241E;
+                            transition: opacity 260ms ease;
+                        }
+
+                        #tape-fig .join-num {
+                            font: 700 16px ui-monospace, monospace;
+                            fill: #14795F;
+                        }
+
+                        @media (prefers-reduced-motion: reduce) {
+
+                            #tape-fig .tick-sub,
+                            #tape-fig .count {
+                                transition: none;
+                            }
+                        }
+                    </style>
+                    <div class="tape-controls" role="group" aria-label="Diagram detail">
+                        <button id="tape-btn-coarse" aria-pressed="true">Coarse units</button>
+                        <button id="tape-btn-fine" aria-pressed="false">One piece per person</button>
+                    </div>
+                    <svg id="tape-svg" viewBox="0 0 700 300" role="img"
+                        aria-label="Two bars. Engineering splits from three units into nine people. Design splits from five units into ten people. Six join from each side."></svg>
+                </div>
+                <script>
+                    (function () {
+                        var svg = document.getElementById("tape-svg");
+                        var NS = "http://www.w3.org/2000/svg";
+                        var pu = 46, barX = 84, engY = 62, desY = 168, barH = 54;
+                        var engTotal = 9, desTotal = 10, joinPU = 6, fine = false;
+                        function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+                        function px(u) { return barX + u * pu; }
+                        function bar(y, total, coarse, sub, cL, fL) {
+                            var g = el("g", {});
+                            g.appendChild(el("rect", { x: px(0), y: y, width: total * pu, height: barH, class: "bar-rest" }));
+                            g.appendChild(el("rect", { x: px(0), y: y, width: joinPU * pu, height: barH, class: "bar-join" }));
+                            sub.forEach(function (u, i) { var t = el("line", { x1: px(u), y1: y + 6, x2: px(u), y2: y + barH - 6, class: "tick-sub" }); t.style.transitionDelay = (i * 26) + "ms"; g.appendChild(t); });
+                            coarse.forEach(function (u) { g.appendChild(el("line", { x1: px(u), y1: y, x2: px(u), y2: y + barH, class: "tick-main" })); });
+                            g.appendChild(el("rect", { x: px(0), y: y, width: total * pu, height: barH, rx: 3, class: "bar-frame" }));
+                            g.appendChild(el("line", { x1: px(joinPU), y1: y, x2: px(joinPU), y2: y + barH, class: "join-edge" }));
+                            var cx = px(total) + 16;
+                            var c1 = el("text", { x: cx, y: y + barH / 2 + 5, class: "count", "data-role": "coarse" }); c1.textContent = cL;
+                            var c2 = el("text", { x: cx, y: y + barH / 2 + 5, class: "count", "data-role": "fine" }); c2.textContent = fL; c2.style.opacity = 0;
+                            g.appendChild(c1); g.appendChild(c2); return g;
+                        }
+                        function render() {
+                            while (svg.firstChild) svg.removeChild(svg.firstChild);
+                            var le = el("text", { x: barX - 12, y: engY + barH / 2 + 5, class: "lbl", "text-anchor": "end" }); le.textContent = "Eng"; svg.appendChild(le);
+                            var ld = el("text", { x: barX - 12, y: desY + barH / 2 + 5, class: "lbl", "text-anchor": "end" }); ld.textContent = "Des"; svg.appendChild(ld);
+                            svg.appendChild(bar(engY, engTotal, [3, 6], [1, 2, 4, 5, 7, 8], "3 units", "9 people"));
+                            svg.appendChild(bar(desY, desTotal, [2, 4, 6, 8], [1, 3, 5, 7, 9], "5 units", "10 people"));
+                            var gx = px(joinPU);
+                            svg.appendChild(el("line", { x1: gx, y1: engY - 16, x2: gx, y2: desY + barH + 30, class: "guide" }));
+                            var jm = px(joinPU / 2);
+                            var je = el("text", { x: jm, y: engY - 22, class: "join-num", "text-anchor": "middle" }); je.textContent = "6 join"; svg.appendChild(je);
+                            var jd = el("text", { x: jm, y: desY + barH + 24, class: "join-num", "text-anchor": "middle" }); jd.textContent = "6 join"; svg.appendChild(jd);
+                            var cap = el("text", { x: px(desTotal) + 16, y: desY + barH + 24, class: "cap" }); cap.textContent = "same piece size"; svg.appendChild(cap);
+                            setMode(fine);
+                        }
+                        var bC = document.getElementById("tape-btn-coarse"), bF = document.getElementById("tape-btn-fine");
+                        function setMode(f) {
+                            fine = f; svg.classList.toggle("fine", fine); bC.setAttribute("aria-pressed", String(!fine)); bF.setAttribute("aria-pressed", String(fine));
+                            svg.querySelectorAll('[data-role="coarse"]').forEach(function (n) { n.style.opacity = fine ? 0 : 1; });
+                            svg.querySelectorAll('[data-role="fine"]').forEach(function (n) { n.style.opacity = fine ? 1 : 0; });
+                        }
+                        bC.addEventListener("click", function () { setMode(false); });
+                        bF.addEventListener("click", function () { setMode(true); });
+                        render();
+                    })();
+                </script>
+
+
+                <h2 id="reasoning">The Reasoning, Method by Method</h2>
+
+                <p>Three ideas anchor the solution. First, the pairing makes the two shares equal in headcount. Second,
+                    3 and 5 are factors of the sizes you are hunting, because a clean two thirds needs a size divisible
+                    by 3 and a clean three fifths needs a size divisible by 5. Third, the two shares must represent the
+                    same number. Those three together pin the pair 9 and 10.</p>
+
+                <p>The cleanest route is the common numerator. Pairing means equal joiners, so both fractions must share
+                    a top number. The smallest shared top number of 2 and 3 is 6. Rewrite both with that top number and
+                    the denominators become the team sizes.</p>
+
+                <p>2/3 = 6/9 and 3/5 = 6/10. Read the denominators. They are 9 and 10, the team sizes. Read the top
+                    number. It is 6, the joiners from each side. Total headcount is 19. Joiners total 12. This route
+                    assumes nothing about the total. It derives it. The bar model below shows the same move. Both teams
+                    rewrite their share to a block of 6, and those two blocks match in width even though the teams
+                    differ in size.</p>
+
+                <svg id="svg-barmodel" width="100%" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img"
+                    font-family="Arial, Helvetica, sans-serif">
+                    <title>Bar model showing equal numerator 6 for both teams</title>
+                    <desc>Engineering has 9 units with 6 shaded. Design has 10 units with 6 shaded. The shaded lengths
+                        match, showing 6 dancers from each side. Total headcount 19, dancers 12.</desc>
+
+                    <style>
+                        #svg-barmodel .cap {
+                            font-size: 14px;
+                            font-weight: 700;
+                            fill: #1f2937;
+                        }
+
+                        #svg-barmodel .fr {
+                            font-size: 14px;
+                            font-weight: 700;
+                            fill: #0F6E56;
+                        }
+
+                        #svg-barmodel .six {
+                            font-size: 18px;
+                            font-weight: 700;
+                            fill: #04342C;
+                        }
+
+                        #svg-barmodel .note {
+                            font-size: 12px;
+                            font-weight: 400;
+                            fill: #6b7280;
+                        }
+
+                        #svg-barmodel .teal {
+                            fill: #9FE1CB;
+                            stroke: #0F6E56;
+                            stroke-width: 0.5;
+                        }
+
+                        #svg-barmodel .gray {
+                            fill: #F1EFE8;
+                            stroke: #B4B2A9;
+                            stroke-width: 0.5;
+                        }
+
+                        #svg-barmodel .sep {
+                            stroke: #ffffff;
+                            stroke-width: 1;
+                            opacity: 0.8;
+                        }
+
+                        #svg-barmodel .sepg {
+                            stroke: #B4B2A9;
+                            stroke-width: 0.5;
+                        }
+
+                        #svg-barmodel .guide {
+                            stroke: #0F6E56;
+                            stroke-width: 1;
+                            stroke-dasharray: 5 5;
+                        }
+
+                        #svg-barmodel .boxlbl {
+                            font-size: 13px;
+                            font-weight: 400;
+                            fill: #5F5E5A;
+                        }
+
+                        #svg-barmodel .boxnum {
+                            font-size: 24px;
+                            font-weight: 700;
+                            fill: #1f2937;
+                        }
+
+                        #svg-barmodel .card {
+                            fill: #F1EFE8;
+                        }
+                    </style>
+
+                    <!-- Engineering -->
+                    <text class="cap" x="40" y="42">Engineering</text>
+                    <rect class="teal" x="40" y="52" width="288" height="44" />
+                    <rect class="gray" x="328" y="52" width="144" height="44" />
+                    <line class="sep" x1="88" y1="52" x2="88" y2="96" />
+                    <line class="sep" x1="136" y1="52" x2="136" y2="96" />
+                    <line class="sep" x1="184" y1="52" x2="184" y2="96" />
+                    <line class="sep" x1="232" y1="52" x2="232" y2="96" />
+                    <line class="sep" x1="280" y1="52" x2="280" y2="96" />
+                    <line class="sepg" x1="376" y1="52" x2="376" y2="96" />
+                    <line class="sepg" x1="424" y1="52" x2="424" y2="96" />
+                    <text class="six" x="184" y="80" text-anchor="middle">6</text>
+                    <text class="fr" x="486" y="79">2/3 = 6/9</text>
+
+                    <!-- Design -->
+                    <text class="cap" x="40" y="152">Design</text>
+                    <rect class="teal" x="40" y="162" width="288" height="44" />
+                    <rect class="gray" x="328" y="162" width="192" height="44" />
+                    <line class="sep" x1="88" y1="162" x2="88" y2="206" />
+                    <line class="sep" x1="136" y1="162" x2="136" y2="206" />
+                    <line class="sep" x1="184" y1="162" x2="184" y2="206" />
+                    <line class="sep" x1="232" y1="162" x2="232" y2="206" />
+                    <line class="sep" x1="280" y1="162" x2="280" y2="206" />
+                    <line class="sepg" x1="376" y1="162" x2="376" y2="206" />
+                    <line class="sepg" x1="424" y1="162" x2="424" y2="206" />
+                    <line class="sepg" x1="472" y1="162" x2="472" y2="206" />
+                    <text class="six" x="184" y="190" text-anchor="middle">6</text>
+                    <text class="fr" x="534" y="189">3/5 = 6/10</text>
+
+                    <!-- Guide: both teal regions end at x=328 -->
+                    <line class="guide" x1="328" y1="46" x2="328" y2="212" />
+                    <text class="note" x="336" y="132">Both shaded lengths match. 6 dance from each side.</text>
+
+                    <!-- Totals -->
+                    <rect class="card" x="40" y="240" width="280" height="60" rx="12" />
+                    <text class="boxlbl" x="60" y="266">Total headcount, 9 + 10</text>
+                    <text class="boxnum" x="60" y="290">19</text>
+
+                    <rect class="card" x="340" y="240" width="280" height="60" rx="12" />
+                    <text class="boxlbl" x="360" y="266">Dancers, 6 + 6</text>
+                    <text class="boxnum" x="360" y="290">12</text>
+                </svg>
+
+
+                <p>There is a quiet reason the total equals 19. Add the two fractions. 2/3 + 3/5 = (2&#183;5 +
+                    3&#183;3)/15 = 19/15. The numerator 19 is built from 2&#183;5 and 3&#183;3. Those are the same two
+                    cross products that set the team sizes, since 3&#183;3 is 9 and 5&#183;2 is 10. So the numerator of
+                    the fraction sum is literally the headcount, 9 plus 10. It is the same arithmetic seen twice.</p>
+
+                <p>The pattern is real but not general. It holds only when the two top numbers share no common factor
+                    and you take the smallest solution. Swap 3/5 for 4/5. Then 2/3 + 4/5 = 22/15, yet the smallest teams
+                    are 6 and 5, a total of 11. The numerator 22 is twice the total. So treat the 19 shortcut as a
+                    structural coincidence you can explain, not a rule to trust blindly.</p>
+
+                <h3>Assessing four ways to see it</h3>
+
+                <p>A learner may reach the answer through several routes. Adding the fractions to get 19/15 gives the
+                    right number, but by structure, not by common sense, and only under the two conditions above. A
+                    picture that lines up 6 against 6 is a sound check, yet it starts from 9 and 10 already chosen, so
+                    it confirms rather than derives. Rescaling both wholes to fifteenths, where 10/15 of 9 is 6 and 9/15
+                    of 10 is 6, verifies the equality at a shared scale, again on sizes already fixed. The common
+                    numerator route stands apart. It reaches the sizes with no total assumed, and it is the twin of
+                    clearing the fractions.</p>
+
+                <h3>Is the search table a proof</h3>
+
+                <p>Testing every pair that sums to 19 and marking each true or false is a proof by exhaustion, and the
+                    method is sound. It proves that among pairs summing to 19, exactly one passes both conditions. It
+                    does not prove the total is 19, because it assumes 19 from the start. As a proof that the answer is
+                    19 it is circular. The deduction is stronger. It derives 9 and 10 from 10E = 9D, then adds them, so
+                    the total falls out as a result. The table below shows the exhaustion, with the single accepted pair
+                    in green.</p>
+
+                <svg id="svg-table" width="100%" viewBox="0 0 680 410" xmlns="http://www.w3.org/2000/svg" role="img"
+                    font-family="Arial, Helvetica, sans-serif">
+                    <title>True or false table testing pairs of team sizes that sum to 19</title>
+                    <desc>Each row is a pair of engineers and designers summing to 19. Two conditions are checked. Only
+                        the pair 9 and 10 passes both.</desc>
+
+                    <style>
+                        #svg-table .num {
+                            font-size: 14px;
+                            font-weight: 700;
+                            fill: #1f2937;
+                        }
+
+                        #svg-table .hd {
+                            font-size: 14px;
+                            font-weight: 700;
+                            fill: #1f2937;
+                        }
+
+                        #svg-table .sub {
+                            font-size: 12px;
+                            font-weight: 400;
+                            fill: #6b7280;
+                        }
+
+                        #svg-table .pill {
+                            font-size: 12px;
+                            font-weight: 700;
+                        }
+
+                        #svg-table .true-bg {
+                            fill: #E1F5EE;
+                        }
+
+                        #svg-table .true-tx {
+                            fill: #0F6E56;
+                        }
+
+                        #svg-table .false-bg {
+                            fill: #FCEBEB;
+                        }
+
+                        #svg-table .false-tx {
+                            fill: #A32D2D;
+                        }
+
+                        #svg-table .gray-bg {
+                            fill: #F1EFE8;
+                        }
+
+                        #svg-table .gray-tx {
+                            fill: #5F5E5A;
+                        }
+
+                        #svg-table .win-bg {
+                            fill: #9FE1CB;
+                        }
+
+                        #svg-table .win-tx {
+                            fill: #04342C;
+                        }
+
+                        #svg-table .grid {
+                            stroke: #D3D1C7;
+                            stroke-width: 0.5;
+                        }
+
+                        #svg-table .head {
+                            fill: #F1EFE8;
+                            stroke: #B4B2A9;
+                            stroke-width: 0.5;
+                        }
+
+                        #svg-table .winrow {
+                            fill: #E1F5EE;
+                        }
+                    </style>
+
+                    <rect class="winrow" x="40" y="166" width="600" height="42" rx="6" />
+
+                    <rect class="head" x="40" y="34" width="600" height="44" rx="8" />
+
+                    <text class="hd" x="75" y="52" text-anchor="middle">Eng</text>
+                    <text class="sub" x="75" y="68" text-anchor="middle">E</text>
+                    <text class="hd" x="145" y="52" text-anchor="middle">Des</text>
+                    <text class="sub" x="145" y="68" text-anchor="middle">D</text>
+                    <text class="hd" x="270" y="50" text-anchor="middle">Factors fit</text>
+                    <text class="sub" x="270" y="68" text-anchor="middle">3 in E, 5 in D</text>
+                    <text class="hd" x="450" y="50" text-anchor="middle">Pairs match</text>
+                    <text class="sub" x="450" y="68" text-anchor="middle">2/3 E = 3/5 D</text>
+                    <text class="hd" x="590" y="60" text-anchor="middle">Verdict</text>
+
+                    <line class="grid" x1="110" y1="34" x2="110" y2="376" />
+                    <line class="grid" x1="180" y1="34" x2="180" y2="376" />
+                    <line class="grid" x1="360" y1="34" x2="360" y2="376" />
+                    <line class="grid" x1="540" y1="34" x2="540" y2="376" />
+                    <line class="grid" x1="40" y1="124" x2="640" y2="124" />
+                    <line class="grid" x1="40" y1="208" x2="640" y2="208" />
+                    <line class="grid" x1="40" y1="250" x2="640" y2="250" />
+                    <line class="grid" x1="40" y1="292" x2="640" y2="292" />
+                    <line class="grid" x1="40" y1="334" x2="640" y2="334" />
+
+                    <!-- Row 1: 4, 15 -->
+                    <text class="num" x="75" y="107" text-anchor="middle">4</text>
+                    <text class="num" x="145" y="107" text-anchor="middle">15</text>
+                    <rect class="false-bg" x="240" y="92" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="107" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="92" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="107" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="92" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="107" text-anchor="middle">rejected</text>
+
+                    <!-- Row 2: 6, 13 -->
+                    <text class="num" x="75" y="149" text-anchor="middle">6</text>
+                    <text class="num" x="145" y="149" text-anchor="middle">13</text>
+                    <rect class="false-bg" x="240" y="134" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="149" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="134" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="149" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="134" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="149" text-anchor="middle">rejected</text>
+
+                    <!-- Row 3: 9, 10 WINNER -->
+                    <text class="num" x="75" y="191" text-anchor="middle">9</text>
+                    <text class="num" x="145" y="191" text-anchor="middle">10</text>
+                    <rect class="true-bg" x="240" y="176" width="60" height="22" rx="11" />
+                    <text class="pill true-tx" x="270" y="191" text-anchor="middle">true</text>
+                    <rect class="true-bg" x="420" y="176" width="60" height="22" rx="11" />
+                    <text class="pill true-tx" x="450" y="191" text-anchor="middle">true</text>
+                    <rect class="win-bg" x="548" y="176" width="84" height="22" rx="11" />
+                    <text class="pill win-tx" x="590" y="191" text-anchor="middle">accepted</text>
+
+                    <!-- Row 4: 10, 9 -->
+                    <text class="num" x="75" y="233" text-anchor="middle">10</text>
+                    <text class="num" x="145" y="233" text-anchor="middle">9</text>
+                    <rect class="false-bg" x="240" y="218" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="233" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="218" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="233" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="218" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="233" text-anchor="middle">rejected</text>
+
+                    <!-- Row 5: 12, 7 -->
+                    <text class="num" x="75" y="275" text-anchor="middle">12</text>
+                    <text class="num" x="145" y="275" text-anchor="middle">7</text>
+                    <rect class="false-bg" x="240" y="260" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="275" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="260" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="275" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="260" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="275" text-anchor="middle">rejected</text>
+
+                    <!-- Row 6: 14, 5 -->
+                    <text class="num" x="75" y="317" text-anchor="middle">14</text>
+                    <text class="num" x="145" y="317" text-anchor="middle">5</text>
+                    <rect class="false-bg" x="240" y="302" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="317" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="302" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="317" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="302" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="317" text-anchor="middle">rejected</text>
+
+                    <!-- Row 7: 15, 4 -->
+                    <text class="num" x="75" y="359" text-anchor="middle">15</text>
+                    <text class="num" x="145" y="359" text-anchor="middle">4</text>
+                    <rect class="false-bg" x="240" y="344" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="270" y="359" text-anchor="middle">false</text>
+                    <rect class="false-bg" x="420" y="344" width="60" height="22" rx="11" />
+                    <text class="pill false-tx" x="450" y="359" text-anchor="middle">false</text>
+                    <rect class="gray-bg" x="548" y="344" width="84" height="22" rx="11" />
+                    <text class="pill gray-tx" x="590" y="359" text-anchor="middle">rejected</text>
+                </svg>
+
+
+                <h2 id="array-view">The Array View</h2>
+
+                <p>The array model lays out every person as a marker and draws the pairs. Nine engineers sit on the
+                    left, ten designers on the right. Six on each side join and connect one to one. The three unpaired
+                    engineers and the four unpaired designers sit to the sides, so the ribbons stay clean. The count
+                    reads 12 of 19.</p>
+
+                <svg id="svg-array" width="100%" viewBox="0 0 840 500" xmlns="http://www.w3.org/2000/svg" role="img"
+                    font-family="Helvetica Neue, Arial, sans-serif">
+                    <title>Array model pairing engineers and designers into buddy pairs</title>
+                    <desc>Nine engineers, six of them pairing, match one to one with ten designers, six of them pairing.
+                        Twelve of nineteen people are in a pair.</desc>
+
+                    <defs>
+                        <linearGradient id="teal" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#3AB89A" />
+                            <stop offset="1" stop-color="#137A60" />
+                        </linearGradient>
+                        <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+                            <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0d5a46" flood-opacity="0.22" />
+                        </filter>
+                        <style>
+                            #svg-array .head {
+                                font-family: Georgia, "Times New Roman", serif;
+                                font-size: 30px;
+                                font-weight: 700;
+                                fill: #22241E;
+                            }
+
+                            #svg-array .sub {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12.5px;
+                                fill: #77776F;
+                                letter-spacing: 0.02em;
+                            }
+
+                            #svg-array .dance {
+                                fill: url(#teal);
+                            }
+
+                            #svg-array .sit {
+                                fill: #F5F3EA;
+                                stroke: #C9C7BA;
+                                stroke-width: 2;
+                            }
+
+                            #svg-array .link {
+                                fill: none;
+                                stroke: #1B8A6E;
+                                stroke-width: 2.6;
+                                stroke-linecap: round;
+                                opacity: 0.55;
+                            }
+
+                            #svg-array .floor {
+                                fill: #A6DFCC;
+                                opacity: 0.14;
+                            }
+
+                            #svg-array .legtxt {
+                                font-family: Helvetica Neue, Arial, sans-serif;
+                                font-size: 13px;
+                                fill: #55554E;
+                            }
+
+                            #svg-array .num {
+                                font-family: Georgia, serif;
+                                font-size: 40px;
+                                font-weight: 700;
+                                fill: #137A60;
+                            }
+
+                            #svg-array .den {
+                                font-family: Georgia, serif;
+                                font-size: 40px;
+                                font-weight: 700;
+                                fill: #22241E;
+                            }
+
+                            #svg-array .fbar {
+                                stroke: #22241E;
+                                stroke-width: 2.4;
+                            }
+
+                            #svg-array .said {
+                                font-family: Georgia, serif;
+                                font-size: 30px;
+                                font-style: italic;
+                                fill: #33342D;
+                            }
+                        </style>
+                    </defs>
+
+                    <!-- dance floor band behind the ribbons -->
+                    <rect class="floor" x="250" y="118" width="272" height="214" rx="24" />
+
+                    <!-- headings -->
+                    <text class="head" x="150" y="70" text-anchor="middle">Engineering</text>
+                    <text class="sub" x="150" y="92" text-anchor="middle">9 total, 6 pairing</text>
+                    <text class="head" x="600" y="70" text-anchor="middle">Design</text>
+                    <text class="sub" x="600" y="92" text-anchor="middle">10 total, 6 pairing</text>
+
+                    <!-- ribbons (drawn under the dots) -->
+                    <path class="link" d="M230,150 C340,150 470,185 520,185" />
+                    <path class="link" d="M230,220 C360,215 520,188 580,185" />
+                    <path class="link" d="M230,290 C360,295 470,258 520,255" />
+                    <path class="link" d="M168,166 C240,192 420,186 480,185" />
+                    <path class="link" d="M168,236 C240,262 420,256 480,255" />
+                    <path class="link" d="M168,276 C250,258 500,256 580,255" />
+
+                    <!-- GIRLS: col1 x90 sitters, col2 x150 dancers, col3 x210 dancers; rows 150/220/290 -->
+                    <circle class="sit" cx="90" cy="150" r="20" />
+                    <circle class="sit" cx="90" cy="220" r="20" />
+                    <circle class="sit" cx="90" cy="290" r="20" />
+                    <circle class="dance" cx="150" cy="150" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="150" cy="220" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="150" cy="290" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="210" cy="150" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="210" cy="220" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="210" cy="290" r="20" filter="url(#soft)" />
+
+                    <!-- BOYS: dancers x540/600/660, sitters x720/780; rows 185/255 -->
+                    <circle class="dance" cx="540" cy="185" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="600" cy="185" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="660" cy="185" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="540" cy="255" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="600" cy="255" r="20" filter="url(#soft)" />
+                    <circle class="dance" cx="660" cy="255" r="20" filter="url(#soft)" />
+                    <circle class="sit" cx="720" cy="185" r="20" />
+                    <circle class="sit" cx="780" cy="185" r="20" />
+                    <circle class="sit" cx="720" cy="255" r="20" />
+                    <circle class="sit" cx="780" cy="255" r="20" />
+
+                    <!-- legend -->
+                    <circle class="dance" cx="98" cy="400" r="9" />
+                    <text class="legtxt" x="114" y="404">In a buddy pair</text>
+                    <circle class="sit" cx="288" cy="400" r="9" />
+                    <text class="legtxt" x="304" y="404">Not paired</text>
+
+                    <!-- result -->
+                    <text class="num" x="470" y="432" text-anchor="middle">12</text>
+                    <line class="fbar" x1="446" y1="444" x2="494" y2="444" />
+                    <text class="den" x="470" y="482" text-anchor="middle">19</text>
+                    <text class="said" x="512" y="466">are in a pair</text>
+                </svg>
+
+
+                <p>The array also answers the scaffolding questions in order.</p>
+                <ol>
+                    <li>An engineering unit is not the same size as a design unit. Two thirds cuts the engineering team
+                        into 3 shares, three fifths cuts the design team into 5, and shares of a 3 split and a 5 split
+                        hold different headcounts. You make them the same size by cutting both into one common piece,
+                        one person.</li>
+                    <li>2 engineering units hold the same headcount as 3 design units only because the engineering unit
+                        is larger. Put numbers on it. The engineering unit holds 3 people and the design unit holds 2,
+                        so 2 times 3 is 6 and 3 times 2 is 6. This is the yards and feet case, where 2 yards equals 6
+                        feet because the yard is the larger unit.</li>
+                    <li>Split the joining part of each bar into 6 equal pieces, one per joiner, then split the rest the
+                        same way. Each engineering third holds 3 people, so cut each third into 3, and the engineering
+                        bar becomes 9 pieces. Each design fifth holds 2 people, so cut each fifth into 2, and the design
+                        bar becomes 10 pieces. Together that makes 19 pieces, with 12 joining.</li>
+                </ol>
+
+                <!-- Replaces the old Historical Background section. Same anchor id. -->
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>This problem holds two ideas, forcing fractions into whole units and matching two pools one to one.
+                    Both have modern histories far richer than the medieval rule of three. The groundwork is 16th
+                    century. In 1585 the Flemish engineer Simon Stevin published De Thiende, arguing that everyday
+                    calculation should use decimal fractions. Merchants and clerks adopted the idea, and splitting a
+                    quantity by proportion became routine arithmetic rather than expert craft.</p>
+
+                <p>Turning shares into whole counts then became a national fight in the young United States. The
+                    Constitution of 1787 required House seats to be apportioned among the states by population, yet no
+                    state can hold a fraction of a seat. Alexander Hamilton and Thomas Jefferson backed rival rounding
+                    methods, and in 1792 George Washington cast the first presidential veto to reject Hamilton's. Around
+                    1880 the census clerk C. W. Seaton found that raising the total number of seats could cost a state a
+                    seat, a defect now called the Alabama paradox. Congress adopted the method of equal proportions in
+                    1941, still in use today. In 1982 Michel Balinski and H. Peyton Young proved that no method can
+                    honor every share and dodge every paradox at once. The clean fit in the buddy problem is the rare
+                    case where the fractions land on whole people with nothing left over.</p>
+
+                <p>Matching two groups one to one grew into its own field in the 20th century. In 1955 Harold Kuhn
+                    published the Hungarian algorithm for optimal assignment, naming it for earlier work by the
+                    Hungarian mathematicians Denes Kőnig and Jenő Egerváry. In 1962 David Gale and Lloyd Shapley proved
+                    that stable pairings between two sides always exist and gave a method to build them. From the 1980s
+                    Alvin Roth turned that theory into working systems, redesigning the medical residency match, the
+                    school choice systems of New York and Boston, and kidney exchange programs that pair donors with
+                    patients. Shapley and Roth shared the 2012 Nobel Prize in economics. The buddy program is a small
+                    version of the same demand, two pools that must meet at equal whole counts.</p>
+
+                <h2>REAL WORLD APPLICATIONS</h2>
+
+                <!-- Paste into the article body. Each SVG scopes its own CSS by root id. -->
+
+                <section id="apply-ab-testing">
+                    <h2>The Hidden Number Behind Every Fair A/B Test</h2>
+                    <p>When a website tries two versions of a page, it splits visitors into groups. Say one test wants
+                        the crowd cut into 3 equal parts and another wants 5 equal parts. The crowd only divides with
+                        nothing left over at a size that both 3 and 5 fit into. The smallest such size is 15. That is
+                        the same move as the buddy problem, where the smallest workable team is the smallest number both
+                        denominators divide into.</p>
+                    <p>Send fewer than 15 and some group ends up uneven, which quietly tilts the result. The number you
+                        pick is not a detail. It decides whether the test is fair.</p>
+                    <svg id="viz-ab" width="100%" viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" role="img"
+                        font-family="Helvetica Neue, Arial, sans-serif">
+                        <title>One crowd of 15 visitors splits cleanly into 3 groups and into 5 groups</title>
+                        <style>
+                            #viz-ab .a {
+                                fill: #1F9E82;
+                            }
+
+                            #viz-ab .b {
+                                fill: #A6DFCC;
+                            }
+
+                            #viz-ab .lb {
+                                font-size: 14px;
+                                font-weight: 700;
+                                fill: #22241E;
+                            }
+
+                            #viz-ab .ct {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 13px;
+                                fill: #71716A;
+                            }
+                        </style>
+                        <text class="lb" x="40" y="45">Split into 3 equal groups</text>
+                        <text class="ct" x="596" y="82">5 each</text>
+                        <circle class="a" cx="40" cy="78" r="12" />
+                        <circle class="a" cx="78" cy="78" r="12" />
+                        <circle class="a" cx="116" cy="78" r="12" />
+                        <circle class="a" cx="154" cy="78" r="12" />
+                        <circle class="a" cx="192" cy="78" r="12" />
+                        <circle class="b" cx="230" cy="78" r="12" />
+                        <circle class="b" cx="268" cy="78" r="12" />
+                        <circle class="b" cx="306" cy="78" r="12" />
+                        <circle class="b" cx="344" cy="78" r="12" />
+                        <circle class="b" cx="382" cy="78" r="12" />
+                        <circle class="a" cx="420" cy="78" r="12" />
+                        <circle class="a" cx="458" cy="78" r="12" />
+                        <circle class="a" cx="496" cy="78" r="12" />
+                        <circle class="a" cx="534" cy="78" r="12" />
+                        <circle class="a" cx="572" cy="78" r="12" />
+                        <text class="lb" x="40" y="128">Split into 5 equal groups</text>
+                        <text class="ct" x="596" y="162">3 each</text>
+                        <circle class="a" cx="40" cy="158" r="12" />
+                        <circle class="a" cx="78" cy="158" r="12" />
+                        <circle class="a" cx="116" cy="158" r="12" />
+                        <circle class="b" cx="154" cy="158" r="12" />
+                        <circle class="b" cx="192" cy="158" r="12" />
+                        <circle class="b" cx="230" cy="158" r="12" />
+                        <circle class="a" cx="268" cy="158" r="12" />
+                        <circle class="a" cx="306" cy="158" r="12" />
+                        <circle class="a" cx="344" cy="158" r="12" />
+                        <circle class="b" cx="382" cy="158" r="12" />
+                        <circle class="b" cx="420" cy="158" r="12" />
+                        <circle class="b" cx="458" cy="158" r="12" />
+                        <circle class="a" cx="496" cy="158" r="12" />
+                        <circle class="a" cx="534" cy="158" r="12" />
+                        <circle class="a" cx="572" cy="158" r="12" />
+                        <text class="ct" x="40" y="200">15 is the smallest crowd that divides evenly by 3 and by
+                            5.</text>
+                    </svg>
+                </section>
+
+                <section id="apply-batch-sizing">
+                    <h2>The Number That Keeps Every Computer Busy</h2>
+                    <p>Training a model splits the data across several computers, and each computer works through its
+                        share in fixed size batches. The data shares out with nothing left over only at a size that both
+                        the number of computers and the batch size divide into. With 4 computers and batches of 6, the
+                        smallest clean size is 12.</p>
+                    <p>One extra task beyond a clean size leaves a computer waiting while the others finish. The waiting
+                        computer is the same idea as the scouts who sit out. The fix is to pick a size that both counts
+                        divide.</p>
+                    <svg id="viz-batch" width="100%" viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img"
+                        font-family="Helvetica Neue, Arial, sans-serif">
+                        <title>Twelve tasks divide evenly across four workers and into two batches of six</title>
+                        <style>
+                            #viz-batch .a {
+                                fill: #1F9E82;
+                            }
+
+                            #viz-batch .b {
+                                fill: #A6DFCC;
+                            }
+
+                            #viz-batch .idle {
+                                fill: #F7EDE8;
+                                stroke: #C7522A;
+                                stroke-width: 2;
+                                stroke-dasharray: 5 4;
+                            }
+
+                            #viz-batch .ct {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                fill: #71716A;
+                            }
+
+                            #viz-batch .flag {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                fill: #C7522A;
+                            }
+
+                            #viz-batch .br {
+                                stroke: #8f8d82;
+                                stroke-width: 1.4;
+                                fill: none;
+                            }
+                        </style>
+                        <text class="ct" x="108" y="58" text-anchor="middle">worker 1</text><text class="ct" x="252"
+                            y="58" text-anchor="middle">worker 2</text><text class="ct" x="396" y="58"
+                            text-anchor="middle">worker 3</text><text class="ct" x="540" y="58"
+                            text-anchor="middle">worker 4</text>
+                        <rect class="a" x="40" y="70" width="40" height="40" rx="6" />
+                        <rect class="a" x="88" y="70" width="40" height="40" rx="6" />
+                        <rect class="a" x="136" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="184" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="232" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="280" y="70" width="40" height="40" rx="6" />
+                        <rect class="a" x="328" y="70" width="40" height="40" rx="6" />
+                        <rect class="a" x="376" y="70" width="40" height="40" rx="6" />
+                        <rect class="a" x="424" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="472" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="520" y="70" width="40" height="40" rx="6" />
+                        <rect class="b" x="568" y="70" width="40" height="40" rx="6" />
+                        <path class="br" d="M40 122 L40 132 L328 132 L328 122" />
+                        <text class="ct" x="184" y="150" text-anchor="middle">batch of 6</text>
+                        <path class="br" d="M328 122 L328 132 L616 132 L616 122" />
+                        <text class="ct" x="472" y="150" text-anchor="middle">batch of 6</text>
+                        <rect class="idle" x="664" y="70" width="40" height="40" rx="6" />
+                        <text class="flag" x="684" y="128" text-anchor="middle">task 13</text>
+                        <text class="flag" x="684" y="144" text-anchor="middle">idles a worker</text>
+                        <text class="ct" x="40" y="188">12 shares out with nothing left over. One extra task breaks the
+                            balance.</text>
+                    </svg>
+                </section>
+
+                <section id="apply-partition-balance">
+                    <h2>When Work Splits Evenly, Nobody Sits Idle</h2>
+                    <p>A streaming system stores messages in slots called partitions and hands them to workers called
+                        consumers that read at the same time. If the partitions do not divide evenly among the
+                        consumers, some consumer gets less and sits partly idle. 6 partitions across 4 consumers splits
+                        2, 2, 1, 1. Two consumers are underused.</p>
+                    <p>Move to 8 partitions across 4 consumers and it splits 2, 2, 2, 2. Everyone carries the same load.
+                        Even sharing appears only at the right counts, which is the pairing idea in a new suit.</p>
+                    <svg id="viz-kafka" width="100%" viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img"
+                        font-family="Helvetica Neue, Arial, sans-serif">
+                        <title>Six partitions across four consumers leave two idle, while eight split evenly</title>
+                        <style>
+                            #viz-kafka .a {
+                                fill: #1F9E82;
+                            }
+
+                            #viz-kafka .idle {
+                                fill: #F7EDE8;
+                                stroke: #C7522A;
+                                stroke-width: 2;
+                                stroke-dasharray: 5 4;
+                            }
+
+                            #viz-kafka .ct {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                fill: #71716A;
+                            }
+
+                            #viz-kafka .hd {
+                                font-size: 14px;
+                                font-weight: 700;
+                                fill: #22241E;
+                            }
+
+                            #viz-kafka .bad {
+                                font-family: ui-monospace, monospace;
+                                font-size: 13px;
+                                font-weight: 700;
+                                fill: #C7522A;
+                            }
+
+                            #viz-kafka .good {
+                                font-family: ui-monospace, monospace;
+                                font-size: 13px;
+                                font-weight: 700;
+                                fill: #1F9E82;
+                            }
+
+                            #viz-kafka .base {
+                                stroke: #CFCDC1;
+                                stroke-width: 1.2;
+                            }
+                        </style>
+                        <text class="hd" x="60" y="40">6 partitions, 4 consumers</text>
+                        <text class="bad" x="60" y="60">uneven, two sit partly idle</text>
+                        <line class="base" x1="52" y1="212" x2="315" y2="212" />
+                        <rect class="a" x="60" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="60" y="150" width="46" height="26" rx="4" /><text class="ct" x="83" y="228"
+                            text-anchor="middle">2</text>
+                        <rect class="a" x="125" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="125" y="150" width="46" height="26" rx="4" /><text class="ct" x="148" y="228"
+                            text-anchor="middle">2</text>
+                        <rect class="a" x="190" y="180" width="46" height="26" rx="4" />
+                        <rect class="idle" x="190" y="150" width="46" height="26" rx="4" /><text class="ct" x="213"
+                            y="228" text-anchor="middle">1</text>
+                        <rect class="a" x="255" y="180" width="46" height="26" rx="4" />
+                        <rect class="idle" x="255" y="150" width="46" height="26" rx="4" /><text class="ct" x="278"
+                            y="228" text-anchor="middle">1</text>
+                        <text class="hd" x="430" y="40">8 partitions, 4 consumers</text>
+                        <text class="good" x="430" y="60">even, everyone works</text>
+                        <line class="base" x1="422" y1="212" x2="695" y2="212" />
+                        <rect class="a" x="430" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="430" y="150" width="46" height="26" rx="4" /><text class="ct" x="453" y="228"
+                            text-anchor="middle">2</text>
+                        <rect class="a" x="495" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="495" y="150" width="46" height="26" rx="4" /><text class="ct" x="518" y="228"
+                            text-anchor="middle">2</text>
+                        <rect class="a" x="560" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="560" y="150" width="46" height="26" rx="4" /><text class="ct" x="583" y="228"
+                            text-anchor="middle">2</text>
+                        <rect class="a" x="625" y="180" width="46" height="26" rx="4" />
+                        <rect class="a" x="625" y="150" width="46" height="26" rx="4" /><text class="ct" x="648" y="228"
+                            text-anchor="middle">2</text>
+                        <text class="ct" x="60" y="262">Consumers share the load only when the counts divide
+                            evenly.</text>
+                    </svg>
+                </section>
+
+                <section id="apply-canary-release">
+                    <h2>You Cannot Ship Two Thirds of a Server</h2>
+                    <p>A safe software release sends some traffic to the new version and the rest to the old one. When
+                        each server carries an equal slice of traffic, a share like two thirds works only if the fleet
+                        size lets it land on whole machines.</p>
+                    <p>With 2 servers the cut falls inside a machine, and you cannot split one. With 3 servers it works,
+                        2 new and 1 old. Three is the smallest fleet that makes two thirds exact, so the percentage you
+                        type is really a count of servers in disguise.</p>
+                    <svg id="viz-canary" width="100%" viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg"
+                        role="img" font-family="Helvetica Neue, Arial, sans-serif">
+                        <title>Two thirds of traffic needs a fleet of three servers to land on whole machines</title>
+                        <defs>
+                            <pattern id="canary-hatch" width="8" height="8" patternTransform="rotate(45)"
+                                patternUnits="userSpaceOnUse">
+                                <rect width="8" height="8" fill="#F7EDE8" />
+                                <line x1="0" y1="0" x2="0" y2="8" stroke="#C7522A" stroke-width="2" />
+                            </pattern>
+                        </defs>
+                        <style>
+                            #viz-canary .srv {
+                                fill: #EFEDE3;
+                                stroke: #B4B2A9;
+                                stroke-width: 1.5;
+                            }
+
+                            #viz-canary .new {
+                                fill: #3E9C82;
+                            }
+
+                            #viz-canary .old {
+                                fill: #C9C7BA;
+                            }
+
+                            #viz-canary .hd {
+                                font-size: 15px;
+                                font-weight: 700;
+                                fill: #22241E;
+                            }
+
+                            #viz-canary .ct {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                fill: #71716A;
+                            }
+
+                            #viz-canary .bad {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 12px;
+                                font-weight: 700;
+                                fill: #C7522A;
+                            }
+
+                            #viz-canary .good {
+                                font-family: ui-monospace, Menlo, monospace;
+                                font-size: 13px;
+                                font-weight: 700;
+                                fill: #2E8468;
+                            }
+
+                            #viz-canary .cut {
+                                stroke: #C7522A;
+                                stroke-width: 2;
+                                stroke-dasharray: 5 4;
+                            }
+
+                            #viz-canary .br {
+                                stroke: #2E8468;
+                                stroke-width: 1.6;
+                                fill: none;
+                            }
+
+                            #viz-canary .lbl {
+                                font-size: 13px;
+                                font-weight: 700;
+                                fill: #fff;
+                            }
+                        </style>
+
+                        <text class="hd" x="40" y="30">2 servers</text>
+                        <rect class="srv" x="40" y="80" width="90" height="96" rx="8" />
+                        <rect class="srv" x="140" y="80" width="90" height="96" rx="8" />
+                        <rect x="180" y="80" width="50" height="96" fill="url(#canary-hatch)" />
+                        <line class="cut" x1="180" y1="70" x2="180" y2="186" />
+                        <text class="bad" x="40" y="206">two thirds falls inside a server</text>
+                        <text class="bad" x="40" y="224">you cannot split one machine</text>
+
+                        <text class="hd" x="430" y="30">3 servers</text>
+                        <path class="br" d="M430 72 L430 64 L592 64 L592 72" />
+                        <text class="good" x="511" y="56" text-anchor="middle">exactly two thirds</text>
+                        <rect class="new" x="430" y="80" width="76" height="96" rx="8" />
+                        <rect class="new" x="516" y="80" width="76" height="96" rx="8" />
+                        <rect class="old" x="602" y="80" width="76" height="96" rx="8" />
+                        <text class="lbl" x="468" y="133" text-anchor="middle">new</text>
+                        <text class="lbl" x="554" y="133" text-anchor="middle">new</text>
+                        <text class="lbl" x="640" y="133" text-anchor="middle" fill="#4a4a44">old</text>
+                        <text class="ct" x="430" y="224">3 is the smallest fleet that makes the split real.</text>
+                    </svg>
+                </section>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script turns the pairing logic into a reusable tool. You type the top and bottom of each team
+                    share, and it returns the smallest whole team sizes, the joiners from each side, and the totals.</p>
+
+                <pre><code># What this does: finds the smallest two team sizes so that a chosen share of each team makes equal pairs.
+# Where it came from: an engineering team and a design team form one to one buddy pairs. A share of each team joins.
+# The math idea: two fractions must give the same number of people, so we match their top numbers.
+# You type in: the top and bottom number of each team&#x27;s share, as whole numbers.
+# It prints: the smallest size of each team, how many join from each side, and the totals.
+
+# This finds the biggest number that divides two numbers evenly.
+def biggest_common_factor(x, y):
+    # Keep swapping until nothing is left over.
+    while y:
+        x, y = y, x % y
+    return x
+
+# This finds the smallest number that both numbers divide into.
+def smallest_shared_multiple(x, y):
+    # Multiply them, then take out the shared part.
+    return x * y // biggest_common_factor(x, y)
+
+# This works out the smallest team sizes and the people who join.
+def smallest_teams(a_top, a_bottom, b_top, b_bottom):
+    # Shrink the first share to its simplest form.
+    g1 = biggest_common_factor(a_top, a_bottom)
+    a_top, a_bottom = a_top // g1, a_bottom // g1
+
+    # Shrink the second share to its simplest form.
+    g2 = biggest_common_factor(b_top, b_bottom)
+    b_top, b_bottom = b_top // g2, b_bottom // g2
+
+    # Both sides must send the same number of people. Match the top numbers.
+    joiners_each = smallest_shared_multiple(a_top, b_top)
+
+    # The bottom numbers turn that match into a full team size.
+    team_a = joiners_each // a_top * a_bottom
+    team_b = joiners_each // b_top * b_bottom
+
+    return team_a, team_b, joiners_each
+
+# Tell the reader what we will figure out.
+print(&quot;Let&#x27;s find the smallest teams that can pair off evenly.&quot;)
+
+# Ask for the first team&#x27;s share, top then bottom.
+a_top = int(input(&quot;First team share, top number: &quot;))
+a_bottom = int(input(&quot;First team share, bottom number: &quot;))
+
+# Ask for the second team&#x27;s share, top then bottom.
+b_top = int(input(&quot;Second team share, top number: &quot;))
+b_bottom = int(input(&quot;Second team share, bottom number: &quot;))
+
+# Do the math.
+team_a, team_b, joiners_each = smallest_teams(a_top, a_bottom, b_top, b_bottom)
+
+# Add up the headcount and the people who join.
+total_people = team_a + team_b
+total_joiners = joiners_each * 2
+
+# Print the answer with words that fit the scenario.
+print(&quot;Smallest first team size:&quot;, team_a)
+print(&quot;Smallest second team size:&quot;, team_b)
+print(&quot;People joining from each side:&quot;, joiners_each)
+print(&quot;Total headcount:&quot;, total_people)
+print(&quot;Total people in the program:&quot;, total_joiners)</code></pre>
+
+                <p>Run it in a terminal, type the four numbers, and for shares of 2 over 3 and 3 over 5 it returns 9,
+                    10, 6 each, headcount 19, and 12 in the program. The standard library offers a shorter version.
+                    Since math.gcd and math.lcm are built in, the two helper functions disappear.</p>
+
+                <pre><code># What this does: finds the smallest two team sizes so that a chosen share of each team makes equal pairs.
+# Where it came from: an engineering team and a design team form one to one buddy pairs. A share of each team joins.
+# The math idea: two fractions must give the same number of people, so we match their top numbers.
+# You type in: the top and bottom number of each team&#x27;s share, as whole numbers.
+# It prints: the smallest size of each team, how many join from each side, and the totals.
+
+# This library has ready made tools for common factors and shared multiples.
+import math
+
+# This works out the smallest team sizes and the people who join.
+def smallest_teams(a_top, a_bottom, b_top, b_bottom):
+    # Shrink the first share to its simplest form.
+    g1 = math.gcd(a_top, a_bottom)
+    a_top, a_bottom = a_top // g1, a_bottom // g1
+
+    # Shrink the second share to its simplest form.
+    g2 = math.gcd(b_top, b_bottom)
+    b_top, b_bottom = b_top // g2, b_bottom // g2
+
+    # Both sides must send the same number of people. Match the top numbers.
+    joiners_each = math.lcm(a_top, b_top)
+
+    # The bottom numbers turn that match into a full team size.
+    team_a = joiners_each // a_top * a_bottom
+    team_b = joiners_each // b_top * b_bottom
+
+    return team_a, team_b, joiners_each
+
+# Tell the reader what we will figure out.
+print(&quot;Let&#x27;s find the smallest teams that can pair off evenly.&quot;)
+
+# Ask for the first team&#x27;s share, top then bottom.
+a_top = int(input(&quot;First team share, top number: &quot;))
+a_bottom = int(input(&quot;First team share, bottom number: &quot;))
+
+# Ask for the second team&#x27;s share, top then bottom.
+b_top = int(input(&quot;Second team share, top number: &quot;))
+b_bottom = int(input(&quot;Second team share, bottom number: &quot;))
+
+# Do the math.
+team_a, team_b, joiners_each = smallest_teams(a_top, a_bottom, b_top, b_bottom)
+
+# Add up the headcount and the people who join.
+total_people = team_a + team_b
+total_joiners = joiners_each * 2
+
+# Print the answer with words that fit the scenario.
+print(&quot;Smallest first team size:&quot;, team_a)
+print(&quot;Smallest second team size:&quot;, team_b)
+print(&quot;People joining from each side:&quot;, joiners_each)
+print(&quot;Total headcount:&quot;, total_people)
+print(&quot;Total people in the program:&quot;, total_joiners)</code></pre>
+
+                <p>Both versions return the same result. The second is shorter and less error prone because it leans on
+                    tested library functions.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates"
+                            target="_blank" rel="noopener">Khan Academy &#8212; Ratios, Rates, and Proportions</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LeastCommonMultiple.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld &#8212; Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">June 30, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>
