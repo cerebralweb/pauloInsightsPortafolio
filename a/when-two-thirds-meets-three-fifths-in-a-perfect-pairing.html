@@ -209,6 +209,7 @@
                         <ol>
                             <li><strong>Set the equality.</strong> Joiners from engineering equal joiners from design,
                                 so (2/3)&#183;E = (3/5)&#183;D.</li>
+                            <li><strong>We need 2 premises.</strong> <em>First, both products are equal because each fraction represents the same number. Second, x and y are whole numbers and we need the smallest pair</em> </li>
                             <li><strong>Clear the fractions.</strong> Multiply both sides by 15, giving 10E = 9D.</li>
                             <li><strong>Find the smallest whole sizes.</strong> E must be a multiple of 9 and D a
                                 multiple of 10, so E = 9 and D = 10.</li>
@@ -222,7 +223,7 @@
 
                 <h2 id="what-units-means">What a Unit Means Here</h2>
 
-                <p>A unit is one equal share of a group, not a fixed count of people. Two thirds of the engineers means
+                <p><dfn class="highlight-line"  >A unit is one equal share of a group, not a fixed count of people.</dfn> Two thirds of the engineers means
                     you cut the engineering team into 3 equal shares and 2 of them join. Three fifths of the designers
                     means you cut the design team into 5 equal shares and 3 of them join. Each of those shares is a
                     unit.</p>
@@ -234,13 +235,13 @@
                 <p>Here is the move to hold onto. The same number of people join from each side, because every pair is
                     one engineer and one designer. So the joining part of the engineering bar and the joining part of
                     the design bar must contain the same headcount. On the engineering side that joining part is 2
-                    units. On the design side it is 3 units. For 2 units to hold the same headcount as 3 units, the
-                    engineering unit has to be bigger than the design unit.</p>
+                    units. On the design side it is 3 units. <dfn class="highlight-line">For 2 units to hold the same headcount as 3 units, the
+                    engineering unit has to be bigger than the design unit.</dfn></p>
 
                 <p>To count actual people you make the units the same size. You cut every unit into smaller equal pieces
                     until an engineering piece and a design piece match. Each small piece is then one person. The
-                    engineering bar becomes 9 pieces. The design bar becomes 10 pieces. Now you can add them, because
-                    they are the same size. The yards and feet case is the same idea. 2 yards equals 6 feet because the
+                    engineering bar becomes 9 pieces. The design bar becomes 10 pieces. <dfn class="highlight-line">Now you can add them, because
+                    they are the same size.</dfn> The yards and feet case is the same idea. 2 yards equals 6 feet because the
                     yard is the larger unit and the foot the smaller. Toggle the diagram below from coarse units to one
                     piece per person to watch the shares refine while the joining stretch keeps its width.</p>
 
@@ -411,20 +412,23 @@
                 </script>
 
 
-                <h2 id="reasoning">The Reasoning, Method by Method</h2>
+                <h2 id="reasoning">The Reasoning</h2>
 
                 <p>Three ideas anchor the solution. First, the pairing makes the two shares equal in headcount. Second,
                     3 and 5 are factors of the sizes you are hunting, because a clean two thirds needs a size divisible
-                    by 3 and a clean three fifths needs a size divisible by 5. Third, the two shares must represent the
-                    same number. Those three together pin the pair 9 and 10.</p>
+                    by 3 and a clean three fifths needs a size divisible by 5. <dfn class="highlight-line">The denominator 3 cuts x into 3 equal parts, so x must be
+                    divisible by 3 (x·q = n says n is x times some whole number q. By the definition of divisibility, "x divides n" means
+                    that there exists a whole number q with x·q = n. So the cut produces the equation, and the equation is the
+                    definition of divisibility).</dfn> The denominator 5 cuts y into 5 equal parts, so y must be divisible by 5.  Third, the 
+                    two shares must represent the same number.</p>
 
                 <p>The cleanest route is the common numerator. Pairing means equal joiners, so both fractions must share
                     a top number. The smallest shared top number of 2 and 3 is 6. Rewrite both with that top number and
                     the denominators become the team sizes.</p>
 
                 <p>2/3 = 6/9 and 3/5 = 6/10. Read the denominators. They are 9 and 10, the team sizes. Read the top
-                    number. It is 6, the joiners from each side. Total headcount is 19. Joiners total 12. This route
-                    assumes nothing about the total. It derives it. The bar model below shows the same move. Both teams
+                    number. It is 6, the joiners from each side. Total headcount is 19. Joiners total 12. <dfn class="highlight-line">This route
+                    assumes nothing about the total. It derives it. </dfn>  The bar model below shows the same move. Both teams
                     rewrite their share to a block of 6, and those two blocks match in width even though the teams
                     differ in size.</p>
 
@@ -549,7 +553,7 @@
                 </svg>
 
 
-                <p>There is a quiet reason the total equals 19. Add the two fractions. 2/3 + 3/5 = (2&#183;5 +
+                <p>There is a reason the total equals 19. Add the two fractions. 2/3 + 3/5 = (2&#183;5 +
                     3&#183;3)/15 = 19/15. The numerator 19 is built from 2&#183;5 and 3&#183;3. Those are the same two
                     cross products that set the team sizes, since 3&#183;3 is 9 and 5&#183;2 is 10. So the numerator of
                     the fraction sum is literally the headcount, 9 plus 10. It is the same arithmetic seen twice.</p>
@@ -559,17 +563,17 @@
                     are 6 and 5, a total of 11. The numerator 22 is twice the total. So treat the 19 shortcut as a
                     structural coincidence you can explain, not a rule to trust blindly.</p>
 
-                <h3>Assessing four ways to see it</h3>
+                <h2>Assessing four ways to see it</h2>
 
                 <p>A learner may reach the answer through several routes. Adding the fractions to get 19/15 gives the
                     right number, but by structure, not by common sense, and only under the two conditions above. A
                     picture that lines up 6 against 6 is a sound check, yet it starts from 9 and 10 already chosen, so
                     it confirms rather than derives. Rescaling both wholes to fifteenths, where 10/15 of 9 is 6 and 9/15
-                    of 10 is 6, verifies the equality at a shared scale, again on sizes already fixed. The common
+                    of 10 is 6, verifies the equality at a shared scale, again on sizes already fixed. <dfn class="highlight-line" >The common
                     numerator route stands apart. It reaches the sizes with no total assumed, and it is the twin of
-                    clearing the fractions.</p>
+                    clearing the fractions.</dfn>  </p>
 
-                <h3>Is the search table a proof</h3>
+                <h2>Is the search table a proof</h2>
 
                 <p>Testing every pair that sums to 19 and marking each true or false is a proof by exhaustion, and the
                     method is sound. It proves that among pairs summing to 19, exactly one passes both conditions. It
@@ -905,15 +909,85 @@
                         into 3 shares, three fifths cuts the design team into 5, and shares of a 3 split and a 5 split
                         hold different headcounts. You make them the same size by cutting both into one common piece,
                         one person.</li>
-                    <li>2 engineering units hold the same headcount as 3 design units only because the engineering unit
-                        is larger. Put numbers on it. The engineering unit holds 3 people and the design unit holds 2,
-                        so 2 times 3 is 6 and 3 times 2 is 6. This is the yards and feet case, where 2 yards equals 6
-                        feet because the yard is the larger unit.</li>
+                    <li><dfn class="highlight-line">2 engineering units hold the same headcount as 3 design units only because the engineering unit
+                        is larger.</dfn> Put numbers on it. The engineering unit holds 3 people and the design unit holds 2,
+                        so 2 times 3 is 6 and 3 times 2 is 6. <dfn class="highlight-line">This is the yards and feet case, where 2 yards equals 6
+                        feet because the yard is the larger unit.</dfn></li>
                     <li>Split the joining part of each bar into 6 equal pieces, one per joiner, then split the rest the
                         same way. Each engineering third holds 3 people, so cut each third into 3, and the engineering
                         bar becomes 9 pieces. Each design fifth holds 2 people, so cut each fifth into 2, and the design
                         bar becomes 10 pieces. Together that makes 19 pieces, with 12 joining.</li>
                 </ol>
+
+                <!-- Paste into the article body. CSS scoped under #proof-pairing. -->
+<section id="proof-pairing">
+  <style>
+    #proof-pairing { margin:24px 0; }
+    #proof-pairing .callout { border:1px solid #CFCDC1; border-radius:12px; padding:16px 20px; background:#FBFAF5; }
+    #proof-pairing .lead { margin:0 0 8px; }
+    #proof-pairing .lead b { color:#2E8468; letter-spacing:.04em; }
+    #proof-pairing p { color:#33342D; margin:0 0 8px; }
+    #proof-pairing .eq { font-family:ui-monospace,Menlo,monospace; background:#EEF4F1; padding:2px 6px; border-radius:5px; }
+    #proof-pairing h4 { margin:16px 0 8px; font-size:15px; color:#22241E; }
+    #proof-pairing ol.steps { margin:0; padding-left:22px; }
+    #proof-pairing ol.steps > li { margin:0 0 12px; color:#33342D; }
+    #proof-pairing ol.steps > li .prop { display:block; font-family:ui-monospace,Menlo,monospace; font-size:12px; color:#2E8468; letter-spacing:.04em; margin-bottom:3px; }
+    #proof-pairing .concl { border-left:3px solid #2E8468; padding:10px 16px; background:#F7FAF8; border-radius:0 10px 10px 0; margin-top:16px; }
+    #proof-pairing .qed { font-family:ui-monospace,Menlo,monospace; font-weight:700; }
+  </style>
+
+  <div class="callout">
+    <p class="lead"><b>CLAIM</b></p>
+    <p>Under the pairing, the smallest whole team sizes are <span class="eq">x = 9</span> engineers and <span class="eq">y = 10</span> designers, with 6 joining from each side and 19 people in total.</p>
+    <p class="lead"><b>GIVEN</b></p>
+    <p><span class="eq">x</span> and <span class="eq">y</span> are positive integers. Each pair holds one engineer and one designer.</p>
+  </div>
+
+  <h2>The Proof</h2>
+  <ol class="steps">
+    <li>
+      <span class="prop">Definition of a one to one pairing</span>
+      The set of joining engineers and the set of joining designers have equal size. The joining engineers number <span class="eq">(2/3)x</span> and the joining designers number <span class="eq">(3/5)y</span>. Therefore <span class="eq">(2/3)x = (3/5)y</span>.
+    </li>
+    <li>
+      <span class="prop">Multiplication property of equality</span>
+      Multiplying both sides by the same nonzero number preserves the equality. Since 15 is a common multiple of the denominators 3 and 5, multiply both sides by 15. Then <span class="eq">15&#183;(2/3)x = 15&#183;(3/5)y</span>.
+    </li>
+    <li>
+      <span class="prop">Associative and commutative laws, and cancellation b&#183;(a/b) = a</span>
+      The left side becomes <span class="eq">10x</span> and the right side becomes <span class="eq">9y</span>. Therefore <span class="eq">10x = 9y</span>.
+    </li>
+    <li>
+      <span class="prop">Fundamental theorem of arithmetic</span>
+      Every integer has a unique prime factorization. Here <span class="eq">10 = 2&#183;5</span> and <span class="eq">9 = 3&#183;3</span> share no prime factor. Therefore the greatest common divisor of 10 and 9 is 1, so 10 and 9 are coprime.
+    </li>
+    <li>
+      <span class="prop">Euclid's lemma</span>
+      From <span class="eq">10x = 9y</span>, the right side is a multiple of 9, so 9 divides <span class="eq">10x</span>. If a divides the product bc and a is coprime to b, then a divides c. With a = 9, b = 10, c = x, and 9 coprime to 10, it follows that 9 divides x.
+    </li>
+    <li>
+      <span class="prop">Definition of divisibility</span>
+      Since 9 divides x, there exists a positive integer k with <span class="eq">x = 9k</span>.
+    </li>
+    <li>
+      <span class="prop">Substitution and division property of equality</span>
+      Substituting into <span class="eq">10x = 9y</span> gives <span class="eq">90k = 9y</span>. Dividing both sides by 9 gives <span class="eq">y = 10k</span>. Therefore every solution has the form <span class="eq">x = 9k</span> and <span class="eq">y = 10k</span> for a positive integer k.
+    </li>
+    <li>
+      <span class="prop">Well ordering principle</span>
+      The set of positive integers has a least element, k = 1. This gives the smallest whole solution <span class="eq">x = 9</span> and <span class="eq">y = 10</span>.
+    </li>
+    <li>
+      <span class="prop">Substitution</span>
+      <span class="eq">(2/3)&#183;9 = 6</span> and <span class="eq">(3/5)&#183;10 = 6</span>, so <span class="eq">6 = 6</span>. This confirms x = 9 and y = 10 satisfy the equation of step 1.
+    </li>
+    <li>
+      <span class="prop">Addition on the integers</span>
+      The joiners total <span class="eq">6 + 6 = 12</span> and the headcount totals <span class="eq">9 + 10 = 19</span>.
+    </li>
+  </ol>
+
+</section>
 
                 <!-- Replaces the old Historical Background section. Same anchor id. -->
                 <h2 id="history-version">Historical Background</h2>
@@ -930,9 +1004,7 @@
                     methods, and in 1792 George Washington cast the first presidential veto to reject Hamilton's. Around
                     1880 the census clerk C. W. Seaton found that raising the total number of seats could cost a state a
                     seat, a defect now called the Alabama paradox. Congress adopted the method of equal proportions in
-                    1941, still in use today. In 1982 Michel Balinski and H. Peyton Young proved that no method can
-                    honor every share and dodge every paradox at once. The clean fit in the buddy problem is the rare
-                    case where the fractions land on whole people with nothing left over.</p>
+                    1941, still in use today. </p>
 
                 <p>Matching two groups one to one grew into its own field in the 20th century. In 1955 Harold Kuhn
                     published the Hungarian algorithm for optimal assignment, naming it for earlier work by the
@@ -951,9 +1023,7 @@
                     <h2>The Hidden Number Behind Every Fair A/B Test</h2>
                     <p>When a website tries two versions of a page, it splits visitors into groups. Say one test wants
                         the crowd cut into 3 equal parts and another wants 5 equal parts. The crowd only divides with
-                        nothing left over at a size that both 3 and 5 fit into. The smallest such size is 15. That is
-                        the same move as the buddy problem, where the smallest workable team is the smallest number both
-                        denominators divide into.</p>
+                        nothing left over at a size that both 3 and 5 fit into. The smallest such size is 15. </p>
                     <p>Send fewer than 15 and some group ends up uneven, which quietly tilts the result. The number you
                         pick is not a detail. It decides whether the test is fair.</p>
                     <svg id="viz-ab" width="100%" viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -1025,9 +1095,9 @@
                         share in fixed size batches. The data shares out with nothing left over only at a size that both
                         the number of computers and the batch size divide into. With 4 computers and batches of 6, the
                         smallest clean size is 12.</p>
-                    <p>One extra task beyond a clean size leaves a computer waiting while the others finish. The waiting
-                        computer is the same idea as the scouts who sit out. The fix is to pick a size that both counts
-                        divide.</p>
+                        
+                    
+
                     <svg id="viz-batch" width="100%" viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img"
                         font-family="Helvetica Neue, Arial, sans-serif">
                         <title>Twelve tasks divide evenly across four workers and into two batches of six</title>
@@ -1099,8 +1169,7 @@
                         consumers that read at the same time. If the partitions do not divide evenly among the
                         consumers, some consumer gets less and sits partly idle. 6 partitions across 4 consumers splits
                         2, 2, 1, 1. Two consumers are underused.</p>
-                    <p>Move to 8 partitions across 4 consumers and it splits 2, 2, 2, 2. Everyone carries the same load.
-                        Even sharing appears only at the right counts, which is the pairing idea in a new suit.</p>
+                    <p>Move to 8 partitions across 4 consumers and it splits 2, 2, 2, 2. </p>
                     <svg id="viz-kafka" width="100%" viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img"
                         font-family="Helvetica Neue, Arial, sans-serif">
                         <title>Six partitions across four consumers leave two idle, while eight split evenly</title>

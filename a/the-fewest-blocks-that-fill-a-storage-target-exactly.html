@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Finding the fewest whole blocks of two fixed sizes that add up exactly to a storage target, with a reusable Python program and a Claude skill.">
+    <meta name="keywords" content="integer optimization, storage provisioning, fractions, minimum count, python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-fewest-blocks-that-fill-a-storage-target-exactly.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-fewest-blocks-that-fill-a-storage-target-exactly.html" />
+
+    <title>The Fewest Blocks That Fill a Storage Target Exactly</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>July 2, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE FEWEST BLOCKS THAT FILL A STORAGE TARGET EXACTLY
+
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Provisioning decisions rarely allow fractional units. Teams must combine whole blocks of fixed sizes to reach a target, and the cleanest plan uses the fewest allocations. <dfn>This problem shows how a small counting rule becomes a reusable tool for capacity planning.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations team needs to provision 5 and 1/2 TB of storage for a new workload. The platform offers two block sizes, one that adds 1/2 TB and another that adds 3/4 TB.</p>
+                <p>What is the smallest number of blocks needed to reach exactly 5 and 1/2 TB?</p>
+                <ul>
+                    <li>a) 6</li>
+                    <li>b) 8</li>
+                    <li>c) 8 and 1/2</li>
+                    <li>d) 7</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 8 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Favor the larger block first. <strong>Dividing</strong> 11/2 by 3/4 gives 7 and 1/3, so seven large blocks fall short and at least <strong>8</strong> blocks are required. Six blocks of 3/4 TB plus two blocks of 1/2 TB <strong>add</strong> to 5 and 1/2 TB.</p>
+
+                    <p class="insight"><em>Seven blocks of 3/4 TB reach only 5 and 1/4 TB, a quarter short of the target.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final count is derived:</p>
+                        <ol>
+                            <li><strong>Convert the target:</strong> 5 and 1/2 = 11/2 TB</li>
+                            <li><strong>Divide by the large block:</strong> 11/2 &divide; 3/4 = 7 and 1/3</li>
+                            <li><strong>Reject seven large blocks:</strong> 3/4 &times; 7 = 21/4 = 5 and 1/4 TB, short by 1/4</li>
+                            <li><strong>Set the equation:</strong> 3a + 2b = 22</li>
+                            <li><strong>Minimize the count:</strong> b stays whole only when a is even, so the largest even a is 6</li>
+                            <li><strong>Solve for b:</strong> b = 2, giving 6 + 2 = 8</li>
+                            <li><strong>Conclusion:</strong> 8 blocks, six of 3/4 TB and two of 1/2 TB</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Problems that demand whole units, never fractions, belong to integer programming, a field shaped in the middle of the twentieth century. George Dantzig built the simplex method for linear planning in 1947, but the whole number case resisted it. In 1958 Ralph Gomory at Princeton found the first general procedure for that case, the cutting plane, and the same logic now guides storage sizing, crew scheduling, and shipment packing.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This program searches every count of the large block, fills the remainder with the small block, and keeps the smallest total, so it solves the same problem for any target and any two sizes.</p>
+
+<pre><code># What this does: finds the fewest storage blocks that add up to a target.
+# Where it came from: a team provisions storage using two fixed block sizes.
+# The math idea: try every count of the big block, then fill the rest with small blocks, keep the smallest total.
+# You type in: the target amount, the big block size, and the small block size.
+# It prints: the fewest blocks needed and how many of each.
+
+# This function does the math.
+def fewest_blocks(target, large, small):
+    # We work in quarters of a TB so the math stays in whole numbers.
+    # This avoids rounding trouble with values like 0.5 and 0.75.
+    step = 0.25
+    target_units = round(target / step)
+    large_units = round(large / step)
+    small_units = round(small / step)
+
+    # Start with no answer found yet.
+    best_total = None
+    best_large = 0
+    best_small = 0
+
+    # Try using the big block as many times as it could possibly fit, going down.
+    max_large = target_units // large_units
+    for a in range(max_large, -1, -1):
+        # See how much is still left after the big blocks.
+        remaining = target_units - a * large_units
+        # Check if the leftover splits cleanly into small blocks.
+        if remaining % small_units == 0:
+            b = remaining // small_units
+            total = a + b
+            # Keep this if it beats the best we have so far.
+            if best_total is None or total &lt; best_total:
+                best_total = total
+                best_large = a
+                best_small = b
+
+    # Hand back the best count and the breakdown.
+    return best_total, best_large, best_small
+
+# Tell the reader what we will figure out.
+print("Let's find the fewest storage blocks to hit the target.")
+
+# Ask for the target amount.
+target = float(input("Target amount of storage: "))
+
+# Ask for the big block size.
+large = float(input("Large block size: "))
+
+# Ask for the small block size.
+small = float(input("Small block size: "))
+
+# Do the math.
+total, a, b = fewest_blocks(target, large, small)
+
+# If nothing works, say so plainly.
+if total is None:
+    print("No exact combination of these two blocks reaches the target.")
+else:
+    # Print the answer with words that fit the scenario.
+    print("Fewest blocks needed:", total)
+    print("Large blocks:", a, "  Small blocks:", b)</code></pre>
+
+                <p>Run it in a Python prompt, then type 5.5, then 0.75, then 0.5. It returns 8 blocks, six large and two small.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a reusable skill, so the procedure runs from plain language without pasting code.</p>
+
+<pre class="md-code"><code><span class="md-heading">---</span>
+name: fewest-blocks-solver
+description: Finds the fewest whole units of two fixed sizes that add up exactly to a target amount, and reports how many of each size to use. Handles fractional sizes such as one half and three quarters without rounding error. Trigger this skill whenever the user wants the smallest count of two block sizes, package sizes, or unit sizes that reach a total, even if they phrase it as provisioning storage, buying bundles, or filling an order.
+<span class="md-heading">---</span>
+
+<span class="md-heading"># Fewest Blocks Solver</span>
+
+This skill takes a target amount and two unit sizes, then works out the smallest number of whole units that add up to exactly the target. It favors the larger unit first, checks that the leftover splits cleanly into the smaller unit, and returns the minimum total plus the count of each size. It also reports when no exact combination exists.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Dependencies</span>
+
+- None for the basic version. Standard Python arithmetic is enough.
+- Optional exact fraction handling, using the standard library fractions module, when sizes are values like one half or three quarters and rounding must be avoided.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Target amount**</span>. The total to reach. May be fractional, e.g. 5.5.
+- <span class="md-bold">**Large unit size**</span>. The bigger of the two sizes, e.g. 0.75.
+- <span class="md-bold">**Small unit size**</span>. The smaller of the two sizes, e.g. 0.5.
+
+<span class="md-heading">---</span>
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &mdash; Collect the three numbers</span>
+
+Ask for the target amount, the large unit size, and the small unit size. Accept decimals, since sizes and targets can be fractional.
+
+<span class="md-heading">### Step 2 &mdash; Remove rounding risk</span>
+
+Convert the three values so the math stays in whole numbers. Either scale everything to a common small unit such as one quarter, or represent each value as an exact fraction. This prevents errors when working with values like 0.5 and 0.75.
+
+<span class="md-heading">### Step 3 &mdash; Try the large unit as much as possible</span>
+
+Fewest units means leaning on the bigger size. Find the most large units that could fit inside the target, then count downward from that number.
+
+<span class="md-heading">### Step 4 &mdash; Fill the remainder with the small unit</span>
+
+For each count of the large unit, find how much is left over. Check whether that leftover divides evenly into the small unit. If it does, record the count of small units and the total.
+
+<span class="md-heading">### Step 5 &mdash; Keep the smallest total</span>
+
+Compare every valid combination found. Keep the one with the lowest total count of units, along with its split of large and small units.
+
+<span class="md-heading">### Step 6 &mdash; Report the result</span>
+
+If a valid combination exists, state the fewest units needed and how many of each size. If no combination reaches the target exactly, say so plainly rather than returning a wrong or rounded answer.</code></pre>
+
+                <p>Point it at any target and two sizes, and it returns the smallest whole count that lands on the total.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &mdash; Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/IntegerProgramming.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Integer Programming</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/integer-programming" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Integer Programming</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">July 2, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

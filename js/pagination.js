@@ -7,7 +7,12 @@
 
     const articlesDataBase = [ 
         {
-            ArticleTitle: "When Two Thirds Meets Three Fifths In A Perfect Pairing",
+            articleTitle: "The Fewest Blocks That Fill A Storage Target Exactly",
+            articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-fewest-blocks-that-fill-a-storage-target-exactly.html",
+        },
+        {
+            articleTitle: "When Two Thirds Meets Three Fifths In A Perfect Pairing",
             articleDescription: "This problem shows how two unlike fractions can combine into a single whole, and how a short Python routine turns that logic into a tool you can reuse for any pair of items",
             articleHref: "/a/when-two-thirds-meets-three-fifths-in-a-perfect-pairing.html"
         },

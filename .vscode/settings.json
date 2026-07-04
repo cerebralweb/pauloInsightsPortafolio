@@ -1,3 +1,9 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:system"
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "css.styleSheets": [
+    "/Users/paulo/Desktop/kindleBusiness/clpalaciosWeb/style.css",
+    "/Users/paulo/Desktop/kindleBusiness/clpalaciosWeb/postStyle.css",
+    "/Users/paulo/Desktop/kindleBusiness/clpalaciosWeb/toc.css"
+]
+    
 }
