@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Turn a measured clearance rate into the hours needed to clear a support backlog, with a step by step proof and reusable Python.">
+    <meta name="keywords" content="rates, proportions, unit rate, backlog, support operations, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/455-tickets-one-steady-rate-and-the-hours-to-clear-them.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/455-tickets-one-steady-rate-and-the-hours-to-clear-them.html" />
+
+    <title>455 Tickets, One Steady Rate, and the Hours to Clear Them</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 4, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    455 TICKETS, ONE STEADY RATE, AND THE HOURS TO CLEAR THEM
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Support teams live and die by throughput, so a manager who cannot say when a backlog will clear cannot staff, promise, or plan against it. The bridge from a short observed window to a full clearance estimate is a single steady rate, measured once and then trusted forward. <dfn>This problem shows how one measured rate converts a pile of open work into a firm hours estimate, and how Python turns that estimate into a tool the desk can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A support team clears tickets at a constant rate. In the first 3 hours the team closes 195 tickets. A backlog of 455 tickets remains.</p>
+                <p>How many hours will the team need to clear the backlog?</p>
+                <ul>
+                    <li>a) 7</li>
+                    <li>b) 7 and 1/2</li>
+                    <li>c) 6</li>
+                    <li>d) 9 and 1/3</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 7 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Divide</strong> 195 tickets by 3 hours to get the rate, 65 tickets per hour. Then <strong>divide</strong> the 455 backlog by that rate. The result is 7 hours.</p>
+
+                    <p class="insight"><em>The whole problem turns on one measured rate. 65 tickets clear each hour, so 455 tickets take 455 over 65, which is 7 hours.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Clearance rate:</strong> 195 tickets divided by 3 hours gives 65 tickets per hour</li>
+                            <li><strong>Set the equation:</strong> 65 times the hours equals the 455 backlog</li>
+                            <li><strong>Isolate the hours:</strong> divide 455 by 65</li>
+                            <li><strong>Simplify:</strong> 455 over 65 reduces to 7</li>
+                            <li><strong>Conclusion:</strong> the team needs 7 hours to clear the backlog</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>The Rigorous Proof</h2>
+
+                <p>Each step is a unit. The property comes first, named, then the one inference it licenses on the numbers.</p>
+
+                <p><strong>Setup.</strong> Let h be the hours needed to clear the backlog, a positive rational. The rate is 195 tickets over 3 hours. Tickets cleared is the rate times the hours. The backlog fixes tickets to clear at 455, so the rate times h equals 455.</p>
+
+                <h3>Step 1 — Reduce the rate</h3>
+                <p><strong>Property. Cancellation law.</strong> For nonzero b, b times a over b equals a.</p>
+                <p><strong>Inference.</strong> The rate is 65 tickets per hour. 195 over 3 is (3 times 65) over 3, and the 3 cancels, leaving 65.</p>
+
+                <h3>Step 2 — Assemble the equation</h3>
+                <p><strong>Property. Substitution.</strong> Equals may replace equals.</p>
+                <p><strong>Inference.</strong> The governing equation is 65 times h equals 455. Builds on line 1, replacing the rate in the relation with 65.</p>
+
+                <h3>Step 3 — Isolate the product</h3>
+                <p><strong>Property. Multiplication property of equality.</strong> If a equals b then c times a equals c times b.</p>
+                <p><strong>Inference.</strong> One over 65 times the quantity 65 times h equals one over 65 times 455. Builds on line 2. The same factor multiplies each side.</p>
+
+                <h3>Step 4 — Collapse the left side</h3>
+                <p><strong>Property. Multiplicative inverse property and multiplicative identity property.</strong> A nonzero number times its inverse is one, and one times a equals a.</p>
+                <p><strong>Inference.</strong> The left side equals h. Builds on line 3. One over 65 times 65 is one, and one times h is h.</p>
+
+                <h3>Step 5 — Reduce the right side</h3>
+                <p><strong>Property. Cancellation law.</strong> For nonzero b, b times a over b equals a.</p>
+                <p><strong>Inference.</strong> The right side equals 7. 455 over 65 is (65 times 7) over 65, and the 65 cancels, leaving 7.</p>
+
+                <h3>Step 6 — Join the two sides</h3>
+                <p><strong>Property. Transitivity of equality.</strong> If a equals b and b equals c then a equals c.</p>
+                <p><strong>Inference.</strong> Therefore h equals 7. Builds on lines 4 and 5.</p>
+
+                <p><strong>Verification.</strong> 65 times 7 is 455. Tickets cleared equals the backlog.</p>
+
+                <p><strong>Conclusion.</strong> The team needs 7 hours to clear the backlog.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Estimating a completion time from a measured pace is one of the oldest management calculations there is. Merchants and clerks formalized it as the Rule of Three, a fixed procedure for scaling one known ratio to a new quantity, and it ran through trade and workshop records long before it reached the factory floor.</p>
+                <p>Industrial time study later turned the same reasoning into a discipline, timing a sample of work to set a standard rate and then projecting output across a shift. Modern support desks and service operations use the identical move, sampling throughput over a short window and extrapolating it to a queue.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script turns any measured output over a window into the time needed to finish a remaining pile, so the same logic serves tickets, calls, units on a line, or invoices.</p>
+
+<pre><code># What this does: works out how many hours are needed to clear a backlog at a measured rate.
+# Where it came from: a support team closes 195 tickets in 3 hours, with 455 tickets still waiting.
+# The math idea: measure a rate from a sample, then divide the backlog by that rate.
+# You type in: the work done and hours in the sample, and the backlog left.
+# It prints: the hours needed to clear the backlog.
+
+# This function does the math.
+def hours_to_clear(done_in_sample, sample_hours, backlog):
+    # Find the rate from the sample.
+    rate = done_in_sample / sample_hours
+    # Divide the backlog by that rate to get the hours.
+    return backlog / rate
+
+# Tell the reader what we will figure out.
+print("Let's find the hours needed to clear a backlog at a measured rate.")
+
+# Ask for the work done in the sample.
+done_in_sample = float(input("Work done in the sample (tickets): "))
+
+# Ask for the hours in the sample.
+sample_hours = float(input("Hours in the sample: "))
+
+# Ask for the backlog left.
+backlog = float(input("Backlog remaining (tickets): "))
+
+# Do the math.
+result = hours_to_clear(done_in_sample, sample_hours, backlog)
+
+# Show a whole number when it lands on one.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Hours to clear the backlog:", result)
+</code></pre>
+
+                <p>Run it in a terminal, enter the sample and the backlog, and it returns the hours needed. For the numbers above it prints 7.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Rate.html" target="_blank" rel="noopener">Wolfram MathWorld — Rate</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 4, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

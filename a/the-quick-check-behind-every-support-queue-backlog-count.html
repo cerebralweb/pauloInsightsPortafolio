@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Two support queues, two questions, one percentage rule. See how a share of a whole and a percent of a total reveal the open backlog, plus a reusable Python script.">
+    <meta name="keywords" content="percentages, percent of a whole, support queue, backlog, business math, python, ticket resolution">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-quick-check-behind-every-support-queue-backlog-count.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-quick-check-behind-every-support-queue-backlog-count.html" />
+
+    <title>The Quick Check Behind Every Support Queue Backlog Count</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>July 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE QUICK CHECK BEHIND EVERY SUPPORT QUEUE BACKLOG COUNT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Support teams live and die by their backlog. A raw count of open tickets tells a lead very little, because two queues of different sizes can carry the same number of open items yet demand very different attention. <dfn>This problem shows how a part measured against its whole, expressed once as a percent and once as a count, turns scattered ticket data into a fair read on remaining work.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A support team handles two queues. Queue A received 75 tickets from 35 customers, and agents have resolved 60 of them. Queue B received 150 tickets from 30 customers, and agents have resolved 20 percent.</p>
+                <p>What percentage of Queue A tickets still need resolution, and how many Queue B tickets still need resolution? Use mental math. What is 10 percent?</p>
+                <ul>
+                    <li>a) 30% and 130</li>
+                    <li>b) 45% and 100</li>
+                    <li>c) 10% and 145</li>
+                    <li>d) 20% and 120</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 20% and 120 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>For Queue A, <strong>subtract</strong> 60 resolved from 75 total to get 15 open, then <strong>divide</strong> 15 by 75 to reach 20 percent. For Queue B, <strong>take</strong> 20 percent of 150 to get 30 resolved, then <strong>subtract</strong> from 150 to leave 120 open. The customer counts, 35 and 30, never enter the arithmetic.</p>
+
+                    <p class="insight"><em>Anchor on 10 percent. Ten percent of 150 is 15, so 20 percent is double that, 30, which makes the rest fast.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Queue A open count:</strong> 75 minus 60 gives 15 open</li>
+                            <li><strong>Queue A open share:</strong> 15 divided by 75 gives 0.20, or 20 percent</li>
+                            <li><strong>Queue B resolved count:</strong> 10 percent of 150 is 15, so 20 percent is 30</li>
+                            <li><strong>Queue B open count:</strong> 150 minus 30 gives 120 open</li>
+                            <li><strong>Result:</strong> Queue A sits at 20 percent open, Queue B has 120 open, answer d</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea of a part measured out of one hundred is older than the symbol we use for it. Roman merchants and tax officials already quoted duties and interest as rates by the hundred, using the phrase per centum long before any shorthand existed. As trade expanded across Renaissance Italy, clerks writing per cento again and again began to abbreviate it, and over time that scribbled contraction hardened into the percent sign we know. The same reflex that let a Roman assessor compare unequal estates now lets a support lead compare unequal queues on one honest scale.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script reads the totals and resolved figures for both queues and returns Queue A as an open percent and Queue B as an open count, so the same check works for any future pair of queues.</p>
+
+<pre><code># What this does: finds the open share for one queue and the open count for another.
+# Where it came from: a support team tracked resolved tickets in two queues.
+# The math idea: a part out of a whole, shown as a percent or as a count.
+# You type in: totals for both queues, resolved tickets for the first, resolved percent for the second.
+# It prints: the open percent for Queue A and the open ticket count for Queue B.
+
+# This function finds what percent of a queue is still open.
+def open_percent(total, resolved):
+    # Open tickets are the total minus the resolved ones.
+    open_tickets = total - resolved
+    # Turn that into a share of the whole, then scale to 100.
+    return open_tickets / total * 100
+
+# This function finds how many tickets are still open from a resolved percent.
+def open_count(total, resolved_percent):
+    # Turn the percent into a part of one. So 20 becomes 0.20.
+    resolved_part = resolved_percent / 100
+    # Resolved tickets are that part of the total.
+    resolved_tickets = total * resolved_part
+    # Open tickets are the total minus the resolved ones.
+    return total - resolved_tickets
+
+# Tell the reader what we will figure out.
+print("Let's check the open work in both support queues.")
+
+# Ask for Queue A total tickets.
+queue_a_total = int(input("Queue A total tickets: "))
+
+# Ask for Queue A resolved tickets.
+queue_a_resolved = int(input("Queue A resolved tickets: "))
+
+# Ask for Queue B total tickets.
+queue_b_total = int(input("Queue B total tickets: "))
+
+# Ask for Queue B resolved percent.
+queue_b_resolved_percent = float(input("Queue B resolved percent: "))
+
+# Work out the open share for Queue A.
+a_open_share = open_percent(queue_a_total, queue_a_resolved)
+
+# Show a whole number when the percent is whole.
+a_open_share = int(a_open_share) if a_open_share.is_integer() else a_open_share
+
+# Work out the open count for Queue B.
+b_open = open_count(queue_b_total, queue_b_resolved_percent)
+
+# Show a whole number when the count is whole.
+b_open = int(b_open) if b_open.is_integer() else b_open
+
+# Print both answers with words that fit the scenario.
+print("Queue A tickets still open:", str(a_open_share) + "%")
+print("Queue B tickets still open:", b_open)
+</code></pre>
+
+                <p>Run it in a terminal, type 75, 60, 150, and 20 when prompted, and it returns 20% for Queue A and 120 for Queue B.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-review-decimals/arithmetic-review-percent-intro" target="_blank" rel="noopener">Khan Academy — Percentages</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">July 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

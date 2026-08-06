@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A support shift split into fractional tasks shows how leftover time is found by subtraction, and how Python turns that logic into a reusable tool.">
+    <meta name="keywords" content="fractions, time allocation, remainder, business math, Python, common denominator">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-minutes-hiding-inside-a-support-agent-shift.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-minutes-hiding-inside-a-support-agent-shift.html" />
+
+    <title>The Minutes Hiding Inside A Support Agent Shift</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>July 08, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE MINUTES HIDING INSIDE A SUPPORT AGENT SHIFT
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Staffing decisions rest on how a fixed block of time divides across competing tasks. When two duties claim known shares of a shift, the time left for the third is not a guess but a forced result. <dfn>This problem shows how adding fractional parts and subtracting them from the whole reveals a remaining share, and how Python turns that reasoning into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A support agent works a 60 minute shift. She spends 7/12 of the shift closing billing tickets and 1/6 of it answering chat requests. The remaining time goes to updating the knowledge base.</p>
+                <p>How many minutes does she spend updating the knowledge base?</p>
+                <ul>
+                    <li>a) 18</li>
+                    <li>b) 12</li>
+                    <li>c) 9</li>
+                    <li>d) 15</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 15 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Rewrite 1/6 as 2/12 so both known shares sit over 12, then <strong>add</strong> them to reach 9/12. <strong>Subtract</strong> from the whole to get 3/12, and <strong>scale</strong> that share to the 60 minute shift.</p>
+
+                    <p class="insight"><em>Once two shares of a fixed block are set, the third is fully determined, so 3/12 of 60 lands on 15 minutes.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Common denominator:</strong> 1/6 becomes 2/12, alongside 7/12</li>
+                            <li><strong>Add known shares:</strong> 7/12 + 2/12 = 9/12</li>
+                            <li><strong>Subtract from the whole:</strong> 12/12 − 9/12 = 3/12</li>
+                            <li><strong>Scale to minutes:</strong> 3/12 × 60 = 15</li>
+                            <li><strong>Check:</strong> 35 + 10 + 15 = 60</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="formal-proof">Formal Proof</h2>
+
+                <p><strong>Claim.</strong> The knowledge base share of a 60 minute shift equals 15 minutes.</p>
+
+                <p><strong>Givens.</strong> The shift equals 1 whole and lasts 60 minutes. Billing takes 7/12. Chat takes 1/6. The three shares sum to 1.</p>
+
+                <p><strong>Goal.</strong> Show that the remaining share r satisfies r = 1 − (7/12 + 1/6) and r × 60 = 15.</p>
+
+                <div class="bannerTwitero">
+                    <ol>
+                        <li><strong>Definition of a common denominator.</strong> Two fractions can be added once they share a denominator. A fraction keeps its value when top and bottom are multiplied by the same nonzero number. Here 1/6 becomes 2/12, since 1·2 = 2 and 6·2 = 12. So the two shares are 7/12 and 2/12.</li>
+                        <li><strong>Addition of fractions over a common denominator.</strong> When two fractions share a denominator, their sum keeps that denominator and adds the numerators. Applying this to 7/12 and 2/12 gives 7/12 + 2/12 = 9/12. So billing and chat together take 9/12 of the shift.</li>
+                        <li><strong>Definition of the remaining share.</strong> The three shares sum to the whole, so the remaining share equals the whole minus the sum of the known shares. From step 2 the known shares are 9/12, so r = 1 − 9/12.</li>
+                        <li><strong>Subtraction of a fraction from the whole.</strong> The whole equals 12/12, since a fraction with equal top and bottom equals 1. Subtracting fractions over a common denominator subtracts the numerators. From step 3, r = 12/12 − 9/12 = 3/12.</li>
+                        <li><strong>Reduction of a fraction.</strong> A fraction keeps its value when top and bottom are divided by a common factor. Here 3 divides both 3 and 12, so 3/12 = 1/4. From step 4, the remaining share is 1/4.</li>
+                        <li><strong>Multiplication of a share by a quantity.</strong> A share of a quantity equals the share times the quantity. From step 4 the share is 3/12 and the shift is 60, so r × 60 = (3/12) × 60 = 180/12 = 15. Using the reduced form from step 5, (1/4) × 60 = 15. So the knowledge base share is 15 minutes.</li>
+                    </ol>
+                </div>
+
+                <p><strong>Verification.</strong> Each share times the shift gives its minutes, and the three must return to 60. Billing is (7/12) × 60 = 35. Chat is (2/12) × 60 = 10. The knowledge base is 15 from step 6. Their total is 35 + 10 + 15 = 60, which equals the shift. The result satisfies the claim, so the knowledge base share is 15 minutes. ∎</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a whole into parts that must return to the whole is one of the oldest recorded calculations. Egyptian scribes worked with unit fractions, writing every share as a sum of parts with numerator one, and the Rhind Mathematical Papyrus preserves tables built for dividing bread and land. The same reasoning now sits behind shift planning, budget lines, and any setting where a fixed resource is carved into known and unknown parts.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below adds two fractional shares, subtracts them from the whole, and scales the remainder to minutes, so it solves any version of this problem with fresh numbers.</p>
+
+                <pre><code># What this does: works out how many minutes are left for the last task.
+# Where it came from: a shift split into three tasks, two given as fractions.
+# The math idea: add the two fraction parts, take them off the whole, then scale to minutes.
+# You type in: the shift length, and the top and bottom of each of the two fractions.
+# It prints: how many minutes are left for the last task.
+
+# This function does the math.
+def remaining_minutes(total_minutes, top1, bottom1, top2, bottom2):
+    # Turn the first task into a part of one.
+    part1 = top1 / bottom1
+    # Turn the second task into a part of one.
+    part2 = top2 / bottom2
+    # The last task is whatever is left of the whole.
+    leftover_part = 1 - (part1 + part2)
+    # Scale that leftover to minutes.
+    return total_minutes * leftover_part
+
+# Tell the reader what we will figure out.
+print("Let's find the minutes left for the last task.")
+
+# Ask for the shift length.
+total_minutes = float(input("Total shift minutes: "))
+
+# Ask for the first fraction, top then bottom.
+top1 = float(input("First task, top number: "))
+bottom1 = float(input("First task, bottom number: "))
+
+# Ask for the second fraction, top then bottom.
+top2 = float(input("Second task, top number: "))
+bottom2 = float(input("Second task, bottom number: "))
+
+# Do the math.
+result = remaining_minutes(total_minutes, top1, bottom1, top2, bottom2)
+
+# Show a whole number when the result has no leftover.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Minutes left for the last task:", result)</code></pre>
+
+                <p>Run it in a terminal, enter 60 then 7 and 12 then 1 and 6, and it returns 15.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">July 8, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

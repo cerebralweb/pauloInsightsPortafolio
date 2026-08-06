@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How to compare several campaigns by their daily spend, find the slowest, and turn the method into reusable Python and a Claude skill.">
+    <meta name="keywords" content="unit rate, pesos per day, campaign burn rate, comparing rates, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/four-campaigns-one-daily-rate-and-the-slowest-spender-revealed.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/four-campaigns-one-daily-rate-and-the-slowest-spender-revealed.html" />
+
+    <title>Four Campaigns, One Daily Rate, and the Slowest Spender Revealed</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>July 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FOUR CAMPAIGNS, ONE DAILY RATE, AND THE SLOWEST SPENDER REVEALED
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Marketing teams rarely compare campaigns on equal footing. Each one runs for a different stretch and spends a different amount, so raw totals mislead. <dfn>Reducing every campaign to a single daily rate makes unequal runs directly comparable, and Python turns that comparison into a tool you can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Four ad campaigns each burned budget over a set number of days. The red campaign spent 10,000 pesos over 4 days. The blue campaign spent 12,000 pesos over 6 days. The green campaign spent 14,000 pesos over 6 days. The yellow campaign spent 14,000 pesos over 6 days.</p>
+                <p>Which campaign burns budget slowest?</p>
+                <ul>
+                    <li>a) blue</li>
+                    <li>b) yellow</li>
+                    <li>c) green</li>
+                    <li>d) red</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) blue &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Convert each campaign to pesos per day by <strong>dividing</strong> spend by days. Red is 2,500, blue is 2,000, green and yellow are about 2,333, so <strong>blue holds the smallest rate</strong>.</p>
+
+                    <p class="insight"><em>The trick is the shared unit. Once every campaign is stated in pesos per day, the ranking is immediate.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Red rate:</strong> 10,000 &divide; 4 = 2,500 pesos per day</li>
+                            <li><strong>Blue rate:</strong> 12,000 &divide; 6 = 2,000 pesos per day</li>
+                            <li><strong>Green rate:</strong> 14,000 &divide; 6 &asymp; 2,333 pesos per day</li>
+                            <li><strong>Yellow rate:</strong> 14,000 &divide; 6 &asymp; 2,333 pesos per day</li>
+                            <li><strong>Compare:</strong> 2,000 &lt; 2,333 &lt; 2,500, so blue is slowest</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Rigorous Proof</h2>
+
+                <p>This is the same result built as named property steps. Mode: compute.</p>
+
+                <p><strong>Setup.</strong> Let the burn rates in pesos per day be r_red, r_blue, r_green, and r_yellow. A rate is spend divided by days. The pairs are red 10,000 over 4, blue 12,000 over 6, green 14,000 over 6, and yellow 14,000 over 6. The task is to find the smallest rate.</p>
+
+                <ol>
+                    <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. So r_red is 2,500. 10,000 over 4 is 4 times 2,500 over 4, and the 4 cancels.</li>
+                    <li><strong>Cancellation law, as in step 1.</strong> r_blue is 2,000. 12,000 over 6 is 6 times 2,000 over 6, and the 6 cancels.</li>
+                    <li><strong>Cancellation law, as in step 1.</strong> r_green is 7,000 over 3, about 2,333.33. 14,000 over 6 is 2 times 7,000 over 2 times 3, and the 2 cancels.</li>
+                    <li><strong>Substitution.</strong> Equals may replace equals. r_yellow equals 7,000 over 3, the same value as r_green, since yellow shares the pair 14,000 over 6. Builds on step 3.</li>
+                    <li><strong>Transitivity of order.</strong> If a is less than b and b is less than c, then a is less than c. Here 2,000 is less than 7,000 over 3, and 7,000 over 3 is less than 2,500. Builds on steps 1 through 4. So r_blue is below r_green, which is below r_red.</li>
+                    <li><strong>Trichotomy.</strong> For any two reals, exactly one of less than, equal, or greater than holds. r_blue is the unique minimum. Green and yellow tie above it, and red sits higher. Builds on step 5.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> Substitute r_blue into the constraint. 2,000 times 6 equals 12,000, which matches the blue spend. And 2,000 is below both 2,500 and 7,000 over 3, so blue holds the smallest rate.</p>
+
+                <p><strong>Answer.</strong> Blue burns budget slowest at 2,000 pesos per day. Option a.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea of reducing quantities to a rate per single unit runs through modern science. In 1822 Joseph Fourier, studying how heat moves, argued that every physical quantity carries units and that those units must balance on both sides of any comparison. That principle, later called dimensional analysis, is what lets a manager set spend per day beside spend per day and trust the ranking.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script asks for each campaign and reports the slowest daily spender, so it works for any number of campaigns, not just four.</p>
+
+                <pre><code># What this does. finds which campaign burns budget slowest.
+# Where it came from. four ad campaigns each spent some pesos over some days.
+# The math idea. turn each spend and days into pesos per day, then keep the smallest.
+# You type in. how many campaigns, then each name, its spend, and its days.
+# It prints. the campaign with the smallest pesos per day.
+
+# This function does the math.
+def daily_burn(spend, days):
+    # Divide the spend by the days to get pesos per day.
+    return spend / days
+
+# Tell the reader what we will figure out.
+print("Let's find which campaign burns budget slowest.")
+
+# Ask how many campaigns there are.
+count = int(input("How many campaigns "))
+
+# Start with no winner yet.
+slowest_name = ""
+slowest_rate = None
+
+# Look at each campaign one at a time.
+for i in range(count):
+    # Ask for this campaign name.
+    name = input("Campaign name ")
+
+    # Ask for this campaign spend in pesos.
+    spend = float(input("Spend in pesos "))
+
+    # Ask for how many days it ran.
+    days = float(input("Days it ran "))
+
+    # Work out the pesos per day.
+    rate = daily_burn(spend, days)
+
+    # Keep this one if it is the smallest so far.
+    if slowest_rate is None or rate &lt; slowest_rate:
+        slowest_rate = rate
+        slowest_name = name
+
+# Round the rate to two decimals for money.
+slowest_rate = round(slowest_rate, 2)
+
+# Print the answer with words that fit the scenario.
+print("Slowest campaign", slowest_name, "at", slowest_rate, "pesos per day")</code></pre>
+
+                <p>Run it in a terminal, enter each campaign, and it prints the slowest campaign with its pesos per day.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a reusable Claude skill, so the comparison can be triggered from plain language.</p>
+
+                <pre class="md-code"><code>---
+name: campaign-burn-comparator
+description: Compares several campaigns by spend per day and reports the one that spends slowest. Takes a count of campaigns and each campaign name, spend, and days, and returns the campaign with the lowest pesos per day. Trigger this skill whenever the user wants to compare burn rates across campaigns or find the slowest or fastest spender, even if they do not use technical language.
+---
+
+<span class="md-heading"># Campaign Burn Comparator</span>
+
+This skill compares any number of campaigns by their daily burn. For each campaign it takes a spend and the days it ran, converts them to pesos per day, and reports the campaign with the smallest rate. Input is a count and one name, spend, and days per campaign. Output is a single line naming the slowest campaign and its rate.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Campaign count.**</span> A whole number of campaigns to compare.
+- <span class="md-bold">**Campaign name.**</span> A label for each campaign.
+- <span class="md-bold">**Spend.**</span> The pesos each campaign spent. May be a decimal.
+- <span class="md-bold">**Days.**</span> The days each campaign ran. May be a decimal.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1. Ask how many campaigns</span>
+
+Ask the user for the number of campaigns to compare. Expect a whole number.
+
+<span class="md-heading">### Step 2. Collect each campaign</span>
+
+For each campaign, ask for its name, its spend in pesos, and the days it ran. Spend and days may be decimals.
+
+<span class="md-heading">### Step 3. Compute the daily burn</span>
+
+For each campaign, divide the spend by the days to get pesos per day.
+
+<span class="md-heading">### Step 4. Track the smallest rate</span>
+
+Keep the campaign with the lowest pesos per day. If a campaign ties the current lowest, keep the first one seen.
+
+<span class="md-heading">### Step 5. Report the result</span>
+
+Round the winning rate to two decimals. Print one line naming the slowest campaign and its rate in pesos per day.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Which of my campaigns spends the slowest per day?"
+- "Compare the daily burn across these four campaigns."
+- "Find the campaign with the lowest pesos per day."
+- "Rank my campaigns by how fast they spend budget."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] Frontmatter appears once at the top
+- [ ] No Python code in the body
+- [ ] Each step reads as a plain instruction
+- [ ] The tie rule is stated in plain English
+- [ ] Inputs and outputs are named</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy &mdash; Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">July 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

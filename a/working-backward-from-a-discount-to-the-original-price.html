@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Recover an original price from a known discount amount and discount rate, with a property named solution, a reusable Python program, and a Claude skill.">
+    <meta name="keywords" content="reverse percentage, discount, original price, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/working-backward-from-a-discount-to-the-original-price.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/working-backward-from-a-discount-to-the-original-price.html" />
+
+    <title>Working Backward From a Discount to the Original Price</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>July 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WORKING BACKWARD FROM A DISCOUNT TO THE ORIGINAL PRICE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Pricing teams often see the effect of a markdown before they confirm the number it came from. Recovering the base price lets finance check that a promotion was set correctly and reconcile the money saved against the plan. <dfn>This problem shows how one division recovers a full price from a discount, and how the same logic becomes a reusable program and a skill.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A SaaS team ran a promotion on an annual subscription. The plan was offered at 30% off.</p>
+                <p>If the discount lowered the price by 24,000, what was the original subscription price?</p>
+                <ul>
+                    <li>a) 72,000</li>
+                    <li>b) 300,000</li>
+                    <li>c) 80,000</li>
+                    <li>d) 88,000</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 80,000 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The discount is a known part of an unknown base. Writing the rate as <strong>0.30</strong> gives 0.30 times the price equals 24,000, so <strong>dividing</strong> 24,000 by 0.30 recovers the full price.</p>
+
+                    <p class="insight"><em>The discount amount and the rate are known, so the base is found by division, not multiplication.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Substitution:</strong> replace the discount amount with its value, so 0.30 times the price equals 24,000.</li>
+                            <li><strong>Multiplication property of equality:</strong> multiply each side by 1 over 0.30.</li>
+                            <li><strong>Multiplicative inverse and identity:</strong> the left side collapses to the price alone.</li>
+                            <li><strong>Cancellation law:</strong> the right side, 24,000 over 0.30, reduces to 80,000.</li>
+                            <li><strong>Transitivity of equality:</strong> therefore the price equals 80,000.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Property Named Solution</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let p be the original price, a positive rational. The discount rate is 30%, written 0.30. The discount amount is 0.30 times p. The problem fixes the discount amount at 24,000. So 0.30 times p equals 24,000.</p>
+
+                <p><strong>Solution.</strong></p>
+
+                <ol>
+                    <li><strong>Substitution.</strong> Equals may replace equals. The governing equation is 0.30 times p equals 24,000. The discount amount 0.30 times p is replaced by its stated value 24,000.</li>
+                    <li><strong>Multiplication property of equality.</strong> If a equals b then c times a equals c times b. One over 0.30 times the quantity 0.30 times p equals one over 0.30 times 24,000. Builds on step 1. The same factor multiplies each side.</li>
+                    <li><strong>Multiplicative inverse and identity.</strong> A nonzero number times its inverse is one, and one times a equals a. The left side equals p. Builds on step 2. One over 0.30 times 0.30 is one, and one times p is p.</li>
+                    <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. The right side equals 80,000. 24,000 over 0.30 is 0.30 times 80,000 over 0.30, and the 0.30 cancels, leaving 80,000.</li>
+                    <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. Therefore p equals 80,000. Builds on steps 3 and 4.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> 0.30 times 80,000 is 24,000. The computed discount matches the stated discount amount.</p>
+
+                <p><strong>Answer.</strong> The original price was 80,000, option c.</p>
+
+                <h2 id="substitution-explained">The Substitution Property, Explained</h2>
+
+                <p>Substitution says that when two things are equal, one can stand in for the other anywhere without changing the truth of a statement. If a equals b, then any statement true of a stays true when b is written in its place. The two names point to the same value, so the swap changes nothing real.</p>
+
+                <p>In the setup, the discount was written two ways. As an expression it was 0.30 times the price. As a stated value it was 24,000. The problem said these are equal, so substitution let one replace the other and form a single equation. The property does no arithmetic. It only lets equal quantities trade places so the equation can be assembled.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Reverse percentage work rests on treating a percent as a plain part of a whole, an idea that spread once decimals became routine. In 1585 the Flemish mathematician Simon Stevin published a short work arguing that fractions could be handled as decimals, which made rate based figures far easier to compute.</p>
+
+                <p>His approach moved quickly into banking and trade, where discounts, interest, and markups were daily practice. The habit of turning a percent into a decimal part, then dividing or multiplying, traces back to that shift in how numbers were written.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script solves the same type of problem for any discount amount and any percent, so it can be reopened and reused later.</p>
+
+                <pre><code># What this does: works out the original price from a discount and its percent.
+# Where it came from: a SaaS plan was offered at a percent off, and only the money saved is known.
+# The math idea: divide the money saved by the percent, written as a part of one.
+# You type in: the discount amount and the discount percent.
+# It prints: the original price before the discount.
+
+# This function does the math.
+def original_price(discount_amount, discount_percent):
+    # Turn the percent into a part of one. So 30 becomes 0.30.
+    discount_part = discount_percent / 100
+    # Divide the money saved by that part to get back the full price.
+    return discount_amount / discount_part
+
+# Tell the reader what we will figure out.
+print("Let's find the original price before a discount.")
+
+# Ask for the discount amount.
+discount_amount = float(input("Discount amount: "))
+
+# Ask for the discount percent.
+discount_percent = float(input("Discount percent: "))
+
+# Do the math.
+result = original_price(discount_amount, discount_percent)
+
+# Show a whole number when the result has no cents.
+result = int(result) if result.is_integer() else round(result, 2)
+
+# Print the answer with words that fit the scenario.
+print("Original price before the discount:", result)
+</code></pre>
+
+                <p>Run it, type 24000 for the amount and 30 for the percent, and it prints 80000.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic can be packaged as a skill so Claude can follow it without the script.</p>
+
+                <pre class="md-code"><code>---
+name: reverse-percentage-price-finder
+description: Recovers an original price from a known discount amount and discount rate. Trigger this skill whenever the user knows how much money a discount removed and the percent off, and wants the price before the discount, even if they do not use technical language. Common cues include "how much was it originally", "find the full price from the discount", or "work backward from the amount saved".
+---
+
+<span class="md-heading"># Reverse Percentage Price Finder</span>
+
+This skill finds the original price of an item when only the money saved and the discount percent are known. It asks for the discount amount and the discount percent, then works backward to the full price before the discount. The output is a single price stated in plain business terms.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Uses basic arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Discount amount**</span>: the money removed by the discount, a number that may include decimals.
+- <span class="md-bold">**Discount percent**</span>: the percent off, entered as a plain number such as 30 for thirty percent.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the two inputs</span>
+
+Ask for the discount amount in money. Then ask for the discount percent. Accept decimals for both.
+
+<span class="md-heading">### Step 2 — Convert the percent to a part of one</span>
+
+Divide the discount percent by 100. This turns a percent into a fraction of the whole price. For example, 30 becomes 0.30.
+
+<span class="md-heading">### Step 3 — Recover the original price</span>
+
+Divide the discount amount by the part from Step 2. The result is the full price before the discount. Division reverses the multiplication that produced the discount.
+
+<span class="md-heading">### Step 4 — Present the result</span>
+
+If the price comes out to a whole number, show it without decimals. Otherwise round to two decimals. State it with scenario text, for example "Original price before the discount: 80000".
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "The discount took off 24000 at 30 percent off. What was the full price?"
+- "I know the amount saved and the percent. Find the price before the sale."
+- "Work backward from a discount to the original price."
+- "A markdown removed a certain amount at a set percent. What did it cost first?"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The YAML frontmatter appears once at the top
+- [ ] There is no Python code anywhere in the skill body
+- [ ] Every step reads as a natural language instruction
+- [ ] The division direction is preserved, amount saved divided by the percent part
+- [ ] Inputs and outputs are clearly named
+</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-percent-problems" target="_blank" rel="noopener">Khan Academy — Percent Problems</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">July 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

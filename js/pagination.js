@@ -5,7 +5,107 @@
 //PAGINATION: 1) create a/article.html (copy an article and change everything), 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
 
 
-    const articlesDataBase = [ 
+    const articlesDataBase = [
+        {
+            articleTitle: "The Cascading Arithmetic Of Vouchers Turned Into Client Projects",
+            articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-cascading-arithmetic-of-vouchers-turned-into-client-projects.html"
+        },
+        {
+            articleTitle: "Split The Material, Divide The Rest, Count The Production Runs",
+            articleDescription: "Manufacturing plans rarely hinge on a single figure. Before a run begins, a team traces how one shared material splits across products",
+            articleHref: "/a/split-the-material-divide-the-rest-count-the-production-runs.html"
+        },
+        {
+            articleTitle: "The Five Step Calculation Behind A Cable Reel Length",
+            articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/the-five-step-calculation-behind-a-cable-reel-length.html"
+        },
+        {
+            articleTitle: "The One Share That Splits 930 Tickets Into Two Workloads",
+            articleDescription: "Managers read shares from fractions and assume the arithmetic hands back one exact total, when often it hands back a whole family of totals that all fit. This problem shows how proportional constraints define a set of feasible answers rather than one, and why the final number depends on an assumption the math alone never supplies",
+            articleHref: "/a/the-one-share-that-splits-930-tickets-into-two-workloads.html"
+        },
+        {
+            articleTitle: "Three Proofs, One Revenue: How A Single Part Rebuilds The Whole",
+            articleDescription: "Fractions let you name each share",
+            articleHref: "/a/three-proofs-one-revenue-how-a-single-part-rebuilds-the-whole.html"
+        },
+        {
+            articleTitle: "Working Backward From A Discount To The Original Price",
+            articleDescription: "Recovering the base price lets finance check that a promotion was set correctly",
+            articleHref: "/a/working-backward-from-a-discount-to-the-original-price.html"
+        },
+        {
+            articleTitle: "Four Campaigns, One Daily Rate, And The Slowest Spender Revealed",
+            articleDescription: "Marketing teams rarely compare campaigns on equal footing. Each one runs for a different stretch and spends a different amount, so raw totals mislead. Reducing every campaign to a single daily rate makes unequal runs directly comparable, and Python turns that comparison into a tool you can reuse",
+            articleHref: "/a/four-campaigns-one-daily-rate-and-the-slowest-spender-revealed.html"
+        },
+        {
+            articleTitle: "Three Operations Turn A Weekly Fraction Into A Two Day Count",
+            articleDescription: "This problem shows how three plain operations move from a weekly fraction to a daily rate to the count for a chosen stretch of days, and how the same logic holds as code and as a written procedure",
+            articleHref: "/a/three-operations-turn-a-weekly-fraction-into-a-two-day-count.html"
+        },
+        {
+            articleTitle: "The Estimate That Lands Within One Kilometer Of Exact",
+            articleDescription: "Route planning rarely waits for a perfect figure",
+            articleHref: "/a/the-estimate-that-lands-within-one-kilometer-of-exact.html"
+        },
+        {
+            articleTitle: "The Fraction Rule Hiding Inside An Equal Split Of Three Quarters",
+            articleDescription: "A raw count of open tickets tells a lead very little, because two queues of different sizes can carry the same number of open items yet demand very different attention. This problem shows how a part measured against its whole, expressed once as a percent and once as a count, turns scattered ticket data into a fair read on remaining work",
+            articleHref: "/a/the-fraction-rule-hiding-inside-an-equal-split-of-three-quarters.html"
+        },
+        {
+            articleTitle: "The Full Batch Hiding Behind A Five Percent Shipment",
+            articleDescription: "A raw count of open tickets tells a lead very little, because two queues of different sizes can carry the same number of open items yet demand very different attention. This problem shows how a part measured against its whole, expressed once as a percent and once as a count, turns scattered ticket data into a fair read on remaining work",
+            articleHref: "/a/the-full-batch-hiding-behind-a-five-percent-shipment.html"
+        },
+        {
+            articleTitle: "The Quick Check Behind Every Support Queue Backlog Count",
+            articleDescription: "A raw count of open tickets tells a lead very little, because two queues of different sizes can carry the same number of open items yet demand very different attention. This problem shows how a part measured against its whole, expressed once as a percent and once as a count, turns scattered ticket data into a fair read on remaining work",
+            articleHref: "/a/the-quick-check-behind-every-support-queue-backlog-count.html"
+        },
+        {
+            articleTitle: "The Exact Minute Hiding Inside A Minimum Data Load",
+            articleDescription: "Operations teams often wait on a threshold before a job can begin, and knowing the moment that threshold is crossed shapes timing, resource release, and every handoff that follows. A steady rate turns a required amount into a fact about the clock, so the question is not whether the target will be met but exactly when. This piece shows how one division converts a minimum requirement into an exact time, and how the same logic travels from a manual calculation to a Python script and then to a reusable Claude skill",
+            articleHref: "/a/the-exact-minute-hiding-inside-a-minimum-data-load.html"
+        },
+        {
+            articleTitle: "The Price Gap Hiding Between Two Vendor Quotes",
+            articleDescription: "One vendor prices a bundle of five, another a bundle of seven, and the totals alone say nothing about which is the better deal",
+            articleHref: "/a/the-price-gap-hiding-between-two-vendor-quotes.html"
+        },
+        {
+            articleTitle: "The Steady Rate That Clears Any Support Backlog",
+            articleDescription: "promise a realistic clearance time to the business",
+            articleHref: "/a/the-steady-rate-that-clears-any-support-backlog.html"
+        },
+        {
+            articleTitle: "455 Tickets, One Steady Rate, And The Hours To Clear Them",
+            articleDescription: "The bridge from a short observed window to a full clearance estimate is a single steady rate, measured once and then trusted forward. This problem shows how one measured rate converts a pile of open work into a firm hours estimate, and how Python turns that estimate into a tool the desk can reuse",
+            articleHref: "/a/455-tickets-one-steady-rate-and-the-hours-to-clear-them.html"
+        },
+        {
+            articleTitle: "One Fixed Total, Two Ratios, Nine Fewer Seats",
+            articleDescription: "When a fixed pool splits between two groups and the split changes, every unit one side gains is a unit the other side loses, and reading that shift correctly drives staffing, budgeting, and inventory calls",
+            articleHref: "/a/one-fixed-total-two-ratios-nine-fewer-seats.html"
+        },
+        {
+            articleTitle: "The One Share That Splits 930 Tickets Into Two Workloads",
+            articleDescription: "Support teams rarely measure every worker the same way. When two agents produce at a steady, fixed pace relative to each other, a manager can infer one agent's output from the other's without tracking both, which keeps quotas fair and forecasts honest. This problem shows how a fixed ratio turns one known figure into another, and how Python can capture that logic as a tool the team reuses each month",
+            articleHref: "/a/the-one-share-that-splits-930-tickets-into-two-workloads.html"
+        },
+        {
+            articleTitle: "Enterprise Licensing Math Where A Fixed Total Reveals The Drop",
+            articleDescription: "License mixes shift when a company reprices or reorganizes its plans. Analysts often know the new mix and one real count, yet not the full picture of what moved underneath. This problem shows how a fixed total turns two separate ratios into one comparable base, and how Python can turn that logic into a reusable tool",
+            articleHref: "/a/enterprise-licensing-math-where-a-fixed-total-reveals-the-drop.html"
+        },
+        {
+            articleTitle: "The Minutes Hiding Inside A Support Agent Shift",
+            articleDescription: "Staffing decisions rest on how a fixed block of time divides across competing tasks",
+            articleHref: "/a/the-minutes-hiding-inside-a-support-agent-shift.html"
+        },
         {
             articleTitle: "The Fewest Blocks That Fill A Storage Target Exactly",
             articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A freight route problem worked two ways, a rounded estimate first and an exact decimal figure second, built from mixed number subtraction and reusable in Python.">
+    <meta name="keywords" content="mixed numbers, subtraction, rounding, estimation, decimals, freight, distance remaining, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-estimate-that-lands-within-one-kilometer-of-exact.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-estimate-that-lands-within-one-kilometer-of-exact.html" />
+
+    <title>The Estimate That Lands Within One Kilometer Of Exact</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 4, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE ESTIMATE THAT LANDS WITHIN ONE KILOMETER OF EXACT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Route planning rarely waits for a perfect figure. A dispatcher needs a fast sense of how far is left before the precise number is confirmed, so a rough estimate and an exact result serve two moments in the same decision. <dfn>This problem shows how rounding each part first gives a quick check, while exact decimal subtraction gives the figure the system commits to.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A freight carrier is tracking a long haul delivery. The full route to the customer warehouse is 245 km and 7/50. So far the truck has covered 128 km and 53/100.</p>
+                <p>How many kilometers remain? First give an estimate by rounding each segment to the nearest whole number, then give the exact figure.</p>
+                <ul>
+                    <li>a) 117 and 116.61</li>
+                    <li>b) 116 and 116.61</li>
+                    <li>c) 116 and 117</li>
+                    <li>d) 117 and 117</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 116 and 116.61 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Turn each mixed number into a decimal, then subtract. The route is 245.14 and the covered distance is 128.53. For the estimate, <strong>round each segment</strong> first, so 245.14 goes to 245 and 128.53 goes to 129, then <strong>subtract</strong> for 116. For the exact figure, <strong>subtract the decimals directly</strong> for 116.61.</p>
+
+                    <p class="insight"><em>Rounding sends 0.53 up to the next whole number, which is why the estimate of 116 sits just below the exact 116.61.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Convert the route:</strong> 245 and 7/50 becomes 245.14 km</li>
+                            <li><strong>Convert the covered distance:</strong> 128 and 53/100 becomes 128.53 km</li>
+                            <li><strong>Round each segment:</strong> 245.14 to 245, and 128.53 to 129</li>
+                            <li><strong>Estimate:</strong> 245 minus 129 equals 116 km</li>
+                            <li><strong>Exact:</strong> 245.14 minus 128.53 equals 116.61 km</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof With Named Properties</h2>
+
+                <p>Compute mode. Let r be the exact remaining distance and e the rounded estimate, both in kilometers. The total route is 245 and 7/50. The covered distance is 128 and 53/100. Remaining distance is the total minus the covered distance, and the estimate rounds each segment to the nearest integer before subtracting.</p>
+
+                <ol>
+                    <li><strong>Equivalent fractions property.</strong> For nonzero k, a over b equals ka over kb. So 7/50 equals 14/100 equals 0.14, and the total is 245.14 km.</li>
+                    <li><strong>Definition of a decimal fraction.</strong> A fraction with denominator 100 equals the decimal read in hundredths. So 53/100 equals 0.53, and the covered distance is 128.53 km.</li>
+                    <li><strong>Rounding to the nearest integer.</strong> A value with fractional part below one half rounds down, otherwise up. 245.14 rounds to 245, since 0.14 is below one half. Builds on step 1.</li>
+                    <li><strong>Rounding to the nearest integer, as in step 3.</strong> 128.53 rounds to 129, since 0.53 is at or above one half. Builds on step 2.</li>
+                    <li><strong>Closure under subtraction.</strong> The difference of two reals is a real. The estimate equals 245 minus 129, which is 116. Builds on steps 3 and 4.</li>
+                    <li><strong>Subtraction property of equality.</strong> Subtracting equal quantities from a common total preserves equality. The exact remainder equals 245.14 minus 128.53, which is 116.61. Builds on steps 1 and 2.</li>
+                </ol>
+
+                <p><em>Verification.</em> Add the covered distance back to the exact remainder. 116.61 plus 128.53 equals 245.14, which matches the total. The estimate 116 sits within one km of 116.61.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Mixed numbers and quick rounding grew out of the daily arithmetic of trade, where a merchant needed a workable figure faster than a precise one. Medieval European counting houses ran on fractions of standard units of weight and length, and clerks learned to round to the nearest whole before settling accounts to the last part. The spread of decimal measurement through the nineteenth century did not retire that habit, it split the work into two steps, a fast estimate to catch gross error and an exact figure to close the record.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script accepts each value as a whole part plus a fraction, then returns a rounded estimate and the exact remainder, so it fits any remaining amount problem, not just this route.</p>
+
+                <pre><code># What this does: works out how far is left on a trip, with a quick estimate first.
+# Where it came from: a truck had a full route length and a distance already covered.
+# The math idea: turn each mixed number into a decimal, then subtract.
+# You type in: the whole part and the fraction for the full route and for the part done.
+# It prints: a rounded estimate of the distance left and the exact distance left.
+
+# This function turns a whole part and a fraction into one decimal number.
+def to_decimal(whole, top, bottom):
+    return whole + top / bottom
+
+# This function rounds a number to the nearest whole number, half goes up.
+def round_half_up(value):
+    return int(value + 0.5)
+
+# Tell the reader what we will figure out.
+print("Let's find how far is left on the route.")
+
+# Ask for the full route as a whole part and a fraction.
+route_whole = float(input("Full route whole km: "))
+route_top = float(input("Full route fraction top: "))
+route_bottom = float(input("Full route fraction bottom: "))
+
+# Ask for the distance covered as a whole part and a fraction.
+done_whole = float(input("Covered whole km: "))
+done_top = float(input("Covered fraction top: "))
+done_bottom = float(input("Covered fraction bottom: "))
+
+# Build the two decimals.
+total = to_decimal(route_whole, route_top, route_bottom)
+covered = to_decimal(done_whole, done_top, done_bottom)
+
+# Estimate: round each part first, then subtract.
+estimate = round_half_up(total) - round_half_up(covered)
+
+# Exact: subtract the real decimals, then keep two places.
+exact = round(total - covered, 2)
+
+# Print both answers with words that fit the trip.
+print("Estimated km left:", estimate)
+print("Exact km left:", exact)</code></pre>
+
+                <p>Run it in a terminal, type 245, 7, 50 for the route and 128, 53, 100 for the covered distance, and it returns an estimate of 116 and an exact figure of 116.61.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: distance-remaining-estimator
+description: Works out how far is left on a trip from a full route length and a distance already covered, both given as mixed numbers, and returns a rounded estimate alongside the exact figure. Trigger this skill whenever the user wants to find a remaining amount by subtracting one mixed number from another and wants a quick estimate first, even if they do not use technical language.
+---
+
+<span class="md-heading"># Distance Remaining Estimator</span>
+
+This skill takes a full route length and a distance already covered, each written as a whole part plus a fraction, and finds how much distance is left. It first gives a fast estimate by rounding each value to the nearest whole number, then gives the exact figure to two decimal places. The same logic fits any remaining amount problem, e.g. budget left or work left.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- None for the plain version. Standard arithmetic only.
+- The <span class="md-code">`fractions`</span> module from the Python standard library for an exact variant, when the fractions are messy and rounding error must stay out.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Full route**</span>: a whole number of kilometers plus a fraction, given as three numbers, the whole part, the top of the fraction, and the bottom.
+- <span class="md-bold">**Distance covered**</span>: the same three numbers for the part already done.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Gather the two values</span>
+
+Ask for the full route as a whole part, a fraction top, and a fraction bottom. Then ask for the distance covered in the same three parts. Show a short line first stating that the goal is the distance left.
+
+<span class="md-heading">### Step 2 &#8212; Turn each mixed number into one number</span>
+
+For each value, divide the fraction top by the fraction bottom and add the whole part. This gives one decimal for the full route and one for the distance covered.
+
+<span class="md-heading">### Step 3 &#8212; Build the estimate</span>
+
+Round each of the two decimals to the nearest whole number, sending a half up. Subtract the rounded covered distance from the rounded route. This is the estimate.
+
+<span class="md-heading">### Step 4 &#8212; Build the exact figure</span>
+
+Subtract the covered decimal from the route decimal without rounding first. Keep two decimal places on the result.
+
+<span class="md-heading">### Step 5 &#8212; Report both</span>
+
+Print the estimate and then the exact distance left, each with a short line that names the trip. Do not print only the numbers. Label them so the reader knows which is the estimate and which is exact.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How much of my trip is left if the route is 245 and 7/50 km and I've done 128 and 53/100?"
+- "Subtract these two mixed numbers and give me a rounded guess first."
+- "Estimate then exact for the distance remaining."
+- "How far to go, quick check then the real number."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The frontmatter appears once at the top
+- [ ] There is no Python code anywhere in the body
+- [ ] Every step reads as a plain instruction
+- [ ] The rounding rule and the two stage output are stated in plain words
+- [ ] Inputs and outputs are named and described
+- [ ] The description would trigger from a non technical prompt</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy &#8212; Fraction and Mixed Number Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/MixedFraction.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Mixed Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 4, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

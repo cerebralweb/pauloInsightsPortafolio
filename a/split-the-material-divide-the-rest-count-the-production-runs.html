@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A factory splits a resin supply between casings and connectors, then counts how many connector runs the leftover material allows. A fraction and unit rate problem, solved step by step, with a reusable Python function.">
+    <meta name="keywords" content="fractions, unit rate, proportional reasoning, division of fractions, business math, production planning, Python, clpalacios">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/split-the-material-divide-the-rest-count-the-production-runs.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/split-the-material-divide-the-rest-count-the-production-runs.html" />
+
+    <title>Split the Material, Divide the Rest, Count the Production Runs</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 3, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    SPLIT THE MATERIAL, DIVIDE THE REST, COUNT THE PRODUCTION RUNS
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Manufacturing plans rarely hinge on a single figure. Before a run begins, a team traces how one shared material splits across products, and how the leftover portion sets a hard ceiling on output. <dfn>This problem shows how a short chain of fraction operations models a real production decision, and how a small Python function turns that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A factory received a supply of resin. It used 2/5 of the resin to mold casings and the rest to mold connectors. The casings consumed 16 kilograms of resin, and each connector run uses 2/3 of a kilogram.</p>
+                <p>How many connector runs did the factory complete?</p>
+                <ul>
+                    <li>a) 32</li>
+                    <li>b) 24</li>
+                    <li>c) 40</li>
+                    <li>d) 36</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 36 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>First recover the total from the casing share. Since 2/5 of the total is 16 kilograms, the total is 40 kilograms. The connectors take the remaining 3/5, which is 24 kilograms. Then <strong>divide</strong> 24 by the run size of 2/3, the same as <strong>multiplying</strong> by 3/2, giving 36 runs.</p>
+
+                    <p class="insight"><em>Dividing by 2/3 is multiplying by 3/2, so every kilogram of resin covers one and a half connector runs.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total resin:</strong> 16 ÷ 2/5 = 40 kilograms</li>
+                            <li><strong>Connector share:</strong> 40 × 3/5 = 24 kilograms</li>
+                            <li><strong>Connector runs:</strong> 24 ÷ 2/3 = 24 × 3/2 = 36</li>
+                        </ol>
+                    </div>
+
+                    <h2>Formal Proof</h2>
+
+                    <p>Let T be the total resin in kilograms, a positive rational. Let n be the number of connector runs, a positive integer. Let x be the resin in the 1/5 piece, so x = (1/5)T. Casings take 2/5 of T and equal 16 kilograms, so (2/5)T = 16. Connectors take 3/5 of T. Each run uses 2/3 kilogram, so (2/3)n equals the connector resin.</p>
+
+                    <ol>
+                        <li><strong>Addition of fractions, read backward:</strong> 3/5 = 2/5 + 1/5. Read right to left, this splits 3/5 into the 2/5 piece and the 1/5 piece.</li>
+                        <li><strong>Distributive law:</strong> the connector resin = (2/5)T + (1/5)T. Builds on line 1, multiplying the split by T.</li>
+                        <li><strong>Substitution:</strong> the connector resin = 16 + x. Builds on line 2, replacing (2/5)T with 16 and (1/5)T with x.</li>
+                        <li><strong>Multiplication fact:</strong> (2/5)T = 2x, since 2/5 = 2 × 1/5 and (1/5)T = x.</li>
+                        <li><strong>Substitution:</strong> 16 = 2x. Builds on line 4, since (2/5)T = 16 and (2/5)T = 2x.</li>
+                        <li><strong>Division property of equality:</strong> x = 8. Builds on line 5, dividing each side by 2.</li>
+                        <li><strong>Substitution:</strong> the connector resin = 24. Builds on lines 3 and 6, replacing x with 8 in 16 + x.</li>
+                        <li><strong>Substitution:</strong> the equation for runs is (2/3)n = 24. Builds on line 7.</li>
+                        <li><strong>Multiplication property of equality:</strong> multiply each side by 3/2, giving (3/2)(2/3)n = (3/2)(24). Builds on line 8.</li>
+                        <li><strong>Multiplicative inverse and identity:</strong> the left side is n, since (3/2)(2/3) = 1 and 1 × n = n. So n = (3/2)(24). Builds on line 9.</li>
+                        <li><strong>Cancellation law:</strong> n = 36. Builds on line 10, writing (3/2)(24) as 3 × 2 × 12 over 2, the 2 cancels, leaving 3 × 12.</li>
+                    </ol>
+
+                    <p>Check: casings take (2/5)(40) = 16, since T = 40 from x = 8 and T = 5x. Connectors take 16 + 8 = 24. And 36 runs × 2/3 = 24. All match.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a fixed quantity into shares, then counting how many equal portions the remainder yields, is one of the oldest tasks in applied arithmetic. Egyptian scribes divided grain and bread among workers with unit fractions, and the Rhind Mathematical Papyrus preserves these ration methods from around 1650 BCE. The same reasoning now sizes production runs, allocates budgets, and plans inventory across modern operations.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script recovers the total from a known share, then counts how many fixed portions the remainder yields, so it fits any split and any portion size.</p>
+
+                <pre><code>from fractions import Fraction
+
+
+def connector_runs(casing_fraction, casing_weight, run_size):
+    """Count how many runs the leftover material allows.
+
+    casing_fraction: share of the total spent on casings
+    casing_weight: weight that share consumed
+    run_size: material each run uses
+    """
+    total = Fraction(casing_weight) / Fraction(casing_fraction)
+    connector_weight = total * (1 - Fraction(casing_fraction))
+    return connector_weight / Fraction(run_size)
+
+
+runs = connector_runs(Fraction(2, 5), 16, Fraction(2, 3))
+print(runs)  # 36</code></pre>
+
+                <p>Run it with the casing share, the casing weight, and the run size, and it returns the number of runs, here 36.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic" target="_blank" rel="noopener">Khan Academy — Fraction Arithmetic</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Fraction.html" target="_blank" rel="noopener">Wolfram MathWorld — Fraction</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/fractions" target="_blank" rel="noopener">Mathematics Stack Exchange — Fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 3, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

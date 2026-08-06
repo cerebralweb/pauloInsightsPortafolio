@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A weekly fraction split into a daily rate and scaled to a set of days, solved by hand, in Python, and as a reusable skill.">
+    <meta name="keywords" content="fractions, daily rate, proportional reasoning, business math, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/three-operations-turn-a-weekly-fraction-into-a-two-day-count.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/three-operations-turn-a-weekly-fraction-into-a-two-day-count.html" />
+
+    <title>Three Operations Turn a Weekly Fraction Into a Two Day Count</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 4, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THREE OPERATIONS TURN A WEEKLY FRACTION INTO A TWO DAY COUNT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Operations teams rarely finish a full workload in one burst. They commit to a share of it each week and spread that share evenly across the working days, which turns a fraction of a total into a steady daily rate. <dfn>This problem shows how three plain operations move from a weekly fraction to a daily rate to the count for a chosen stretch of days, and how the same logic holds as code and as a written procedure.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A technician services three quarters of the company laptops across five workdays. The company has forty laptops. How many will she service on Thursday and Friday?</p>
+                <ul>
+                    <li>a) 6</li>
+                    <li>b) 2</li>
+                    <li>c) 12</li>
+                    <li>d) 16</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 12 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Take <strong>three quarters of forty</strong> to reach thirty, <strong>divide by five days</strong> to reach six per day, then <strong>multiply by two days</strong> to reach twelve.</p>
+
+                    <p class="insight"><em>The weekly fraction fixes the daily rate, and every later figure rides on that six per day.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Weekly amount:</strong> 30</li>
+                            <li><strong>Daily rate:</strong> 6</li>
+                            <li><strong>Two day count:</strong> 12</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof</h2>
+
+                <p>Each step states the finding and names the property that licenses it.</p>
+                <ol>
+                    <li><strong>Cancellation law.</strong> Three quarters of forty is thirty. Writing forty as four times ten, the four cancels against the denominator, leaving three times ten.</li>
+                    <li><strong>Cancellation law.</strong> Thirty over five is six. Writing thirty as five times six, the five cancels, leaving six per day.</li>
+                    <li><strong>Commutative law of multiplication.</strong> Six times two equals two times six. Order does not change the product.</li>
+                    <li><strong>Associative law of multiplication.</strong> Six times two regroups as thirty times two over five, which is sixty over five, still twelve. Grouping does not change the product.</li>
+                </ol>
+                <p>Reverse the chain to check. Twelve over two is six per day. Six times five is thirty across the week. Thirty over forty is three quarters. The fraction matches.</p>
+
+                <h2 id="visual-version">The Steps in Pictures</h2>
+
+                <p>Each panel shows one equation with its property acting.</p>
+
+                <svg viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif" style="max-width:680px;width:100%;height:auto;">
+                  <style>
+                    .pv-th { font-size: 17px; font-weight: bold; fill: #1a1a1a; }
+                    .pv-ts { font-size: 13px; fill: #666; }
+                    .pv-eq { font-size: 26px; fill: #222; }
+                    .pv-eqs { font-size: 21px; fill: #222; }
+                    .pv-teal { fill: #1b9e8a; }
+                    .pv-res { font-size: 26px; font-weight: bold; fill: #1b9e8a; }
+                  </style>
+
+                  <rect x="10" y="10" width="660" height="165" fill="#f7f9f9" stroke="#e0e0e0"/>
+                  <text x="28" y="40" class="pv-th">Step 1. Cancellation law</text>
+                  <text x="28" y="62" class="pv-ts">for nonzero b, b times a over b equals a</text>
+                  <text x="40" y="120" class="pv-eq">3 &#215;</text>
+                  <text x="120" y="105" class="pv-eq" text-anchor="middle">40</text>
+                  <line x1="95" y1="112" x2="145" y2="112" stroke="#222" stroke-width="2"/>
+                  <text x="120" y="140" class="pv-eq" text-anchor="middle">4</text>
+                  <text x="165" y="120" class="pv-eq">=  3 &#215;</text>
+                  <text x="290" y="105" class="pv-eq" text-anchor="middle">4 &#215; 10</text>
+                  <line x1="245" y1="112" x2="335" y2="112" stroke="#222" stroke-width="2"/>
+                  <text x="290" y="140" class="pv-eq" text-anchor="middle">4</text>
+                  <line x1="248" y1="100" x2="272" y2="82" stroke="#d64545" stroke-width="2.5"/>
+                  <line x1="282" y1="148" x2="298" y2="128" stroke="#d64545" stroke-width="2.5"/>
+                  <text x="380" y="120" class="pv-eq">=  3 &#215; 10  =</text>
+                  <text x="600" y="120" class="pv-res">30</text>
+
+                  <rect x="10" y="190" width="660" height="165" fill="#f7f9f9" stroke="#e0e0e0"/>
+                  <text x="28" y="220" class="pv-th">Step 2. Cancellation law</text>
+                  <text x="28" y="242" class="pv-ts">the 5 cancels</text>
+                  <text x="60" y="300" class="pv-eq" text-anchor="middle">30</text>
+                  <line x1="35" y1="308" x2="85" y2="308" stroke="#222" stroke-width="2"/>
+                  <text x="60" y="335" class="pv-eq" text-anchor="middle">5</text>
+                  <text x="110" y="308" class="pv-eq">=</text>
+                  <text x="210" y="300" class="pv-eq" text-anchor="middle">5 &#215; 6</text>
+                  <line x1="165" y1="308" x2="255" y2="308" stroke="#222" stroke-width="2"/>
+                  <text x="210" y="335" class="pv-eq" text-anchor="middle">5</text>
+                  <line x1="168" y1="296" x2="188" y2="278" stroke="#d64545" stroke-width="2.5"/>
+                  <line x1="202" y1="343" x2="218" y2="323" stroke="#d64545" stroke-width="2.5"/>
+                  <text x="300" y="308" class="pv-eq">=  6</text>
+                  <text x="380" y="308" class="pv-ts">per day</text>
+
+                  <rect x="10" y="370" width="660" height="150" fill="#f7f9f9" stroke="#e0e0e0"/>
+                  <text x="28" y="400" class="pv-th">Step 3. Commutative law of multiplication</text>
+                  <text x="28" y="422" class="pv-ts">a times b equals b times a, order does not change the product</text>
+                  <text x="60" y="480" class="pv-eq">6 &#215; 2</text>
+                  <text x="185" y="480" class="pv-eq pv-teal">=</text>
+                  <text x="220" y="480" class="pv-eq">2 &#215; 6</text>
+                  <text x="345" y="480" class="pv-eq">=  12</text>
+                  <text x="60" y="505" class="pv-ts">6 per day across 2 days, or 2 days each holding 6</text>
+                  <path d="M75 490 Q120 515 165 490" fill="none" stroke="#1b9e8a" stroke-width="2"/>
+
+                  <rect x="10" y="535" width="660" height="175" fill="#f7f9f9" stroke="#e0e0e0"/>
+                  <text x="28" y="565" class="pv-th">Step 4. Associative law of multiplication</text>
+                  <text x="28" y="587" class="pv-ts">grouping does not change the product</text>
+                  <text x="40" y="640" class="pv-eqs">(6 &#215; 2)</text>
+                  <text x="150" y="640" class="pv-eqs pv-teal">=</text>
+                  <text x="185" y="628" class="pv-eqs" text-anchor="middle">(30 &#215; 2)</text>
+                  <line x1="130" y1="636" x2="240" y2="636" stroke="#222" stroke-width="2"/>
+                  <text x="185" y="662" class="pv-eqs" text-anchor="middle">5</text>
+                  <text x="255" y="640" class="pv-eqs pv-teal">=</text>
+                  <text x="300" y="628" class="pv-eqs" text-anchor="middle">60</text>
+                  <line x1="278" y1="636" x2="322" y2="636" stroke="#222" stroke-width="2"/>
+                  <text x="300" y="662" class="pv-eqs" text-anchor="middle">5</text>
+                  <text x="335" y="640" class="pv-eqs">=  12</text>
+                  <text x="40" y="695" class="pv-ts">the 2 regroups with 30 first, then divided by 5, same result</text>
+                </svg>
+
+                <p>The planning question is simple. How much of the work lands on any given set of days. Answering it takes three moves. Take the fraction of the total, split that into a daily rate, then scale the rate to the days in view. A technician servicing three quarters of forty laptops across five workdays handles thirty in the week, six each day, and twelve across Thursday and Friday.</p>
+
+                <p>The order matters. The fraction of the total comes first, because the daily rate has no meaning until the weekly amount is fixed. Only then does the split into days make sense, and only then can the rate be scaled to the days you care about.</p>
+
+                <pre><code># What this does: works out how many laptops get serviced over a chosen number of days.
+# Where it came from: a technician services part of the laptops each week, spread evenly across the workdays.
+# The math idea: take a fraction of a total, split it evenly per day, then multiply by the days you care about.
+# You type in: the total laptops, the fraction top and bottom, the workdays per week, and the days you want.
+# It prints: how many laptops get serviced across those days.
+
+# This function does the math.
+def laptops_serviced(total, frac_top, frac_bottom, workdays, days_wanted):
+    # Take the fraction of the total. So 3 over 4 of 40.
+    weekly = total * frac_top / frac_bottom
+    # Split the weekly amount evenly across the workdays.
+    per_day = weekly / workdays
+    # Scale the daily amount to the days you asked about.
+    return per_day * days_wanted
+
+# Tell the reader what we will figure out.
+print("Let's find how many laptops get serviced over a set number of days.")
+
+# Ask for the total laptops.
+total = float(input("Total laptops: "))
+
+# Ask for the top of the fraction.
+frac_top = float(input("Fraction top (e.g. 3): "))
+
+# Ask for the bottom of the fraction.
+frac_bottom = float(input("Fraction bottom (e.g. 4): "))
+
+# Ask for the workdays per week.
+workdays = float(input("Workdays per week: "))
+
+# Ask for the days you want counted.
+days_wanted = float(input("Days in question: "))
+
+# Do the math.
+result = laptops_serviced(total, frac_top, frac_bottom, workdays, days_wanted)
+
+# Show a whole number when it lands on one.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Laptops serviced across those days:", result)</code></pre>
+
+                <p>The script mirrors the three moves. It asks for the total, the fraction, the workdays, and the days you want counted, then returns the figure for those days. Because it reads the numbers at run time, it fits any version of the problem, not the one that prompted it.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: fraction-daily-rate-scaler
+description: Works out how many items get handled over a chosen number of days when a fraction of a total is spread evenly across the workweek. Takes a total, a fraction, the workdays per week, and the days you care about, then returns the count for those days. Trigger this skill whenever the user wants to find part of a total split evenly per day and scaled to some days, even if they phrase it as a plain word problem about laptops, shirts, orders, or any repeated daily task.
+---
+
+<span class="md-heading"># Fraction Daily Rate Scaler</span>
+
+This skill answers a common word problem shape. Someone handles a fraction of a total each week, spread evenly across the workdays, and you want the count for a smaller set of days. It takes the total, the fraction top and bottom, the workdays per week, and the days in question, then returns how many items fall in those days. It works for any numbers, not just one problem.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None required for the plain path. Basic arithmetic covers it.
+
+Optional, for exact results when numbers do not divide evenly: an exact fraction tool from the standard library. Use it only when a clean decimal is not guaranteed.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Total items**</span>: the whole count, e.g. 40 laptops.
+- <span class="md-bold">**Fraction top**</span>: the numerator of the weekly share, e.g. 3.
+- <span class="md-bold">**Fraction bottom**</span>: the denominator of the weekly share, e.g. 4.
+- <span class="md-bold">**Workdays per week**</span>: how many days the weekly share is spread across, e.g. 5.
+- <span class="md-bold">**Days in question**</span>: how many of those days you want counted, e.g. 2.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Take the fraction of the total</span>
+
+Multiply the total by the fraction top, then divide by the fraction bottom. This gives the weekly amount handled. With 40 and three quarters, the weekly amount is 30.
+
+<span class="md-heading">### Step 2 — Find the daily rate</span>
+
+Divide the weekly amount by the workdays per week. This gives the amount handled per day. With 30 across 5 days, the daily rate is 6.
+
+<span class="md-heading">### Step 3 — Scale to the days in question</span>
+
+Multiply the daily rate by the days in question. This gives the answer. With 6 per day across 2 days, the result is 12.
+
+<span class="md-heading">### Step 4 — Present the result</span>
+
+Show the count with plain text tied to the scenario, not a bare number. If the result lands on a whole number, display it as a whole number. If it does not divide evenly and precision matters, keep it as an exact fraction rather than a rounded decimal.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "A worker irons three quarters of the shirts across five days. How many on Thursday and Friday?"
+- "We service two thirds of the fleet each week over six workdays. How many in two days?"
+- "Split 80 percent of these orders evenly across the week and tell me the Monday count."
+- "How many units per day if we finish three fifths of stock over five days?"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- The three arithmetic stages stay in order, fraction of total, then daily rate, then scale to days.
+- Each input is named by its role, not a code label.
+- The result carries scenario text, not just a number.
+- Whole results show as whole numbers; uneven results stay exact when precision matters.</code></pre>
+
+                <p>The skill file records the same logic in plain steps, so the method survives without the code. A reader follows the three stages by hand and reaches twelve the same way the script does.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 4, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
