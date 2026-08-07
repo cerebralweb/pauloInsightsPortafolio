@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="The largest square that tiles a rectangle with no gaps is the greatest common divisor of its two sides. A worked data center example plus a reusable Python function.">
+    <meta name="keywords" content="greatest common divisor, GCD, Euclidean algorithm, square tiling, floor layout, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-largest-square-that-divides-any-floor-without-waste.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-largest-square-that-divides-any-floor-without-waste.html" />
+
+    <title>The Largest Square That Divides Any Floor Without Waste</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE LARGEST SQUARE THAT DIVIDES ANY FLOOR WITHOUT WASTE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Splitting a physical space into equal units is a quiet constraint behind much of operations work. ≈.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A data center operations lead has a rectangular server floor measuring 30 by 50 meters. She wants to divide it into equal square cooling zones using floor markings, and she wants each zone as large as possible.</p>
+                <p>What is the side length of the largest square zone that fits, and how many zones result? No floor space can be left uncovered, and the zones cannot overlap.</p>
+                <ul>
+                    <li>a) 30 and 50</li>
+                    <li>b) 10 and 150</li>
+                    <li>c) 10 and 15</li>
+                    <li>d) 50 and 50</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 10 and 15 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The largest square side must divide both floor dimensions with nothing left over, so it is the <strong>greatest common divisor</strong> of 30 and 50. Running the <strong>Euclidean algorithm</strong> gives 10. Dividing each side by 10 gives 3 and 5, and <strong>multiplying</strong> those gives 15 zones.</p>
+
+                    <p class="insight"><em>The side of the largest tile is never a guess. It is fixed the moment the two dimensions are known.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Largest square side:</strong> gcd(50, 30) = 10 meters</li>
+                            <li><strong>Squares across:</strong> 50 / 10 = 5</li>
+                            <li><strong>Squares down:</strong> 30 / 10 = 3</li>
+                            <li><strong>Total zones:</strong> 5 × 3 = 15</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <figure>
+                    <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif" role="img" aria-label="A 50 by 30 meter floor divided into fifteen ten meter square zones in a five by three grid">
+                        <rect x="0" y="0" width="720" height="500" fill="#ffffff"/>
+                        <text x="360" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a1a1a">Data center floor divided into square zones</text>
+                        <text x="360" y="66" text-anchor="middle" font-size="14" fill="#5a5a5a">50 by 30 meters, 15 zones of 10 by 10 meters</text>
+                        <rect x="100" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="100" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="100" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <text x="155" y="172" text-anchor="middle" font-size="18" fill="#0f766e">1</text>
+                        <text x="265" y="172" text-anchor="middle" font-size="18" fill="#0f766e">2</text>
+                        <text x="375" y="172" text-anchor="middle" font-size="18" fill="#0f766e">3</text>
+                        <text x="485" y="172" text-anchor="middle" font-size="18" fill="#0f766e">4</text>
+                        <text x="595" y="172" text-anchor="middle" font-size="18" fill="#0f766e">5</text>
+                        <text x="155" y="282" text-anchor="middle" font-size="18" fill="#0f766e">6</text>
+                        <text x="265" y="282" text-anchor="middle" font-size="18" fill="#0f766e">7</text>
+                        <text x="375" y="282" text-anchor="middle" font-size="18" fill="#0f766e">8</text>
+                        <text x="485" y="282" text-anchor="middle" font-size="18" fill="#0f766e">9</text>
+                        <text x="595" y="282" text-anchor="middle" font-size="18" fill="#0f766e">10</text>
+                        <text x="155" y="392" text-anchor="middle" font-size="18" fill="#0f766e">11</text>
+                        <text x="265" y="392" text-anchor="middle" font-size="18" fill="#0f766e">12</text>
+                        <text x="375" y="392" text-anchor="middle" font-size="18" fill="#0f766e">13</text>
+                        <text x="485" y="392" text-anchor="middle" font-size="18" fill="#0f766e">14</text>
+                        <text x="595" y="392" text-anchor="middle" font-size="18" fill="#0f766e">15</text>
+                        <line x1="100" y1="92" x2="650" y2="92" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="100" y1="86" x2="100" y2="98" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="650" y1="86" x2="650" y2="98" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <text x="375" y="84" text-anchor="middle" font-size="13" fill="#5a5a5a">50 m  (5 zones)</text>
+                        <line x1="82" y1="110" x2="82" y2="440" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="76" y1="110" x2="88" y2="110" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="76" y1="440" x2="88" y2="440" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <text x="70" y="279" text-anchor="middle" font-size="13" fill="#5a5a5a" transform="rotate(-90 70 279)">30 m  (3 zones)</text>
+                        <line x1="100" y1="456" x2="210" y2="456" stroke="#0f766e" stroke-width="1.5"/>
+                        <line x1="100" y1="450" x2="100" y2="462" stroke="#0f766e" stroke-width="1.5"/>
+                        <line x1="210" y1="450" x2="210" y2="462" stroke="#0f766e" stroke-width="1.5"/>
+                        <text x="155" y="478" text-anchor="middle" font-size="13" fill="#0f766e">10 m side</text>
+                    </svg>
+                    <figcaption><em>The 50 by 30 floor as a 5 by 3 grid of 10 meter squares. Fifteen zones, no gaps, no overlap.</em></figcaption>
+                </figure>
+
+                <h2 id="proof-version">Formal Derivation</h2>
+
+                <p>The reveal above states the reasoning in brief. The version below names the property behind every step, so each move is licensed by a rule rather than by inspection.</p>
+
+                <details>
+                    <summary><strong>Click to see the named property derivation</strong></summary>
+
+                    <p><strong>Setup.</strong> The floor is 30 by 50 meters. A square tiling with no gaps and no overlap needs a side that divides both 30 and 50. The largest such side is the greatest common divisor of 30 and 50. Let s be that side. The zone count is (30 over s) times (50 over s).</p>
+
+                    <ol>
+                        <li><strong>Division algorithm.</strong> For integers a and b with b positive, there exist unique q and r with a equals b times q plus r and 0 less than or equal to r less than b. So 50 equals 30 times 1 plus 20.</li>
+                        <li><strong>GCD reduction.</strong> If a equals b times q plus r then gcd of a and b equals gcd of b and r. So gcd of 50 and 30 equals gcd of 30 and 20. Builds on step 1.</li>
+                        <li><strong>Division algorithm, again.</strong> 30 equals 20 times 1 plus 10.</li>
+                        <li><strong>GCD reduction, again.</strong> gcd of 30 and 20 equals gcd of 20 and 10. Builds on step 3.</li>
+                        <li><strong>Division algorithm, again.</strong> 20 equals 10 times 2 plus 0.</li>
+                        <li><strong>Terminal GCD.</strong> For b positive, gcd of b and 0 equals b. So gcd of 20 and 10 equals 10. Builds on step 5, where the remainder is 0.</li>
+                        <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. So gcd of 50 and 30 equals 10, which means s equals 10. Builds on steps 2, 4, and 6.</li>
+                        <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. So 30 over 10 equals 3 and 50 over 10 equals 5. Builds on step 7.</li>
+                        <li><strong>Substitution.</strong> Equals may replace equals. The zone count equals 3 times 5, which is 15. Builds on step 8.</li>
+                    </ol>
+
+                    <p><strong>Verification.</strong> 10 divides 30 and 10 divides 50, so no space is left uncovered. Fifteen squares of side 10 have total area 1500, and 30 times 50 equals 1500. The areas match.</p>
+
+                    <p><strong>Answer.</strong> The largest square zone has a side of 10 meters, and 15 zones fill the floor.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The method behind this answer is older than almost any tool in a modern data center. Euclid set it down in his Elements around 300 BC in Alexandria, as a way to find the largest common measure of two lengths. Merchants and surveyors used the same idea to reconcile weights, coins, and land divisions long before it carried a name in algebra, and the routine still runs unchanged inside the software that plans floors and screens today.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script finds the largest square side for any rectangle and counts the zones, so it works for any room, not just this one.</p>
+
+                <pre><code>import math
+
+def biggest_square_side(width, length):
+    return math.gcd(width, length)
+
+print("Let's split a floor into the largest equal square zones.")
+
+width = int(input("Floor width in meters: "))
+length = int(input("Floor length in meters: "))
+
+side = biggest_square_side(width, length)
+zones = (width // side) * (length // side)
+
+print("Largest square zone side in meters:", side)
+print("Number of square zones that fit:", zones)</code></pre>
+
+                <p>Run it in a terminal, type the two floor dimensions, and it returns the square side and the total zone count.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a reusable skill, so it can run from a plain request instead of a script.</p>
+
+                <pre class="md-code"><code>---
+name: floor-square-zone-splitter
+description: Finds the largest equal square that fills a rectangle with no gaps and counts how many fit. Trigger whenever the user gives two rectangle side lengths and wants the biggest square tile and the tile count, even if they do not use technical language.
+---
+
+<span class="md-heading"># Floor Square Zone Splitter</span>
+
+Takes the two side lengths of a rectangle and returns the largest square that tiles it with no gaps and no overlap, plus the number of squares needed. The largest square side is the greatest common divisor of the two sides. Works for any two whole numbers.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- Greatest common divisor. Any standard method works. No third party tools.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Width**</span>: the rectangle width, a whole number.
+- <span class="md-bold">**Length**</span>: the rectangle length, a whole number.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the two sides</span>
+
+Ask for the width and the length. Both must be whole numbers greater than zero.
+
+<span class="md-heading">### Step 2 — Find the largest square side</span>
+
+Compute the greatest common divisor of the width and the length. That value is the side of the largest square that divides both sides evenly.
+
+<span class="md-heading">### Step 3 — Count the squares</span>
+
+Divide the width by the square side to get the squares across. Divide the length by the square side to get the squares down. Multiply the two to get the total count.
+
+<span class="md-heading">### Step 4 — Report</span>
+
+State the largest square side and the total square count in plain words tied to the scenario.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Split a 30 by 50 floor into the largest equal square zones."
+- "What is the biggest square tile that fills a 24 by 36 wall with no gaps?"
+- "How many equal squares fit a rectangle 45 by 75?"</code></pre>
+
+                <p>The Python file and the skill file do the same arithmetic. One runs in a terminal, the other runs from a sentence.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-factors-and-multiples/cc-6th-gcf/v/greatest-common-divisor" target="_blank" rel="noopener">Khan Academy — Greatest Common Divisor</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/GreatestCommonDivisor.html" target="_blank" rel="noopener">Wolfram MathWorld — Greatest Common Divisor</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/greatest-common-divisor" target="_blank" rel="noopener">Mathematics Stack Exchange — Greatest Common Divisor</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

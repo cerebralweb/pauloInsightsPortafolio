@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Three clerks enter invoice records at different speeds. Add the rates, remove one break, and Python turns the logic into a reusable throughput tool.">
+    <meta name="keywords" content="combined work rate, throughput, distributive law, rates, business math, Python, capacity planning">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/why-one-five-minute-break-reshapes-the-hours-output.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/why-one-five-minute-break-reshapes-the-hours-output.html" />
+
+    <title>Why One Five Minute Break Reshapes the Hour's Output</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHY ONE FIVE MINUTE BREAK RESHAPES THE HOUR'S OUTPUT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Capacity planning starts with a simple question. How much can a team produce in a fixed window? When several people work at once, their output stacks, but paid time and productive time are not the same thing. <dfn>This problem shows how combined work rates and one removed break decide the true output of an hour, and how Python turns that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>At a shared services center, three clerks enter invoice records into the system. Julia enters 9 records per minute. Manuel works 4 times faster than Julia. Carlos enters half as many records per minute as Manuel. At the end of every hour, all three stop for a 5 minute break.</p>
+                <p>How many records do the three clerks enter in total between 10:00 a.m. and 11:30 a.m.?</p>
+                <ul>
+                    <li>a) 3765</li>
+                    <li>b) 3,680</li>
+                    <li>c) 5,355</li>
+                    <li>d) 7,560</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 5,355 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Find each rate, then <strong>add</strong> the three into one team rate. Count the window as 90 minutes, <strong>subtract</strong> the single break, and <strong>multiply</strong> the team rate by the working minutes.</p>
+
+                    <p class="insight"><em>The three clerks enter 63 records per minute together, so every removed minute costs 63 records.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Manuel's rate:</strong> 4 &times; 9 = 36 records per minute</li>
+                            <li><strong>Carlos's rate:</strong> 36 &divide; 2 = 18 records per minute</li>
+                            <li><strong>Team rate:</strong> 9 + 36 + 18 = 63 records per minute</li>
+                            <li><strong>Elapsed time:</strong> 10:00 to 11:30 = 90 minutes</li>
+                            <li><strong>Break removed:</strong> one break of 5 minutes at the 11:00 boundary</li>
+                            <li><strong>Working minutes:</strong> 90 &minus; 5 = 85 minutes</li>
+                            <li><strong>Total records:</strong> 63 &times; 85 = 5,355</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Formal Proof</h2>
+
+                <p>The same result, built as a chain where each step names the property that licenses it.</p>
+
+                <p><strong>Setup.</strong> Let J be Julia's rate, 9 records per minute. Let M be Manuel's rate, defined as 4 times J. Let C be Carlos's rate, defined as half of M. Let T be the team rate, T = J + M + C. The window runs 90 minutes. Each break costs 5 minutes. Let W be the working minutes and N the total records, N = T &times; W.</p>
+
+                <h3>Step 1 &mdash; FLAG, inspection</h3>
+                <p><strong>Property.</strong> None standard. This move rests on inspection of the clock window.</p>
+                <p><strong>Inference.</strong> One break falls inside the window. The only hour boundary strictly inside 10:00 to 11:30 is 11:00, so exactly one 5 minute break occurs.</p>
+
+                <h3>Step 2 &mdash; Substitution</h3>
+                <p><strong>Property.</strong> Substitution. Equals may replace equals.</p>
+                <p><strong>Inference.</strong> M = 36. In M = 4 &times; J, replace J with 9, so M = 4 &times; 9 = 36.</p>
+
+                <h3>Step 3 &mdash; Substitution</h3>
+                <p><strong>Property.</strong> Substitution, as in Step 2.</p>
+                <p><strong>Inference.</strong> C = 18. In C = M &divide; 2, replace M with 36, so C = 36 &divide; 2 = 18. Builds on Step 2.</p>
+
+                <h3>Step 4 &mdash; Associativity of addition, with substitution</h3>
+                <p><strong>Property.</strong> Associativity of addition. The grouping of a sum does not change its value.</p>
+                <p><strong>Inference.</strong> T = 63. Replace the rates in J + M + C with 9, 36, 18, then group 9 + 36 first, giving 45, then 45 + 18 = 63. Builds on Steps 2 and 3.</p>
+
+                <h3>Step 5 &mdash; Substitution</h3>
+                <p><strong>Property.</strong> Substitution, as in Step 2.</p>
+                <p><strong>Inference.</strong> W = 85. Working minutes equal 90 minus the one break of 5 minutes, so 90 &minus; 5 = 85. Builds on Step 1.</p>
+
+                <h3>Step 6 &mdash; Distributive law, with substitution</h3>
+                <p><strong>Property.</strong> Distributive law. a &times; (b + c) = a &times; b + a &times; c.</p>
+                <p><strong>Inference.</strong> N = 5355. Replace T and W with 63 and 85, then split 85 as 80 + 5. So 63 &times; 85 = 63 &times; 80 + 63 &times; 5 = 5040 + 315 = 5355. Builds on Steps 4 and 5.</p>
+
+                <p><strong>Verification.</strong> 63 &times; 85 = 5355. Splitting the check, 63 &times; 80 = 5040 and 63 &times; 5 = 315, and 5040 + 315 = 5355. The value matches option c.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Adding the output of many workers to plan a fixed span is old work. State granaries and building sites in the ancient world paid scribes to record how many laborers worked and for how long, so overseers could forecast a day's total before the day ended.</p>
+                <p>The idea grew sharper in the early 20th century, when factory time studies measured output per worker per minute and summed it across a line. Managers learned the same lesson this problem teaches. Idle minutes, including scheduled rest, must come out of the count before any forecast holds.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script solves the same type of problem for any rates, any window, and any break pattern, so it works as a small throughput calculator.</p>
+
+                <pre><code># What this does: works out how many records three clerks enter in a time window.
+# Where it came from: three clerks enter invoices at different speeds and take breaks.
+# The math idea: add their rates, multiply by working minutes, ignore break time.
+# You type in: Julia's rate, Manuel's speed factor, Carlos's fraction, total minutes, break minutes, and how many breaks.
+# It prints: the total number of records the three clerks enter.
+
+# This function does the math.
+def total_records(julia_rate, manuel_factor, carlos_fraction, total_minutes, break_minutes, breaks):
+    # Manuel works a set number of times faster than Julia.
+    manuel_rate = julia_rate * manuel_factor
+    # Carlos works a fraction of Manuel's rate.
+    carlos_rate = manuel_rate * carlos_fraction
+    # Add the three rates to get one team rate per minute.
+    team_rate = julia_rate + manuel_rate + carlos_rate
+    # Take out the minutes lost to breaks.
+    working_minutes = total_minutes - (break_minutes * breaks)
+    # Records equal team rate times the minutes actually worked.
+    return team_rate * working_minutes
+
+# Tell the reader what we will figure out.
+print("Let's find how many records the three clerks enter.")
+
+# Ask for Julia's records per minute.
+julia_rate = float(input("Julia's records per minute: "))
+
+# Ask how many times faster Manuel is than Julia.
+manuel_factor = float(input("Manuel's speed factor versus Julia: "))
+
+# Ask what fraction of Manuel's rate Carlos works at.
+carlos_fraction = float(input("Carlos's fraction of Manuel's rate: "))
+
+# Ask for the total minutes in the window.
+total_minutes = float(input("Total minutes in the window: "))
+
+# Ask how many minutes each break lasts.
+break_minutes = float(input("Minutes per break: "))
+
+# Ask how many breaks fall inside the window.
+breaks = float(input("Number of breaks: "))
+
+# Do the math.
+result = total_records(julia_rate, manuel_factor, carlos_fraction, total_minutes, break_minutes, breaks)
+
+# Show as a whole number when it has no leftover.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Total records entered by the three clerks:", result)</code></pre>
+
+                <p>Run it in a terminal, type 9, 4, 0.5, 90, 5, and 1 at the prompts, and it returns 5355.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-rates/v/finding-unit-rates" target="_blank" rel="noopener">Khan Academy &mdash; Rates and Unit Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/DistributiveProperty.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Distributive Property</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/rate" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Rate Problems</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

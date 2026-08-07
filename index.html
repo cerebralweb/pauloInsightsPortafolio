@@ -62,6 +62,7 @@
 
   <link rel="stylesheet" href="css/toc.css">
   
+  
 
   <link
     href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
@@ -362,64 +363,91 @@
 
         <div id="free" class="article_bigExtent">
 
-          <h1 class="base_unit_for_flex featureShortStory"> FROM FRACTIONS TO UNITS: THE INVENTORY MATH THAT PROCUREMENT TEAMS SKIP</h1>
+          <h2 id="math-answer">The Problem</h2>
 
-          
-
-
-          <h2 id="business-problem-section">The Business Problem</h2>
-
-                <p>Two purchasing managers are restocking inventory for an upcoming product launch.
-                The <strong>operations manager</strong> placed orders for <strong>7/8 of a case</strong>
-                of wireless earbuds and <strong>3/4 of a case</strong> of phone chargers.
-                The <strong>marketing manager</strong> placed a single order for
-                <strong>1½ cases</strong> of branded accessories. Each case holds
-                <strong>16 units</strong>. Which manager ordered more inventory in total,
-                and by how many units?</p>
-
+                <p>A data center operations lead has a rectangular server floor measuring 30 by 50 meters. She wants to divide it into equal square cooling zones using floor markings, and she wants each zone as large as possible.</p>
+                <p>What is the side length of the largest square zone that fits, and how many zones result? No floor space can be left uncovered, and the zones cannot overlap.</p>
                 <ul>
-                    <li>a) The marketing manager, 10 units</li>
-                    <li>b) The operations manager, 2 units</li>
-                    <li>c) The operations manager, 10 units</li>
+                    <li>a) 30 and 50</li>
+                    <li>b) 10 and 150</li>
+                    <li>c) 10 and 15</li>
+                    <li>d) 50 and 50</li>
                 </ul>
 
-                 <h2 id="python-option-2">Can you figure it out by reading the following program? </h2>
+                <figure>
+                    <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif" role="img" aria-label="A 50 by 30 meter floor divided into fifteen ten meter square zones in a five by three grid">
+                        <rect x="0" y="0" width="720" height="500" fill="#ffffff"/>
+                        <text x="360" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a1a1a">Data center floor divided into square zones</text>
+                        <text x="360" y="66" text-anchor="middle" font-size="14" fill="#5a5a5a">50 by 30 meters, 15 zones of 10 by 10 meters</text>
+                        <rect x="100" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="110" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="100" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="220" width="110" height="110" fill="#eef6f4" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="100" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="210" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="320" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="430" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <rect x="540" y="330" width="110" height="110" fill="#d8ede9" stroke="#0f766e" stroke-width="2"/>
+                        <text x="155" y="172" text-anchor="middle" font-size="18" fill="#0f766e">1</text>
+                        <text x="265" y="172" text-anchor="middle" font-size="18" fill="#0f766e">2</text>
+                        <text x="375" y="172" text-anchor="middle" font-size="18" fill="#0f766e">3</text>
+                        <text x="485" y="172" text-anchor="middle" font-size="18" fill="#0f766e">4</text>
+                        <text x="595" y="172" text-anchor="middle" font-size="18" fill="#0f766e">5</text>
+                        <text x="155" y="282" text-anchor="middle" font-size="18" fill="#0f766e">6</text>
+                        <text x="265" y="282" text-anchor="middle" font-size="18" fill="#0f766e">7</text>
+                        <text x="375" y="282" text-anchor="middle" font-size="18" fill="#0f766e">8</text>
+                        <text x="485" y="282" text-anchor="middle" font-size="18" fill="#0f766e">9</text>
+                        <text x="595" y="282" text-anchor="middle" font-size="18" fill="#0f766e">10</text>
+                        <text x="155" y="392" text-anchor="middle" font-size="18" fill="#0f766e">11</text>
+                        <text x="265" y="392" text-anchor="middle" font-size="18" fill="#0f766e">12</text>
+                        <text x="375" y="392" text-anchor="middle" font-size="18" fill="#0f766e">13</text>
+                        <text x="485" y="392" text-anchor="middle" font-size="18" fill="#0f766e">14</text>
+                        <text x="595" y="392" text-anchor="middle" font-size="18" fill="#0f766e">15</text>
+                        <line x1="100" y1="92" x2="650" y2="92" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="100" y1="86" x2="100" y2="98" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="650" y1="86" x2="650" y2="98" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <text x="375" y="84" text-anchor="middle" font-size="13" fill="#5a5a5a">50 m  (5 zones)</text>
+                        <line x1="82" y1="110" x2="82" y2="440" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="76" y1="110" x2="88" y2="110" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <line x1="76" y1="440" x2="88" y2="440" stroke="#5a5a5a" stroke-width="1.5"/>
+                        <text x="70" y="279" text-anchor="middle" font-size="13" fill="#5a5a5a" transform="rotate(-90 70 279)">30 m  (3 zones)</text>
+                        <line x1="100" y1="456" x2="210" y2="456" stroke="#0f766e" stroke-width="1.5"/>
+                        <line x1="100" y1="450" x2="100" y2="462" stroke="#0f766e" stroke-width="1.5"/>
+                        <line x1="210" y1="450" x2="210" y2="462" stroke="#0f766e" stroke-width="1.5"/>
+                        <text x="155" y="478" text-anchor="middle" font-size="13" fill="#0f766e">10 m side</text>
+                    </svg>
+                    
+                </figure>
 
-       
+<pre><code>import math
 
-        <pre><code>from fractions import Fraction
+def biggest_square_side(width, length):
+    return math.gcd(width, length)
 
-def compare_inventory_orders(order1, order2, mixed_order, units_per_case):
-    ops_total = order1 + order2
-    ops_units = ops_total * units_per_case
-    mkt_units = mixed_order * units_per_case
-    return int(ops_units), int(mkt_units)
+print("Let's split a floor into the largest equal square zones.")
 
-print("=== Inventory Order Comparison ===")
-print("Enter the operations manager's two fractional case orders.")
-num1 = int(input("  Order 1 — numerator: "))
-den1 = int(input("  Order 1 — denominator: "))
-num2 = int(input("  Order 2 — numerator: "))
-den2 = int(input("  Order 2 — denominator: "))
-print("Enter the marketing manager's order as a mixed number.")
-whole = int(input("  Whole part: "))
-num3 = int(input("  Fraction — numerator: "))
-den3 = int(input("  Fraction — denominator: "))
-units_per_case = int(input("Units per case: "))
+width = int(input("Floor width in meters: "))
+length = int(input("Floor length in meters: "))
 
-order1 = Fraction(num1, den1)
-order2 = Fraction(num2, den2)
-mixed_order = whole + Fraction(num3, den3)
+side = biggest_square_side(width, length)
+zones = (width // side) * (length // side)
 
-ops, mkt = compare_inventory_orders(order1, order2, mixed_order, units_per_case)
-diff = abs(ops - mkt)
-winner = "Operations manager" if ops > mkt else "Marketing manager"
-print(f"\nOperations manager total: {ops} units")
-print(f"Marketing manager total:  {mkt} units")
-print(f"Winner: {winner} ordered more — difference: {diff} units")</code></pre>
+print("Largest square zone side in meters:", side)
+print("Number of square zones that fit:", zones)</code></pre>
+
+<!---------------------------------------------------------------------------------------------
+                                                FLASH STORIES END!!
+  ------------------------------------------------------------------------------------------------>
 
 
-          <a href="a/the-inventory-math-procurement-teams-skip.html" class="shadowButton">Solve it!</a>
+
+          <a href="a/the-largest-square-that-divides-any-floor-without-waste.html" class="shadowButton">Solve it!</a>
 
         </div>
 
@@ -461,7 +489,8 @@ print(f"Winner: {winner} ordered more — difference: {diff} units")</code></pre
                                         Assigns titles, descriptions 
                                         and URLs to the list of artucles                                        
 ------------------------------------------------------------------------------------------------>
-  <script src="./js/pagination.js"></script>
+<script src="/js/before_body_scripts.js"></script>  
+<script src="./js/pagination.js"></script>
 </body>
 
 </html>

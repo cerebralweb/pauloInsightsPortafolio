@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A pack of buns holds 10 and a pack of hot dogs holds 8. Find the smallest order that pairs every unit with no leftovers using the least common multiple, with a reusable Python function.">
+    <meta name="keywords" content="least common multiple, LCM, pack sizes, matching quantities, inventory planning, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-smallest-count-where-buns-and-hot-dogs-finally-match.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-smallest-count-where-buns-and-hot-dogs-finally-match.html" />
+
+    <title>The Smallest Count Where Buns And Hot Dogs Finally Match</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 5, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE SMALLEST COUNT WHERE BUNS AND HOT DOGS FINALLY MATCH
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Inventory planning often hinges on making two supply streams line up. When items arrive in fixed pack sizes, a manager who wants a clean pairing with nothing left over must find the point where both counts meet. <dfn>This problem shows how the least common multiple turns two pack sizes into the smallest order that pairs every unit, and how Python can make that logic reusable.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A package of hot dog buns contains 10 buns, and a package of hot dogs contains 8.</p>
+                <p>How many of each should you buy to make hot dogs without any leftovers?</p>
+                <ul>
+                    <li>a) 4 and 5</li>
+                    <li>b) 5 and 4</li>
+                    <li>c) 30 and 32</li>
+                    <li>d) 4 and 4</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 4 and 5 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The two pack sizes must reach a common total, so the smallest shared count is the <strong>least common multiple</strong> of the two sizes. Factor each size into primes, take the highest power of each prime, and <strong>multiply</strong> to get 40. Then <strong>divide</strong> 40 by each pack size to find the number of packs.</p>
+
+                    <p class="insight"><em>The number 40 is the first total that both pack sizes divide evenly, which is exactly what the least common multiple gives.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Factor the sizes:</strong> 10 is 2 times 5, and 8 is 2 cubed.</li>
+                            <li><strong>Least common multiple:</strong> 2 cubed times 5 equals 40.</li>
+                            <li><strong>Bun packs:</strong> 40 divided by 10 equals 4.</li>
+                            <li><strong>Hot dog packs:</strong> 40 divided by 8 equals 5.</li>
+                            <li><strong>Result:</strong> 4 bun packs and 5 hot dog packs, giving 40 of each with no leftovers.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof With Named Properties</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let m be the number of bun packages and n the number of hot dog packages, both positive integers. Each bun package holds 10 and each hot dog package holds 8. No leftovers means buns equal hot dogs, so 10m equals 8n. We want the smallest positive integer solution.</p>
+
+                <h3>Step 1 — Fundamental theorem of arithmetic</h3>
+                <p><em>Property.</em> Every integer greater than one factors uniquely into primes.</p>
+                <p><em>Inference.</em> 10 equals 2 times 5, and 8 equals 2 cubed.</p>
+
+                <h3>Step 2 — Definition of least common multiple</h3>
+                <p><em>Property.</em> The least common multiple of two integers is the product of each prime raised to the highest power appearing in either factorization.</p>
+                <p><em>Inference.</em> The least common multiple of 10 and 8 is 2 cubed times 5, which is 40. Builds on Step 1. So 40 is the smallest count that both 10 and 8 divide, fixing 10m equals 8n equals 40.</p>
+
+                <h3>Step 3 — Cancellation law</h3>
+                <p><em>Property.</em> For nonzero b, b times a over b equals a.</p>
+                <p><em>Inference.</em> Bun packages m equals 40 over 10 equals 4. 40 over 10 is 10 times 4 over 10, and the 10 cancels, leaving 4. Builds on Step 2.</p>
+
+                <h3>Step 4 — Cancellation law</h3>
+                <p><em>Property.</em> As in Step 3.</p>
+                <p><em>Inference.</em> Hot dog packages n equals 40 over 8 equals 5. 40 over 8 is 8 times 5 over 8, and the 8 cancels, leaving 5. Builds on Step 2.</p>
+
+                <p><strong>Verification.</strong> 10 times 4 equals 40, and 8 times 5 equals 40. Buns equal hot dogs, so no leftovers.</p>
+
+                <p><strong>Answer.</strong> Buy 4 packages of buns and 5 packages of hot dogs, giving 40 of each. Option a.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The search for a shared multiple is one of the oldest questions in arithmetic. Greek mathematicians in Euclid's Elements studied how two quantities relate through their common measures and multiples, work that later fed into calendar design and the meshing of gear teeth. Traders and planners have long used the same idea to align batches of goods that arrive in different lot sizes, so that stock pairs cleanly with no surplus.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below computes the smallest matched order for any two pack sizes, so it works far beyond buns and hot dogs.</p>
+
+                <pre><code>from math import gcd
+
+def packages_without_leftovers(buns_per_pack, dogs_per_pack):
+    total = buns_per_pack * dogs_per_pack // gcd(buns_per_pack, dogs_per_pack)
+    bun_packs = total // buns_per_pack
+    dog_packs = total // dogs_per_pack
+    return bun_packs, dog_packs
+
+print(packages_without_leftovers(10, 8))</code></pre>
+
+                <p>Run it with the two pack sizes and it returns the number of packs for each, here four and five.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-factors-multiples" target="_blank" rel="noopener">Khan Academy — Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LeastCommonMultiple.html" target="_blank" rel="noopener">Wolfram MathWorld — Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/least-common-multiple" target="_blank" rel="noopener">Mathematics Stack Exchange — Least Common Multiple</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 5, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

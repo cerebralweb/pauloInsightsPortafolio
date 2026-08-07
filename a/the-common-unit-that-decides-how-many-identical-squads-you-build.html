@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How the greatest common divisor sets the largest number of identical teams two staff pools can form, with a reusable Python script.">
+    <meta name="keywords" content="greatest common divisor, gcd, ratio, team formation, Euclidean algorithm, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-common-unit-that-decides-how-many-identical-squads-you-build.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-common-unit-that-decides-how-many-identical-squads-you-build.html" />
+
+    <title>The Common Unit That Decides How Many Identical Squads You Build</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 5, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE COMMON UNIT THAT DECIDES HOW MANY IDENTICAL SQUADS YOU BUILD
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Staffing choices often hinge on keeping every group balanced, so no team carries a different mix of skills than the rest. That constraint quietly fixes how many equal groups a manager can form before one skill pool runs short. <dfn>This problem shows how the greatest common divisor turns a balance rule into an exact group count, and how Python can make that count reusable for any two pools.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A software firm has 18 backend engineers and 24 frontend engineers. It wants to split them into project squads for a client rollout. Every squad must keep the same ratio of backend to frontend engineers.</p>
+                <p>What is the maximum number of squads the firm can form?</p>
+                <ul>
+                    <li>a) 27</li>
+                    <li>b) 6</li>
+                    <li>c) 18, with 6 frontend engineers left over</li>
+                    <li>d) 9, plus one all frontend squad</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 6 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Identical squads force the squad count to <strong>divide</strong> both 18 and 24 with no remainder, so the answer is the <strong>greatest common divisor</strong> of the two pools. That value is 6, and each squad then holds 3 backend and 4 frontend engineers.</p>
+
+                    <p class="insight"><em>Same proportion does not mean equal headcount or a 1 to 1 mix. It means every squad shares one fixed ratio, here 3 to 4.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Backend pool:</strong> 18 engineers to split</li>
+                            <li><strong>Frontend pool:</strong> 24 engineers to split</li>
+                            <li><strong>First division:</strong> 24 = 1 &times; 18 + 6, remainder 6</li>
+                            <li><strong>Second division:</strong> 18 = 3 &times; 6 + 0, remainder 0</li>
+                            <li><strong>Greatest common divisor:</strong> last nonzero remainder, 6</li>
+                            <li><strong>Squad makeup:</strong> 18 &divide; 6 = 3 backend, 24 &divide; 6 = 4 frontend</li>
+                            <li><strong>Result:</strong> 6 squads, each 3 backend and 4 frontend</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="formal-proof">Formal Proof</h2>
+
+                <p>Compute mode. Each step names the property that licenses it, then shows that property acting on the numbers.</p>
+
+                <p><strong>Setup.</strong> Let n be the number of squads, a positive integer. The backend pool holds 18 engineers. The frontend pool holds 24 engineers. Every squad must be identical in makeup, so n must divide 18 and must divide 24. The maximum such n is the governing quantity.</p>
+
+                <ol>
+                    <li><strong>Definition of divisibility.</strong> An integer n divides m when m equals n times an integer. So n divides 18 and n divides 24, since identical squads split each pool into n whole shares with no remainder.</li>
+                    <li><strong>Definition of greatest common divisor.</strong> The largest integer that divides two integers. So the maximum squad count is gcd(18, 24). Builds on step 1, which fixes n as a common divisor.</li>
+                    <li><strong>Division algorithm.</strong> For integers a and b with b positive, a equals q times b plus r with 0 &le; r &lt; b. Here 24 = 1 &times; 18 + 6, so the remainder is 6.</li>
+                    <li><strong>Euclidean algorithm invariant.</strong> If a equals q times b plus r then gcd(a, b) equals gcd(b, r). So gcd(24, 18) = gcd(18, 6). Builds on step 3.</li>
+                    <li><strong>Division algorithm, again.</strong> 18 = 3 &times; 6 + 0, so the remainder is 0.</li>
+                    <li><strong>Euclidean algorithm invariant, again.</strong> gcd(18, 6) = gcd(6, 0). Builds on step 5.</li>
+                    <li><strong>Greatest common divisor with zero.</strong> For nonzero d, gcd(d, 0) equals d, since every integer divides 0 and the largest divisor of d is d. So gcd(6, 0) = 6.</li>
+                    <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. So gcd(24, 18) = 6, which gives n = 6. Builds on steps 4, 6, and 7.</li>
+                    <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. So each squad holds 3 backend and 4 frontend, since 18 &divide; 6 = 3 and 24 &divide; 6 = 4. Builds on step 8.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> 6 divides 18 since 18 = 6 &times; 3. 6 divides 24 since 24 = 6 &times; 4. No integer above 6 divides both, since 9 fails on 24 and 8 fails on 18. So 6 is the greatest common divisor and the maximum squad count.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The method that finds this shared unit is one of the oldest recorded procedures in mathematics. It appears in Euclid's Elements around 300 BCE, where it was used to reduce ratios of lengths to their simplest form. The same logic still governs practical splitting problems today, from packing goods into equal crates to dividing staff into balanced teams, wherever two counts must break into groups of the same shape.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script finds the most identical squads from any two staff pools, so it works far beyond the 18 and 24 in this problem.</p>
+
+                <pre><code># What this does: finds the most identical squads you can build from two staff pools.
+# Where it came from: a firm splits backend and frontend engineers into squads that all share the same mix.
+# The math idea: the greatest common divisor, found by repeated division.
+# You type in: how many backend engineers and how many frontend engineers you have.
+# It prints: the most squads you can form and how many of each role sit in one squad.
+
+# This function finds the biggest number that divides both pools evenly.
+def max_squads(backend, frontend):
+    # Keep swapping until nothing is left over.
+    while frontend != 0:
+        # Remember the smaller number.
+        old_frontend = frontend
+        # New leftover is what backend leaves after dividing by frontend.
+        frontend = backend % frontend
+        # The old smaller number becomes the new bigger number.
+        backend = old_frontend
+    # When the leftover hits zero, the last number is the answer.
+    return backend
+
+# Tell the reader what we will figure out.
+print("Let's find the most identical squads from your two staff pools.")
+
+# Ask for the backend headcount.
+backend = int(input("Backend engineers: "))
+
+# Ask for the frontend headcount.
+frontend = int(input("Frontend engineers: "))
+
+# Find the squad count.
+squads = max_squads(backend, frontend)
+
+# Work out how many of each role sit in one squad.
+backend_per_squad = backend // squads
+frontend_per_squad = frontend // squads
+
+# Print the answer with words that fit the scenario.
+print("Squads you can form:", squads)
+print("Each squad holds", backend_per_squad, "backend and", frontend_per_squad, "frontend engineers.")
+</code></pre>
+
+                <p>Run it in a terminal, type the two headcounts, and it returns the squad count along with the fixed role mix inside each squad.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-factors-and-multiples/cc-6th-gcf/v/greatest-common-divisor" target="_blank" rel="noopener">Khan Academy &mdash; Greatest Common Divisor</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/GreatestCommonDivisor.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Greatest Common Divisor</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/greatest-common-divisor" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Greatest Common Divisor</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 5, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

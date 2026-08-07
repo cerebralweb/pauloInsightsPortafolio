@@ -7,6 +7,36 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Why One Five Minute Break Reshapes The Hour's Output",
+            articleDescription: "Capacity planning starts with a simple question. How much can a team produce in a fixed window?",
+            articleHref: "/a/why-one-five-minute-break-reshapes-the-hour-output.html"
+        },
+        {
+            articleTitle: "Distance On A Line Where Opposite Signs Add And Matching Signs Subtract",
+            articleDescription: "This piece shows how signed positions on a line reduce distance to one operation, and how a short Python function makes that rule reusable",
+            articleHref: "/a/distance-on-a-line-where-opposite-signs-add-and-matching-signs-subtract.html"
+        },
+        {
+            articleTitle: "The Largest Square That Divides Any Floor Without Waste",
+            articleDescription: "A facilities team cannot place a partial cooling zone or leave a strip of floor uncovered, so the size of each unit has to divide the space cleanly on both sides at once. This problem shows how the greatest common divisor turns a layout decision into one arithmetic rule, and how a short Python function makes that rule reusable for any room",
+            articleHref: "/a/the-largest-square-that-divides-any-floor-without-waste.html"
+        },
+        {
+            articleTitle: "The Smallest Count Where Buns And Hot Dogs Finally Match",
+            articleDescription: "Inventory planning often hinges on making two supply streams line up. When items arrive in fixed pack sizes, a manager who wants a clean pairing with nothing left over must find the point where both counts meet",
+            articleHref: "/a/the-smallest-count-where-buns-and-hot-dogs-finally-match.html"
+        },
+        {
+            articleTitle: "80 Bundles From Two Pack Sizes With Zero Leftover Items",
+            articleDescription: "When two supplies arrive in fixed pack sizes and neither can be split",
+            articleHref: "/a/80-bundles-from-two-pack-sizes-with-zero-leftover-items.html"
+        },
+        {
+            articleTitle: "The Common Unit That Decides How Many Identical Squads You Build",
+            articleDescription: "How many equal groups a manager can form before one skill pool runs short?",
+            articleHref: "/a/the-common-unit-that-decides-how-many-identical-squads-you-build.html"
+        },
+        {
             articleTitle: "The Cascading Arithmetic Of Vouchers Turned Into Client Projects",
             articleDescription: "This problem shows how a short chain of arithmetic turns a lump total into a per unit rate, and how Python preserves that step as a reusable tool",
             articleHref: "/a/the-cascading-arithmetic-of-vouchers-turned-into-client-projects.html"

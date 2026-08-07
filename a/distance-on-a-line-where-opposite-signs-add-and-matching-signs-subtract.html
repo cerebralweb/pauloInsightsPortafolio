@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How signed positions on a line reduce distance to one operation, with a short Python function and a reusable Claude skill.">
+    <meta name="keywords" content="absolute value, distance on a number line, signed numbers, opposite signs, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/distance-on-a-line-where-opposite-signs-add-and-matching-signs-subtract.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/distance-on-a-line-where-opposite-signs-add-and-matching-signs-subtract.html" />
+
+    <title>Distance on a Line Where Opposite Signs Add and Matching Signs Subtract</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    DISTANCE ON A LINE WHERE OPPOSITE SIGNS ADD AND MATCHING SIGNS SUBTRACT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Routing and layout decisions turn on one quiet question, how far apart two points sit once you fix a center and let direction carry a sign. Treating one way as negative and the other as positive collapses the whole measurement into a single subtraction, whichever side of the center each point falls on. <dfn>This piece shows how signed positions on a line reduce distance to one operation, and how a short Python function makes that rule reusable.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <p>Picture a hub where two roads cross at a right angle. West and south count as negative, east and north as positive. Four depots sit along the roads. Zipa lies 8 km west, Mosquera 6 km east, Chía 3 km north, Tabio 12 km north. The task is the distance between Zipa and Mosquera, and between Chía and Tabio.</p>
+
+                <ul>
+                    <li>a) 14 and 9</li>
+                    <li>b) 2 and 9</li>
+                    <li>c) 2 and 15</li>
+                    <li>d) 14 and 15</li>
+                </ul>
+
+                <p>Zipa and Mosquera sit on opposite sides of the hub, so their distances <strong>add</strong>, 8 plus 6 is 14. Chía and Tabio sit on the same side, so their distances <strong>subtract</strong>, 12 minus 3 is 9. The answer is a, 14 and 9. Both cases are one rule, the absolute value of the difference of the two signed positions.</p>
+
+                <p>The function below spells out that rule. It checks the signs first, then adds or subtracts.</p>
+
+<pre><code># This function finds how far apart two positions are on one road.
+# The hub is zero. West and south are negative, east and north are positive.
+def gap(first, second):
+    # Opposite sides of the hub: the signs differ. Add the two distances.
+    if first * second &lt; 0:
+        return abs(first) + abs(second)
+    # Same side of the hub: subtract the nearer distance from the farther one.
+    return abs(abs(first) - abs(second))
+</code></pre>
+
+                <p>The two forms of the reasoning, the case split in code and the proof, return the same number for every input. The proof below shows why the case split equals the plain <code>abs(first - second)</code>.</p>
+
+                <h2 id="proof-version">Plain English Proof</h2>
+
+                <p><strong>Claim.</strong> Take real numbers a and b, with gap defined by the two branches, return the size of a plus the size of b when a times b is less than 0, else return the size of the difference between the two sizes. Then gap of a and b equals the ordinary distance, the absolute value of a minus b, for every a and b.</p>
+
+                <p><strong>Method.</strong> Proof by cases. Split the pairs by the sign of the product a times b, matching the two branches, and show each branch equals the absolute value of a minus b.</p>
+
+                <div class="bannerTwitero">
+                    <h2>Step-by-Step Breakdown</h2>
+                    <p>The following sequence establishes the claim:</p>
+                    <ol>
+                        <li><strong>Trichotomy:</strong> a law that every real number is either positive, negative, or zero. Applied to a times b, either it is less than 0 or it is 0 or greater. The two cases are exhaustive and match the two branches.</li>
+                        <li><strong>Sign rule, negative case:</strong> a product is negative only when the two numbers have opposite signs. So in the first branch one of a, b is positive and the other negative.</li>
+                        <li><strong>Absolute value, negative argument:</strong> the size of a number drops its sign. With one negative and one positive, the difference a minus b is negative, so its absolute value is the larger minus the smaller.</li>
+                        <li><strong>Split by sign:</strong> the positive number equals its own size, the negative number equals the negative of its size. Their gap therefore equals the size of a plus the size of b, which is the first branch.</li>
+                        <li><strong>Sign rule, same side case:</strong> a product is zero or positive only when the two share a sign or one is zero. So in the second branch a and b are both nonnegative, or both nonpositive.</li>
+                        <li><strong>Both nonnegative:</strong> each number equals its own size, so the size of the difference of the sizes equals the absolute value of a minus b, which is the second branch.</li>
+                        <li><strong>Both nonpositive:</strong> a number and its negative share the same size, so the difference of the sizes again equals the absolute value of a minus b, matching the second branch.</li>
+                    </ol>
+                </div>
+
+                <p class="insight"><em>The case split computes the ordinary distance and nothing more, so gap of a and b equals the absolute value of a minus b for all real a and b. QED.</em></p>
+
+                <h2 id="dialogue-version">A Dialogue on Absolute Value</h2>
+
+                <p>The rule looks simple, but a few points trip people up. This exchange works through them on this problem.</p>
+
+                <p><strong>Q.</strong> Is the absolute value of a minus b always the size of a plus the size of b?</p>
+                <p><strong>A.</strong> No. That holds only when a and b have opposite signs, or when one of them is zero. Zipa at −8 and Mosquera at 6 have opposite signs, so there the distance is 8 plus 6, which is 14. Chía at 3 and Tabio at 12 share a sign, so adding them is wrong. There you subtract.</p>
+
+                <p><strong>Q.</strong> Take the same side pair. What is the absolute value of 3 minus 12, step by step?</p>
+                <p><strong>A.</strong> First do the subtraction inside the bars, 3 minus 12 is −9. Then take the size, which drops the sign, so the answer is 9. The bars act like parentheses, so the grouped subtraction comes first, then the size. That is ordinary order of operations.</p>
+
+                <p><strong>Q.</strong> The code tests first times second is less than 0. Is that a test for a negative number?</p>
+                <p><strong>A.</strong> It tests whether the two positions have opposite signs. A product is negative only when one factor is positive and the other negative. Two negatives give a positive product, so both west of the hub would fail this test and route to the subtract branch, which is correct.</p>
+
+                <p><strong>Q.</strong> So which side of the hub decides add or subtract, not which number is larger?</p>
+                <p><strong>A.</strong> The side decides. Opposite sides add, same side subtracts. The larger position only decides the order of the subtraction, so the result stays positive. The size at the end guarantees that.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: hub-distance-finder
+description: Computes the distance between two points on a line measured from a zero hub, adding when they sit on opposite sides and subtracting when they sit on the same side. Trigger whenever the user wants the gap between two positions given as signed offsets from a center point, even if they do not use technical language.
+---
+
+<span class="md-heading"># Hub Distance Finder</span>
+
+Takes two positions measured from a hub set at zero and returns how far apart they are. Signs carry direction. Opposite signs mean the positions straddle the hub, so the distances add. Same signs mean they lie on one side, so the distances subtract.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**First position**</span>: a signed number, distance from the hub, one direction negative and the other positive.
+- <span class="md-bold">**Second position**</span>: a signed number on the same line, same sign convention.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the two positions</span>
+Ask for both positions as signed numbers from the hub. State the sign rule once, for example west and south negative, east and north positive.
+
+<span class="md-heading">### Step 2 — Decide add or subtract</span>
+Check whether the two positions have opposite signs. If the signs differ, the positions sit on opposite sides of the hub. If the signs match, or either is zero, they sit on the same side.
+
+<span class="md-heading">### Step 3 — Compute the gap</span>
+If opposite sides, add the two distances from the hub. If same side, subtract the smaller distance from the larger. The result is never negative.
+
+<span class="md-heading">### Step 4 — Report</span>
+Return the gap with short text naming the two points and the unit.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Two depots sit at −8 and 6 from the hub, how far apart are they"
+- "One store is 3 north of center and another is 12 north, what is the gap"
+- "Find the distance between two points given as offsets from zero"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] Frontmatter once at top
+- [ ] No code in the body
+- [ ] Opposite side adds, same side subtracts, stated plainly
+- [ ] Inputs and output named
+</code></pre>
+
+                <p>Packaged as a skill, the same rule applies to any pair of offsets from a zero center, not only these depots.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -41,7 +41,7 @@
 }
 
   .contenedorEncabezado {
-  animation: titleBlogMotion 3s infinite;
+  animation: headlineMotion 4s infinite;
   animation-iteration-count: infinite;
   width: 100%; 
   height:  18.5rem; 
@@ -64,6 +64,7 @@
     margin: 0em 0em 0em 1em;
   }
 }
+
 @keyframes titleBlogMotion {
   1% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
   2% {background: repeating-linear-gradient(80.1deg, black, rgb(209, 211, 204) 3px);}
@@ -98,11 +99,122 @@
   29% {background: repeating-linear-gradient(82.9deg, black, rgb(209, 211, 204) 3px);}
   30% {background: repeating-linear-gradient(83deg, black, rgb(209, 211, 204) 3px);}
 
-  31% {background: repeating-linear-gradient(83.1deg, black, rgb(209, 211, 204) 3px);}
-  32% {background: repeating-linear-gradient(83.2deg, black, rgb(209, 211, 204) 3px);}
-  33% {background: repeating-linear-gradient(83.3deg, black, rgb(209, 211, 204) 3px);}
-  34% {background: repeating-linear-gradient(83.4deg, black, rgb(209, 211, 204) 3px);}
-  35% {background: repeating-linear-gradient(83.5deg, black, rgb(209, 211, 204) 3px);}
+  31% {background: repeating-linear-gradient(83.1deg, rgb(238, 3, 3), rgb(209, 211, 204) 3px);}
+  32% {background: repeating-linear-gradient(83.2deg, rgb(248, 3, 3), rgb(209, 211, 204) 3px);}
+  33% {background: repeating-linear-gradient(83.3deg, rgb(243, 2, 2), rgb(209, 211, 204) 3px);}
+  34% {background: repeating-linear-gradient(83.4deg, rgb(249, 2, 2), rgb(209, 211, 204) 3px);}
+  35% {background: repeating-linear-gradient(83.5deg, rgb(247, 2, 2), rgb(209, 211, 204) 3px);}
+  36% {background: repeating-linear-gradient(83.6deg, black, rgb(209, 211, 204) 3px);}
+  37% {background: repeating-linear-gradient(83.7deg, black, rgb(209, 211, 204) 3px);}
+  38% {background: repeating-linear-gradient(83.8deg, black, rgb(209, 211, 204) 3px);}
+  39% {background: repeating-linear-gradient(83.9deg, black, rgb(209, 211, 204) 3px);}
+  40% {background: repeating-linear-gradient(84deg, black, rgb(209, 211, 204) 3px);}
+
+  41% {background: repeating-linear-gradient(84.1deg, black, rgb(209, 211, 204) 3px);}
+  42% {background: repeating-linear-gradient(84.2deg, black, rgb(209, 211, 204) 3px);}
+  43% {background: repeating-linear-gradient(130deg, black, rgb(209, 211, 204) 3px);}
+  44% {background: repeating-linear-gradient(130deg, black, rgb(209, 211, 204) 3px);}
+  45% {background: repeating-linear-gradient(84.5deg, black, rgb(209, 211, 204) 3px);}
+  46% {background: repeating-linear-gradient(84.6deg, black, rgb(209, 211, 204) 3px);}
+  47% {background: repeating-linear-gradient(84.7deg, black, rgb(209, 211, 204) 3px);}
+  48% {background: repeating-linear-gradient(84.8deg, black, rgb(209, 211, 204) 3px);}
+  49% {background: repeating-linear-gradient(84.9deg, black, rgb(209, 211, 204) 3px);}
+  50% {background: repeating-linear-gradient(85deg, black, rgb(209, 211, 204) 3px);}
+
+  51% {background: repeating-linear-gradient(85.1deg, black, rgb(209, 211, 204) 3px);}
+  52% {background: repeating-linear-gradient(85.2deg, black, rgb(209, 211, 204) 3px);}
+  53% {background: repeating-linear-gradient(85.3deg, black, rgb(209, 211, 204) 3px);}
+  54% {background: repeating-linear-gradient(85.4deg, black, rgb(209, 211, 204) 3px);}
+  55% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  56% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  57% {background: repeating-linear-gradient(85.7deg, black, rgb(209, 211, 204) 3px);}
+  58% {background: repeating-linear-gradient(85.8deg, black, rgb(209, 211, 204) 3px);}
+  59% {background: repeating-linear-gradient(85.9deg, black, rgb(209, 211, 204) 3px);}
+  60% {background: repeating-linear-gradient(86deg, black, rgb(209, 211, 204) 3px);}
+
+  61% {background: repeating-linear-gradient(86.1deg, black, rgb(209, 211, 204) 3px);}
+  62% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  63% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  64% {background: repeating-linear-gradient(86.4deg, black, rgb(209, 211, 204) 3px);}
+  65% {background: repeating-linear-gradient(86.5deg, black, rgb(209, 211, 204) 3px);}
+  66% {background: repeating-linear-gradient(86.6deg, black, rgb(209, 211, 204) 3px);}
+  67% {background: repeating-linear-gradient(86.7deg, black, rgb(209, 211, 204) 3px);}
+  68% {background: repeating-linear-gradient(86.8deg, black, rgb(209, 211, 204) 3px);}
+  69% {background: repeating-linear-gradient(86.9deg, black, rgb(209, 211, 204) 3px);}
+  70% {background: repeating-linear-gradient(87deg, black, rgb(209, 211, 204) 3px);}
+  
+  71% {background: repeating-linear-gradient(87.1deg, black, rgb(209, 211, 204) 3px);}
+  72% {background: repeating-linear-gradient(87.2deg, black, rgb(209, 211, 204) 3px);}
+  73% {background: repeating-linear-gradient(87.3deg, black, rgb(209, 211, 204) 3px);}
+  74% {background: repeating-linear-gradient(87.4deg, black, rgb(209, 211, 204) 3px);}
+  75% {background: repeating-linear-gradient(87.5deg, black, rgb(209, 211, 204) 3px);}
+  76% {background: repeating-linear-gradient(87.6deg, black, rgb(209, 211, 204) 3px);}
+  77% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  78% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  79% {background: repeating-linear-gradient(87.9deg, black, rgb(209, 211, 204) 3px);}
+  80% {background: repeating-linear-gradient(89deg, black, rgb(209, 211, 204) 3px);}
+
+  81% {background: repeating-linear-gradient(89.1deg, black, rgb(209, 211, 204) 3px);}
+  82% {background: repeating-linear-gradient(89.2deg, black, rgb(209, 211, 204) 3px);}
+  83% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  84% {background: repeating-linear-gradient(89.4deg, black, rgb(209, 211, 204) 3px);}
+  85% {background: repeating-linear-gradient(89.5deg, black, rgb(209, 211, 204) 3px);}
+  86% {background: repeating-linear-gradient(89.6deg, black, rgb(209, 211, 204) 3px);}
+  87% {background: repeating-linear-gradient(89.7deg, black, rgb(209, 211, 204) 3px);}
+  88% {background: repeating-linear-gradient(89.8deg, black, rgb(209, 211, 204) 3px);}
+  89% {background: repeating-linear-gradient(89.9deg, black, rgb(209, 211, 204) 3px);}
+  90% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+
+  91% {background: repeating-linear-gradient(89.1deg, black, rgb(209, 211, 204) 3px);}
+  92% {background: repeating-linear-gradient(89.2deg, black, rgb(209, 211, 204) 3px);}
+  93% {background: repeating-linear-gradient(89.9deg, black, rgb(209, 211, 204) 3px);}
+  94% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+  95% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  96% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+  97% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+  98% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+  99% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+  90% {background: repeating-linear-gradient(90deg, black, rgb(209, 211, 204) 3px);}
+}
+@keyframes headlineMotion {
+  1% {background: repeating-linear-gradient(80deg, black, rgb(209, 211, 204) 3px);}
+  2% {background: repeating-linear-gradient(80.1deg, black, rgb(209, 211, 204) 3px);}
+  3% {background: repeating-linear-gradient(80.2deg, black, rgb(209, 211, 204) 3px);}
+  4% {background: repeating-linear-gradient(80.3deg, black, rgb(209, 211, 204) 3px);}
+  5% {background: repeating-linear-gradient(80.4deg, black, rgb(209, 211, 204) 3px);}
+  6% {background: repeating-linear-gradient(80.5deg, black, rgb(209, 211, 204) 3px);}
+  7% {background: repeating-linear-gradient(80.6deg, black, rgb(209, 211, 204) 3px);}
+  8% {background: repeating-linear-gradient(80.7deg, black, rgb(209, 211, 204) 3px);}
+  9% {background: repeating-linear-gradient(80.8deg, black, rgb(209, 211, 204) 3px);}
+  10% {background: repeating-linear-gradient(80.9deg, black, rgb(209, 211, 204) 3px);}
+
+  11% {background: repeating-linear-gradient(81deg, black, rgb(209, 211, 204) 3px);}
+  12% {background: repeating-linear-gradient(81.1deg, black, rgb(209, 211, 204) 3px);}
+  13% {background: repeating-linear-gradient(81.2deg, black, rgb(209, 211, 204) 3px);}
+  14% {background: repeating-linear-gradient(81.3deg, black, rgb(209, 211, 204) 3px);}
+  15% {background: repeating-linear-gradient(81.4deg, black, rgb(209, 211, 204) 3px);}
+  16% {background: repeating-linear-gradient(81.5deg, black, rgb(209, 211, 204) 3px);}
+  17% {background: repeating-linear-gradient(81.6deg, black, rgb(209, 211, 204) 3px);}
+  18% {background: repeating-linear-gradient(270deg, black, rgb(209, 211, 204) 3px);}
+  19% {background: repeating-linear-gradient(270deg, black, rgb(209, 211, 204) 3px);}
+  20% {background: repeating-linear-gradient(82   deg, black, rgb(209, 211, 204) 3px);}
+
+  21% {background: repeating-linear-gradient(82.1deg, black, rgb(209, 211, 204) 3px);}
+  22% {background: repeating-linear-gradient(82.2deg, black, rgb(209, 211, 204) 3px);}
+  23% {background: repeating-linear-gradient(82.3deg, black, rgb(209, 211, 204) 3px);}
+  24% {background: repeating-linear-gradient(82.4deg, black, rgb(209, 211, 204) 3px);}
+  25% {background: repeating-linear-gradient(82.5deg, black, rgb(209, 211, 204) 3px);}
+  26% {background: repeating-linear-gradient(82.6deg, black, rgb(209, 211, 204) 3px);}
+  27% {background: repeating-linear-gradient(82.7deg, black, rgb(209, 211, 204) 3px);}
+  28% {background: repeating-linear-gradient(82.8deg, black, rgb(209, 211, 204) 3px);}
+  29% {background: repeating-linear-gradient(82.9deg, black, rgb(209, 211, 204) 3px);}
+  30% {background: repeating-linear-gradient(83deg, black, rgb(209, 211, 204) 3px);}
+
+  31% {background: repeating-linear-gradient(83.1deg, rgb(5, 5, 5), rgb(209, 211, 204) 3px);}
+  32% {background: repeating-linear-gradient(83.2deg, rgb(12, 12, 12), rgb(209, 211, 204) 3px);}
+  33% {background: repeating-linear-gradient(83.3deg, rgb(5, 5, 5), rgb(209, 211, 204) 3px);}
+  34% {background: repeating-linear-gradient(83.4deg, rgb(6, 6, 6), rgb(209, 211, 204) 3px);}
+  35% {background: repeating-linear-gradient(83.5deg, rgb(14, 13, 13), rgb(209, 211, 204) 3px);}
   36% {background: repeating-linear-gradient(83.6deg, black, rgb(209, 211, 204) 3px);}
   37% {background: repeating-linear-gradient(83.7deg, black, rgb(209, 211, 204) 3px);}
   38% {background: repeating-linear-gradient(83.8deg, black, rgb(209, 211, 204) 3px);}
