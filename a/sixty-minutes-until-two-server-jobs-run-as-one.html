@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Two server jobs start together and repeat on fixed cycles. The least common multiple predicts their next shared run, with a Python tool to compute it.">
+    <meta name="keywords" content="least common multiple, LCM, job scheduling, hyperperiod, Python, math.lcm">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/sixty-minutes-until-two-server-jobs-run-as-one.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/sixty-minutes-until-two-server-jobs-run-as-one.html" />
+
+    <title>Sixty Minutes Until Two Server Jobs Run As One</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    SIXTY MINUTES UNTIL TWO SERVER JOBS RUN AS ONE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Automated systems rarely run alone. Operations teams schedule recurring jobs on shared hardware, and those jobs collide whenever their cycles align, forcing planners to reserve capacity for the moment of overlap. <dfn>This problem shows how one arithmetic idea predicts that overlap, and how Python turns the same logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud monitoring team runs two automated jobs on one server. A backup job runs every 15 minutes. A log cleanup job runs every 12 minutes. Both jobs ran together at 6 a.m.</p>
+                <p>When will they next run together?</p>
+                <ul>
+                    <li>a) 3 p.m.</li>
+                    <li>b) noon</li>
+                    <li>c) 6 p.m.</li>
+                    <li>d) 7 a.m.</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 7 a.m. ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The two jobs repeat on fixed cycles that began together. The next shared run is the smallest span both cycles divide into evenly, the <strong>least common multiple</strong>. <strong>Factor</strong> each cycle, take the highest power of every prime, and <strong>multiply</strong>.</p>
+
+                    <p class="insight"><em>The overlap window is 60 minutes, so the jobs meet once every hour on the hour.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final time is derived:</p>
+                        <ol>
+                            <li><strong>Factor each cycle:</strong> 15 = 3 × 5 and 12 = 2² × 3</li>
+                            <li><strong>Take highest prime powers:</strong> 2² × 3 × 5</li>
+                            <li><strong>Multiply:</strong> 60 minutes</li>
+                            <li><strong>Add to the start:</strong> 6 a.m. plus 60 minutes → 7 a.m.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea of a shared multiple runs through nineteenth century number theory, when mathematicians formalized divisibility and the structure of the integers. In the twentieth century the same idea moved into engineering. Real time computing researchers found that a set of periodic tasks repeats its full pattern over a span equal to the least common multiple of the task periods, a span they named the hyperperiod. By the twenty first century that concept sits inside cloud schedulers and monitoring platforms, where it governs how recurring jobs share a processor without missing deadlines.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script finds the overlap for any two cycles, so it works for buses, alarms, or server jobs.</p>
+
+                <pre><code>import math
+
+def minutes_until_together(cycle_one, cycle_two):
+    return math.lcm(cycle_one, cycle_two)
+
+print("Let's find when two repeating jobs run together again.")
+cycle_one = int(input("First job runs every how many minutes? "))
+cycle_two = int(input("Second job runs every how many minutes? "))
+result = minutes_until_together(cycle_one, cycle_two)
+print("Both jobs run together again in this many minutes:", result)</code></pre>
+
+                <p>Run it, enter the two cycle lengths, and it returns the minutes until the next shared run.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-factors-multiples/pre-algebra-lcm-lcd/v/least-common-multiple-lcm" target="_blank" rel="noopener">Khan Academy — Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LeastCommonMultiple.html" target="_blank" rel="noopener">Wolfram MathWorld — Least Common Multiple</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/least-common-multiple" target="_blank" rel="noopener">Mathematics Stack Exchange — Least Common Multiple</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

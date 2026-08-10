@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud platform pools leftover GPU hours from several squads and splits them equally. Worked with named-property proof, a visual proof, and a reusable Python function.">
+    <meta name="keywords" content="proportional division, equal sharing, GPU allocation, cloud compute, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-pooled-arithmetic-that-splits-shared-gpu-hours-evenly.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-pooled-arithmetic-that-splits-shared-gpu-hours-evenly.html" />
+
+    <title>The Pooled Arithmetic That Splits Shared GPU Hours Evenly</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 7, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE POOLED ARITHMETIC THAT SPLITS SHARED GPU HOURS EVENLY
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud teams rarely spend their compute grants in full. Leftover capacity from one squad can cover the shortfall of another, but only if the platform lead knows how a mixed pool divides into fair shares. <dfn>This problem shows how a short chain of arithmetic turns uneven contributions into one equal allocation, and how a named-property proof makes each step defensible.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform lead allotted 20 GPU hours to each squad for the sprint. One squad had already burned 5 of its 20 hours, so 15 remained. That squad joined a pod with a second squad and 3 squads that had received no allocation. The second squad still held all 20 of its hours.</p>
+                <p>If the pod pools every remaining GPU hour and splits them equally across its member squads, how many hours does each squad get?</p>
+                <ul>
+                    <li>a) 35</li>
+                    <li>b) 11 and 2/3</li>
+                    <li>c) 17 and 1/2</li>
+                    <li>d) 7</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 7 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The pod holds five squads. <strong>Add</strong> the contributions, 15 from the first squad, 20 from the second, and 0 from each of the three empty squads, for a pooled total of 35 hours. Then <strong>divide</strong> 35 by 5 to reach the equal share.</p>
+
+                    <p class="insight"><em>Only two squads contribute, yet the pool still serves five, so the equal share sits well below any single allocation.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived, with the property that licenses each step:</p>
+                        <ol>
+                            <li><strong>Additive inverse:</strong> 20 minus 5 equals 15, the first squad's remaining hours.</li>
+                            <li><strong>Additive identity:</strong> 0 plus 0 plus 0 equals 0, the three empty squads contribute nothing.</li>
+                            <li><strong>Addition laws:</strong> 15 plus 20 plus 0 equals 35, the pooled total.</li>
+                            <li><strong>Substitution:</strong> the governing equation becomes 5s equals 35, where s is each squad's share.</li>
+                            <li><strong>Multiplication property of equality:</strong> multiply each side by one over 5.</li>
+                            <li><strong>Multiplicative inverse and identity:</strong> the left side collapses to s.</li>
+                            <li><strong>Cancellation law:</strong> 35 over 5 equals 7 on the right side.</li>
+                            <li><strong>Transitivity of equality:</strong> therefore s equals 7.</li>
+                        </ol>
+                    </div>
+
+                    <figure>
+                        <svg viewBox="0 0 680 850" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visual proof, one panel per carrying property">
+                            <style>
+                                .th { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold; fill: #111827; }
+                                .ts { font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #6b7280; }
+                                .op { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #374151; }
+                                .bx { font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; }
+                                .ex { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #374151; }
+                                .exb { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; }
+                                .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+                            </style>
+
+                            <g transform="translate(0,10)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">1. Additive inverse. 20 minus 5 leaves 15.</text>
+                                <rect x="44" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="76" y="86" text-anchor="middle" fill="#6b7280">20</text>
+                                <text class="op" x="128" y="86" text-anchor="middle">&#8722;</text>
+                                <rect x="148" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="180" y="86" text-anchor="middle" fill="#6b7280">5</text>
+                                <text class="op" x="232" y="86" text-anchor="middle">=</text>
+                                <rect x="252" y="60" width="64" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+                                <text class="bx" x="284" y="86" text-anchor="middle" fill="#0f766e">15</text>
+                                <text class="ts" x="360" y="86">First squad keeps 15</text>
+                            </g>
+
+                            <g transform="translate(0,150)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">2. Additive identity. Adding zero changes nothing.</text>
+                                <rect x="44" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="76" y="86" text-anchor="middle" fill="#6b7280">0</text>
+                                <text class="op" x="128" y="86" text-anchor="middle">+</text>
+                                <rect x="148" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="180" y="86" text-anchor="middle" fill="#6b7280">0</text>
+                                <text class="op" x="232" y="86" text-anchor="middle">+</text>
+                                <rect x="252" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="284" y="86" text-anchor="middle" fill="#6b7280">0</text>
+                                <text class="op" x="336" y="86" text-anchor="middle">=</text>
+                                <rect x="356" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="388" y="86" text-anchor="middle" fill="#6b7280">0</text>
+                                <text class="ts" x="440" y="86">Empty squads add nothing</text>
+                            </g>
+
+                            <g transform="translate(0,290)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">3. Addition laws. Combine the contributions.</text>
+                                <rect x="44" y="60" width="64" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+                                <text class="bx" x="76" y="86" text-anchor="middle" fill="#0f766e">15</text>
+                                <text class="op" x="128" y="86" text-anchor="middle">+</text>
+                                <rect x="148" y="60" width="64" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+                                <text class="bx" x="180" y="86" text-anchor="middle" fill="#0f766e">20</text>
+                                <text class="op" x="232" y="86" text-anchor="middle">+</text>
+                                <rect x="252" y="60" width="64" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/>
+                                <text class="bx" x="284" y="86" text-anchor="middle" fill="#6b7280">0</text>
+                                <text class="op" x="336" y="86" text-anchor="middle">=</text>
+                                <rect x="356" y="60" width="64" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+                                <text class="bx" x="388" y="86" text-anchor="middle" fill="#0f766e">35</text>
+                                <text class="ts" x="440" y="86">Pooled total 35 hours</text>
+                            </g>
+
+                            <g transform="translate(0,430)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">4. Multiplication property of equality.</text>
+                                <text class="ex" x="44" y="82">5s = 35</text>
+                                <text class="op" x="150" y="82" text-anchor="middle">&#8594;</text>
+                                <text class="exb" x="184" y="82">(1/5)(5s) = (1/5)(35)</text>
+                                <text class="ts" x="44" y="112">The same factor multiplies each side</text>
+                            </g>
+
+                            <g transform="translate(0,570)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">5. Multiplicative inverse and identity.</text>
+                                <text class="ex" x="44" y="82">(1/5)(5) = 1</text>
+                                <text class="op" x="200" y="82" text-anchor="middle">&#8594;</text>
+                                <text class="ex" x="234" y="82">1 &#183; s = </text>
+                                <text class="exb" x="300" y="82" fill="#0f766e">s</text>
+                                <text class="ts" x="44" y="112">Left side collapses to s</text>
+                            </g>
+
+                            <g transform="translate(0,710)">
+                                <rect class="panel" x="10" y="0" width="660" height="130" rx="10"/>
+                                <text class="th" x="28" y="30">6. Cancellation law. The shared 5 cancels.</text>
+                                <text class="ex" x="44" y="82">35 / 5 = (5 &#183; 7) / 5</text>
+                                <line x1="150" y1="70" x2="168" y2="94" stroke="#dc2626" stroke-width="2"/>
+                                <line x1="196" y1="70" x2="214" y2="94" stroke="#dc2626" stroke-width="2"/>
+                                <text class="op" x="256" y="82" text-anchor="middle">=</text>
+                                <rect x="278" y="60" width="56" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+                                <text class="bx" x="306" y="86" text-anchor="middle" fill="#0f766e">7</text>
+                                <text class="ts" x="44" y="112">Right side becomes 7, so each squad gets 7 hours</text>
+                            </g>
+                        </svg>
+                        <figcaption>Visual proof. One panel per carrying property, in use order. Teal marks a working value, gray a neutral or removed value, red the factor that cancels.</figcaption>
+                    </figure>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a shared stock into equal parts is one of the oldest recorded uses of arithmetic. Grain, land, and inheritance were divided among claimants long before algebra existed, and clerks in Mesopotamia and Egypt kept ledgers for exactly this purpose. The same logic now governs how cloud platforms ration compute, where a pool of unused capacity is redistributed so no team is starved and none hoards.</p>
+
+                
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-review-multiply-divide/arith-review-division-intro/a/division-intro" target="_blank" rel="noopener">Khan Academy — Division and Equal Sharing</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld — Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange — Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 7, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

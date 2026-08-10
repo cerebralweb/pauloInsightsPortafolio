@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a base count, a shortfall, a fractional rise, and a percent rise build four daily values across a weekend, and how two distributions and the arithmetic mean produce each average.">
+    <meta name="keywords" content="arithmetic mean, distributive law, weekend average, percent increase, fractional increase, python average, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/two-functions-four-days-one-weekend-average.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/two-functions-four-days-one-weekend-average.html" />
+
+    <title>Two Functions, Four Days, One Weekend Average</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 7, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    TWO FUNCTIONS, FOUR DAYS, ONE WEEKEND AVERAGE
+                   
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Capacity planning often rests on a single average that hides several moves. A base level, a fixed shortfall, a fractional lift, and a percent lift can each land on a different day, yet the number a team reports is their mean. <dfn>This article traces how that average is built one algebraic move at a time, then packages the same logic as a small program and a reusable skill.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2>The Equation Step by Step</h2>
+
+                <p>Let c be the base, with c equal to 2,000. Each function has a Saturday value and a Sunday value. The weekend average is the mean of the two.</p>
+
+                <div class="bannerTwitero">
+                    <h2>Checkout Average</h2>
+                    <p>The following sequence shows how the checkout average is derived:</p>
+                    <ol>
+                        <li><strong>Start:</strong> a = [ c + c(1 + 0.15) ] / 2</li>
+                        <li><strong>Distribute c across (1 + 0.15):</strong> a = [ c + (c + 0.15c) ] / 2</li>
+                        <li><strong>Combine like terms, c + c = 2c:</strong> a = [ 2c + 0.15c ] / 2</li>
+                        <li><strong>Distribute division by 2:</strong> a = 2c/2 + 0.15c/2</li>
+                        <li><strong>Simplify:</strong> a = c + 0.075c</li>
+                        <li><strong>Substitute c = 2,000:</strong> a = 2,000 + 150</li>
+                        <li><strong>Result:</strong> a = 2,150</li>
+                    </ol>
+                </div>
+
+                <div class="bannerTwitero">
+                    <h2>Search Average</h2>
+                    <p>The following sequence shows how the search average is derived:</p>
+                    <ol>
+                        <li><strong>Start:</strong> a = [ (c &#8722; 230) + c(1 + 1/4) ] / 2</li>
+                        <li><strong>Distribute c across (1 + 1/4):</strong> a = [ (c &#8722; 230) + (c + 0.25c) ] / 2</li>
+                        <li><strong>Combine like terms:</strong> a = [ 2.25c &#8722; 230 ] / 2</li>
+                        <li><strong>Substitute c = 2,000:</strong> a = [ 4,500 &#8722; 230 ] / 2</li>
+                        <li><strong>Subtract:</strong> a = 4,270 / 2</li>
+                        <li><strong>Result:</strong> a = 2,135</li>
+                    </ol>
+                </div>
+
+                <h2>The Proof</h2>
+
+                <p><strong>Mode.</strong> Compute. <strong>Setup.</strong> Let c be the base, checkout Saturday, fixed at 2,000. Checkout Sunday is c raised by 15 percent. Search Saturday is 230 below c. Search Sunday is c raised by one quarter. Each weekend average is the mean of the two daily counts for that function.</p>
+
+                <ol>
+                    <li><strong>Distributive law.</strong> A times the quantity b plus d equals A times b plus A times d. Checkout Sunday is c plus 0.15c, since c times the quantity 1 plus 0.15 spreads c across both terms.</li>
+                    <li><strong>Distributive law, as in step 1.</strong> The checkout weekend sum is 2c plus 0.15c. Adding checkout Saturday c to c plus 0.15c gives c plus c plus 0.15c, and c plus c is 2c.</li>
+                    <li><strong>Distribution over addition for division.</strong> The quantity x plus y over 2 equals x over 2 plus y over 2. The checkout average is 2c over 2 plus 0.15c over 2. The divisor 2 spreads across the two numerator terms.</li>
+                    <li><strong>Multiplicative identity.</strong> 2c over 2 is c, since dividing by 2 undoes the factor 2. The checkout average is c plus 0.075c, which is 2,000 plus 150, so 2,150.</li>
+                    <li><strong>Additive inverse and closure.</strong> Subtracting 230 is adding negative 230, and the result is a well defined integer. Search Saturday is 1,770.</li>
+                    <li><strong>Distributive law, as in step 1.</strong> Search Sunday is 2,500, since c times the quantity 1 plus one quarter is c plus 0.25c, which is 2,000 plus 500.</li>
+                    <li><strong>Arithmetic mean.</strong> The mean of two values is their sum divided by 2. The search average is 2,135, since 1,770 plus 2,500 is 4,270 and 4,270 over 2 is 2,135.</li>
+                </ol>
+
+                <p class="insight"><em>Two distributions carry the whole result. First c spreads across its parentheses to build each day. Then the division by 2 spreads across the sum to take the mean.</em></p>
+
+                <p><strong>Verification.</strong> Checkout, 2,150 times 2 is 4,300, which is 2,000 plus 2,300. Search, 2,135 times 2 is 4,270, which is 1,770 plus 2,500. Both means reproduce their daily sums. <strong>Answer.</strong> Search averaged 2,135 per day and checkout averaged 2,150 per day, matching option a.</p>
+
+                <p>The program below uses the standard library helper <code>statistics.mean</code>, which states the averaging step by name and keeps the intent visible.</p>
+
+                <pre><code># What this does: works out the weekend daily average for two functions.
+# Where it came from: two serverless functions ran over Saturday and Sunday.
+# The math idea: build each day's count, then average the two days.
+# You type in: the base count, the shortfall, the fraction rise, the percent rise.
+# It prints: the weekend average for search and for checkout.
+
+# Bring in a ready made average helper from Python's own toolbox.
+from statistics import mean
+
+# This function does all the math and hands back both averages.
+def weekend_averages(base, shortfall, fraction_rise, percent_rise):
+    # Checkout Saturday is the base count.
+    checkout_sat = base
+    # Checkout Sunday is the base raised by the percent.
+    checkout_sun = base * (1 + percent_rise / 100)
+    # Search Saturday is the base minus the shortfall.
+    search_sat = base - shortfall
+    # Search Sunday is the base raised by the fraction.
+    search_sun = base * (1 + fraction_rise)
+    # Average each function's two days with the helper.
+    return mean([search_sat, search_sun]), mean([checkout_sat, checkout_sun])
+
+# Tell the reader what we will figure out.
+print("Let's find the weekend daily average for two functions.")
+
+# Ask for the base count.
+base = float(input("Base invocations (checkout Saturday): "))
+
+# Ask for the shortfall for search Saturday.
+shortfall = float(input("Search Saturday shortfall: "))
+
+# Ask for the fraction rise for search Sunday. Type 0.25 for one quarter.
+fraction_rise = float(input("Search Sunday fraction rise (e.g. 0.25): "))
+
+# Ask for the percent rise for checkout Sunday. Type 15 for 15 percent.
+percent_rise = float(input("Checkout Sunday percent rise (e.g. 15): "))
+
+# Do the math.
+search_avg, checkout_avg = weekend_averages(base, shortfall, fraction_rise, percent_rise)
+
+# Show whole numbers cleanly when the result has no decimals.
+search_avg = int(search_avg) if float(search_avg).is_integer() else round(search_avg, 2)
+checkout_avg = int(checkout_avg) if float(checkout_avg).is_integer() else round(checkout_avg, 2)
+
+# Print the answers with words that fit the scenario.
+print("Search weekend average:", search_avg)
+print("Checkout weekend average:", checkout_avg)</code></pre>
+
+                <p>Run it in the terminal, type 2000, 230, 0.25, and 15, and it returns search 2,135 and checkout 2,150.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: weekend-two-function-average
+description: Computes the weekend daily average for two items over two days, where a base value drives one item raised by a percent and another item set by a fixed shortfall then raised by a fraction. Trigger this skill whenever the user wants a two day average built from a base count, a shortfall, a fractional increase, and a percent increase, even if they do not use technical language.
+---
+
+<span class="md-heading"># Weekend Two Function Average</span>
+
+This skill takes a base count and three adjustments, builds four daily values across two days for two items, then averages each item's two days. It asks for the base count, a shortfall, a fraction increase, and a percent increase, and it returns the weekend average for each of the two items.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only. An optional averaging helper from Python's standard library can state the mean step by name, but it is not required.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Base count**</span>. The Saturday value for the first item. A number.
+- <span class="md-bold">**Shortfall**</span>. How far the second item's Saturday value sits below the base. A number.
+- <span class="md-bold">**Fraction increase**</span>. The fractional rise applied to the base for the second item's Sunday value. Enter 0.25 for one quarter.
+- <span class="md-bold">**Percent increase**</span>. The percent rise applied to the base for the first item's Sunday value. Enter 15 for 15 percent.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Collect the four inputs</span>
+
+Ask for the base count, the shortfall, the fraction increase, and the percent increase. Treat all four as numbers that may carry decimals.
+
+<span class="md-heading">### Step 2 &#8212; Build the first item's two days</span>
+
+Set the first item's Saturday value equal to the base count. Set its Sunday value to the base count raised by the percent increase, so base times the quantity 1 plus the percent over 100.
+
+<span class="md-heading">### Step 3 &#8212; Build the second item's two days</span>
+
+Set the second item's Saturday value to the base count minus the shortfall. Set its Sunday value to the base count raised by the fraction increase, so base times the quantity 1 plus the fraction.
+
+<span class="md-heading">### Step 4 &#8212; Average each item</span>
+
+For each item, add its Saturday and Sunday values and divide by 2. This gives two weekend averages, one per item.
+
+<span class="md-heading">### Step 5 &#8212; Clean and report</span>
+
+If an average lands on a whole number, show it without decimals. Otherwise round to two decimals. Report both averages with text that names each item, e.g. search weekend average and checkout weekend average.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Average two functions across the weekend from a base count and a couple of adjustments"
+- "One item is a percent above the base, the other starts below it then rises by a quarter, give me both weekend averages"
+- "Turn my base, shortfall, fraction, and percent into two daily averages"
+- "Work out the Saturday and Sunday mean for each of my two services"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] All four inputs were collected as numbers
+- [ ] The first item's Sunday value uses the percent, the second item's Sunday value uses the fraction
+- [ ] The shortfall was subtracted from the base for the second item's Saturday value only
+- [ ] Each average is the sum of that item's two days divided by 2
+- [ ] Whole number results show without decimals, others round to two
+- [ ] Both averages are labeled by item in the final output</code></pre>
+
+                <h2>The Dialogue</h2>
+
+                <p>The reasoning above came out of a short back and forth about which move distributed what. It is reproduced here because the confusion it clears up is common.</p>
+
+                <p><strong>Paulo.</strong> I set a as the average and c as the base. I wrote a equals 2c over 2 plus c times 0.15 over 2. Did I distribute c into two elements to be added?</p>
+
+                <p><strong>Claude.</strong> The two elements come from the numerator. The two day sum is c plus c times 1.15, which is c plus c plus 0.15c, so 2c plus 0.15c. Then you divide that by 2.</p>
+
+                <p><strong>Paulo.</strong> So I distributed 2 and 0.15 into c?</p>
+
+                <p><strong>Claude.</strong> Not both. The 0.15 came from distributing c across 1 plus 0.15, giving c plus 0.15c. The 2 did not come from distribution. It came from adding the two c terms, c plus c is 2c. That is combining like terms.</p>
+
+                <p><strong>Paulo.</strong> If I say c times the quantity 2 plus 0.15, am I distributing c into the addition of 2 and 0.15?</p>
+
+                <p><strong>Claude.</strong> That form is the factored form, the starting point. Distribution is the move that multiplies c through, c times 2 plus c times 0.15, giving 2c plus 0.15c. Going backward, from 2c plus 0.15c to c times the quantity 2 plus 0.15, is factoring.</p>
+
+                <p><strong>Paulo.</strong> So before, when you checked that 2c over 2 is 2,000 and 0.15c over 2 is 150, I expanded c into 2 plus 0.15?</p>
+
+                <p><strong>Claude.</strong> No. That line divided the numerator. What spread there was the division by 2 across 2c and 0.15c. c stayed inside each term.</p>
+
+                <p><strong>Paulo.</strong> But that is not the true order. To arrive at that numerator I first distributed c into 2c plus 0.15c, and then I reasoned that I had to divide by 2.</p>
+
+                <p><strong>Claude.</strong> You are right. I skipped your first step. You built the numerator by distributing c, c times the quantity 2 plus 0.15 equals 2c plus 0.15c. Then you distributed the division by 2 across that sum. Two distributions, in your order. First c across the parentheses. Then division by 2 across the numerator.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 7, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

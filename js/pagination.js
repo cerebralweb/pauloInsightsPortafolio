@@ -7,6 +7,31 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Two Functions, Four Days, One Weekend Average",
+            articleDescription: "An unexpected dialogue between a human and an AI about algebra and business",
+            articleHref: "/a/two-functions-four-days-one-weekend-average.html"
+        },
+        {
+            articleTitle: "The Pooled Arithmetic That Splits Shared GPU Hours Evenly",
+            articleDescription: "Cloud teams rarely spend their compute grants in full. Leftover capacity from one squad can cover the shortfall of another, but only if the platform lead knows how a mixed pool divides into fair shares",
+            articleHref: "/a/the-pooled-arithmetic-that-splits-shared-gpu-hours-evenly.html"
+        },
+        {
+            articleTitle: "60,000 Tokens Across Two Teams And One Arithmetic Rule",
+            articleDescription: "AI token budgets cap how much each team can run against a model, so a finance owner rolling up monthly usage has to combine allocations that differ in size. When one team holds several times the budget of another, the smaller share can still swing the combined total, which makes the order of each operation matter. This problem shows how one pass of multiplication, a fraction, and addition settles a shared usage figure, and how each step rests on a named arithmetic property",
+            articleHref: "/a/60000-tokens-across-two-teams-and-one-arithmetic-rule.html"
+        },
+        {
+            articleTitle: "800 Tickets, One Scaling Rule, Four Clean Weeks",
+            articleDescription: "This problem shows how a single scaling rule turns one known figure into a full forecast, and how Python preserves that step as a reusable tool",
+            articleHref: "/a/800-tickets-one-scaling-rule-four-clean-weeks.html"
+        },
+        {
+            articleTitle: "Sixty Minutes Until Two Server Jobs Run As One",
+            articleDescription: "Automated systems rarely run alone. Operations teams schedule recurring jobs on shared hardware, and those jobs collide whenever their cycles align",
+            articleHref: "/a/sixty-minutes-until-two-server-jobs-run-as-one.html"
+        },
+        {
             articleTitle: "Why One Five Minute Break Reshapes The Hour's Output",
             articleDescription: "Capacity planning starts with a simple question. How much can a team produce in a fixed window?",
             articleHref: "/a/why-one-five-minute-break-reshapes-the-hour-output.html"
