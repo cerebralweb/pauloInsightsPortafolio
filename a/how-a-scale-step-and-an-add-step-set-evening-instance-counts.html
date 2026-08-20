@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud capacity problem solved step by step, where a scaling factor and a fixed increment set the evening server instance count, each step tied to a named property.">
+    <meta name="keywords" content="ratios, rates, arithmetic, business math, cloud capacity, scaling factor, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/how-a-scale-step-and-an-add-step-set-evening-instance-counts.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/how-a-scale-step-and-an-add-step-set-evening-instance-counts.html" />
+
+    <title>How A Scale Step And An Add Step Set Evening Instance Counts</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    HOW A SCALE STEP AND AN ADD STEP SET EVENING INSTANCE COUNTS
+                   
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Cloud teams rarely read a single count in isolation. Capacity across a day builds from one window to the next, where a scaling factor turns one count into another and a fixed increment adjusts it again. <dfn>This problem shows how a short chain of arithmetic operations models a real capacity scenario, and how each step rests on a named property of equality and arithmetic.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations team tracks running server instances across three windows on May 23. The morning window ran 30 instances. The midday window ran 1.5 times as many instances as the morning window. The evening window ran 13 more instances than the midday window.</p>
+                <p>How many instances ran in the evening window?</p>
+                <ul>
+                    <li>a) 58</li>
+                    <li>b) 68</li>
+                    <li>c) 43.5</li>
+                    <li>d) 48</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 58 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The evening count follows from two operations. First, <strong>multiply</strong> the morning count by the scaling factor to get the midday count. Then <strong>add</strong> the fixed increment to reach the evening count.</p>
+
+                    <p class="insight"><em>A scaling factor of 1.5 raises the base count by half before the increment applies.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Proof</h2>
+
+                        <p><strong>Mode.</strong> Compute.</p>
+
+                        <p><strong>Setup.</strong> Let m be the morning instance count, d the midday count, e the evening count, each a nonnegative rational. Constraints. m = 30. d = 1.5 &times; m. e = d + 13. Find e.</p>
+
+                        <p><strong>Step 1 &#8212; Substitution property of equality</strong><br>
+                        Property. Substitution. Equals may replace equals.<br>
+                        Inference. d equals 1.5 times 30. Replaces m with 30 in d = 1.5 &times; m.<br>
+                        Equation. d = 1.5 &times; 30</p>
+
+                        <p><strong>Step 2 &#8212; Distributive law</strong><br>
+                        Property. Distributive law. a times the sum of b and c equals a times b plus a times c.<br>
+                        Inference. d equals 45. Builds on Step 1. Write 1.5 as 1 plus 0.5.<br>
+                        Equation. d = (1 + 0.5) &times; 30 = (1 &times; 30) + (0.5 &times; 30) = 30 + 15 = 45</p>
+
+                        <p><strong>Step 3 &#8212; Substitution property of equality</strong><br>
+                        Property. Substitution, as in Step 1.<br>
+                        Inference. e equals 45 plus 13. Builds on Step 2. Replaces d with 45 in e = d + 13.<br>
+                        Equation. e = 45 + 13</p>
+
+                        <p><strong>Step 4 &#8212; Evaluation of a sum</strong><br>
+                        FLAG. This move rests on direct arithmetic, not a named property.<br>
+                        Inference. e equals 58. Builds on Step 3.<br>
+                        Equation. e = 45 + 13 = 58</p>
+
+                        <p><strong>Verification.</strong> Substitute back into the constraints. Midday, 1.5 &times; 30 = 45, matches d. Evening, 45 + 13 = 58, matches e = d + 13. Both hold.</p>
+
+                        <p><strong>Answer.</strong> The evening window ran 58 instances. Option a.</p>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Scaling a count by a ratio and then adjusting it by a fixed amount is one of the oldest routines in commercial arithmetic. Merchants in medieval Italy learned proportion in the abbaco schools, where a single quantity was raised or lowered by a rate before a further correction settled the final figure.</p>
+                <p>Leonardo of Pisa, known as Fibonacci, gathered these methods in the Liber Abaci of 1202 and showed traders how proportion governed prices, weights, and stock. The same two step logic, scale first and adjust second, still sits under capacity planning and inventory work today.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script below turns the two step logic into a reusable function, so any base count, factor, and increment yields the derived count.</p>
+
+                <pre><code>def evening_instances(morning, factor, increment):
+    midday = morning * factor
+    evening = midday + increment
+    return evening
+
+
+print(evening_instances(30, 1.5, 13))  # 58.0</code></pre>
+
+                <p>Run it from a terminal or a notebook. With a morning count of 30, a factor of 1.5, and an increment of 13, it returns 58.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy &#8212; Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld &#8212; Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange &#8212; Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

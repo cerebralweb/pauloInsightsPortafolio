@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A finance team clears invoices at three different speeds with hourly breaks. See how combined work rate and elapsed time give the exact output, with a reusable Python tool.">
+    <meta name="keywords" content="combined work rate, throughput, business math, work rate problem, elapsed time, Python calculator">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/5292-invoices-one-combined-rate-zero-guesswork.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/5292-invoices-one-combined-rate-zero-guesswork.html" />
+
+    <title>5292 Invoices, One Combined Rate, Zero Guesswork</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>10 Aug 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    5292 INVOICES, ONE COMBINED RATE, ZERO GUESSWORK
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Throughput promises rest on a distinction most teams blur. Total time on the clock is not the same as time actually spent working, and forecasting output means separating the two before anyone commits to a deadline. <dfn>This problem shows how a set of individual rates combine into one team rate, and how a break rule turns elapsed minutes into working minutes.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A finance team runs a batch of vendor invoices through manual review. Julia clears 9 invoices per minute. Manuel clears 4 times faster than Julia. Carlos clears half as many per minute as Manuel. At the end of every hour, all three take a break lasting 10% of an hour.</p>
+                <p>How many invoices do the three of them clear between 10:00 a.m. and 11:30 a.m.?</p>
+                <ul>
+                    <li>a) 5292</li>
+                    <li>b) 3,780</li>
+                    <li>c) 3,402</li>
+                    <li>d) 7,560</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 5292 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Manuel clears 36 and Carlos clears 18, so the team rate is <strong>9 + 36 + 18 = 63</strong> invoices per minute. The window runs 90 minutes, one break of 6 minutes falls at 11:00, so working time is 84 minutes and <strong>63 × 84 = 5292</strong>.</p>
+
+                    <p class="insight"><em>The only trap is the break. Multiply by working minutes, not by the full window.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Julia's rate:</strong> 9 per minute</li>
+                            <li><strong>Manuel's rate:</strong> 9 × 4 = 36 per minute</li>
+                            <li><strong>Carlos's rate:</strong> 36 ÷ 2 = 18 per minute</li>
+                            <li><strong>Team rate:</strong> 9 + 36 + 18 = 63 per minute</li>
+                            <li><strong>Window:</strong> 10:00 to 11:30 = 90 minutes</li>
+                            <li><strong>Break:</strong> 10% of 60 = 6 minutes, one break inside the window</li>
+                            <li><strong>Working minutes:</strong> 90 − 6 = 84</li>
+                            <li><strong>Total:</strong> 63 × 84 = 5292</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Work rate problems are among the oldest in applied arithmetic. Scribes calculating shares of labor, water allotments, and grain output needed a way to combine several workers acting at once into a single figure. In ninth century Baghdad, al Khwarizmi formalized the methods of proportion and division that still sit underneath these calculations, turning practical questions of shares and labor into repeatable procedures. The same reasoning now drives capacity planning, staffing, and turnaround promises in any operation that measures output against time.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script combines three rates, deducts break time, and returns total output, so it works for any team, any window, and any break rule.</p>
+
+                <pre><code># What this does: works out how many invoices three people clear in a set time.
+# Where it came from: a finance team clears invoices, and each person has a different speed.
+# The math idea: add up their speeds, then multiply by the minutes they actually work.
+# You type in: the speeds, the total minutes, the break length, and how many breaks happen.
+# It prints: the total invoices the three of them clear.
+
+# This function does the math.
+def invoices_cleared(julia_rate, manuel_factor, carlos_share, total_minutes, break_percent, break_count):
+    # Manuel is faster than Julia by the factor you gave.
+    manuel_rate = julia_rate * manuel_factor
+    # Carlos clears a share of what Manuel does.
+    carlos_rate = manuel_rate * carlos_share
+    # Add the three speeds into one team speed.
+    team_rate = julia_rate + manuel_rate + carlos_rate
+    # Turn the break percent into minutes lost per break. 10 percent of 60 is 6.
+    break_minutes = (break_percent / 100) * 60
+    # Take all the break time off the total time.
+    working_minutes = total_minutes - (break_minutes * break_count)
+    # Speed times minutes worked gives the total invoices.
+    return team_rate * working_minutes
+
+# Tell the reader what we will figure out.
+print("Let's find how many invoices the team clears.")
+
+# Ask for Julia's speed.
+julia_rate = float(input("Julia's invoices per minute: "))
+
+# Ask how many times faster Manuel is than Julia.
+manuel_factor = float(input("Manuel's speed factor vs Julia: "))
+
+# Ask what share of Manuel's speed Carlos has. Half is 0.5.
+carlos_share = float(input("Carlos's share of Manuel's speed: "))
+
+# Ask for the whole time window in minutes.
+total_minutes = float(input("Total minutes in the window: "))
+
+# Ask for the break length as a percent of an hour.
+break_percent = float(input("Break length as percent of an hour: "))
+
+# Ask how many breaks fall inside the window.
+break_count = float(input("Number of breaks: "))
+
+# Do the math.
+result = invoices_cleared(julia_rate, manuel_factor, carlos_share, total_minutes, break_percent, break_count)
+
+# Show a whole number when the result has no leftover.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Invoices cleared by the team:", result)</code></pre>
+
+                <p>Run it in a terminal, enter 9, 4, 0.5, 90, 10, 1 at the prompts, and it returns 5292.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic-home/arith-review-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Arithmetic.html" target="_blank" rel="noopener">Wolfram MathWorld — Arithmetic</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange — Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

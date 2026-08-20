@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud storage tray holds an exact count of cube blocks because each edge divides cleanly by the block. See the count built one axis at a time, in three interactive figures.">
+    <meta name="keywords" content="volume packing, cube packing, cloud storage capacity, floor division, Kepler conjecture, sphere packing, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-three-divisions-behind-one-tray-of-1512-blocks.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-three-divisions-behind-one-tray-of-1512-blocks.html" />
+
+    <title>The Three Divisions Behind One Tray of 1,512 Blocks</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 19, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE THREE DIVISIONS BEHIND ONE TRAY OF 1,512 BLOCKS
+                    
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity questions decide how a cloud storage team provisions space before a single byte lands. When the storage unit and the tray that holds it share a clean ratio, the count is exact and no room goes to waste. <dfn>This problem shows how three plain divisions and one product settle the capacity of a container, and how the same idea reaches from a shipping box to the densest packing of spheres.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud storage team allocates data in cubic blocks. Each block measures 1/2 inch on every side in the physical drive layout. The blocks are placed into a storage tray that measures 12 inches long, 4 1/2 inches wide, and 3 1/2 inches high.</p>
+                <p>What is the maximum number of cubic blocks that fit into one tray?</p>
+                <ul>
+                    <li>a) 1,502</li>
+                    <li>b) 1,512</li>
+                    <li>c) 6,048</li>
+                    <li>d) 1,008</li>
+                </ul>
+
+                <figure style="margin:24px 0;">
+                    <iframe src="/images/animations/cmyk_packing.html" title="Interactive CMYK tray packing in three dimensions"
+                        loading="lazy" style="width:100%;height:560px;border:1px solid rgba(20,20,20,.15);"></iframe>
+                    <figcaption><em>Figure 1. The tray filled with 24 by 9 by 7 blocks, tinted in the three process inks. Drag to turn it. Use the sliders to change how many blocks sit along each edge.</em></figcaption>
+                </figure>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 1,512 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Take the tray apart one edge at a time. <strong>Divide</strong> each edge by the 0.5 in block, then <strong>multiply</strong> the three counts. The length gives 24, the width gives 9, and the height gives 7.</p>
+
+                    <p class="insight"><em>Every edge is a whole multiple of the block, so no edge leaves a remainder and the tray holds an exact count.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Length:</strong> 0.5 into 12 gives 24 blocks</li>
+                            <li><strong>Width:</strong> 0.5 into 4.5 gives 9 blocks</li>
+                            <li><strong>Height:</strong> 0.5 into 3.5 gives 7 blocks</li>
+                            <li><strong>Combine:</strong> 24 × 9 = 216</li>
+                            <li><strong>Lift by the height:</strong> 216 × 7 = 1,512 blocks</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <p>The graphic below rebuilds that reasoning step by step. It splits each edge into a clean whole number, assembles the length and width into a grid of 216, then lifts the grid by 7.</p>
+
+                <figure style="margin:24px 0;">
+                    <iframe src="/images/animations/tray-elegant-solution.html" title="Take each edge apart, then multiply"
+                        loading="lazy" style="width:100%;height:640px;border:1px solid rgba(20,20,20,.15);"></iframe>
+                    <figcaption><em>Figure 2. Take each edge apart. Press Next or Play to walk the three divisions and the final product.</em></figcaption>
+                </figure>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Counting how many equal units fill a space is one of the oldest questions in commerce and science. Merchants stacked barrels and shot, and shipbuilders loaded holds, long before anyone wrote the arithmetic down. The rule stayed simple whenever the container and the unit shared a clean ratio, since each dimension then broke into a whole number of rows.</p>
+
+                <p>The harder version of the question belongs to Johannes Kepler. In a 1611 essay on the six cornered snowflake he claimed that no way of packing equal spheres beats the arrangement grocers use for stacked fruit. The claim resisted proof for almost four centuries until Thomas Hales settled it in 1998, with a formal machine verified proof finished in 2014. The cube version in this tray is the easy cousin of that problem, because cubes tile space with no gaps while spheres never do.</p>
+
+                <figure style="margin:24px 0;">
+                    <iframe src="/images/animations/kepler-packing.html" title="Interactive Kepler conjecture sphere packing"
+                        loading="lazy" style="width:100%;height:600px;border:1px solid rgba(20,20,20,.15);"></iframe>
+                    <figcaption><em>Figure 3. The Kepler conjecture. Close packing reaches 74.05 percent, the density Kepler claimed and Hales proved. Switch to cubic or loose to see the fill drop. Drag to turn it.</em></figcaption>
+                </figure>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script turns the whole method into one reusable function. It divides each box edge by the block edge, then multiplies the counts, so it answers any packing question of this shape.</p>
+
+<pre><code>from math import floor
+
+def packing_count(length, width, height, block):
+    """Return how many cube blocks fill a box, one edge at a time."""
+    nx = floor(length / block)
+    ny = floor(width / block)
+    nz = floor(height / block)
+    return nx * ny * nz
+
+print(packing_count(12, 4.5, 3.5, 0.5))  # 1512
+</code></pre>
+
+                <p>Run it with any four measurements in the same unit and it returns the exact block count. With 12, 4.5, 3.5, and 0.5 it returns 1,512.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/basic-geo/basic-geo-volume-sa" target="_blank" rel="noopener">Khan Academy — Volume and Surface Area</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/CubePacking.html" target="_blank" rel="noopener">Wolfram MathWorld — Cube Packing</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/packing-problem" target="_blank" rel="noopener">Mathematics Stack Exchange — Packing Problems</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 19, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

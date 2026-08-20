@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How to recover one baseline quantity when four advertising channels are fixed multiples of it, solved with ratios and a reusable Python function.">
+    <meta name="keywords" content="ratios, proportion, linear equation, advertising allocation, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/400-ads-four-channels-and-the-one-baseline-that-sets-them-all.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/400-ads-four-channels-and-the-one-baseline-that-sets-them-all.html" />
+
+    <title>400 Ads, Four Channels, and the One Baseline That Sets Them All</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    400 ADS, FOUR CHANNELS, AND THE ONE BASELINE THAT SETS THEM ALL
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Marketing teams rarely set channel volumes one by one. They tie every channel to a single baseline, then let fixed multiples do the rest, which keeps a campaign balanced as the budget shifts. <dfn>This problem shows how one linear equation recovers that hidden baseline, and how Python turns the same logic into a tool a planner can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A marketing manager needs 10 times as many display ads as video ads. He needs the same number of social media ads as video ads. The number of search ads is half the number of video ads. The manager sets aside 400 ads for the campaign.</p>
+                <p>How many video ads does he need?</p>
+                <ul>
+                    <li>a) 320</li>
+                    <li>b) 32</li>
+                    <li>c) 16</li>
+                    <li>d) 3.2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 32 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Write each channel as a multiple of the video count, then <strong>add the coefficients</strong> into one factor. <strong>Divide</strong> the total of 400 by that factor to recover the baseline.</p>
+
+                    <p class="insight"><em>Every channel collapses into a single coefficient of 12.5, so the whole campaign rests on one division.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Express each channel:</strong> display 10v, video v, social v, search 0.5v</li>
+                            <li><strong>Sum the coefficients:</strong> 10 + 1 + 1 + 0.5 = 12.5</li>
+                            <li><strong>Set the equation:</strong> 12.5v = 400</li>
+                            <li><strong>Divide:</strong> 400 / 12.5 = 32</li>
+                            <li><strong>Video ads:</strong> 32</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="named-proof">Named Property Proof</h2>
+
+                <p>The same result holds under a chain where every step names the property that licenses it. Let v be the number of video ads, a positive rational. Display equals 10v, social equals v, search equals one half v, and the total is 400.</p>
+
+                <div class="bannerTwitero">
+                    <h3>Step 1 — Distributive law</h3>
+                    <p>Property. Distributive law. c times a plus c times b equals c times the quantity a plus b.</p>
+                    <p>Inference. 10v plus v plus v plus one half v equals the quantity 10 plus 1 plus 1 plus one half, times v. Every term shares the factor v.</p>
+
+                    <h3>Step 2 — Associative law of addition</h3>
+                    <p>Property. Associative law of addition. Regrouping a sum does not change it.</p>
+                    <p>Inference. The coefficient equals 25 over 2. 10 plus 1 plus 1 is 12, and 12 plus one half is 25 over 2. Builds on line 1.</p>
+
+                    <h3>Step 3 — Substitution</h3>
+                    <p>Property. Substitution. Equals may replace equals.</p>
+                    <p>Inference. 25 over 2 times v equals 400. Builds on lines 1 and 2, replacing the coefficient sum with 25 over 2.</p>
+
+                    <h3>Step 4 — Multiplication property of equality</h3>
+                    <p>Property. Multiplication property of equality. If a equals b then c times a equals c times b.</p>
+                    <p>Inference. 2 over 25 times the quantity 25 over 2 times v equals 2 over 25 times 400. Builds on line 3. The same factor multiplies each side.</p>
+
+                    <h3>Step 5 — Multiplicative inverse and identity</h3>
+                    <p>Property. Multiplicative inverse property and multiplicative identity property. A nonzero number times its inverse is one, and one times a equals a.</p>
+                    <p>Inference. The left side equals v. Builds on line 4. 2 over 25 times 25 over 2 is one, and one times v is v.</p>
+
+                    <h3>Step 6 — Cancellation law</h3>
+                    <p>Property. Cancellation law. For nonzero b, b times a over b equals a.</p>
+                    <p>Inference. The right side equals 32. 2 times 400 is 800, and 800 over 25 is 25 times 32 over 25, so the 25 cancels, leaving 32. Builds on line 4.</p>
+
+                    <h3>Step 7 — Transitivity of equality</h3>
+                    <p>Property. Transitivity of equality. If a equals b and b equals c then a equals c.</p>
+                    <p>Inference. Therefore v equals 32. Builds on lines 5 and 6.</p>
+                </div>
+
+                <p>Substituting v equals 32 gives display 320, video 32, social 32, and search 16, which sum to 400. The value satisfies the constraint.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Merchants solved this kind of task long before algebra through the rule of three, a proportion method that spread across medieval trade routes and reckoning schools. Italian abacus masters used it to convert quantities, currencies, and shares from a single known relation. The same instinct, tie many values to one baseline, still drives how a planner sizes a modern campaign.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script takes the total and the channel multiples, then returns the baseline count along with every channel volume.</p>
+
+                <pre><code>from fractions import Fraction
+
+def solve_campaign(total, multiples):
+    factor = sum(Fraction(m) for m in multiples.values())
+    base = Fraction(total) / factor
+    channels = {name: base * Fraction(m) for name, m in multiples.items()}
+    return channels, base
+
+multiples = {"display": 10, "video": 1, "social": 1, "search": Fraction(1, 2)}
+channels, video = solve_campaign(400, multiples)
+print(video)        # 32
+print(channels)     # display 320, video 32, social 32, search 16
+</code></pre>
+
+                <p>Run it with any total and multiple set, and it returns the video baseline of 32 along with the full channel split.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Proportion.html" target="_blank" rel="noopener">Wolfram MathWorld — Proportion</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

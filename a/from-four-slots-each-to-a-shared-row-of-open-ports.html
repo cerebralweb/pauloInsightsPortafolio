@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Count the connection slots that stay open for clients across serverless functions, whether the functions are chained into one pipeline or kept separate.">
+    <meta name="keywords" content="serverless functions, connection slots, perimeter, chained pipeline, arithmetic, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/from-four-slots-each-to-a-shared-row-of-open-ports.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/from-four-slots-each-to-a-shared-row-of-open-ports.html" />
+
+    <title>From Four Slots Each To A Shared Row Of Open Ports</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 10, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FROM FOUR SLOTS EACH TO A SHARED ROW OF OPEN PORTS
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Layout decisions in a serverless deployment carry a quiet cost. When teams wire functions into one pipeline, they trade external reach for internal flow, and the number of connection points left for clients drops. <dfn>This article shows how a small counting rule captures that trade, and how Python turns the rule into a tool that works for any number of functions.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <p>Picture a set of serverless functions. Each function has 4 connection slots. Two questions decide how many slots stay open for clients. First, how many functions. Second, whether the functions are chained into one pipeline or kept separate. The two layouts give two different counts from the same functions.</p>
+
+                <p>Separate functions are simple. Each keeps all 4 slots, so the free total is 4 times the number of functions. Chained functions form a row. The interior functions bind a neighbor on each side and keep 2 free slots. The 2 end functions bind only one neighbor and keep 3. Add the parts and the row of functions leaves 2 times the count plus 2. For a pipeline of 20, that is 42 open slots, down from the 80 the same functions would offer apart.</p>
+
+                <h2 id="proof-version">The Proof</h2>
+
+                <p>The chained rule is S equals 2 times M plus 2, where M is the number of functions and S the open slots. The steps below reach the value for M equal to 20. Each step names the property that licenses it.</p>
+
+                <div class="bannerTwitero">
+                    <ol>
+                        <li><strong>Substitution property of equality.</strong> Equals may replace equals. Replacing M with 20 gives S equals 2 times 20 plus 2.</li>
+                        <li><strong>Distributive law.</strong> c times a plus c times b equals c times the sum a plus b. The terms 2 times 20 and 2 share the factor 2, so S equals 2 times the quantity 20 plus 1.</li>
+                        <li><strong>Addition of integers.</strong> The inner sum 20 plus 1 equals 21.</li>
+                        <li><strong>Multiplication by two.</strong> Two times a number equals that number added to itself. So 2 times 21 equals 21 plus 21 equals 42.</li>
+                        <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. Therefore S equals 42.</li>
+                    </ol>
+                </div>
+
+                <p class="insight"><em>The count is a perimeter. Each join hides two slots, so the row leaves 2 times M plus 2 open.</em></p>
+
+                <p>A separate check confirms it. Interior functions 18 times 2 free slots equal 36. End functions 2 times 3 free slots equal 6. The sum is 42, which matches the rule.</p>
+
+                <pre><code># What this does: works out how many connection slots stay open for clients.
+# Where it came from: a team deploys serverless functions, each with 4 slots, and may chain them.
+# The math idea: chained functions form a row and share slots at each join, separate ones keep all 4.
+# You type in: how many functions, and whether they are chained.
+# It prints: the number of free slots left for clients.
+
+# This function does the math for both cases.
+def free_slots(function_count, chained):
+    # Chained means the functions sit in one row.
+    if chained:
+        # Interior functions keep 2 free slots, the 2 end functions keep 3.
+        # That total works out to 2 times the count, plus 2.
+        return 2 * function_count + 2
+    # Not chained means each function stands alone and keeps all 4 slots.
+    return 4 * function_count
+
+# Tell the reader what we will figure out.
+print("Let's find how many connection slots stay open for clients.")
+
+# Ask how many functions there are.
+function_count = int(input("How many serverless functions? "))
+
+# Ask whether they are chained. Type y for yes.
+answer = input("Are they chained into one pipeline? (y/n): ")
+
+# Turn the y or n answer into a yes or no value.
+chained = answer.strip().lower() == "y"
+
+# Do the math.
+result = free_slots(function_count, chained)
+
+# Print the answer with words that fit the scenario.
+if chained:
+    print("Free slots across the chained pipeline:", result)
+else:
+    print("Free slots across the separate functions:", result)</code></pre>
+
+                <p>Run it in a terminal, type the function count, then answer y or n. The script returns the open slot total for the layout you chose, so one program covers both the pipeline and the separate case.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: serverless-slot-counter
+description: Computes how many open connection slots remain across a set of serverless functions, given each function has 4 slots and the functions are either chained into one pipeline or kept separate. Trigger this skill whenever the user wants to count free ports, slots, or connection points across chained or separate units, even if they do not use technical language.
+---
+
+<span class="md-heading"># Serverless Slot Counter</span>
+
+This skill counts the connection slots that stay open for clients across a group of serverless functions. Each function has 4 slots. The count changes with the layout. Chained functions sit in one row and share slots at each join. Separate functions keep all 4 slots each. The skill takes the number of functions and the layout, then returns the free slot total with a short line that fits the scenario.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Number of functions**</span> a whole number of serverless functions
+- <span class="md-bold">**Layout**</span> whether the functions are chained into one pipeline or kept separate
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Announce the goal</span>
+
+State that the skill will find how many connection slots stay open for clients.
+
+<span class="md-heading">### Step 2 — Collect the count</span>
+
+Ask how many serverless functions there are. Read the value as a whole number.
+
+<span class="md-heading">### Step 3 — Collect the layout</span>
+
+Ask whether the functions are chained into one pipeline. Accept a yes or no answer. Treat a yes as chained and anything else as separate.
+
+<span class="md-heading">### Step 4 — Choose the rule and compute</span>
+
+If the functions are chained, they form one row. Interior functions keep 2 free slots and the 2 end functions keep 3. This total equals 2 times the count plus 2. If the functions are separate, each keeps all 4 slots, so the total equals 4 times the count.
+
+<span class="md-heading">### Step 5 — Report the result</span>
+
+Print the free slot total with a line that names the layout. For chained, say the slots are free across the pipeline. For separate, say the slots are free across the separate functions.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "How many open ports are left if I chain 20 functions with 4 slots each?"
+- "Count the free connection points across 15 separate services."
+- "I have 12 functions, each with 4 slots. Some setups chain them. How many slots stay open?"
+- "Work out the client facing slots for a pipeline of 30 functions."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [x] The frontmatter appears once at the top
+- [x] There is no Python code in the body
+- [x] Every step reads as a plain instruction
+- [x] The chained versus separate branch is stated in plain words
+- [x] Inputs and outputs are named
+- [x] The description would trigger from a non technical prompt</code></pre>
+
+                <p>The skill carries the same rule as the script in plain steps, so Claude can run it from a request without the code. The branch stays visible. Chained gives 2 times the count plus 2, separate gives 4 times the count.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

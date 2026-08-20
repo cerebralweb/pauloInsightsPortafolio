@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A school lunch order splits across three meals bound by fixed ratios and a known total. Solve for the hamburger count and turn the logic into a reusable Python function.">
+    <meta name="keywords" content="ratios, systems of equations, allocation, demand planning, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/225-lunch-orders-three-options-one-ratio-chain.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/225-lunch-orders-three-options-one-ratio-chain.html" />
+
+    <title>225 Lunch Orders, Three Options, One Ratio Chain</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    225 LUNCH ORDERS, THREE OPTIONS, ONE RATIO CHAIN
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Advance ordering forces a kitchen to commit resources before demand is known, so the split across menu options has to be inferred from a few fixed relationships and one total. When each option is tied to another by a ratio, the whole distribution collapses to a single unknown. <dfn>This problem shows how ratio relationships anchored to a known total let a planner recover every quantity from one equation, and how Python turns that recovery into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>At a school, students order lunch in advance so the kitchen staff knows what to prepare. On Monday, six times as many students chose hamburgers as salads. The number of students who chose lasagna was one third the number who chose hamburgers.</p>
+                <p>If 225 students ordered lunch, how many chose hamburgers, given that hamburgers, salads, and lasagna were the only three options?</p>
+                <ul>
+                    <li>a) 25</li>
+                    <li>b) 150</li>
+                    <li>c) 50</li>
+                    <li>d) 100</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 150 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Write salads as the base unit. Hamburgers are <strong>6 times</strong> that base and lasagna is <strong>2 times</strong> it, since one third of six is two. The three parts <strong>sum</strong> to nine base units, and nine units equal 225, so one unit is 25 and hamburgers are 150.</p>
+
+                    <p class="insight"><em>Every quantity rides on one hidden unit, and the total fixes that unit at 25 students.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Base unit:</strong> salads = s</li>
+                            <li><strong>Hamburgers in units:</strong> 6s</li>
+                            <li><strong>Lasagna in units:</strong> one third of 6s = 2s</li>
+                            <li><strong>Total in units:</strong> s + 6s + 2s = 9s</li>
+                            <li><strong>Solve the unit:</strong> 9s = 225 gives s = 25</li>
+                            <li><strong>Hamburgers:</strong> 6 × 25 = 150</li>
+                            <li><strong>Check:</strong> 25 + 150 + 50 = 225</li>
+                        </ol>
+                    </div>
+
+                    <h2>Proof With Named Properties</h2>
+
+                    <p>Compute mode. Let s be salads, h hamburgers, and l lasagna, each a nonnegative integer. Two relations hold, h = 6s and l = h/3, and the three options sum to 225, so s + h + l = 225. The target is h.</p>
+
+                    <h3>Step 1. Substitution</h3>
+                    <p><em>Property.</em> Substitution. Equals may replace equals.</p>
+                    <p><em>Inference.</em> l = 6s / 3. Replacing h with 6s in l = h/3 gives this.</p>
+
+                    <h3>Step 2. Cancellation law</h3>
+                    <p><em>Property.</em> Cancellation law. For nonzero b, b times a over b equals a.</p>
+                    <p><em>Inference.</em> l = 2s. Builds on line 1. 6s / 3 is 3 times 2s over 3, and the 3 cancels.</p>
+
+                    <h3>Step 3. Substitution</h3>
+                    <p><em>Property.</em> Substitution. Equals may replace equals.</p>
+                    <p><em>Inference.</em> s + 6s + 2s = 225. Builds on line 2 and the setup, taking h as 6s and l as 2s.</p>
+
+                    <h3>Step 4. Distributive law</h3>
+                    <p><em>Property.</em> Distributive law. a times c plus b times c equals the quantity a plus b times c.</p>
+                    <p><em>Inference.</em> 9s = 225. Builds on line 3. The coefficients 1, 6, and 2 sum to 9.</p>
+
+                    <h3>Step 5. Multiplication property of equality</h3>
+                    <p><em>Property.</em> Multiplication property of equality. If a equals b then c times a equals c times b.</p>
+                    <p><em>Inference.</em> One over 9 times 9s equals one over 9 times 225. Builds on line 4. The same factor multiplies each side.</p>
+
+                    <h3>Step 6. Multiplicative inverse and identity</h3>
+                    <p><em>Property.</em> Multiplicative inverse property and multiplicative identity property. A nonzero number times its inverse is one, and one times a equals a.</p>
+                    <p><em>Inference.</em> The left side equals s. Builds on line 5. One over 9 times 9 is one, and one times s is s.</p>
+
+                    <h3>Step 7. Cancellation law</h3>
+                    <p><em>Property.</em> Cancellation law, as in Step 2.</p>
+                    <p><em>Inference.</em> The right side equals 25. 225 / 9 is 9 times 25 over 9, and the 9 cancels.</p>
+
+                    <h3>Step 8. Transitivity of equality</h3>
+                    <p><em>Property.</em> Transitivity of equality. If a equals b and b equals c then a equals c.</p>
+                    <p><em>Inference.</em> s = 25. Builds on lines 6 and 7.</p>
+
+                    <h3>Step 9. Substitution</h3>
+                    <p><em>Property.</em> Substitution. Equals may replace equals.</p>
+                    <p><em>Inference.</em> h = 6 times 25, which is 150. Builds on line 8 and h = 6s.</p>
+
+                    <p><strong>Verification.</strong> With s = 25, h = 150, and l = 50, the sum is 225. The total matches. Hamburgers are 150.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a known whole into parts fixed by ratio is one of the oldest jobs in applied arithmetic. Merchants in ancient Mesopotamia divided harvests and silver among partners by set proportions, and scribes recorded these shares on clay tablets long before algebra had symbols. The same reasoning later drove tax assessment, army provisioning, and inheritance law, where one total and a handful of ratios settled every claimant's portion.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script recovers all three counts from a total, the hamburger to salad ratio, and the lasagna fraction, so any similar demand split reuses it.</p>
+
+                <pre><code>from fractions import Fraction
+
+def lunch_counts(total, burger_to_salad, lasagna_fraction_of_burger):
+    ratio = Fraction(burger_to_salad)
+    frac = Fraction(lasagna_fraction_of_burger)
+    units = 1 + ratio + ratio * frac
+    salads = Fraction(total) / units
+    hamburgers = ratio * salads
+    lasagna = frac * hamburgers
+    return int(salads), int(hamburgers), int(lasagna)
+
+print(lunch_counts(225, 6, Fraction(1, 3)))
+</code></pre>
+
+                <p>Run it with any total and ratios, and it returns the salad, hamburger, and lasagna counts as whole numbers, printing (25, 150, 50) for this case.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations" target="_blank" rel="noopener">Khan Academy — Systems of Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearSystemofEquations.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear System of Equations</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/systems-of-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Systems of Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

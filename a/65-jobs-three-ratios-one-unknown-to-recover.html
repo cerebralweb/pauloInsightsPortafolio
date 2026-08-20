@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud operations planning problem solved with a single linear equation in one unknown, plus a reusable Python solver.">
+    <meta name="keywords" content="linear equations, ratios, business math, cloud operations, Python, systems planning">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/65-jobs-three-ratios-one-unknown-to-recover.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/65-jobs-three-ratios-one-unknown-to-recover.html" />
+
+    <title>65 Jobs, Three Ratios, One Unknown To Recover</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    65 JOBS, THREE RATIOS, ONE UNKNOWN TO RECOVER
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning rarely starts from a full picture. Teams often fix the relationships between activities before they know the base quantity, then let a known total reveal the rest. <dfn>This problem shows how a single linear equation recovers one unknown from a set of ratios and a total, and how Python turns that recovery into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations lead plans compute jobs for the year across three instance families. She plans to run twice as many batch jobs as training jobs. The number of streaming jobs she plans to run is one fourth the number of training jobs.</p>
+                <p>If she runs 65 jobs in total, how many training jobs does she run?</p>
+                <ul>
+                    <li>a) 40</li>
+                    <li>b) 5</li>
+                    <li>c) 45</li>
+                    <li>d) 20</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 20 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Write every family in terms of training jobs, then <strong>add</strong> them into one total. Batch is 2 times training and streaming is one fourth of training, so training plus batch plus streaming becomes 13 over 4 times training. Setting that equal to 65 and <strong>dividing</strong> by 13 over 4 gives training.</p>
+
+                    <p class="insight"><em>Fixing every quantity as a multiple of one base collapses three unknowns into one.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Name the base:</strong> let training jobs equal t</li>
+                            <li><strong>Express batch:</strong> batch equals 2t</li>
+                            <li><strong>Express streaming:</strong> streaming equals t over 4</li>
+                            <li><strong>Sum the families:</strong> t plus 2t plus t over 4 equals 13t over 4</li>
+                            <li><strong>Set the total:</strong> 13t over 4 equals 65</li>
+                            <li><strong>Clear the fraction:</strong> 13t equals 260</li>
+                            <li><strong>Divide by 13:</strong> t equals 20</li>
+                            <li><strong>Check:</strong> 20 plus 40 plus 5 equals 65</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="reasoned-proof">Reasoned Proof</h2>
+
+                <p>Compute mode. Each step names the property that licenses it, states the property in general form, then shows it act on the numbers. Let t be the training jobs, a positive integer. Batch equals 2t, streaming equals t over 4, and the three sum to 65, so 2t plus t plus t over 4 equals 65.</p>
+
+                <div class="bannerTwitero">
+                    <h2>Named Steps</h2>
+                    <ol>
+                        <li><strong>Distributive law.</strong> a times c plus b times c equals the quantity a plus b, times c. So 1t plus 2t equals 3t.</li>
+                        <li><strong>Substitution.</strong> Equals may replace equals. The equation becomes 3t plus t over 4 equals 65. Builds on step 1.</li>
+                        <li><strong>Multiplication property of equality.</strong> If a equals b then c times a equals c times b. Multiplying each side by 4 gives 4 times the quantity 3t plus t over 4 equals 260. Builds on step 2.</li>
+                        <li><strong>Distributive law.</strong> c times the quantity a plus b equals c times a plus c times b. The left side expands to 4 times 3t, plus 4 times t over 4. Builds on step 3.</li>
+                        <li><strong>Associative law of multiplication.</strong> The quantity a times b, times c equals a times the quantity b times c. So 4 times 3t equals 12t. Builds on step 4.</li>
+                        <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. So 4 times t over 4 equals t. Builds on step 4.</li>
+                        <li><strong>Distributive law.</strong> Combining like terms, 12t plus 1t equals 13t. Builds on steps 5 and 6.</li>
+                        <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. So 13t equals 260. Builds on steps 3 and 7.</li>
+                        <li><strong>Division property of equality.</strong> If a equals b and c is nonzero then a over c equals b over c. So t equals 260 over 13. Builds on step 8.</li>
+                        <li><strong>Cancellation law.</strong> Since 260 is 13 times 20, the 13 cancels and t equals 20. Builds on step 9.</li>
+                    </ol>
+                    <p><strong>Verification.</strong> Training 20, batch 40, streaming 5. The sum 20 plus 40 plus 5 equals 65. The total matches.</p>
+                </div>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Recovering an unknown quantity from stated proportions and a fixed total is one of the oldest uses of algebra. Merchants and tax officials of the medieval Islamic world faced these splits daily, dividing estates, wages, and goods among fixed shares. In the ninth century the Baghdad scholar al Khwarizmi set out systematic methods for balancing and reducing such equations, and the word algebra traces back to the title of his treatise on that work.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script recovers the base quantity from a total and any two ratio multipliers, so it fits any three way split of this shape.</p>
+
+<pre><code>from fractions import Fraction
+
+def training_jobs(total, batch_ratio, streaming_ratio):
+    factor = Fraction(1) + Fraction(batch_ratio) + Fraction(streaming_ratio)
+    return total / factor
+
+print(training_jobs(65, 2, Fraction(1, 4)))  # 20</code></pre>
+
+                <p>Run it with any total and ratios and it returns the base quantity as an exact fraction, here 20.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:solving-equations-inequalities" target="_blank" rel="noopener">Khan Academy — Linear Equations in One Variable</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/linear-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

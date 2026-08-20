@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud storage reorganization across three tiers reduces to a single ratio unit. See the whole to parts division and a reusable Python function.">
+    <meta name="keywords" content="ratios, whole to parts division, cloud storage tiers, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-one-number-that-sizes-every-cloud-storage-tier.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-one-number-that-sizes-every-cloud-storage-tier.html" />
+
+    <title>The One Number That Sizes Every Cloud Storage Tier</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE ONE NUMBER THAT SIZES EVERY CLOUD STORAGE TIER
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Storage planning in the cloud depends on knowing how volume splits across access tiers before a single file moves. When each tier is defined as a multiple of another, the whole collapses into a set of equal units, and finding one unit fixes all the rest. <dfn>This problem shows how ratio relationships turn a large total into a single base quantity, and how Python can size every tier from that one value.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations lead has 1,400 stored datasets to reorganize across three access tiers, hot, warm, and cold. The warm tier holds 4 times as many datasets as the cold tier, and the hot tier holds half as many datasets as the warm tier.</p>
+                <p>How many datasets are in the cold tier?</p>
+                <ul>
+                    <li>a) 200</li>
+                    <li>b) 224</li>
+                    <li>c) c</li>
+                    <li>d) 700</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 200 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Set the cold tier as one unit. The warm tier is <strong>4 units</strong> and the hot tier is <strong>2 units</strong>, so the total is <strong>7 units</strong>. Dividing 1,400 by 7 gives the size of one unit.</p>
+
+                    <p class="insight"><em>Every tier is a multiple of the cold tier, so the whole total is exactly 7 cold tiers.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Cold tier:</strong> 1 unit</li>
+                            <li><strong>Warm tier:</strong> 4 units</li>
+                            <li><strong>Hot tier:</strong> 2 units</li>
+                            <li><strong>Total units:</strong> 1 + 4 + 2 = 7</li>
+                            <li><strong>One unit:</strong> 1,400 ÷ 7 = 200</li>
+                            <li><strong>Cold tier size:</strong> 200 datasets</li>
+                        </ol>
+                    </div>
+
+                    <h2>Formal Proof</h2>
+
+                    <p>Let c be the number of datasets in the cold tier, a positive integer. The warm tier holds 4c and the hot tier holds 2c. The three tiers sum to 1,400, so the governing equation is c + 4c + 2c = 1,400.</p>
+
+                    <ol>
+                        <li><strong>Distributive law.</strong> c + 4c + 2c = 7c. The three like terms factor into 7c through c(1 + 4 + 2).</li>
+                        <li><strong>Substitution.</strong> The equation becomes 7c = 1,400, replacing c + 4c + 2c with 7c.</li>
+                        <li><strong>Multiplication property of equality.</strong> Multiply each side by one over 7, giving (1/7)(7c) = (1/7)(1,400).</li>
+                        <li><strong>Multiplicative inverse and identity.</strong> The left side reduces to c, since one over 7 times 7 is 1 and 1 times c is c.</li>
+                        <li><strong>Cancellation law.</strong> The right side is 1,400 over 7, which equals 200.</li>
+                        <li><strong>Transitivity of equality.</strong> Therefore c = 200.</li>
+                    </ol>
+
+                    <p><em>Check.</em> Cold 200, warm 800, hot 400. The sum is 1,400, so the total matches.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a whole into parts fixed by ratio is one of the oldest practical uses of arithmetic. Merchants in medieval trade cities divided profits among partners according to the shares each contributed, reducing a lump sum to a count of equal parts before paying anyone. The same logic drives modern capacity planning, where a total is carved into proportional slices long before physical resources are assigned.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This function sizes any tier from a total and the two multiples that define the structure, so it works for storage, budgets, or headcount.</p>
+
+                <pre><code>def tier_sizes(total, warm_per_cold, hot_per_warm):
+    units = 1 + warm_per_cold + hot_per_warm * warm_per_cold
+    cold = total / units
+    warm = warm_per_cold * cold
+    hot = hot_per_warm * warm
+    return {"cold": cold, "warm": warm, "hot": hot}
+
+
+print(tier_sizes(1400, 4, 0.5))
+</code></pre>
+
+                <p>Run it with the total and the two ratios, and it returns 200 for the cold tier, 800 for warm, and 400 for hot.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

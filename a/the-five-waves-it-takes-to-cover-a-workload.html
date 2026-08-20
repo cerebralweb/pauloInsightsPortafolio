@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A serverless job doubles its functions each wave. Find the smallest number of waves that covers the whole workload, with a step-by-step solution and reusable Python.">
+    <meta name="keywords" content="geometric series, exponential growth, doubling, serverless, capacity planning, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-five-waves-it-takes-to-cover-a-workload.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-five-waves-it-takes-to-cover-a-workload.html" />
+
+    <title>The Five Waves It Takes to Cover a Workload</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 12, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE FIVE WAVES IT TAKES TO COVER A WORKLOAD
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud capacity planning turns on a single question, how fast a system grows once it starts. When each round of work spawns more work of the same shape, the total climbs by multiplying, not by adding, and a team that plans for steady growth will underprovision fast. <dfn>This problem shows how a doubling cascade reaches a target in surprisingly few rounds, and how a running accumulator captures that growth in a form Python can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud team runs a serverless job that must process 50 records. One orchestrator starts the job and invokes 2 functions. In the next wave, each of those functions invokes 2 more functions. Every wave doubles the number of new functions the same way. The job runs until at least 50 functions have been invoked, one per record. The workload holds 50 records.</p>
+                <p>How many waves are needed to cover all 50?</p>
+                <ul>
+                    <li>a) 6</li>
+                    <li>b) 11</li>
+                    <li>c) 5</li>
+                    <li>d) 1</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 5 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Write the total after a wave as the current wave plus an accumulator, where the accumulator holds every earlier wave. Each wave <strong>adds</strong> its functions to that accumulator, and each new wave is the previous wave <strong>times 2</strong>. Track the running total until it clears 50.</p>
+
+                    <p class="insight"><em>The total after n waves equals 2 to the power (n plus 1), minus 2, so five waves reach 62 while four reach only 30.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Wave 1:</strong> current 2, accumulator 0, total 2</li>
+                            <li><strong>Wave 2:</strong> current 4, accumulator 2, total 6</li>
+                            <li><strong>Wave 3:</strong> current 8, accumulator 6, total 14</li>
+                            <li><strong>Wave 4:</strong> current 16, accumulator 14, total 30</li>
+                            <li><strong>Wave 5:</strong> current 32, accumulator 30, total 62</li>
+                            <li><strong>First crossing:</strong> wave 4 gives 30, below 50; wave 5 gives 62, at or above 50</li>
+                            <li><strong>Answer:</strong> 5 waves</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="accumulator-proof">The Accumulator Proof</h2>
+
+                <p>This proof justifies the form the reader wrote, 2 to the power n plus t, and names the properties behind it. There is no closed form for t. The accumulator stays as a running total, added one wave at a time.</p>
+
+                <p>The wave size at wave n is 2 to the power n. This is the current wave. The accumulator, t sub n, is the total of every wave before wave n. It is a value carried forward and updated each round, not a formula.</p>
+
+                <p><strong>Claim.</strong> The total after n waves is T(n) equals 2 to the power n, plus t sub n. The smallest n with T(n) at least 50 is n equals 5.</p>
+
+                <p><strong>Method.</strong> Direct evaluation. Set where the accumulator starts, state how it updates, run the rounds, then take the first crossing.</p>
+
+                <div class="bannerTwitero">
+                    <h2>Proof Steps</h2>
+                    <ol>
+                        <li><strong>Split the total.</strong> By associativity of addition, terms in a sum regroup without changing the total, so T(n) equals the current wave 2 to the power n, plus the rest, t sub n.</li>
+                        <li><strong>Set the start.</strong> By the definition of the accumulator, nothing has been done before the first wave, so t sub 1 equals 0.</li>
+                        <li><strong>State the update.</strong> By the recurrence, each round absorbs the wave that just finished, so t at n plus 1 equals t sub n, plus 2 to the power n.</li>
+                        <li><strong>Run the rounds.</strong> Wave 1 total 2, wave 2 total 6, wave 3 total 14, wave 4 total 30, wave 5 total 62. Each accumulator is the previous line's total.</li>
+                        <li><strong>Confirm the crossing.</strong> By monotonicity, every wave size is positive, so the total only rises. Wave 4 gives 30, below 50; wave 5 gives 62, at or above 50.</li>
+                        <li><strong>Take the least n.</strong> By the well ordering principle, the waves that clear 50 form a nonempty set of whole numbers, and its least element is 5.</li>
+                    </ol>
+                </div>
+
+                <p><strong>Verification.</strong> At wave 5 the current wave is 2 to the power 5, which is 32, and the accumulator is 30. Their sum is 62, which satisfies the rule. At wave 4 the sum is 30, which fails it. So 5 is the smallest n.</p>
+
+                <p><strong>Conclusion.</strong> The form 2 to the power n plus t holds by associativity, with t carried by the recurrence from a start of 0. Running the rounds and taking the first crossing gives n equals 5. QED.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Growth by repeated doubling has shaped how people reason about scale for a long time, from old fables about grains multiplying on a chessboard to compound interest in early banking. In the twentieth century the same shape reappeared in technology, when Gordon Moore observed in 1965 that the number of transistors on a chip was doubling at a steady pace, a pattern later named Moore's Law.</p>
+                <p>The lesson for business is constant across those eras. When each unit produces more units of its own kind, totals reach large numbers in few steps, which is why capacity planning under doubling looks calm for several rounds and then overwhelms a fixed budget.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The first script keeps a running accumulator and adds one wave at a time until the total clears the target, which mirrors the original reasoning exactly.</p>
+
+<pre><code># What this does: finds how many waves a doubling job needs to cover all records.
+# Where it came from: a serverless job starts 2 functions, and each wave doubles the new functions.
+# The math idea: keep a running total, add each wave, stop when the total reaches the target.
+# You type in: the number of records that must be covered.
+# It prints: how many waves are needed.
+
+# This function does the math.
+def waves_needed(records):
+    # The running total of functions started so far. Nothing yet.
+    total = 0
+    # Count the waves as we go.
+    wave = 0
+    # The size of the next wave. The first wave starts 2 functions.
+    wave_size = 2
+    # Keep adding waves until the total reaches the target.
+    while total &lt; records:
+        # Move to the next wave.
+        wave = wave + 1
+        # Add this wave's functions to the running total.
+        total = total + wave_size
+        # The next wave is twice as big.
+        wave_size = wave_size * 2
+    # Hand back the wave count and the final total.
+    return wave, total
+
+# Tell the reader what we will figure out.
+print("Let's find how many doubling waves cover all the records.")
+
+# Ask for the number of records.
+records = int(input("Records to cover: "))
+
+# Do the math.
+wave, total = waves_needed(records)
+
+# Print the answer with words that fit the scenario.
+print("Waves needed:", wave)
+print("Functions started by then:", total)
+</code></pre>
+
+                <p>The second script skips the loop with a closed form. Since the total after n waves is 2 to the power (n plus 1) minus 2, a base 2 logarithm pulls the exponent out directly, which is faster for very large targets.</p>
+
+<pre><code># What this does: finds how many waves a doubling job needs to cover all records.
+# Where it came from: a serverless job starts 2 functions, and each wave doubles the new functions.
+# The math idea: the total after n waves is 2 to the power (n+1) minus 2, solved straight for n.
+# You type in: the number of records that must be covered.
+# It prints: how many waves are needed.
+
+# Bring in the math tools for logs and rounding up.
+import math
+
+# This function does the math.
+def waves_needed(records):
+    # The total after n waves is 2 to the power (n+1) minus 2.
+    # We need that total to reach the target, so 2 to the power (n+1) must reach target plus 2.
+    # Take the log base 2 to pull the exponent down, then round up to the next whole wave.
+    exponent = math.ceil(math.log2(records + 2))
+    # The exponent is n plus 1, so subtract 1 to get the wave count.
+    wave = exponent - 1
+    # Work out the total functions started by then.
+    total = 2 ** (wave + 1) - 2
+    # Hand back the wave count and the final total.
+    return wave, total
+
+# Tell the reader what we will figure out.
+print("Let's find how many doubling waves cover all the records.")
+
+# Ask for the number of records.
+records = int(input("Records to cover: "))
+
+# Do the math.
+wave, total = waves_needed(records)
+
+# Print the answer with words that fit the scenario.
+print("Waves needed:", wave)
+print("Functions started by then:", total)
+</code></pre>
+
+                <p>Run either in a terminal, type 50 at the prompt, and both return 5 waves with 62 functions started by then.</p>
+
+                <h2 id="dialogue">A Short Dialogue</h2>
+
+                <p>The questions below trace how the code maps back to the accumulator, and how the closed form handles the exponent.</p>
+
+                <p><strong>Q.</strong> In the code, is <code>wave_size</code> the same as my accumulator t?</p>
+                <p><strong>A.</strong> No. <code>wave_size</code> is the current wave, 2 to the power n. Your t is the accumulator, which the code holds in <code>total</code> before this wave is added.</p>
+
+                <p><strong>Q.</strong> In <code>wave_size = wave_size * 2</code>, does times 2 represent the base in my 2 to the power n?</p>
+                <p><strong>A.</strong> Yes. Multiplying by 2 advances the power one step, from 2 to the power n to 2 to the power n plus 1.</p>
+
+                <p><strong>Q.</strong> What does <code>math.ceil</code> do?</p>
+                <p><strong>A.</strong> It rounds up to the next whole number. 4.2 becomes 5, and 4.0 stays 4. A wave count must be whole, so a result of 5.3 rounds up to 6.</p>
+
+                <p><strong>Q.</strong> The docs say it returns an integral. What does integral mean here?</p>
+                <p><strong>A.</strong> A whole number. It hands back 5, not 5.0. This is not the calculus meaning of the word.</p>
+
+                <p><strong>Q.</strong> Does the base 2 logarithm give the power of 2 that yields its argument?</p>
+                <p><strong>A.</strong> Yes. log base 2 of 64 is 6, because 2 to the power 6 is 64. The logarithm undoes the exponent.</p>
+
+                <p><strong>Q.</strong> Why <code>records + 2</code> and not just <code>records</code>?</p>
+                <p><strong>A.</strong> The rule is 2 to the power n plus 1, minus 2, at least records, which rearranges to 2 to the power n plus 1, at least records plus 2. Dropping the plus 2 undercounts. At 64 records it would return 5 waves and 62 functions, short of 64.</p>
+
+                <p><strong>Q.</strong> Does 2 to the power 6, minus 2, really equal 62?</p>
+                <p><strong>A.</strong> Yes. 2 to the power 6 is 64, and 64 minus 2 is 62. The minus 2 comes off after the power, not out of the exponent. 2 to the power 6 minus 2 in the exponent would be 16, a different thing.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:series/x2ec2f6f830c9fb89:geo-series/v/geometric-series-introduction" target="_blank" rel="noopener">Khan Academy — Geometric Series</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/GeometricSeries.html" target="_blank" rel="noopener">Wolfram MathWorld — Geometric Series</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/geometric-series" target="_blank" rel="noopener">Mathematics Stack Exchange — Geometric Series</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 12, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

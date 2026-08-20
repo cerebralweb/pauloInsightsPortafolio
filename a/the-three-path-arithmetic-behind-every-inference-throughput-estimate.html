@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A short business math problem on inference throughput. One rate is known, a second is one third of it, and a third sits below the second by a fixed amount.">
+    <meta name="keywords" content="ratios, rates, proportional reasoning, inference throughput, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-three-path-arithmetic-behind-every-inference-throughput-estimate.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-three-path-arithmetic-behind-every-inference-throughput-estimate.html" />
+
+    <title>The Three Path Arithmetic Behind Every Inference Throughput Estimate</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE THREE PATH ARITHMETIC BEHIND EVERY INFERENCE THROUGHPUT ESTIMATE
+                    
+                    
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning for machine learning services rests on comparing rates that depend on one another. A fast path sets a reference, a slower path is expressed as a fraction of it, and a third path is defined by a gap from the second. <dfn>This problem shows how a chain of a division and a subtraction turns one measured rate into a full picture of throughput, and how Python turns that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>An AI team runs three inference paths. The cached path handles 150 requests per hour. The cached path runs three times faster than the standard path. The fallback path handles 20 fewer requests per hour than the standard path.</p>
+                <p>How many requests per hour does the fallback path handle?</p>
+                <ul>
+                    <li>a) 20</li>
+                    <li>b) 120</li>
+                    <li>c) 40</li>
+                    <li>d) 30</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 30 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Find the standard path first. <strong>Divide</strong> the cached rate by 3 to get 50. Then <strong>subtract</strong> 20 to get the fallback rate.</p>
+
+                    <p class="insight"><em>The known rate is the cached path, but the target rate sits two operations away from it.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Cached path rate:</strong> 150 requests per hour</li>
+                            <li><strong>Standard path rate:</strong> 150 ÷ 3 = 50 requests per hour</li>
+                            <li><strong>Fallback path rate:</strong> 50 − 20 = 30 requests per hour</li>
+                        </ol>
+                    </div>
+
+                    <h2>Proof with Named Properties</h2>
+
+                    <p><strong>Setup.</strong> Let s be the standard path rate in requests per hour, a positive rational. Let f be the fallback path rate. The cached path is 150 and equals three times the standard path, so 3s equals 150. The fallback path is 20 fewer than the standard path, so f equals s minus 20.</p>
+
+                    <ol>
+                        <li><strong>Multiplication property of equality.</strong> If a equals b then c times a equals c times b. One third times 3s equals one third times 150, since the same factor multiplies each side of 3s equals 150.</li>
+                        <li><strong>Multiplicative inverse and identity.</strong> A nonzero number times its inverse is one, and one times a equals a. So s equals 50. Builds on line 1, since one third times 3 is one and one third times 150 is 50.</li>
+                        <li><strong>Substitution.</strong> Equals may replace equals. So f equals 50 minus 20. Builds on line 2, replacing s in f equals s minus 20 with 50.</li>
+                        <li><strong>Arithmetic evaluation.</strong> No standard named property. The move rests on evaluating a difference. So f equals 30. Builds on line 3, since 50 minus 20 is 30.</li>
+                    </ol>
+
+                    <p><strong>Verification.</strong> The standard path is 50. Three times 50 is 150, which matches the cached path. The fallback path is 50 minus 20, which is 30.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Rates defined against one another are old. Merchants in medieval Islamic markets set prices and yields as fixed proportions of a reference measure, a practice carried into Europe through the rule of three in commercial arithmetic. The same move, take a known quantity, scale it by a ratio, then adjust by a fixed offset, still underlies how firms plan output when one measured figure anchors several dependent ones.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script turns the cached rate, the speed factor, and the offset into the fallback rate, so any set of three inputs returns an answer.</p>
+
+                <pre><code>def fallback_path_rate(cached_rate, speed_factor, offset):
+    standard_rate = cached_rate / speed_factor
+    return standard_rate - offset
+
+print(fallback_path_rate(150, 3, 20))  # 30.0</code></pre>
+
+                <p>Run it with any three values and it returns the fallback rate; with 150, 3, and 20 it returns 30.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

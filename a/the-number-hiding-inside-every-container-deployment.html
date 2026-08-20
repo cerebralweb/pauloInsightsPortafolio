@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A container deployment problem where one known count unlocks every other resource total through simple ratios.">
+    <meta name="keywords" content="systems of equations, ratios, substitution, capacity planning, container orchestration, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-number-hiding-inside-every-container-deployment.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-number-hiding-inside-every-container-deployment.html" />
+
+    <title>The Number Hiding Inside Every Container Deployment</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE NUMBER HIDING INSIDE EVERY CONTAINER DEPLOYMENT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Capacity planning rests on fixed ratios between resource types. When several resource counts all scale off one base, a single known number can rebuild the entire deployment. <dfn>This problem shows how one anchor value drives a chain of ratios, and how Python turns that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Claudia managed a container deployment for her whole company. She launched twice as many web pods as API pods. Then she launched monitoring sidecars, one for every two API pods. Because the platform relied on persistent state, she attached three times as many storage volumes as monitoring sidecars. After the load test ended, there were 4 web pods, 5 API pods, and 1 monitoring sidecar sitting idle, and no storage volumes were left unattached.</p>
+                <p>How many of each stayed in active use during the test?</p>
+                <ul>
+                    <li>a) 32, 13, 8, 27</li>
+                    <li>b) 36, 13, 8, 27</li>
+                    <li>c) 31, 20, 8, 27</li>
+                    <li>d) 30, 20, 9, 27</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 32, 13, 8, 27 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The storage volumes are the one number you must know. Storage equals <strong>1.5 times</strong> the API pods launched, so 27 <strong>divides back</strong> to 18 API pods. Every other count follows, then you <strong>subtract</strong> the idle leftovers.</p>
+
+                    <p class="insight"><em>Knowing 27 is the whole game, because with zero left over it fixes the base count that all the other ratios hang on.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>API pods launched:</strong> 27 times 2 divided by 3 equals 18</li>
+                            <li><strong>Web pods launched:</strong> 2 times 18 equals 36</li>
+                            <li><strong>Sidecars launched:</strong> 18 divided by 2 equals 9</li>
+                            <li><strong>Web pods in use:</strong> 36 minus 4 idle equals 32</li>
+                            <li><strong>API pods in use:</strong> 18 minus 5 idle equals 13</li>
+                            <li><strong>Sidecars in use:</strong> 9 minus 1 idle equals 8</li>
+                            <li><strong>Storage volumes in use:</strong> 27, none idle</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Solving many linked quantities from one known value is the heart of a system of equations. Merchants and engineers used the method long before it had a name, splitting cargo, coin, and land by fixed proportions. In the 17th century Ren&eacute; Descartes carried unknowns through equations as symbols, which made this kind of back-solving routine for anyone planning resources.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script takes the storage count and the idle leftovers, then rebuilds every active total, so it works for any deployment sized the same way.</p>
+
+                <pre><code># What this does: works out how many pods and sidecars stayed in active use during a load test.
+# Where it came from: a container deployment with web pods, API pods, monitoring sidecars, and storage volumes tied together by fixed ratios.
+# The math idea: one known number (the storage volumes) unlocks the base count, then the rest follow.
+# You type in: the storage volumes in use, and the idle counts for web pods, API pods, and sidecars.
+# It prints: how many web pods, API pods, sidecars, and storage volumes stayed in active use.
+
+# This function does the math.
+def active_use(storage_in_use, idle_web, idle_api, idle_sidecar):
+    # The storage volumes are the one number you must know.
+    # There are 3 storage volumes for every 1 sidecar, and 1 sidecar for every 2 API pods.
+    # So storage equals 3 times half the API pods, which is 1.5 times the API pods.
+    # Work backward from storage to get the API pods that were launched.
+    api_launched = storage_in_use * 2 // 3
+
+    # There were twice as many web pods launched as API pods.
+    web_launched = 2 * api_launched
+
+    # There was one sidecar launched for every two API pods.
+    sidecar_launched = api_launched // 2
+
+    # Active use is what was launched minus what sat idle at the end.
+    web_used = web_launched - idle_web
+    api_used = api_launched - idle_api
+    sidecar_used = sidecar_launched - idle_sidecar
+
+    # No storage volumes were left over, so all of them stayed in use.
+    storage_used = storage_in_use
+
+    return web_used, api_used, sidecar_used, storage_used
+
+# Tell the reader what we will figure out.
+print("Let's find how many pods and volumes stayed in active use.")
+
+# Ask for the one number that unlocks the problem.
+storage_in_use = int(input("Storage volumes in use: "))
+
+# Ask for the idle leftovers.
+idle_web = int(input("Idle web pods: "))
+idle_api = int(input("Idle API pods: "))
+idle_sidecar = int(input("Idle monitoring sidecars: "))
+
+# Do the math.
+web_used, api_used, sidecar_used, storage_used = active_use(storage_in_use, idle_web, idle_api, idle_sidecar)
+
+# Print the answer with words that fit the scenario.
+print("Web pods in use:", web_used)
+print("API pods in use:", api_used)
+print("Monitoring sidecars in use:", sidecar_used)
+print("Storage volumes in use:", storage_used)</code></pre>
+
+                <p>Run it, type 27, 4, 5, 1 at the prompts, and it returns 32, 13, 8, and 27.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations" target="_blank" rel="noopener">Khan Academy &mdash; Systems of Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/SystemofEquations.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; System of Equations</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/systems-of-equations" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Systems of Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

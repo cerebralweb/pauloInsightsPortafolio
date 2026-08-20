@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kepler Conjecture — Sphere Packing</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  :root{
+    --void:#0A0E23;
+    --indigo:#141A3C;
+    --silver:#C9D2E0;
+    --gold:#EBC474;
+    --copper:#C4703A;
+    --pale:#EDE7D6;
+    --dim:#7C86A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:
+      radial-gradient(1200px 800px at 70% 30%, #16204a 0%, rgba(20,26,60,0) 60%),
+      var(--void);
+    color:var(--pale);
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  /* faint starfield */
+  #stars{position:fixed;inset:0;pointer-events:none;opacity:.5}
+  #frame{position:fixed;inset:0;display:grid;grid-template-rows:auto 1fr auto;padding:26px}
+
+  header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:0 22px}
+  .eyebrow{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--dim);
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(28px,4.8vw,56px);font-weight:600;line-height:.98;letter-spacing:-.01em;
+    margin-top:6px;
+  }
+  h1 em{font-style:italic;color:var(--gold)}
+  .plate{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.12em;color:var(--dim);text-align:right;line-height:1.8;
+  }
+
+  main{position:relative;margin:14px 0}
+  #canvas-wrap{position:absolute;inset:0}
+  canvas{display:block;width:100%;height:100%;cursor:grab}
+  canvas:active{cursor:grabbing}
+
+  /* density readout */
+  #readout{position:absolute;left:22px;bottom:14px;pointer-events:none}
+  #readout .pct{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:clamp(44px,9vw,104px);font-weight:700;letter-spacing:-.03em;line-height:.8;color:var(--pale)}
+  #readout .pct .s{color:var(--dim);font-size:.42em;letter-spacing:0;vertical-align:.55em}
+  #readout .lbl{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+  #readout .cmp{margin-top:14px;width:min(260px,52vw)}
+  #readout .track{position:relative;height:5px;background:rgba(124,134,168,.25)}
+  #readout .fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--silver),var(--gold));transition:width .5s ease}
+  #readout .max{position:absolute;top:-4px;width:1px;height:13px;background:var(--copper)}
+  #readout .maxlbl{font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.1em;color:var(--copper);margin-top:6px}
+
+  /* controls */
+  #panel{
+    position:absolute;right:22px;top:0;width:min(270px,42vw);
+    background:rgba(10,14,35,.55);backdrop-filter:blur(7px);
+    border:1px solid rgba(201,210,224,.16);padding:18px;
+  }
+  .seg{display:flex;gap:6px;margin-bottom:16px}
+  .seg button{
+    flex:1;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    padding:10px 4px;border:1px solid rgba(201,210,224,.28);background:transparent;color:var(--silver);cursor:pointer;
+    transition:all .15s;
+  }
+  .seg button:hover{border-color:var(--gold)}
+  .seg button.on{background:var(--gold);color:var(--void);border-color:var(--gold)}
+  .ctl .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .ctl label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--silver)}
+  .ctl .val{font-family:ui-monospace,monospace;font-size:12px;color:var(--dim)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:rgba(201,210,224,.25);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--gold);border:2px solid var(--void);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:var(--gold);border:2px solid var(--void);cursor:pointer}
+  .note{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.08em;color:var(--dim);margin-top:14px;line-height:1.7}
+
+  footer{display:flex;align-items:center;gap:0;padding:0 22px}
+  .bar{flex:1;height:8px;background:linear-gradient(90deg,var(--indigo),var(--silver),var(--gold),var(--copper))}
+  .foot-label{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.22em;color:var(--dim);padding-left:16px;white-space:nowrap}
+
+  @media(max-width:720px){
+    header{flex-direction:column;align-items:flex-start;gap:6px}
+    .plate{text-align:left}
+    #panel{position:static;width:100%;margin-top:8px}
+    #readout{left:14px;bottom:8px}
+    #frame{padding:18px}
+  }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div id="frame">
+  <header>
+    <div>
+      <div class="eyebrow">On the six cornered snowflake / 1611</div>
+      <h1>The <em>Kepler</em> Conjecture</h1>
+    </div>
+    <div class="plate">
+      MAX DENSITY 74.05%<br>
+      FACE CENTERED CUBIC<br>
+      PROVEN HALES 1998 / 2014
+    </div>
+  </header>
+
+  <main>
+    <div id="canvas-wrap"></div>
+
+    <div id="readout">
+      <div class="pct" id="pct">74.05<span class="s">%</span></div>
+      <div class="lbl" id="arrLbl">Close packing</div>
+      <div class="cmp">
+        <div class="track">
+          <div class="fill" id="fill" style="width:74.05%"></div>
+          <div class="max" style="left:74.05%"></div>
+        </div>
+        <div class="maxlbl">Kepler maximum 74.05%</div>
+      </div>
+    </div>
+
+    <div id="panel">
+      <div class="seg" id="seg">
+        <button data-a="close" class="on">Close pack</button>
+        <button data-a="cubic">Cubic</button>
+        <button data-a="loose">Loose</button>
+      </div>
+      <div class="ctl">
+        <div class="row"><label>Size</label><span class="val" id="vsize">140 spheres</span></div>
+        <input type="range" id="size" min="3" max="7" value="7">
+      </div>
+      <div class="note" id="note">Cannonballs rest in the pockets of the layer below. No arrangement beats this.</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="bar"></div>
+    <div class="foot-label">INDIGO · SILVER · GOLD · COPPER</div>
+  </footer>
+</div>
+
+<script>
+/* ---------- starfield ---------- */
+(function(){
+  const c=document.getElementById('stars'),x=c.getContext('2d');
+  function draw(){
+    c.width=innerWidth;c.height=innerHeight;
+    x.clearRect(0,0,c.width,c.height);
+    const n=Math.round(c.width*c.height/9000);
+    for(let i=0;i<n;i++){
+      const r=Math.random()*1.1+0.2;
+      x.globalAlpha=Math.random()*0.6+0.15;
+      x.fillStyle=Math.random()>0.85?'#EBC474':'#C9D2E0';
+      x.beginPath();x.arc(Math.random()*c.width,Math.random()*c.height,r,0,7);x.fill();
+    }
+  }
+  draw();addEventListener('resize',draw);
+})();
+
+/* ---------- three.js scene ---------- */
+const wrap=document.getElementById('canvas-wrap');
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(40,1,0.1,1000);
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+wrap.appendChild(renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0x3a4680,0.9));
+const keyL=new THREE.DirectionalLight(0xffe6b0,1.15); keyL.position.set(6,9,7); scene.add(keyL);
+const fillL=new THREE.DirectionalLight(0x5b6bd6,0.55); fillL.position.set(-7,-3,-6); scene.add(fillL);
+const rimL=new THREE.DirectionalLight(0xEBC474,0.4); rimL.position.set(-4,6,-8); scene.add(rimL);
+
+const R=0.5;
+const geo=new THREE.SphereGeometry(R,32,24);
+const mat=new THREE.MeshStandardMaterial({roughness:0.35,metalness:0.15});
+const CAP=400;
+const mesh=new THREE.InstancedMesh(geo,mat,CAP);
+mesh.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(CAP*3),3);
+const group=new THREE.Group(); group.add(mesh); scene.add(group);
+
+const dummy=new THREE.Object3D();
+const cLow=new THREE.Color(0xC9D2E0), cHigh=new THREE.Color(0xEBC474), tmp=new THREE.Color();
+
+/* arrangement builders return array of [x,y,z] in radius units (diameter=1) */
+function buildClose(k){
+  const pts=[], dz=1/Math.SQRT2;
+  for(let L=0;L<k;L++){
+    const m=k-L;
+    for(let i=0;i<m;i++)for(let j=0;j<m;j++)
+      pts.push([i+L*0.5, L*dz, j+L*0.5]);
+  }
+  return pts;
+}
+function buildCubic(n){
+  const pts=[];
+  for(let i=0;i<n;i++)for(let j=0;j<n;j++)for(let l=0;l<n;l++)
+    pts.push([i,j,l]);
+  return pts;
+}
+function buildLoose(n){
+  const pts=[], s=1.18;
+  for(let i=0;i<n;i++)for(let j=0;j<n;j++)for(let l=0;l<n;l++){
+    pts.push([i*s+(Math.random()-.5)*.34, j*s+(Math.random()-.5)*.34, l*s+(Math.random()-.5)*.34]);
+  }
+  return pts;
+}
+
+const DATA={
+  close:{fn:buildClose, d:74.05, lbl:'Close packing',
+    note:'Cannonballs rest in the pockets of the layer below. No arrangement beats this.'},
+  cubic:{fn:buildCubic, d:52.36, lbl:'Simple cubic',
+    note:'Spheres sit in straight columns. Wide gaps stay open at every cell center.'},
+  loose:{fn:buildLoose, d:63.7, lbl:'Loose random',
+    note:'Spheres land where they fall. Density drifts near 64 percent, well short of the maximum.'}
+};
+
+let arr='close', size=7, radius=6;
+
+function render(){
+  const cfg=DATA[arr];
+  const pts=cfg.fn(size);
+  // center on bounding box
+  let mnx=1e9,mny=1e9,mnz=1e9,mxx=-1e9,mxy=-1e9,mxz=-1e9;
+  for(const p of pts){
+    mnx=Math.min(mnx,p[0]);mxx=Math.max(mxx,p[0]);
+    mny=Math.min(mny,p[1]);mxy=Math.max(mxy,p[1]);
+    mnz=Math.min(mnz,p[2]);mxz=Math.max(mxz,p[2]);
+  }
+  const cx=(mnx+mxx)/2, cy=(mny+mxy)/2, cz=(mnz+mxz)/2;
+  const yMin=mny, ySpan=Math.max(0.001,mxy-mny);
+  const count=Math.min(pts.length,CAP);
+  for(let i=0;i<count;i++){
+    const p=pts[i];
+    dummy.position.set(p[0]-cx, p[1]-cy, p[2]-cz);
+    dummy.updateMatrix();
+    mesh.setMatrixAt(i,dummy.matrix);
+    tmp.copy(cLow).lerp(cHigh,(p[1]-yMin)/ySpan);
+    mesh.setColorAt(i,tmp);
+  }
+  mesh.count=count;
+  mesh.instanceMatrix.needsUpdate=true;
+  if(mesh.instanceColor) mesh.instanceColor.needsUpdate=true;
+
+  radius=Math.sqrt((mxx-mnx)**2+(mxy-mny)**2+(mxz-mnz)**2)/2+R;
+  camDist=radius/Math.sin((camera.fov*Math.PI/180)/2)*0.62;
+
+  // readout
+  document.getElementById('pct').innerHTML=cfg.d.toFixed(2)+'<span class="s">%</span>';
+  document.getElementById('arrLbl').textContent=cfg.lbl;
+  document.getElementById('fill').style.width=cfg.d+'%';
+  document.getElementById('note').textContent=cfg.note;
+  document.getElementById('vsize').textContent=count+' spheres';
+}
+let camDist=30;
+
+/* controls */
+document.getElementById('seg').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  arr=b.dataset.a;
+  [...document.querySelectorAll('#seg button')].forEach(x=>x.classList.toggle('on',x===b));
+  render();
+});
+document.getElementById('size').addEventListener('input',e=>{size=+e.target.value;render();});
+
+/* drag rotate */
+let rotY=0.6, rotX=0.5, auto=true, drag=false, px=0, py=0;
+const cv=renderer.domElement;
+cv.addEventListener('pointerdown',e=>{drag=true;auto=false;px=e.clientX;py=e.clientY;});
+addEventListener('pointerup',()=>drag=false);
+addEventListener('pointermove',e=>{
+  if(!drag)return;
+  rotY+=(e.clientX-px)*0.008; rotX+=(e.clientY-py)*0.008;
+  rotX=Math.max(-1.3,Math.min(1.3,rotX)); px=e.clientX; py=e.clientY;
+});
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function resize(){
+  const w=wrap.clientWidth,h=wrap.clientHeight;
+  renderer.setSize(w,h,false);
+  camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);
+
+function tick(){
+  requestAnimationFrame(tick);
+  if(auto&&!reduce) rotY+=0.003;
+  group.rotation.y=rotY; group.rotation.x=rotX;
+  camera.position.set(0,0,camDist); camera.lookAt(0,0,0);
+  renderer.render(scene,camera);
+}
+render(); resize(); tick();
+</script>
+</body>
+</html>

@@ -1,11 +1,111 @@
 
 
-//THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES  AND CONTAINERS MUST HAVE THE SAME LENGTH:)
+//THERE MUST BE MORE ELEMENTS IN articlesDataBase THAN CONTAINERS IN HTML PAGES AND CONTAINERS MUST HAVE THE SAME LENGTH:)
 
 //PAGINATION: 1) create a/article.html (copy an article and change everything), 2) feed articlesDataBase with the entry, 3) follow the images' order on index.html
 
 
     const articlesDataBase = [
+        {
+            articleTitle: "The Three Divisions Behind One Tray Of 1,512 Blocks",
+            articleDescription: "Capacity questions decide how a cloud storage team provisions space before a single byte lands. When the storage unit and the tray that holds it share a clean ratio, the count is exact and no room goes to waste. This problem shows how three plain divisions and one product settle the capacity of a container, and how the same idea reaches from a shipping box to the densest packing of spheres",
+            articleHref: "/a/the-three-divisions-behind-one-tray-of-1512-blocks.html"
+        },
+        {
+            articleTitle: "2,940 Requests, One Ratio, Three Clean Tiers",
+            articleDescription: "Capacity planning on a GenAI platform starts with knowing how traffic divides across request types",
+            articleHref: "/a/2-940-requests-one-ratio-three-clean-tiers.html"
+        },
+        {
+            articleTitle: "The Number Hiding Inside Every Container Deployment",
+            articleDescription: "Capacity planning rests on fixed ratios between resource types. When several resource counts all scale off one base, a single known number can rebuild the entire deployment. This problem shows how one anchor value drives a chain of ratios, and how Python turns that logic into a reusable tool",
+            articleHref: "/a/the-number-hiding-inside-every-container-deployment.html"
+        },
+        {
+            articleTitle: "65 Jobs, Three Ratios, One Unknown To Recover",
+            articleDescription: "This problem shows how a single linear equation recovers one unknown from a set of ratios and a total, and how Python turns that recovery into a reusable tool",
+            articleHref: "/a/65-jobs-three-ratios-one-unknown-to-recover.html"
+        },
+        {
+            articleTitle: "400 Ads, Four Channels, And The One Baseline That Sets Them All",
+            articleDescription: "This problem shows how one linear equation recovers that hidden baseline, and how Python turns the same logic into a tool a planner can reuse",
+            articleHref: "/a/400-ads-four-channels-and-the-one-baseline-that-sets-them-all.html"
+        },
+        {
+            articleTitle: "The Ratio Rule That Splits Any Storage Total",
+            articleDescription: "Cloud teams rarely count each storage tier by hand. They know the total and they know how the tiers relate, so the split has to be inferred. This problem shows how a set of ratio rules and one known total reduce four unknowns to a single linear equation, and how Python turns that logic into a reusable audit tool",
+            articleHref: "/a/the-ratio-rule-that-splits-any-storage-total.html"
+        },
+        {
+            articleTitle: "225 Lunch Orders, Three Options, One Ratio Chain",
+            articleDescription: "When each option is tied to another by a ratio, the whole distribution collapses to a single unknown",
+            articleHref: "/a/225-lunch-orders-three-options-one-ratio-chain.html"
+        },
+        {
+            articleTitle: "The One Number That Sizes Every Cloud Storage Tier",
+            articleDescription: "Storage planning in the cloud depends on knowing how volume splits across access tiers before a single file moves. When each tier is defined as a multiple of another, the whole collapses into a set of equal units, and finding one unit fixes all the rest. This problem shows how ratio relationships turn a large total into a single base quantity, and how Python can size every tier from that one value",
+            articleHref: "/a/the-one-number-that-sizes-every-cloud-storage-tier.html"
+        },
+        {
+            articleTitle: "One Known Cost, Three Derived, And The Cloud Bill They Add Up To",
+            articleDescription: "Cloud bills rarely arrive as four independent figures. One service cost is fixed by a contract or a cap, and the rest are set as shares or offsets of it, so a finance team has to resolve the chain in the right order before it can report a total. This problem shows how a short run of dependent calculations models a real spend review, and how Python turns that logic into a tool the team can reuse each month",
+            articleHref: "/a/one-known-cost-three-derived-and-the-cloud-bill-they-add-up-to.html"
+        },
+        {
+            articleTitle: "How A Scale Step And An Add Step Set Evening Instance Counts",
+            articleDescription: "Cloud teams rarely read a single count in isolation. Capacity across a day builds from one window to the next, where a scaling factor turns one count into another and a fixed increment adjusts it again. This problem shows how a short chain of arithmetic operations models a real capacity scenario, and how each step rests on a named property of equality and arithmetic",
+            articleHref: "/a/how-a-scale-step-and-an-add-step-set-evening-instance-counts.html"
+        },
+        {
+            articleTitle: "The Three Path Arithmetic Behind Every Inference Throughput Estimate",
+            articleDescription: "Capacity planning for machine learning services rests on comparing rates that depend on one another",
+            articleHref: "/a/the-three-path-arithmetic-behind-every-inference-throughput-estimate.html"
+        },
+        {
+            articleTitle: "846,000 Credits, One Rounding Rule, Eight Weeks To Target",
+            articleDescription: "When credits arrive in fixed weekly blocks, planners cannot lean on a partial week",
+            articleHref: "/a/846000-credits-one-rounding-rule-eight-weeks-to-target.html"
+        },
+        {
+            articleTitle: "The Five Waves It Takes To Cover A Workload",
+            articleDescription: "Cloud capacity planning turns on a single question, how fast a system grows once it starts",
+            articleHref: "/a/the-five-waves-it-takes-to-cover-a-workload.html"
+        },
+        {
+            articleTitle: "The Half Function A Cloud Budget Can Never Deploy",
+            articleDescription: "Cloud spending rarely reduces to a single price. Most budgets carry a fee that applies once and a rate that scales with volume, and the split decides how many units a team can afford before the money runs out. This problem shows how a fixed cost, a variable rate, and a whole number rule combine into a hard ceiling, and how Python can turn that logic into a reusable tool",
+            articleHref: "/a/the-half-function-a-cloud-budget-can-never-deploy.html"
+        },
+        {
+            articleTitle: "From Four Slots Each To A Shared Row Of Open Ports",
+            articleDescription: "Layout decisions in a serverless deployment carry a quiet cost",
+            articleHref: "/a/from-four-slots-each-to-a-shared-row-of-open-ports.html"
+        },
+        {
+            articleTitle: "The Number Hiding Inside Every Cloud Storage Batch",
+            articleDescription: "Cloud storage teams rarely see the size of a single batch on its own",
+            articleHref: "/a/the-number-hiding-inside-every-cloud-storage-batch.html"
+        },
+        {
+            articleTitle: "60 Outputs, One Hourly Rate, Five Hours On The Clock",
+            articleDescription: "When a service runs at a known throughput, the time a batch takes falls out of the rate and the target volume, and that number drives schedules, cost estimates, and delivery promises",
+            articleHref: "/a/60-outputs-one-hourly-rate-five-hours-on-the-clock.html"
+        },
+        {
+            articleTitle: "2,880 Predictions An Hour From One Steady Rate",
+            articleDescription: "This problem shows how a fixed rate scales across time, and how a small function turns that logic into a reusable check",
+            articleHref: "/a/2880-predictions-an-hour-from-one-steady-rate.html"
+        },
+        {
+            articleTitle: "5292 Invoices, One Combined Rate, Zero Guesswork",
+            articleDescription: "Total time on the clock is not the same as time actually spent working, and forecasting output means separating the two before anyone commits to a deadline",
+            articleHref: "/a/5292-invoices-one-combined-rate-zero-guesswork.html"
+        },
+        {
+            articleTitle: "The Fixed Gap That Forecasts One Count From Another",
+            articleDescription: "Many forecasts stall on a wrong instinct. When one quantity grows, people reach for a ratio and scale a second quantity by the same factor",
+            articleHref: "/a/the-fixed-gap-that-forecasts-one-count-from-another.html"
+        },
         {
             articleTitle: "Two Functions, Four Days, One Weekend Average",
             articleDescription: "An unexpected dialogue between a human and an AI about algebra and business",

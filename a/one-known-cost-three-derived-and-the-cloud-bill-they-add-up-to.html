@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A finance team knows one cloud service cost and defines the other three from it. Follow the chain, add the total, and turn the logic into reusable Python.">
+    <meta name="keywords" content="cloud spend, dependent quantities, systems of equations, business math, Python, finance">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-known-cost-three-derived-and-the-cloud-bill-they-add-up-to.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-known-cost-three-derived-and-the-cloud-bill-they-add-up-to.html" />
+
+    <title>One Known Cost, Three Derived, And The Cloud Bill They Add Up To</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 17, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ONE KNOWN COST, THREE DERIVED, AND THE CLOUD BILL THEY ADD UP TO
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud bills rarely arrive as four independent figures. One service cost is fixed by a contract or a cap, and the rest are set as shares or offsets of it, so a finance team has to resolve the chain in the right order before it can report a total. <dfn>This problem shows how a short run of dependent calculations models a real spend review, and how Python turns that logic into a tool the team can reuse each month.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A finance team reviews last month's cloud spend across four services. Storage cost 56 thousand dollars before a billing cap paused it. Analytics cost 10 thousand more than Compute. Networking cost half as much as Analytics before it was shut off. Storage cost twice as much as Compute.</p>
+                <p>What was the combined spend across the four services?</p>
+                <ul>
+                    <li>a) 140</li>
+                    <li>b) 111</li>
+                    <li>c) 141</li>
+                    <li>d) 84</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 141 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Start from the one known figure. Storage is 56, so Compute is <strong>half of Storage</strong>, 28. Analytics is Compute <strong>plus 10</strong>, 38. Networking is <strong>half of Analytics</strong>, 19. <strong>Add</strong> the four to reach 141.</p>
+
+                    <p class="insight"><em>Each cost waits on the one before it, so the order of the steps is the whole solution.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Storage spend:</strong> 56</li>
+                            <li><strong>Compute spend, half of Storage:</strong> 56 ÷ 2 = 28</li>
+                            <li><strong>Analytics spend, Compute plus 10:</strong> 28 + 10 = 38</li>
+                            <li><strong>Networking spend, half of Analytics:</strong> 38 ÷ 2 = 19</li>
+                            <li><strong>Combined total:</strong> 56 + 28 + 38 + 19 = 141</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea that one quantity is fixed by its link to another sits at the heart of how economists model whole systems. In the 1930s Wassily Leontief built input output tables that traced how output in one industry feeds demand in others, a web of dependent figures much like these linked service costs. The approach became a standard tool for national planning and forecasting, and it earned Leontief the Nobel Prize in Economics in 1973.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script resolves the same chain for any anchor cost and any offset, so the team can rerun it each month instead of redoing the arithmetic by hand.</p>
+
+                <pre><code># What this does: adds up last month's cloud spend across four services.
+# Where it came from: a finance team knew one service cost and how the others linked to it.
+# The math idea: find each cost from a known one, then add them all.
+# You type in: the Storage spend and how much more Analytics cost than Compute.
+# It prints: the combined spend across the four services.
+
+# This function does the math.
+def total_spend(storage, extra):
+    # Compute cost is half of Storage.
+    compute = storage / 2
+    # Analytics cost is Compute plus the extra amount.
+    analytics = compute + extra
+    # Networking cost is half of Analytics.
+    networking = analytics / 2
+    # Add the four costs.
+    return storage + compute + analytics + networking
+
+# Tell the reader what we will figure out.
+print("Let's add up the cloud spend across four services.")
+
+# Ask for the Storage spend.
+storage = float(input("Storage spend: "))
+
+# Ask for how much more Analytics cost than Compute.
+extra = float(input("Extra amount Analytics had over Compute: "))
+
+# Do the math.
+result = total_spend(storage, extra)
+
+# Show a whole number when it comes out even.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Combined cloud spend across the four services:", result)</code></pre>
+
+                <p>Run it in a terminal, type 56 for Storage and 10 for the extra amount, and it returns 141.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations" target="_blank" rel="noopener">Khan Academy — Systems of Equations</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/SystemofEquations.html" target="_blank" rel="noopener">Wolfram MathWorld — System of Equations</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/systems-of-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Systems of Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 17, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

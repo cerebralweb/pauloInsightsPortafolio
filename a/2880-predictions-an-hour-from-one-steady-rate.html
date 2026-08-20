@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Convert a steady inference rate into an hourly total. A rate and proportion problem with a reusable Python function.">
+    <meta name="keywords" content="rate, ratio, proportion, machine learning throughput, inference rate, capacity planning">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/2880-predictions-an-hour-from-one-steady-rate.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/2880-predictions-an-hour-from-one-steady-rate.html" />
+
+    <title>2,880 Predictions An Hour From One Steady Rate</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>10 Aug 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    2,880 PREDICTIONS AN HOUR FROM ONE STEADY RATE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Steady throughput turns into planning numbers only after a short measured rate scales to a full window. Capacity teams lean on this move to size quotas, forecast daily load, and decide when one endpoint stops being enough. <dfn>This problem shows how a fixed rate scales across time, and how a small function turns that logic into a reusable check.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A machine learning inference endpoint returns 12 predictions in 15 seconds at a steady rate.</p>
+                <p>How many predictions does it return in 1 hour?</p>
+                <ul>
+                    <li>a) 2,880</li>
+                    <li>b) 2,815</li>
+                    <li>c) 4,320</li>
+                    <li>d) 288</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 2,880 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Divide the count by the seconds to get a per second rate, then <strong>multiply</strong> by the seconds in the window. The steady rate makes the scale exact.</p>
+
+                    <p class="insight"><em>The whole answer rests on one rate, 0.8 predictions per second.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Per second rate:</strong> 12 ÷ 15 = 0.8</li>
+                            <li><strong>Seconds in the window:</strong> 60 × 60 = 3,600</li>
+                            <li><strong>Total predictions:</strong> 0.8 × 3,600 = 2,880</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Merchants and scribes have scaled rates for millennia. The rule of three, drilled in the Rhind Mathematical Papyrus near 1550 BCE, let Egyptian scribes turn one known ratio into any quantity they needed. The same move now sizes cloud workloads, where a measured rate becomes an hourly or daily total.</p>
+
+                <h2 id="definitions">Rate, Ratio, and Proportion Defined</h2>
+
+                <p><strong>Ratio.</strong> A ratio compares two quantities by division. It answers how many of one for each of the other. A ratio of 3 to 1 means the first quantity is three times the second. The two quantities often share the same kind, such as counts of the same object.</p>
+
+                <p><strong>Rate.</strong> A rate is a ratio of two quantities with different units. It states one quantity per unit of another. Speed is distance per time. Throughput is predictions per second. A rate lets you scale a total across any window.</p>
+
+                <p><strong>Proportion.</strong> A proportion states that two ratios are equal. It takes the form a is to b as c is to d. Cross multiplication solves for one unknown. A proportion holds a fixed relationship steady as the numbers grow.</p>
+
+                <h2 id="examples">Examples</h2>
+
+                <p><strong>Ratio, from history.</strong> The Pythagoreans studied musical intervals near 500 BCE. They found the octave in the ratio 2 to 1 of string lengths, and the fifth in the ratio 3 to 2. Sound became number.</p>
+
+                <p><strong>Ratio, from Machine Learning.</strong> Class imbalance is a ratio of label counts. A fraud dataset may hold positives to negatives at 1 to 99. That ratio tells a team whether to reweight or resample before training.</p>
+
+                <p><strong>Rate, from history.</strong> Nicole Oresme graphed motion in the 14th century. He plotted velocity against time and read the area as distance covered. He treated speed as a rate, distance per unit of time, and drew it.</p>
+
+                <p><strong>Rate, from Machine Learning.</strong> The learning rate sets step size in gradient descent. A value of 0.01 moves the weights by a fixed fraction of the gradient each step. Too high overshoots. Too low stalls.</p>
+
+                <p><strong>Proportion, from history.</strong> The Rhind Mathematical Papyrus, copied near 1550 BCE in Egypt, drilled scaling by equal ratios. Scribes solved problems of the form if this many loaves need this much grain, how much for another count. This is the rule of three.</p>
+
+                <p><strong>Proportion, from Machine Learning.</strong> A train validation test split holds fixed proportions across dataset sizes. A 70 to 15 to 15 split keeps the same shares whether the data holds 1,000 rows or 1,000,000. The proportion stays constant as the total scales.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script turns any measured rate into a total across any window, so it fits predictions, requests, or tokens.</p>
+
+                <pre><code>def predictions_in_window(count, seconds, window_seconds):
+    rate = count / seconds
+    return rate * window_seconds
+
+
+print(predictions_in_window(12, 15, 3600))</code></pre>
+
+                <p>Run it with the count, the measured seconds, and the window in seconds. It returns 2,880.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/proportion" target="_blank" rel="noopener">Mathematics Stack Exchange — Proportion</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

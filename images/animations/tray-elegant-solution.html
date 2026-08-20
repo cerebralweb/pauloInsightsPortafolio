@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tray Solution — Take Each Edge Apart</title>
+<style>
+  :root{
+    --cyan:#00AEEF;
+    --magenta:#EC008C;
+    --yellow:#F2C200;
+    --key:#141414;
+    --paper:#F3F1EA;
+    --line:rgba(20,20,20,.16);
+    --dim:#7a7a7a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    background:var(--paper);color:var(--key);
+    font-family:"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;
+    padding:26px;
+  }
+  /* registration marks */
+  .reg{position:fixed;width:34px;height:34px;pointer-events:none;z-index:5}
+  .reg::before,.reg::after{content:"";position:absolute;background:var(--key)}
+  .reg::before{left:16px;top:0;width:1px;height:34px}
+  .reg::after{top:16px;left:0;height:1px;width:34px}
+  .reg .ring{position:absolute;left:9px;top:9px;width:16px;height:16px;border:1px solid var(--key);border-radius:50%}
+  #r1{left:10px;top:10px}#r2{right:10px;top:10px}#r3{left:10px;bottom:10px}#r4{right:10px;bottom:10px}
+
+  .sheet{max-width:940px;margin:0 auto;padding:0 22px}
+  header{border-bottom:2px solid var(--key);padding-bottom:16px;margin-bottom:8px}
+  .eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim)}
+  h1{font-size:clamp(26px,4.4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1;text-transform:uppercase;margin-top:8px}
+  .sub{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.1em;color:var(--dim);margin-top:10px}
+
+  /* separation rows */
+  .row{padding:20px 0;border-bottom:1px solid var(--line);opacity:.32;transition:opacity .4s}
+  .row.on{opacity:1}
+  .rowhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:12px}
+  .axis{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
+  .axis.c{color:var(--cyan)}.axis.m{color:var(--magenta)}.axis.y{color:#C79E00}
+  .eqn{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;letter-spacing:.04em;color:#3a3a3a}
+  .eqn b{font-size:16px;color:var(--key)}
+  .bar{display:flex;gap:2px;flex-wrap:wrap}
+  .cell{height:22px;border:1px solid rgba(20,20,20,.35);border-radius:1px;transform:scaleY(.15);opacity:0;transform-origin:bottom;transition:transform .32s ease,opacity .32s ease}
+  .row.on .cell{transform:scaleY(1);opacity:1}
+  .cell.c{background:var(--cyan)}.cell.m{background:var(--magenta)}.cell.y{background:var(--yellow)}
+  .tick{font-family:ui-monospace,monospace;font-size:11px;color:var(--dim);margin-top:7px}
+
+  /* synthesis */
+  .synth{padding:26px 0 6px;opacity:.32;transition:opacity .5s;display:flex;flex-wrap:wrap;gap:34px;align-items:center}
+  .synth.on{opacity:1}
+  .grid216{--n:0}
+  .g{display:grid;grid-template-columns:repeat(24,10px);grid-auto-rows:10px;gap:1px}
+  .g i{background:linear-gradient(135deg,var(--cyan),var(--magenta));opacity:0;transition:opacity .006s}
+  .synth.on .g i{opacity:.9}
+  .glabel{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.12em;color:var(--dim);margin-top:9px}
+  .glabel b{color:var(--key);font-size:14px}
+  .ladder{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+  .ladder .line{font-size:15px;letter-spacing:.06em;color:#3a3a3a;margin-bottom:8px}
+  .ladder .line b.c{color:var(--cyan)}.ladder .line b.m{color:var(--magenta)}.ladder .line b.y{color:#C79E00}
+  .final{font-size:clamp(52px,11vw,132px);font-weight:800;letter-spacing:-.04em;line-height:.82;color:var(--key)}
+  .finlbl{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+
+  /* controls */
+  .controls{display:flex;align-items:center;gap:10px;margin-top:26px;padding-top:16px;border-top:2px solid var(--key)}
+  button{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:11px 18px;border:1px solid var(--key);background:transparent;color:var(--key);cursor:pointer;transition:background .15s,color .15s}
+  button:hover:not(:disabled){background:var(--key);color:var(--paper)}
+  button:disabled{opacity:.3;cursor:default}
+  .dots{display:flex;gap:7px;margin-left:6px}
+  .dot{width:9px;height:9px;border:1px solid var(--key);border-radius:50%;cursor:pointer}
+  .dot.on{background:var(--key)}
+  .step-of{margin-left:auto;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.12em;color:var(--dim)}
+
+  footer{max-width:940px;margin:22px auto 0;padding:0 22px;display:flex;align-items:center}
+  .cbar{flex:1;display:flex;height:12px;border:1px solid rgba(20,20,20,.25)}
+  .cbar span{flex:1}
+  .foot-label{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.24em;color:var(--dim);padding-left:14px}
+
+  @media(max-width:640px){body{padding:16px}.sheet,footer{padding:0 8px}.synth{gap:22px}}
+</style>
+</head>
+<body>
+<div class="reg" id="r1"><div class="ring"></div></div>
+<div class="reg" id="r2"><div class="ring"></div></div>
+<div class="reg" id="r3"><div class="ring"></div></div>
+<div class="reg" id="r4"><div class="ring"></div></div>
+
+<div class="sheet">
+  <header>
+    <div class="eyebrow">Volume Packing / One Edge At A Time</div>
+    <h1>Take Each Edge Apart</h1>
+    <div class="sub">Every tray edge is a whole multiple of the 0.5 in block, so each division lands on a clean number.</div>
+  </header>
+
+  <div class="row" id="row0" data-step="1">
+    <div class="rowhead">
+      <span class="axis c">Length</span>
+      <span class="eqn">0.5 into 12 &rarr; <b>24 blocks</b></span>
+    </div>
+    <div class="bar" id="barC"></div>
+    <div class="tick">12.0 in edge</div>
+  </div>
+
+  <div class="row" id="row1" data-step="2">
+    <div class="rowhead">
+      <span class="axis m">Width</span>
+      <span class="eqn">0.5 into 4.5 &rarr; <b>9 blocks</b></span>
+    </div>
+    <div class="bar" id="barM"></div>
+    <div class="tick">4.5 in edge</div>
+  </div>
+
+  <div class="row" id="row2" data-step="3">
+    <div class="rowhead">
+      <span class="axis y">Height</span>
+      <span class="eqn">0.5 into 3.5 &rarr; <b>7 blocks</b></span>
+    </div>
+    <div class="bar" id="barY"></div>
+    <div class="tick">3.5 in edge</div>
+  </div>
+
+  <div class="synth" id="synth" data-step="4">
+    <div class="grid216">
+      <div class="g" id="g216"></div>
+      <div class="glabel">Length &times; Width &rarr; <b>216</b></div>
+    </div>
+    <div class="ladder">
+      <div class="line"><b class="c">24</b> &times; <b class="m">9</b> &times; <b class="y">7</b></div>
+      <div class="line">= 216 &times; <b class="y">7</b></div>
+      <div class="final" id="final">0</div>
+      <div class="finlbl">blocks in the tray</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="prev" disabled>Back</button>
+    <button id="next">Next</button>
+    <div class="dots" id="dots"></div>
+    <button id="auto">Play</button>
+    <span class="step-of" id="stepof">step 1 of 4</span>
+  </div>
+</div>
+
+<footer>
+  <div class="cbar">
+    <span style="background:var(--cyan)"></span>
+    <span style="background:var(--magenta)"></span>
+    <span style="background:var(--yellow)"></span>
+    <span style="background:var(--key)"></span>
+  </div>
+  <div class="foot-label">C M Y K</div>
+</footer>
+
+<script>
+/* build segmented bars */
+function fillBar(id,n,cls,px){
+  const el=document.getElementById(id);
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='cell '+cls;
+    c.style.width=px+'px';
+    c.style.transitionDelay=(i*0.02)+'s';
+    el.appendChild(c);
+  }
+}
+fillBar('barC',24,'c',26);
+fillBar('barM',9,'m',30);
+fillBar('barY',7,'y',30);
+
+/* build 216 grid */
+const g=document.getElementById('g216');
+for(let i=0;i<216;i++){g.appendChild(document.createElement('i'));}
+
+/* stepper */
+const TOTAL=4;
+let step=1, timer=null;
+const rows=[document.getElementById('row0'),document.getElementById('row1'),document.getElementById('row2')];
+const synth=document.getElementById('synth');
+const dotsWrap=document.getElementById('dots');
+for(let i=1;i<=TOTAL;i++){
+  const d=document.createElement('div');d.className='dot';d.dataset.s=i;
+  d.addEventListener('click',()=>{stop();go(i);});
+  dotsWrap.appendChild(d);
+}
+
+function reveal216(){
+  const cells=g.querySelectorAll('i');
+  cells.forEach((c,i)=>{c.style.transitionDelay=(i*0.004)+'s';});
+}
+let counted=false;
+function countUp(){
+  if(counted)return; counted=true;
+  const el=document.getElementById('final');
+  const target=1512; const dur=1100; const t0=performance.now();
+  function frame(t){
+    const p=Math.min(1,(t-t0)/dur);
+    const e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e).toLocaleString('en-US');
+    if(p<1)requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function go(s){
+  step=Math.max(1,Math.min(TOTAL,s));
+  rows.forEach((r,i)=>r.classList.toggle('on', step>=i+1));
+  synth.classList.toggle('on', step>=4);
+  if(step>=4){reveal216();countUp();} else {counted=false;document.getElementById('final').textContent='0';}
+  [...dotsWrap.children].forEach(d=>d.classList.toggle('on', +d.dataset.s<=step));
+  document.getElementById('prev').disabled=step<=1;
+  document.getElementById('next').disabled=step>=TOTAL;
+  document.getElementById('stepof').textContent='step '+step+' of '+TOTAL;
+}
+
+document.getElementById('next').addEventListener('click',()=>{stop();go(step+1);});
+document.getElementById('prev').addEventListener('click',()=>{stop();go(step-1);});
+
+const autoBtn=document.getElementById('auto');
+function stop(){if(timer){clearInterval(timer);timer=null;autoBtn.textContent='Play';}}
+autoBtn.addEventListener('click',()=>{
+  if(timer){stop();return;}
+  autoBtn.textContent='Pause';
+  if(step>=TOTAL)go(1);
+  timer=setInterval(()=>{
+    if(step>=TOTAL){stop();return;}
+    go(step+1);
+  },1300);
+});
+
+go(1);
+</script>
+</body>
+</html>

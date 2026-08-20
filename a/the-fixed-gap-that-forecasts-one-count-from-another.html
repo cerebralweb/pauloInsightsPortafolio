@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a constant difference lets you forecast one running count from another, with a reusable Python tool and a Claude skill.">
+    <meta name="keywords" content="constant difference, linear growth, forecasting, arithmetic sequence, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-fixed-gap-that-forecasts-one-count-from-another.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-fixed-gap-that-forecasts-one-count-from-another.html" />
+
+    <title>The Fixed Gap That Forecasts One Count From Another</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>10 Aug 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE FIXED GAP THAT FORECASTS ONE COUNT FROM ANOTHER
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Many forecasts stall on a wrong instinct. When one quantity grows, people reach for a ratio and scale a second quantity by the same factor. That move fits things that stretch together, not things that step forward side by side. <dfn>When two counts climb at the same steady rate, the distance between them never moves, and that fixed distance turns a forecast into a single subtraction.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <p>Picture two storage buckets that each receive one new file per day from different starting counts. Because both gain the same amount over the same period, the gap set on day one holds on every later day. If bucket A starts nine files ahead, it stays nine files ahead. So when someone asks for bucket B at the moment bucket A reaches a target, you do not count the days. You subtract the gap from the target and you are done.</p>
+
+                <p>The tempting error is proportion. Seeing bucket A rise from its start to a larger target, the mind scales bucket B by the same multiple. That inverts the real structure. Equal steps preserve a difference. Equal factors would preserve a ratio, and nothing here holds a ratio. Spotting which invariant applies, the difference and not the ratio, is the whole task.</p>
+
+                <h2 id="spot-the-rule">Spot the Rule</h2>
+
+                <p>The rule. Two counts hold a constant difference when both grow by the same amount.</p>
+
+                <p>Here both buckets gain one file per day, so the gap never moves. It stays at the starting gap. The starting gap equals 25 minus 16, which is 9. The gap is constant at 9.</p>
+
+                <p>Why. The same rule applies to both, one file per day each. Equal growth keeps the distance fixed. So bucket A always sits 9 above bucket B.</p>
+
+                <p>A equals B plus 9. B equals A minus 9. When A reaches 55, B equals 55 minus 9, which is 46. Once you spot the constant gap, you skip the day count. You read the answer straight off the target.</p>
+
+                <h2 id="my-mistake">My Mistake</h2>
+
+                <p>I got 35.2. I treated the two counts as proportional instead of separated by a constant. My reasoning was that 55 is 2.2 times 25, so bucket B should be 2.2 times 16. That gave 16 times 2.2, which is 35.2.</p>
+
+                <p>The error. I swapped the real relationship for the wrong one. The link between the two buckets is the fixed gap of 9, set by equal daily growth. I replaced that with the ratio between 25 and 55, a scaling that has nothing to do with how the buckets grow.</p>
+
+                <p>Proportion assumes both counts stretch by the same factor. But they do not stretch. They step up by the same amount each day, one file each. Equal steps hold the difference constant. Equal factors would hold the ratio constant, and nothing here keeps a ratio constant. The right relationship is B equals A minus 9, so B equals 55 minus 9, which is 46.</p>
+
+                <h2 id="the-proof">The Proof</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let d be the number of days elapsed, a nonnegative integer. Bucket A holds 25 plus d. Bucket B holds 16 plus d. Find bucket B when bucket A equals 55.</p>
+
+                <h3>Step 1 &#8212; Additive inverse property and additive identity property</h3>
+                <p>Property. For any number x, x plus its negative is zero, and y plus zero is y.</p>
+                <p>Inference. Bucket A minus bucket B is (25 plus d) minus (16 plus d), which equals 9 plus (d minus d), which equals 9. The d and the minus d cancel to zero, so the difference is 9 for every d.</p>
+
+                <h3>Step 2 &#8212; Substitution</h3>
+                <p>Property. Substitution. Equals may replace equals.</p>
+                <p>Inference. The governing relation is bucket A minus bucket B equals 9. Replacing bucket A with 55 gives 55 minus bucket B equals 9. Builds on line 1.</p>
+
+                <h3>Step 3 &#8212; Addition property of equality</h3>
+                <p>Property. Addition property of equality. If a equals b then a plus c equals b plus c.</p>
+                <p>Inference. Add bucket B to both sides and subtract 9 from both sides. 55 minus bucket B equals 9 becomes bucket B equals 55 minus 9. Builds on line 2.</p>
+
+                <h3>Step 4 &#8212; Transitivity of equality</h3>
+                <p>Property. Transitivity of equality. If a equals b and b equals c then a equals c.</p>
+                <p>Inference. Bucket B equals 55 minus 9 and 55 minus 9 equals 46, so bucket B equals 46. Builds on line 3.</p>
+
+                <p><strong>Verification.</strong> Days for bucket A to reach 55 equal 55 minus 25, which is 30. Bucket B then equals 16 plus 30, which is 46. The count matches.</p>
+
+                <p><strong>Answer.</strong> Bucket B holds 46 files when bucket A holds 55.</p>
+
+                <h2 id="the-equation">Write the Equation Step by Step</h2>
+
+                <p>Both grow by the same amount, so the gap holds. Bucket A minus bucket B equals 25 minus 16, which is 9.</p>
+
+                <p>This means bucket B always sits 9 below bucket A. So bucket B equals bucket A minus 9.</p>
+
+                <p>Forecast bucket B at the target directly. Bucket B equals 55 minus 9, which is 46.</p>
+
+                <p>No day count. You read bucket B straight from bucket A through the fixed gap.</p>
+
+                <p>The program below captures that logic once so it runs for any numbers. It reads the two starting counts and the target for the first count, finds the fixed gap, then returns the second count at the target.</p>
+
+                <pre><code># What this does: finds how many files bucket B holds when bucket A reaches a target.
+# Where it came from: two storage buckets each get one new file per day from different starting counts.
+# The math idea: both grow at the same speed, so the gap between them never changes.
+# You type in: the two starting counts and the target count for bucket A.
+# It prints: the file count in bucket B at that moment.
+
+# This function does the math.
+def bucket_b_count(a_start, b_start, a_target):
+    # Find the fixed gap between the two buckets.
+    gap = a_start - b_start
+    # Bucket B always sits the gap below bucket A, so subtract the gap from the target.
+    return a_target - gap
+
+# Tell the reader what we will figure out.
+print("Let's find bucket B's count when bucket A hits a target.")
+
+# Ask for bucket A's starting count.
+a_start = int(input("Bucket A starting files: "))
+
+# Ask for bucket B's starting count.
+b_start = int(input("Bucket B starting files: "))
+
+# Ask for the target count for bucket A.
+a_target = int(input("Bucket A target files: "))
+
+# Do the math.
+result = bucket_b_count(a_start, b_start, a_target)
+
+# Print the answer with words that fit the scenario.
+print("Bucket B file count at that point:", result)</code></pre>
+
+                <p>Run it in a terminal, enter the three whole numbers when prompted, and it returns bucket B at the target. With starts of 25 and 16 and a target of 55, it returns 46, the gap of 9 subtracted from the target.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same procedure lives as a reusable skill. It states the equal growth assumption, checks it, then forecasts through the fixed gap. Claude can follow it step by step without the code.</p>
+
+                <pre class="md-code"><code>---
+name: constant-gap-forecaster
+description: Forecasts one running count from another when both grow at the same fixed rate, using the unchanging gap between them. Takes two starting counts and a target for the first count, returns the second count at that moment. Trigger this skill whenever the user wants to predict one quantity from a related one that grows in step with it, even if they do not use technical language.
+---
+
+<span class="md-heading"># Constant Gap Forecaster</span>
+
+This skill forecasts the value of one running count when a second, related count reaches a target. It works when both counts rise by the same amount over each period, which keeps the distance between them fixed. It takes the two starting counts and the target for the first count, and it returns the value of the second count at the moment the first count hits that target.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Plain arithmetic only.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- Bucket A starting count. The whole number of files bucket A holds at the start.
+- Bucket B starting count. The whole number of files bucket B holds at the start.
+- Bucket A target count. The whole number bucket A will reach later.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 &#8212; Collect the three counts</span>
+
+Ask for bucket A's starting count, bucket B's starting count, and bucket A's target count. Treat all three as whole numbers.
+
+<span class="md-heading">### Step 2 &#8212; Find the fixed gap</span>
+
+Subtract bucket B's starting count from bucket A's starting count. This gap holds for every period because both buckets grow by the same amount each period. Confirm the assumption of equal growth holds before continuing. If the two counts grow at different rates, stop and tell the user this skill does not apply.
+
+<span class="md-heading">### Step 3 &#8212; Forecast bucket B at the target</span>
+
+Subtract the gap from bucket A's target count. The result is bucket B's count at the moment bucket A reaches its target. No period count is needed.
+
+<span class="md-heading">### Step 4 &#8212; Report the result</span>
+
+Return the value of bucket B with short text naming the scenario, for example bucket B file count at that point followed by the number.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Two backup buckets grow by one file a day. When the first hits 55, how many in the second?"
+- "Both counters climb at the same rate. Predict one from the other."
+- "Forecast bucket B when bucket A reaches its target."
+- "Two accounts gain the same amount each month. Find one from the other at a future point."
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] The YAML frontmatter appears once at the top
+- [ ] There is no Python code anywhere in the skill body
+- [ ] Every step reads as a natural language instruction
+- [ ] The equal growth assumption is checked before the forecast
+- [ ] Inputs and output are clearly named</code></pre>
+
+                <p>Code and skill carry the same rule in two forms. One runs, one guides. Both rest on the fixed gap, so both forecast one count from another without counting a single period.</p>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

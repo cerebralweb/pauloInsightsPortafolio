@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A GenAI platform splits 2,940 requests across batch, chat, and embedding types bound by fixed multiples. Solve the split and turn the logic into a reusable Python tool.">
+    <meta name="keywords" content="ratios, linear equations, request volume, GenAI, capacity planning, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/2940-requests-one-ratio-three-clean-tiers.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/2940-requests-one-ratio-three-clean-tiers.html" />
+
+    <title>2,940 Requests, One Ratio, Three Clean Tiers</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 13, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    2,940 REQUESTS, ONE RATIO, THREE CLEAN TIERS
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning on a GenAI platform starts with knowing how traffic divides across request types. When each type moves in a fixed proportion to a base type, one total tells you every tier without measuring them one by one. <dfn>This problem shows how a fixed ratio collapses a mixed workload into a single unknown, and how Python turns that logic into a tool you can reuse for any total.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A GenAI platform logs requests by type. On average, it handles 3 times as many chat requests as batch requests, and twice as many embedding requests as batch requests. The platform handles 2,940 requests on average.</p>
+                <p>How many of each type does it handle?</p>
+                <ul>
+                    <li>a) 980 embedding, 480 batch</li>
+                    <li>b) 1,470 chat, 480 batch</li>
+                    <li>c) 490 batch, 1,470 chat</li>
+                    <li>d) 490 batch, 1,470 chat, 960 batch</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 490 batch, 1,470 chat ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Call the batch count the base. Chat is 3 times the base and embedding is 2 times the base, so the three types together are <strong>6 times the base</strong>. <strong>Dividing</strong> 2,940 by 6 gives 490, then <strong>multiplying</strong> recovers 1,470 chat and 980 embedding.</p>
+
+                    <p class="insight"><em>The full split is 490 batch, 980 embedding, 1,470 chat. Option c holds the only correct pairing among the listed choices.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Collect the ratio:</strong> batch + 3 batch + 2 batch = 6 batch</li>
+                            <li><strong>Set the equation:</strong> 6 batch = 2,940</li>
+                            <li><strong>Solve the base:</strong> 2,940 ÷ 6 = 490 batch</li>
+                            <li><strong>Recover chat:</strong> 3 × 490 = 1,470 chat</li>
+                            <li><strong>Recover embedding:</strong> 2 × 490 = 980 embedding</li>
+                            <li><strong>Check:</strong> 490 + 1,470 + 980 = 2,940</li>
+                        </ol>
+                    </div>
+
+                    <h2>Formal Proof</h2>
+
+                    <p>Each step states a finding and names the property that licenses it. Let b be the batch count, a positive integer. Chat is 3b, embedding is 2b, and the three sum to 2,940.</p>
+
+                    <ol>
+                        <li><strong>Distributive law.</strong> b + 3b + 2b = 6b. The three like terms collect into one coefficient, 1 + 3 + 2, which is 6.</li>
+                        <li><strong>Substitution.</strong> The governing equation is 6b = 2,940, replacing b + 3b + 2b with 6b from step 1.</li>
+                        <li><strong>Division property of equality.</strong> 6b ÷ 6 = 2,940 ÷ 6, applying the same nonzero divisor to each side.</li>
+                        <li><strong>Cancellation law.</strong> The left side reduces to b, since 6b ÷ 6 cancels the 6.</li>
+                        <li><strong>Cancellation law.</strong> The right side reduces to 490, since 2,940 ÷ 6 is 490.</li>
+                        <li><strong>Transitivity of equality.</strong> Therefore b = 490, from steps 4 and 5.</li>
+                        <li><strong>Substitution.</strong> Chat is 3 × 490 = 1,470. Embedding is 2 × 490 = 980, from step 6.</li>
+                    </ol>
+
+                    <p>Verification. 490 + 1,470 + 980 = 2,940. The three types sum to the total.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a whole into parts fixed by ratio is one of the oldest applied calculations. Merchants in ancient Mesopotamia divided harvests and profits by fixed shares recorded on clay tablets, long before symbolic algebra existed. The method survived because it answers a recurring commercial need, which is finding every part of a mix once you know the total and the proportions that bind the parts together.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This function takes any total and any pair of multiples, then returns the count for each request type, so it works for future totals without new arithmetic.</p>
+
+                <pre><code>def request_split(total, chat_multiple=3, embedding_multiple=2):
+    parts = 1 + chat_multiple + embedding_multiple
+    batch = total // parts
+    chat = chat_multiple * batch
+    embedding = embedding_multiple * batch
+    return {"batch": batch, "chat": chat, "embedding": embedding}
+
+
+print(request_split(2940))
+</code></pre>
+
+                <p>Run it with any average total and it returns the three tier counts as a dictionary, printing 490 batch, 1,470 chat, and 980 embedding for 2,940.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 13, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

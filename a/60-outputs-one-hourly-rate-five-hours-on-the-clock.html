@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A steady hourly rate and a target volume set the runtime of a batch. See the division, the times table shortcut, a reusable Python script, and a Claude skill.">
+    <meta name="keywords" content="batch runtime, rate, division, hourly rate, throughput, capacity planning, Python, Claude skill, GenAI inference">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/60-outputs-one-hourly-rate-five-hours-on-the-clock.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/60-outputs-one-hourly-rate-five-hours-on-the-clock.html" />
+
+    <title>60 Outputs, One Hourly Rate, Five Hours On The Clock</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>10 Aug 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    60 OUTPUTS, ONE HOURLY RATE, FIVE HOURS ON THE CLOCK
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning turns on one quiet calculation. When a service runs at a known throughput, the time a batch takes falls out of the rate and the target volume, and that number drives schedules, cost estimates, and delivery promises. <dfn>This problem shows how a single division fixes runtime, and how a short Python script and a Claude skill turn that logic into a tool you can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A GenAI service runs batch inference around the clock. It generates 12 outputs per hour, 24 hours a day, with no pauses or downtime.</p>
+                <p>How many hours does the service take to generate 60 outputs?</p>
+                <ul>
+                    <li>a) 5</li>
+                    <li>b) 4</li>
+                    <li>c) 6</li>
+                    <li>d) 4 and a half</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 5 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Read the target as a count of hourly batches. Sixty outputs at 12 per hour means <strong>divide</strong> 60 by 12, which gives 5. The 24 hour figure never enters the math, since 5 hours fits inside a day.</p>
+
+                    <p class="insight"><em>The rate is the conversion factor. Every 12 outputs buys one hour, so 60 outputs buys five.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Rate:</strong> 12 outputs per hour</li>
+                            <li><strong>Target:</strong> 60 outputs</li>
+                            <li><strong>Setup:</strong> hours = total ÷ rate</li>
+                            <li><strong>Compute:</strong> 60 ÷ 12 = 5</li>
+                            <li><strong>Distractor:</strong> 24 hours of coverage does not change the result</li>
+                            <li><strong>Answer:</strong> 5 hours</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Questions of this shape run through commerce long before the term throughput existed. Scribes in ancient Egypt worked division problems of exactly this kind, asking how many fixed portions fill a whole. In 1909 the Danish engineer Agner Krarup Erlang studied how many calls a Copenhagen telephone exchange could carry per hour, and his work turned service rates into a formal field now called queuing theory. The same reasoning that sizes a call center sizes a modern inference queue.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script solves the general case, dividing any target volume by any hourly rate to return the runtime.</p>
+
+<pre><code># What this does: works out how many hours a service needs to finish a batch.
+# Where it came from: a GenAI service makes outputs at a steady rate each hour.
+# The math idea: division, total divided by the rate.
+# You type in: how many outputs per hour and how many outputs you need.
+# It prints: how many hours the service takes to finish.
+
+# This function does the math.
+def hours_needed(outputs_per_hour, total_outputs):
+    # Divide the total by the hourly rate to get the hours.
+    return total_outputs / outputs_per_hour
+
+# Tell the reader what we will figure out.
+print("Let's find how many hours the service needs.")
+
+# Ask for the outputs made each hour.
+outputs_per_hour = float(input("Outputs per hour: "))
+
+# Ask for the total outputs needed.
+total_outputs = float(input("Total outputs needed: "))
+
+# Do the math.
+result = hours_needed(outputs_per_hour, total_outputs)
+
+# Show a whole number when it lands even.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Hours to generate all outputs:", result)</code></pre>
+
+                <p>Run it in a terminal, type the rate and the target, and it prints the hours required.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: batch-runtime-estimator
+description: Works out how many hours a service needs to finish a batch, given an hourly rate and a total volume. Trigger this skill whenever the user wants to know how long a steady rate process takes to reach a target count, even if they do not use technical language. Phrases like "how many hours to finish", "time to process N items", or "runtime from a rate" should trigger it.
+---
+
+<span class="md-heading"># Batch Runtime Estimator</span>
+
+This skill finds how long a steady rate process takes to reach a target volume. It takes two numbers, the amount produced per hour and the total amount needed. It returns the number of hours required, shown as a whole number when the division lands even and as a decimal otherwise.
+
+---
+
+<span class="md-heading">## Background</span>
+
+Difficulty: medium
+
+Two ways to frame the same question.
+
+First framing. "60 songs is how many hours of 12 songs." So 60 = 12x, which gives x = 60 / 12 = 5.
+
+Second framing. "How many hours, at 12 songs per hour, reach 60 songs?" So 12x = 60.
+
+The simplest route uses the 12 times table, since 12 &times; 5 = 60. Working up the table:
+
+| Count | Hours |
+|---|---|
+| 12 | 1 |
+| 24 | 2 |
+| 48 | 4 |
+| 48 + 12 = 60 | 5 |
+
+Either framing lands on 5 hours.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No libraries or external tools are needed. Plain arithmetic covers the whole task.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Outputs per hour**</span>: how many units the process produces in one hour. A number, may be a decimal.
+- <span class="md-bold">**Total outputs needed**</span>: the full count the process must reach. A number, may be a decimal.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Greet and state the goal</span>
+
+Tell the user the goal is to find how many hours the process needs to finish the batch.
+
+<span class="md-heading">### Step 2 — Collect the hourly rate</span>
+
+Ask for how many outputs the process produces per hour. Accept a whole number or a decimal.
+
+<span class="md-heading">### Step 3 — Collect the target volume</span>
+
+Ask for the total number of outputs needed. Accept a whole number or a decimal.
+
+<span class="md-heading">### Step 4 — Divide to find the hours</span>
+
+Divide the total volume by the hourly rate. The result is the number of hours required.
+
+<span class="md-heading">### Step 5 — Tidy the result</span>
+
+If the result lands on a whole number, show it as a whole number. Otherwise keep the decimal.
+
+<span class="md-heading">### Step 6 — Report the answer</span>
+
+State the result with context that fits the scenario, for example "Hours to generate all outputs" followed by the number.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "My service makes 12 outputs an hour and I need 60. How long will that take?"
+- "How many hours to process 500 records if we clear 40 per hour?"
+- "Work out the runtime from a rate and a total."
+- "The pipeline builds 8 images an hour. When will 96 be done?"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+Before returning the answer, verify:
+
+- [ ] Both numbers were collected before dividing
+- [ ] The division is total divided by rate, not the reverse
+- [ ] A whole number result shows without a trailing decimal
+- [ ] The final line names the scenario, not just the bare number</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-rates/a/rates-review" target="_blank" rel="noopener">Khan Academy — Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Division.html" target="_blank" rel="noopener">Wolfram MathWorld — Division</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange — Arithmetic</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

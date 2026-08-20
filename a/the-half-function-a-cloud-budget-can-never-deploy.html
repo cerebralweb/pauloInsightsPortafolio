@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud budget with a fixed setup fee and a flat per function price sets a hard ceiling on how many functions ship. See the arithmetic, the rounding trap, and a reusable Python tool.">
+    <meta name="keywords" content="linear equation, fixed cost, variable cost, budget ceiling, integer constraint, cloud functions, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-half-function-a-cloud-budget-can-never-deploy.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-half-function-a-cloud-budget-can-never-deploy.html" />
+
+    <title>The Half Function a Cloud Budget Can Never Deploy</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Aug 11, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE HALF FUNCTION A CLOUD BUDGET CAN NEVER DEPLOY
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud spending rarely reduces to a single price. Most budgets carry a fee that applies once and a rate that scales with volume, and the split decides how many units a team can afford before the money runs out. <dfn>This problem shows how a fixed cost, a variable rate, and a whole number rule combine into a hard ceiling, and how Python can turn that logic into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud provider runs a promotion. Deploying a serverless function costs $4,000 each. A one time platform setup costs $2,000 no matter how many functions you deploy. A platform lead at Maria Goeppert Analytics wants to launch a batch of functions for an internal automation project. Her budget is $400,000.</p>
+                <p>How many functions can she deploy?</p>
+                <ul>
+                    <li>a) 99</li>
+                    <li>b) 99 and a half functions</li>
+                    <li>c) 100 functions</li>
+                    <li>d) 99 and a half functions, plus a half function on the house</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 99 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Total cost follows 2,000 + 4,000n. <strong>Subtract</strong> the fixed 2,000 from the 400,000 budget, then <strong>divide</strong> the remaining 398,000 by 4,000 to get 99.5. A function cannot ship in halves, so the count <strong>rounds down</strong> to 99.</p>
+
+                    <p class="insight"><em>The fixed fee is spent before a single function exists, so only the leftover budget divides by the unit price.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Remove the fixed cost:</strong> 400,000 − 2,000 = 398,000</li>
+                            <li><strong>Divide by the unit price:</strong> 398,000 ÷ 4,000 = 99.5</li>
+                            <li><strong>Apply the integer rule:</strong> 99.5 rounds down to 99</li>
+                            <li><strong>Check the spend:</strong> 2,000 + 99 × 4,000 = 398,000, within 400,000</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof, Each Step Named</h2>
+
+                <p>Compute mode. Let n be the number of functions, a nonnegative integer. The setup fee of 2,000 is charged once, each function costs 4,000, and the budget caps total cost at 400,000. The governing constraint is 2,000 + 4,000n ≤ 400,000. Find the largest n that satisfies it.</p>
+
+                <ol>
+                    <li><strong>Subtraction property of inequality.</strong> If a ≤ b then a − c ≤ b − c. Subtracting 2,000 from each side of 2,000 + 4,000n ≤ 400,000 gives 4,000n ≤ 398,000.</li>
+                    <li><strong>Order preserved under multiplication by a positive number.</strong> If a ≤ b and c is positive then ca ≤ cb. Multiplying each side of line 1 by one over 4,000, a positive number, gives n ≤ 99.5.</li>
+                    <li><strong>Discreteness of the integers.</strong> No integer lies strictly between two consecutive integers. Since no integer sits between 99 and 99.5, an integer n with n ≤ 99.5 satisfies n ≤ 99. Builds on line 2 with the integer condition.</li>
+                    <li><strong>Well ordering principle.</strong> Every nonempty set of nonnegative integers has a greatest element under a bound. The largest n meeting n ≤ 99 is 99. Builds on line 3.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> Substitute n equal to 99. 2,000 + 4,000 × 99 = 398,000, at most 400,000. Test 100. 2,000 + 400,000 = 402,000, above 400,000. So 99 holds and 100 fails. She can deploy 99 functions. QED.</p>
+
+                <h2 id="graph-version">The Line on a Plane</h2>
+
+                <p>Total cost sits at 2,000 + 4,000n. The intercept is the setup fee. The slope is the price per function. The budget is a flat ceiling the line cannot cross.</p>
+
+                <div style="position: relative; width: 100%; max-width: 640px; height: 340px; margin: 1rem 0;">
+                    <canvas id="budgetLineChart" role="img" aria-label="Cost line rising from 2000 at zero functions, crossing the 400000 budget at 99.5 functions. Integer maximum is 99 functions at 398000.">Cost line 2000 plus 4000n crosses the 400000 budget at 99.5 functions; feasible integer max is 99.</canvas>
+                </div>
+
+                <p>How to read it. The blue line starts at the intercept, 2,000, the cost of zero functions. Each step right adds 4,000, the slope. The red dashed line is the budget. The blue line meets it at 99.5 functions, the yellow point. Since a function cannot be a half, the last whole point under the ceiling is the green one at 99, costing 398,000. That is the answer, option a.</p>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+                <script>
+                (function () {
+                    var line = [];
+                    for (var i = 0; i <= 105; i += 5) line.push({ x: i, y: 2000 + 4000 * i });
+                    new Chart(document.getElementById('budgetLineChart'), {
+                        type: 'scatter',
+                        data: {
+                            datasets: [
+                                { label: 'Total cost', data: line, showLine: true, borderColor: '#2a78d6', borderWidth: 2, pointRadius: 0, tension: 0 },
+                                { label: 'Budget', data: [{ x: 0, y: 400000 }, { x: 105, y: 400000 }], showLine: true, borderColor: '#d03b3b', borderWidth: 2, borderDash: [6, 5], pointRadius: 0 },
+                                { label: 'Crossing', data: [{ x: 99.5, y: 400000 }], borderColor: '#eda100', backgroundColor: '#eda100', pointRadius: 6 },
+                                { label: 'Feasible max', data: [{ x: 99, y: 398000 }], borderColor: '#1baf7a', backgroundColor: '#1baf7a', pointRadius: 7 },
+                                { label: 'Intercept', data: [{ x: 0, y: 2000 }], borderColor: '#2a78d6', backgroundColor: '#2a78d6', pointRadius: 6 }
+                            ]
+                        },
+                        options: {
+                            responsive: true, maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: true, labels: { usePointStyle: true, filter: function (l) { return ['Total cost', 'Budget', 'Feasible max'].indexOf(l.text) > -1; } } },
+                                tooltip: { callbacks: { label: function (i) { return i.raw.x + ' functions, $' + i.raw.y.toLocaleString(); } } }
+                            },
+                            scales: {
+                                x: { title: { display: true, text: 'Number of functions (n)' }, min: 0, max: 105 },
+                                y: { title: { display: true, text: 'Total cost ($)' }, min: 0, max: 440000, ticks: { callback: function (v) { return '$' + (v / 1000) + 'k'; } } }
+                            }
+                        }
+                    });
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The split between a cost paid once and a cost that grows with each unit is the backbone of cost accounting, a discipline that took shape as factories scaled in the 19th century. Managers needed to know how many units a plant could produce before a budget was exhausted, and the answer always separated setup from throughput. By the early 20th century this reasoning hardened into break even analysis, the standard tool for deciding whether an order, a batch, or a product line paid for itself. Cloud pricing inherited the same shape. A platform fee stands in for the old fixed plant cost, and a per unit charge stands in for the marginal cost of one more item.</p>
+
+                
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:linear-equations-graphs" target="_blank" rel="noopener">Khan Academy — Linear Equations and Graphs</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/linear-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 11, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
