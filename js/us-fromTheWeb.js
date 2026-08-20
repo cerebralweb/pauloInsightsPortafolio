@@ -3,6 +3,14 @@ const infoDeLa_web = `
 <h4>AI in Arxiv </h4>
 
 
+<p>Cloud Storage</p>
+<a 
+class="class1"
+href="https://www.clpalacios.in/a/the-three-divisions-behind-one-tray-of-1512-blocks.html"
+>
+Data in cubic blocks
+</a>
+
 <p>AI Decisions</p>
 <a 
 class="class1"
