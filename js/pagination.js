@@ -7,6 +7,21 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Cloud Tier Sizing Where One Ratio Becomes A Probability",
+            articleDescription: "Cloud capacity planning depends on how demand spreads across instance tiers",
+            articleHref: "/a/cloud-tier-sizing-where-one-ratio-becomes-a-probability.html"
+        },
+        {
+            articleTitle: "Five Faces And One Coating Bill For An Immersion Tank In A Data Center",
+            articleDescription: "In data infrastructure an open tank exposes its floor and its walls but never its top, and missing that single detail inflates both the order and the spend. This problem shows how the surface area of an open rectangular prism turns a physical tank into a firm coating budget, and how Python can make that calculation reusable",
+            articleHref: "/a/five-faces-and-one-coating-bill-for-an-immersion-tank-in-a-data-center.html"
+        },
+        {
+            articleTitle: "From Archimedes To Edge Servers: The Surface Area Check Behind Film Wrapping",
+            articleDescription: "Teams that ship hardware decide, before anything moves, whether one sheet covers a unit and whether the scrap covers a second. This problem shows how surface area turns a packing guess into a checked decision, and how the same trapping idea let an ancient geometer measure shapes no one else could",
+            articleHref: "/a/from-archimedes-to-edge-servers-the-surface-area-check-behind-film-wrapping.html"
+        },
+        {
             articleTitle: "The Three Divisions Behind One Tray Of 1,512 Blocks",
             articleDescription: "Capacity questions decide how a cloud storage team provisions space before a single byte lands. When the storage unit and the tray that holds it share a clean ratio, the count is exact and no room goes to waste. This problem shows how three plain divisions and one product settle the capacity of a container, and how the same idea reaches from a shipping box to the densest packing of spheres",
             articleHref: "/a/the-three-divisions-behind-one-tray-of-1512-blocks.html"
@@ -14,7 +29,7 @@
         {
             articleTitle: "2,940 Requests, One Ratio, Three Clean Tiers",
             articleDescription: "Capacity planning on a GenAI platform starts with knowing how traffic divides across request types",
-            articleHref: "/a/2-940-requests-one-ratio-three-clean-tiers.html"
+            articleHref: "/a/2940-requests-one-ratio-three-clean-tiers.html"
         },
         {
             articleTitle: "The Number Hiding Inside Every Container Deployment",

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A surface area coverage check turned into a proof, a Python tool, and an interactive look at the method Archimedes used to measure curves.">
+    <meta name="keywords" content="surface area, method of exhaustion, Archimedes, sphere, cube, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-ancient-squeeze-behind-one-film-sheet-coverage-check.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-ancient-squeeze-behind-one-film-sheet-coverage-check.html" />
+
+    <title>The Ancient Squeeze Behind One Film Sheet Coverage Check</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>2026.08.21 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FROM ARCHIMEDES TO EDGE SERVERS: THE SURFACE AREA CHECK BEHIND FILM WRAPPING
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    A single sheet of material is a fixed budget of area, and covering an object spends that budget across every face. Teams that ship hardware decide, before anything moves, whether one sheet covers a unit and whether the scrap covers a second. <dfn>This problem shows how surface area turns a packing guess into a checked decision, and how the same trapping idea let an ancient geometer measure shapes no one else could.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations team ships a server chassis to an edge site. The chassis measures 50 cm by 35 cm by 5 cm. Before shipment they cover every outer face with one protective film sheet measuring 75 cm by 60 cm.</p>
+                <p>Does the sheet provide enough film to cover the full chassis surface? If yes, will the leftover film cover a small cube shaped edge sensor with a 3 cm side on all six faces?</p>
+                <ul>
+                    <li>a) no and yes</li>
+                    <li>b) no and no</li>
+                    <li>c) yes and yes</li>
+                    <li>d) yes and no</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) yes and yes &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Sum the three distinct chassis faces and <strong>double</strong> them for the matching pairs, giving 4350 square cm. The sheet holds <strong>4500</strong> square cm, so it covers the chassis. <strong>Subtract</strong> to get 150 square cm of scrap, and the cube needs only 54 square cm.</p>
+
+                    <p class="insight"><em>The whole decision reduces to two comparisons of area, one for the chassis and one for the leftover.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final answer is derived:</p>
+                        <ol>
+                            <li><strong>Chassis faces:</strong> 50 by 35 is 1750, 50 by 5 is 250, 35 by 5 is 175</li>
+                            <li><strong>Chassis surface:</strong> 2 times the sum 2175 is 4350 square cm</li>
+                            <li><strong>Film sheet:</strong> 75 by 60 is 4500 square cm</li>
+                            <li><strong>First test:</strong> 4500 is at least 4350, the sheet covers the chassis</li>
+                            <li><strong>Leftover:</strong> 4500 minus 4350 is 150 square cm</li>
+                            <li><strong>Cube surface:</strong> 6 times 9 is 54 square cm</li>
+                            <li><strong>Second test:</strong> 150 is at least 54, the scrap covers the cube</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof With Named Properties</h2>
+
+                <p>Each step below leads with the property that licenses it, then applies that property to the numbers.</p>
+
+                <div class="bannerTwitero">
+                    <ol>
+                        <li><strong>Area of a rectangle.</strong> The area is the product of two adjacent sides. The three chassis faces are 1750, 250, and 175 square cm.</li>
+                        <li><strong>Finite additivity of area.</strong> The area of a region split into parts is the sum of the parts. The box has six faces in three pairs, so the surface is 2 times 1750 plus 2 times 250 plus 2 times 175. Builds on line 1.</li>
+                        <li><strong>Distributive law.</strong> c times a plus c times b is c times the sum. This gives 2 times 2175, which is 4350 square cm. Builds on line 2.</li>
+                        <li><strong>Area of a rectangle, again.</strong> The film sheet is 75 times 60, which is 4500 square cm.</li>
+                        <li><strong>Trichotomy.</strong> Exactly one of less, equal, greater holds. 4500 is greater than 4350, so the film covers the chassis. Builds on lines 3 and 4. First test passes.</li>
+                        <li><strong>Closure under subtraction.</strong> The difference of two reals is a real. The leftover is 4500 minus 4350, which is 150 square cm. Builds on lines 3 and 4.</li>
+                        <li><strong>Area of a rectangle, square case.</strong> One cube face is 3 times 3, which is 9 square cm.</li>
+                        <li><strong>Finite additivity of area, again.</strong> The cube has six equal faces, so its surface is 6 times 9, which is 54 square cm. Builds on line 7.</li>
+                        <li><strong>Trichotomy, again.</strong> 150 is greater than 54, so the leftover covers the sensor. Builds on lines 6 and 8. Second test passes.</li>
+                    </ol>
+                    <p><em>Both tests pass, so the answer is c, yes and yes.</em></p>
+                </div>
+
+                <h2 id="interactive-version">Interactive: The Method of Exhaustion</h2>
+
+                <p>Archimedes never measured a curve head on. He trapped it between an inner figure and an outer figure he could already measure, then raised the side count until the two bounds met. Drag the slider to add sides and watch both polygons close on the circle. The circle here has radius one, so its true area is pi, 3.1416.</p>
+
+                <div style="border:0.5px solid #ccc;border-radius:12px;padding:1rem;margin:1rem 0;">
+                    <div style="display:flex;align-items:center;gap:12px;margin:0 0 1rem;font-family:'Source Sans Pro',sans-serif;">
+                        <label style="font-size:14px;color:#555;">Sides</label>
+                        <input type="range" min="3" max="90" step="1" value="6" id="ex-sides" style="flex:1;">
+                        <span id="ex-sides-out" style="font-size:14px;font-weight:600;min-width:28px;text-align:right;">6</span>
+                    </div>
+
+                    <svg width="100%" viewBox="0 0 680 380" role="img" style="max-width:520px;display:block;margin:0 auto;">
+                        <title>Circle between two polygons</title>
+                        <desc>A circle with an inscribed polygon and a circumscribed polygon that tighten as sides increase.</desc>
+                        <polygon id="ex-outer" points="" fill="none" stroke="#D85A30" stroke-width="1.4"/>
+                        <polygon id="ex-inner" points="" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="1.4"/>
+                        <circle cx="340" cy="185" r="150" fill="none" stroke="#777" stroke-width="1"/>
+                    </svg>
+
+                    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:1rem;font-family:'Source Sans Pro',sans-serif;">
+                        <div style="background:#f4f4f0;border-radius:8px;padding:0.8rem;">
+                            <div style="font-size:12px;color:#666;">Inner area</div>
+                            <div id="ex-innerA" style="font-size:20px;font-weight:600;color:#1D9E75;">2.5981</div></div>
+                        <div style="background:#f4f4f0;border-radius:8px;padding:0.8rem;">
+                            <div style="font-size:12px;color:#666;">True area, pi</div>
+                            <div style="font-size:20px;font-weight:600;">3.1416</div></div>
+                        <div style="background:#f4f4f0;border-radius:8px;padding:0.8rem;">
+                            <div style="font-size:12px;color:#666;">Outer area</div>
+                            <div id="ex-outerA" style="font-size:20px;font-weight:600;color:#D85A30;">3.4641</div></div>
+                        <div style="background:#f4f4f0;border-radius:8px;padding:0.8rem;">
+                            <div style="font-size:12px;color:#666;">Gap</div>
+                            <div id="ex-gapA" style="font-size:20px;font-weight:600;">0.8660</div></div>
+                    </div>
+
+                    <div style="display:flex;gap:16px;margin-top:12px;font-size:13px;color:#666;font-family:'Source Sans Pro',sans-serif;">
+                        <span><span style="display:inline-block;width:10px;height:10px;background:#1D9E75;border-radius:2px;"></span> inscribed, inner bound</span>
+                        <span><span style="display:inline-block;width:10px;height:10px;background:#D85A30;border-radius:2px;"></span> circumscribed, outer bound</span>
+                    </div>
+                </div>
+
+                <script>
+                (function(){
+                    var cx=340, cy=185, rpx=150, R=1;
+                    var s=document.getElementById('ex-sides');
+                    function pts(radius,n){var a=[],ph=-Math.PI/2;for(var i=0;i<n;i++){var t=ph+2*Math.PI*i/n;a.push((cx+radius*Math.cos(t)).toFixed(1)+','+(cy+radius*Math.sin(t)).toFixed(1));}return a.join(' ');}
+                    function draw(n){
+                        document.getElementById('ex-inner').setAttribute('points',pts(rpx,n));
+                        document.getElementById('ex-outer').setAttribute('points',pts(rpx/Math.cos(Math.PI/n),n));
+                        var inA=0.5*n*R*R*Math.sin(2*Math.PI/n);
+                        var outA=n*R*R*Math.tan(Math.PI/n);
+                        document.getElementById('ex-innerA').textContent=inA.toFixed(4);
+                        document.getElementById('ex-outerA').textContent=outA.toFixed(4);
+                        document.getElementById('ex-gapA').textContent=(outA-inA).toFixed(4);
+                        document.getElementById('ex-sides-out').textContent=n;
+                    }
+                    s.addEventListener('input',function(){draw(parseInt(s.value,10));});
+                    draw(6);
+                })();
+                </script>
+
+                <h2 id="history-version">The Man Who Caught Curves</h2>
+
+                <p>Archimedes of Syracuse, born around 287 BCE and killed at the Roman siege of the city in 212 BCE, was the first mathematician to measure curved figures exactly. Before him, flat shapes could be measured by cutting them into triangles and rectangles, but curves resisted every method. His answer was the method of exhaustion. He trapped a curved shape between an inner figure and an outer figure that he could already measure, then raised the piece count until the two bounds met on a single value. That trapped value was the exact measure.</p>
+
+                <p>With this tool he proved that a circle area equals pi times the radius squared, and he pinned pi between 3 and 10 over 71 and 3 and 1 over 7 by squeezing a 96 sided polygon inside and outside a circle. He proved that the surface of a sphere equals four times the area of its widest circle, and that its volume is four thirds pi r cubed. He showed that a sphere holds two thirds of the surface and two thirds of the volume of the cylinder that encloses it. He also measured the area under a parabola and the turns of a spiral.</p>
+
+
+                <p>His reach went past pure geometry. He stated the law of the lever and the idea of a center of gravity. He founded hydrostatics with the buoyancy principle, that a submerged body loses weight equal to the fluid it displaces. He designed the screw pump that still carries his name, and in the Sand Reckoner he built a system to write numbers larger than anyone had named.</p>
+
+                <p><strong>Business uses today.</strong></p>
+                <ul>
+                    <li>Integral calculus grew directly from exhaustion, and it underlies engineering, physics, and quantitative finance wherever a cumulative quantity or an area under a curve is needed.</li>
+                    <li>CAD and manufacturing software compute surface area and volume of curved parts by the same slice and sum logic, which drives material, coating, and packaging estimates.</li>
+                    <li>Buoyancy governs the design of ships, submarines, floating platforms, and shipping container loading.</li>
+                    <li>Displacement gives an exact volume for irregular objects, used in quality control and gemstone and metal assay.</li>
+                    <li>The Archimedes screw still moves water and bulk solids in irrigation, wastewater plants, and grain handling.</li>
+                </ul>
+
+                <p><strong>Military uses.</strong></p>
+                <ul>
+                    <li>Levers, compound pulleys, and cranes built the siege engines and the claw of Archimedes that lifted attacking ships at Syracuse.</li>
+                    <li>Center of gravity and lever mechanics set the range and stability of catapults and trebuchets.</li>
+                    <li>Buoyancy and displacement remain the base of warship and submarine design, including ballast and load limits.</li>
+                    <li>The burning mirror story, whether or not it worked, seeded later work on focused energy and optics.</li>
+                </ul>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script checks any box and sheet, so the same coverage decision runs for other chassis sizes and other sensors.</p>
+
+                <pre><code># What this does: checks if one film sheet covers a chassis, then checks if the scrap covers a small cube.
+# Where it came from: a cloud team wraps a server chassis in one film sheet before shipping, then wants to use the leftover on a small sensor.
+# The math idea: surface area of a box and a cube, then compare areas.
+# You type in: the three chassis sides, the two film sheet sides, and the cube side.
+# It prints: whether the sheet covers the chassis, and whether the scrap covers the cube.
+
+# This function does the math and returns both answers.
+def coverage(length, width, height, sheet_a, sheet_b, cube_side):
+    # Add the three different faces of the box, then double for the matching pairs.
+    chassis_area = 2 * (length * width + length * height + width * height)
+    # The flat film sheet area.
+    film_area = sheet_a * sheet_b
+    # What film is left after covering the chassis.
+    leftover = film_area - chassis_area
+    # All six faces of the cube.
+    cube_area = 6 * (cube_side * cube_side)
+    # True if the sheet is big enough for the chassis.
+    covers_chassis = film_area >= chassis_area
+    # True if the scrap is big enough for the cube.
+    covers_cube = leftover >= cube_area
+    return chassis_area, film_area, leftover, cube_area, covers_chassis, covers_cube
+
+# Tell the reader what we will figure out.
+print("Let's check if one film sheet covers the chassis and the leftover covers the sensor.")
+
+# Ask for the three chassis sides.
+length = float(input("Chassis length in cm: "))
+width = float(input("Chassis width in cm: "))
+height = float(input("Chassis height in cm: "))
+
+# Ask for the two film sheet sides.
+sheet_a = float(input("Film sheet length in cm: "))
+sheet_b = float(input("Film sheet width in cm: "))
+
+# Ask for the cube side.
+cube_side = float(input("Sensor cube side in cm: "))
+
+# Do the math.
+chassis_area, film_area, leftover, cube_area, covers_chassis, covers_cube = coverage(
+    length, width, height, sheet_a, sheet_b, cube_side)
+
+# Turn the True or False into a plain yes or no.
+answer_one = "yes" if covers_chassis else "no"
+answer_two = "yes" if covers_cube else "no"
+
+# Print both answers with words that fit the scenario.
+print("Chassis surface needed:", chassis_area, "square cm")
+print("Film sheet area:", film_area, "square cm")
+print("Does the sheet cover the chassis?", answer_one)
+print("Leftover film:", leftover, "square cm")
+print("Sensor cube needs:", cube_area, "square cm")
+print("Does the leftover cover the sensor?", answer_two)
+</code></pre>
+
+                <p>Run it in a terminal with python, enter the six numbers, and it returns both yes or no answers. With 50, 35, 5, 75, 60, 3 it prints chassis 4350, film 4500, leftover 150, sensor 54, and yes to both.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/basic-geo/basic-geo-volume-sa" target="_blank" rel="noopener">Khan Academy &mdash; Surface Area</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/MethodofExhaustion.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Method of Exhaustion</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/area" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Area</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 21, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

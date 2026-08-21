@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="How a relative frequency of 15 out of 40 cloud workloads reads two ways, as a share of the fleet and as the probability that one workload lands in a size tier.">
+    <meta name="keywords" content="relative frequency, probability, binomial distribution, cloud capacity planning, VM instance tiers, frequency distribution">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/cloud-tier-sizing-where-one-ratio-becomes-a-probability.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/cloud-tier-sizing-where-one-ratio-becomes-a-probability.html" />
+
+    <title>Cloud Tier Sizing Where One Ratio Becomes a Probability</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 21, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    CLOUD TIER SIZING WHERE ONE RATIO BECOMES A PROBABILITY
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Cloud capacity planning depends on how demand spreads across instance tiers, not on the raw count inside any single band. A proportion is what compares across tiers and across time, and it is what a team reserves capacity and budget against. <dfn>This problem shows how one measured share reads two ways, as a fact about data already collected and as the probability that the next case falls in the same tier.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud team measured the memory footprint of 40 running workloads to assign each one a VM instance tier. They found that 15 of the 40 workloads fell within the range of 550 to 560 MB and were therefore assigned tier M.</p>
+                <p>Which statement most accurately describes this segment?</p>
+                <ul>
+                    <li>a) 37% of workloads use tier M</li>
+                    <li>b) 38% of workloads are in the tier M segment</li>
+                    <li>c) 15/40 represents the frequency of tier M workloads</li>
+                    <li>d) 0.375 is the relative frequency of the tier M segment</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 0.375 is the relative frequency of the tier M segment &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The frequency of tier M is the raw count, 15. <strong>Dividing</strong> that count by the total of 40 gives the relative frequency, 0.375. Options a and b round the percentage and misstate it. Option c calls 15/40 a frequency, but it is the relative frequency.</p>
+
+                    <p class="insight"><em>The same 0.375 also reads forward. Pick one workload at random and the probability it lands in tier M is 37.5 percent.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Frequency of tier M:</strong> count the workloads in the 550 to 560 MB band, 15</li>
+                            <li><strong>Total workloads:</strong> count the full measured fleet, 40</li>
+                            <li><strong>Relative frequency:</strong> 15 divided by 40, 0.375</li>
+                            <li><strong>As a percentage:</strong> 0.375 times 100, 37.5 percent</li>
+                            <li><strong>Conclusion:</strong> tier M holds 0.375 of the fleet, so 0.375 is the relative frequency of the tier M segment</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>A frequency distribution sorts measured values into bands and counts how many fall in each. The frequency is the raw count in a band. The relative frequency is that count divided by the total, which gives a proportion between 0 and 1. Multiply by 100 for a percentage. Here 15 tier M workloads divided by 40 total gives 0.375, or 37.5 percent. Relative frequency puts groups of different sizes on a common scale, which is why it beats a raw count for comparing tiers or tracking one tier over time.</p>
+
+                <p>That same 0.375 reads as a probability. Pick one workload at random from the 40. The chance it belongs to tier M is 15 over 40, which is 0.375. So one number carries two readings. Relative frequency looks backward and describes data already measured. Probability looks forward and predicts the next draw. For a single workload, the probability of landing in tier M is 37.5 percent.</p>
+
+                <p>Two cautions keep the reading honest. First, the equality holds only if the 40 workloads are representative and drawn from the same process. If tier M workloads cluster in one team or one time window, then 15 over 40 describes that slice, not the whole fleet. Second, the single case reading does not scale up by simple repetition. Ask instead how many of the next 40 workloads land in tier M, and the answer is a spread, not a point. The expected count is 40 times 0.375, which is 15. But exactly 15 is not a 37.5 percent event. Counting successes across a fixed number of independent draws follows the binomial distribution, and the chance of hitting exactly 15 sits near 13 percent, the peak of that spread. The 15 is the center, not a guarantee.</p>
+
+                <div class="bannerTwitero">
+                    <h2>The Distribution</h2>
+                    <p>Each bar is the probability of getting exactly that many tier M workloads out of 40, when each workload lands in tier M with probability 0.375. Drag the slider to read any single bar. Bar 15 is the tallest, near 13 percent.</p>
+
+                    <div id="tierM-cards" style="display:flex; gap:12px; margin:1rem 0; flex-wrap:wrap;">
+                        <div style="background:#185FA5; padding:0.75rem 1rem;">
+                            <div style="font-size:12px; color:#E6F1FB;">single workload in tier M</div>
+                            <div style="font-size:24px; font-weight:700; color:#FFFFFF;">37.5%</div>
+                        </div>
+                        <div style="background:#EF9F27; padding:0.75rem 1rem;">
+                            <div style="font-size:12px; color:#412402;">expected count in 40</div>
+                            <div style="font-size:24px; font-weight:700; color:#412402;">15</div>
+                        </div>
+                        <div style="background:#E24B4A; padding:0.75rem 1rem;">
+                            <div style="font-size:12px; color:#FCEBEB;">chance of exactly 15</div>
+                            <div style="font-size:24px; font-weight:700; color:#FFFFFF;" id="tierM-peak">12.8%</div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap:12px; margin:1rem 0; border:3px solid #111; padding:0.75rem 1rem;">
+                        <label for="tierM-k" style="font-size:14px;">k</label>
+                        <input type="range" min="0" max="40" value="15" step="1" id="tierM-k" style="flex:1;" />
+                        <span style="font-size:16px; font-weight:700; min-width:150px; text-align:right;" id="tierM-kout">exactly 15 &rarr; 12.8%</span>
+                    </div>
+
+                    <div style="position:relative; width:100%; height:320px;">
+                        <canvas id="tierM-chart" role="img" aria-label="Binomial distribution bar chart for 40 workloads at probability 0.375, peaking at 15 workloads.">Probability of k tier M workloads out of 40, peaking at k equals 15 near 13 percent.</canvas>
+                    </div>
+                </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+                <script>
+                (function () {
+                    var n = 40, p = 0.375;
+                    function logFact(x) { var s = 0; for (var i = 2; i <= x; i++) s += Math.log(i); return s; }
+                    function pmf(k) { return Math.exp(logFact(n) - logFact(k) - logFact(n - k) + k * Math.log(p) + (n - k) * Math.log(1 - p)); }
+                    var labels = []; for (var k = 0; k <= n; k++) labels.push(k);
+                    var data = labels.map(pmf);
+                    var BLUE = "#185FA5", YELLOW = "#EF9F27", RED = "#E24B4A";
+                    var sel = 15;
+                    function colors() { return labels.map(function (k) { return k === sel ? RED : (k === 15 ? YELLOW : BLUE); }); }
+
+                    var chart = new Chart(document.getElementById('tierM-chart'), {
+                        type: 'bar',
+                        data: { labels: labels, datasets: [{ data: data, backgroundColor: colors(), borderWidth: 0 }] },
+                        options: {
+                            responsive: true, maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { callbacks: {
+                                    title: function (t) { return 'k = ' + t[0].label; },
+                                    label: function (c) { return (c.raw * 100).toFixed(2) + '%'; }
+                                } }
+                            },
+                            scales: {
+                                x: { title: { display: true, text: 'tier M workloads out of 40', color: '#898781' },
+                                     ticks: { color: '#898781', autoSkip: true, maxTicksLimit: 14 }, grid: { display: false } },
+                                y: { ticks: { color: '#898781', callback: function (v) { return (v * 100).toFixed(0) + '%'; } },
+                                     grid: { color: '#e1e0d9' } }
+                            }
+                        }
+                    });
+
+                    var slider = document.getElementById('tierM-k');
+                    var out = document.getElementById('tierM-kout');
+                    document.getElementById('tierM-peak').textContent = (pmf(15) * 100).toFixed(1) + '%';
+                    slider.addEventListener('input', function () {
+                        sel = parseInt(slider.value, 10);
+                        out.innerHTML = 'exactly ' + sel + ' &rarr; ' + (pmf(sel) * 100).toFixed(1) + '%';
+                        chart.data.datasets[0].backgroundColor = colors();
+                        chart.update();
+                    });
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The reading that turns a share into a probability has a clear source in the 19th century. John Venn, a logician at Cambridge, set it out in The Logic of Chance in 1866. He argued that probability is not a degree of belief but an observed fact, found by watching how often an event occurs across many trials and taking that proportion as the long run limit. Under his view a share measured once is an estimate of a stable underlying rate, and the larger the sample the more the observed proportion settles toward its true value. Venn is remembered today mostly for the diagrams that carry his name, which he introduced in 1880, but his earlier work on frequency shaped how analysts still read proportions from data.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script computes the relative frequency of a segment and the probability of a given count across a fixed number of independent draws, so any fleet size or band can reuse it.</p>
+
+                <pre><code>from math import comb
+
+def relative_frequency(count, total):
+    return count / total
+
+def exact_probability(k, n, p):
+    return comb(n, k) * p**k * (1 - p)**(n - k)
+
+count, total = 15, 40
+p = relative_frequency(count, total)
+
+print(p)                        # 0.375, share of the fleet in tier M
+print(exact_probability(15, 40, p))   # chance the next 40 give exactly 15
+</code></pre>
+
+                <p>Run it with any count and total. It returns the segment share as a proportion and the probability of hitting an exact count in the next batch.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener">Khan Academy &mdash; Statistics and Probability</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/BinomialDistribution.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Binomial Distribution</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/probability" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Probability</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 21, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
