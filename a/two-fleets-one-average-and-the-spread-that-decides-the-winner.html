@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Two agent fleets score the same average of 78 on a benchmark. Only the standard deviation reveals which one holds the strongest performer, and why.">
+    <meta name="keywords" content="standard deviation, mean absolute deviation, dispersion, mean as balance point, Shewhart control chart, model monitoring, benchmark scores, descriptive statistics">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/two-fleets-one-average-and-the-spread-that-decides-the-winner.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/two-fleets-one-average-and-the-spread-that-decides-the-winner.html" />
+
+    <title>Two Fleets, One Average, and the Spread That Decides the Winner</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 28, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    TWO FLEETS, ONE AVERAGE, AND THE SPREAD THAT DECIDES THE WINNER
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Teams compare groups by their averages because the average is the figure everyone reports. That habit hides the decision most teams are actually making, which is a decision about extremes rather than about typical performance. <dfn>This problem shows why two groups with an identical average can hold very different best performers, and why the measure of spread, not the mean, settles the choice.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>An AI platform team ran the same benchmark on two fleets of agents. Fleet A scored a mean of 78 with a standard deviation of 2. Fleet B scored a mean of 78 with a standard deviation of 10. The team wants to promote the single strongest agent to production.</p>
+                <p>If an agent ranks among the highest scorers in its own fleet, in which fleet would that agent's score be higher?</p>
+                <ul>
+                    <li>a) B, because the higher the dispersion, the higher the top scores are compared to Fleet A</li>
+                    <li>b) B, because with an average of 78, the agent's score could reach 80</li>
+                    <li>c) B, because the higher the dispersion, the higher the top scores are, although not as high as in Fleet A</li>
+                    <li>d) A, because it has less standard deviation, so there will be higher scores than in Fleet B</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) Fleet B ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Both fleets center on 78, so the <strong>mean cannot separate them</strong>. The standard deviations, 2 against 10, show that Fleet B <strong>disperses five times wider</strong>, which pushes its top scores further above the shared center.</p>
+
+                    <p class="insight"><em>The mean tells you where the group sits. Only the spread tells you how far its best performer can travel from that point.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the answer is derived:</p>
+                        <ol>
+                            <li><strong>Compare the centers:</strong> 78 against 78, identical, so the mean carries no information here</li>
+                            <li><strong>Compare the spreads:</strong> 2 against 10, so Fleet B disperses 5 times wider</li>
+                            <li><strong>Estimate a top score in Fleet A:</strong> 78 + 2(2) = 82</li>
+                            <li><strong>Estimate a top score in Fleet B:</strong> 78 + 2(10) = 98</li>
+                            <li><strong>Measure the gap:</strong> 98 − 82 = 16 points in favor of Fleet B</li>
+                            <li><strong>Test the other tail:</strong> 78 − 2(2) = 74 against 78 − 2(10) = 58, so Fleet B also holds the weakest agents</li>
+                            <li><strong>Conclusion:</strong> the strongest single agent comes from Fleet B</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>Why the Mean Alone Decides Nothing</h2>
+
+                <p>The mean marks the balance point of a distribution. Sum every distance from the mean while keeping the signs and the total is exactly zero. No other value has that property, which is what makes the mean central in a precise sense rather than a loose one.</p>
+
+                <p>The demonstration below uses five scores, 74, 77, 78, 80 and 81. Drag the candidate center and watch the total. At 74 the total reads +16. At 82 it reads −20. Only at 78 do the two sides cancel.</p>
+
+                <div style="margin: 1.5rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin: 0 0 1.25rem;">
+                        <label for="center" style="font-size: 14px; white-space: nowrap;">Candidate center</label>
+                        <input type="range" id="center" min="70" max="86" step="0.5" value="74" style="flex: 1;" />
+                        <span id="centerOut" style="font-size: 16px; font-weight: 600; min-width: 44px; text-align: right;">74</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 1.25rem;">
+                        <div style="flex: 1; min-width: 130px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Sum above</div>
+                            <div id="posOut" style="font-size: 22px; font-weight: 600;">0</div>
+                        </div>
+                        <div style="flex: 1; min-width: 130px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Sum below</div>
+                            <div id="negOut" style="font-size: 22px; font-weight: 600;">0</div>
+                        </div>
+                        <div id="totalCard" style="flex: 1; min-width: 130px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Total</div>
+                            <div id="totOut" style="font-size: 22px; font-weight: 600;">0</div>
+                        </div>
+                    </div>
+                    <div id="rows"></div>
+                    <div id="verdict" style="font-size: 14px; color: #555; min-height: 22px; margin-top: 0.75rem;"></div>
+                </div>
+
+                <p>The algebra behind the slider is short. Let the count be n and the candidate center be c. The sum of distances is the total of the scores minus n times c. Setting that to zero gives c equal to the total divided by n, which is the formula for the mean. The balance point and the average are the same value by construction. The total also moves in a straight line as the slider travels, crossing zero once, which is why the mean is unique.</p>
+
+                <p>One qualification matters. The mean is always the balance point, skewed data included. It marks the positional center only when the distribution is roughly symmetric. Cloud spend across accounts is the standard counterexample, where a few heavy accounts drag the mean above almost every account and the median describes the typical account better.</p>
+
+                <h2>One Measure Forgives Outliers, The Other Punishes Them</h2>
+
+                <p>Two measures report spread. Mean absolute deviation takes the distance of each observation from the mean, drops the sign, and averages those distances. Standard deviation squares each distance, averages the squares, then takes the square root to return to the original units.</p>
+
+                <p>Squaring is not a formality. A point 2 away contributes 4. A point 10 away contributes 100. The far point counts 25 times more, not 5 times more. So standard deviation lets one extreme observation dominate, while mean absolute deviation gives every point equal weight. Drag the fifth score below and watch the two totals separate.</p>
+
+                <div style="margin: 1.5rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin: 0 0 1.25rem;">
+                        <label for="p5" style="font-size: 14px; white-space: nowrap;">Fifth score</label>
+                        <input type="range" id="p5" min="55" max="100" step="1" value="81" style="flex: 1;" />
+                        <span id="p5Out" style="font-size: 16px; font-weight: 600; min-width: 34px; text-align: right;">81</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 1.25rem;">
+                        <div style="flex: 1; min-width: 120px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Mean</div>
+                            <div id="meanOut" style="font-size: 22px; font-weight: 600;">78.0</div>
+                        </div>
+                        <div style="flex: 1; min-width: 120px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Mean abs deviation</div>
+                            <div id="madOut" style="font-size: 22px; font-weight: 600;">2.00</div>
+                        </div>
+                        <div style="flex: 1; min-width: 120px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Standard deviation</div>
+                            <div id="sdOut" style="font-size: 22px; font-weight: 600;">2.45</div>
+                        </div>
+                        <div style="flex: 1; min-width: 120px; background: #f4f4f2; border-radius: 8px; padding: 0.75rem;">
+                            <div style="font-size: 13px; color: #555;">Ratio SD over MAD</div>
+                            <div id="ratioOut" style="font-size: 22px; font-weight: 600;">1.22</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 8px; font-size: 12px; color: #555;">
+                        <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2a78d6; display: inline-block;"></span>Share of MAD, plain distance</span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #eb6834; display: inline-block;"></span>Share of variance, squared distance</span>
+                    </div>
+                    <div style="position: relative; width: 100%; height: 300px;">
+                        <canvas id="shareChart" role="img" aria-label="Grouped bar chart comparing each score's percentage contribution to mean absolute deviation against its contribution to variance">Each score's percentage share of the total plain distance and of the total squared distance.</canvas>
+                    </div>
+                    <div id="verdict2" style="font-size: 14px; color: #555; min-height: 22px; margin-top: 0.75rem;"></div>
+                </div>
+
+                <p>Three readings come out of that panel. At 81 the ratio sits near 1.22 and no score claims much more of the variance than of the plain distance, which is what a well behaved dataset looks like. Pull the fifth score to 55 and the ratio climbs past 1.7, with that one score taking most of the variance while taking far less of the plain distance. The ratio is itself the diagnostic. Under a normal shape it settles near 1.25, so a value far above that signals heavy tails or a contaminated dataset rather than a genuinely wider spread.</p>
+
+                <p>The practical split follows. Use mean absolute deviation when you are describing spread to a reader and want a figure in plain units that resists a broken data point. Use standard deviation when the number feeds something downstream, e.g. a control limit, a confidence interval, a monitoring threshold. Squared distances add cleanly across independent sources and sit inside the normal distribution formula. Absolute values do neither.</p>
+
+                <h2>The Proof That Actually Settles the Question</h2>
+
+                <p>The fleet answer rests on a claim worth proving in plain words. If two groups share a mean, the group with the larger standard deviation has a higher floor under its top score.</p>
+
+                <p>Standard deviation measures the average squared distance from the mean, so the total squared distance across all observations equals the count times the standard deviation squared. In Fleet B that total is 5 times 100, which is 500. In Fleet A it is 5 times 4, which is 20.</p>
+
+                <p>No observation sits further from the mean than the most distant one, so every squared distance is at most the largest squared distance. Adding those up, the total squared distance cannot exceed the count times the largest squared distance.</p>
+
+                <p>Combine the two statements. The count times the standard deviation squared is at most the count times the largest squared distance. Cancel the count. The standard deviation squared is at most the largest squared distance. Take square roots. The largest distance from the mean is at least the standard deviation.</p>
+
+                <p>Fleet A must therefore contain a score at least 2 points from 78. Fleet B must contain a score at least 10 points from 78. Deviations from the mean sum to zero, so a group holding a score far below the mean must also hold scores above it. No group can spend all its spread on one side, which puts the guaranteed distance on the upper side too. Fleet A's top score reaches at least 80. Fleet B's reaches at least 88.</p>
+
+                <p>One limit deserves naming. This is a floor, not a prediction. It proves that Fleet B must reach higher, not that Fleet B beats Fleet A in every sample drawn.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Walter Shewhart turned this reasoning into a working tool at Bell Telephone Laboratories in 1924. He drew two lines on a chart, one three standard deviations above the process average and one three standard deviations below, then plotted every measurement from the factory floor. A point between the lines meant ordinary variation. A point outside meant something had changed and someone should find out what. He chose three because roughly 99.7 percent of a normal distribution falls inside that band, which kept false alarms rare enough that operators kept trusting the chart.</p>
+
+                <p>The idea traveled. Joseph Juran and W. Edwards Deming carried it forward, Deming taught it in Japan after 1950, and Toyota built production on it. Statistical process control, Total Quality Management and Six Sigma all descend from that chart, and the Six Sigma name counts standard deviations out loud.</p>
+
+                <p>Model monitoring runs the same test today. A model in production emits a stream of numbers, e.g. prediction confidence, latency, the share of inputs falling in each category. A monitoring system fits a baseline mean and standard deviation over a stable period, then alerts when live values leave the band. Cloud platforms do the same with spend, CPU use and error rates, adjusting for daily and weekly cycles while leaving the underlying test unchanged. Measure the normal spread, then treat distance from the center as evidence. That closes the fleet question from the other side, because a score of 98 sits inside the normal range of Fleet B and would signal a broken benchmark in Fleet A.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script computes both spread measures, their ratio and the guaranteed floor under the top score, so the same comparison can be run on any two groups without redoing the arithmetic by hand.</p>
+
+<pre><code>from math import sqrt
+
+
+def spread_report(scores):
+    """Return mean, MAD, SD, their ratio and the floor under the maximum."""
+    n = len(scores)
+    mean = sum(scores) / n
+    distances = [abs(x - mean) for x in scores]
+    mad = sum(distances) / n
+    sd = sqrt(sum(d * d for d in distances) / n)
+    return {
+        "n": n,
+        "mean": mean,
+        "mad": mad,
+        "sd": sd,
+        "ratio": sd / mad if mad else 0.0,
+        "max_floor": mean + sd,
+    }
+
+
+def compare(fleet_a, fleet_b):
+    a, b = spread_report(fleet_a), spread_report(fleet_b)
+    wider = "A" if a["sd"] > b["sd"] else "B"
+    return a, b, wider
+
+
+if __name__ == "__main__":
+    fleet_a = [76, 77, 78, 79, 80]
+    fleet_b = [60, 70, 78, 88, 94]
+    a, b, wider = compare(fleet_a, fleet_b)
+    for name, r in (("Fleet A", a), ("Fleet B", b)):
+        print(f"{name}: mean {r['mean']:.1f}, MAD {r['mad']:.2f}, "
+              f"SD {r['sd']:.2f}, ratio {r['ratio']:.2f}, "
+              f"top score at least {r['max_floor']:.1f}")
+    print(f"Wider spread: Fleet {wider}. Its top scorer has the higher floor.")
+</code></pre>
+
+                <p>Run it with <code>python spread_report.py</code> and it prints both fleets side by side, ending with the fleet whose top scorer carries the higher guaranteed floor.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data" target="_blank" rel="noopener">Khan Academy — Summarizing Quantitative Data</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/StandardDeviation.html" target="_blank" rel="noopener">Wolfram MathWorld — Standard Deviation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/standard-deviation" target="_blank" rel="noopener">Mathematics Stack Exchange — Standard Deviation</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 28, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+<script>
+(function () {
+  var data = [74, 77, 78, 80, 81];
+  var PX = 16, HALF = 220;
+  var rows = document.getElementById('rows');
+  var slider = document.getElementById('center');
+  if (!rows || !slider) return;
+
+  data.forEach(function (v, i) {
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:10px;margin:0 0 6px;';
+    var label = document.createElement('span');
+    label.style.cssText = 'font-size:13px;color:#555;width:34px;text-align:right;';
+    label.textContent = v;
+    var track = document.createElement('div');
+    track.style.cssText = 'position:relative;height:22px;flex:1;';
+    var axis = document.createElement('div');
+    axis.style.cssText = 'position:absolute;left:' + HALF + 'px;top:0;bottom:0;width:1px;background:#bbb;';
+    var bar = document.createElement('div');
+    bar.style.cssText = 'position:absolute;top:4px;height:14px;border-radius:3px;';
+    var num = document.createElement('span');
+    num.style.cssText = 'position:absolute;top:2px;font-size:12px;';
+    track.appendChild(axis); track.appendChild(bar); track.appendChild(num);
+    row.appendChild(label); row.appendChild(track);
+    rows.appendChild(row);
+    data[i] = { value: v, bar: bar, num: num };
+  });
+
+  function render() {
+    var c = parseFloat(slider.value);
+    document.getElementById('centerOut').textContent = c.toFixed(1).replace(/\.0$/, '');
+    var pos = 0, neg = 0;
+    data.forEach(function (d) {
+      var dev = d.value - c;
+      if (dev >= 0) pos += dev; else neg += dev;
+      var w = Math.abs(dev) * PX;
+      d.bar.style.width = Math.max(w, 1) + 'px';
+      d.bar.style.left = (dev >= 0 ? HALF : HALF - w) + 'px';
+      d.bar.style.background = dev >= 0 ? '#1baf7a' : '#eb6834';
+      d.num.textContent = (dev >= 0 ? '+' : '') + Math.round(dev * 10) / 10;
+      d.num.style.left = (dev >= 0 ? HALF + w + 6 : HALF - w - 34) + 'px';
+      d.num.style.color = dev >= 0 ? '#0f6e56' : '#993c1d';
+    });
+    var tot = pos + neg;
+    document.getElementById('posOut').textContent = '+' + (Math.round(pos * 10) / 10);
+    document.getElementById('negOut').textContent = Math.round(neg * 10) / 10;
+    document.getElementById('totOut').textContent = (tot > 0 ? '+' : '') + (Math.round(tot * 10) / 10);
+    var balanced = Math.abs(tot) < 0.001;
+    document.getElementById('totalCard').style.background = balanced ? '#e1f5ee' : '#f4f4f2';
+    document.getElementById('totOut').style.color = balanced ? '#0f6e56' : '#222';
+    document.getElementById('verdict').textContent = balanced
+      ? 'Balanced. This value is the mean, 78.'
+      : (tot > 0 ? 'The center sits too low. Distances above outweigh distances below.'
+                 : 'The center sits too high. Distances below outweigh distances above.');
+  }
+
+  slider.addEventListener('input', render);
+  render();
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function () {
+  var base = [74, 77, 78, 80];
+  var slider = document.getElementById('p5');
+  var canvas = document.getElementById('shareChart');
+  if (!slider || !canvas || typeof Chart === 'undefined') return;
+  var chart = null;
+
+  function stats(v) {
+    var n = v.length, sum = 0, i;
+    for (i = 0; i < n; i++) sum += v[i];
+    var m = sum / n, absT = 0, sqT = 0, abs = [], sq = [];
+    for (i = 0; i < n; i++) {
+      var d = Math.abs(v[i] - m);
+      abs.push(d); sq.push(d * d); absT += d; sqT += d * d;
+    }
+    return { mean: m, abs: abs, sq: sq, mad: absT / n, sd: Math.sqrt(sqT / n), absT: absT, sqT: sqT };
+  }
+
+  function render() {
+    var fifth = parseInt(slider.value, 10);
+    document.getElementById('p5Out').textContent = fifth;
+    var vals = base.concat([fifth]);
+    var s = stats(vals);
+    document.getElementById('meanOut').textContent = s.mean.toFixed(1);
+    document.getElementById('madOut').textContent = s.mad.toFixed(2);
+    document.getElementById('sdOut').textContent = s.sd.toFixed(2);
+    document.getElementById('ratioOut').textContent = s.mad > 0 ? (s.sd / s.mad).toFixed(2) : '0.00';
+
+    var labels = vals.map(String);
+    var shareAbs = s.abs.map(function (d) { return s.absT > 0 ? Math.round(d / s.absT * 1000) / 10 : 0; });
+    var shareSq = s.sq.map(function (d) { return s.sqT > 0 ? Math.round(d / s.sqT * 1000) / 10 : 0; });
+
+    if (!chart) {
+      chart = new Chart(canvas, {
+        type: 'bar',
+        data: { labels: labels, datasets: [
+          { label: 'Share of MAD', data: shareAbs, backgroundColor: '#2a78d6', borderRadius: 4, maxBarThickness: 20 },
+          { label: 'Share of variance', data: shareSq, backgroundColor: '#eb6834', borderRadius: 4, maxBarThickness: 20 }
+        ] },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.dataset.label + ' ' + c.parsed.y + '%'; } } } },
+          scales: {
+            x: { ticks: { autoSkip: false, color: '#666' }, grid: { display: false } },
+            y: { min: 0, max: 100, ticks: { color: '#666', callback: function (v) { return v + '%'; } }, grid: { color: '#e1e0d9' } }
+          }
+        }
+      });
+    } else {
+      chart.data.labels = labels;
+      chart.data.datasets[0].data = shareAbs;
+      chart.data.datasets[1].data = shareSq;
+      chart.update('none');
+    }
+
+    var mx = 0, idx = 0;
+    for (var i = 0; i < shareSq.length; i++) if (shareSq[i] > mx) { mx = shareSq[i]; idx = i; }
+    var gap = Math.round((shareSq[idx] - shareAbs[idx]) * 10) / 10;
+    document.getElementById('verdict2').textContent = gap > 1
+      ? 'The score ' + vals[idx] + ' carries ' + shareAbs[idx] + ' percent of the plain distance but ' + shareSq[idx] + ' percent of the variance, a gap of ' + gap + ' points.'
+      : 'With the points evenly spread, both measures weight them alike.';
+  }
+
+  slider.addEventListener('input', render);
+  render();
+})();
+</script>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

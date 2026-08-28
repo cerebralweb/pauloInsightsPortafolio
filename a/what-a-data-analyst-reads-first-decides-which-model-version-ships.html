@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Two sets of model accuracy scores, one with 35 values and one with 36, resolve to different median positions. The counting rule, the step by step solution, a reusable Python script, and a Claude skill file.">
+    <meta name="keywords" content="median, median position, odd and even counts, descriptive statistics, model evaluation, accuracy scores, business math, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/35-scores-36-scores-two-different-middle-positions.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/35-scores-36-scores-two-different-middle-positions.html" />
+
+    <title>35 Scores, 36 Scores, Two Different Middle Positions</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 28, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHAT A DATA ANALYST READS FIRST DECIDES WHICH MODEL VERSION SHIPS
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Release decisions rest on a typical result rather than an average one, because a few failed evaluation runs pull an average away from what a system actually does. Reporting the typical result means knowing which position in a sorted list of measurements to read, and that position depends on how many measurements there are. <dfn>This problem shows how a small counting rule decides whether one measurement or two carry the answer, and how Python turns that rule into a reusable check.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform director asked a data analyst to review two sets of accuracy scores from the evaluation runs of two model versions before release. Set A contains 35 scores. Set B contains 36 scores.</p>
+                <p>After sorting each set from lowest to highest, the director asked where the median of each set is located.</p>
+                <ul>
+                    <li>a) at position 18 and at the average of positions 18 and 19</li>
+                    <li>b) at the average of positions 17 and 18 and at the average of positions 18 and 19</li>
+                    <li>c) at the mean of each group</li>
+                    <li>d) at the value that occurs most frequently in each group</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) position 18 for Set A, and the average of positions 18 and 19 for Set B ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>An odd count leaves one score exactly in the middle, found by <strong>adding one to the count and halving the result</strong>, which places the median of Set A at position 18. An even count leaves no single middle score, so the two central positions, found by <strong>halving the count and taking the next position</strong>, are averaged, which gives positions 18 and 19 for Set B.</p>
+
+                    <p class="insight"><em>The count alone decides whether the median is one measurement or the average of two.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the answer is derived:</p>
+                        <ol>
+                            <li><strong>Count for Set A:</strong> 35 scores, an odd count, so one position sits at the center</li>
+                            <li><strong>Median position for Set A:</strong> (35 + 1) / 2 = 18</li>
+                            <li><strong>Balance check for Set A:</strong> 17 scores below position 18 and 17 scores above it</li>
+                            <li><strong>Count for Set B:</strong> 36 scores, an even count, so no single position sits at the center</li>
+                            <li><strong>Median positions for Set B:</strong> 36 / 2 = 18, and 18 + 1 = 19</li>
+                            <li><strong>Median value for Set B:</strong> the average of the scores at positions 18 and 19</li>
+                            <li><strong>Balance check for Set B:</strong> 17 scores below position 18 and 17 scores above position 19</li>
+                            <li><strong>Answer:</strong> option a, position 18 for Set A and the average of positions 18 and 19 for Set B</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Ranking measurements rather than averaging them entered practice through disputes about faulty instruments. Edward Wright, writing on navigation errors in 1599, advised that a navigator facing compass readings that disagreed should take the middle one, since a single bad reading would spoil any combined figure. Formal treatment came much later. The 19th century story has four moves.</p>
+
+                <p><strong>Laplace gives it standing.</strong> In the 1818 supplement to his work on probability, Laplace compared two ways of fitting observations. One minimised squared errors, which yields the average. The other minimised absolute errors, which yields the middle observation. He called the second the method of situation and credited its origin to Boscovich, who had used it around 1757 on meridian arc measurements. Laplace worked out how much the middle observation varies from sample to sample and set that against the average, which turned a practical shortcut into an estimator with known behaviour.</p>
+
+                <p><strong>Cournot names it.</strong> In 1843 Cournot used the term valeur médiane for the value that splits a distribution into two halves of equal probability. His argument concerned lopsided distributions, where the average sits away from where most of the data lies. That is the term still in use.</p>
+
+                <p><strong>Fechner spreads it.</strong> Fechner worked with the Zentralwert from the 1870s in his measurement studies, and his collective measurement treatise, published in 1897 after his death, carried the median into German statistical practice.</p>
+
+                <p><strong>Galton carries it into English.</strong> Galton had written of the middlemost value; by the early 1880s he was writing median. He folded it into his percentile scheme, where the middle value sits at the halfway point of a drawn curve and can be read off with no arithmetic at all, which suited his graphical methods. Edgeworth defended it as an estimator in the same decade, and Pearson later tied it to the average and the most frequent value in lopsided distributions.</p>
+
+                <p><strong>Why it took so long.</strong> The average had calculus behind it, since squared deviations differentiate cleanly, and that is what made the method of least squares tractable after Gauss and Legendre. Absolute deviations do not behave that way. The median resisted the analytic tools of the period, so it arrived late and by a different route.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script asks only how many scores each set contains, then names the position to read, so it answers the same question for any two sets whatever their size.</p>
+
+<pre><code># What this does: tells you where the middle score sits in each of two sorted sets of scores.
+# Where it came from: a director reviewed two model versions before release. One version had 35 accuracy scores, the other had 36, and she asked where the middle score was in each set.
+# The math idea: the median is the middle value once the scores are in order. An odd count has one middle score. An even count has two, so you average them.
+# You type in: how many scores are in each set.
+# It prints: the spot to read in each sorted set to get the middle score.
+
+# This function works for any count of scores, big or small, odd or even.
+def where_is_the_middle(score_count):
+    # An odd count leaves one score exactly in the middle.
+    if score_count % 2 == 1:
+        spot = (score_count + 1) // 2
+        return "spot " + str(spot)
+    # An even count leaves two scores in the middle, so we average them.
+    first = score_count // 2
+    second = first + 1
+    return "the average of spots " + str(first) + " and " + str(second)
+
+# Tell the reader what we will figure out.
+print("Let's find the middle score in each of two sets of model accuracy scores.")
+
+# Ask how many scores the first model version produced.
+count_a = int(input("How many scores in set A? "))
+
+# Ask how many scores the second model version produced.
+count_b = int(input("How many scores in set B? "))
+
+# Work out where the middle sits in each set.
+answer_a = where_is_the_middle(count_a)
+answer_b = where_is_the_middle(count_b)
+
+# Print the answer with words that fit the scenario.
+print("Set A has", count_a, "sorted scores. Read the middle score at", answer_a + ".")
+print("Set B has", count_b, "sorted scores. Read the middle score at", answer_b + ".")
+</code></pre>
+
+                <p>Run it in a terminal, type each count when prompted, and it prints the position to read for each set, including whether two positions have to be averaged.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The same logic packaged as a skill file, so the rule can be applied without running any code.</p>
+
+<pre class="md-code"><code>---
+name: median-position-finder
+description: Reports where the median sits in one or more sorted sets of values, given only how many values each set contains. Trigger this skill whenever the user asks where the middle value is, which position holds the median, how to find the median of an odd or even count, or wants two sets of scores compared on their middle value, even if they don't use technical language.
+---
+
+<span class="md-heading"># Median Position Finder</span>
+
+This skill answers a positional question rather than a value question. Given how many values a sorted set contains, it reports which position in that ordered list holds the median, and whether one position or two positions are involved. It accepts a count for a single set or counts for several sets, and returns a plain statement per set naming the position to read. It never needs the values themselves.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+No libraries or external tools are required. The work is arithmetic on the count of values.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Count of values per set**</span>: A whole number greater than zero for each set under review, e.g. 35 for the first set and 36 for the second. Labels for the sets are optional. If the user supplies the values instead of a count, count them and continue.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Confirm what is being asked</span>
+
+Establish that the request is about the position of the median, not its value. If the user supplied actual values and wants the median value, sort the values and report the value as well as the position. Otherwise report the position only.
+
+<span class="md-heading">### Step 2 — Validate each count</span>
+
+Check that each count is a whole number of one or more. If a count is zero, negative, or not a whole number, say that no median position exists for that set and ask for a corrected count. Do not guess.
+
+<span class="md-heading">### Step 3 — Classify each count as odd or even</span>
+
+Divide the count by two and look at the remainder. A remainder of one means the count is odd. A remainder of zero means it is even. The classification drives everything that follows.
+
+<span class="md-heading">### Step 4 — Locate the position for an odd count</span>
+
+If the count is odd, add one to the count and halve the result. That single position holds the median. Confirm the balance before reporting, since the number of values below that position must equal the number above it.
+
+<span class="md-heading">### Step 5 — Locate the two positions for an even count</span>
+
+If the count is even, halve the count to get the lower position, then add one to get the upper position. The median is the average of the values at those two positions. Confirm that the number of values below the lower position equals the number above the upper position.
+
+<span class="md-heading">### Step 6 — Report each set in plain language</span>
+
+For each set, state the count and then the position to read. Use one sentence per set. For an odd count, name the single position. For an even count, name both positions and state that their values are averaged. If the user is comparing sets, keep the sets in the order they were given so the two answers can be read side by side.
+
+<span class="md-heading">### Step 7 — Match answer choices when they exist</span>
+
+If the user supplied answer options, compare the computed positions against each option and name the matching one. If nothing matches, say so and show the computed positions rather than selecting the nearest option.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "I sorted 35 test scores. Which one is the middle score?"
+- "Where is the median in a list of 36 values?"
+- "One group has 35 results and the other has 36. Where is the median of each?"
+- "Do I average two numbers to get the median, or just take one?"
+- "Which position holds the middle value once the list is in order?"
+
+---
+
+<span class="md-heading">## Quality Check Before Delivering</span>
+
+- [ ] Each count was classified as odd or even before any position was named
+- [ ] Odd counts return one position, even counts return two
+- [ ] The balance check was applied to each set
+- [ ] Invalid counts were flagged rather than answered
+- [ ] Every set in the request received its own sentence
+- [ ] The reply names positions, not values, unless values were supplied
+</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data" target="_blank" rel="noopener">Khan Academy — Summarizing Quantitative Data</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/StatisticalMedian.html" target="_blank" rel="noopener">Wolfram MathWorld — Statistical Median</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/median" target="_blank" rel="noopener">Mathematics Stack Exchange — Median</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 28, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

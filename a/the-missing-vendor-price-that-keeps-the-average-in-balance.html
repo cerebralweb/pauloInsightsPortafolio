@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Find a missing value from a known average two ways, by clearing the division and by balancing deviations, with a reusable Python script.">
+    <meta name="keywords" content="arithmetic mean, missing value, average, deviations, balance point, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-missing-vendor-price-that-keeps-the-average-in-balance.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-missing-vendor-price-that-keeps-the-average-in-balance.html" />
+
+    <title>The Missing Vendor Price That Keeps the Average in Balance</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 24, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE MISSING VENDOR PRICE THAT KEEPS THE AVERAGE IN BALANCE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Procurement teams often work with an agreed target average before every price is on the table. Knowing what one missing number must be, so the whole set still averages out, is a routine check when a vendor has not yet published its rate. <dfn>This problem shows two paths to the same answer, one that clears the division and one that reads the average as a balance point, and how Python turns either path into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A procurement analyst compares GenAI API vendors. The price per million tokens at five vendors is reported in pesos as 370, 375, 384, 384, and 390. A sixth vendor has not published its price yet. The analyst knows the average price across all six vendors is 380.</p>
+                <p>What is the missing vendor price?</p>
+                <ul>
+                    <li>a) 376</li>
+                    <li>b) 390</li>
+                    <li>c) 380</li>
+                    <li>d) 377</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 377 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Path one clears the division. <strong>Multiply</strong> the average by 6 to get the full total 2280, then <strong>subtract</strong> the five known prices, which sum to 1903. The missing price is 377. Path two never sums everything. It reads the average as a balance point where the gaps above and below must cancel. The known gaps below total 15 and the gaps above total 18, so the sixth price must add 3 to the below side, landing 3 under 380.</p>
+
+                    <p class="insight"><em>The average is the pivot where every deviation cancels, so the missing value is simply 380 minus the total gap of the known prices.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Total needed:</strong> 380 × 6 = 2280</li>
+                            <li><strong>Known prices summed:</strong> 370 + 375 + 384 + 384 + 390 = 1903</li>
+                            <li><strong>Missing price by subtraction:</strong> 2280 − 1903 = 377</li>
+                            <li><strong>Check by deviations:</strong> gaps −10, −5, +4, +4, +10 total +3, so 380 − 3 = 377</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p><strong>The mean and its two solving paths.</strong> The mean is the total divided by the count. Written as an equation, the sum of the six prices over 6 equals 380. One path clears the division and solves for the sum. Multiply both sides by 6 to get 2280, subtract the known 1903, and the missing price is 377. The second path never computes the full sum. It reads the mean as a balance point and works with deviations.</p>
+
+                <p><strong>Why the balance path works.</strong> The mean is the value where deviations cancel. The gaps above it and the gaps below it carry the same total. This is not a coincidence. It follows from the definition. If the deviations did not sum to zero, the value would not be the mean. Here the known gaps below total 15 and the known gaps above total 18. The sixth price must add 3 to the below side to make both sides 18. That price sits 3 under 380, so it is 377. Note the reference is the mean, not the median. The two coincide here by chance.</p>
+
+                <p><strong>The order of operations knot.</strong> A grouped sum resolves before the division around it. So you add inside the parentheses first, then divide. But with an unknown inside, the cleaner move is to clear the division first. Multiply both sides by the count and the fraction disappears. This is the multiplication property of equality doing the work.</p>
+
+                <p><strong>Why the count cancels.</strong> The identity 6 times the quantity a over 6 equals a holds for every real number a. It is not about ratio form. It rests on the multiplicative inverse. Six and one sixth multiply to 1, and 1 leaves a unchanged. Associativity lets you regroup the factors so the inverse pair collapses first. You may multiply then divide or divide then multiply. The result is the same because the two operations undo each other.</p>
+
+                <p><strong>Distribution of division.</strong> Splitting a sum over a divisor is valid. The quantity a plus b, all over 6, equals a over 6 plus b over 6. It is true but adds nothing here. It scatters the arithmetic and invites rounding error. Keeping the sum grouped is the shorter route.</p>
+
+                <p><strong>The Python generator.</strong> The deviation method maps to one line, <code>sum(price - target_average for price in known_prices)</code>. The name <code>price</code> is a loop variable, like <code>i</code>. It looks like it comes before the loop, but a generator expression runs its <code>for</code> clause first. Read it right to left. The loop assigns each list value to <code>price</code>, then the body computes the gap. The list <code>known_prices</code> is the source, not the iterator. The bound <code>total_vendors - 1</code> reflects the one unknown vendor, and <code>str(i + 1)</code> shifts the count from a zero start to a human count.</p>
+
+                <h2 id="proof-identity">Proof of the Cancellation Identity</h2>
+
+                <p><strong>Claim.</strong> Given any real number a, 6 times the quantity a divided by 6 equals a. In symbols, for all real a, 6 × (a ÷ 6) = a.</p>
+
+                <p><strong>Method.</strong> Direct proof. Assume a is an arbitrary real number, then reach a by a chain of justified rewrites.</p>
+
+                <ol>
+                    <li><strong>Definition of division.</strong> Dividing by a nonzero number is multiplying by its reciprocal. So a ÷ 6 equals a × (1/6), since 6 is not zero.</li>
+                    <li><strong>Substitution.</strong> Equals may replace equals. So 6 × (a ÷ 6) equals 6 × (a × 1/6).</li>
+                    <li><strong>Commutativity of multiplication.</strong> Order of factors does not matter. So 6 × (a × 1/6) equals 6 × (1/6 × a).</li>
+                    <li><strong>Associativity of multiplication.</strong> Grouping of factors does not matter. So 6 × (1/6 × a) equals (6 × 1/6) × a, placing 6 and 1/6 together.</li>
+                    <li><strong>Multiplicative inverse property.</strong> A nonzero number times its reciprocal equals 1. So 6 × 1/6 equals 1.</li>
+                    <li><strong>Substitution.</strong> Replacing the paired factors, (6 × 1/6) × a equals 1 × a.</li>
+                    <li><strong>Multiplicative identity property.</strong> One times a value returns it. So 1 × a equals a.</li>
+                    <li><strong>Transitivity of equality.</strong> Chaining the rewrites, 6 × (a ÷ 6) equals a. QED.</li>
+                </ol>
+
+                <h2 id="proof-second-method">Second Method Proof</h2>
+
+                <p><strong>Claim.</strong> Given six prices with mean 380, where five are known, the missing price equals 380 minus the total deviation of the known prices from 380. The deviations are −10, −5, +4, +4, +10.</p>
+
+                <p><strong>Method.</strong> Direct proof. Start from the mean equation, rewrite each known price as 380 plus its deviation, then isolate x.</p>
+
+                <ol>
+                    <li><strong>Multiplication property of equality.</strong> Multiplying both sides of the mean equation by 6 gives the sum of the five known prices plus x equals 2280, since 6 times 380 is 2280.</li>
+                    <li><strong>Addition property of equality.</strong> From the deviation definition d equals price minus 380, adding 380 to both sides gives price equals 380 plus d. Each known price is 380 plus its own deviation.</li>
+                    <li><strong>Substitution.</strong> Replacing each known price gives (380 + d1) + (380 + d2) + (380 + d3) + (380 + d4) + (380 + d5) + x equals 2280.</li>
+                    <li><strong>Associative and commutative laws of addition.</strong> Grouping the five copies of 380 gives 1900 plus the sum of the deviations plus x equals 2280, since 5 times 380 is 1900.</li>
+                    <li><strong>Subtraction property of equality.</strong> Subtracting 1900 from both sides gives the sum of the deviations plus x equals 380.</li>
+                    <li><strong>Subtraction property of equality.</strong> Subtracting the deviation sum from both sides gives x equals 380 minus the sum of the deviations. This is the claimed formula.</li>
+                    <li><strong>Associative and commutative laws of addition.</strong> The deviation sum is −10 + −5 + 4 + 4 + 10, which equals 3.</li>
+                    <li><strong>Substitution.</strong> Replacing the deviation sum gives x equals 380 minus 3, so x equals 377. QED.</li>
+                </ol>
+
+                <p>Both proofs land on the same price. The mean method and the deviation method are two views of one balance.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea of a value that holds quantities in equilibrium on either side is ancient. Archimedes stated the law of the lever in the third century BCE, showing that weights balance when their distances from a pivot offset one another. The arithmetic mean carries the same logic into numbers, where the average acts as the pivot and the deviations are the arms that must cancel. Long before spreadsheets, merchants and astronomers leaned on this balancing instinct to reconcile scattered measurements into a single dependable figure.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script finds the missing value from a known average by summing how far each known price sits from the target, so it works for any set of numbers, not just this one.</p>
+
+                <pre><code># What this does: finds the missing vendor price using gaps from the target average.
+# Where it came from: five GenAI vendor prices are known, the sixth is missing, and the average must be 380.
+# The math idea: add up how far each known price sits from the target, then offset that with the last price.
+# You type in: the five known prices, the target average, and how many vendors there are in total.
+# It prints: the missing vendor price.
+
+# This function does the math.
+def missing_price(known_prices, target_average, total_vendors):
+    # Add up how far each known price sits from the target. Above is plus, below is minus.
+    deviation_sum = sum(price - target_average for price in known_prices)
+    # The missing price must offset that total, so start from the target and take the gap off.
+    return target_average - deviation_sum
+
+# Tell the reader what we will figure out.
+print("Let's find the missing vendor price using gaps from the target.")
+
+# Ask how many vendors there are in total.
+total_vendors = int(input("Total number of vendors: "))
+
+# Ask for the target average.
+target_average = float(input("Target average price: "))
+
+# Collect the known prices. There is one fewer than the total.
+known_prices = []
+for i in range(total_vendors - 1):
+    price = float(input("Known price " + str(i + 1) + ": "))
+    known_prices.append(price)
+
+# Do the math.
+result = missing_price(known_prices, target_average, total_vendors)
+
+# Show a whole number when the result has no decimals.
+result = int(result) if result.is_integer() else result
+
+# Print the answer with words that fit the scenario.
+print("Missing vendor price:", result)</code></pre>
+
+                <p>Run it in a terminal, type the total count, the target average, then each known price, and it returns the missing price. For this problem it returns 377.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/mean-median-basics/a/mean-median-and-mode-review" target="_blank" rel="noopener">Khan Academy — Mean, Median, and Mode</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/ArithmeticMean.html" target="_blank" rel="noopener">Wolfram MathWorld — Arithmetic Mean</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/means" target="_blank" rel="noopener">Mathematics Stack Exchange — Means</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 24, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -7,6 +7,27 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "What A Data Analyst Reads First Decides Which Model Version Ships",
+            articleDescription: "Reporting the typical result means knowing which position in a sorted list of measurements to read, and that position depends on how many measurements there are",
+            articleHref: "/a/what-a-data-analyst-reads-first-decides-which-model-version-ships.html"
+        },
+        {
+            articleTitle: "Two Fleets, One Average, And The Spread That Decides The Winner",
+            articleDescription: "This problem shows why two groups with an identical average can hold very different best performers, and why the measure of spread, not the mean, settles the choice",
+            articleHref: "/a/two-fleets-one-average-and-the-spread-that-decides-the-winner.html"
+            
+        },
+        {
+            articleTitle: "Check The Spread Before You Sign The Cloud Contract",
+            articleDescription: "Platform teams pick infrastructure on the strength of a single number, the average runtime reported after a handful of trial executions. That number can be identical across two candidate configurations while hiding a difference that matters at every deployment, because an average says where the center sits and nothing about how far the runs wander from it. This problem shows why an average needs a second measure standing beside it before anyone commits to a configuration, and how a short Python script can compute both",
+            articleHref: "/a/check-the-spread-before-you-sign-the-cloud-contract.html"
+        },
+        {
+            articleTitle: "The Missing Vendor Price That Keeps The Average In Balance",
+            articleDescription: "This problem shows two paths to the same answer, one that clears the division and one that reads the average as a balance point, and how Python turns either path into a reusable tool",
+            articleHref: "/a/the-missing-vendor-price-that-keeps-the-average-in-balance.html"
+        },
+        {
             articleTitle: "Cloud Tier Sizing Where One Ratio Becomes A Probability",
             articleDescription: "Cloud capacity planning depends on how demand spreads across instance tiers",
             articleHref: "/a/cloud-tier-sizing-where-one-ratio-becomes-a-probability.html"

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="Two cloud configurations return the same average pipeline runtime, yet only one average describes a typical run. A walkthrough of mean, median, and average distance from the mean, with a reusable Python script.">
+    <meta name="keywords"
+        content="mean, median, average distance from the mean, mean absolute deviation, dispersion, skew, descriptive statistics, cloud pipeline runtime, Python statistics">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/same-average-different-truth-when-the-mean-stops-describing-anything.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/same-average-different-truth-when-the-mean-stops-describing-anything.html" />
+
+    <title>Same Average, Different Truth: When the Mean Stops Describing Anything</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 24, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    CHECK THE SPREAD BEFORE YOU SIGN THE CLOUD CONTRACT
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                        Platform teams pick infrastructure on the strength of a single number, the average runtime
+                        reported after a handful of trial executions. That number can be identical across two candidate
+                        configurations while hiding a difference that matters at every deployment, because an average
+                        says where the center sits and nothing about how far the runs wander from it. <dfn>This problem
+                            shows why an average needs a second measure standing beside it before anyone commits to a
+                            configuration, and how a short Python script can compute both.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform team runs the same nightly data pipeline on two cloud instance configurations and records
+                    the runtime of five executions on each. Configuration A produced runtimes of 9, 10, 11, 14, and 16
+                    minutes. Configuration B produced runtimes of 6, 8, 12, 15, and 19 minutes.</p>
+                <p>Both configurations have the same mean runtime. In which case does the mean describe BETTER the
+                    runtime the team should expect from a typical execution?</p>
+                <ul>
+                    <li>a) in both cases</li>
+                    <li>b) in the second case</li>
+                    <li>c) in the first case</li>
+                    <li>d) in neither case</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) in the first case ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Both sets <strong>sum</strong> to 60 minutes and <strong>divide</strong> by five executions, so
+                        both means equal 12. With the means tied, the decision falls to the <strong>average distance
+                            from the mean</strong>, which is 2.4 minutes for Configuration A and 4 minutes for
+                        Configuration B.</p>
+
+                    <p class="insight"><em>Additionally,configuration A stays within 4 minutes of 12, while
+                            Configuration B reaches 7 minutes away from it.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Sum for Configuration A</strong> 9 plus 10 plus 11 plus 14 plus 16 equals 60
+                                minutes</li>
+                            <li><strong>Mean for Configuration A</strong> 60 divided by 5 equals 12 minutes</li>
+                            <li><strong>Sum for Configuration B</strong> 6 plus 8 plus 12 plus 15 plus 19 equals 60
+                                minutes</li>
+                            <li><strong>Mean for Configuration B</strong> 60 divided by 5 equals 12 minutes, so the two
+                                means tie</li>
+                            <li><strong>Median check</strong> 11 for A and 12 for B, so neither set carries the one
+                                sided gap that marks skew and the mean stands as the measure of center</li>
+                            <li><strong>Distances for Configuration A</strong> 3, 2, 1, 2, 4, summing to 12 minutes</li>
+                            <li><strong>Average distance for Configuration A</strong> 12 divided by 5 equals 2.4 minutes
+                            </li>
+                            <li><strong>Distances for Configuration B</strong> 6, 4, 0, 3, 7, summing to 20 minutes</li>
+                            <li><strong>Average distance for Configuration B</strong> 20 divided by 5 equals 4 minutes
+                            </li>
+                            <li><strong>Comparison</strong> 2.4 is less than 4, so Configuration A runs sit closer to
+                                their mean</li>
+                            <li><strong>Conclusion</strong> the mean of 12 minutes describes BETTER a typical execution
+                                in the first case, option c</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="visuals">The Shapes Behind the Rule</h2>
+
+                <p>Three figures carry the whole argument, and each one moves. The first puts both configurations on one
+                    scale. The second shows what a long tail does to each measure of center. The third sorts the
+                    possible shapes.</p>
+
+                <p style="font-size:0.9em"><span
+                        style="display:inline-block;width:14px;height:14px;background:#eda100;vertical-align:middle"></span>
+                    mean &nbsp; <span
+                        style="display:inline-block;width:14px;height:14px;background:#e34948;border-radius:50%;vertical-align:middle"></span>
+                    median &nbsp; <span
+                        style="display:inline-block;width:14px;height:14px;background:#2a78d6;vertical-align:middle"></span>
+                    data &nbsp; <span
+                        style="display:inline-block;width:22px;height:3px;background:#8b8a85;vertical-align:middle"></span>
+                    start position</p>
+
+                <figure>
+                    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+                        <label for="f1-slider" style="font-size:0.9em;color:#6b6a66">Longest run in Configuration
+                            B</label>
+                        <input type="range" id="f1-slider" min="19" max="40" step="1" value="19"
+                            style="flex:1;min-width:180px">
+                        <strong id="f1-out" style="min-width:2.5em">19</strong>
+                    </div>
+                    <div id="f1-box"><svg viewBox="0 0 680 250" width="100%" role="img"
+                            aria-label="Two number lines showing set A and set B with their mean markers and the distance of each run from the mean">
+                            <title>Same mean, different spread</title>
+                            <text x="0" y="46" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                fill="#6b6a66">Configuration A</text>
+                            <line x1="164.5" y1="80" x2="207.7" y2="80" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="178.9" y1="80" x2="207.7" y2="80" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="193.3" y1="80" x2="207.7" y2="80" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="236.5" y1="80" x2="207.7" y2="80" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="265.3" y1="80" x2="207.7" y2="80" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="68.0" y1="80" x2="650.0" y2="80" stroke="#1a1a19" stroke-width="2" />
+                            <circle cx="164.5" cy="80" r="8" fill="#2a78d6" />
+                            <text x="164.5" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">9</text>
+                            <circle cx="178.9" cy="80" r="8" fill="#2a78d6" />
+                            <text x="178.9" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">10</text>
+                            <circle cx="193.3" cy="80" r="8" fill="#2a78d6" />
+                            <text x="193.3" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">11</text>
+                            <circle cx="236.5" cy="80" r="8" fill="#2a78d6" />
+                            <text x="236.5" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">14</text>
+                            <circle cx="265.3" cy="80" r="8" fill="#2a78d6" />
+                            <text x="265.3" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">16</text>
+                            <rect x="200.7" y="73" width="14" height="14" fill="#eda100" />
+                            <text x="207.7" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="13" fill="#1a1a19">mean 12</text>
+                            <text x="0" y="151" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                fill="#6b6a66">Configuration B</text>
+                            <line x1="121.2" y1="185" x2="207.7" y2="185" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="150.1" y1="185" x2="207.7" y2="185" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="207.7" y1="185" x2="207.7" y2="185" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="250.9" y1="185" x2="207.7" y2="185" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="308.6" y1="185" x2="207.7" y2="185" stroke="#2a78d6" stroke-width="7"
+                                stroke-opacity="0.28" />
+                            <line x1="68.0" y1="185" x2="650.0" y2="185" stroke="#1a1a19" stroke-width="2" />
+                            <circle cx="121.2" cy="185" r="8" fill="#2a78d6" />
+                            <text x="121.2" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">6</text>
+                            <circle cx="150.1" cy="185" r="8" fill="#2a78d6" />
+                            <text x="150.1" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">8</text>
+                            <circle cx="207.7" cy="185" r="8" fill="#2a78d6" />
+                            <text x="207.7" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">12</text>
+                            <circle cx="250.9" cy="185" r="8" fill="#2a78d6" />
+                            <text x="250.9" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">15</text>
+                            <circle cx="308.6" cy="185" r="8" fill="#2a78d6" />
+                            <text x="308.6" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">19</text>
+                            <rect x="200.7" y="178" width="14" height="14" fill="#eda100" />
+                            <text x="207.7" y="213" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="13" fill="#1a1a19">mean 12</text>
+                            <text x="0" y="242" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                fill="#6b6a66">Runtime in minutes. Shaded bars are the distance of each run from the
+                                mean.</text>
+                        </svg></div>
+                    <p id="f1-read" style="font-size:0.9em"></p>
+                    <figcaption><em>Figure 1. Both amber squares start on 12 minutes. Configuration A keeps its runs
+                            near that mark, Configuration B scatters them. Drag the slider to push the longest run
+                            further out.</em></figcaption>
+                </figure>
+
+                <script>
+                    (function () {
+                        var A = [9, 10, 11, 14, 16], LO = 3, HI = 42, X0 = 78, X1 = 640;
+                        var INK = "#1a1a19", MUTED = "#6b6a66", DATA = "#2a78d6", MEAN = "#eda100";
+                        var box = document.getElementById("f1-box"), sl = document.getElementById("f1-slider");
+                        if (!box || !sl) { return; }
+                        function px(v) { return X0 + (v - LO) / (HI - LO) * (X1 - X0); }
+                        function mean(a) { var s = 0, i; for (i = 0; i < a.length; i++) { s += a[i]; } return s / a.length; }
+                        function med(a) { var b = a.slice().sort(function (p, q) { return p - q; }); return b[(b.length - b.length % 2) / 2]; }
+                        function ad(a) { var m = mean(a), s = 0, i; for (i = 0; i < a.length; i++) { s += Math.abs(a[i] - m); } return s / a.length; }
+                        function fmt(v) { return String(Math.round(v * 100) / 100); }
+                        function row(d, y, label) {
+                            var m = mean(d), o = "", i;
+                            o += '<text x="0" y="' + (y - 34) + '" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="' + MUTED + '">' + label + '</text>';
+                            for (i = 0; i < d.length; i++) {
+                                o += '<line x1="' + px(d[i]).toFixed(1) + '" y1="' + y + '" x2="' + px(m).toFixed(1) + '" y2="' + y + '" stroke="' + DATA + '" stroke-width="7" stroke-opacity="0.28"/>';
+                            }
+                            o += '<line x1="' + (X0 - 10) + '" y1="' + y + '" x2="' + (X1 + 10) + '" y2="' + y + '" stroke="' + INK + '" stroke-width="2"/>';
+                            for (i = 0; i < d.length; i++) {
+                                o += '<circle cx="' + px(d[i]).toFixed(1) + '" cy="' + y + '" r="8" fill="' + DATA + '"/>';
+                                o += '<text x="' + px(d[i]).toFixed(1) + '" y="' + (y - 15) + '" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + MUTED + '">' + d[i] + '</text>';
+                            }
+                            o += '<rect x="' + (px(m) - 7).toFixed(1) + '" y="' + (y - 7) + '" width="14" height="14" fill="' + MEAN + '"/>';
+                            o += '<text x="' + px(m).toFixed(1) + '" y="' + (y + 28) + '" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="' + INK + '">mean ' + fmt(m) + '</text>';
+                            return o;
+                        }
+                        function draw() {
+                            var top = parseInt(sl.value, 10), B = [6, 8, 12, 15, top];
+                            document.getElementById("f1-out").textContent = String(top);
+                            var s = '<svg viewBox="0 0 680 250" width="100%" role="img" aria-label="Two number lines showing set A and set B with their mean markers and the distance of each run from the mean">';
+                            s += row(A, 80, "Configuration A") + row(B, 185, "Configuration B");
+                            s += '<text x="0" y="242" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + MUTED + '">Runtime in minutes. Shaded bars are the distance of each run from the mean.</text>';
+                            s += "</svg>";
+                            box.innerHTML = s;
+                            var mb = mean(B), gap = Math.abs(mb - med(B)), txt;
+                            if (gap < 0.5) {
+                                txt = "Means tie at " + fmt(mean(A)) + " minutes. Average distance is " + fmt(ad(A)) + " for A against " + fmt(ad(B)) + " for B, so only the first mean describes a typical run.";
+                            } else {
+                                txt = "Configuration B now has a mean of " + fmt(mb) + " against a median of " + fmt(med(B)) + ". The tail has pulled the mean, so read B by its median instead.";
+                            }
+                            document.getElementById("f1-read").textContent = txt;
+                        }
+                        sl.addEventListener("input", draw);
+                        draw();
+                    }());
+                </script>
+
+                <p>Figure 2 answers a fair objection. When a distribution grows a tail, which marker actually moves?</p>
+
+                <figure>
+                    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+                        <label for="f2-slider" style="font-size:0.9em;color:#6b6a66">Stretch the three longest
+                            runs</label>
+                        <input type="range" id="f2-slider" min="0" max="20" step="1" value="0"
+                            style="flex:1;min-width:180px">
+                        <strong id="f2-out" style="min-width:2.5em">0</strong>
+                    </div>
+                    <div id="f2-box"><svg viewBox="0 0 680 300" width="100%" role="img"
+                            aria-label="Fifteen runs on a number line with a fixed start line, showing how far the mean and the median travel when the longest runs stretch out">
+                            <title>A long tail moves the mean and leaves the median</title>
+                            <line x1="229.5" y1="34" x2="229.5" y2="168" stroke="#8b8a85" stroke-width="3" />
+                            <text x="229.5" y="26" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="12" fill="#6b6a66">start</text>
+                            <line x1="108.0" y1="150" x2="652.0" y2="150" stroke="#1a1a19" stroke-width="2" />
+                            <circle cx="133.7" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="147.4" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="161.1" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="174.7" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="188.4" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="202.1" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="215.8" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="229.5" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="243.2" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="256.8" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="270.5" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="284.2" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="297.9" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="311.6" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <circle cx="325.3" cy="150" r="7" fill="#2a78d6" fill-opacity="0.75" />
+                            <line x1="229.5" y1="60" x2="229.5" y2="150" stroke="#eda100" stroke-width="3" />
+                            <rect x="221.5" y="142" width="16" height="16" fill="#eda100" />
+                            <line x1="229.5" y1="60" x2="229.5" y2="150" stroke="#e34948" stroke-width="3"
+                                stroke-dasharray="7 5" />
+                            <circle cx="229.5" cy="150" r="10" fill="#e34948" />
+                            <text x="229.5" y="50" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+                                font-size="13" fill="#1a1a19">mean 8</text>
+                            <text x="0" y="224" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                fill="#6b6a66">mean travel</text>
+                            <line x1="229.5" y1="206" x2="229.5" y2="234" stroke="#8b8a85" stroke-width="1"
+                                stroke-dasharray="3 3" />
+                            <circle cx="229.5" cy="220" r="4" fill="#eda100" />
+                            <text x="241.5" y="224" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                fill="#eda100">no travel</text>
+                            <text x="0" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                fill="#6b6a66">median travel</text>
+                            <line x1="229.5" y1="254" x2="229.5" y2="282" stroke="#8b8a85" stroke-width="1"
+                                stroke-dasharray="3 3" />
+                            <circle cx="229.5" cy="268" r="4" fill="#e34948" />
+                            <text x="241.5" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                fill="#e34948">no travel</text>
+                        </svg></div>
+                    <p id="f2-read" style="font-size:0.9em"></p>
+                    <figcaption><em>Figure 2. At zero stretch both markers sit on the start line. Every notch of stretch
+                            moves the mean and leaves the median where it was.</em></figcaption>
+                </figure>
+
+                <script>
+                    (function () {
+                        var LO = 0, HI = 38, X0 = 120, X1 = 640, BASE = 150, TOP = 60, START = 8;
+                        var INK = "#1a1a19", MUTED = "#6b6a66", DATA = "#2a78d6", MEAN = "#eda100", MED = "#e34948", GRAY = "#8b8a85";
+                        var box = document.getElementById("f2-box"), sl = document.getElementById("f2-slider");
+                        if (!box || !sl) { return; }
+                        function px(v) { return X0 + (v - LO) / (HI - LO) * (X1 - X0); }
+                        function fmt(v) { return String(Math.round(v * 100) / 100); }
+                        function travel(y, value, color, name) {
+                            var a = px(START), b = px(value), o = "", d = b > a ? 1 : -1;
+                            o += '<text x="0" y="' + (y + 4) + '" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + MUTED + '">' + name + '</text>';
+                            o += '<line x1="' + a.toFixed(1) + '" y1="' + (y - 14) + '" x2="' + a.toFixed(1) + '" y2="' + (y + 14) + '" stroke="' + GRAY + '" stroke-width="1" stroke-dasharray="3 3"/>';
+                            if (Math.abs(value - START) < 0.005) {
+                                o += '<circle cx="' + a.toFixed(1) + '" cy="' + y + '" r="4" fill="' + color + '"/>';
+                                o += '<text x="' + (a + 12).toFixed(1) + '" y="' + (y + 4) + '" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + color + '">no travel</text>';
+                                return o;
+                            }
+                            if (Math.abs(b - a) < 14) {
+                                o += '<line x1="' + a.toFixed(1) + '" y1="' + y + '" x2="' + b.toFixed(1) + '" y2="' + y + '" stroke="' + color + '" stroke-width="3"/>';
+                                o += '<circle cx="' + b.toFixed(1) + '" cy="' + y + '" r="4" fill="' + color + '"/>';
+                            } else {
+                                o += '<line x1="' + a.toFixed(1) + '" y1="' + y + '" x2="' + (b - d * 10).toFixed(1) + '" y2="' + y + '" stroke="' + color + '" stroke-width="3"/>';
+                                o += '<path d="M ' + b.toFixed(1) + ' ' + y + ' L ' + (b - d * 11).toFixed(1) + ' ' + (y - 6) + ' L ' + (b - d * 11).toFixed(1) + ' ' + (y + 6) + ' Z" fill="' + color + '"/>';
+                            }
+                            o += '<text x="' + (b + 12).toFixed(1) + '" y="' + (y + 4) + '" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + color + '">' + fmt(Math.abs(value - START)) + '</text>';
+                            return o;
+                        }
+                        function draw() {
+                            var st = parseInt(sl.value, 10), data = [], i, sum = 0;
+                            for (i = 1; i <= 15; i++) { data.push(i >= 13 ? i + st : i); }
+                            for (i = 0; i < data.length; i++) { sum += data[i]; }
+                            var m = sum / data.length, md = data.slice().sort(function (p, q) { return p - q; })[7];
+                            document.getElementById("f2-out").textContent = String(st);
+                            var s = '<svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Fifteen runs on a number line with a fixed start line, showing how far the mean and the median travel when the longest runs stretch out">';
+                            s += '<line x1="' + px(START).toFixed(1) + '" y1="' + (TOP - 26) + '" x2="' + px(START).toFixed(1) + '" y2="' + (BASE + 18) + '" stroke="' + GRAY + '" stroke-width="3"/>';
+                            s += '<text x="' + px(START).toFixed(1) + '" y="' + (TOP - 34) + '" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="' + MUTED + '">start</text>';
+                            s += '<line x1="' + (X0 - 12) + '" y1="' + BASE + '" x2="' + (X1 + 12) + '" y2="' + BASE + '" stroke="' + INK + '" stroke-width="2"/>';
+                            for (i = 0; i < data.length; i++) {
+                                s += '<circle cx="' + px(data[i]).toFixed(1) + '" cy="' + BASE + '" r="7" fill="' + DATA + '" fill-opacity="0.75"/>';
+                            }
+                            s += '<line x1="' + px(m).toFixed(1) + '" y1="' + TOP + '" x2="' + px(m).toFixed(1) + '" y2="' + BASE + '" stroke="' + MEAN + '" stroke-width="3"/>';
+                            s += '<rect x="' + (px(m) - 8).toFixed(1) + '" y="' + (BASE - 8) + '" width="16" height="16" fill="' + MEAN + '"/>';
+                            s += '<line x1="' + px(md).toFixed(1) + '" y1="' + TOP + '" x2="' + px(md).toFixed(1) + '" y2="' + BASE + '" stroke="' + MED + '" stroke-width="3" stroke-dasharray="7 5"/>';
+                            s += '<circle cx="' + px(md).toFixed(1) + '" cy="' + BASE + '" r="10" fill="' + MED + '"/>';
+                            s += '<text x="' + px(m).toFixed(1) + '" y="' + (TOP - 10) + '" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="' + INK + '">mean ' + fmt(m) + '</text>';
+                            s += travel(220, m, MEAN, "mean travel") + travel(268, md, MED, "median travel");
+                            s += "</svg>";
+                            box.innerHTML = s;
+                            var txt;
+                            if (st === 0) {
+                                txt = "Symmetric. Mean and median both sit on 8 minutes, so the mean is the measure of center.";
+                            } else {
+                                txt = "The mean has moved to " + fmt(m) + " minutes while the median holds at " + fmt(md) + ". Three runs out of fifteen changed, and only the mean noticed.";
+                            }
+                            document.getElementById("f2-read").textContent = txt;
+                        }
+                        sl.addEventListener("input", draw);
+                        draw();
+                    }());
+                </script>
+
+                <p>Figure 3 lays out the typology. The gap printed under each panel is the distance between the two
+                    markers, which is the working test for skew. Click a panel to read what it implies. Note the last
+                    two panels, whose gaps are near zero yet whose widths differ, which is why <strong>shape and spread
+                        need separate treatment</strong>.</p>
+
+                <figure>
+                    <div id="f3-box"><svg viewBox="0 0 680 480" width="100%" role="img"
+                            aria-label="Nine miniature distribution shapes, each with a mean marker, a median marker and the gap between them">
+                            <title>A typology of shapes</title>
+                            <g data-idx="0" style="cursor:pointer">
+                                <rect x="4" y="6" width="208" height="136" fill="#f4f3ef" fill-opacity="1"
+                                    stroke="#eda100" stroke-width="2" rx="6" />
+                                <text x="14" y="28" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Symmetric</text>
+                                <rect x="15.9" y="101.4" width="13.3" height="6.6" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="33.0" y="94.8" width="13.3" height="13.2" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="50.1" y="81.6" width="13.3" height="26.4" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="67.2" y="61.8" width="13.3" height="46.2" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="84.2" y="48.6" width="13.3" height="59.4" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="101.3" y="42.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="118.4" y="48.6" width="13.3" height="59.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="135.5" y="61.8" width="13.3" height="46.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="152.6" y="81.6" width="13.3" height="26.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="169.7" y="94.8" width="13.3" height="13.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="186.8" y="101.4" width="13.3" height="6.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="14.0" y1="108.0" x2="202.0" y2="108.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="108.0" y1="42.0" x2="108.0" y2="108.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="102.0" y="102.0" width="12" height="12" fill="#eda100" />
+                                <line x1="108.0" y1="42.0" x2="108.0" y2="108.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="108.0" cy="108.0" r="7" fill="#e34948" />
+                                <text x="14.0" y="134.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                            <g data-idx="1" style="cursor:pointer">
+                                <rect x="226" y="6" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="236" y="28" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Right skewed</text>
+                                <rect x="237.9" y="88.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="255.0" y="55.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="272.1" y="42.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="289.2" y="55.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="306.2" y="75.0" width="13.3" height="33.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="323.3" y="88.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="340.4" y="94.8" width="13.3" height="13.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="357.5" y="99.4" width="13.3" height="8.6" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="374.6" y="102.1" width="13.3" height="5.9" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="391.7" y="104.0" width="13.3" height="4.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="408.8" y="105.4" width="13.3" height="2.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="236.0" y1="108.0" x2="424.0" y2="108.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="295.0" y1="42.0" x2="295.0" y2="108.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="289.0" y="102.0" width="12" height="12" fill="#eda100" />
+                                <line x1="287.5" y1="42.0" x2="287.5" y2="108.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="287.5" cy="108.0" r="7" fill="#e34948" />
+                                <text x="236.0" y="134.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0.44</text>
+                            </g>
+                            <g data-idx="2" style="cursor:pointer">
+                                <rect x="448" y="6" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="458" y="28" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Left skewed</text>
+                                <rect x="459.9" y="105.4" width="13.3" height="2.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="477.0" y="104.0" width="13.3" height="4.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="494.1" y="102.1" width="13.3" height="5.9" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="511.2" y="99.4" width="13.3" height="8.6" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="528.2" y="94.8" width="13.3" height="13.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="545.3" y="88.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="562.4" y="75.0" width="13.3" height="33.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="579.5" y="55.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="596.6" y="42.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="613.7" y="55.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="630.8" y="88.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="458.0" y1="108.0" x2="646.0" y2="108.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="587.0" y1="42.0" x2="587.0" y2="108.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="581.0" y="102.0" width="12" height="12" fill="#eda100" />
+                                <line x1="594.5" y1="42.0" x2="594.5" y2="108.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="594.5" cy="108.0" r="7" fill="#e34948" />
+                                <text x="458.0" y="134.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0.44</text>
+                            </g>
+                            <g data-idx="3" style="cursor:pointer">
+                                <rect x="4" y="158" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="14" y="180" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Heavy tailed</text>
+                                <rect x="15.9" y="194.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="33.0" y="218.8" width="13.3" height="41.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="50.1" y="243.5" width="13.3" height="16.5" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="67.2" y="247.6" width="13.3" height="12.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="84.2" y="250.1" width="13.3" height="9.9" fill="#2a78d6" fill-opacity="0.42" />
+                                <rect x="101.3" y="250.9" width="13.3" height="9.1" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="118.4" y="250.1" width="13.3" height="9.9" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="135.5" y="247.6" width="13.3" height="12.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="152.6" y="243.5" width="13.3" height="16.5" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="169.7" y="218.8" width="13.3" height="41.2" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="186.8" y="194.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="14.0" y1="260.0" x2="202.0" y2="260.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="108.0" y1="194.0" x2="108.0" y2="260.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="102.0" y="254.0" width="12" height="12" fill="#eda100" />
+                                <line x1="108.0" y1="194.0" x2="108.0" y2="260.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="108.0" cy="260.0" r="7" fill="#e34948" />
+                                <text x="14.0" y="286.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                            <g data-idx="4" style="cursor:pointer">
+                                <rect x="226" y="158" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="236" y="180" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Bimodal</text>
+                                <rect x="237.9" y="252.7" width="13.3" height="7.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="255.0" y="230.7" width="13.3" height="29.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="272.1" y="194.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="289.2" y="223.3" width="13.3" height="36.7" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="306.2" y="249.0" width="13.3" height="11.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="323.3" y="252.7" width="13.3" height="7.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="340.4" y="249.0" width="13.3" height="11.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="357.5" y="223.3" width="13.3" height="36.7" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="374.6" y="194.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="391.7" y="230.7" width="13.3" height="29.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="408.8" y="252.7" width="13.3" height="7.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="236.0" y1="260.0" x2="424.0" y2="260.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="330.0" y1="194.0" x2="330.0" y2="260.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="324.0" y="254.0" width="12" height="12" fill="#eda100" />
+                                <line x1="330.0" y1="194.0" x2="330.0" y2="260.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="330.0" cy="260.0" r="7" fill="#e34948" />
+                                <text x="236.0" y="286.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                            <g data-idx="5" style="cursor:pointer">
+                                <rect x="448" y="158" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="458" y="180" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Outlier present</text>
+                                <rect x="459.9" y="253.4" width="13.3" height="6.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="477.0" y="240.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="494.1" y="207.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="511.2" y="194.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="528.2" y="207.2" width="13.3" height="52.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="545.3" y="240.2" width="13.3" height="19.8" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="562.4" y="253.4" width="13.3" height="6.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="630.8" y="220.4" width="13.3" height="39.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="458.0" y1="260.0" x2="646.0" y2="260.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="535.8" y1="194.0" x2="535.8" y2="260.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="529.8" y="254.0" width="12" height="12" fill="#eda100" />
+                                <line x1="522.9" y1="194.0" x2="522.9" y2="260.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="522.9" cy="260.0" r="7" fill="#e34948" />
+                                <text x="458.0" y="286.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0.75</text>
+                            </g>
+                            <g data-idx="6" style="cursor:pointer">
+                                <rect x="4" y="310" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="14" y="332" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Uniform</text>
+                                <rect x="15.9" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="33.0" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="50.1" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="67.2" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="84.2" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="101.3" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="118.4" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="135.5" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="152.6" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="169.7" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="186.8" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="14.0" y1="412.0" x2="202.0" y2="412.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="108.0" y1="346.0" x2="108.0" y2="412.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="102.0" y="406.0" width="12" height="12" fill="#eda100" />
+                                <line x1="108.0" y1="346.0" x2="108.0" y2="412.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="108.0" cy="412.0" r="7" fill="#e34948" />
+                                <text x="14.0" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                            <g data-idx="7" style="cursor:pointer">
+                                <rect x="226" y="310" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="236" y="332" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">Low dispersion</text>
+                                <rect x="272.1" y="408.7" width="13.3" height="3.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="289.2" y="385.6" width="13.3" height="26.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="306.2" y="352.6" width="13.3" height="59.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="323.3" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="340.4" y="352.6" width="13.3" height="59.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="357.5" y="385.6" width="13.3" height="26.4" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="374.6" y="408.7" width="13.3" height="3.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="236.0" y1="412.0" x2="424.0" y2="412.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="330.0" y1="346.0" x2="330.0" y2="412.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="324.0" y="406.0" width="12" height="12" fill="#eda100" />
+                                <line x1="330.0" y1="346.0" x2="330.0" y2="412.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="330.0" cy="412.0" r="7" fill="#e34948" />
+                                <text x="236.0" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                            <g data-idx="8" style="cursor:pointer">
+                                <rect x="448" y="310" width="208" height="136" fill="#f4f3ef" fill-opacity="0.45"
+                                    stroke="none" stroke-width="0" rx="6" />
+                                <text x="458" y="332" font-family="Arial, Helvetica, sans-serif" font-size="13"
+                                    fill="#1a1a19">High dispersion</text>
+                                <rect x="459.9" y="355.4" width="13.3" height="56.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="477.0" y="350.7" width="13.3" height="61.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="494.1" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="511.2" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="528.2" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="545.3" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="562.4" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="579.5" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="596.6" y="346.0" width="13.3" height="66.0" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="613.7" y="350.7" width="13.3" height="61.3" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <rect x="630.8" y="355.4" width="13.3" height="56.6" fill="#2a78d6"
+                                    fill-opacity="0.42" />
+                                <line x1="458.0" y1="412.0" x2="646.0" y2="412.0" stroke="#1a1a19" stroke-width="2" />
+                                <line x1="552.0" y1="346.0" x2="552.0" y2="412.0" stroke="#eda100" stroke-width="2.5" />
+                                <rect x="546.0" y="406.0" width="12" height="12" fill="#eda100" />
+                                <line x1="552.0" y1="346.0" x2="552.0" y2="412.0" stroke="#e34948" stroke-width="2.5"
+                                    stroke-dasharray="5 4" />
+                                <circle cx="552.0" cy="412.0" r="7" fill="#e34948" />
+                                <text x="458.0" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="12"
+                                    fill="#6b6a66">gap 0</text>
+                            </g>
+                        </svg></div>
+                    <p id="f3-read" style="font-size:0.9em"></p>
+                    <figcaption><em>Figure 3. Nine shapes on the same axes. Only the three skew cases and the outlier
+                            case open a gap worth acting on.</em></figcaption>
+                </figure>
+
+                <script>
+                    (function () {
+                        var box = document.getElementById("f3-box");
+                        if (!box) { return; }
+                        var notes = [
+                            "Symmetric. Tails balanced. Mean and median land together, so use the mean.",
+                            "Right skewed. A long tail on the right pulls the mean above the median, so use the median.",
+                            "Left skewed. A long tail on the left pulls the mean below the median, so use the median.",
+                            "Heavy tailed. Mass at both ends and a thin middle. The two tails offset, so mean and median stay together. Use the mean and report the spread.",
+                            "Bimodal. Two peaks. Both measures fall in the empty middle, so both mislead. Split the data first.",
+                            "Outlier present. One value far from the rest, and the gap comes from that single point. Use the median and report the outlier.",
+                            "Uniform. No peak. Mean and median agree, and no value is more typical than another.",
+                            "Low dispersion. Values cluster near the center, so the average distance is small and the center describes a typical case. This is Configuration A.",
+                            "High dispersion. Values reach far from the center, so the average distance is large and the center is a weak guide. Report the range. This is Configuration B."
+                        ];
+                        var read = document.getElementById("f3-read");
+                        function select(i) {
+                            var groups = box.querySelectorAll("g[data-idx]"), k, g, r;
+                            for (k = 0; k < groups.length; k++) {
+                                g = groups[k];
+                                r = g.querySelector("rect");
+                                if (!r) { continue; }
+                                if (String(i) === g.getAttribute("data-idx")) {
+                                    r.setAttribute("fill-opacity", "1");
+                                    r.setAttribute("stroke", "#eda100");
+                                    r.setAttribute("stroke-width", "2");
+                                } else {
+                                    r.setAttribute("fill-opacity", "0.45");
+                                    r.setAttribute("stroke", "none");
+                                    r.setAttribute("stroke-width", "0");
+                                }
+                            }
+                            read.textContent = notes[i];
+                        }
+                        box.addEventListener("click", function (e) {
+                            var n = e.target;
+                            while (n && n !== box && !(n.getAttribute && n.getAttribute("data-idx"))) { n = n.parentNode; }
+                            if (n && n !== box && n.getAttribute("data-idx")) { select(parseInt(n.getAttribute("data-idx"), 10)); }
+                        });
+                        select(0);
+                    }());
+                </script>
+
+
+                <h2 id="proof-version">The Proof, One Named Property Per Step</h2>
+
+                <p>The reveal above computes the answer. This section establishes it, with every inference licensed by a
+                    property that holds independent of the problem. Method, direct proof. Compute both centers,
+                    establish they coincide, then compare the two dispersion measures.</p>
+
+                <p><strong>Claim.</strong> Given set A equal to 9, 10, 11, 14, 16 and set B equal to 6, 8, 12, 15, 19,
+                    both sets share one mean, neither set is skewed, and the mean absolute deviation of A is strictly
+                    less than that of B.</p>
+
+                <ol>
+                    <li><strong>Definition of the arithmetic mean.</strong> The sum of the entries divided by their
+                        count. The mean of A equals the quantity 9 plus 10 plus 11 plus 14 plus 16, divided by 5.</li>
+                    <li><strong>Associativity and commutativity of addition.</strong> Terms may be regrouped and
+                        reordered without changing a sum. That sum equals 60. Builds on line 1, since 9 plus 11 is 20,
+                        10 plus 16 is 26, and 20 plus 26 plus 14 is 60.</li>
+                    <li><strong>Cancellation law.</strong> For nonzero b, b times a over b equals a. The mean of A
+                        equals 12. Builds on lines 1 and 2, since 60 over 5 is 5 times 12 over 5.</li>
+                    <li><strong>Definition of the arithmetic mean, as in line 1.</strong> The mean of B equals the
+                        quantity 6 plus 8 plus 12 plus 15 plus 19, divided by 5.</li>
+                    <li><strong>Associativity and commutativity of addition, as in line 2.</strong> That sum equals 60.
+                        Builds on line 4, since 6 plus 19 is 25, 8 plus 12 is 20, and 25 plus 20 plus 15 is 60.</li>
+                    <li><strong>Cancellation law, as in line 3.</strong> The mean of B equals 12. Builds on lines 4 and
+                        5.</li>
+                    <li><strong>Transitivity of equality.</strong> If a equals b and b equals c then a equals c. The two
+                        means are equal, each 12. Builds on lines 3 and 6.</li>
+                    <li><strong>Definition of the median.</strong> For an ordered list of odd count 2k plus 1, the entry
+                        in position k plus 1. The median of A is 11 and the median of B is 12, since each list is
+                        already ordered with count 5.</li>
+                    <li><strong>Trichotomy.</strong> Every real number is positive, negative, or zero. The mean minus
+                        the median is 1 for A and 0 for B. Builds on lines 3, 6, and 8. Neither set carries the one
+                        sided gap that marks skew, so the mean stands as the measure of center for both.</li>
+                    <li><strong>Definition of the mean absolute deviation.</strong> The mean of the absolute differences
+                        between each entry and the mean, where the absolute value of x is x for nonnegative x and
+                        negative x otherwise. For A the differences are 3, 2, 1, 2, 4, summing to 12, so the mean
+                        absolute deviation is 2.4. Builds on line 3.</li>
+                    <li><strong>Definition of the mean absolute deviation, as in line 10.</strong> For B the differences
+                        are 6, 4, 0, 3, 7, summing to 20, so the mean absolute deviation is 4. Builds on line 6.</li>
+                    <li><strong>Order preserved under multiplication by a positive number.</strong> If a is less than b
+                        and c is positive then c times a is less than c times b. The mean absolute deviation of A is
+                        strictly less than that of B. Builds on lines 10 and 11, since 12 is less than 20 and
+                        multiplying each side by one fifth preserves the inequality.</li>
+                    <li><strong>Modus ponens.</strong> If P implies Q and P holds then Q holds. The mean of A describes
+                        a typical value and the mean of B does not. Builds on lines 7, 9, and 12, under the criterion
+                        below.</li>
+                </ol>
+
+                <p class="insight"><em>Two flags. The threshold that separates a small gap from skew rests on
+                        inspection, not on a theorem, so line 9 records the two gaps exactly and the judgement that 1
+                        out of 12 is small is a stated assumption. The criterion in line 13 is also an assumption. It
+                        reads as follows. When two sets share a mean and neither is skewed, the set with the smaller
+                        mean absolute deviation is the one whose mean describes a typical entry. No axiom licenses
+                        it.</em></p>
+
+                <p>Both sets have mean 12, neither is skewed, and the mean absolute deviation of A, at 2.4, is strictly
+                    less than that of B, at 4. The mean describes the typical entry in the first case only. QED.</p>
+
+                <h2 id="dialogue-version">A Conversation About the Answer</h2>
+
+                <p>The same reasoning as a dialogue, since the wrong turns are as instructive as the proof. A student
+                    pushes on each claim and a science teacher answers.</p>
+
+                <p><strong>Student.</strong> Set A, 9, 10, 11, 14, 16. Set B, 6, 8, 12, 15, 19. Same mean. Which one
+                    does 12 actually describe? I say the first. Are you sure about that choice?</p>
+
+                <p><strong>Teacher.</strong> Sure. Both means are 12. Set A sits within 4 minutes of it, set B reaches 7
+                    minutes away. The first case.</p>
+
+                <p><strong>Student.</strong> So you are telling me set B is skewed.</p>
+
+                <p><strong>Teacher.</strong> No. Set B is close to symmetric. Median 12, mean 12. The deviations offset,
+                    negative 6 against positive 7, negative 4 against positive 3. What separates the sets is width. Set
+                    A spans 7, set B spans 13.</p>
+
+                <p><strong>Student.</strong> But you do think 12 describes typical behavior better in the first set than
+                    the second.</p>
+
+                <p><strong>Teacher.</strong> Yes.</p>
+
+                <p><strong>Student.</strong> Here is my read. Skew is what makes the median better than the mean,
+                    because extreme values drag the mean. Not the case here. Both means are 12, so the mean is fine and
+                    the question is just asking about the mean.</p>
+
+                <p><strong>Teacher.</strong> Two ideas are mixed there. Skew decides mean against median, and you are
+                    right that there is no skew here. <span class="highlight-line">Spread decides whether the mean
+                        describes anything typical</span>, and that is independent. Equal means do not make both means
+                    equally informative. The exercise gives identical means on purpose, so dispersion is the only
+                    remaining basis. Range 7 against range 13, average distance 2.4 against 4.</p>
+
+                <p><strong>Student.</strong> Summarizing. Before, no skewed data, mean greater than median.</p>
+
+                <p><strong>Teacher.</strong> Careful with the notation. With no skew the two are numerically equal, both
+                    12. You mean prefer the mean over the median when the data is not skewed. Three lines. Skew picks
+                    the measure of center. Once the mean is the right measure, <span class="highlight-line">spread says
+                        how well it describes a typical case</span>. </p>
+
+                <p><strong>Student.</strong> Show me. And on the graph I could not tell which marker was moving, the
+                    mean or the median.</p>
+
+                <p><strong>Teacher.</strong> Because nothing was pinned. Fix a line at the starting position and draw an
+                    arrow to each marker. The mean arrow is always the longer one.</p>
+
+                <p><strong>Student.</strong> So once it is skewed, the median is the better description of what
+                    typically happens.</p>
+
+                <p><strong>Teacher.</strong> Yes.</p>
+
+                <p><strong>Student.</strong> And if one run comes back much longer, that skews the data and weakens the
+                    mean.</p>
+
+                <p><strong>Teacher.</strong> Yes.</p>
+
+                <p><strong>Student.</strong> Then average distance to the mean is one way to measure how skewed the data
+                    is.</p>
+
+                <p><strong>Teacher.</strong> No.span <span class="highlight-line"> That measures spread. It drops the
+                        sign, so it cannot say which side the tail is on.</span> Your two sets are both symmetric and
+                    their average distances still differ, 2.4 against 4. <span class="highlight-line">For skew, compare
+                        the mean with the median.</span> The gap gives you the size, the sign gives you the side.</p>
+
+                <p><strong>Student.</strong> Can a graph be skewed toward both sides at once?</p>
+
+                <p><strong>Teacher.</strong> <span class="highlight-line">No. Skew has one direction.</span> Mass at both ends is not skew, the tails cancel
+                    and the mean lands near the median. That shape is heavy tailed, or bimodal if it has two peaks.</p>
+
+                <p><strong>Student.</strong> Plain English. What is the average absolute deviation for?</p>
+
+                <p><strong>Teacher.</strong> It answers one question. How far off is the average if you use it as your
+                    guess? For set A, 2.4 minutes. Guess 12 and you miss by about that much. For set B, 4. It rates the
+                    mean, it compares two sets that share a mean, and it keeps the unit of the data. Variance would hand
+                    you 8.8 minutes squared, which you cannot picture. Read it against the size of the mean, though.
+                    Missing by 2.4 on a mean of 12 is 20 percent.</p>
+
+                <p><strong>Student.</strong> So each of the 5 numbers is the distance from each of the 6 runtimes to the
+                    mean, and their average is how far a typical runtime sits from it.</p>
+
+                <p><strong>Teacher.</strong> The meaning is right. The count is not. Five runtimes, five distances.</p>
+
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Averaging repeated measurements became standard practice among eighteenth century astronomers, who
+                    took many sightings of the same star and needed one number to publish. The follow up question, how
+                    to score the leftover error, split the field. Laplace worked with the sum of absolute errors, while
+                    later practice moved to squared errors, and Ronald Fisher argued the case for the squared version in
+                    the early 1920s on grounds of sampling behavior.</p>
+
+                <p>Absolute deviation never left the working toolkit, because it keeps the unit of the data. An engineer
+                    reading 4 minutes understands it immediately, whereas 8.8 minutes squared describes nothing anyone
+                    can picture. Operations reporting, quality control, and forecast error tracking still lean on the
+                    absolute form for that reason.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script collects the runtimes for two configurations, reports the mean, the middle value, and the
+                    average distance from the mean for each, then names the configuration whose average can be trusted.
+                </p>
+
+                <pre><code># What this does: compares two sets of pipeline runtimes and says which average is trustworthy.
+# Where it came from: a team ran the same pipeline on two cloud configurations and timed each run.
+# The math idea: the average, the middle value, and how far the runs sit from the average.
+# You type in: how many runs you timed, then each runtime for A and for B.
+# It prints: the average and middle value for each set, and which average describes a typical run.
+
+# This function adds up the runs and divides by how many there are.
+def average(runs):
+    return sum(runs) / len(runs)
+
+# This function finds the middle value once the runs are in order.
+def middle_value(runs):
+    ordered = sorted(runs)
+    count = len(ordered)
+    # An odd count has one value in the middle.
+    if count % 2 == 1:
+        return ordered[count // 2]
+    # An even count has two middle values, so average them.
+    return (ordered[count // 2 - 1] + ordered[count // 2]) / 2
+
+# This function measures how far the runs sit from the average, on average.
+def average_distance(runs):
+    center = average(runs)
+    gaps = [abs(run - center) for run in runs]
+    return sum(gaps) / len(gaps)
+
+# This function collects the runtimes for one configuration.
+def collect_runs(label, how_many):
+    runs = []
+    for number in range(1, how_many + 1):
+        runs.append(float(input("Runtime of " + label + " run " + str(number) + " in minutes: ")))
+    return runs
+
+# Tidy up a number so whole values do not show a trailing zero.
+def tidy(value):
+    value = round(value, 2)
+    return int(value) if float(value).is_integer() else value
+
+# Tell the reader what we will figure out.
+print("Let's see which configuration has a trustworthy average runtime.")
+
+# Ask how many runs were timed on each configuration.
+how_many = int(input("How many runs per configuration: "))
+
+# Collect the runtimes for each configuration.
+runs_a = collect_runs("configuration A", how_many)
+runs_b = collect_runs("configuration B", how_many)
+
+# Work out the three numbers for each set.
+mean_a, mean_b = average(runs_a), average(runs_b)
+middle_a, middle_b = middle_value(runs_a), middle_value(runs_b)
+spread_a, spread_b = average_distance(runs_a), average_distance(runs_b)
+
+# Show the numbers for each configuration.
+print("Configuration A average", tidy(mean_a), "minutes, middle value", tidy(middle_a), "minutes, average distance", tidy(spread_a))
+print("Configuration B average", tidy(mean_b), "minutes, middle value", tidy(middle_b), "minutes, average distance", tidy(spread_b))
+
+# A big gap between the average and the middle value means one side has a long tail.
+# When that happens the middle value is the better guide.
+gap_a = abs(mean_a - middle_a)
+gap_b = abs(mean_b - middle_b)
+if gap_a &gt; 0.1 * mean_a:
+    print("Configuration A is lopsided, so use its middle value of", tidy(middle_a), "minutes instead.")
+if gap_b &gt; 0.1 * mean_b:
+    print("Configuration B is lopsided, so use its middle value of", tidy(middle_b), "minutes instead.")
+
+# When neither set is lopsided, the tighter set has the more useful average.
+if spread_a &lt; spread_b:
+    print("Configuration A runs sit closer to its average, so that average describes a typical run.")
+elif spread_b &lt; spread_a:
+    print("Configuration B runs sit closer to its average, so that average describes a typical run.")
+else:
+    print("Both sets are equally spread out, so neither average is a better guide.")</code></pre>
+
+                <p>Open a terminal, start Python, paste the script, and type 5 for the count followed by the ten
+                    runtimes. It returns 12 minutes for both averages, 2.4 against 4 for the average distances, and it
+                    names Configuration A.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data"
+                            target="_blank" rel="noopener">Khan Academy — Summarizing Quantitative Data</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/MeanDeviation.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Mean Deviation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/descriptive-statistics"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Descriptive Statistics</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 24, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>
