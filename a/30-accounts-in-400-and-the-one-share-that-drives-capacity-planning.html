@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="A cloud cost management survey turns a raw count of 30 accounts into a relative frequency of 7.5%. Step by step solution, three interactive graphs, the history of the concept, how it differs from ratio and rate, and a reusable Python function.">
+    <meta name="keywords"
+        content="relative frequency, ratio, rate, survey analysis, cloud cost management, descriptive statistics, frequentist probability, John Graunt, von Mises, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/30-accounts-in-400-and-the-one-share-that-drives-capacity-planning.html";</script>
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/30-accounts-in-400-and-the-one-share-that-drives-capacity-planning.html" />
+
+    <title>30 Accounts in 400 and the One Share That Drives Capacity Planning</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 28, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    30 ACCOUNTS IN 400 AND THE ONE SHARE THAT DRIVES CAPACITY PLANNING
+
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                        Survey work hands managers counts, and a count cannot travel. It cannot be compared with last
+                        quarter, applied to a larger population, or used as the baseline a program is meant to move.
+                        <dfn>This problem shows how one division converts a raw count into a share of the sample, why
+                            that share is neither a ratio nor a rate, and how Python turns the operation into a reusable
+                            function.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>In a survey of 400 cloud accounts, 30 of them run 2 cost optimization reviews per week.</p>
+                <p>The relative frequency tells us that</p>
+                <ul>
+                    <li>a) 0.70% run 2 cost optimization reviews per week</li>
+                    <li>b) 70% run fewer than 2 cost optimization reviews per week</li>
+                    <li>c) 7.5% run more than 2 cost optimization reviews per week</li>
+                    <li>d) 7.5% run 2 cost optimization reviews per week</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 7.5% run 2 cost optimization reviews per week &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The category count sits in the numerator and the whole sample sits in the denominator, so the
+                        work is one <strong>division</strong> followed by one <strong>multiplication by 100</strong>.
+                        The three wrong options fail for two distinct reasons, one arithmetic and two about which
+                        category is being described.</p>
+
+                    <p class="insight"><em>Relative frequency cannot exceed 1 because the denominator contains the
+                            numerator, and that property is what makes the share comparable across surveys of different
+                            size.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Sample size:</strong> 400 surveyed cloud accounts, the denominator</li>
+                            <li><strong>Category count:</strong> 30 accounts, the numerator</li>
+                            <li><strong>Relative frequency:</strong> 30 &divide; 400 = 0.075</li>
+                            <li><strong>Percentage form:</strong> 0.075 &times; 100 = 7.5%</li>
+                            <li><strong>Option a check:</strong> 0.70% equals 0.007, about one tenth of the computed
+                                value, so it fails</li>
+                            <li><strong>Option b check:</strong> 70% equals 0.70, and it describes accounts below 2
+                                reviews, a category the survey never reported, so it fails</li>
+                            <li><strong>Option c check:</strong> the number is right, the category is wrong, so it fails
+                            </li>
+                            <li><strong>Option d check:</strong> 7.5% assigned to accounts running exactly 2 reviews per
+                                week matches the computation</li>
+                            <li><strong>Conclusion:</strong> 7.5% of the surveyed accounts run 2 cost optimization
+                                reviews per week</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="why-this-math">Why This Math Matters</h2>
+
+                <p>The survey gives a count, and a count alone cannot be compared across surveys of different size.
+                    Relative frequency converts that count into a share of the sample, which is the form a manager needs
+                    for capacity planning and targeting. A share of 7.5% can be applied to a population of 12,000
+                    accounts to size the addressable group, compared against last quarter, or used as the baseline that
+                    a training program is meant to move. The count 30 does none of that work.</p>
+
+                <p>The grid below holds the 400 surveyed accounts. Move the slider to see how the share responds to the
+                    count.</p>
+
+                <div class="rfWidget">
+                    <div class="rfControls">
+                        <label for="rf-k">Accounts in the category</label>
+                        <input type="range" id="rf-k" min="0" max="400" step="1" value="30">
+                        <span class="rfReadout" id="rf-kout">30</span>
+                    </div>
+                    <div class="rfCards">
+                        <div class="rfCard">
+                            <p class="rfLabel">Fraction</p>
+                            <p class="rfValue" id="rf-v1">30 / 400</p>
+                        </div>
+                        <div class="rfCard">
+                            <p class="rfLabel">Decimal</p>
+                            <p class="rfValue" id="rf-v2">0.075</p>
+                        </div>
+                        <div class="rfCard">
+                            <p class="rfLabel">Percentage</p>
+                            <p class="rfValue" id="rf-v3">7.5%</p>
+                        </div>
+                        <div class="rfCard">
+                            <p class="rfLabel">Everyone else</p>
+                            <p class="rfValue" id="rf-v4">92.5%</p>
+                        </div>
+                    </div>
+                    <div class="rfGrid" id="rf-grid" aria-label="Grid of 400 surveyed cloud accounts"></div>
+                </div>
+
+                <h2 id="ratio-vs-rate">Relative Frequency, Ratio, and Rate</h2>
+
+                <p>The three quantities all divide one number by another. What separates them is what sits in the
+                    denominator and whether the two quantities share units.</p>
+
+                <p> <dfn class="highlight-line"> Relative frequency divides a part by the whole sample.</dfn> The
+                    denominator contains the numerator, so the value cannot exceed 1, and the shares over all categories
+                    of one variable add to 1. A ratio divides one part by another part. The denominator excludes the
+                    numerator, so the value is unbounded. In this survey, 30 accounts against the other 370 gives 0.081,
+                    close to the relative frequency here but a different quantity that diverges as the share grows.</p>
+
+                <p> <dfn class="highlight-line"> Rate divides quantities of different kinds.</dfn> The 2 reviews per
+                    week inside the question is a rate, since reviews and weeks are different kinds of things, and neither
+                    number is a share of the other. Patrick Thompson notes that no conventional distinction between
+                    ratio and rate exists and that confusion about it is widespread, with one common convention treating a
+                    ratio as a comparison of quantities of like nature and a rate as a comparison of quantities of
+                    unlike nature.</p>
+
+                <p>The slider below moves the count and shows the three quantities responding to the same change.</p>
+
+                <div class="rfWidget">
+                    <div class="rfControls">
+                        <label for="rf-k2">Accounts running 2 reviews per week</label>
+                        <input type="range" id="rf-k2" min="0" max="400" step="1" value="30">
+                        <span class="rfReadout" id="rf-k2out">30</span>
+                    </div>
+                    <div class="rfCompare">
+                        <div class="rfPanel">
+                            <p class="rfPanelTitle">Relative frequency</p>
+                            <p class="rfPanelSub">Part over whole</p>
+                            <p class="rfValue" id="rf-r1">7.5%</p>
+                            <p class="rfPanelSub" id="rf-d1">30 of 400 accounts</p>
+                            <div class="rfBar">
+                                <div class="rfFill" id="rf-b1" style="width:7.5%;background:#1D9E75"></div>
+                            </div>
+                            <span class="rfPill" style="background:#E1F5EE;color:#0F6E56">Bounded 0 to 1</span>
+                        </div>
+                        <div class="rfPanel">
+                            <p class="rfPanelTitle">Ratio</p>
+                            <p class="rfPanelSub">Part against other part</p>
+                            <p class="rfValue" id="rf-r2">30 to 370</p>
+                            <p class="rfPanelSub" id="rf-d2">0.081 as a quotient</p>
+                            <div class="rfBar">
+                                <div class="rfFill" id="rf-b2" style="width:2.7%;background:#7F77DD"></div>
+                            </div>
+                            <span class="rfPill" style="background:#EEEDFE;color:#3C3489">No upper bound</span>
+                        </div>
+                        <div class="rfPanel">
+                            <p class="rfPanelTitle">Rate</p>
+                            <p class="rfPanelSub">Quantity per other quantity</p>
+                            <p class="rfValue" id="rf-r3">0.15</p>
+                            <p class="rfPanelSub">reviews per account per week</p>
+                            <div class="rfBar">
+                                <div class="rfFill" id="rf-b3" style="width:7.5%;background:#D85A30"></div>
+                            </div>
+                            <span class="rfPill" style="background:#FAECE7;color:#712B13">Units do not cancel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The idea entered business practice before it entered mathematical theory. In 1662 <a href="https://en.wikipedia.org/wiki/John_Graunt" class="class2" target="_blank">John Graunt</a>, a
+                    London haberdasher, bought the parish Bills of Mortality and worked out <strong>what proportion of all
+                    burials each cause of death accounted for.</strong>  He noticed that some causes held a constant share of the
+                    whole year after year, and that observation of stability is the empirical claim on which the concept
+                    still rests. Karl Pearson later called him the first statistician.</p>
+
+                <p>Formalization took two more centuries. Robert Leslie Ellis and John Venn in nineteenth century
+                    Cambridge, then Richard von Mises in the 1920s, defined <dfn class="highlight-line">probability as the limit a relative
+                    frequency approaches over an indefinitely long sequence of observations.</dfn>  Von Mises added an axiom of
+                    convergence, that the proportion of outcomes stabilizes as trials accumulate, and an axiom of
+                    randomness. Kolmogorov later placed the whole subject on measure theoretic footing. The standing
+                    objection is practical, since nobody observes an infinite sequence.</p>
+
+                <p>So the 7.5% in this survey is a relative frequency, not a probability. It becomes an estimate of a
+                    probability only under an assumption about how the 400 accounts were drawn.</p>
+
+                <p>The stability von Mises turned into an axiom is visible in a sample. Early observations swing, then
+                    the running share settles. Draw accounts one batch at a time below. The dashed line marks the
+                    underlying share of 0.075.</p>
+
+                <div class="rfWidget">
+                    <div class="rfCards">
+                        <div class="rfCard">
+                            <p class="rfLabel">Accounts sampled</p>
+                            <p class="rfValue" id="rf-n">0</p>
+                        </div>
+                        <div class="rfCard">
+                            <p class="rfLabel">In the category</p>
+                            <p class="rfValue" id="rf-h">0</p>
+                        </div>
+                        <div class="rfCard">
+                            <p class="rfLabel">Running share</p>
+                            <p class="rfValue" id="rf-p">&mdash;</p>
+                        </div>
+                    </div>
+                    <div class="rfCanvasWrap"><canvas id="rf-cv"></canvas></div>
+                    <div class="rfButtons">
+                        <button type="button" id="rf-b25">Sample 25</button>
+                        <button type="button" id="rf-b100">Sample 100</button>
+                        <button type="button" id="rf-brs">Reset</button>
+                    </div>
+                </div>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The function returns the share in decimal and percentage form and rejects an empty sample, so it can
+                    be dropped into any survey pipeline where category counts arrive as integers.</p>
+
+                <pre><code>def relative_frequency(count, total, digits=4):
+    """Return the share of a sample that falls in one category.
+
+    count -- observations in the category
+    total -- observations in the whole sample
+    """
+    if total &lt;= 0:
+        raise ValueError("total must be greater than zero")
+    if not 0 &lt;= count &lt;= total:
+        raise ValueError("count must lie between zero and total")
+
+    proportion = count / total
+    return {
+        "proportion": round(proportion, digits),
+        "percentage": round(proportion * 100, digits - 2),
+        "complement": round(1 - proportion, digits),
+    }
+
+
+if __name__ == "__main__":
+    print(relative_frequency(30, 400))
+    # {'proportion': 0.075, 'percentage': 7.5, 'complement': 0.925}
+</code></pre>
+
+                <p>Save it as relative_frequency.py and run python relative_frequency.py, which prints the proportion
+                    0.075, the percentage 7.5, and the complement 0.925.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/statistics-probability/analyzing-categorical-data"
+                            target="_blank" rel="noopener">Khan Academy &mdash; Analyzing Categorical Data</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/RelativeFrequency.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld &mdash; Relative Frequency</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/descriptive-statistics"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Descriptive Statistics</a>
+                    </li>
+                </ul>
+
+                <p>Academic sources behind the historical section:</p>
+
+                <ul>
+                    <li><a class="class2" href="https://academic.oup.com/jrsssa/article/126/4/537/7102123"
+                            target="_blank" rel="noopener">Sutherland, I. (1963). John Graunt, a tercentenary tribute.
+                            Journal of the Royal Statistical Society Series A, 126(4)</a></li>
+                    <li><a class="class2"
+                            href="https://vtechworks.lib.vt.edu/bitstreams/bdf0143a-e9cc-418d-8510-f6db0d1a154c/download"
+                            target="_blank" rel="noopener">Spanos, A. Frequentist probability. Virginia Tech</a></li>
+                    <li><a class="class2" href="https://pat-thompson.net/PDFversions/1994ConceptSpeedRate.pdf"
+                            target="_blank" rel="noopener">Thompson, P. W. (1994). The development of the concept of
+                            speed and its relationship to concepts of rate</a></li>
+                    <li><a class="class2" href="https://journals.sagepub.com/doi/10.1177/27527263241281381"
+                            target="_blank" rel="noopener">Watanabe, T. (2024). Ratio, rate, and proportion in Japanese
+                            curriculum materials</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 28, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+    <style>
+        .rfWidget {
+            margin: 1.5rem 0;
+            padding: 1rem 0
+        }
+
+        .rfControls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem
+        }
+
+        .rfControls label {
+            font-size: .9rem;
+            color: #5F5E5A
+        }
+
+        .rfControls input[type=range] {
+            flex: 1;
+            min-width: 160px
+        }
+
+        .rfReadout {
+            font-weight: 600;
+            min-width: 38px;
+            text-align: right
+        }
+
+        .rfCards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 1rem
+        }
+
+        .rfCard {
+            background: #F1EFE8;
+            border-radius: 8px;
+            padding: .75rem 1rem
+        }
+
+        .rfLabel {
+            font-size: .8rem;
+            color: #5F5E5A;
+            margin: 0 0 2px
+        }
+
+        .rfValue {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 0
+        }
+
+        .rfGrid {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            gap: 3px;
+            max-width: 380px;
+            margin: 0 auto
+        }
+
+        .rfCell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            background: #E4E2DA
+        }
+
+        .rfCell.on {
+            background: #1D9E75
+        }
+
+        .rfCompare {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px
+        }
+
+        .rfPanel {
+            border: 1px solid #D3D1C7;
+            border-radius: 10px;
+            padding: 1rem
+        }
+
+        .rfPanelTitle {
+            font-weight: 600;
+            margin: 0 0 2px
+        }
+
+        .rfPanelSub {
+            font-size: .82rem;
+            color: #5F5E5A;
+            margin: 0 0 8px
+        }
+
+        .rfBar {
+            height: 8px;
+            border-radius: 4px;
+            background: #E4E2DA;
+            overflow: hidden;
+            margin-top: 10px
+        }
+
+        .rfFill {
+            height: 100%
+        }
+
+        .rfPill {
+            display: inline-block;
+            font-size: .75rem;
+            padding: 3px 10px;
+            border-radius: 8px;
+            margin-top: 10px
+        }
+
+        .rfCanvasWrap {
+            position: relative;
+            height: 240px;
+            margin-bottom: 1rem
+        }
+
+        .rfButtons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .rfButtons button {
+            font: inherit;
+            font-size: .85rem;
+            padding: 6px 14px;
+            border: 1px solid #B4B2A9;
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer
+        }
+
+        .rfButtons button:hover {
+            background: #F1EFE8
+        }
+    </style>
+    <script>
+        (function () {
+            var grid = document.getElementById('rf-grid');
+            if (grid) {
+                var cells = [], i, d;
+                for (i = 0; i < 400; i++) { d = document.createElement('div'); d.className = 'rfCell'; grid.appendChild(d); cells.push(d); }
+                var s = document.getElementById('rf-k');
+                var draw = function () {
+                    var k = parseInt(s.value, 10);
+                    for (var j = 0; j < 400; j++) { cells[j].className = 'rfCell' + (j < k ? ' on' : ''); }
+                    document.getElementById('rf-kout').textContent = k;
+                    document.getElementById('rf-v1').textContent = k + ' / 400';
+                    document.getElementById('rf-v2').textContent = (k / 400).toFixed(3);
+                    document.getElementById('rf-v3').textContent = (k / 4).toFixed(1) + '%';
+                    document.getElementById('rf-v4').textContent = (100 - k / 4).toFixed(1) + '%';
+                };
+                s.addEventListener('input', draw); draw();
+            }
+
+            var s2 = document.getElementById('rf-k2');
+            if (s2) {
+                var draw2 = function () {
+                    var k = parseInt(s2.value, 10), rest = 400 - k;
+                    document.getElementById('rf-k2out').textContent = k;
+                    document.getElementById('rf-r1').textContent = (k / 4).toFixed(1) + '%';
+                    document.getElementById('rf-d1').textContent = k + ' of 400 accounts';
+                    document.getElementById('rf-b1').style.width = (k / 4) + '%';
+                    document.getElementById('rf-r2').textContent = k + ' to ' + rest;
+                    document.getElementById('rf-d2').textContent = (rest === 0 ? 'undefined' : (k / rest).toFixed(3)) + ' as a quotient';
+                    document.getElementById('rf-b2').style.width = Math.min(100, (rest === 0 ? 100 : (k / rest) * 100 / 3)) + '%';
+                    var rate = (2 * k) / 400;
+                    document.getElementById('rf-r3').textContent = rate.toFixed(2);
+                    document.getElementById('rf-b3').style.width = (rate / 2 * 100) + '%';
+                };
+                s2.addEventListener('input', draw2); draw2();
+            }
+
+            var cv = document.getElementById('rf-cv');
+            if (cv) {
+                var TRUE_SHARE = 0.075, pts = [], hits = 0, n = 0, ctx = cv.getContext('2d');
+                var size = function () {
+                    var r = cv.parentNode.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+                    cv.width = r.width * dpr; cv.height = r.height * dpr;
+                    cv.style.width = r.width + 'px'; cv.style.height = r.height + 'px';
+                    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); return r;
+                };
+                var paint = function () {
+                    var r = size(), W = r.width, H = r.height, L = 48, B = 26, T = 10, R = 8;
+                    ctx.clearRect(0, 0, W, H);
+                    var pw = W - L - R, ph = H - T - B, ymax = 0.25, xmax = Math.max(100, n);
+                    ctx.strokeStyle = '#B4B2A9'; ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, T + ph); ctx.lineTo(L + pw, T + ph); ctx.stroke();
+                    ctx.fillStyle = '#5F5E5A'; ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+                    [0, 0.075, 0.15, 0.25].forEach(function (v) {
+                        var y = T + ph - (v / ymax) * ph; ctx.fillText(v.toFixed(3), L - 6, y + 4);
+                    });
+                    ctx.textAlign = 'center';
+                    ctx.fillText('0', L, T + ph + 16);
+                    ctx.fillText(String(Math.round(xmax)), L + pw, T + ph + 16);
+                    var yt = T + ph - (TRUE_SHARE / ymax) * ph;
+                    ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = '#888780';
+                    ctx.beginPath(); ctx.moveTo(L, yt); ctx.lineTo(L + pw, yt); ctx.stroke(); ctx.restore();
+                    if (pts.length) {
+                        ctx.strokeStyle = '#1D9E75'; ctx.lineWidth = 1.5; ctx.beginPath();
+                        pts.forEach(function (v, i) {
+                            var x = L + ((i + 1) / xmax) * pw, y = T + ph - (Math.min(v, ymax) / ymax) * ph;
+                            if (i === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }
+                        });
+                        ctx.stroke();
+                    }
+                };
+                var add = function (k) {
+                    for (var i = 0; i < k; i++) { n++; if (Math.random() < TRUE_SHARE) { hits++; } pts.push(hits / n); }
+                    document.getElementById('rf-n').textContent = n;
+                    document.getElementById('rf-h').textContent = hits;
+                    document.getElementById('rf-p').textContent = (hits / n).toFixed(3);
+                    paint();
+                };
+                document.getElementById('rf-b25').addEventListener('click', function () { add(25); });
+                document.getElementById('rf-b100').addEventListener('click', function () { add(100); });
+                document.getElementById('rf-brs').addEventListener('click', function () {
+                    pts = []; hits = 0; n = 0;
+                    document.getElementById('rf-n').textContent = '0';
+                    document.getElementById('rf-h').textContent = '0';
+                    document.getElementById('rf-p').textContent = '\u2014';
+                    paint();
+                });
+                window.addEventListener('resize', paint); paint();
+            }
+        })();
+    </script>
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+
+</html>

@@ -7,6 +7,16 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Cloud Account Sprawl Lives Above The Middle, Where Medians Go Blind",
+            articleDescription: " Knowing which claims a statistic licenses, and which it merely permits, is the difference between a defensible consolidation target and a guess. This problem shows how a positional measure fixes the middle of a distribution while leaving its total and its upper end entirely undetermined, and how a few lines of Python turn that reading into a repeatable check",
+            articleHref: "/a/cloud-account-sprawl-lives-above-the%20middle-where-medians-go-blind.html"
+        },
+        {
+            articleTitle: "30 Accounts In 400 And The One Share That Drives Capacity Planning",
+            articleDescription: "Survey work hands managers counts, and a count cannot travel. It cannot be compared with last quarter, applied to a larger population, or used as the baseline a program is meant to move. This problem shows how one division converts a raw count into a share of the sample, why that share is neither a ratio nor a rate, and how Python turns the operation into a reusable function",
+            articleHref: "/a/30-accounts-in-400-and-the-one-share-that-drives-capacity-planning.html"
+        },
+        {
             articleTitle: "What A Data Analyst Reads First Decides Which Model Version Ships",
             articleDescription: "Reporting the typical result means knowing which position in a sorted list of measurements to read, and that position depends on how many measurements there are",
             articleHref: "/a/what-a-data-analyst-reads-first-decides-which-model-version-ships.html"

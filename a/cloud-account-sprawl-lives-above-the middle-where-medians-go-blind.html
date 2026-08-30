@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A survey median of two paid cloud accounts per team supports three claims and refuses a fourth. Interactive box plots, the history of the technique from Spear to Tukey, and a reusable Python script.">
+    <meta name="keywords" content="box plot, median, quartiles, five number summary, Tukey, Mary Eleanor Spear, descriptive statistics, cloud cost management, Python, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-median-four-distributions-and-the-claim-it-cannot-support.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-median-four-distributions-and-the-claim-it-cannot-support.html" />
+
+    <title>One Median, Four Distributions, and the Claim It Cannot Support</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 28, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    CLOUD ACCOUNT SPRAWL LIVES ABOVE THE MIDDLE, WHERE MEDIANS GO BLIND
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    A single summary statistic is often the only figure that survives the trip from a survey to a slide, and teams then build plans on whatever it seems to imply. Knowing which claims a statistic licenses, and which it merely permits, is the difference between a defensible consolidation target and a guess. <dfn>This problem shows how a positional measure fixes the middle of a distribution while leaving its total and its upper end entirely undetermined, and how a few lines of Python turn that reading into a repeatable check.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Carolina surveyed the engineering teams in her division to find out how many paid cloud accounts each team manages. Using a box plot, she found that the median was 2.</p>
+                <p>Which of the following statements cannot be confirmed with the information provided?</p>
+                <ul>
+                    <li>a) At least half of the teams manage 2 or more accounts</li>
+                    <li>b) At least one quarter of the teams manage 2 or more accounts</li>
+                    <li>c) Determining whether teams manage 2 accounts on average requires additional data</li>
+                    <li>d) The teams that manage the most accounts manage 2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) The teams that manage the most accounts manage 2 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>With teams ranked by account count, the median sits at <strong>position (n+1)/2</strong>, so half the teams fall at or below it and half at or above it. That fixes the middle and nothing else: the largest value sits at <strong>position n</strong>, which the median never <strong>locates</strong>.</p>
+
+                    <p class="insight"><em>A median of 2 is compatible with a top team running 2 accounts or 400, which is exactly why statement d cannot be confirmed rather than being simply false.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Definition of the median:</strong> with n teams ranked by account count, the value at position (n+1)/2 splits the group into two halves of equal size</li>
+                            <li><strong>Test choice a:</strong> a median of 2 puts at least 0.5n teams at 2 accounts or more, so the claim holds</li>
+                            <li><strong>Test choice b:</strong> 0.5n exceeds 0.25n, so a claim about at least a quarter follows from the claim about at least a half</li>
+                            <li><strong>Test choice c:</strong> the mean requires every account count, since one team with 40 accounts moves it while the median stays at 2, so additional data is required</li>
+                            <li><strong>Test choice d:</strong> the median marks position (n+1)/2, not position n, so the maximum is unconstrained and the claim cannot be confirmed</li>
+                            <li><strong>Conclusion:</strong> statement d is the one Carolina cannot support from a median alone</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="anatomy-chart">The Five Numbers, One Bar at a Time</h2>
+
+                <p>Eleven teams reported how many paid cloud accounts they run. Select a part of the plot to see what it fixes and what it leaves open.</p>
+
+                <div style="padding: 1rem 0;">
+                <div id="pills" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem">
+                <button data-k="min" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Minimum</button>
+                <button data-k="q1" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Q1</button>
+                <button data-k="med" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Median</button>
+                <button data-k="q3" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Q3</button>
+                <button data-k="iqr" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Box (IQR)</button>
+                <button data-k="whisk" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Whiskers</button>
+                <button data-k="fence" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Fence</button>
+                <button data-k="out" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Outlier</button>
+                </div>
+
+                <svg viewBox="0 0 700 250" width="100%" role="img" style="display:block">
+                <title>Box plot of eleven counts</title>
+                <desc>Minimum 0, first quartile 1, median 2, third quartile 4, whisker end 5, one outlier at 12.</desc>
+
+                <rect id="e-box" x="104.6" y="88" width="133.9" height="64" fill="#3CBCFC" stroke="#0F0F0F" stroke-width="2.5"></rect>
+                <line id="e-wl" x1="60" y1="120" x2="104.6" y2="120" stroke="#0F0F0F" stroke-width="2.5"></line>
+                <line id="e-cl" x1="60" y1="98" x2="60" y2="142" stroke="#0F0F0F" stroke-width="2.5"></line>
+                <line id="e-wr" x1="238.5" y1="120" x2="283.1" y2="120" stroke="#0F0F0F" stroke-width="2.5"></line>
+                <line id="e-cr" x1="283.1" y1="98" x2="283.1" y2="142" stroke="#0F0F0F" stroke-width="2.5"></line>
+                <line id="e-med" x1="149.2" y1="88" x2="149.2" y2="152" stroke="#D82800" stroke-width="6"></line>
+                <line id="e-fence" x1="439.1" y1="82" x2="439.1" y2="158" stroke="#00A800" stroke-width="2.5" stroke-dasharray="7 6"></line>
+                <circle id="e-out" cx="595.4" cy="120" r="9" fill="#F8B800" stroke="#0F0F0F" stroke-width="2.5"></circle>
+
+                <line x1="60" y1="190" x2="640" y2="190" stroke="#5F5E5A" stroke-width="1.5"></line>
+                <g font-family="monospace" font-size="12" fill="#5F5E5A" text-anchor="middle">
+                <line x1="60" y1="190" x2="60" y2="196" stroke="#5F5E5A"></line><text x="60" y="212">0</text>
+                <line x1="149.2" y1="190" x2="149.2" y2="196" stroke="#5F5E5A"></line><text x="149.2" y="212">2</text>
+                <line x1="238.5" y1="190" x2="238.5" y2="196" stroke="#5F5E5A"></line><text x="238.5" y="212">4</text>
+                <line x1="327.7" y1="190" x2="327.7" y2="196" stroke="#5F5E5A"></line><text x="327.7" y="212">6</text>
+                <line x1="417" y1="190" x2="417" y2="196" stroke="#5F5E5A"></line><text x="417" y="212">8</text>
+                <line x1="506.2" y1="190" x2="506.2" y2="196" stroke="#5F5E5A"></line><text x="506.2" y="212">10</text>
+                <line x1="595.4" y1="190" x2="595.4" y2="196" stroke="#5F5E5A"></line><text x="595.4" y="212">12</text>
+                <text x="350" y="236">accounts per team</text>
+                </g>
+                <g font-family="monospace" font-size="11" fill="#5F5E5A" text-anchor="middle">
+                <text x="60" y="78">min 0</text><text x="104.6" y="78">Q1 1</text><text x="149.2" y="170" fill="#D82800">med 2</text><text x="238.5" y="78">Q3 4</text><text x="283.1" y="78">5</text><text x="439.1" y="74">fence 8.5</text><text x="595.4" y="98">12</text>
+                </g>
+                </svg>
+
+                <div style="background:#F1EFE8;padding:1rem 1.25rem;margin-top:1rem;border-left:4px solid #0058F8">
+                <p id="p-t" style="margin:0 0 4px;font-size:15px;font-weight:600">Pick a part above</p>
+                <p id="p-b" style="margin:0;font-size:14px;color:#5F5E5A;line-height:1.6">Eleven teams reported how many paid cloud accounts they run. The counts are 0, 1, 1, 2, 2, 2, 3, 3, 4, 5, 12. The plot squeezes that list into five numbers plus anything that falls outside the fence.</p>
+                </div>
+                </div>
+
+                <script>
+                (function(){
+                var ids=["e-box","e-wl","e-cl","e-wr","e-cr","e-med","e-fence","e-out"];
+                var base={"e-box":["#0F0F0F","2.5"],"e-wl":["#0F0F0F","2.5"],"e-cl":["#0F0F0F","2.5"],"e-wr":["#0F0F0F","2.5"],"e-cr":["#0F0F0F","2.5"],"e-med":["#D82800","6"],"e-fence":["#00A800","2.5"],"e-out":["#0F0F0F","2.5"]};
+                var map={min:["e-cl","e-wl"],q1:["e-box"],med:["e-med"],q3:["e-box"],iqr:["e-box"],whisk:["e-wl","e-cl","e-wr","e-cr"],fence:["e-fence"],out:["e-out"]};
+                var txt={
+                min:["Minimum, the left cap","The smallest count reported, 0 accounts. It is the end of the left whisker, not the edge of the box."],
+                q1:["First quartile, the left edge of the box","One quarter of the teams sit at or below 1 account. The box starts here."],
+                med:["Median, the red line","Half the teams sit at or below 2 accounts and half at or above. This line is the only figure the problem gives you."],
+                q3:["Third quartile, the right edge of the box","Three quarters of the teams sit at or below 4 accounts. One quarter sit above it."],
+                iqr:["Interquartile range, the box itself","The middle half of the teams, from 1 to 4 accounts. Its width is 3, which measures spread without letting the extreme team distort it."],
+                whisk:["Whiskers, the two arms","They reach to the furthest counts still inside the fence, 0 on the left and 5 on the right. They are not always the true minimum and maximum."],
+                fence:["Fence, the green dashed line","Set at Q3 plus 1.5 times the box width, so 4 plus 4.5 equals 8.5. Anything past it is drawn as a separate point."],
+                out:["Outlier, the yellow dot","One team runs 12 accounts. It sits past the fence, so it is plotted on its own. The median stays at 2 whether this team runs 12 accounts or 400."]};
+                function reset(){ids.forEach(function(i){var e=document.getElementById(i);var b=base[i];e.setAttribute("stroke",b[0]);e.setAttribute("stroke-width",b[1]);});}
+                document.getElementById("pills").addEventListener("click",function(ev){
+                var b=ev.target.closest("button");if(!b)return;var k=b.getAttribute("data-k");
+                reset();
+                Array.prototype.forEach.call(document.querySelectorAll("#pills button"),function(x){x.style.background="#FCFCFC";x.style.borderColor="#0F0F0F";x.style.color="#0F0F0F";});
+                b.style.background="#F8B800";b.style.borderColor="#F8B800";b.style.color="#412402";
+                map[k].forEach(function(i){var e=document.getElementById(i);e.setAttribute("stroke","#F83800");e.setAttribute("stroke-width","5");});
+                document.getElementById("p-t").textContent=txt[k][0];
+                document.getElementById("p-b").textContent=txt[k][1];
+                });
+                })();
+                </script>
+
+                <h2 id="scenario-chart">Four Worlds Where the Median Is Still 2</h2>
+
+                <p>Each scenario holds nine teams and a median of 2 accounts. Only the mean, the highest count and the shape of the box change.</p>
+
+                <div style="padding: 1rem 0;">
+                <div id="sc" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem">
+                <button data-i="0" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Everyone near two</button>
+                <button data-i="1" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">All exactly two</button>
+                <button data-i="2" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">One runaway team</button>
+                <button data-i="3" style="font-size:13px;padding:6px 12px;border:2px solid #0F0F0F;background:#FCFCFC;color:#0F0F0F;cursor:pointer;border-radius:0">Two camps</button>
+                </div>
+
+                <div id="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:1.25rem"></div>
+
+                <svg id="plot" viewBox="0 0 700 250" width="100%" role="img" style="display:block">
+                <title>Box plot and dot strip for the selected scenario</title>
+                <desc>Select a scenario above to redraw the plot.</desc>
+                </svg>
+
+                <div id="note" style="background:#F1EFE8;border-left:4px solid #0058F8;padding:1rem 1.25rem;margin-top:1rem">
+                <p style="margin:0;font-size:14px;color:#5F5E5A;line-height:1.6">Pick a scenario. Each one has nine teams and a median of 2.</p>
+                </div>
+                </div>
+
+                <script>
+                (function(){
+                var S=[
+                {n:"Everyone near two",d:[1,1,2,2,2,2,3,3,3],t:"Statements a, b and c hold. Statement d also happens to be false here, since the top team runs 3. You could not have known that from the median."},
+                {n:"All exactly two",d:[2,2,2,2,2,2,2,2,2],t:"Here statement d is true by accident. The top teams do run exactly 2. The median alone never told you so, which is why the statement cannot be confirmed rather than being simply false."},
+                {n:"One runaway team",d:[0,1,1,2,2,2,2,3,40],t:"The median holds at 2 while one team runs 40 accounts. The mean jumps to 5.9. This is the case that kills statement d and also shows why statement c is right about the mean."},
+                {n:"Two camps",d:[0,0,0,2,2,2,9,10,11],t:"Three teams at zero, three at two, three near ten. The median still reads 2 and the box hides the split entirely. A single median cannot show two camps."}
+                ];
+                function med(a){var n=a.length,h=Math.floor(n/2);return n%2?a[h]:(a[h-1]+a[h])/2;}
+                function q(a){var n=a.length,h=Math.floor(n/2);return [med(a.slice(0,h)),med(a.slice(n%2?h+1:h))];}
+                function card(l,v,c){return '<div style="background:#F1EFE8;padding:1rem"><p style="margin:0 0 6px;font-size:13px;color:#5F5E5A">'+l+'</p><p style="margin:0;font-size:24px;font-weight:600;color:'+c+'">'+v+'</p></div>';}
+                function draw(i){
+                var s=S[i],d=s.d.slice().sort(function(a,b){return a-b;}),n=d.length;
+                var m=med(d),qq=q(d),q1=qq[0],q3=qq[1],iqr=q3-q1;
+                var lo=q1-1.5*iqr,hi=q3+1.5*iqr;
+                var inr=d.filter(function(v){return v>=lo&&v<=hi;});
+                var wl=Math.min.apply(null,inr),wh=Math.max.apply(null,inr);
+                var outs=d.filter(function(v){return v<lo||v>hi;});
+                var mx=Math.max.apply(null,d),top=Math.max(4,mx);
+                var mean=d.reduce(function(a,b){return a+b;},0)/n;
+                var above=d.filter(function(v){return v>=m;}).length;
+                function px(v){return 60+v*(580/top);}
+                var g='';
+                g+='<line x1="60" y1="200" x2="640" y2="200" stroke="#5F5E5A" stroke-width="1.5"></line>';
+                var stepc=top<=4?1:Math.ceil(top/8);
+                for(var t=0;t<=top;t+=stepc){g+='<line x1="'+px(t)+'" y1="200" x2="'+px(t)+'" y2="206" stroke="#5F5E5A"></line><text x="'+px(t)+'" y="222" font-family="monospace" font-size="12" fill="#7C7C7C" text-anchor="middle">'+t+'</text>';}
+                g+='<text x="350" y="244" font-family="monospace" font-size="12" fill="#5F5E5A" text-anchor="middle">accounts per team</text>';
+                g+='<line x1="'+px(wl)+'" y1="100" x2="'+px(q1)+'" y2="100" stroke="#0F0F0F" stroke-width="2.5"></line>';
+                g+='<line x1="'+px(wl)+'" y1="80" x2="'+px(wl)+'" y2="120" stroke="#0F0F0F" stroke-width="2.5"></line>';
+                g+='<line x1="'+px(q3)+'" y1="100" x2="'+px(wh)+'" y2="100" stroke="#0F0F0F" stroke-width="2.5"></line>';
+                g+='<line x1="'+px(wh)+'" y1="80" x2="'+px(wh)+'" y2="120" stroke="#0F0F0F" stroke-width="2.5"></line>';
+                var bw=Math.max(px(q3)-px(q1),3);
+                g+='<rect x="'+px(q1)+'" y="70" width="'+bw+'" height="60" fill="#3CBCFC" stroke="#0F0F0F" stroke-width="2.5"></rect>';
+                g+='<line x1="'+px(m)+'" y1="70" x2="'+px(m)+'" y2="130" stroke="#D82800" stroke-width="6"></line>';
+                outs.forEach(function(v){g+='<circle cx="'+px(v)+'" cy="100" r="9" fill="#F8B800" stroke="#0F0F0F" stroke-width="2.5"></circle>';});
+                g+='<line x1="'+px(mean)+'" y1="62" x2="'+px(mean)+'" y2="138" stroke="#00A800" stroke-width="2.5" stroke-dasharray="6 5"></line>';
+                g+='<text x="'+px(mean)+'" y="54" font-family="monospace" font-size="11" fill="#00A800" text-anchor="middle">mean '+mean.toFixed(1)+'</text>';
+                g+='<text x="'+px(m)+'" y="150" font-family="monospace" font-size="11" fill="#D82800" text-anchor="middle">median 2</text>';
+                var seen={};
+                d.forEach(function(v){seen[v]=(seen[v]||0)+1;g+='<circle cx="'+px(v)+'" cy="'+(178-(seen[v]-1)*13)+'" r="5" fill="#0058F8"></circle>';});
+                document.getElementById("plot").innerHTML='<title>Box plot for '+s.n+'</title><desc>Median 2, mean '+mean.toFixed(1)+', highest '+mx+'.</desc>'+g;
+                document.getElementById("cards").innerHTML=card("Median",m,"#D82800")+card("Mean",mean.toFixed(1),"#00A800")+card("Highest count",mx,"#B8860B")+card("Teams at or above 2",above+" of "+n,"#0F0F0F");
+                document.getElementById("note").innerHTML='<p style="margin:0;font-size:14px;color:#5F5E5A;line-height:1.6">'+s.t+'</p>';
+                Array.prototype.forEach.call(document.querySelectorAll("#sc button"),function(b,j){var on=j===i;b.style.background=on?"#F8B800":"#FCFCFC";b.style.borderColor=on?"#F8B800":"#0F0F0F";b.style.color=on?"#412402":"#0F0F0F";});
+                }
+                document.getElementById("sc").addEventListener("click",function(e){var b=e.target.closest("button");if(b)draw(+b.getAttribute("data-i"));});
+                draw(0);
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p><strong>Before it had a name.</strong> The shape predates the label. Box plots appeared in climatology and geography from at least 1933 under the name dispersion diagram, and A. L. Bowley was reportedly drawing them in lectures around 1897. Kenneth Haemer coined the term range bar in 1948 for a simple bar running from minimum to maximum. The range bar method appeared in print in Mary Eleanor Spear's Charting Statistics in 1952 and again in her Practical Charting Techniques in 1969. Page 166 of the 1952 book carries a range bar diagram with an interquartile box, which Tufte and Wickham have both credited as the first formulation of the box plot. Spear worked as a graphic analyst for United States federal agencies from the 1920s to the 1960s, including the Internal Revenue Service and the Bureau of Labor Statistics, and taught graphic representation of statistics at American University.</p>
+
+                <p><strong>Tukey names it and sells it.</strong> Tukey introduced the box and whiskers plot as part of his exploratory data analysis toolkit in 1970, though it stayed obscure until the formal 1977 publication. Cox notes that Tukey supplied the name and that he, his colleagues and his students promoted the display energetically through the 1970s, in Tukey 1972, Velleman and Hoaglin 1981, and Hoaglin, Mosteller and Tukey 1983. Tukey credited neither Spear nor anyone else, and was widely recorded at the time as the inventor. The design choice that mattered was economy. The summaries are robust, sit on actual data points, need no tuning parameter, and were computable by hand.</p>
+
+                <p><strong>The refinements.</strong> McGill, Tukey and Larsen published three variants in The American Statistician in 1978. The first encodes group size, the second signals rough significance of differences between medians, the third combines both. Box width varies with the number of points in the variable width version, and the notched version draws confidence intervals around the medians. Then came the audit. Frigge, Hoaglin and Iglewicz surveyed popular software packages in 1989 and found several competing definitions, produced by different choices of quartile formula and of the fences that mark an observation as outside, and they proposed a single standard form. Because each package used a different formula, each flagged different observations as outliers.</p>
+
+                <p><strong>Where it stands.</strong> Wickham and Stryjewski surveyed four decades of extensions in 2011 and observe that the box plot is now one of the most used statistical graphics and one of the few chart types invented in the twentieth century to reach general adoption. The original constraint was pencil and paper. With a computer on every desk that constraint relaxed, which opened the way to variants carrying density information, such as the violin plot, and to two dimensional versions. Those variants exist to fix known failures of the original, notably its blindness to multiple peaks and its habit of flagging too many outliers when the sample is large. The scenario labelled Two camps above is exactly the first failure.</p>
+
+                <h2 id="sources">Sources</h2>
+
+                <ul>
+                    <li>Spear, M. E. (1952). <em>Charting Statistics</em>. New York, McGraw Hill, p. 166.</li>
+                    <li>Tukey, J. W. (1977). <em>Exploratory Data Analysis</em>. Reading, Addison Wesley.</li>
+                    <li>McGill, R., Tukey, J. W., and Larsen, W. A. (1978). Variations of box plots. <em>The American Statistician</em> 32(1), 12&ndash;16. doi 10.1080/00031305.1978.10479236</li>
+                    <li>Frigge, M., Hoaglin, D. C., and Iglewicz, B. (1989). Some implementations of the boxplot. <em>The American Statistician</em> 43(1), 50&ndash;54. doi 10.1080/00031305.1989.10475612</li>
+                    <li>Cox, N. J. (2009). Speaking Stata, creating and varying box plots. <em>The Stata Journal</em> 9(3), 478&ndash;496.</li>
+                    <li>Wickham, H., and Stryjewski, L. (2011). <em>40 years of boxplots</em>. Working paper, Rice University.</li>
+                </ul>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script collects one account count per team, then reports the median together with the two figures the median cannot supply, so the same reading works for any survey of counts.</p>
+
+<pre><code># What this does: finds the middle number in a list of team account counts.
+# Where it came from: a manager surveyed her teams on how many paid cloud accounts each one runs.
+# The math idea: sort the numbers, then take the one in the middle.
+# You type in: how many teams answered, then each team's account count.
+# It prints: the middle count, how many teams sit at or above it, and the highest count.
+
+# This function finds the middle number.
+def middle_count(counts):
+    # Put the numbers in order from smallest to largest.
+    ordered = sorted(counts)
+    # Count how many numbers there are.
+    how_many = len(ordered)
+    # Find the spot in the middle.
+    middle_spot = how_many // 2
+    # If the count is odd, one number sits alone in the middle.
+    if how_many % 2 == 1:
+        return ordered[middle_spot]
+    # If the count is even, average the two middle numbers.
+    return (ordered[middle_spot - 1] + ordered[middle_spot]) / 2
+
+# Tell the reader what we will figure out.
+print("Let's find the middle number of cloud accounts per team.")
+
+# Ask how many teams answered the survey.
+team_total = int(input("How many teams answered: "))
+
+# Start with an empty list to hold the answers.
+account_counts = []
+
+# Ask each team for its account count and add it to the list.
+for team in range(team_total):
+    one_count = int(input("Accounts for team " + str(team + 1) + ": "))
+    account_counts.append(one_count)
+
+# Find the middle number.
+median = middle_count(account_counts)
+
+# Show it as a whole number when it is one.
+median = int(median) if float(median).is_integer() else median
+
+# Count how many teams sit at the middle number or above it.
+at_or_above = 0
+for one_count in account_counts:
+    if one_count &gt;= median:
+        at_or_above = at_or_above + 1
+
+# Find the highest count, which the middle number does not tell you.
+highest = max(account_counts)
+
+# Print the answers with words that fit the scenario.
+print("Middle number of paid cloud accounts per team:", median)
+print("Teams at or above that number:", at_or_above, "out of", team_total)
+print("Highest number of accounts run by one team:", highest)
+</code></pre>
+
+                <p>The standard library version below is shorter and removes the risk of mishandling the even case, since <code>statistics.median</code> does the sorting and the split.</p>
+
+<pre><code># What this does: finds the middle number in a list of team account counts.
+# Where it came from: a manager surveyed her teams on how many paid cloud accounts each one runs.
+# The math idea: sort the numbers, then take the one in the middle.
+# You type in: how many teams answered, then each team's account count.
+# It prints: the middle count, how many teams sit at or above it, and the highest count.
+
+# Bring in Python's own tools for averages and middles.
+import statistics
+
+# Tell the reader what we will figure out.
+print("Let's find the middle number of cloud accounts per team.")
+
+# Ask how many teams answered the survey.
+team_total = int(input("How many teams answered: "))
+
+# Start with an empty list to hold the answers.
+account_counts = []
+
+# Ask each team for its account count and add it to the list.
+for team in range(team_total):
+    one_count = int(input("Accounts for team " + str(team + 1) + ": "))
+    account_counts.append(one_count)
+
+# Let Python find the middle number for us.
+median = statistics.median(account_counts)
+
+# Show it as a whole number when it is one.
+median = int(median) if float(median).is_integer() else median
+
+# Count how many teams sit at the middle number or above it.
+at_or_above = sum(1 for one_count in account_counts if one_count &gt;= median)
+
+# Find the highest count, which the middle number does not tell you.
+highest = max(account_counts)
+
+# Print the answers with words that fit the scenario.
+print("Middle number of paid cloud accounts per team:", median)
+print("Teams at or above that number:", at_or_above, "out of", team_total)
+print("Highest number of accounts run by one team:", highest)
+</code></pre>
+
+                <p>Open Windows Terminal, type python, paste one option, and enter each count when prompted. It returns the median, the share of teams at or above it, and the highest single count.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: team-count-median-check
+description: Finds the median of a list of counts reported per team or per unit, reports how many units sit at or above it, and reports the highest value so the user can see what the median does not fix. Trigger whenever the user has counts collected across teams, respondents, sites, or accounts and asks for the middle value, the median, a box plot reading, or what a median can and cannot confirm, even if they do not use the word median.
+---
+
+<span class="md-heading"># Team Count Median Check</span>
+
+Takes a set of whole number counts reported one per team, returns the median, the number of teams at or above it, and the highest count. The last two figures exist to separate what the median confirms from what it leaves unknown.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None beyond standard tooling.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Number of teams**</span>, a whole number, the count of responses collected.
+- <span class="md-bold">**Count per team**</span>, one whole number for each team, e.g. paid cloud accounts managed.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 Collect the counts</span>
+
+Ask how many teams responded. Ask for each team's count in turn, one at a time, labelling each prompt with the team number. Store them as a single list. Reject anything that is not a whole number.
+
+<span class="md-heading">### Step 2 Find the median</span>
+
+Sort the counts from smallest to largest. If the number of teams is odd, take the single middle value. If it is even, average the two middle values. Report a whole number result without a decimal point.
+
+<span class="md-heading">### Step 3 Count the teams at or above the median</span>
+
+Count how many teams reported a value equal to or greater than the median. Report it against the total.
+
+<span class="md-heading">### Step 4 Find the highest count</span>
+
+Report the largest value in the list.
+
+<span class="md-heading">### Step 5 Return the reading</span>
+
+Print three labelled lines in this order, the median, the teams at or above it, the highest count. State in one line that the median fixes the middle of the distribution and confirms nothing about the mean or the maximum.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Each team told me how many cloud accounts they run. What is the middle number?"
+- "I have a box plot with a median of 2. What can I actually claim from it?"
+- "Find the median of these counts and tell me how many are above it."
+- "Does a median of 2 mean the biggest team runs 2?"
+
+---
+</code></pre>
+
+                <p>The skill is worth keeping because the reading generalises. Any survey that collects one count per respondent produces the same three figures and the same warning about the upper end.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data" target="_blank" rel="noopener">Khan Academy &mdash; Summarizing Quantitative Data</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Box-and-WhiskerPlot.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Box and Whisker Plot</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/descriptive-statistics" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Descriptive Statistics</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 28, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
