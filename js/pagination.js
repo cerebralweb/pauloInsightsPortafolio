@@ -7,6 +7,26 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Better Conversations And Better Research In Distributed Teams",
+            articleDescription: "Three frameworks are read here as working tools for distributed teams, Duhigg on conversation types, Austin on what speech does, and Habermas on what consensus means.",
+            articleHref: "/a/better-conversations-and-better-research-in-distributed-teams.html"
+        },
+        {
+            articleTitle: "56 Cleared Batches, And What The Retraining Window Can Hold",
+            articleDescription: "Machine learning teams commit to retraining dates before they know whether the data will be ready",
+            articleHref: "/a/56-cleared-batches-and-what-the-retraining-window-can-hold.html"
+        },
+        {
+            articleTitle: "Two Migration Jobs, One Storage Window, And The Faster Engineer Myth",
+            articleDescription: "This problem shows how a single division turns two migration jobs into a shared window, and how the same arithmetic reveals the myth of the faster engineer",
+            articleHref: "/a/two-migration-jobs-one-storage-window-and-the-faster-engineer-myth.html"
+        },
+        {
+            articleTitle: "60,000 Documents, Two Price Models, One Break Even Point",
+            articleDescription: " Vendors rarely quote in the same unit, and that is what makes a purchase decision look harder than it is. One side prices consumption, the other prices access, and procurement has to convert before it can compare. This problem shows how a single conversion into cost per unit settles the choice, and how the same arithmetic yields the volume at which the answer flips",
+            articleHref: "/a/60000-documents-two-price-models-one-break-even-point.html"
+        },
+        {
             articleTitle: "Cloud Account Sprawl Lives Above The Middle, Where Medians Go Blind",
             articleDescription: " Knowing which claims a statistic licenses, and which it merely permits, is the difference between a defensible consolidation target and a guess. This problem shows how a positional measure fixes the middle of a distribution while leaving its total and its upper end entirely undetermined, and how a few lines of Python turn that reading into a repeatable check",
             articleHref: "/a/cloud-account-sprawl-lives-above-the%20middle-where-medians-go-blind.html"

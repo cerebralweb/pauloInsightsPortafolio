@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Two cloud engineers each claim the faster data migration job. Stating both runs as one rate settles it, with a Python function and a reusable skill file.">
+    <meta name="keywords" content="unit rate, throughput, cloud migration, TB per minute, equivalent fractions, rate comparison, Python fractions">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/two-migration-jobs-one-storage-window-and-the-faster-engineer-myth.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/two-migration-jobs-one-storage-window-and-the-faster-engineer-myth.html" />
+
+    <title>Two Migration Jobs, One Storage Window, and the Faster Engineer Myth</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 31, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    TWO MIGRATION JOBS, ONE STORAGE WINDOW, AND THE FASTER ENGINEER MYTH
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning rests on a figure that no single measurement reports. A team logs how much data a job moved and how long the job ran, and each of those numbers on its own supports a different claim about which run performed better. <dfn>This problem shows how stating both figures as one rate settles the argument, and how a short Python function turns that comparison into a reusable check.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Two cloud engineers ran migration jobs to move data into object storage. Diana's job moved 2 and 1/4 TB in 15 minutes. Paola's job moved 3 and 3/4 TB in 25 minutes. Each engineer claims her job was the faster one.</p>
+                <p>Which of the two is right?</p>
+                <ul>
+                    <li>a) Diana, because her job ran at a higher rate</li>
+                    <li>b) Paola, because her job moved more data</li>
+                    <li>c) Neither, because the two elapsed times cannot be compared</li>
+                    <li>d) Neither, because both jobs ran at the same rate</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) Neither, both jobs ran at the same rate ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Each claim rests on a different figure, and neither figure settles anything alone. Paola moved more data, Diana finished sooner, so the two runs become comparable only after <strong>dividing the data moved by the elapsed minutes</strong> and reading both results in the same unit.</p>
+
+                    <p class="insight"><em>Both jobs held 0.15 TB per minute, which is 9 TB per hour.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Diana's volume in decimal form:</strong> 2 and 1/4 = 2.25 TB</li>
+                            <li><strong>Paola's volume in decimal form:</strong> 3 and 3/4 = 3.75 TB</li>
+                            <li><strong>Diana's rate:</strong> 2.25 TB / 15 min = 0.15 TB per minute</li>
+                            <li><strong>Paola's rate:</strong> 3.75 TB / 25 min = 0.15 TB per minute</li>
+                            <li><strong>Comparison in a common unit:</strong> 0.15 = 0.15, the two rates are equal</li>
+                            <li><strong>Cross check without division:</strong> 2.25 &times; 25 = 56.25 and 3.75 &times; 15 = 56.25</li>
+                            <li><strong>Rate per hour:</strong> 0.15 &times; 60 = 9 TB per hour for both jobs</li>
+                            <li><strong>Conclusion:</strong> both jobs sustained the same throughput, so neither engineer was faster</li>
+                        </ol>
+                    </div>
+
+                </details>
+
+                <h2 id="four-ways">Four Ways to Reach 9 km/h</h2>
+
+                <p>Diana ran 2 and 1/4 km in 15 minutes, Paola ran 3 and 3/4 km in 25 minutes, and each claimed she was the fastest. The figures are the ones above, and so are the four routes to the verdict. Every chart in this section responds to a click or a slider.</p>
+
+                <p><strong>The principle first.</strong> A rate is a pair of measurements read as one number. Plot distance against time and every pace becomes a straight line through the origin, with the steepness of the line as the rate. Two runners on the same line hold the same pace, whatever point each one occupies.</p>
+
+                <figure style="margin: 0 0 1.6rem 0;">
+                    <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;" role="img" aria-label="Distance against time, with Diana and Paola on one straight line">
+                        <line x1="60" y1="40" x2="60" y2="300" style="stroke: #666; stroke-width: 1.5;" />
+                        <line x1="60" y1="300" x2="570" y2="300" style="stroke: #666; stroke-width: 1.5;" />
+                        <line x1="143.3" y1="40" x2="143.3" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="226.7" y1="40" x2="226.7" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="310" y1="40" x2="310" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="393.3" y1="40" x2="393.3" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="476.7" y1="40" x2="476.7" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="560" y1="40" x2="560" y2="300" style="stroke: #ddd; stroke-width: 1;" />
+                        <line x1="60" y1="242.2" x2="560" y2="242.2" style="stroke: #eee; stroke-width: 1;" />
+                        <line x1="60" y1="184.4" x2="560" y2="184.4" style="stroke: #eee; stroke-width: 1;" />
+                        <line x1="60" y1="126.7" x2="560" y2="126.7" style="stroke: #eee; stroke-width: 1;" />
+                        <line x1="60" y1="68.9" x2="560" y2="68.9" style="stroke: #eee; stroke-width: 1;" />
+                        <text x="52" y="305" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: end;">0</text>
+                        <text x="52" y="247" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: end;">1</text>
+                        <text x="52" y="189" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: end;">2</text>
+                        <text x="52" y="131" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: end;">3</text>
+                        <text x="52" y="73" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: end;">4</text>
+                        <text x="143.3" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">5</text>
+                        <text x="226.7" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">10</text>
+                        <text x="310" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">15</text>
+                        <text x="393.3" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">20</text>
+                        <text x="476.7" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">25</text>
+                        <text x="560" y="320" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">30</text>
+                        <text x="310" y="345" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333; text-anchor: middle;">Minutes</text>
+                        <text x="20" y="170" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333; text-anchor: middle;" transform="rotate(-90 20 170)">Kilometres</text>
+                        <line x1="60" y1="300" x2="560" y2="40" style="stroke: #444; stroke-width: 2;" />
+                        <line id="w1-drop" x1="310" y1="170" x2="310" y2="300" style="stroke: #f89c08; stroke-width: 1; stroke-dasharray: 4 3;" />
+                        <circle cx="310" cy="170" r="6" style="fill: #f89c08;" />
+                        <text x="300" y="162" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333; text-anchor: end;">Diana, 15 min, 2.25 km</text>
+                        <circle cx="476.7" cy="83.3" r="6" style="fill: #1f6f8b;" />
+                        <text x="466" y="75" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333; text-anchor: end;">Paola, 25 min, 3.75 km</text>
+                        <circle id="w1-dot" cx="310" cy="170" r="9" style="fill: none; stroke: #c0392b; stroke-width: 2.5;" />
+                    </svg>
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333; margin-top: 0.4rem;">
+                        <label for="w1-slider">Slide the clock forward &nbsp;</label>
+                        <input type="range" id="w1-slider" min="0" max="30" step="1" value="15" style="width: 55%; vertical-align: middle;" />
+                        <p id="w1-readout" style="margin: 0.4rem 0 0 0;">At 15 minutes the line stands at 2.25 km. The pace is 0.15 km per minute, or 9 km per hour.</p>
+                    </div>
+                </figure>
+
+                <p><strong>Route one, turn each time into hours.</strong> Diana's 15 min is 1/4 of an hour, so 9/4 &times; 4 = 9 km/h. Paola's 25 min is 5/12 of an hour, so (15/4 &divide; 5) &times; 12 = 15/20 &times; 12 = 180/20 = 9 km/h. Paola's line carries the extra work because her time and the hour share a common factor of 5, which cuts the hour into twelve blocks of 5 min and her run into five of them. Diana's time shares a factor of 15, one block against four, which is the single multiplication by 4.</p>
+
+                <figure style="margin: 0 0 1.6rem 0;">
+                    <svg viewBox="0 0 600 210" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;" role="img" aria-label="One hour cut into twelve blocks of five minutes">
+                        <text x="40" y="30" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333;">One hour, cut into twelve blocks of 5 minutes</text>
+                        <rect id="w2-b0" x="40" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b1" x="80" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b2" x="120" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b3" x="160" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b4" x="200" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b5" x="240" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b6" x="280" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b7" x="320" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b8" x="360" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b9" x="400" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b10" x="440" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <rect id="w2-b11" x="480" y="45" width="40" height="52" style="fill: #ececec; stroke: #999; stroke-width: 1;" />
+                        <path d="M 40 110 L 40 118 L 520 118 L 520 110" style="fill: none; stroke: #666; stroke-width: 1;" />
+                        <text x="280" y="134" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #555; text-anchor: middle;">60 minutes</text>
+                        <text id="w2-line1" x="40" y="164" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">Pick a runner to shade her share of the hour.</text>
+                        <text id="w2-line2" x="40" y="186" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;"></text>
+                    </svg>
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; margin-top: 0.4rem;">
+                        <button type="button" id="w2-diana" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin-right: 0.4rem; cursor: pointer;">Diana, 15 min</button>
+                        <button type="button" id="w2-paola" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin-right: 0.4rem; cursor: pointer;">Paola, 25 min</button>
+                        <button type="button" id="w2-clear" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; cursor: pointer;">Clear</button>
+                    </div>
+                </figure>
+
+                <p><strong>Route two, reduce both rates to the same form.</strong> Diana's 2.25 / 15 has numerator and denominator divided by 3, leaving 0.75 / 5. Paola's 3.75 / 25 has both divided by 5, leaving 0.75 / 5. The two rates reduce to one fraction, and no unit conversion is needed to see it. Dividing top and bottom by the same number changes the way a rate looks and leaves its value alone.</p>
+
+                <figure style="margin: 0 0 1.6rem 0;">
+                    <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;" role="img" aria-label="Both rates reduced to the same fraction">
+                        <text x="150" y="34" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #f89c08; text-anchor: middle; font-weight: bold;">Diana</text>
+                        <text id="w3-dn" x="150" y="70" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #333; text-anchor: middle;">2.25 km</text>
+                        <line x1="80" y1="82" x2="220" y2="82" style="stroke: #333; stroke-width: 2;" />
+                        <text id="w3-dd" x="150" y="110" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #333; text-anchor: middle;">15 min</text>
+                        <text x="450" y="34" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f6f8b; text-anchor: middle; font-weight: bold;">Paola</text>
+                        <text id="w3-pn" x="450" y="70" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #333; text-anchor: middle;">3.75 km</text>
+                        <line x1="380" y1="82" x2="520" y2="82" style="stroke: #333; stroke-width: 2;" />
+                        <text id="w3-pd" x="450" y="110" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #333; text-anchor: middle;">25 min</text>
+                        <text x="300" y="92" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #999; text-anchor: middle;">vs</text>
+                        <text id="w3-text" x="300" y="160" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333; text-anchor: middle;">Two rates, two shapes. Divide each one by its own common factor.</text>
+                    </svg>
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; margin-top: 0.4rem;">
+                        <button type="button" id="w3-reduce" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin-right: 0.4rem; cursor: pointer;">Divide top and bottom</button>
+                        <button type="button" id="w3-reset" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; cursor: pointer;">Reset</button>
+                    </div>
+                </figure>
+
+                <p><strong>Route three, scale both rates to a common time.</strong> Upward to 75 min, the least common multiple of 15 and 25, Diana gives 45/4 km per 75 min and Paola gives 45/4 km per 75 min. Downward to 5 min, the greatest common factor, Diana covers 9/4 in three blocks, so one block is 9/4 &divide; 3 = 9/12, and Paola covers 15/4 in five blocks, so one block is 15/4 &times; 1/5 = 15/20. Both equal 3/4 km per 5 min. The bars below sit at different lengths until a shared time is chosen, then they match.</p>
+
+                <figure style="margin: 0 0 1.6rem 0;">
+                    <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;" role="img" aria-label="Distance bars for both runners under a shared time window">
+                        <text x="20" y="52" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #f89c08; font-weight: bold;">Diana</text>
+                        <rect id="w4-dbar" x="90" y="32" width="96" height="40" style="fill: #f89c08; stroke: none;" />
+                        <text id="w4-dlab" x="196" y="58" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">2.25 km in 15 min</text>
+                        <text x="20" y="132" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f6f8b; font-weight: bold;">Paola</text>
+                        <rect id="w4-pbar" x="90" y="112" width="160" height="40" style="fill: #1f6f8b; stroke: none;" />
+                        <text id="w4-plab" x="260" y="138" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">3.75 km in 25 min</text>
+                        <text id="w4-text" x="20" y="200" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">As measured, the bars differ in length and in the time behind them.</text>
+                    </svg>
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; margin-top: 0.4rem;">
+                        <button type="button" id="w4-raw" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin: 0 0.4rem 0.4rem 0; cursor: pointer;">As measured</button>
+                        <button type="button" id="w4-five" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin: 0 0.4rem 0.4rem 0; cursor: pointer;">Per 5 min</button>
+                        <button type="button" id="w4-lcm" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin: 0 0.4rem 0.4rem 0; cursor: pointer;">Per 75 min</button>
+                        <button type="button" id="w4-hour" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin: 0 0.4rem 0.4rem 0; cursor: pointer;">Per hour</button>
+                    </div>
+                </figure>
+
+                <p><strong>Route four, the bar model.</strong> Lay each runner's distance on a bar, then lay down blocks the size of the distance she covers in one measured stretch, and count the blocks. Diana's block is 1/4 km and her bar is 9/4 km. Paola's block is 5/12 km and her bar is 45/12 km. Both bars take nine blocks, and nine is the answer in km/h, because 15 min is 1/4 of an hour and 25 min is 5/12 of an hour. The formula r = d / t reaches the same place, but it rests on recall rather than on the structure of the figures.</p>
+
+                <figure style="margin: 0 0 1.6rem 0;">
+                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;" role="img" aria-label="Nine blocks fill each runner bar">
+                        <text x="20" y="34" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #f89c08; font-weight: bold;">Diana, blocks of 1/4 km</text>
+                        <rect x="20" y="44" width="480" height="44" style="fill: none; stroke: #999; stroke-width: 1.5;" />
+                        <g id="w5-drow"></g>
+                        <text id="w5-dcount" x="512" y="72" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">0</text>
+                        <text x="20" y="130" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f6f8b; font-weight: bold;">Paola, blocks of 5/12 km</text>
+                        <rect x="20" y="140" width="480" height="44" style="fill: none; stroke: #999; stroke-width: 1.5;" />
+                        <g id="w5-prow"></g>
+                        <text id="w5-pcount" x="512" y="168" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">0</text>
+                        <text id="w5-text" x="20" y="220" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #333;">Diana's bar holds 9/4 km, Paola's holds 45/12 km. Lay the blocks down.</text>
+                    </svg>
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; margin-top: 0.4rem;">
+                        <button type="button" id="w5-add" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin-right: 0.4rem; cursor: pointer;">Lay down one block</button>
+                        <button type="button" id="w5-fill" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; margin-right: 0.4rem; cursor: pointer;">Fill both bars</button>
+                        <button type="button" id="w5-reset" style="font-family: inherit; font-size: 14px; padding: 0.35rem 0.8rem; cursor: pointer;">Reset</button>
+                    </div>
+                </figure>
+
+                <script>
+                (function () {
+                    var pxPerMin = 500 / 30, pxPerKm = 260 / 4.5;
+
+                    var slider = document.getElementById('w1-slider');
+                    var dot = document.getElementById('w1-dot');
+                    var drop = document.getElementById('w1-drop');
+                    var readout = document.getElementById('w1-readout');
+                    function w1() {
+                        var t = Number(slider.value), d = 0.15 * t;
+                        var x = 60 + t * pxPerMin, y = 300 - d * pxPerKm;
+                        dot.setAttribute('cx', x); dot.setAttribute('cy', y);
+                        drop.setAttribute('x1', x); drop.setAttribute('x2', x); drop.setAttribute('y1', y);
+                        readout.textContent = 'At ' + t + ' minutes the line stands at ' + d.toFixed(2) +
+                            ' km. The pace is 0.15 km per minute, or 9 km per hour.';
+                    }
+                    slider.addEventListener('input', w1);
+
+                    var blocks = [];
+                    for (var i = 0; i < 12; i++) { blocks.push(document.getElementById('w2-b' + i)); }
+                    var w2a = document.getElementById('w2-line1'), w2b = document.getElementById('w2-line2');
+                    function shade(n, color, l1, l2) {
+                        blocks.forEach(function (b, i) { b.style.fill = (i < n) ? color : '#ececec'; });
+                        w2a.textContent = l1; w2b.textContent = l2;
+                    }
+                    document.getElementById('w2-diana').addEventListener('click', function () {
+                        shade(3, '#f89c08', '15 min fills 3 of the 12 blocks, so 15 min is 3/12 of an hour, which is 1/4.',
+                            'One hour holds 4 of her runs, so 9/4 times 4 gives 9 km/h.');
+                    });
+                    document.getElementById('w2-paola').addEventListener('click', function () {
+                        shade(5, '#1f6f8b', '25 min fills 5 of the 12 blocks, so 25 min is 5/12 of an hour.',
+                            'Divide 15/4 by 5 for one block (3/4), then multiply by 12 (blocks), which gives 9 km/h.');
+                    });
+                    document.getElementById('w2-clear').addEventListener('click', function () {
+                        shade(0, '#ececec', 'Pick a runner to shade her share of the hour.', '');
+                    });
+
+                    var w3 = { dn: 'w3-dn', dd: 'w3-dd', pn: 'w3-pn', pd: 'w3-pd', t: 'w3-text' };
+                    Object.keys(w3).forEach(function (k) { w3[k] = document.getElementById(w3[k]); });
+                    document.getElementById('w3-reduce').addEventListener('click', function () {
+                        w3.dn.textContent = '0.75 km'; w3.dd.textContent = '5 min';
+                        w3.pn.textContent = '0.75 km'; w3.pd.textContent = '5 min';
+                        w3.t.textContent = 'Diana divided by 3, Paola divided by 5, and both land on the same fraction.';
+                    });
+                    document.getElementById('w3-reset').addEventListener('click', function () {
+                        w3.dn.textContent = '2.25 km'; w3.dd.textContent = '15 min';
+                        w3.pn.textContent = '3.75 km'; w3.pd.textContent = '25 min';
+                        w3.t.textContent = 'Two rates, two shapes. Divide each one by its own common factor.';
+                    });
+
+                    var dbar = document.getElementById('w4-dbar'), pbar = document.getElementById('w4-pbar');
+                    var dlab = document.getElementById('w4-dlab'), plab = document.getElementById('w4-plab');
+                    var w4t = document.getElementById('w4-text'), scale = 480 / 11.25;
+                    function w4(dv, pv, dtxt, ptxt, note) {
+                        dbar.setAttribute('width', dv * scale); pbar.setAttribute('width', pv * scale);
+                        dlab.setAttribute('x', 96 + dv * scale); plab.setAttribute('x', 96 + pv * scale);
+                        dlab.textContent = dtxt; plab.textContent = ptxt; w4t.textContent = note;
+                    }
+                    document.getElementById('w4-raw').addEventListener('click', function () {
+                        w4(2.25, 3.75, '2.25 km in 15 min', '3.75 km in 25 min',
+                            'As measured, the bars differ in length and in the time behind them.');
+                    });
+                    document.getElementById('w4-five').addEventListener('click', function () {
+                        w4(0.75, 0.75, '0.75 km per 5 min', '0.75 km per 5 min',
+                            'Scaled down to the shared 5 min block, the bars match.');
+                    });
+                    document.getElementById('w4-lcm').addEventListener('click', function () {
+                        w4(11.25, 11.25, '11.25 km per 75 min', '11.25 km per 75 min',
+                            'Scaled up to 75 min, the least common multiple, the bars match again.');
+                    });
+                    document.getElementById('w4-hour').addEventListener('click', function () {
+                        w4(9, 9, '9 km per hour', '9 km per hour',
+                            'Stated per hour, the two runs read as one figure, 9 km/h.');
+                    });
+
+                    var drow = document.getElementById('w5-drow'), prow = document.getElementById('w5-prow');
+                    var dcount = document.getElementById('w5-dcount'), pcount = document.getElementById('w5-pcount');
+                    var w5t = document.getElementById('w5-text'), laid = 0, w = 480 / 9;
+                    function draw() {
+                        drow.innerHTML = ''; prow.innerHTML = '';
+                        for (var i = 0; i < laid; i++) {
+                            var a = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                            a.setAttribute('x', 20 + i * w); a.setAttribute('y', 44);
+                            a.setAttribute('width', w); a.setAttribute('height', 44);
+                            a.setAttribute('style', 'fill: #f89c08; stroke: #fff; stroke-width: 1.5;');
+                            drow.appendChild(a);
+                            var b = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                            b.setAttribute('x', 20 + i * w); b.setAttribute('y', 140);
+                            b.setAttribute('width', w); b.setAttribute('height', 44);
+                            b.setAttribute('style', 'fill: #1f6f8b; stroke: #fff; stroke-width: 1.5;');
+                            prow.appendChild(b);
+                        }
+                        dcount.textContent = laid; pcount.textContent = laid;
+                        w5t.textContent = (laid === 9)
+                            ? 'Nine blocks fill both bars, so both runners held 9 km/h and neither was faster.'
+                            : 'Blocks laid so far: ' + laid + '. Each block is one measured stretch.';
+                    }
+                    document.getElementById('w5-add').addEventListener('click', function () {
+                        if (laid < 9) { laid = laid + 1; draw(); }
+                    });
+                    document.getElementById('w5-fill').addEventListener('click', function () { laid = 9; draw(); });
+                    document.getElementById('w5-reset').addEventListener('click', function () {
+                        laid = 0; draw();
+                        w5t.textContent = "Diana's bar holds 9/4 km, Paola's holds 45/12 km. Lay the blocks down.";
+                    });
+                    draw();
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p><dfn class="highlight-line">Comparing two rates by putting them over a common denominator</dfn> entered commercial practice long before it entered classrooms, through the rule of three that filled the merchant handbooks of Renaissance Italy, where a trader had to judge freight offers quoted in different weights over different journeys. The railway companies of the 1840s turned the same comparison into a reporting standard, publishing ton miles per hour so that two lines of unequal length and unequal traffic could be ranked on one figure. Cloud throughput accounting inherits that habit directly, since a migration log records volume and duration but leaves the rate to be formed.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script forms a rate for each run and compares them, so it settles a faster than claim for any pair of amount and duration figures, not only for this one.</p>
+
+                <pre><code># What this does: compares two data migration jobs using exact fractions.
+# Where it came from: two cloud engineers each moved data into storage and each claimed her job was faster.
+# The math idea: divide the amount moved by the time taken, then compare the two answers.
+# You type in: how much data each job moved, as a fraction or a decimal, and how long each job took.
+# It prints: the exact speed of each job and which engineer was right.
+
+# This tool keeps numbers exact, so 2.25 stays as nine quarters and never drifts.
+from fractions import Fraction
+
+# This function works out the speed of one job.
+def throughput(volume_tb, minutes):
+    # Divide the data moved by the minutes it took.
+    return Fraction(volume_tb) / Fraction(minutes)
+
+# Tell the reader what we will figure out.
+print("Let's find out which migration job was faster.")
+print("You can type amounts like 2.25 or like 9/4.")
+
+# Ask about the first job.
+first_name = input("Name of the first engineer: ")
+first_volume = input("TB moved by the first job: ")
+first_minutes = input("Minutes the first job took: ")
+
+# Ask about the second job.
+second_name = input("Name of the second engineer: ")
+second_volume = input("TB moved by the second job: ")
+second_minutes = input("Minutes the second job took: ")
+
+# Work out the exact speed of each job.
+first_rate = throughput(first_volume, first_minutes)
+second_rate = throughput(second_volume, second_minutes)
+
+# Print each speed as a fraction and as a decimal.
+print(first_name, "moved", first_rate, "TB per minute, which is", float(first_rate))
+print(second_name, "moved", second_rate, "TB per minute, which is", float(second_rate))
+
+# Compare the two exact speeds and say who was right.
+if first_rate &gt; second_rate:
+    print("Faster job:", first_name, "was right.")
+elif second_rate &gt; first_rate:
+    print("Faster job:", second_name, "was right.")
+else:
+    print("Both jobs ran at the same speed, so neither engineer was faster.")</code></pre>
+
+                <p>Paste it into Windows Terminal after typing python, answer the six prompts, and it returns each rate as an exact fraction plus the verdict on which run was faster.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <pre class="md-code"><code>---
+name: throughput-comparison
+description: Compares two work runs by rate and names the faster one, given the amount each run moved and the time each run took. Use it for questions about which job, engineer, team, machine, or campaign was faster, and for any pair of amount and duration figures that need a common unit before comparison. Trigger this skill whenever the user wants to know which of two runs was faster, even if they only paste two amounts and two times with no technical language.
+---
+
+<span class="md-heading"># Throughput Comparison</span>
+
+This skill settles a faster than claim between two runs of the same kind of work. It takes the amount each run handled and the time each run took, converts both into an amount per unit of time, compares the two rates, and reports which run was faster or states that the rates are equal. The amounts may be whole numbers, decimals, or fractions such as 9/4. The output is a short report showing each rate and the verdict.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+- Exact fraction arithmetic, available in the Python standard library <span class="md-code">`fractions`</span> module, used to keep fractional amounts exact so two equal rates are reported as equal rather than differing in the last decimal place.
+- No third party libraries.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Label for the first run**</span>, a name or identifier such as an engineer, team, or job ID.
+- <span class="md-bold">**Amount handled by the first run**</span>, a positive number in whatever unit applies, e.g. TB, records, leads, units. Accepts decimals and fractions.
+- <span class="md-bold">**Time taken by the first run**</span>, a positive number of minutes, or another time unit used consistently for both runs.
+- <span class="md-bold">**Label for the second run**</span>, as above.
+- <span class="md-bold">**Amount handled by the second run**</span>, in the same unit as the first run.
+- <span class="md-bold">**Time taken by the second run**</span>, in the same time unit as the first run.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the six values</span>
+
+Ask for the label, amount, and time for each of the two runs. State the unit of amount and the unit of time once, and use the same pair for both runs. Tell the user that amounts may be typed as decimals or as fractions.
+
+<span class="md-heading">### Step 2 — Validate the figures</span>
+
+Check that both amounts and both times are positive numbers. If a time is zero or missing, stop and report that a rate cannot be formed from a zero duration. If the two runs use different units of amount or different units of time, stop and ask for figures in matching units, because a comparison across units carries no meaning.
+
+<span class="md-heading">### Step 3 — Convert each amount to an exact value</span>
+
+Read each amount as an exact quantity rather than a rounded decimal. A typed 2.25 becomes nine quarters, and a typed 9/4 becomes the same value. This keeps the later equality test reliable.
+
+<span class="md-heading">### Step 4 — Form the rate for each run</span>
+
+For each run, divide the amount handled by the time taken. This gives the amount per unit of time, e.g. TB per minute. Perform the division once per run and keep both results.
+
+<span class="md-heading">### Step 5 — Compare the two rates</span>
+
+If the first rate is greater than the second, the first run was faster and its label is the correct claim. If the second rate is greater, the second run was faster. If the two rates are equal, neither run was faster and both claims fail.
+
+<span class="md-heading">### Step 6 — Report the result</span>
+
+Print each label with its rate, shown as an exact fraction and as a decimal. Then print one verdict line naming the faster run, or stating that both runs held the same rate and neither party was faster. Display a rate as a whole number when no decimal part remains. Keep the wording tied to the scenario the user described rather than generic, e.g. name the work as migration jobs, support tickets, or shipments as appropriate. Return the report in the chat, and save it to a file only if the user asks.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "Diana moved 2.25 TB in 15 minutes and Paola moved 3.75 TB in 25 minutes. Who was faster?"
+- "One rep closed 18 deals in 12 weeks, another closed 24 in 16 weeks. Which rep performed better per week?"
+- "Compare these two batch runs by records per minute."
+- "Team A handled 450 tickets in 30 hours and Team B handled 600 in 40 hours. Is either team quicker?"
+- "Tell me which of these two jobs had the higher throughput."</code></pre>
+
+                <p>The skill file carries the same procedure without the code, so the comparison can be run in conversation on any pair of amount and duration figures a team reports.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 31, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

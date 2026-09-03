@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A metered quote and a flat monthly plan cannot be compared until both sit in the same unit. This article works the conversion, finds the break even volume, and turns the logic into a reusable Python function.">
+    <meta name="keywords" content="unit rate, break even volume, cost per unit, vendor selection, cloud pricing, metered billing, business math, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/60000-documents-two-price-models-one-break-even-point.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/60000-documents-two-price-models-one-break-even-point.html" />
+
+    <title>60,000 Documents, Two Price Models, One Break Even Point</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>August 31, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    60,000 DOCUMENTS, TWO PRICE MODELS, ONE BREAK EVEN POINT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Vendors rarely quote in the same unit, and that is what makes a purchase decision look harder than it is. One side prices consumption, the other prices access, and procurement has to convert before it can compare. <dfn>This problem shows how a single conversion into cost per unit settles the choice, and how the same arithmetic yields the volume at which the answer flips.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A logistics company processes 60,000 contract documents each month through a GenAI extraction service. It is choosing between two vendors. The first bills per document, e.g. USD 4,500 for 5,000 documents. The second offers a monthly plan of USD 58,000 with unlimited documents.</p>
+                <p>Volume will stay at 60,000 documents and the company wants the lower cost. Which vendor should it choose?</p>
+                <ul>
+                    <li>a) the second one because, for a fixed price, it can process as many documents as it wants</li>
+                    <li>b) the second one because, at 60,000 documents, the cost per document is lower</li>
+                    <li>c) the first one because, at 60,000 documents, the cost per document is lower</li>
+                    <li>d) the first one because, for a fixed price, it can process any number of documents</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) the first vendor, at USD 54,000 per month ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The quote of USD 4,500 for 5,000 documents <strong>divides</strong> into USD 0.90 per document, and that rate <strong>multiplied</strong> by the monthly volume of 60,000 gives USD 54,000. The flat plan charges USD 58,000 whatever the volume, so the metered vendor wins by USD 4,000 per month.</p>
+
+                    <p class="insight"><em>At 60,000 documents the flat plan works out near USD 0.967 per document, which sits above the metered rate of USD 0.90.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Metered unit rate:</strong> 4,500 divided by 5,000 gives USD 0.90 per document</li>
+                            <li><strong>Metered monthly total:</strong> 60,000 times 0.90 gives USD 54,000</li>
+                            <li><strong>Plan monthly total:</strong> USD 58,000, independent of volume</li>
+                            <li><strong>Plan unit rate at this volume:</strong> 58,000 divided by 60,000 gives near USD 0.967 per document</li>
+                            <li><strong>Monthly difference:</strong> 58,000 minus 54,000 gives USD 4,000, or USD 48,000 per year</li>
+                            <li><strong>Break even volume:</strong> 58,000 divided by 0.90 gives near 64,444 documents per month</li>
+                            <li><strong>Decision:</strong> below 64,444 documents the metered vendor is cheaper, above it the plan takes over</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof With Named Properties</h2>
+
+                <p>The decision above holds by arithmetic law, not by inspection. Each step below names the property that licenses it and shows that property acting on the figures of this problem.</p>
+
+                <h3>Notation</h3>
+                <ul>
+                    <li><em>q</em> is the monthly document volume, 60,000.</li>
+                    <li><em>p</em> is the price per document under Vendor 1, fixed in Step 1.</li>
+                    <li><em>T1</em> is the monthly total under Vendor 1, the unknown of Steps 2 and 3.</li>
+                    <li><em>T2</em> is the monthly total under Vendor 2, USD 58,000, independent of <em>q</em>.</li>
+                    <li><em>u2</em> is the amount Vendor 2 charges per document at volume <em>q</em>, produced in Step 4.</li>
+                    <li><em>qb</em> is the volume at which <em>T1</em> equals <em>T2</em>, produced in Step 8.</li>
+                    <li>4,500 and 5,000 are the dollars quoted and the documents covered in the Vendor 1 quote.</li>
+                </ul>
+
+                <h3>Step 1 — Cancellation law</h3>
+                <p><strong>Property.</strong> Cancellation law. For nonzero b, b times a over b equals a.</p>
+                <p><strong>Inference.</strong> <em>p</em> equals 0.90. 4,500 over 5,000 is 5,000 times 0.9 over 5,000, and the 5,000 cancels, leaving 0.9.</p>
+
+                <h3>Step 2 — Substitution</h3>
+                <p><strong>Property.</strong> Substitution. Equals may replace equals.</p>
+                <p><strong>Inference.</strong> <em>T1</em> equals 60,000 times 0.90. Builds on line 1, replacing <em>p</em> in <em>T1</em> equals <em>p</em> times <em>q</em>, and <em>q</em> by its fixed value.</p>
+
+                <h3>Step 3 — Associativity and commutativity of multiplication</h3>
+                <p><strong>Property.</strong> Associativity of multiplication and commutativity of multiplication. A product may be regrouped and reordered without changing its value.</p>
+                <p><strong>Inference.</strong> <em>T1</em> equals 54,000. Builds on line 2. 60,000 times 0.9 is 6 times 0.9 times 10,000, which is 5.4 times 10,000.</p>
+
+                <h3>Step 4 — Division property of equality</h3>
+                <p><strong>Property.</strong> Division property of equality. If a equals b and c is nonzero then a over c equals b over c.</p>
+                <p><strong>Inference.</strong> <em>u2</em> equals 58,000 over 60,000. Dividing each side of <em>T2</em> equals <em>u2</em> times 60,000 by 60,000 isolates <em>u2</em>.</p>
+
+                <h3>Step 5 — Cancellation law</h3>
+                <p><strong>Property.</strong> Cancellation law, as in Step 1.</p>
+                <p><strong>Inference.</strong> <em>u2</em> equals 29 over 30, near 0.967. Builds on line 4. 58,000 over 60,000 is 2,000 times 29 over 2,000 times 30, and the 2,000 cancels.</p>
+
+                <h3>Step 6 — Trichotomy</h3>
+                <p><strong>Property.</strong> Trichotomy. For any two real numbers their difference is positive, negative, or zero, and exactly one holds.</p>
+                <p><strong>Inference.</strong> <em>p</em> is less than <em>u2</em>. Builds on lines 1 and 5. 29 over 30 minus 27 over 30 is 2 over 30, which is positive, so 0.90 sits below 29 over 30.</p>
+
+                <h3>Step 7 — Order preserved under multiplication by a positive number</h3>
+                <p><strong>Property.</strong> Order preserved under multiplication by a positive number. If a is less than b and c is positive then c times a is less than c times b.</p>
+                <p><strong>Inference.</strong> <em>T1</em> is less than <em>T2</em>. Builds on lines 3 and 6. Multiplying each unit price by the positive volume 60,000 gives 54,000 below 58,000.</p>
+
+                <h3>Step 8 — Division property of equality</h3>
+                <p><strong>Property.</strong> Division property of equality, as in Step 4.</p>
+                <p><strong>Inference.</strong> <em>qb</em> equals 580,000 over 9, near 64,444 documents. Dividing each side of 58,000 equals 0.90 times <em>qb</em> by 0.90 isolates <em>qb</em>.</p>
+
+                <h3>Verification</h3>
+                <p>Substituting into the Vendor 1 constraint, 0.90 times 60,000 is 54,000, and 58,000 minus 54,000 is 4,000, so Vendor 1 costs USD 4,000 less per month. Substituting <em>qb</em>, 0.90 times 580,000 over 9 is 58,000, so the totals do coincide at that volume.</p>
+
+                <h2 id="charts-version">The Same Math in the Cloud Market</h2>
+
+                <p>The three panels below run the same conversion on the market that made it routine. Move the controls and the crossover moves with them.</p>
+
+                <h3>1. Meter against commitment</h3>
+
+                <p>A commitment plan is flat up to the committed level, then bills the excess at the on demand rate. Setting the two costs equal gives a break even usage of the committed hours times one minus the discount. The instance rate of USD 0.10 per hour is illustrative, the discount range is not, since reserved capacity and savings plans trade a one year or three year commitment for up to 75 percent off published rates.</p>
+
+                <div style="margin: 1rem 0;">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <label for="cmt" style="min-width:150px;font-size:14px;">Committed hours</label>
+                        <input type="range" id="cmt" min="200" max="2000" step="50" value="1200" style="flex:1;">
+                        <output id="cmtO" style="min-width:70px;text-align:right;font-size:14px;">1,200</output>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <label for="dsc" style="min-width:150px;font-size:14px;">Commitment discount</label>
+                        <input type="range" id="dsc" min="0" max="72" step="1" value="40" style="flex:1;">
+                        <output id="dscO" style="min-width:70px;text-align:right;font-size:14px;">40%</output>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <label for="use" style="min-width:150px;font-size:14px;">Actual usage</label>
+                        <input type="range" id="use" min="0" max="2000" step="25" value="1500" style="flex:1;">
+                        <output id="useO" style="min-width:70px;text-align:right;font-size:14px;">1,500</output>
+                    </div>
+                    <p style="font-size:15px;">Break even usage <strong id="mBe">720 h</strong> | On demand cost <strong id="mOd">$150</strong> | Commitment cost <strong id="mCm">$102</strong> | Verdict <strong id="mVd">commit</strong></p>
+                    <div style="position:relative;width:100%;height:300px;">
+                        <canvas id="c1" role="img" aria-label="Line chart of monthly cost against usage hours for on demand billing and for a commitment plan">On demand cost rises with usage. Commitment cost is flat up to the committed level, then rises at the on demand rate.</canvas>
+                    </div>
+                </div>
+
+                <h3>2. Rounding in the meter</h3>
+
+                <p>Hourly billing rounds a job up to the next whole hour, so a short job pays for sixty minutes. Per second billing charges the seconds used, with a one minute floor. Compute billed by the hour from 2006, and moved to per second billing in 2017, which lowered the effective unit rate without touching the published rate.</p>
+
+                <div style="margin: 1rem 0;">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <label for="job" style="min-width:150px;font-size:14px;">Job length in minutes</label>
+                        <input type="range" id="job" min="1" max="90" step="1" value="7" style="flex:1;">
+                        <output id="jobO" style="min-width:70px;text-align:right;font-size:14px;">7</output>
+                    </div>
+                    <p style="font-size:15px;">Billed, hourly rounding <strong id="mHr">$0.10</strong> | Billed, per second <strong id="mSc">$0.012</strong> | Overpayment ratio <strong id="mRt">8.6x</strong></p>
+                </div>
+
+                <h3>3. Price cuts as a cadence</h3>
+
+                <p>Each cut resets every customer break even calculation. The published count of reductions reached 23 by late 2012, 75 by September 2019, and 107 by April 2021.</p>
+
+                <div style="position:relative;width:100%;height:260px;margin:1rem 0;">
+                    <canvas id="c2" role="img" aria-label="Bar chart of cumulative AWS price reductions, 23 by 2012, 75 by 2019, 107 by 2021">Cumulative price reductions reached 23 by 2012, 75 by 2019 and 107 by 2021.</canvas>
+                </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+                <script>
+                (function () {
+                    if (typeof Chart === "undefined") { return; }
+                    var RATE = 0.10;
+                    var f0 = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+                    var xs = [];
+                    for (var i = 0; i <= 2000; i += 100) { xs.push(i); }
+                    var cmt = document.getElementById("cmt");
+                    var dsc = document.getElementById("dsc");
+                    var use = document.getElementById("use");
+                    var job = document.getElementById("job");
+                    var ch1 = new Chart(document.getElementById("c1"), {
+                        type: "line",
+                        data: { labels: xs, datasets: [
+                            { label: "on demand", data: [], borderColor: "#2a78d6", borderWidth: 2, pointRadius: 0, tension: 0 },
+                            { label: "commitment", data: [], borderColor: "#eb6834", borderWidth: 2, borderDash: [6, 4], pointRadius: 0, tension: 0 }
+                        ] },
+                        options: {
+                            responsive: true, maintainAspectRatio: false,
+                            plugins: { legend: { position: "top" } },
+                            scales: {
+                                x: { title: { display: true, text: "usage hours per month" }, grid: { display: false } },
+                                y: { title: { display: true, text: "monthly cost, dollars" }, ticks: { callback: function (v) { return "$" + f0.format(v); } } }
+                            }
+                        }
+                    });
+                    new Chart(document.getElementById("c2"), {
+                        type: "bar",
+                        data: { labels: ["2012", "2019", "2021"], datasets: [{ label: "cumulative price reductions", data: [23, 75, 107], backgroundColor: "#1baf7a", borderRadius: 4, maxBarThickness: 28 }] },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } } } }
+                    });
+                    function draw() {
+                        var H = +cmt.value, d = +dsc.value / 100, U = +use.value;
+                        document.getElementById("cmtO").textContent = f0.format(H);
+                        document.getElementById("dscO").textContent = (+dsc.value) + "%";
+                        document.getElementById("useO").textContent = f0.format(U);
+                        var be = H * (1 - d);
+                        var od = RATE * U;
+                        var cm = RATE * H * (1 - d) + RATE * Math.max(0, U - H);
+                        document.getElementById("mBe").textContent = f0.format(Math.round(be)) + " h";
+                        document.getElementById("mOd").textContent = "$" + f0.format(Math.round(od));
+                        document.getElementById("mCm").textContent = "$" + f0.format(Math.round(cm));
+                        var v = document.getElementById("mVd");
+                        if (Math.abs(od - cm) < 0.5) { v.textContent = "tie"; }
+                        else if (cm < od) { v.textContent = "commit"; }
+                        else { v.textContent = "meter"; }
+                        ch1.data.datasets[0].data = xs.map(function (x) { return RATE * x; });
+                        ch1.data.datasets[1].data = xs.map(function (x) { return RATE * H * (1 - d) + RATE * Math.max(0, x - H); });
+                        ch1.update("none");
+                        var m = +job.value;
+                        document.getElementById("jobO").textContent = m;
+                        var hr = Math.ceil(m / 60) * RATE;
+                        var sc = Math.max(60, m * 60) * RATE / 3600;
+                        document.getElementById("mHr").textContent = "$" + hr.toFixed(2);
+                        document.getElementById("mSc").textContent = "$" + sc.toFixed(3);
+                        document.getElementById("mRt").textContent = (hr / sc).toFixed(1) + "x";
+                    }
+                    [cmt, dsc, use, job].forEach(function (el) { el.addEventListener("input", draw); });
+                    draw();
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>This comparison became a daily task in business when computing itself started arriving by the meter. Amazon Web Services opened in March 2006 with storage billed by the gigabyte month and compute billed by the hour, which turned an infrastructure purchase into a published price per unit that any buyer could multiply by a forecast.</p>
+
+                <p>The unit kept changing while the arithmetic stayed put. Compute moved from hourly billing to per second billing in 2017, commercial language model providers began quoting per thousand tokens from 2020, and procurement teams now run the same conversion against reserved capacity and committed spend plans, whose discounts only pay off above a volume the buyer has to calculate first.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script converts any per unit quote and any flat fee into comparable monthly totals, then reports the crossover volume, so the same function serves a new vendor quote without editing the logic.</p>
+
+<pre><code>def unit_rate(price, units):
+    """Return the price of a single unit."""
+    return price / units
+
+
+def metered_total(volume, price_per_unit):
+    """Return the monthly cost under per unit billing."""
+    return volume * price_per_unit
+
+
+def break_even_volume(fixed_fee, price_per_unit):
+    """Return the volume at which both offers cost the same."""
+    return fixed_fee / price_per_unit
+
+
+def choose_vendor(volume, quote_price, quote_units, fixed_fee):
+    rate = unit_rate(quote_price, quote_units)
+    metered = metered_total(volume, rate)
+    plan_rate = unit_rate(fixed_fee, volume)
+    crossover = break_even_volume(fixed_fee, rate)
+    winner = "metered" if metered &lt; fixed_fee else "plan"
+    return {
+        "metered_rate": round(rate, 4),
+        "metered_total": round(metered, 2),
+        "plan_total": round(fixed_fee, 2),
+        "plan_rate": round(plan_rate, 4),
+        "break_even_volume": round(crossover),
+        "monthly_saving": round(abs(metered - fixed_fee), 2),
+        "winner": winner,
+    }
+
+
+if __name__ == "__main__":
+    result = choose_vendor(
+        volume=60000,
+        quote_price=4500,
+        quote_units=5000,
+        fixed_fee=58000,
+    )
+    for key, value in result.items():
+        print(key, value)
+</code></pre>
+
+                <p>Run it with <code>python vendor_choice.py</code> and it prints the metered rate of 0.9, a metered total of 54000.0 against a plan total of 58000, a monthly saving of 4000.0, a break even volume of 64444, and the winner, metered.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">August 31, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
