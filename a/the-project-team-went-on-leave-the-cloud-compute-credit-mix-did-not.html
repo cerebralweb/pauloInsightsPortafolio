@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A company draws cloud compute credits every month, on demand against spot in a fixed proportion. Attendance falls, the total falls, the mix holds. Worked step by step with named properties and a reusable Python function.">
+    <meta name="keywords" content="cloud credits, spot instances, on demand pricing, proportional allocation, cost allocation, demand planning, fractional units, python allocation, cloud cost management">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-project-team-went-on-leave-the-credit-mix-did-not.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-project-team-went-on-leave-the-credit-mix-did-not.html" />
+
+    <title>The Project Team Went on Leave, the Credit Mix Did Not</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 7, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE PROJECT TEAM WENT ON LEAVE, THE CLOUD COMPUTE CREDIT MIX DID NOT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud spend arrives as one total, and finance has to charge it back by purchase type. The consumption mix, on demand against spot, tends to hold across months, because it follows how the workloads are built rather than how busy the month was. A team that knows the mix can charge back from the total alone. <dfn>This problem shows how a mix stated in whole packs allocates a total measured in single credits, and how a few lines of Python make the allocation reusable for any total and any number of purchase types.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A company draws down cloud compute credits on the last Friday of every month. Credits are sold in packs. This year, for every pack of on demand credits the company consumes, it consumes 2.5 packs of spot credits. One project consumed a total of only 2 and 1/10 credits, because most of the project team was on leave.</p>
+                <p>How many spot credits did this project consume?</p>
+                <ul>
+                    <li>a) one and a half</li>
+                    <li>b) more than one</li>
+                    <li>c) less than one</li>
+                    <li>d) 1/2</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) one and a half ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>A mix carries no unit, so a rate stated in packs holds for single credits without conversion. Writing the spot amount as 5 over 2 times the on demand amount and <strong>substituting</strong> into the total gives one equation in one unknown, which <strong>collects</strong> into 7 over 2 times the on demand amount equals 21 over 10, and then <strong>divides</strong> to 3 over 5 of an on demand credit and 3 over 2 spot credits.</p>
+
+                    <p class="insight"><em>Every credit the project draws carries 5 over 7 of itself into spot and 2 over 7 into on demand, so a total of 21 over 10 credits charges 3 over 2 to spot, whatever the project size.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Mix in fraction form:</strong> 2.5 equals 5 over 2, so spot credits s equals 5 over 2 times on demand credits d</li>
+                            <li><strong>Total in fraction form:</strong> 2 and 1 over 10 equals 21 over 10, so d plus s equals 21 over 10</li>
+                            <li><strong>Substitution:</strong> d plus 5 over 2 times d equals 21 over 10</li>
+                            <li><strong>Multiplicative identity:</strong> 1 times d plus 5 over 2 times d equals 21 over 10</li>
+                            <li><strong>Distributivity:</strong> the quantity 1 plus 5 over 2, times d, equals 21 over 10</li>
+                            <li><strong>Common denominator rule:</strong> 2 over 2 plus 5 over 2 equals 7 over 2, so 7 over 2 times d equals 21 over 10</li>
+                            <li><strong>Multiplication property of equality:</strong> both sides take the factor 2 over 7</li>
+                            <li><strong>Multiplicative inverse and identity:</strong> the left side collapses to d</li>
+                            <li><strong>Cancellation law:</strong> 2 times 21 over 7 times 10 equals 42 over 70 equals 3 over 5, so d equals 3 over 5</li>
+                            <li><strong>Substitution into the mix:</strong> s equals 5 over 2 times 3 over 5</li>
+                            <li><strong>Cancellation law:</strong> 15 over 10 equals 3 over 2, so s equals 3 over 2</li>
+                            <li><strong>Verification:</strong> 3 over 5 plus 3 over 2 equals 6 over 10 plus 15 over 10 equals 21 over 10, and 3 over 2 divided by 3 over 5 equals 5 over 2</li>
+                            <li><strong>Conclusion:</strong> the project consumed 3 over 2 spot credits, one and a half, and 3 over 5 of an on demand credit</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof With Named Properties</h2>
+
+                <p>The breakdown above states the moves. The units below state what licenses each move. Every step leads with a property, holds it in general form, then applies it to this problem's numbers.</p>
+
+                <h3>Mode</h3>
+                <p>Compute.</p>
+
+                <h3>Setup</h3>
+                <p>Let d be the on demand credits the project consumed and s the spot credits. The mix fixes spot against on demand at 5 over 2, so s equals 5 over 2 times d. The total fixes the credits consumed at 21 over 10, so d plus s equals 21 over 10.</p>
+
+                <h3>Notation</h3>
+                <ul>
+                    <li>d is the on demand credits consumed by this project, a positive rational, found in Step 10.</li>
+                    <li>s is the spot credits consumed by this project, the unknown, a positive rational.</li>
+                    <li>5 over 2 is the mix of spot credits to on demand credits, the fraction form of 2.5. It carries no unit, so it holds for single credits as it holds for packs.</li>
+                    <li>21 over 10 is the total credits consumed, the fraction form of 2 and 1 over 10.</li>
+                </ul>
+
+                <h3>Step 1 — Substitution</h3>
+                <p><strong>Property.</strong> Substitution. Equals may replace equals.</p>
+                <p><strong>Inference.</strong> d plus 5 over 2 times d equals 21 over 10. In the total equation, s is replaced by 5 over 2 times d.</p>
+
+                <h3>Step 2 — Multiplicative identity</h3>
+                <p><strong>Property.</strong> Multiplicative identity. One times a equals a.</p>
+                <p><strong>Inference.</strong> The left side equals 1 times d plus 5 over 2 times d. Builds on line 1. The bare d is written as 1 times d.</p>
+
+                <h3>Step 3 — Distributivity of multiplication over addition</h3>
+                <p><strong>Property.</strong> Distributivity. a times c plus b times c equals the quantity a plus b, times c.</p>
+                <p><strong>Inference.</strong> The left side equals the quantity 1 plus 5 over 2, times d. Builds on line 2. The shared factor d is collected.</p>
+
+                <h3>Step 4 — Multiplicative identity, in fraction form</h3>
+                <p><strong>Property.</strong> Multiplicative identity, as in Step 2, with the cancellation law. For nonzero b, b over b equals 1.</p>
+                <p><strong>Inference.</strong> 1 equals 2 over 2. Builds on line 3, rewriting the first addend over the denominator 2.</p>
+
+                <h3>Step 5 — Addition of rational numbers with a common denominator</h3>
+                <p><strong>Property.</strong> Common denominator rule. a over c plus b over c equals the quantity a plus b, over c.</p>
+                <p><strong>Inference.</strong> 2 over 2 plus 5 over 2 equals 7 over 2. Builds on line 4.</p>
+
+                <h3>Step 6 — Substitution</h3>
+                <p><strong>Property.</strong> Substitution, as in Step 1.</p>
+                <p><strong>Inference.</strong> The governing equation is 7 over 2 times d equals 21 over 10. Builds on lines 3 and 5.</p>
+
+                <h3>Step 7 — Multiplication property of equality</h3>
+                <p><strong>Property.</strong> Multiplication property of equality. If a equals b then c times a equals c times b.</p>
+                <p><strong>Inference.</strong> 2 over 7 times the quantity 7 over 2 times d equals 2 over 7 times 21 over 10. Builds on line 6. The same factor multiplies each side.</p>
+
+                <h3>Step 8 — Multiplicative inverse and multiplicative identity</h3>
+                <p><strong>Property.</strong> Multiplicative inverse. A nonzero number times its inverse is 1. With multiplicative identity, 1 times a equals a.</p>
+                <p><strong>Inference.</strong> The left side equals d. Builds on line 7. 2 over 7 times 7 over 2 is 1, and 1 times d is d.</p>
+
+                <h3>Step 9 — Cancellation law</h3>
+                <p><strong>Property.</strong> Cancellation law. For nonzero b, b times a over b equals a.</p>
+                <p><strong>Inference.</strong> The right side equals 3 over 5. Builds on line 7. 2 times 21 over 7 times 10 is 42 over 70, which is 14 times 3 over 14 times 5, and the 14 cancels.</p>
+
+                <h3>Step 10 — Transitivity of equality</h3>
+                <p><strong>Property.</strong> Transitivity of equality. If a equals b and b equals c then a equals c.</p>
+                <p><strong>Inference.</strong> Therefore d equals 3 over 5. Builds on lines 8 and 9.</p>
+
+                <h3>Step 11 — Substitution</h3>
+                <p><strong>Property.</strong> Substitution, as in Step 1.</p>
+                <p><strong>Inference.</strong> s equals 5 over 2 times 3 over 5. Builds on line 10, replacing d in the mix equation.</p>
+
+                <h3>Step 12 — Cancellation law</h3>
+                <p><strong>Property.</strong> Cancellation law, as in Step 9.</p>
+                <p><strong>Inference.</strong> s equals 3 over 2. Builds on line 11. 5 times 3 over 2 times 5 is 15 over 10, which is 5 times 3 over 5 times 2, and the 5 cancels.</p>
+
+                <h3>Verification</h3>
+                <p>Substitute into both constraints. The total, 3 over 5 plus 3 over 2, is 6 over 10 plus 15 over 10, which is 21 over 10. The mix, 3 over 2 divided by 3 over 5, is 3 over 2 times 5 over 3, which is 5 over 2. Both sides match.</p>
+
+                <h3>Answer</h3>
+                <p>The project consumed 3 over 2 spot credits, one and a half credits, and 3 over 5 of an on demand credit. Option a.</p>
+
+                <h3>Properties in Action</h3>
+
+                <svg viewBox="0 0 680 750" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six panels showing each carrying property acting on the numbers of this problem" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif">
+
+                    <text class="th" x="10" y="26" font-size="16" font-weight="700">Each panel shows one carrying property acting on this problem's numbers</text>
+
+                    <rect x="10" y="40" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="64" font-size="15" font-weight="700">1. Multiplicative identity and distributivity</text>
+                    <text class="ts" x="26" y="84" font-size="12" fill="#6b7280">1 times a equals a, and a times c plus b times c equals the quantity a plus b, times c</text>
+                    <text class="t" x="26" y="120" font-size="17" fill="#374151">1·d + 5/2·d</text>
+                    <line x1="155" y1="115" x2="210" y2="115" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 210 115 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t c-teal" x="225" y="120" font-size="17" fill="#0f766e">(1 + 5/2)·d</text>
+                    <text class="ts" x="365" y="120" font-size="12" fill="#6b7280">the shared factor d is collected</text>
+
+                    <rect x="10" y="158" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="182" font-size="15" font-weight="700">2. Common denominator rule</text>
+                    <text class="ts" x="26" y="202" font-size="12" fill="#6b7280">a over c plus b over c equals the quantity a plus b, over c, after 1 is written as 2/2</text>
+                    <text class="t" x="26" y="238" font-size="17" fill="#374151">2/2 + 5/2</text>
+                    <line x1="140" y1="233" x2="195" y2="233" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 195 233 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t c-teal" x="210" y="238" font-size="17" fill="#0f766e">7/2</text>
+                    <text class="ts" x="260" y="238" font-size="12" fill="#6b7280">so the governing equation is 7/2·d = 21/10</text>
+
+                    <rect x="10" y="276" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="300" font-size="15" font-weight="700">3. Multiplication property of equality</text>
+                    <text class="ts" x="26" y="320" font-size="12" fill="#6b7280">if a equals b then c times a equals c times b, with the factor 2/7 on each side</text>
+                    <text class="t" x="26" y="356" font-size="17" fill="#374151">7/2·d = 21/10</text>
+                    <line x1="170" y1="351" x2="225" y2="351" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 225 351 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="ts" x="173" y="340" font-size="12" fill="#6b7280">×2/7</text>
+                    <text class="t c-teal" x="240" y="356" font-size="17" fill="#0f766e">(2/7)(7/2)·d = (2/7)(21/10)</text>
+
+                    <rect x="10" y="394" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="418" font-size="15" font-weight="700">4. Multiplicative inverse and multiplicative identity</text>
+                    <text class="ts" x="26" y="438" font-size="12" fill="#6b7280">a nonzero number times its inverse is 1, and 1 times a equals a</text>
+                    <text class="t" x="26" y="474" font-size="17" fill="#374151">(2/7)(7/2)</text>
+                    <line x1="140" y1="469" x2="195" y2="469" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 195 469 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t" x="210" y="474" font-size="17" fill="#374151">1·d</text>
+                    <line x1="258" y1="469" x2="313" y2="469" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 313 469 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t c-teal" x="328" y="474" font-size="17" fill="#0f766e">d</text>
+                    <text class="ts" x="365" y="474" font-size="12" fill="#6b7280">the left side is now the unknown alone</text>
+
+                    <rect x="10" y="512" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="536" font-size="15" font-weight="700">5. Cancellation law, fixing the on demand credits</text>
+                    <text class="ts" x="26" y="556" font-size="12" fill="#6b7280">for nonzero b, b times a over b equals a, so the shared factor 14 leaves</text>
+                    <text class="t" x="26" y="594" font-size="17" fill="#374151">(2·21)/(7·10) = 42/70 =</text>
+                    <text class="t" x="245" y="582" font-size="16" fill="#6b7280">14·3</text>
+                    <line x1="243" y1="577" x2="266" y2="577" stroke="#9ca3af" stroke-width="1.5" />
+                    <line x1="243" y1="588" x2="292" y2="588" stroke="#374151" stroke-width="1.2" />
+                    <text class="t" x="245" y="606" font-size="16" fill="#6b7280">14·5</text>
+                    <line x1="243" y1="601" x2="266" y2="601" stroke="#9ca3af" stroke-width="1.5" />
+                    <line x1="305" y1="588" x2="360" y2="588" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 360 588 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t c-teal" x="375" y="594" font-size="17" fill="#0f766e">d = 3/5</text>
+
+                    <rect x="10" y="630" width="660" height="108" rx="6" fill="none" stroke="#d8d8d8" />
+                    <text class="th" x="26" y="654" font-size="15" font-weight="700">6. Cancellation law, fixing the spot credits</text>
+                    <text class="ts" x="26" y="674" font-size="12" fill="#6b7280">the same law on the mix equation, where the shared factor 5 leaves</text>
+                    <text class="t" x="26" y="712" font-size="17" fill="#374151">(5/2)(3/5) = 15/10 =</text>
+                    <text class="t" x="215" y="700" font-size="16" fill="#6b7280">5·3</text>
+                    <line x1="213" y1="695" x2="228" y2="695" stroke="#9ca3af" stroke-width="1.5" />
+                    <line x1="213" y1="706" x2="255" y2="706" stroke="#374151" stroke-width="1.2" />
+                    <text class="t" x="215" y="724" font-size="16" fill="#6b7280">5·2</text>
+                    <line x1="213" y1="719" x2="228" y2="719" stroke="#9ca3af" stroke-width="1.5" />
+                    <line x1="268" y1="706" x2="323" y2="706" stroke="#9ca3af" stroke-width="1.5" />
+                    <path d="M 323 706 l -9 -4 v 8 z" fill="#9ca3af" />
+                    <text class="t c-teal" x="338" y="712" font-size="17" fill="#0f766e">s = 3/2</text>
+                </svg>
+
+                <p class="insight"><em>Substitution and transitivity get no panel. They assemble and close the chain, they do not move the numbers.</em></p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Dividing a total into shares that follow a fixed pattern is one of the oldest recorded uses of arithmetic. Scribes in ancient Egypt worked out how to split a fixed quantity of bread and beer among workers of different rank, and the surviving Rhind Mathematical Papyrus carries problems of exactly this shape, a total handed out in unequal but stated proportions, with the answer written in unit fractions because the shares refuse to come out whole.</p>
+
+                <p>The commercial version arrived with medieval trade. Merchant manuals taught the rule of three and the rule of company, the second of which divided a venture's profit among partners in proportion to what each had put in, and Italian bookkeepers of the fourteenth century applied it to freight, insurance, and shared cargo. Cost accounting inherited the method as the allocation key, which charges a shared expense to departments in stated proportions, and cloud chargeback is the current form, splitting one metered total across purchase types, teams, and projects.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script splits any total across any number of named purchase types in stated proportions, using exact fractions so a fractional total like 21 over 10 never drifts into a rounding error.</p>
+
+                <pre><code>from fractions import Fraction
+
+
+def allocate_by_mix(total, mix):
+    """Charge a metered total to purchase types that follow a fixed mix.
+
+    total: the quantity to allocate, e.g. Fraction(21, 10) credits
+    mix: a dict of name to weight, e.g. {"on_demand": 1, "spot": Fraction(5, 2)}
+
+    The weights carry no unit, so a mix stated in packs applies to single credits.
+    Returns a dict of name to exact share.
+    """
+    total = Fraction(total)
+    weights = {name: Fraction(weight) for name, weight in mix.items()}
+    denominator = sum(weights.values())
+    if denominator == 0:
+        raise ValueError("the mix weights must not sum to zero")
+    return {name: total * weight / denominator for name, weight in weights.items()}
+
+
+if __name__ == "__main__":
+    shares = allocate_by_mix(
+        Fraction(21, 10),
+        {"on_demand": 1, "spot": Fraction(5, 2)},
+    )
+    for name, share in shares.items():
+        print(f"{name}: {share} credits ({float(share)})")
+    print("total:", sum(shares.values()))
+</code></pre>
+
+                <p>Run it with <code>python allocate_by_mix.py</code> and it prints 3/5 of an on demand credit and 3/2 spot credits, with the shares summing back to 21/10. Change the total or add a third purchase type, e.g. reserved credits, and the same function returns the new chargeback.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://docs.python.org/3/library/fractions.html" target="_blank" rel="noopener">Python Documentation — fractions</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 7, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud provider builds a scale model of a data center hall for a design review, and the cooling duct opening has to be measured on the model before construction starts.">
+    <meta name="keywords" content="scale model, scale factor, data center design, similar figures, unit conversion, feet to inches, capacity planning, proportional reasoning, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-cooling-duct-a-cloud-provider-checks-before-the-data-center-hall-is-built.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-cooling-duct-a-cloud-provider-checks-before-the-data-center-hall-is-built.html" />
+
+    <title>The Cooling Duct a Cloud Provider Checks Before the Data Center Hall Is Built</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 3, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE COOLING DUCT A CLOUD PROVIDER CHECKS BEFORE THE DATA CENTER HALL IS BUILT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Infrastructure decisions are reviewed long before anything is poured or installed. Facilities teams,
+                    plant engineers, and equipment vendors work from models and drawings, where every dimension carries a
+                    fixed relationship to the object that will exist later, and where the reported unit is rarely the unit
+                    the design was measured in. <dfn>This problem shows how one shrinking factor and one unit equivalence
+                    settle a dimension a review board can act on, and how a short Python function turns that logic into a
+                    reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A facilities team at a cloud provider is building a physical scale model of a new data center hall for
+                    a design review. In the actual hall, the circular cooling duct opening has a diameter of 5 feet. The
+                    model is built at a scale factor of 1/30.</p>
+                <p>The diameter of that opening on the model will be [1 foot = 12 inches]</p>
+                <ul>
+                    <li>a) 60 inches</li>
+                    <li>b) 30 inches</li>
+                    <li>c) 4 inches</li>
+                    <li>d) 2 inches</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 2 inches ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The model and the hall are similar figures, so the duct diameter <strong>shrinks by the scale
+                        factor</strong>, giving 5 ✕ 1/30 = 1/6 of a foot, and that result is then
+                        <strong>converted into inches</strong> by 12 ✕ 1/6 = 2.</p>
+
+                    <p class="insight"><em>Every 30 feet in the hall becomes 1 foot on the model, which is 12 inches, so
+                        each actual foot is worth two fifths of an inch.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Actual duct diameter:</strong> 5 feet across the opening in the hall</li>
+                            <li><strong>Scale factor:</strong> 1/30, applied to every length on the model</li>
+                            <li><strong>Model diameter in feet:</strong> 5 ✕ 1/30 = 1/6 of a foot</li>
+                            <li><strong>Unit equivalence:</strong> 1 foot = 12 inches</li>
+                            <li><strong>Model diameter in inches:</strong> 12 ✕ 1/6 = 2 inches</li>
+                            <li><strong>Check:</strong> 2 inches is 1/6 of a foot, and (1/6) ÷ 5 = 1/30, the scale factor</li>
+                            <li><strong>Answer:</strong> the duct opening measures 2 inches across on the model</li>
+                        </ol>
+                    </div>
+
+                    <h2>Property by Property Solution</h2>
+
+                    <p><strong>Mode.</strong> Compute.</p>
+
+                    <p><strong>Setup.</strong> Let <var>D</var> be the actual duct diameter, <var>D</var> = 5 ft. Let
+                        <var>k</var> be the scale factor, <var>k</var> = 1/30. Let <var>m</var> be the model diameter in
+                        feet and <var>M</var> the same diameter in inches. The model opening and the actual opening are
+                        similar circles. Report <var>M</var>.</p>
+
+                    <h3>Notation</h3>
+
+                    <ul>
+                        <li><var>D</var> is the actual duct diameter, 5 feet.</li>
+                        <li><var>k</var> is the scale factor from hall to model, one thirtieth.</li>
+                        <li><var>m</var> is the model diameter in feet, fixed in Step 3.</li>
+                        <li><var>M</var> is the model diameter in inches, the unknown, a positive rational.</li>
+                        <li>12 is the number of inches in one foot.</li>
+                        <li>The symbol = states that two quantities are the same number.</li>
+                    </ul>
+
+                    <h3>Solution</h3>
+
+                    <ol>
+                        <li>
+                            <p><strong>Step 1 — Corresponding lengths in similar figures.</strong></p>
+                            <p>Property. If two figures are similar with scale factor <var>k</var>, then any length
+                                <var>L</var> in the first and its corresponding length <var>L</var>′ in the second
+                                satisfy <var>L</var>′ = <var>kL</var>.</p>
+                            <p>Inference. <var>m</var> = <var>kD</var>.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 2 — Substitution.</strong></p>
+                            <p>Property. If <var>a</var> = <var>b</var>, then <var>a</var> may replace <var>b</var> in
+                                any true statement.</p>
+                            <p>Inference. <var>m</var> = (1/30)(5). Builds on line 1.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 3 — Cancellation law.</strong></p>
+                            <p>Property. For <var>b</var> ≠ 0, (<var>ba</var>)/<var>b</var> = <var>a</var>.</p>
+                            <p>Inference. <var>m</var> = 1/6 ft. Builds on line 2, since 5/30 = 5/(5 · 6) = 1/6.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 4 — Definition of the inch, with substitution.</strong></p>
+                            <p>Property. 1 ft = 12 in, so a length of <var>x</var> ft equals 12<var>x</var> in.</p>
+                            <p>Inference. <var>M</var> = 12(1/6). Builds on line 3.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 5 — Associativity of multiplication.</strong></p>
+                            <p>Property. (<var>ab</var>)<var>c</var> = <var>a</var>(<var>bc</var>).</p>
+                            <p>Inference. <var>M</var> = (2 · 6)(1/6) = 2(6 · 1/6). Builds on line 4.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 6 — Multiplicative inverse and multiplicative identity.</strong></p>
+                            <p>Property. For <var>a</var> ≠ 0, <var>a</var> · (1/<var>a</var>) = 1, and 1 · <var>a</var>
+                                = <var>a</var>.</p>
+                            <p>Inference. <var>M</var> = 2. Builds on line 5, since 6 · 1/6 = 1 and 2 · 1 = 2.</p>
+                        </li>
+                        <li>
+                            <p><strong>Step 7 — Transitivity of equality.</strong></p>
+                            <p>Property. If <var>a</var> = <var>b</var> and <var>b</var> = <var>c</var>, then
+                                <var>a</var> = <var>c</var>.</p>
+                            <p>Inference. <var>M</var> = 2 in. Builds on lines 4 through 6.</p>
+                        </li>
+                    </ol>
+
+                    <h3>Verification</h3>
+
+                    <p><var>M</var> = 2 in gives <var>m</var> = 2/12 = 1/6 ft. Then <var>m</var>/<var>D</var> = (1/6)/5 =
+                        1/30 = <var>k</var>. The ratio equals the scale factor.</p>
+
+                    <h3>Answer</h3>
+
+                    <p>The duct opening measures 2 inches across on the model, option d.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Reducing a real structure to a drawing a reviewer can hold is an old administrative habit. Roman
+                    surveyors and architects worked from measured plans, and around the year 203 the city of Rome was
+                    carved onto a marble wall as the Forma Urbis Romae, a floor plan of streets, warehouses, and public
+                    buildings reduced to a fraction of their true size.</p>
+
+                <p>The same practice ran through the building yards of medieval Europe, where master masons priced stone
+                    and timber from templates and plans rather than from the finished wall. Industrial procurement kept
+                    the method, because a fraction that holds across every dimension lets one measurement settle a
+                    material order, a clearance, or a fabrication tolerance.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script applies any scale factor to any length in feet and returns the model dimension in inches,
+                    so a facilities team can run it once per component instead of redoing the conversion by hand.</p>
+
+<pre><code>from fractions import Fraction
+
+
+def model_length_in_inches(actual_feet, scale_factor):
+    """Scale a length in feet, then report it in inches.
+
+    actual_feet   length of the real component, in feet
+    scale_factor  ratio of model to actual, e.g. Fraction(1, 30)
+    """
+    model_feet = Fraction(actual_feet) * Fraction(scale_factor)
+    return model_feet * 12
+
+
+if __name__ == "__main__":
+    duct = model_length_in_inches(5, Fraction(1, 30))
+    print(duct)          # 2
+    print(float(duct))   # 2.0
+</code></pre>
+
+                <p>Run it with <code>python model_length.py</code>, and it returns 2, the duct diameter in inches on a
+                    1/30 model. Exact fractions keep the value clean, so a 1/30 or a 1/48 model reports without rounding
+                    drift.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-geometry/cc-7th-scale-drawings" target="_blank" rel="noopener">Khan Academy — Scale Drawings and Scale Factor</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Similar.html" target="_blank" rel="noopener">Wolfram MathWorld — Similar Figures</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/similar-triangles" target="_blank" rel="noopener">Mathematics Stack Exchange — Similarity and Scale</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 3, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

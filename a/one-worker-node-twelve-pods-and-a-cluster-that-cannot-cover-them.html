@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A platform engineer holds one worker node and a workload that needs twelve pods. The capacity guide states a bundled figure, so the decision rests on converting that bundle into a per node rate.">
+    <meta name="keywords" content="unit rate, ratios, rates, kubernetes capacity planning, cluster sizing, worker nodes, pods, division with mixed numbers, justified proof, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-worker-node-twelve-pods-and-a-cluster-that-cannot-cover-them.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-worker-node-twelve-pods-and-a-cluster-that-cannot-cover-them.html" />
+
+    <title>One Worker Node, Twelve Pods, and a Cluster That Cannot Cover Them</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 1, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ONE WORKER NODE, TWELVE PODS, AND A CLUSTER THAT CANNOT COVER THEM
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Infrastructure vendors publish capacity in bundles, because bundles read well in a datasheet. Nobody provisions in bundles. Teams provision in whole units, and the gap between the published figure and the unit on hand is where capacity planning either holds or fails. <dfn>This problem shows how one conversion turns a vendor claim into a provisioning decision, why each step of that conversion carries a name, and how Python makes the whole test reusable across future workloads.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform engineer needs to run one core service pod and 11 partner service pods on a Kubernetes cluster. The capacity guide states that every 3 and 1/3 worker nodes sustain 2 and a half dozen pods. Her cluster currently holds 1 worker node.</p>
+                <p>Will she have to provision more nodes? How many pods can she run on the node she has?</p>
+                <ul>
+                    <li>a) Yes, 9</li>
+                    <li>b) No, 9</li>
+                    <li>c) Yes, 8</li>
+                    <li>d) No, 8</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) Yes, 9 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Two and a half dozen resolves to 30 pods, and 3 and 1/3 resolves to 10/3 nodes, so the per node figure comes from <strong>dividing</strong> 30 by 10/3, which is the same as <strong>multiplying</strong> 30 by 3/10. That yields 9 pods on the single node she holds, against a requirement of 12.</p>
+
+                    <p class="insight"><em>The whole decision rests on one number the datasheet never prints, 9 pods per node.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Convert the pod figure:</strong> 2.5 × 12 = 30 pods</li>
+                            <li><strong>Convert the node figure:</strong> 3 and 1/3 = 10/3 nodes</li>
+                            <li><strong>Unit rate:</strong> 30 ÷ 10/3 = 30 × 3/10 = 9 pods per node</li>
+                            <li><strong>Capacity on hand:</strong> 9 × 1 = 9 pods</li>
+                            <li><strong>Requirement:</strong> 1 core pod + 11 partner pods = 12 pods</li>
+                            <li><strong>Shortfall:</strong> 12 − 9 = 3 pods uncovered</li>
+                            <li><strong>Conclusion:</strong> the node sustains 9 pods, the workload needs 12, so she must provision more capacity</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Justified Solution</h2>
+
+                <h3>Setup</h3>
+
+                <p>Let r be the number of pods one worker node sustains. Let n be the number of worker nodes on hand, so n = 1. Let d be the number of pods the workload demands. The capacity guide gives the constraint that 10/3 nodes sustain 30 pods, under the assumption that capacity scales in proportion to nodes. The governing equation is r × 10/3 = 30.</p>
+
+                <h3>Solution</h3>
+
+                <ol>
+                    <li>The guide names 30 pods. Definition of a dozen, twelve units. 2.5 × 12 = 30.</li>
+                    <li>The guide names 10/3 nodes. Definition of a mixed number. 3 + 1/3 = 10/3.</li>
+                    <li>Capacity is proportional to node count. FLAG. This move rests on the stated assumption in the guide, not on a named theorem. Without proportionality the bundled figure yields no per node figure at all.</li>
+                    <li>The governing equation is r × 10/3 = 30. Substitution. The two converted figures replace the words of the guide.</li>
+                    <li>Both sides may be multiplied by 3/10. Multiplication property of equality. r × 10/3 × 3/10 = 30 × 3/10.</li>
+                    <li>The left side reduces to r. Cancellation, b times a over b equals a. 10/3 × 3/10 = 1.</li>
+                    <li>r = 9. Arithmetic on the right side. 30 × 3/10 = 90/10 = 9.</li>
+                    <li>Capacity on hand is 9 pods. Substitution with n = 1. 9 × 1 = 9.</li>
+                    <li>Demand is 12 pods. Definition of the workload as one core pod and 11 partner pods. 1 + 11 = 12.</li>
+                    <li>Capacity falls below demand. Trichotomy, every pair of reals stands in exactly one of the relations less than, equal to, greater than. 9 &lt; 12.</li>
+                    <li>The shortfall is 3 pods. Subtraction property of equality. 12 − 9 = 3.</li>
+                    <li>Provisioning is required. Logical consequence of step 10. A cluster that sustains fewer pods than the workload demands cannot host the workload.</li>
+                </ol>
+
+                <h3>Verification</h3>
+
+                <p>Substitute r = 9 into the constraint. The left side gives 9 × 10/3 = 90/3 = 30. The right side is 30. Both sides match, so the unit rate reproduces the figure the guide published.</p>
+
+                <h3>Answer</h3>
+
+                <p>One worker node sustains 9 pods. The workload demands 12. The engineer must provision more capacity, and the gap she has to cover is 3 pods. Option a.</p>
+
+                <h2 id="business-relevance">Why This Matters for the Business</h2>
+
+                <p>The capacity guide gives a bundled figure, 3 and 1/3 nodes for 30 pods. The engineer does not own 3 and 1/3 nodes. She owns 1. Any capacity decision therefore requires converting the bundle into a per node figure, which is a division.</p>
+
+                <p>Once she holds that unit rate, provisioning becomes arithmetic rather than guesswork. She can compare available capacity against the 12 pod requirement, size the shortfall, and request the number of nodes the workload needs. The same conversion underlies cluster cost estimates, autoscaling thresholds, and node pool sizing.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Questions of this shape were once handled by the Rule of Three, a procedure for recovering a fourth quantity from three known ones. It travelled from Indian and Islamic mathematical writing into Europe through Fibonacci and his Liber Abaci of 1202, and it stayed in commercial arithmetic for the next six hundred years, used by merchants converting weights, currencies, and freight loads.</p>
+
+                <p>What changed is the object of the calculation. The medieval clerk converted bales into florins. The platform engineer converts nodes into pods, on infrastructure billed by the hour.</p>
+
+                <h2 id="math-background">Mathematical Background</h2>
+
+                <p>A rate compares two quantities of different kinds, here pods and nodes. A unit rate restates that comparison against a single unit of the second quantity, and finding it means dividing the first quantity by the second.</p>
+
+                <p>Division by a mixed number is handled by writing the mixed number as a single fraction, then multiplying by its reciprocal. That is why 30 ÷ 10/3 becomes 30 × 3/10. The step is licensed by the multiplication property of equality and closed by cancellation, the two named moves that carry steps 5 and 6 of the solution above.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script converts any bundled capacity claim into a unit rate, then reports available capacity, shortfall, and whether provisioning is required, so it applies to nodes and pods as readily as to licences and seats.</p>
+
+<pre><code>from fractions import Fraction
+
+
+def capacity_check(units_supported, resource_bundle, resource_on_hand, requirement):
+    """Convert a bundled capacity claim into a unit rate and test it against demand."""
+    rate = Fraction(units_supported) / Fraction(resource_bundle)
+    available = rate * Fraction(resource_on_hand)
+    shortfall = max(Fraction(0), Fraction(requirement) - available)
+
+    return {
+        "pods_per_node": rate,
+        "available": available,
+        "shortfall": shortfall,
+        "must_provision": available &lt; requirement,
+    }
+
+
+result = capacity_check(
+    units_supported=30,
+    resource_bundle=Fraction(10, 3),
+    resource_on_hand=1,
+    requirement=12,
+)
+
+print(result)
+# {'pods_per_node': Fraction(9, 1), 'available': Fraction(9, 1),
+#  'shortfall': Fraction(3, 1), 'must_provision': True}</code></pre>
+
+                <p>Run it with <code>python capacity_check.py</code>. It returns the unit rate of 9, the 9 pods available, the shortfall of 3, and a provisioning flag set to True.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-rates/a/rates-review" target="_blank" rel="noopener">Khan Academy — Ratios and Rates</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 1, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

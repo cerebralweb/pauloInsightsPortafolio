@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud network engineer draws a fiber link between two availability zones and needs the scale of the diagram. The problem, the solution, the history of map scale, and a reusable Python script.">
+    <meta name="keywords" content="scale factor, ratio and proportion, unit conversion, representative fraction, cloud network diagram, availability zone, fiber link, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/what-a-cloud-engineer-reads-off-the-diagram-before-the-fiber-is-ordered.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/what-a-cloud-engineer-reads-off-the-diagram-before-the-fiber-is-ordered.html" />
+
+    <title>What a Cloud Engineer Reads Off the Diagram Before the Fiber Is Ordered</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 3, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHAT A CLOUD ENGINEER READS OFF THE DIAGRAM BEFORE THE FIBER IS ORDERED
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Infrastructure documents carry commitments, not just pictures. A diagram that states its scale lets any reviewer recover a real distance from a drawn one, and distance drives latency estimates, procurement volumes, and permit filings, while a diagram without a scale shows topology and nothing measurable. <dfn>This problem shows how one ratio, built from two lengths expressed in the same unit, turns a drawing into a measuring instrument, and how a short Python script keeps that conversion reusable.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud network engineer is documenting a private fiber link between two availability zones. The measured length of the link is 56 km. On the site topology diagram she prepares for the design review, the same link is drawn 4 cm long.</p>
+                <p>What is the scale factor of the diagram?</p>
+                <ul>
+                    <li>a) 1/14,000,000</li>
+                    <li>b) 1/1,400,000</li>
+                    <li>c) 1/14,000</li>
+                    <li>d) 1/14</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 1/1,400,000 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The two lengths must sit in one unit before they form a ratio, so the field length is <strong>converted</strong> from kilometres to centimetres, and the drawn length is then <strong>divided</strong> by it. The resulting fraction <strong>reduces</strong> to 1/1,400,000.</p>
+
+                    <p class="insight"><em>One centimetre on the sheet stands for 14 km of fiber, which is the same ratio read the other way.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Field length in centimetres:</strong> 56 × 100,000 = 5,600,000</li>
+                            <li><strong>Ratio of drawn length to field length:</strong> 4 / 5,600,000</li>
+                            <li><strong>Reduced fraction:</strong> 1 / 1,400,000</li>
+                            <li><strong>Kilometres per drawn centimetre:</strong> 56 / 4 = 14</li>
+                            <li><strong>Verification:</strong> 4 × 14 = 56 km</li>
+                            <li><strong>Answer:</strong> b) 1/1,400,000</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Step Justified Solution</h2>
+
+                <p>The same result written so that every line names the property that licenses it. Mode is compute, since the question asks for a value.</p>
+
+                <h3>Setup</h3>
+
+                <p>The fiber link has one length measured in the field and one length drawn on the topology diagram. Let d be the drawn length, 4 cm. Let L be the field length, 56 km. Let k be the scale factor, defined as the drawn length divided by the field length with both expressed in the same unit. So k = d/L.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>k is the scale factor of the diagram, the unknown, a positive rational number with no unit.</li>
+                    <li>d is the drawn length of the link on the diagram, 4 cm.</li>
+                    <li>L is the field length of the link, 56 km, restated as 5,600,000 cm in Step 1.</li>
+                    <li>cm is the centimetre, and km is the kilometre.</li>
+                    <li>10<sup>5</sup> is 100,000, the number of centimetres in one kilometre.</li>
+                    <li>x/y is x divided by y, written as a fraction.</li>
+                    <li>⇒ reads implies.</li>
+                </ul>
+
+                <h3>Solution</h3>
+
+                <ol>
+                    <li><strong>Definition of the kilometre.</strong> Property, 1 km = 10<sup>5</sup> cm. Inference, L = 56 km = 56(10<sup>5</sup>) cm = 5,600,000 cm.</li>
+                    <li><strong>Substitution.</strong> Property, x = y ⇒ x may replace y. Inference, k = d/L = (4 cm)/(5,600,000 cm). From line 1.</li>
+                    <li><strong>Cancellation law, on the unit.</strong> Property, for y ≠ 0, (yx)/y = x. Inference, (4 cm)/(5,600,000 cm) = 4/5,600,000, so k carries no unit. From line 2.</li>
+                    <li><strong>Fundamental principle of fractions.</strong> Property, for y ≠ 0 and z ≠ 0, (yx)/(yz) = x/z. Inference, 4/5,600,000 = (4)(1)/(4)(1,400,000) = 1/1,400,000. From line 3.</li>
+                    <li><strong>Transitivity of equality.</strong> Property, x = y and y = z ⇒ x = z. Inference, k = 1/1,400,000. From lines 2, 3, and 4.</li>
+                </ol>
+
+                <h3>Verification</h3>
+
+                <p>d = kL ⇒ (1/1,400,000)(5,600,000) = 5,600,000/1,400,000 = 4. Both sides match, and 1,400,000 cm = 14 km, with 4(14) = 56.</p>
+
+                <h3>Answer</h3>
+
+                <p>k = 1/1,400,000. One centimetre on the sheet stands for 14 km of fiber, which matches option b.</p>
+
+                <h2 id="visual-version">Interactive Diagram</h2>
+
+                <p>Move either control. The scale tightens as the field length rises and loosens as the drawn length rises, since k = d/L. The tick strip reads the same ratio the other way, in kilometres per centimetre, which is the form a reviewer measures with.</p>
+
+                <div style="border:1px solid rgba(128,128,128,0.35);border-radius:8px;padding:1.25rem;margin:1.5rem 0">
+
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+                        <label for="scaleDrawn" style="min-width:200px">Drawn length on the sheet</label>
+                        <input type="range" id="scaleDrawn" min="1" max="20" step="1" value="4" style="flex:1;min-width:140px">
+                        <output id="scaleDrawnOut" style="min-width:70px;text-align:right;font-weight:600">4 cm</output>
+                    </div>
+
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                        <label for="scaleField" style="min-width:200px">Field length of the link</label>
+                        <input type="range" id="scaleField" min="1" max="120" step="1" value="56" style="flex:1;min-width:140px">
+                        <output id="scaleFieldOut" style="min-width:70px;text-align:right;font-weight:600">56 km</output>
+                    </div>
+
+                    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+                        <div style="flex:1;min-width:150px">
+                            <div style="font-size:0.85em;opacity:0.75">Scale factor k</div>
+                            <div id="scaleK" style="font-size:1.5em;font-weight:600">1/1,400,000</div>
+                        </div>
+                        <div style="flex:1;min-width:150px">
+                            <div style="font-size:0.85em;opacity:0.75">One centimetre stands for</div>
+                            <div id="scalePerCm" style="font-size:1.5em;font-weight:600">14 km</div>
+                        </div>
+                        <div style="flex:1;min-width:150px">
+                            <div style="font-size:0.85em;opacity:0.75">Field length in centimetres</div>
+                            <div id="scaleFieldCm" style="font-size:1.5em;font-weight:600">5,600,000</div>
+                        </div>
+                    </div>
+
+                    <div id="scaleRuler" style="display:flex;border-right:1px solid rgba(128,128,128,0.5);border-bottom:1px solid rgba(128,128,128,0.5)"></div>
+                    <p id="scaleCaption" style="font-size:0.85em;opacity:0.75;margin-top:6px">Each tick is one centimetre on the diagram and stands for 14 km of fiber.</p>
+
+                </div>
+
+                <script>
+                (function () {
+                    var d = document.getElementById('scaleDrawn');
+                    var L = document.getElementById('scaleField');
+                    function upd() {
+                        var dv = +d.value, Lv = +L.value;
+                        var fieldCm = Lv * 100000;
+                        var denom = Math.round(fieldCm / dv);
+                        var perKm = Lv / dv;
+                        var perTxt = perKm < 10 ? perKm.toFixed(2).replace(/\.?0+$/, '') : Math.round(perKm).toLocaleString();
+                        document.getElementById('scaleDrawnOut').textContent = dv + ' cm';
+                        document.getElementById('scaleFieldOut').textContent = Lv + ' km';
+                        document.getElementById('scaleK').textContent = '1/' + denom.toLocaleString();
+                        document.getElementById('scalePerCm').textContent = perTxt + ' km';
+                        document.getElementById('scaleFieldCm').textContent = fieldCm.toLocaleString();
+                        var r = document.getElementById('scaleRuler');
+                        r.innerHTML = '';
+                        for (var i = 0; i < dv; i++) {
+                            var c = document.createElement('div');
+                            c.style.flex = '1';
+                            c.style.height = '38px';
+                            c.style.borderLeft = '1px solid rgba(128,128,128,0.5)';
+                            c.style.display = 'flex';
+                            c.style.alignItems = 'flex-end';
+                            c.style.justifyContent = 'center';
+                            c.style.fontSize = '0.7em';
+                            c.style.opacity = '0.75';
+                            c.textContent = dv <= 10 ? perTxt + ' km' : '';
+                            r.appendChild(c);
+                        }
+                        document.getElementById('scaleCaption').textContent =
+                            'Each tick is one centimetre on the diagram and stands for ' + perTxt + ' km of fiber.';
+                    }
+                    d.addEventListener('input', upd);
+                    L.addEventListener('input', upd);
+                    upd();
+                })();
+                </script>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Stating a drawing scale as a bare fraction became standard practice once national survey offices began issuing map series rather than single sheets. In the middle of the twentieth century the United States Geological Survey settled its main topographic series on one ratio, 1 to 24,000, and published roughly 55,000 sheets on that single rule. The choice was administrative before it was mathematical, since one fixed ratio across a whole series let engineers, foresters, and planners measure across sheets and convert distances without relearning the rule each time.</p>
+
+                <p>Enterprise infrastructure documents inherited the same discipline. A campus layout, a rack elevation, and an availability zone topology all carry a stated scale so that the drawing can be measured rather than merely read.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script asks for the drawn length and the field length, then returns the scale of the diagram along with the kilometres each drawn centimetre represents, so it serves any drawing rather than this one case.</p>
+
+<pre><code># What this does: works out the scale of a network diagram.
+# Where it came from: an engineer drew a fiber link on a diagram and needed its scale.
+# The math idea: compare the drawn length to the real length, both in the same unit.
+# You type in: how long the link is on the diagram in centimetres, and how long it really is in kilometres.
+# It prints: the scale of the diagram, and how many kilometres one centimetre stands for.
+
+# This function does the math.
+def diagram_scale(drawn_cm, field_km):
+    # Change kilometres into centimetres. One kilometre is 100,000 centimetres.
+    field_cm = field_km * 100000
+    # Find how many real centimetres fit into one drawn centimetre.
+    denominator = field_cm / drawn_cm
+    # Find how many kilometres one drawn centimetre stands for.
+    km_per_cm = field_km / drawn_cm
+    # Send both answers back.
+    return denominator, km_per_cm
+
+# Tell the reader what we will figure out.
+print("Let's find the scale of the network diagram.")
+
+# Ask how long the link is on the diagram.
+drawn_cm = float(input("Drawn length on the diagram in cm: "))
+
+# Ask how long the link really is.
+field_km = float(input("Field length of the link in km: "))
+
+# Do the math.
+denominator, km_per_cm = diagram_scale(drawn_cm, field_km)
+
+# Show whole numbers without a trailing decimal.
+denominator = int(denominator) if float(denominator).is_integer() else round(denominator, 2)
+km_per_cm = int(km_per_cm) if float(km_per_cm).is_integer() else round(km_per_cm, 2)
+
+# Print the answer with words that fit the scenario.
+print("Diagram scale factor: 1 /", denominator)
+print("One centimetre on the sheet stands for", km_per_cm, "km of fiber.")
+</code></pre>
+
+                <p>Run it in a terminal, enter 4 for the drawn length and 56 for the field length, and it returns a scale of 1 in 1,400,000 with 14 km per centimetre.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-geometry/cc-7th-scale-drawings" target="_blank" rel="noopener">Khan Academy — Scale Drawings and Ratios</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 3, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

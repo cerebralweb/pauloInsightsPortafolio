@@ -7,6 +7,51 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "288 Square Meters Of Server Hall, And The Drawing That Plans It",
+            articleDescription: "Every servers facility decision starts on paper",
+            articleHref: "/a/288-square-meters-of-server-hall-and-the-drawing-that-plans-it.html"
+        },
+        {
+            articleTitle: "The Project Team Went On Leave, The Cloud Compute Credit Mix Did Not",
+            articleDescription: "Cloud spend arrives as one total, and finance has to charge it back by purchase type",
+            articleHref: "/a/the-project-team-went-on-leave-the-cloud-compute-credit-mix-did-not.html"
+        },
+        {
+            articleTitle: "One Worker Node, Twelve Pods, And A Cluster That Cannot Cover Them",
+            articleDescription: "Infrastructure vendors publish capacity in bundles, because bundles read well in a datasheet",
+            articleHref: "/a/one-worker-node-twelve-pods-and-a-cluster-that-cannot-cover-them.html"
+        },
+        {
+            articleTitle: "The Compute Window Closed Before The Third Retraining Job Finished",
+            articleDescription: "Capacity planning for machine learning teams rests on two fixed quantities, the throughput of the pipeline and the length of the window the schedule allows",
+            articleHref: "/a/the-compute-window-closed-before-the-third-retraining-job-finished.html"
+        },
+        {
+            articleTitle: "The Credit Balance Is Fixed, The Invoice Queue Is Not",
+            articleDescription: "Cloud platforms bill compute in fractions of a unit, while the work a team cares about is counted in whole items. That mismatch is where capacity planning lives, because a balance figure says nothing about throughput until it is converted into the number of runs it funds. This problem shows how a division and a unit rate turn a spending balance into a firm output commitment, and how every step rests on a property that holds independent of the scenario",
+            articleHref: "/a/the-credit-balance-is-fixed-the-invoice-queue-is-not.html"
+        },
+        {
+            articleTitle: "Two Discounts On One Cloud Contract, And What Pedro Actually Owes",
+            articleDescription: "Cloud contracts rarely carry one price reduction",
+            articleHref: "/a/two-discounts-on-one-cloud-contract-and-what-pedro-actually-owes.html"
+        },
+        {
+            articleTitle: "The Cooling Duct A Cloud Provider Checks Before The Data Center Hall Is Built",
+            articleDescription: "Infrastructure decisions are reviewed long before anything is poured or installed. Facilities teams,plant engineers, and equipment vendors work from models and drawings, where every dimension carries afixed relationship to the object that will exist later, and where the reported unit is rarely the unit the design was measured in",
+            articleHref: "/a/the-cooling-duct-a-cloud-provider-checks-before-the-data-center-hall-is-built.html"
+        },
+        {
+            articleTitle: "What A Cloud Engineer Reads Off The Diagram Before The Fiber Is Ordered",
+            articleDescription: "Infrastructure documents carry commitments, not just pictures. A diagram that states its scale lets any reviewer recover a real distance from a drawn one, and distance drives latency estimates, procurement volumes, and permit filings, while a diagram without a scale shows topology and nothing measurable. This problem shows how one ratio, built from two lengths expressed in the same unit, turns a drawing into a measuring instrument, and how a short Python script keeps that conversion reusable",
+            articleHref: "/a/what-a-cloud-enginee-reads-off-the-diagram-before-the-fiber-is-ordered.html"
+        },
+        {
+            articleTitle: "When The Architecture Poster Shrinks To Fit A Client Deck",
+            articleDescription: "Technical drawings travel",
+            articleHref: "/a/when-the-architecture-poster-shrinks-to-fit-a-client-deck.html"
+        },
+        {
             articleTitle: "Better Conversations And Better Research In Distributed Teams",
             articleDescription: "Three frameworks are read here as working tools for distributed teams, Duhigg on conversation types, Austin on what speech does, and Habermas on what consensus means.",
             articleHref: "/a/better-conversations-and-better-research-in-distributed-teams.html"
