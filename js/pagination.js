@@ -7,6 +7,11 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "What A Cloud Team Reads Off Two Prints Of The Same Fiber Route",
+            articleDescription: "Infrastructure teams plan physical work from documents that never carry the physical unit they need. A route drawing states a scale factor, and the factor counts units of ground behind units of paper, so cost, splice count, and latency all wait on a conversion before anyone can order a build. This problem shows how a drawing of a drawing hides a second ratio, and how a short Python function turns that reasoning into a tool the team can reuse on any pair of prints",
+            articleHref: "/a/what-a-cloud-team-reads-off-two-prints-of-the-same-fiber-route.html"
+        },
+        {
             articleTitle: "288 Square Meters Of Server Hall, And The Drawing That Plans It",
             articleDescription: "Every servers facility decision starts on paper",
             articleHref: "/a/288-square-meters-of-server-hall-and-the-drawing-that-plans-it.html"
