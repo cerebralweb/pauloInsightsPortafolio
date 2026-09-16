@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="One annotator's contribution fixes the size of a training set. Four solution routes reach the same total, each proof naming the property that licenses every step, with tables and graphs comparing them.">
+    <meta name="keywords" content="percent of a whole, reverse percent, training data, data labeling, multiplicative inverse, cancellation law, division property of equality, business math, computer vision">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/one-annotators-share-and-the-size-of-the-training-set-she-sits-in.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/one-annotators-share-and-the-size-of-the-training-set-she-sits-in.html" />
+
+    <title>One Annotator's Share, and the Size of the Training Set She Sits In</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 11, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    ONE ANNOTATOR'S SHARE, AND THE SIZE OF THE TRAINING SET SHE SITS IN
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Teams that build training data rarely count the whole set directly. They count what one contributor delivered, know what share of the work that contributor owns, and infer the rest, which is how a project manager sizes a dataset before it exists. <dfn>This problem shows how one known share fixes an unknown total, and how four routes to that total rest on four different named properties.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Angela labeled 24 images for the training set her team will contribute to a computer vision project. Her 24 images are 15% of the total her team will contribute. The platform vendor then donated 50 labeled images.</p>
+                <p>How many labeled images are there in total?</p>
+                <ul>
+                    <li>a) 80</li>
+                    <li>b) 160</li>
+                    <li>c) 210</li>
+                    <li>d) 290</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 210 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The share statement gives the equation <strong>(15/100)t = 24</strong>, so the team total follows from <strong>dividing 24 by 15%</strong>, which yields t = 160. The vendor donation is <strong>added after</strong> the total is known, so G = 160 + 50 = 210.</p>
+
+                    <p class="insight"><em>Fifteen percent of the work carries the whole set, since 24 images per 15 points of share means 1.6 images per point, and 100 points of share means 160 images.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Share as an equation:</strong> (15/100)t = 24</li>
+                            <li><strong>One point of share:</strong> 24/15 = 1.6 images</li>
+                            <li><strong>Team total:</strong> (1.6)(100) = 160 images</li>
+                            <li><strong>Vendor donation:</strong> 50 images, added after the total</li>
+                            <li><strong>Grand total:</strong> G = 160 + 50 = 210 images</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="bar-model">The Quantities Drawn to Scale</h2>
+
+                <p>The bars below carry the three quantities at one scale, so the share relation is visible before any algebra runs. Angela's contribution is the short bar. The team total is the bar it sits inside. The vendor donation extends the total to the answer.</p>
+
+                <svg width="100%" viewBox="0 0 680 270" role="img" aria-label="Bar model showing 24 images as 15 percent of a 160 image team total, plus a 50 image vendor donation reaching 210 images">
+                    <title>Bar model of the three quantities</title>
+                    <desc>A short bar of 24 images marked 15 percent, a longer bar of 160 images marked 100 percent, and a third bar of 160 plus 50 reaching a grand total of 210 images.</desc>
+
+                    <text x="60" y="30" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#3d3d3a">Angela, 24 images, 15% of the team total</text>
+                    <rect x="60" y="40" width="57.6" height="38" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="88" y="64" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">24</text>
+
+                    <text x="60" y="110" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#3d3d3a">Team total, 160 images, 100%</text>
+                    <rect x="60" y="120" width="384" height="38" rx="4" fill="#eeedfe" stroke="#534ab7" stroke-width="0.5"/>
+                    <rect x="60" y="120" width="57.6" height="38" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="88" y="144" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">24</text>
+                    <text x="280" y="144" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#26215c" text-anchor="middle">the remaining 136</text>
+
+                    <text x="60" y="190" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#3d3d3a">Grand total, 160 plus 50</text>
+                    <rect x="60" y="200" width="384" height="38" rx="4" fill="#eeedfe" stroke="#534ab7" stroke-width="0.5"/>
+                    <text x="252" y="224" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#26215c" text-anchor="middle">160</text>
+                    <rect x="444" y="200" width="120" height="38" rx="4" fill="#faeeda" stroke="#854f0b" stroke-width="0.5"/>
+                    <text x="504" y="224" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#412402" text-anchor="middle">50</text>
+                    <text x="578" y="224" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#3d3d3a">= 210</text>
+                </svg>
+
+                <h2 id="setup-notation">Setup and Notation</h2>
+
+                <p>All four proofs share one setup and one notation list, so they differ only in the property that carries the work.</p>
+
+                <p>Let t be the team total and G the grand total. Then (15/100)t = 24 and G = t + 50.</p>
+
+                <ul>
+                    <li>t is the team total in labeled images, the unknown of stage one</li>
+                    <li>G is the grand total in labeled images, the unknown asked for</li>
+                    <li>24 is the images Angela labeled, 50 the images the vendor donated</li>
+                    <li>15/100 is fifteen percent as a fraction, 0.15 the same number as a decimal</li>
+                    <li>3/20 is 15/100 in lowest terms</li>
+                    <li>100/15 is the multiplicative inverse of 15/100</li>
+                    <li>gcd(x, y) is the largest integer dividing both x and y</li>
+                    <li>&rArr; reads implies</li>
+                </ul>
+
+                <h2 id="four-proofs">Four Proofs</h2>
+
+                <p>Each step below names the property that licenses it, states that property in general form, then shows it acting on these numbers. Every step after the first cites the line it rests on.</p>
+
+                <h3>Route A, scale the share</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> p% of x = (p/100)x.<br>
+                        <em>Inference.</em> (15/100)t = 24.</li>
+                    <li><strong>Division property of equality.</strong> x = y and c &ne; 0 &rArr; x/c = y/c.<br>
+                        <em>Inference.</em> (5/100)t = 8, taking c = 3, since gcd(15, 24) = 3. From A1.</li>
+                    <li><strong>Multiplication property of equality.</strong> x = y &rArr; cx = cy.<br>
+                        <em>Inference.</em> (20)((5/100)t) = (20)(8) = 160. From A2.</li>
+                    <li><strong>Multiplicative identity.</strong> 1x = x, and 100/100 = 1.<br>
+                        <em>Inference.</em> t = 160. From A3.</li>
+                    <li><strong>Substitution.</strong> x = y &rArr; x may replace y.<br>
+                        <em>Inference.</em> G = 160 + 50 = 210. From A4.</li>
+                </ol>
+
+                <h3>Route B, one point of share</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> As in A1.<br>
+                        <em>Inference.</em> (15/100)t = 24.</li>
+                    <li><strong>Division property of equality.</strong> As in A2.<br>
+                        <em>Inference.</em> (1/100)t = 24/15 = 1.6, taking c = 15. From B1.</li>
+                    <li><strong>Multiplication property of equality.</strong> As in A3.<br>
+                        <em>Inference.</em> t = (100)(1.6) = 160. From B2.</li>
+                    <li><strong>Substitution.</strong> As in A5.<br>
+                        <em>Inference.</em> G = 160 + 50 = 210. From B3.</li>
+                </ol>
+
+                <h3>Route C, decimal equation</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> As in A1.<br>
+                        <em>Inference.</em> (0.15)t = 24.</li>
+                    <li><strong>Division property of equality.</strong> As in A2.<br>
+                        <em>Inference.</em> t = 24/0.15. From C1.</li>
+                    <li><strong>Fundamental property of fractions.</strong> For c &ne; 0, x/y = (cx)/(cy).<br>
+                        <em>Inference.</em> 24/0.15 = 2400/15, taking c = 100. From C2.</li>
+                    <li><strong>Cancellation law.</strong> For y &ne; 0, (yx)/y = x.<br>
+                        <em>Inference.</em> 2400/15 = (15)(160)/15 = 160. From C3.</li>
+                    <li><strong>Transitivity of equality.</strong> x = y and y = z &rArr; x = z.<br>
+                        <em>Inference.</em> t = 160. From C2, C3, C4.</li>
+                    <li><strong>Substitution.</strong> As in A5.<br>
+                        <em>Inference.</em> G = 160 + 50 = 210. From C5.</li>
+                </ol>
+
+                <h3>Route D, multiplicative inverse</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> As in A1.<br>
+                        <em>Inference.</em> 24 = (15/100)t.</li>
+                    <li><strong>Multiplication property of equality.</strong> As in A3.<br>
+                        <em>Inference.</em> (100/15)(24) = (100/15)((15/100)t). From D1.</li>
+                    <li><strong>Multiplicative inverse and multiplicative identity.</strong> For x &ne; 0, (1/x)x = 1 and 1x = x.<br>
+                        <em>Inference.</em> (100/15)((15/100)t) = (1)t = t. From D2.</li>
+                    <li><strong>Cancellation law.</strong> As in C4.<br>
+                        <em>Inference.</em> (100/15)(24) = 2400/15 = (15)(160)/15 = 160.</li>
+                    <li><strong>Transitivity of equality.</strong> As in C5.<br>
+                        <em>Inference.</em> t = 160. From D3 and D4.</li>
+                    <li><strong>Substitution.</strong> As in A5.<br>
+                        <em>Inference.</em> G = 160 + 50 = 210. From D5.</li>
+                </ol>
+
+                <h3>Shared verification</h3>
+
+                <p>(15/100)(160) = (3/20)(160) = 24, and 160 + 50 = 210. Both constraints hold, so all four routes land on G = 210.</p>
+
+                <h2 id="comparison-mechanics">The Routes Compared on Mechanics</h2>
+
+                <table>
+                    <tr><th>&nbsp;</th><th>Route A</th><th>Route B</th><th>Route C</th><th>Route D</th></tr>
+                    <tr><td>Carrying property</td><td>Division and multiplication properties of equality</td><td>Division property of equality</td><td>Fundamental property of fractions</td><td>Multiplicative inverse</td></tr>
+                    <tr><td>Key move</td><td>Divide by 3, then multiply by 20</td><td>Divide by 15 to reach one point of share</td><td>Clear the decimal, then cancel</td><td>Multiply both sides by 100/15</td></tr>
+                    <tr><td>Steps</td><td>5</td><td>4</td><td>6</td><td>6</td></tr>
+                    <tr><td>Numbers touched</td><td>15, 24, 3, 5, 8, 20</td><td>24, 15, 1.6, 100</td><td>0.15, 24, 2400, 15</td><td>24, 100, 15, 2400</td></tr>
+                    <tr><td>Stays in integers</td><td>Yes</td><td>No, 1.6 appears</td><td>No, 0.15 appears</td><td>Yes</td></tr>
+                    <tr><td>Where it breaks</td><td>Share and count share no factor</td><td>Nowhere</td><td>Misplaced decimal</td><td>Inverse written upside down</td></tr>
+                </table>
+
+                <h2 id="comparison-fitness">The Routes Compared on Fitness for Use</h2>
+
+                <table>
+                    <tr><th>&nbsp;</th><th>Route A</th><th>Route B</th><th>Route C</th><th>Route D</th></tr>
+                    <tr><td>Speed rank</td><td>1</td><td>2</td><td>4</td><td>3</td></tr>
+                    <tr><td>Works for any share</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td>Shows a reader the reasoning</td><td>Weak</td><td>Medium</td><td>Strong</td><td>Strong</td></tr>
+                    <tr><td>Good for a spreadsheet</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+                    <tr><td>Good for a board slide</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+                    <tr><td>Good for teaching the share idea</td><td>Yes</td><td>Yes</td><td>Medium</td><td>Strong</td></tr>
+                </table>
+
+                <h2 id="comparison-properties">The Routes Compared on Properties Used</h2>
+
+                <p>The step tag shows where each property does its work. An em dash means the route never invokes it.</p>
+
+                <table>
+                    <tr><th>Property</th><th>Route A</th><th>Route B</th><th>Route C</th><th>Route D</th></tr>
+                    <tr><td>Definition of percent</td><td>A1</td><td>B1</td><td>C1</td><td>D1</td></tr>
+                    <tr><td>Division property of equality</td><td>A2</td><td>B2</td><td>C2</td><td>&mdash;</td></tr>
+                    <tr><td>Multiplication property of equality</td><td>A3</td><td>B3</td><td>&mdash;</td><td>D2</td></tr>
+                    <tr><td>Multiplicative identity</td><td>A4</td><td>&mdash;</td><td>&mdash;</td><td>D3</td></tr>
+                    <tr><td>Multiplicative inverse</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>D3</td></tr>
+                    <tr><td>Fundamental property of fractions</td><td>&mdash;</td><td>&mdash;</td><td>C3</td><td>&mdash;</td></tr>
+                    <tr><td>Cancellation law</td><td>&mdash;</td><td>&mdash;</td><td>C4</td><td>D4</td></tr>
+                    <tr><td>Transitivity of equality</td><td>&mdash;</td><td>&mdash;</td><td>C5</td><td>D5</td></tr>
+                    <tr><td>Substitution</td><td>A5</td><td>B4</td><td>C6</td><td>D6</td></tr>
+                    <tr><td>Distinct properties</td><td>5</td><td>4</td><td>6</td><td>6</td></tr>
+                </table>
+
+                <p>The same grid in color, where a filled cell marks a property in use and a pale cell marks a property the route does without.</p>
+
+                <svg width="100%" viewBox="0 0 680 400" role="img" aria-label="Grid of nine properties against four routes, showing which route uses which property">
+                    <title>Properties used by each route</title>
+                    <desc>Nine named properties as rows and routes A, B, C and D as columns. Filled cells carry the step tag where the route uses that property. Pale cells mark properties the route never invokes.</desc>
+
+                    <text x="357" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route A</text>
+                    <text x="439" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route B</text>
+                    <text x="521" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route C</text>
+                    <text x="603" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route D</text>
+
+                    <text x="20" y="66" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Definition of percent</text>
+                    <rect x="320" y="46" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="357" y="66" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">A1</text>
+                    <rect x="402" y="46" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="439" y="66" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">B1</text>
+                    <rect x="484" y="46" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="66" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C1</text>
+                    <rect x="566" y="46" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="66" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D1</text>
+
+                    <text x="20" y="100" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Division property of equality</text>
+                    <rect x="320" y="80" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="357" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">A2</text>
+                    <rect x="402" y="80" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="439" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">B2</text>
+                    <rect x="484" y="80" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C2</text>
+                    <rect x="566" y="80" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+
+                    <text x="20" y="134" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Multiplication property of equality</text>
+                    <rect x="320" y="114" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="357" y="134" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">A3</text>
+                    <rect x="402" y="114" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="439" y="134" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">B3</text>
+                    <rect x="484" y="114" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="566" y="114" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="134" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D2</text>
+
+                    <text x="20" y="168" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Multiplicative identity</text>
+                    <rect x="320" y="148" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="357" y="168" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">A4</text>
+                    <rect x="402" y="148" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="484" y="148" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="566" y="148" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="168" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D3</text>
+
+                    <text x="20" y="202" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Multiplicative inverse</text>
+                    <rect x="320" y="182" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="402" y="182" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="484" y="182" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="566" y="182" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="202" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D3</text>
+
+                    <text x="20" y="236" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Fundamental property of fractions</text>
+                    <rect x="320" y="216" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="402" y="216" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="484" y="216" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="236" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C3</text>
+                    <rect x="566" y="216" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+
+                    <text x="20" y="270" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Cancellation law</text>
+                    <rect x="320" y="250" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="402" y="250" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="484" y="250" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="270" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C4</text>
+                    <rect x="566" y="250" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="270" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D4</text>
+
+                    <text x="20" y="304" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Transitivity of equality</text>
+                    <rect x="320" y="284" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="402" y="284" width="74" height="30" rx="4" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <rect x="484" y="284" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="304" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C5</text>
+                    <rect x="566" y="284" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="304" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D5</text>
+
+                    <text x="20" y="338" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">Substitution</text>
+                    <rect x="320" y="318" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="357" y="338" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">A5</text>
+                    <rect x="402" y="318" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="439" y="338" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">B4</text>
+                    <rect x="484" y="318" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="521" y="338" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">C6</text>
+                    <rect x="566" y="318" width="74" height="30" rx="4" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="603" y="338" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#04342c" text-anchor="middle">D6</text>
+
+                    <rect x="320" y="366" width="14" height="14" rx="3" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+                    <text x="342" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">property in use</text>
+                    <rect x="460" y="366" width="14" height="14" rx="3" fill="#f1efe8" stroke="#b4b2a9" stroke-width="0.5"/>
+                    <text x="482" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#3d3d3a">not invoked</text>
+                </svg>
+
+                <p>Counted as a bar chart, the property load separates the short routes from the documented ones.</p>
+
+                <svg width="100%" viewBox="0 0 680 260" role="img" aria-label="Bar chart of distinct properties per route, route A five, route B four, route C six, route D six">
+                    <title>Distinct properties per route</title>
+                    <desc>Route A uses five distinct properties, route B four, route C six, route D six.</desc>
+
+                    <line x1="60" y1="210" x2="640" y2="210" stroke="#c3c2b7" stroke-width="1"/>
+                    <line x1="60" y1="160" x2="640" y2="160" stroke="#e1e0d9" stroke-width="1"/>
+                    <line x1="60" y1="110" x2="640" y2="110" stroke="#e1e0d9" stroke-width="1"/>
+                    <line x1="60" y1="60" x2="640" y2="60" stroke="#e1e0d9" stroke-width="1"/>
+                    <text x="50" y="214" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#898781" text-anchor="end">0</text>
+                    <text x="50" y="164" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#898781" text-anchor="end">2</text>
+                    <text x="50" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#898781" text-anchor="end">4</text>
+                    <text x="50" y="64" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#898781" text-anchor="end">6</text>
+
+                    <rect x="100" y="85" width="80" height="125" rx="4" fill="#2a78d6"/>
+                    <text x="140" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#0b0b0b" text-anchor="middle">5</text>
+                    <text x="140" y="230" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route A</text>
+
+                    <rect x="240" y="110" width="80" height="100" rx="4" fill="#2a78d6"/>
+                    <text x="280" y="101" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#0b0b0b" text-anchor="middle">4</text>
+                    <text x="280" y="230" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route B</text>
+
+                    <rect x="380" y="60" width="80" height="150" rx="4" fill="#2a78d6"/>
+                    <text x="420" y="51" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#0b0b0b" text-anchor="middle">6</text>
+                    <text x="420" y="230" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route C</text>
+
+                    <rect x="520" y="60" width="80" height="150" rx="4" fill="#2a78d6"/>
+                    <text x="560" y="51" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#0b0b0b" text-anchor="middle">6</text>
+                    <text x="560" y="230" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52514e" text-anchor="middle">Route D</text>
+
+                    <text x="60" y="252" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#898781">Distinct named properties invoked</text>
+                </svg>
+
+                <h2 id="reading-the-comparison">Reading the Comparison</h2>
+
+                <p>Two properties appear in all four routes. The definition of percent turns the statement into an equation, and substitution turns the team total into the grand total. Neither distinguishes anything, since they are the spine every route stands on.</p>
+
+                <p>Three properties appear in exactly one route. The multiplicative inverse belongs to Route D alone, the fundamental property of fractions to Route C alone. Each is the signature of its route.</p>
+
+                <p>Route A and Route B are the same proof at different scale factors. Both pair the division property with the multiplication property, A dividing by 3 and multiplying by 20, B dividing by 15 and multiplying by 100. Route A pays one extra property for the shortcut, the multiplicative identity that collapses 100/100 to 1.</p>
+
+                <p>Route C and Route D converge on the same figure, 2400/15, and both close with the cancellation law and transitivity. They differ on how the divisor moves. Route C divides, then rewrites the fraction. Route D multiplies by the inverse, which is why it never needs the division property at all.</p>
+
+                <h2 id="which-route">Which Route to Use</h2>
+
+                <p>Route A when the share and the count share a factor, as 15 and 24 do here. The shortcut depends on that accident, so it fails on the next dataset.</p>
+
+                <p>Route B for ordinary work. It is the shortest honest path, it needs no shared factor, and one point of share is the figure a spreadsheet wants anyway.</p>
+
+                <p>Route D for a documented calculation. Six named properties per five lines is the highest justification density of the four, and the multiplicative inverse states why the equation may be divided at all, which is the question an auditor asks.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Working back from a part to a whole is older than the percent sign. Roman tax and interest practice reckoned in hundredths, centesima rerum venalium on sales and centesima usura on loans, so an official who knew a levy and its rate could recover the taxable base. The device that made the calculation routine came from medieval Islamic scholarship, where al-Khwarizmi set out the operations of restoring and balancing an equation, the moves that let an unknown total be isolated rather than guessed.</p>
+
+                <p>The commercial version spread through the Italian abbacus schools of the fourteenth and fifteenth centuries, whose merchant students drilled the rule of three on exactly this shape of problem, one known part against its share, solving for the whole. Percent notation followed from the printing houses of Renaissance Europe, and the practice moved intact into modern operations, where a project manager sizes a dataset from one annotator's output the same way a Florentine factor sized a cargo from one partner's stake.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-review-percent" target="_blank" rel="noopener">Khan Academy — Percent of a Whole</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 11, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

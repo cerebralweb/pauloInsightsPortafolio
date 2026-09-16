@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A 600 day drift log at 60 percent falls to 50 percent after 200 more days. A formal proof, a Socratic dialogue on notation, and two bar model figures.">
+    <meta name="keywords" content="model monitoring, drift threshold, weighted percentage, bar model, notation, proof, MLOps">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/what-200-more-days-of-monitoring-reveal-about-a-fraud-model.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/what-200-more-days-of-monitoring-reveal-about-a-fraud-model.html" />
+
+    <title>What 200 More Days of Monitoring Reveal About a Fraud Model</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 14, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHAT 200 MORE DAYS OF MONITORING REVEAL ABOUT A FRAUD MODEL
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    A monitoring log grows every day, so the share it reports belongs to the whole history and not to the stretch a team is deciding about. An engineer who reads only the latest share learns nothing about the weeks just logged, and the recent stretch is the part of the whole that the earlier stretch is not. <dfn>This problem shows how a share over a total becomes a count, and how a compressed notation can hide the one move that carries the reasoning.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Carolina runs model monitoring for a fraud detection system. Once a day she records whether the model crossed its drift threshold. Reviewing the log, she sees that across the last 600 days the model crossed the threshold on 60 percent of days. She records 200 more days and the share of threshold days over the full log falls to 50 percent.</p>
+                <p>On how many of the last 200 days did the model cross the threshold?</p>
+                <ul>
+                    <li>a) 40</li>
+                    <li>b) 100</li>
+                    <li>c) 360</li>
+                    <li>d) 60</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 40 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Take the <strong>share of the first window</strong> as a count, 360 threshold days. Take the <strong>share of the full log</strong> as a count, 400 threshold days. The <strong>difference</strong> belongs to the days that were added.</p>
+
+                    <p class="insight"><em>The 200 added days crossed the threshold at 20 percent, which is what drags the full log from 60 percent down to 50 percent.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Days in the full log</strong>, 600 + 200 = 800</li>
+                            <li><strong>Threshold days in the first window</strong>, (60/100)(600) = 360</li>
+                            <li><strong>Threshold days in the full log</strong>, (50/100)(800) = 400</li>
+                            <li><strong>Threshold days in the added window</strong>, 400 − 360 = 40</li>
+                            <li><strong>Rate of the added window</strong>, 40/200 = 20 percent</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="formal-proof">The Formal Proof</h2>
+
+                <p>Compute mode. Every step names the property that licenses it.</p>
+
+                <h3>Setup</h3>
+
+                <p>Carolina logs one day at a time and marks each day as a threshold crossing or not. The first window covers 600 days, and 60 percent of them crossed. The next window adds 200 days, after which 50 percent of the full log has crossed. Let T₁ be the threshold days in the first window, T₂ the threshold days in the added window, and N the days in the full log. The two share statements fix T₁ and T₁ + T₂.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>T₁ is the count of threshold days in the first window, 360 once Step 2 fixes it.</li>
+                    <li>T₂ is the count of threshold days in the added window, the unknown, a nonnegative integer at most 200.</li>
+                    <li>N is the count of days in the full log, 800 once Step 1 fixes it.</li>
+                    <li>600 is the days in the first window, and 200 is the days added.</li>
+                    <li>60/100 is the threshold share of the first window.</li>
+                    <li>50/100 is the threshold share of the full log.</li>
+                    <li>∈ reads belongs to.</li>
+                    <li>ℤ is the set of integers, whole numbers with their negatives.</li>
+                    <li>⇒ reads implies.</li>
+                    <li>− is subtraction.</li>
+                </ul>
+
+                <h3>Solution</h3>
+
+                <p><strong>Step 1, closure under addition.</strong><br>
+                Property. Closure under addition. x, y ∈ ℤ ⇒ x + y ∈ ℤ.<br>
+                Inference. N = 600 + 200 = 800.</p>
+
+                <p><strong>Step 2, definition of a percentage.</strong><br>
+                Property. Definition of a percentage. p percent of x = (p/100)x.<br>
+                Inference. T₁ = (60/100)(600) = 360.</p>
+
+                <p><strong>Step 3, definition of a percentage, as in Step 2.</strong><br>
+                Property. Definition of a percentage, as in Step 2.<br>
+                Inference. T₁ + T₂ = (50/100)(800) = 400. From line 1.</p>
+
+                <p><strong>Step 4, substitution.</strong><br>
+                Property. Substitution. x = y ⇒ x may replace y.<br>
+                Inference. 360 + T₂ = 400. From lines 2 and 3.</p>
+
+                <p><strong>Step 5, subtraction property of equality.</strong><br>
+                Property. Subtraction property of equality. x = y ⇒ x − c = y − c.<br>
+                Inference. (360 + T₂) − 360 = 400 − 360 = 40. From line 4.</p>
+
+                <p><strong>Step 6, additive inverse and additive identity.</strong><br>
+                Property. Additive inverse and additive identity, with associativity. (c + x) − c = x + (c − c) = x + 0 = x.<br>
+                Inference. (360 + T₂) − 360 = T₂. From line 5.</p>
+
+                <p><strong>Step 7, transitivity of equality.</strong><br>
+                Property. Transitivity of equality. x = y and y = z ⇒ x = z.<br>
+                Inference. T₂ = 40. From lines 5 and 6.</p>
+
+                <h3>Verification</h3>
+
+                <p>T₁/600 = 360/600 = 60/100. (T₁ + T₂)/N = (360 + 40)/800 = 400/800 = 50/100. Both constraints match.</p>
+
+                <h3>Answer</h3>
+
+                <p>T₂ = 40. The model crossed its drift threshold on 40 of the last 200 days, option a.</p>
+
+                <h2 id="dialogue-version">Simplicio and the Drift Log</h2>
+
+                <p><strong>Salviati.</strong> Carolina watches a fraud model. After 600 days of logs, it crossed its drift threshold on 60 percent of them. She logs 200 more days and now half the log has crossed. How many of those 200 crossed?</p>
+
+                <p><strong>Simplicio.</strong> 60 percent of 600 is 360. Half of 800 is 400. So 40.</p>
+
+                <p><strong>Salviati.</strong> You did that in one breath.</p>
+
+                <p><strong>Simplicio.</strong> There was nothing in it. The new days are the part of the whole log that the old days are not.</p>
+
+                <p><strong>Salviati.</strong> That sentence is the solution. The rest is bookkeeping. So why did your written version stop me?</p>
+
+                <p><strong>Simplicio.</strong> I wrote pd[1] − pd[2] = x.</p>
+
+                <p><strong>Salviati.</strong> Read it back as a stranger would.</p>
+
+                <p><strong>Simplicio.</strong> Percentage times days for window one, minus percentage times days for window two.</p>
+
+                <p><strong>Salviati.</strong> And window two is 200 days. Is 400 the threshold count of 200 days?</p>
+
+                <p><strong>Simplicio.</strong> No. 400 belongs to the full log. I used [2] for the second window in one place and for the whole thing in another.</p>
+
+                <p><strong>Salviati.</strong> One label, two jobs. What happens when it is asked to do both at once?</p>
+
+                <p><strong>Simplicio.</strong> It stops being a label.</p>
+
+                <p><strong>Salviati.</strong> You also declared s for threshold days and never called on it.</p>
+
+                <p><strong>Simplicio.</strong> I did not need it.</p>
+
+                <p><strong>Salviati.</strong> You needed it most. 400 is a threshold count with no name, and s was standing there.</p>
+
+                <p><strong>Simplicio.</strong> Then s[1] = 360, s[total] = 400, s[2] = 40.</p>
+
+                <p><strong>Salviati.</strong> Now the order.</p>
+
+                <p><strong>Simplicio.</strong> I subtracted the whole from the part. 400 − 360.</p>
+
+                <p><strong>Salviati.</strong> And this x. You told me it was days with threshold over 200.</p>
+
+                <p><strong>Simplicio.</strong> I meant days inside the 200. Not divided by.</p>
+
+                <p><strong>Salviati.</strong> The slash does not know what you meant. It divides. You wrote a fifth and set it equal to 40.</p>
+
+                <p><strong>Simplicio.</strong> So the arithmetic was never wrong.</p>
+
+                <p><strong>Salviati.</strong> The arithmetic was never wrong. You found it in four seconds, then spent your care on abbreviating it, which is the part nobody asked for.</p>
+
+                <p><strong>Simplicio.</strong> Shorter is not clearer.</p>
+
+                <p><strong>Salviati.</strong> Shorter is shorter.</p>
+
+                <p><strong>Simplicio.</strong> One thing still bothers me. The share fell and the model got better.</p>
+
+                <p><strong>Salviati.</strong> It did. 20 percent in the recent window against 60 percent before it. A team reading only the 50 percent would report a model still crossing on half its days.</p>
+
+                <h2 id="figures-version">The Figures</h2>
+
+                <p>Figure 1 draws what Simplicio saw in one breath. Dashed outlines are the days logged, filled blocks are the threshold days, and every bar is drawn to the same scale.</p>
+
+                <figure>
+                <svg width="100%" viewBox="0 0 680 300" role="img" style="font-family:Arial,Helvetica,sans-serif">
+                    <title>Bar model of threshold days across two windows</title>
+                    <desc>The first window of 600 days holds 360 threshold days. The added window of 200 days holds 40. Together 400 threshold days out of 800, half the log.</desc>
+                    <text x="60" y="42" style="font-size:12px;fill:#5F5E5A">Days logged</text>
+                    <rect x="60" y="50" width="420" height="40" rx="4" style="fill:#F1EFE8;stroke:#5F5E5A;stroke-width:0.5"/>
+                    <text x="270" y="68" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#2C2C2A">First window</text>
+                    <text x="270" y="84" text-anchor="middle" style="font-size:12px;fill:#5F5E5A">600 days</text>
+                    <rect x="490" y="50" width="130" height="40" rx="4" style="fill:#F1EFE8;stroke:#5F5E5A;stroke-width:0.5"/>
+                    <text x="555" y="68" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#2C2C2A">Added</text>
+                    <text x="555" y="84" text-anchor="middle" style="font-size:12px;fill:#5F5E5A">200 days</text>
+                    <text x="60" y="124" style="font-size:12px;fill:#5F5E5A">Threshold days inside each window</text>
+                    <rect x="60" y="132" width="420" height="40" rx="4" style="fill:none;stroke:#B4B2A9;stroke-width:0.5;stroke-dasharray:4 4"/>
+                    <rect x="490" y="132" width="130" height="40" rx="4" style="fill:none;stroke:#B4B2A9;stroke-width:0.5;stroke-dasharray:4 4"/>
+                    <rect x="60" y="132" width="252" height="40" rx="4" style="fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5"/>
+                    <text x="186" y="157" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#04342C">360</text>
+                    <rect x="490" y="132" width="28" height="40" rx="4" style="fill:#FAEEDA;stroke:#BA7517;stroke-width:0.5"/>
+                    <text x="60" y="192" style="font-size:12px;fill:#5F5E5A">60 percent, 360 days</text>
+                    <text x="620" y="192" text-anchor="end" style="font-size:12px;fill:#5F5E5A">20 percent, 40 days</text>
+                    <text x="60" y="226" style="font-size:12px;fill:#5F5E5A">Full log</text>
+                    <rect x="60" y="234" width="560" height="40" rx="4" style="fill:none;stroke:#B4B2A9;stroke-width:0.5;stroke-dasharray:4 4"/>
+                    <rect x="60" y="234" width="252" height="40" rx="4" style="fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5"/>
+                    <rect x="312" y="234" width="28" height="40" rx="4" style="fill:#FAEEDA;stroke:#BA7517;stroke-width:0.5"/>
+                    <text x="352" y="259" style="font-size:12px;fill:#5F5E5A">400 threshold days of 800, half the log</text>
+                </svg>
+                <figcaption style="font-size:13px">Figure 1. The added days carry 40 of the 400 threshold days.</figcaption>
+                </figure>
+
+                <p>Figure 2 draws the two slips Salviati stopped on. Teal reads as intended, red reads wrong.</p>
+
+                <figure>
+                <svg width="100%" viewBox="0 0 680 320" role="img" style="font-family:Arial,Helvetica,sans-serif">
+                    <title>Two notation slips</title>
+                    <desc>The index two points at both the added window of 200 days and the full log of 800 days. The symbol x written as days over 200 reads as one fifth, while days inside the 200 reads as 40.</desc>
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M2 1L8 5L2 9" style="fill:none;stroke:#5F5E5A;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+                        </marker>
+                    </defs>
+                    <rect x="60" y="62" width="90" height="44" rx="8" style="fill:#F1EFE8;stroke:#5F5E5A;stroke-width:0.5"/>
+                    <text x="105" y="89" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#2C2C2A">[2]</text>
+                    <line x1="152" y1="78" x2="322" y2="62" style="stroke:#5F5E5A;stroke-width:1.5" marker-end="url(#arrow)"/>
+                    <line x1="152" y1="90" x2="322" y2="126" style="stroke:#5F5E5A;stroke-width:1.5" marker-end="url(#arrow)"/>
+                    <rect x="330" y="40" width="290" height="44" rx="8" style="fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5"/>
+                    <text x="475" y="67" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#04342C">Added window, 200 days</text>
+                    <rect x="330" y="104" width="290" height="44" rx="8" style="fill:#FCEBEB;stroke:#A32D2D;stroke-width:0.5"/>
+                    <text x="475" y="131" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#501313">Full log, 800 days</text>
+                    <rect x="60" y="196" width="250" height="56" rx="8" style="fill:#FCEBEB;stroke:#A32D2D;stroke-width:0.5"/>
+                    <text x="185" y="221" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#501313">x = days/200</text>
+                    <text x="185" y="239" text-anchor="middle" style="font-size:12px;fill:#A32D2D">reads 40/200 = 0.2</text>
+                    <line x1="316" y1="224" x2="366" y2="224" style="stroke:#5F5E5A;stroke-width:1.5" marker-end="url(#arrow)"/>
+                    <rect x="374" y="196" width="246" height="56" rx="8" style="fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5"/>
+                    <text x="497" y="221" text-anchor="middle" style="font-size:14px;font-weight:500;fill:#04342C">x = days in the 200</text>
+                    <text x="497" y="239" text-anchor="middle" style="font-size:12px;fill:#0F6E56">reads 40</text>
+                    <rect x="60" y="276" width="10" height="10" rx="2" style="fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5"/>
+                    <text x="78" y="285" style="font-size:12px;fill:#5F5E5A">reads as intended</text>
+                    <rect x="240" y="276" width="10" height="10" rx="2" style="fill:#FCEBEB;stroke:#A32D2D;stroke-width:0.5"/>
+                    <text x="258" y="285" style="font-size:12px;fill:#5F5E5A">reads wrong</text>
+                </svg>
+                <figcaption style="font-size:13px">Figure 2. One index doing two jobs, and one slash inverting a count.</figcaption>
+                </figure>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Shares out of a hundred entered commerce long before they entered schooling. Roman tax collectors levied a hundredth on the sale of goods, and the habit of quoting a fraction against a fixed base of one hundred outlived the empire. Italian merchant houses of the fifteenth century made it a trade convention for interest, freight, and insurance, and their reckoning books carried the phrasing per cento into the rest of Europe. The base never changes, which is what makes two shares comparable at a glance, and misleading the moment the totals behind them differ.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-percent-word-problems/v/solving-percent-problems" target="_blank" rel="noopener">Khan Academy — Percent Word Problems</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 14, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

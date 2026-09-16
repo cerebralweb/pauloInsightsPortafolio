@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A retail platform splits live traffic between two recommendation models. One group runs 12 thousand sessions larger, and three quarters of the other group equals 120 thousand. A worked solution with a named property for every step and a tape diagram.">
+    <meta name="keywords" content="traffic split, recommendation models, linear equation, one unknown, fractional part, tape diagram, business math, A/B test sizing">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-a-retail-platform-splits-live-traffic-between-two-recommendation-models.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/when-a-retail-platform-splits-live-traffic-between-two-recommendation-models.html" />
+
+    <title>When a Retail Platform Splits Live Traffic Between Two Recommendation Models</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 11, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHEN A RETAIL PLATFORM SPLITS LIVE TRAFFIC BETWEEN TWO RECOMMENDATION MODELS
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    A live test only earns trust when the teams running it know how many sessions each variant received. Reporting often arrives partial, as a share of a group rather than the group itself, and the analyst has to recover the whole from the part before any lift figure means anything. <dfn>This problem shows how one unknown, one fractional report, and one stated excess are enough to size both arms of a traffic split.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A retail platform runs a live test of two recommendation models. Traffic splits into two groups. The group on the new model receives 12 thousand more sessions than the group on the current model. Three quarters of the group on the current model equals 120 thousand sessions.</p>
+                <p>How many sessions does the group on the new model receive?</p>
+                <ul>
+                    <li>a) 172 thousand sessions</li>
+                    <li>b) 160 thousand sessions</li>
+                    <li>c) 108 thousand sessions</li>
+                    <li>d) 120 thousand sessions</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 172 thousand sessions ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The reported 120 thousand covers three quarters of the current model group, so <strong>dividing by 3</strong> gives one quarter and <strong>multiplying by 4</strong> restores the whole group at 160 thousand. <strong>Adding</strong> the stated excess of 12 thousand gives the new model group.</p>
+
+                    <p class="insight"><em>The partial report is the trap, because 120 is a share of one arm and never the size of an arm.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Reported share of the current model group:</strong> 120 thousand sessions, equal to three quarters of that group</li>
+                            <li><strong>One quarter of the current model group:</strong> 120 / 3 = 40 thousand sessions</li>
+                            <li><strong>Full current model group:</strong> 4 (40) = 160 thousand sessions</li>
+                            <li><strong>Stated excess of the new model group:</strong> 12 thousand sessions</li>
+                            <li><strong>New model group:</strong> 160 + 12 = 172 thousand sessions</li>
+                            <li><strong>Conclusion:</strong> the new model group receives 172 thousand sessions</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Proof, One Named Property Per Step</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let c be the sessions on the current model group and n the sessions on the new model group, both in thousands. The test fixes three quarters of c at 120. It fixes n as c plus 12. So (3/4)c = 120 and n = c + 12.</p>
+
+                <p><strong>Notation.</strong></p>
+                <ul>
+                    <li>c is the sessions on the current model group, in thousands, the unknown at the start</li>
+                    <li>n is the sessions on the new model group, in thousands, the value asked for</li>
+                    <li>3/4 is the fraction of the current model group that the test reports</li>
+                    <li>120 is the reported size of that fraction, in thousands of sessions</li>
+                    <li>12 is the excess of the new model group over the current model group, in thousands of sessions</li>
+                    <li>4/3 is the multiplicative inverse of 3/4</li>
+                    <li>&rArr; reads implies</li>
+                </ul>
+
+                <ol>
+                    <li><strong>Multiplication property of equality.</strong> x = y &rArr; kx = ky. Inference. (4/3)((3/4)c) = (4/3)(120).</li>
+                    <li><strong>Multiplicative inverse and multiplicative identity.</strong> For x &ne; 0, (1/x)x = 1 and 1y = y. Inference. (4/3)((3/4)c) = (1)c = c. From line 1.</li>
+                    <li><strong>Cancellation law.</strong> For y &ne; 0, (yx)/y = x. Inference. (4/3)(120) = 4(120)/3 = 4(3)(40)/3 = 160. From line 1.</li>
+                    <li><strong>Transitivity of equality.</strong> x = y and y = z &rArr; x = z. Inference. c = 160. From lines 2 and 3.</li>
+                    <li><strong>Substitution.</strong> x = y &rArr; x may replace y. Inference. n = c + 12 and c = 160, so n = 160 + 12. From line 4.</li>
+                    <li><strong>Closure under addition.</strong> x, y integers &rArr; x + y is an integer. Inference. n = 172. From line 5.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> (3/4)(160) = 120 and 172 &minus; 160 = 12. Both constraints match.</p>
+
+                <p><strong>Answer.</strong> n = 172. The new model group receives 172 thousand sessions.</p>
+
+                <h2 id="graph-version">Tape Diagram</h2>
+
+                <p>The bar carries the new model group. Four equal cells hold the current model group, the narrow cell holds the stated excess of 12, and the bracket below marks the reported 120 across three cells.</p>
+
+                <svg width="100%" viewBox="0 0 680 320" role="img" style="display:block;max-width:680px;margin:0 auto">
+                    <title>Tape diagram for n equals c plus 12</title>
+                    <desc>A bar split into four equal cells of 40 plus a narrow cell of 12. Three cells total 120, the four cells total 160, and the whole bar totals 172.</desc>
+
+                    <text x="60" y="46" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#6B4A5E">40 + 40 + 40 + 40 + 12 = 172</text>
+
+                    <line x1="60" y1="112" x2="60" y2="126" stroke="#8C7A6B" stroke-width="1"/>
+                    <line x1="60" y1="112" x2="490" y2="112" stroke="#8C7A6B" stroke-width="1"/>
+                    <line x1="490" y1="112" x2="490" y2="126" stroke="#8C7A6B" stroke-width="1"/>
+                    <text x="275" y="104" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="13" fill="#6B4A5E">n = 172, new model group</text>
+
+                    <rect x="60" y="138" width="100" height="62" rx="4" fill="#B7C79B" stroke="#6E8050" stroke-width="0.5"/>
+                    <rect x="160" y="138" width="100" height="62" rx="4" fill="#B7C79B" stroke="#6E8050" stroke-width="0.5"/>
+                    <rect x="260" y="138" width="100" height="62" rx="4" fill="#B7C79B" stroke="#6E8050" stroke-width="0.5"/>
+                    <rect x="360" y="138" width="100" height="62" rx="4" fill="#F2E3C8" stroke="#B79A72" stroke-width="0.5"/>
+                    <rect x="460" y="138" width="30" height="62" rx="4" fill="#C75B4A" stroke="#8E3A2C" stroke-width="0.5"/>
+
+                    <text x="110" y="175" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#3F4A2E">40</text>
+                    <text x="210" y="175" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#3F4A2E">40</text>
+                    <text x="310" y="175" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#3F4A2E">40</text>
+                    <text x="410" y="175" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#5C4436">40</text>
+                    <text x="475" y="175" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="15" fill="#FBEDE9">12</text>
+
+                    <line x1="60" y1="212" x2="60" y2="226" stroke="#7FA3BF" stroke-width="1"/>
+                    <line x1="60" y1="226" x2="360" y2="226" stroke="#7FA3BF" stroke-width="1"/>
+                    <line x1="360" y1="212" x2="360" y2="226" stroke="#7FA3BF" stroke-width="1"/>
+                    <text x="210" y="244" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="13" fill="#3F6280">120, three quarters reported</text>
+
+                    <line x1="60" y1="262" x2="60" y2="276" stroke="#8C9B6E" stroke-width="1"/>
+                    <line x1="60" y1="276" x2="460" y2="276" stroke="#8C9B6E" stroke-width="1"/>
+                    <line x1="460" y1="262" x2="460" y2="276" stroke="#8C9B6E" stroke-width="1"/>
+                    <text x="260" y="294" text-anchor="middle" font-family="'Source Sans Pro',sans-serif" font-size="13" fill="#4A5636">c = 160, current model group</text>
+                </svg>
+
+                <p>The diagram earns its keep at the fourth cell. The reported figure covers three cells, so the fourth cell is the piece the report never states, and the narrow cell is the only part that belongs to the new model group alone.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Recovering a whole from a stated part is one of the oldest paid uses of arithmetic. Egyptian scribes trained on problems of this shape, where a quantity and a fraction of it are reported together and the scribe returns the quantity, and the Rhind Mathematical Papyrus preserves a run of them for grain, bread, and beer rations.</p>
+
+                <p>The bar drawing is much younger. Merchants in Renaissance Italy kept partition problems in words, and only in the twentieth century did schools in Singapore standardise the tape diagram as a way to make the part and the whole visible before any symbol is written. Both traditions answer the same commercial need, which is to audit a figure someone else reported.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:solve-equations-inequalities" target="_blank" rel="noopener">Khan Academy — Solving Linear Equations in One Variable</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/linear-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 11, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

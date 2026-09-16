@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A retail restocking problem shows how a delegated share changes the load per trip, and how the additive inverse carries the whole calculation.">
+    <meta name="keywords" content="additive inverse, retail restocking, labor planning, signed numbers, distributive property, primitive operation, arithmetic, algebra">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-a-second-associate-joins-the-beverage-aisle-restock-run.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/when-a-second-associate-joins-the-beverage-aisle-restock-run.html" />
+
+    <title>When a Second Associate Joins the Beverage Aisle Restock Run</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 14, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHEN A SECOND ASSOCIATE JOINS THE BEVERAGE AISLE RESTOCK RUN
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+<p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+    Retail floor labor is planned in repetitions, not in totals. A store lead needs to know what a task costs per cycle, what changes when a second associate absorbs part of the load, and whether the work closes before the shift does. <dfn>This problem shows how one signed quantity, the additive inverse, carries a staffing calculation from the shop floor to the axioms of algebra.</dfn></em></p>
+
+<div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+<script src="/js/us-publicidadEnArticulo.js"></script>
+
+<h2 id="math-answer">The Problem</h2>
+
+<p>Maria restocks the beverage aisle at a Walmart store. Each trip from the stockroom she carries 17 cases of soda. One trip will also need 3 cases of bottled water. With 6 trips left before the shift ends, Magda offers to carry 3 cases of soda on each trip and 1 of the water cases on the trip that includes them.</p>
+
+<p>How many cases will Maria carry over the remaining trips?</p>
+
+<ul>
+    <li>a) 85</li>
+    <li>b) 86</li>
+    <li>c) 92</li>
+    <li>d) 102</li>
+</ul>
+
+<details>
+    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+    <p><strong>Correct Answer: b) 86 ✅</strong></p>
+
+    <h2>Math Solution</h2>
+
+    <p>Magda's share <strong>reduces the load per trip from 17 to 14</strong>, so the recurring work is <strong>6 trips at 14 cases</strong>. The water load is a one time addition, <strong>3 reduced to 2</strong>, which brings the total to 86.</p>
+
+    <p class="insight"><em>The trip is the unit of work, so the whole task prices out as a rate of 14 cases per trip plus a fixed 2.</em></p>
+
+    <div class="bannerTwitero">
+        <h2>Step-by-Step Breakdown</h2>
+        <p>The following sequence shows how the final amount is derived:</p>
+        <ol>
+            <li><strong>Net soda per trip:</strong> 17 + (−3) = 14 cases</li>
+            <li><strong>Soda across the remaining trips:</strong> 6(14) = 84 cases</li>
+            <li><strong>Net water cases:</strong> 3 + (−1) = 2 cases</li>
+            <li><strong>Total:</strong> 84 + 2 = 86 cases</li>
+            <li><strong>Conclusion:</strong> Maria carries 86 cases over the 6 remaining trips</li>
+        </ol>
+    </div>
+</details>
+
+<h2 id="business-relevance">Why This Matters on the Floor</h2>
+
+<p>Maria needs one number before the shift ends, not a running tally. The calculation turns a repeated load into a rate per trip, then applies that rate to the trips left. Splitting the work with Magda changes the rate, not the structure, so the same expression answers any variation of the question.</p>
+
+<p>Store leads use the same move to size labor, to test whether a second associate closes the gap before the shift ends, and to plan how many trips a task will take. The general form separates the two parts of any such task, a recurring load and a fixed load, which is what makes it reusable across aisles, shifts, and stores.</p>
+
+<h2 id="math-background">Mathematical Background</h2>
+
+<p>The problem rests on signed addition, the commutative and associative laws, and the distributive law. Four routes reach the same result.</p>
+
+<p>Written out in full, with every trip listed.</p>
+
+<p><code>3 + (−1) + 17 + 17 + 17 + 17 + 17 + 17 + (−3) + (−3) + (−3) + (−3) + (−3) + (−3) = 86</code></p>
+
+<p>Regrouped, which is the commutative law at work, since reordering the terms cannot change the sum.</p>
+
+<p><code>2 + 102 + (−18) = 86</code></p>
+
+<p>Factored, which is the distributive law, since six identical net loads collapse into one product.</p>
+
+<p><code>3 + (−1) + 6(17 + (−3)) = 86</code></p>
+
+<p>The fastest route for mental arithmetic leads with the multiplication, then pairs the additions against the subtractions.</p>
+
+<p><code>102 + 3 + (−18) + (−1) = 105 + (−19) = 86</code></p>
+
+<p>Generalized, with <code>s</code> for trips remaining.</p>
+
+<p><code>(17s + 3) − (3s + 1) = 17s + 3 + (−3s) + (−1) = 14s + 2</code></p>
+
+<p>At <code>s = 6</code>, <code>14(6) + 2 = 86</code>. The form <code>14s + 2</code> is the payoff. It prices any number of trips without redoing the arithmetic, and it names the two parts of the work, a recurring load of 14 and a fixed load of 2.</p>
+
+<h2 id="proof-version">Step by Step, With the Property Named</h2>
+
+<h3>Setup</h3>
+
+<p>Maria makes a fixed number of trips, carrying the same soda load on each one, plus a water load on a single trip. Magda removes a fixed share of the soda on every trip and part of the water load once. Let <code>s</code> be the trips remaining and <code>L</code> the cases Maria carries. Her gross load is <code>17s + 3</code>. Magda's share is <code>3s + 1</code>. So <code>L = (17s + 3) − (3s + 1)</code>, with <code>s = 6</code>.</p>
+
+<h3>Notation</h3>
+
+<ul>
+    <li><code>s</code> is the trips remaining, 6.</li>
+    <li><code>L</code> is the cases Maria carries over those trips, the unknown, a positive integer.</li>
+    <li>17 is the soda cases loaded per trip before Magda's help, and <code>3s</code> is Magda's soda share across the trips.</li>
+    <li>3 is the water cases on the single water trip, and 1 is the water case Magda takes.</li>
+    <li><code>−1</code> is the additive inverse of 1, and <code>−3s</code> is the additive inverse of <code>3s</code>.</li>
+    <li>0 is the additive identity.</li>
+    <li><code>x</code>, <code>y</code>, <code>c</code> are any integers, used to state a property in general form.</li>
+    <li><code>⇒</code> reads implies.</li>
+</ul>
+
+<h3>Solution</h3>
+
+<ol>
+    <li><strong>Subtraction as addition of the additive inverse.</strong> Property, <code>x − y = x + (−1)y</code>. Inference, <code>L = (17s + 3) + (−1)(3s + 1)</code>.</li>
+    <li><strong>Distributivity of multiplication over addition.</strong> Property, <code>c(x + y) = cx + cy</code>. Inference, <code>(−1)(3s + 1) = (−3s) + (−1)</code>, so <code>L = 17s + 3 + (−3s) + (−1)</code>. From line 1.</li>
+    <li><strong>Commutative and associative laws of addition.</strong> Property, <code>x + y = y + x</code> and <code>(x + y) + z = x + (y + z)</code>. Inference, <code>L = [17s + (−3s)] + [3 + (−1)]</code>. From line 2.</li>
+    <li><strong>Distributivity, read right to left.</strong> Property, <code>cx + cy = c(x + y)</code>. Inference, <code>17s + (−3s) = [17 + (−3)]s = 14s</code>. From line 3.</li>
+    <li><strong>Additive inverse and additive identity.</strong> Property, <code>x + (−x) = 0</code> and <code>x + 0 = x</code>. Inference, <code>3 + (−1) = 2 + [1 + (−1)] = 2 + 0 = 2</code>. From line 3.</li>
+    <li><strong>Substitution.</strong> Property, <code>x = y ⇒ x</code> may replace <code>y</code>. Inference, <code>L = 14s + 2</code> and <code>s = 6</code>, so <code>L = 14(6) + 2</code>. From lines 4 and 5.</li>
+    <li><strong>Distributivity, on the product.</strong> Property, as in line 2. Inference, <code>14(6) = (10 + 4)(6) = 60 + 24 = 84</code>. From line 6.</li>
+    <li><strong>Transitivity of equality.</strong> Property, <code>x = y</code> and <code>y = z ⇒ x = z</code>. Inference, <code>L = 84 + 2 = 86</code>. From lines 6 and 7.</li>
+</ol>
+
+<h3>Verification</h3>
+
+<p><code>(17(6) + 3) − (3(6) + 1) = (102 + 3) − (18 + 1) = 105 − 19 = 86</code>. Both sides match.</p>
+
+<h2 id="inverse-functions">What the Additive Inverse Actually Does</h2>
+
+<p>The calculation above uses the additive inverse twice, once to erase a term and once to convert subtraction into addition. In algebra it does more. Every item below reduces to the first.</p>
+
+<ol>
+    <li><strong>Produces zero.</strong> <code>x + (−x) = 0</code>. This is the axiom. Everything else follows.</li>
+    <li><strong>Erases a term.</strong> <code>x + a + (−a) = x + 0 = x</code>. Paired with the additive identity, an unwanted term disappears. This is line 5 of the solution above.</li>
+    <li><strong>Defines subtraction.</strong> <code>x − y = x + (−y)</code>. Subtraction is not a separate operation, which is why the commutative and associative laws reach subtraction expressions once they are rewritten.</li>
+    <li><strong>Solves <code>x + a = b</code> uniquely.</strong> <code>x = b + (−a)</code>. Existence comes from the inverse, uniqueness from cancellation, <code>x + a = y + a ⇒ x = y</code>. In practice this is the addition property of equality, moving a term across the equals sign.</li>
+    <li><strong>Distributes as multiplication by −1.</strong> <code>(−1)y = −y</code>, and <code>−(x + y) = (−x) + (−y)</code>. Sign changes propagate through sums and products by the distributive law, not by a separate rule.</li>
+    <li><strong>Closes the naturals into the integers.</strong> Adjoining inverses to the natural numbers gives the integers. The same step turns a semiring into a ring.</li>
+    <li><strong>Makes addition a group.</strong> Closure, associativity, identity, and inverses together. Group structure is what guarantees items 2 and 4 and the cancellation law, rather than each being an independent fact.</li>
+    <li><strong>Reverses order.</strong> <code>x &lt; y ⇒ (−y) &lt; (−x)</code>. In an ordered field the inverse reflects the order across 0, which is why multiplying an inequality by a negative number flips it.</li>
+    <li><strong>Gives absolute value and distance.</strong> <code>|x|</code> is <code>x</code> or <code>−x</code>, whichever is not negative, and <code>|x − y|</code> is the distance between them. Metric ideas rest on the inverse.</li>
+</ol>
+
+<p>Items 1 through 7 hold in any ring. Items 8 and 9 need an order.</p>
+
+<h2 id="primitive-question">Which Operation Is Basic</h2>
+
+<p>If subtraction is only notation for addition of the inverse, the reverse question follows. Could addition be notation for subtraction? It could. Subtraction can be taken as the undefined operation, and then <code>x + y = x − (0 − y)</code>. The two are interdefinable, so the theory proves the same theorems either way.</p>
+
+<p>What settles the convention is not truth but economy. A primitive is a term a theory leaves undefined and builds on, fixed only by the axioms it obeys. In the ring axioms, addition and multiplication are primitive. Addition earns that place because it is associative and commutative, and subtraction is neither. Axioms stated over addition are short. Stated over subtraction, every law would carry qualifications.</p>
+
+<h2 id="manga-version">The Same Argument, as a Manga</h2>
+
+<p>Two riders on a night highway, Kai in red and Jun in blue, run the argument from the sign question to the choice of primitive.</p>
+
+<figure>
+<svg width="100%" viewBox="0 0 726 988" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mangaTitle mangaDesc"><title id="mangaTitle">Eight panel manga on the additive inverse</title><desc id="mangaDesc">Two riders on a night highway ask whether the additive inverse equals negative one times y, why it produces zero, and whether subtraction or addition is the primitive operation.</desc><defs><pattern id="tone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#111118" opacity="0.32"/></pattern><pattern id="tone2" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.7" fill="#111118" opacity="0.45"/></pattern></defs><style>
+svg text{paint-order:stroke}
+.d{font-family:'Source Sans Pro',Helvetica,Arial,sans-serif!important;font-size:13px!important;font-weight:400!important;font-style:normal!important;letter-spacing:.15px!important;fill:#14141a!important;text-transform:none!important}
+.dn{font-family:'Source Sans Pro',Helvetica,Arial,sans-serif!important;font-size:13px!important;font-weight:600!important;letter-spacing:.15px!important;fill:#14141a!important}
+.mq{font-family:'Source Serif Pro',Georgia,serif!important;font-size:25px!important;font-weight:600!important;letter-spacing:.4px!important;fill:#d1503c!important}
+.sub{font-family:'Source Sans Pro',Helvetica,Arial,sans-serif!important;font-size:12px!important;font-weight:300!important;letter-spacing:1.6px!important;fill:#e8e4d8!important}
+.lbl{font-family:'Source Serif Pro',Georgia,serif!important;font-size:14px!important;font-weight:400!important;fill:#f2efe6!important}
+.zero{font-family:'Source Serif Pro',Georgia,serif!important;font-size:54px!important;font-weight:400!important;fill:#f2efe6!important}
+.hdr{font-family:'Source Sans Pro',Helvetica,Arial,sans-serif!important;font-size:12px!important;font-weight:600!important;letter-spacing:3.2px!important;fill:#14141a!important}
+.num{font-family:'Source Serif Pro',Georgia,serif!important;font-size:11px!important;font-weight:600!important;fill:#8d8d97!important}
+</style>
+
+<text x="24" y="34" class="hdr">THE ADDITIVE INVERSE, IN EIGHT PANELS</text>
+<path d="M24 44 L702 44" stroke="#14141a" stroke-width="1"/>
+
+<rect x="24" y="64" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="26" y="66" width="326" height="150" fill="#1b1b24"/>
+<rect x="26" y="66" width="326" height="150" fill="url(#tone)"/>
+<rect x="36" y="110" width="30" height="86" fill="#2b2b38"/><rect x="72" y="88" width="22" height="108" fill="#33333f"/><rect x="100" y="124" width="34" height="72" fill="#26262f"/><rect x="140" y="76" width="26" height="120" fill="#2f2f3b"/><rect x="172" y="132" width="36" height="64" fill="#26262f"/><rect x="214" y="96" width="24" height="100" fill="#33333f"/><rect x="244" y="118" width="32" height="78" fill="#2b2b38"/><rect x="282" y="84" width="26" height="112" fill="#2f2f3b"/><rect x="314" y="110" width="34" height="86" fill="#26262f"/>
+<rect x="44" y="122" width="5" height="5" fill="#f0c24b"/><rect x="56" y="140" width="5" height="5" fill="#f0c24b"/><rect x="80" y="100" width="5" height="5" fill="#f0c24b"/><rect x="146" y="88" width="5" height="5" fill="#f0c24b"/><rect x="152" y="118" width="5" height="5" fill="#f0c24b"/><rect x="220" y="108" width="5" height="5" fill="#f0c24b"/><rect x="254" y="132" width="5" height="5" fill="#f0c24b"/><rect x="290" y="96" width="5" height="5" fill="#f0c24b"/><rect x="322" y="124" width="5" height="5" fill="#f0c24b"/>
+<rect x="26" y="196" width="326" height="20" fill="#15151c"/>
+<path d="M40 208 L86 208" stroke="#f2efe6" stroke-width="2"/><path d="M116 208 L162 208" stroke="#f2efe6" stroke-width="2"/><path d="M192 208 L238 208" stroke="#f2efe6" stroke-width="2"/><path d="M268 208 L314 208" stroke="#f2efe6" stroke-width="2"/>
+<ellipse cx="150" cy="206" rx="32" ry="5" fill="#0e0e14"/>
+<circle cx="136" cy="200" r="9" fill="#111118" stroke="#f2efe6" stroke-width="1"/><circle cx="166" cy="200" r="9" fill="#111118" stroke="#f2efe6" stroke-width="1"/>
+<path d="M130 198 L152 184 L170 190 L172 200" fill="#c0392b" stroke="#f2efe6" stroke-width="1.2"/>
+<circle cx="150" cy="176" r="9" fill="#e8e4d8" stroke="#14141a" stroke-width="1.5"/>
+<path d="M144 176 L156 176" stroke="#14141a" stroke-width="2.4"/>
+<ellipse cx="244" cy="208" rx="28" ry="5" fill="#0e0e14"/>
+<circle cx="232" cy="203" r="8" fill="#111118" stroke="#f2efe6" stroke-width="1"/><circle cx="258" cy="203" r="8" fill="#111118" stroke="#f2efe6" stroke-width="1"/>
+<path d="M226 201 L246 189 L262 194 L264 203" fill="#2c3e6b" stroke="#f2efe6" stroke-width="1.2"/>
+<circle cx="246" cy="181" r="8" fill="#e8e4d8" stroke="#14141a" stroke-width="1.5"/>
+<path d="M241 181 L251 181" stroke="#14141a" stroke-width="2.2"/>
+<path d="M150 222 L162 210 L168 222 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="34" y="222" width="310" height="44" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="48" y="240" class="d">The additive inverse of y.</text>
+<text x="48" y="257" class="d">Is it (−1)y, <tspan class="dn">Jun</tspan>?</text>
+<text x="334" y="262" class="num">1</text>
+
+<rect x="372" y="64" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="374" y="66" width="326" height="206" fill="#1b1b24"/>
+<rect x="374" y="66" width="326" height="206" fill="url(#tone2)"/>
+<path d="M448 272 L448 200 Q448 152 537 152 Q626 152 626 200 L626 272 Z" fill="#e8e4d8" stroke="#14141a" stroke-width="2"/>
+<path d="M456 196 Q537 168 618 196 L618 214 Q537 190 456 214 Z" fill="#15151c"/>
+<path d="M470 204 L500 197" stroke="#f2efe6" stroke-width="3"/>
+<path d="M448 238 Q537 254 626 238" fill="none" stroke="#14141a" stroke-width="1.4"/>
+<path d="M424 272 L448 196 L448 272 Z" fill="#2c3e6b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M650 272 L626 196 L626 272 Z" fill="#2c3e6b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M474 130 L486 146 L496 130 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="382" y="76" width="310" height="56" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="396" y="94" class="d">Yes. (−1)y = −y. Distributivity</text>
+<text x="396" y="111" class="d">proves it. And y is the inverse</text>
+<text x="396" y="128" class="d">of −y. The relation is symmetric.</text>
+<text x="682" y="262" class="num">2</text>
+
+<rect x="24" y="294" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="26" y="296" width="326" height="206" fill="#23232e"/>
+<rect x="26" y="296" width="326" height="206" fill="url(#tone)"/>
+<path d="M26 386 L352 356" stroke="#f2efe6" stroke-width="1" opacity="0.45"/><path d="M26 416 L352 388" stroke="#f2efe6" stroke-width="1" opacity="0.35"/>
+<path d="M60 502 L60 424 Q60 376 106 376 Q152 376 152 424 L152 502 Z" fill="#e8e4d8" stroke="#14141a" stroke-width="2"/>
+<path d="M66 416 Q106 400 146 416 L146 428 Q106 412 66 428 Z" fill="#15151c"/>
+<path d="M42 502 L60 440 L60 502 Z" fill="#c0392b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M170 502 L152 440 L152 502 Z" fill="#c0392b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M240 502 L240 436 Q240 392 282 392 Q324 392 324 436 L324 502 Z" fill="#e8e4d8" stroke="#14141a" stroke-width="2"/>
+<path d="M246 430 Q282 416 318 430 L318 441 Q282 427 246 441 Z" fill="#15151c"/>
+<path d="M226 502 L240 452 L240 502 Z" fill="#2c3e6b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M112 346 L124 362 L134 346 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="34" y="306" width="310" height="40" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="48" y="324" class="d">So it exists to make zero.</text>
+<text x="48" y="341" class="d">y + (−y) = 0. Is that all it does?</text>
+<text x="334" y="492" class="num">3</text>
+
+<rect x="372" y="294" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="374" y="296" width="326" height="206" fill="#15151c"/>
+<circle cx="545" cy="424" r="58" fill="none" stroke="#f2efe6" stroke-width="3"/>
+<circle cx="545" cy="424" r="48" fill="none" stroke="#c0392b" stroke-width="2"/>
+<text x="545" y="444" text-anchor="middle" class="zero">0</text>
+<path d="M394 502 L420 428 L442 436 L418 502 Z" fill="#2c3e6b" stroke="#f2efe6" stroke-width="1.2"/>
+<path d="M420 428 L412 402 L430 396 L442 424 Z" fill="#e8e4d8" stroke="#14141a" stroke-width="1.4"/>
+<path d="M430 362 L444 378 L454 362 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="382" y="306" width="310" height="56" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="396" y="324" class="d">Two jobs. It makes zero, so the</text>
+<text x="396" y="341" class="d">identity can absorb a term. And it</text>
+<text x="396" y="358" class="d">turns subtraction into addition.</text>
+<text x="682" y="492" class="num">4</text>
+
+<rect x="24" y="524" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="26" y="526" width="326" height="206" fill="#2a2a36"/>
+<rect x="26" y="526" width="326" height="206" fill="url(#tone2)"/>
+<rect x="44" y="540" width="290" height="100" fill="#3a3a48" stroke="#14141a" stroke-width="1.4"/>
+<text x="189" y="590" text-anchor="middle" class="mq">x − y = x + (−y)</text>
+<text x="189" y="618" text-anchor="middle" class="sub">NOT A FOURTH OPERATION</text>
+<ellipse cx="230" cy="714" rx="76" ry="6" fill="#15151c"/>
+<circle cx="194" cy="706" r="15" fill="#111118" stroke="#f2efe6" stroke-width="1.4"/><circle cx="268" cy="706" r="15" fill="#111118" stroke="#f2efe6" stroke-width="1.4"/>
+<path d="M188 702 L226 678 L262 690 L274 706" fill="#2c3e6b" stroke="#f2efe6" stroke-width="1.4"/>
+<circle cx="228" cy="666" r="13" fill="#e8e4d8" stroke="#14141a" stroke-width="1.5"/>
+<path d="M220 666 L236 666" stroke="#14141a" stroke-width="3"/>
+<path d="M208 674 L196 684 L208 688 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="38" y="654" width="172" height="40" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="52" y="672" class="d">Subtraction is only</text>
+<text x="52" y="689" class="d">notation, <tspan class="dn">Kai</tspan>.</text>
+<text x="334" y="722" class="num">5</text>
+
+<rect x="372" y="524" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="374" y="526" width="326" height="206" fill="#1b1b24"/>
+<rect x="374" y="526" width="326" height="206" fill="url(#tone)"/>
+<path d="M432 604 Q537 576 642 604 L642 616 Q537 590 432 616 Z" fill="#c0392b" stroke="#14141a" stroke-width="1.2"/>
+<path d="M418 732 L418 662 Q418 606 537 606 Q656 606 656 662 L656 732 Z" fill="#e8e4d8" stroke="#14141a" stroke-width="2"/>
+<path d="M452 652 Q484 640 516 654" fill="none" stroke="#14141a" stroke-width="4"/>
+<path d="M558 654 Q590 640 622 652" fill="none" stroke="#14141a" stroke-width="4"/>
+<ellipse cx="486" cy="676" rx="25" ry="13" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<ellipse cx="588" cy="676" rx="25" ry="13" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<circle cx="490" cy="676" r="6.5" fill="#14141a"/><circle cx="584" cy="676" r="6.5" fill="#14141a"/>
+<path d="M504 710 Q537 724 570 710" fill="none" stroke="#14141a" stroke-width="2"/>
+<path d="M424 592 L438 606 L448 592 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="382" y="536" width="310" height="56" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="396" y="554" class="d">Then how do we know it is not the</text>
+<text x="396" y="571" class="d">reverse? Addition as notation out</text>
+<text x="396" y="588" class="d">of subtraction.</text>
+<text x="682" y="722" class="num">6</text>
+
+<rect x="24" y="754" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="26" y="756" width="326" height="206" fill="#1b1b24"/>
+<rect x="26" y="756" width="326" height="206" fill="url(#tone)"/>
+<path d="M26 962 L152 852 L166 852 L110 962 Z" fill="#15151c" stroke="#f2efe6" stroke-width="1.4"/>
+<path d="M352 962 L226 852 L212 852 L268 962 Z" fill="#15151c" stroke="#f2efe6" stroke-width="1.4"/>
+<circle cx="189" cy="846" r="20" fill="#f0c24b" opacity="0.75"/>
+<text x="82" y="930" text-anchor="middle" class="lbl">x + y</text>
+<text x="284" y="930" text-anchor="middle" class="lbl">x − (0 − y)</text>
+<path d="M112 822 L124 838 L134 822 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="34" y="766" width="310" height="56" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="48" y="784" class="d">You don't. x + y = x − (0 − y).</text>
+<text x="48" y="801" class="d">They define each other. Which one</text>
+<text x="48" y="818" class="d">is basic is a choice of primitive.</text>
+<text x="334" y="952" class="num">7</text>
+
+<rect x="372" y="754" width="330" height="210" fill="#f4f1ea" stroke="#14141a" stroke-width="2"/>
+<rect x="374" y="756" width="326" height="206" fill="#1b1b24"/>
+<rect x="374" y="756" width="326" height="130" fill="url(#tone2)"/>
+<rect x="374" y="886" width="326" height="76" fill="#15151c"/>
+<path d="M400 956 L452 894" stroke="#f2efe6" stroke-width="1.2"/><path d="M676 956 L620 894" stroke="#f2efe6" stroke-width="1.2"/><path d="M537 962 L537 894" stroke="#f2efe6" stroke-width="1.2" stroke-dasharray="10 8"/>
+<ellipse cx="482" cy="930" rx="32" ry="5" fill="#0e0e14"/>
+<circle cx="466" cy="924" r="10" fill="#111118" stroke="#f2efe6" stroke-width="1"/><circle cx="498" cy="924" r="10" fill="#111118" stroke="#f2efe6" stroke-width="1"/>
+<path d="M460 922 L484 906 L502 912 L504 924" fill="#c0392b" stroke="#f2efe6" stroke-width="1.2"/>
+<circle cx="482" cy="898" r="9" fill="#e8e4d8" stroke="#14141a" stroke-width="1.4"/>
+<ellipse cx="590" cy="940" rx="28" ry="5" fill="#0e0e14"/>
+<circle cx="576" cy="934" r="9" fill="#111118" stroke="#f2efe6" stroke-width="1"/><circle cx="604" cy="934" r="9" fill="#111118" stroke="#f2efe6" stroke-width="1"/>
+<path d="M570 932 L592 918 L608 924 L610 934" fill="#2c3e6b" stroke="#f2efe6" stroke-width="1.2"/>
+<circle cx="590" cy="910" r="8" fill="#e8e4d8" stroke="#14141a" stroke-width="1.4"/>
+<rect x="382" y="766" width="120" height="28" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="396" y="785" class="d">Primitive?</text>
+<path d="M408 794 L416 806 L426 794 Z" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<rect x="382" y="810" width="310" height="56" rx="9" fill="#ffffff" stroke="#14141a" stroke-width="1.5"/>
+<text x="396" y="828" class="d">An undefined term the axioms fix.</text>
+<text x="396" y="845" class="d">Addition wins. It is associative and</text>
+<text x="396" y="862" class="d">commutative. Subtraction is not.</text>
+<text x="682" y="952" class="num">8</text>
+</svg>
+<figcaption>Kai in red, Jun in blue. Eight panels, from the sign question to the choice of primitive.</figcaption>
+</figure>
+
+<h2 id="history-version">Historical Background</h2>
+
+<p>Signed quantities are older than the notation for them. The Nine Chapters on the Mathematical Art, compiled in Han era China, handled positive and negative amounts with counting rods of two colors, a method used for surveying, grain accounting, and tax assessment. Liu Hui's third century commentary stated the rules for combining them.</p>
+
+<p>Europe resisted negative results for another thousand years, treating a debt as a quantity to be spoken about rather than a number to be carried through a calculation. Merchant bookkeeping in Renaissance Italy forced the issue, since a ledger with credits and debits needs one arithmetic, not two. The logic that lets a store lead net a colleague's share out of a workload is the same logic that let a ledger close.</p>
+
+<h2 id="further-reading">Go Deeper</h2>
+
+<ul>
+    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-review-negative-numbers" target="_blank" rel="noopener">Khan Academy — Negative Numbers and Signed Arithmetic</a></li>
+    <li><a class="class2" href="https://mathworld.wolfram.com/AdditiveInverse.html" target="_blank" rel="noopener">Wolfram MathWorld — Additive Inverse</a></li>
+    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/arithmetic" target="_blank" rel="noopener">Mathematics Stack Exchange — Arithmetic</a></li>
+</ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 14, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

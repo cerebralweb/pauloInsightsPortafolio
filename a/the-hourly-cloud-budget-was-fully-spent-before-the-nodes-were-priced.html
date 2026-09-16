@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A platform team holds an hourly cloud spend cap, pays a fixed managed database rate, and runs three identical worker nodes. The unit rate of a node follows from a named sequence of algebraic properties.">
+    <meta name="keywords" content="cloud cost management, unit cost, hourly spend cap, linear equation, worker nodes, managed database, cloud budgeting, FinOps">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-hourly-cloud-budget-was-fully-spent-before-the-nodes-were-priced.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-hourly-cloud-budget-was-fully-spent-before-the-nodes-were-priced.html" />
+
+    <title>The Hourly Cloud Budget Was Fully Spent Before the Nodes Were Priced</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 10, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE HOURLY CLOUD BUDGET WAS FULLY SPENT BEFORE THE NODES WERE PRICED
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud spending is governed by caps, and a cap only becomes actionable once the team knows what each
+                    resource inside it costs on its own. Platform teams work backwards from a fixed ceiling, remove the
+                    committed services they already know, and price whatever remains per unit, because that unit price is
+                    what decides how many machines a workload may hold. <dfn>This problem shows how a spend ceiling, one
+                    fixed service, and a set of identical resources fix a unit rate, and how each step of that reasoning
+                    rests on a property that can be named.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform team caps hourly cloud spend at 10.00 dollars for one environment. The environment runs
+                    one managed database at 2.89 dollars per hour and 3 identical worker nodes. The cap is fully
+                    spent.</p>
+                <p>What does each worker node cost per hour?</p>
+                <ul>
+                    <li>a) 0.37 dollars</li>
+                    <li>b) 2.37 nodes</li>
+                    <li>c) 23.7 cents</li>
+                    <li>d) 2.37 dollars</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 2.37 dollars ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The cap is fully spent, so 2.89 + 3c = 10.00. <strong>Subtract</strong> the database rate from
+                        both sides to isolate the three nodes, then <strong>divide</strong> the remainder by 3 to reach
+                        the rate of a single node.</p>
+
+                    <p class="insight"><em>Once the fixed service is removed, the cap prices every identical resource
+                        left inside it, and 7.11 dollars per hour across 3 nodes fixes each node at 2.37.</em></p>
+
+                </details>
+
+                <h2 id="proof-version">Proof</h2>
+
+                <p><strong>Notation</strong></p>
+                <ul>
+                    <li><em>c</em> is the hourly cost of one worker node in dollars, the unknown, a positive
+                        rational.</li>
+                    <li>2.89 is the hourly cost of the managed database.</li>
+                    <li>3 is the number of worker nodes.</li>
+                    <li>10.00 is the hourly spend cap, fully consumed.</li>
+                    <li>1/3 is the multiplicative inverse of 3.</li>
+                    <li>⇒ reads implies.</li>
+                </ul>
+
+                <p><strong>Setup</strong></p>
+                <p>The database takes 2.89 per hour. Three nodes take 3c. The cap is fully spent at 10.00. So
+                    2.89 + 3c = 10.00.</p>
+
+                <div class="bannerTwitero">
+                    <h2>Step-by-Step Breakdown</h2>
+                    <p>The following sequence shows how the final amount is derived, with the property that licenses
+                        each step named in full.</p>
+                    <ol>
+                        <li><strong>Subtraction property of equality:</strong> x = y ⇒ x − z = y − z, so
+                            (2.89 + 3c) − 2.89 = 10.00 − 2.89.</li>
+                        <li><strong>Associativity of addition, additive inverse, additive identity:</strong>
+                            (y + x) − y = x + (y − y) = x + 0 = x, so 3c = 7.11. From line 1.</li>
+                        <li><strong>Multiplication property of equality:</strong> x = y ⇒ zx = zy, so
+                            (1/3)(3c) = (1/3)(7.11). From line 2.</li>
+                        <li><strong>Multiplicative inverse and multiplicative identity:</strong> for x ≠ 0,
+                            (1/x)x = 1 and 1x = x, so (1/3)(3c) = (1)c = c. From line 3.</li>
+                        <li><strong>Cancellation law:</strong> for y ≠ 0, (yx)/y = x, so
+                            (1/3)(7.11) = 7.11/3 = (3)(2.37)/3 = 2.37.</li>
+                        <li><strong>Transitivity of equality:</strong> x = y and y = z ⇒ x = z, so c = 2.37. From
+                            lines 4 and 5.</li>
+                        <li><strong>Verification:</strong> 2.89 + 3(2.37) = 2.89 + 7.11 = 10.00. Both sides
+                            match.</li>
+                        <li><strong>Answer:</strong> c = 2.37, so each worker node costs 2.37 dollars per hour.</li>
+                    </ol>
+                </div>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Removing a known charge from a fixed total and splitting what remains into equal shares is one of the
+                    oldest recorded uses of arithmetic. Mesopotamian scribes recorded rations, silver, and grain in
+                    exactly this shape, taking a fixed obligation off a total and dividing the balance among equal
+                    claimants, which is why so many clay tablets read as accounting rather than as mathematics.</p>
+                <p>The same shape carried into medieval commercial arithmetic, where merchant manuals treated a partner
+                    share or a freight charge as the fixed term and the remainder as the quantity to be apportioned.
+                    Cloud billing inherits that structure without changing it, since a committed service plays the role
+                    of the fixed obligation and identical machines play the role of the equal shares.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/algebra-basics/alg-basics-linear-equations-and-inequalities" target="_blank" rel="noopener">Khan Academy — Linear Equations in One Variable</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/LinearEquation.html" target="_blank" rel="noopener">Wolfram MathWorld — Linear Equation</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/linear-equations" target="_blank" rel="noopener">Mathematics Stack Exchange — Linear Equations</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 10, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

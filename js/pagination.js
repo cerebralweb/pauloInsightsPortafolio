@@ -7,6 +7,46 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "When A Second Associate Joins The Beverage Aisle Restock Run",
+            articleDescription: "Retail floor labor is planned in repetitions, not in totals. A store lead needs to know what a task costs per cycle, what changes when a second associate absorbs part of the load, and whether the work closes before the shift does. This problem shows how one signed quantity, the additive inverse, carries a staffing calculation from the shop floor to the axioms of algebra",
+            articleHref: "/a/when-a-second-associate-joins-the-beverage-aisle-restock-run.html"
+        },
+        {
+            articleTitle: "One Migration Weekend, And The Cloud Budget Finance Decided To Freeze",
+            articleDescription: "A year of routine operations runs alongside a handful of one off events, and finance has to know which of the two moved the total",
+            articleHref: "/a/one-migration-weekend-and-the-cloud-budget-finance-decided-to-freeze.html"
+        },
+        {
+            articleTitle: "One Annotator's Share, And The Size Of The Training Set She Sits In",
+            articleDescription: "This problem shows how one known share fixes an unknown total, and how four routes to that total rest on four different named properties",
+            articleHref: "/a/one-annotators-share-and-the-size-of-the-training-set-she-sits-in.html"
+        },
+        {
+            articleTitle: "The Hourly Cloud Budget Was Fully Spent Before The Nodes Were Priced",
+            articleDescription: "Cloud spending is governed by caps, and a cap only becomes actionable once the team knows what each resource inside it costs on its own. Platform teams work backwards from a fixed ceiling, remove the committed services they already know, and price whatever remains per unit, because that unit price is what decides how many machines a workload may hold",
+            articleHref: "/a/the-hourly-cloud-budget-was-fully-spent-before-the-nodes-were-priced.html" 
+        },
+        {
+            articleTitle: "When A Retail Platform Splits Live Traffic Between Two Recommendation Models",
+            articleDescription: "The analyst has to recover the whole from the part before any lift figure means anything",
+            articleHref: "/a/when-a-retail-platform-splits-live-traffic-between-two-recommendation-models.html"
+        },
+        {
+            articleTitle: "Two Cloud Environments, One Budget, And Where The Storage Spend Lands",
+            articleDescription: "Cloud budgets rarely arrive itemized. A finance team is handed one total and a rule about how two spend lines relate to each other, and the allocation has to be recovered from that pair of facts before any account owner can be told what to plan for. This problem shows how a single budget total plus one stated gap between spend lines fixes the whole allocation, and how each inference in the recovery can be traced to a named property",
+            articleHref: "/a/two-cloud-environments-one-budget-and-where-the-storage-spend-lands.html"
+        },
+        {
+            articleTitle: "Four GenAI Licenses In One Order, Or Four Separate Invoices",
+            articleDescription: "Vendors rarely publish the price a buyer actually pays. Credits, rebates and pack terms sit between the list price and the invoice, and a team that reads only the invoice never learns what an order habit costs it over a year of renewals",
+            articleHref: "/a/four-genai-licenses-in-one-order-or-four-separate-invoices.html"
+        },
+        {
+            articleTitle: "What A 600 Day Weather Log Tells A Planner About The Next 200",
+            articleDescription: "Any record that grows changes its own averages, and a planner who reads only the latest share of a long log learns nothing about the stretch that just ended",
+            articleHref: "/a/what-a-600-day-weather-log-tells-a-planner-about-the-next-200.html"
+        },
+        {
             articleTitle: "What A Cloud Team Reads Off Two Prints Of The Same Fiber Route",
             articleDescription: "Infrastructure teams plan physical work from documents that never carry the physical unit they need. A route drawing states a scale factor, and the factor counts units of ground behind units of paper, so cost, splice count, and latency all wait on a conversion before anyone can order a build. This problem shows how a drawing of a drawing hides a second ratio, and how a short Python function turns that reasoning into a tool the team can reuse on any pair of prints",
             articleHref: "/a/what-a-cloud-team-reads-off-two-prints-of-the-same-fiber-route.html"
