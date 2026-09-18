@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="One workload consumed 424.15 GB of a 499.05 GB cloud volume. A step by step solution shows the share consumed and names the property behind each move.">
+    <meta name="keywords" content="cloud storage capacity, storage volume utilization, percent of a whole, capacity planning, cloud cost management, business math, python percentage">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-storage-volume-a-single-workload-nearly-filled-before-anyone-checked.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-storage-volume-a-single-workload-nearly-filled-before-anyone-checked.html" />
+
+    <title>The Storage Volume a Single Workload Nearly Filled Before Anyone Checked</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 15, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE STORAGE VOLUME A SINGLE WORKLOAD NEARLY FILLED BEFORE ANYONE CHECKED
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Provisioned capacity is paid for in advance, so the only figure that matters in a
+                    review is how much of it a workload is actually holding. Teams that track the share
+                    consumed see a volume approaching its ceiling weeks before a write fails, while teams
+                    that track raw volume consumed see nothing until the alert fires.
+                    <dfn>This problem shows how one part over one whole, restated per hundred, turns a
+                    storage reading into a capacity decision, and how every step of that reading rests on
+                    a named property rather than on habit.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Juan's workload wrote 424.15 GB to the storage volume provisioned for Diego's project,
+                    which had a capacity of 499.05 GB.</p>
+                <p>What percentage of the volume did Juan's workload consume?</p>
+                <ul>
+                    <li>a) 85 %</li>
+                    <li>b) 80 %</li>
+                    <li>c) 71 %</li>
+                    <li>d) 77 %</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 85 % ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The consumed volume <strong>divided</strong> by the provisioned capacity gives the
+                        share held, and that share <strong>multiplied</strong> by 100 states it per hundred.
+                        Clearing the decimals first keeps the arithmetic exact, so 424.15 over 499.05 becomes
+                        8483 over 9981.</p>
+
+                    <p class="insight"><em>The volume is at 84.99 of every 100 GB provisioned, which leaves
+                        74.9 GB of headroom, one bad write away from a capacity event.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Part and whole:</strong> consumed 424.15 GB, provisioned 499.05 GB</li>
+                            <li><strong>Share held:</strong> 424.15 / 499.05</li>
+                            <li><strong>Decimals cleared:</strong> (100)(424.15) / (100)(499.05) = 42415 / 49905</li>
+                            <li><strong>Common factor removed:</strong> (5)(8483) / (5)(9981) = 8483 / 9981</li>
+                            <li><strong>Stated per hundred:</strong> (100)(8483 / 9981) = 848300 / 9981</li>
+                            <li><strong>Whole part and remainder:</strong> 848300 = (9981)(84) + 9896, so 84 + 9896 / 9981</li>
+                            <li><strong>Decimal value:</strong> 84.9915</li>
+                            <li><strong>Rounded reading:</strong> 85</li>
+                            <li><strong>Check:</strong> (0.849915)(499.05) = 424.15</li>
+                            <li><strong>Conclusion:</strong> the workload holds 85 % of the provisioned volume, option a</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Reading a part against a hundred is a merchant habit, not a classroom one. Roman tax
+                    collectors and lenders already quoted charges in hundredths of a sum, and Italian trading
+                    houses of the fifteenth century wrote the same idea as <em>per cento</em> in their ledgers,
+                    where it settled interest, brokerage and losses at sea across contracts of different size.</p>
+
+                <p>The reason the habit survived is the reason a cloud team still uses it. A share per hundred
+                    lets a manager compare a small volume with a large one, or last quarter with this one,
+                    without holding either total in mind.</p>
+
+                <h2 id="proof-version">Named Properties Behind Each Step</h2>
+
+                <p>The reading above is a chain of inferences, each one licensed by a property of the real
+                    numbers. Naming them turns a rule of thumb into an argument a reviewer can audit.</p>
+
+                <h3>Setup</h3>
+
+                <p>Let <em>T</em> be the provisioned capacity, fixed at 499.05 GB. Let <em>C</em> be the
+                    volume consumed, fixed at 424.15 GB. Let <em>p</em> be the percent of the volume
+                    consumed, the unknown.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li><em>T</em> is the capacity in GB, 499.05</li>
+                    <li><em>C</em> is the volume consumed in GB, 424.15</li>
+                    <li><em>p</em> is the percent consumed, a positive rational number</li>
+                    <li><em>q</em> is the remainder in Step 6, an integer</li>
+                    <li><em>x</em>, <em>y</em>, <em>c</em> are any real numbers, used to state a property in general form</li>
+                    <li>1 / 100 is the multiplicative inverse of 100</li>
+                    <li>&rArr; reads implies, &hArr; reads if and only if, &lt; reads is less than, &asymp; reads is approximately equal to</li>
+                </ul>
+
+                <h3>Steps</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> <em>x</em> is <em>p</em> percent of
+                        <em>y</em> &hArr; <em>x</em> / <em>y</em> = <em>p</em> / 100, for <em>y</em> not zero.
+                        So <em>C</em> / <em>T</em> = <em>p</em> / 100.</li>
+                    <li><strong>Multiplication property of equality.</strong> <em>x</em> = <em>y</em> &rArr;
+                        <em>cx</em> = <em>cy</em>. So 100(<em>C</em> / <em>T</em>) = 100(<em>p</em> / 100).</li>
+                    <li><strong>Multiplicative inverse and identity.</strong> For <em>x</em> not zero,
+                        (1 / <em>x</em>)<em>x</em> = 1 and 1<em>y</em> = <em>y</em>. So
+                        100(<em>p</em> / 100) = <em>p</em>, and <em>p</em> = 100(<em>C</em> / <em>T</em>).</li>
+                    <li><strong>Substitution.</strong> <em>x</em> = <em>y</em> &rArr; <em>x</em> may replace
+                        <em>y</em>. So <em>p</em> = 100(424.15 / 499.05).</li>
+                    <li><strong>Cancellation law.</strong> For <em>c</em> not zero,
+                        (<em>cx</em>) / (<em>cy</em>) = <em>x</em> / <em>y</em>. So
+                        424.15 / 499.05 = 42415 / 49905 = (5)(8483) / (5)(9981) = 8483 / 9981, and
+                        <em>p</em> = 848300 / 9981.</li>
+                    <li><strong>Division algorithm.</strong> For integers <em>x</em> and <em>y</em> with
+                        <em>y</em> greater than zero, <em>x</em> = <em>yz</em> + <em>q</em> with <em>q</em>
+                        below <em>y</em>. So 848300 = (9981)(84) + 9896, and
+                        <em>p</em> = 84 + 9896 / 9981.</li>
+                    <li><strong>Order preserved under multiplication by a positive number.</strong>
+                        <em>x</em> &lt; <em>y</em> and <em>c</em> greater than zero &rArr; <em>cx</em> &lt;
+                        <em>cy</em>. Since (0.99)(9981) = 9881.19 &lt; 9896 &lt; 9981, then
+                        0.99 &lt; 9896 / 9981 &lt; 1.</li>
+                    <li><strong>Order preserved under addition.</strong> <em>x</em> &lt; <em>y</em> &rArr;
+                        <em>x</em> + <em>c</em> &lt; <em>y</em> + <em>c</em>. So 84.99 &lt; <em>p</em> &lt; 85,
+                        and <em>p</em> &asymp; 84.9915.</li>
+                    <li><strong>Flag, no property available.</strong> Rounding to the nearest whole percent
+                        rests on reporting convention, not on a theorem. Under that convention
+                        <em>p</em> reads 85.</li>
+                </ol>
+
+                <h3>Verification</h3>
+
+                <p>499.05 = 9981 / 20, so (<em>p</em> / 100)<em>T</em> = (8483 / 9981)(9981 / 20) =
+                    8483 / 20 = 424.15. Both sides match the volume consumed.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/xb4832e56:percent" target="_blank" rel="noopener">Khan Academy — Percentages</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 15, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

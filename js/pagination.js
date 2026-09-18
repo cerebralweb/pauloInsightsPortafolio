@@ -7,6 +7,91 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "The Licenses A Cloud Team Never Assigned, And What They Reveal",
+            articleDescription: "That small unclaimed remainder is often the only number on record, and it is enough to recover the size of the original order",
+            articleHref: "/a/the-licenses-a-cloud-team-never-assigned-and-what-they-reveal.html"
+        },
+        {
+            articleTitle: "The Release Gate Counts Test Cases, The Dashboard Reports Only A Share",
+            articleDescription: "Monitoring tools report shares, while approval rules are written on counts. A team that cannot move from one to the other stalls at the very gate it built, because the figure on screen never answers the question the policy asks. This problem shows how a reported share is turned back into the countable base it came from, and why the route chosen decides whether the answer survives a live review",
+            articleHref: "/a/the-release-gate-counts-test-cases-the-dashboard-reports-only-a-share.html"
+        },
+        {
+            articleTitle: "The Migration Fee Hidden Inside Every Cloud Onboarding Quote For Eleven Engineers",
+            articleDescription: "Cloud vendors quote one figure per user, and that figure mixes charges of different kinds. A one time setup fee sits beside a recurring subscription, so the headline number tells a buyer nothing about what the service costs to keep. Separating a fixed charge from a recurring one, then reducing the recurring part to a single period, is the move that turns a quote into a rate a budget can carry",
+            articleHref: "/a/the-migration-fee-hidden-inside-every-cloud-onboarding-quote-for-eleven-engineers.html"
+        },
+        {
+            articleTitle: "The Batch Came Back Early, But Not Early Enough For The Target",
+            articleDescription: "This problem shows how a share of a total, once converted into the right unit, separates a run that beat the promise from a run that missed the target",
+            articleHref: "/a/the-batch-came-back-early-but-not-early-enough-for-the-target.html"
+        },
+        {
+            articleTitle: "When An MLOps Team Screens Sixteen More Models Than Last Cycle",
+            articleDescription: "A growth figure means something only when the base is named. Companies compare volume from one cycle to the next to judge capacity, staffing, and the pace of demand, and the same count reads as progress or as noise depending on what it sits against. This problem shows how a comparison between two period counts collapses into one figure, and how that figure can be packaged as a tool that outlives the single case",
+            articleHref: "/a/when-an-mlops-team-screens-sixteen-more-models-than-last-cycle.html"
+        },
+        {
+            articleTitle: "Two Accounts Grow At One Pace, And The Fixed Gap Recovers Any Past Balance",
+            articleDescription: "Two quantities that advance at the same pace keep a gap that never moves, and that fixed gap is often the only stable fact available for planning. Once a stated share ties one quantity to the other, a single earlier or later moment can be recovered without tracking every step between. This problem shows how a share of a quantity plus an unchanging difference determine a past value, and how a short Python function turns that reasoning into a reusable tool",
+            articleHref: "/a/two-accounts-grow-at-one-pace-and-the-fixed-gap-recovers-any-past-balance.html"
+        },
+        {
+            articleTitle: "The Workloads Moving Into Cluster B, And The Nodes They Will Cost",
+            articleDescription: "Platform teams write rules that fire when incoming demand passes a share",
+            articleHref: "/a/the-workloads-moving-into-cluster-b-and-the-nodes-they-will-cost.html"
+        },
+        {
+            articleTitle: "What A University Keeps Of Its Cloud Commitment After Two Billing Months",
+            articleDescription: " Finance teams who track consumption against the original purchase overstate what is left, because a share of the balance is not a share of the pool",
+            articleHref: "/a/what-a-university-keeps-of-its-cloud-commitment-after-two-billing-months.html"
+        },
+        {
+            articleTitle: "When A Discount And A Tax Land On The Same Invoice Line",
+            articleDescription: "A published amount picks up a rebate, a levy, a surcharge, and the party issuing the document decides which adjustment lands where. Disputes over that sequence fill contracts, invoices, and audit notes, because two people can agree on every percentage and still argue about the base each one applies to. This problem shows how the wording of a pricing clause, not the arithmetic, settles the question, and how a short function turns the rule into something reusable",
+            articleHref: "/a/when-a-discount-and-a-tax-land-on-the-same-invoice-line.html"
+        },
+        {
+            articleTitle: "What A Procurement Lead Recovers From A Discounted Cloud Platform Quote",
+            articleDescription: "This problem shows how one linear equation recovers a hidden list price from a negotiated quote, and how a short Python function turns that recovery into a tool a procurement team can reuse on every renewal",
+            articleHref: "/a/what-a-procurement-lead-recovers-from-a-discounted-cloud-platform-quote.html"  
+        },
+        {
+            articleTitle: "Committed GPU Capacity And The Monthly Spend It Replaced",
+            articleDescription: "Cloud contracts and operating budgets speak in different periods. A vendor quotes a year, a finance team reviews a month",
+            articleHref: "/a/committed-gpu-capacity-and-the-monthly-spend-it-replaced.html"
+        },
+        {
+            articleTitle: "The Backup Volume Fills Up Long Before Anyone Orders More Storage",
+            articleDescription: "Storage capacity is one of the few resources an operations team spends without ever signing an order",
+            articleHref: "/a/the-backup-volume-fills-up-long-before-anyone-orders-more-storage.html"
+        },
+        {
+            articleTitle: "630 Seats Last Year, And What The Renewal Desk Can Still Promise",
+            articleDescription: "Renewal figures arrive as survivors. A vendor sees what stayed, not what left, and every account review starts by rebuilding the base that produced the current count. This problem shows how a reverse share recovers a prior year from a surviving one, and how two different mental routes reach the same figure under different properties",
+            articleHref: "/a/630-seats-last-year-and-what-the-renewal-desk-can-still-promise.html"
+        },
+        {
+            articleTitle: "2,277 Models In Production, And The Baseline A Cloud Team Forgot",
+            articleDescription: "Operating metrics rarely arrive with their own history attached. A platform team knows what it runs today and knows how each year compared with the one before, yet the starting point of the trend sits two steps back and has to be recovered. This problem shows how a chain of year over year comparisons can be reversed to recover a baseline, and why every step in that reversal rests on a property that can be named",
+            articleHref: "/a/2277-models-in-production-and-the-baseline-a-cloud-team-forgot.html"
+        },
+        {
+            articleTitle: "The Scaling Ceiling Went Up, And So Did The Cloud Bill",
+            articleDescription: "A cloud invoice reports what a service consumed, never what it used to consume",
+            articleHref: "/a/the-scaling-ceiling-went-up-and-so-did-the-cloud-bill.html"
+        },
+        {
+            articleTitle: "The Storage Volume A Single Workload Nearly Filled Before Anyone Checked",
+            articleDescription: "Provisioned capacity is paid for in advance, so the only figure that matters in a review is how much of it a workload is actually holding. Teams that track the share consumed see a volume approaching its ceiling weeks before a write fails, while teams that track raw volume consumed see nothing until the alert fires.",
+            articleHref: "/a/the-storage-volume-a-single-workload-nearly-filled-before-anyone-checked.html"
+        },
+        {
+            articleTitle: "The Cloud Region Where One Volume Outgrows The Other By Twelve Terabytes",
+            articleDescription: "A team sizes two volumes, records the gap between them, and then discovers months later that the gap was never derived, only assumed",
+            articleHref: "/a/the-cloud-region-where-one-volume-outgrows-the-other-by-twelve-terabytes.html"
+        },
+        {
             articleTitle: "When A Second Associate Joins The Beverage Aisle Restock Run",
             articleDescription: "Retail floor labor is planned in repetitions, not in totals. A store lead needs to know what a task costs per cycle, what changes when a second associate absorbs part of the load, and whether the work closes before the shift does. This problem shows how one signed quantity, the additive inverse, carries a staffing calculation from the shop floor to the axioms of algebra",
             articleHref: "/a/when-a-second-associate-joins-the-beverage-aisle-restock-run.html"

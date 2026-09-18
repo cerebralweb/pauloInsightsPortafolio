@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A batch inference job returned in 2 hours 30 minutes against a target set at 10 percent of a 24 hour provider window. See the answer, the reasoning, and a Python script that checks any run.">
+    <meta name="keywords" content="percent of a total, unit conversion, batch inference, service window, cloud operations, business math, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-batch-came-back-early-but-not-early-enough-for-the-target.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-batch-came-back-early-but-not-early-enough-for-the-target.html" />
+
+    <title>The Batch Came Back Early, But Not Early Enough For The Target</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE BATCH CAME BACK EARLY, BUT NOT EARLY ENOUGH FOR THE TARGET
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    A service commitment tells a buyer the worst case, never the standard to work toward. Teams close that gap by setting an internal target as a share of the window they were promised, then scoring every run against it, which turns a contract clause into something an operations team can act on each morning. <dfn>This problem shows how a share of a total, once converted into the right unit, separates a run that beat the promise from a run that missed the target.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A team sends a nightly batch inference job to a provider that commits to returning results within 24 hours. The team sets its own target at 10 percent of that window. Last night the batch came back in 2 hours and 30 minutes.</p>
+                <p>Was the run over or under the target, and by how much?</p>
+                <ul>
+                    <li>a) under, by a difference above one hour</li>
+                    <li>b) over, by a difference below one hour</li>
+                    <li>c) equal</li>
+                    <li>d) under, by a difference below one hour</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) over, by a difference below one hour ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Multiply</strong> 24 hours by 0.10 and the target is 2.4 hours, then <strong>convert</strong> the decimal part, since 0.4 of an hour is 24 minutes rather than 40. The target stands at 2 hours 24 minutes, so a run of 2 hours 30 minutes <strong>exceeds</strong> it by 6 minutes.</p>
+
+                    <p class="insight"><em>A decimal hour is not a clock reading, and 0.4 hours converts to 24 minutes because hours divide by 60 rather than by 100.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Window in hours:</strong> 24</li>
+                            <li><strong>Target as a decimal:</strong> 10 percent becomes 0.10</li>
+                            <li><strong>Target in hours:</strong> 24 × 0.10 = 2.4</li>
+                            <li><strong>Decimal part into minutes:</strong> 0.4 × 60 = 24</li>
+                            <li><strong>Target restated:</strong> 2 hours 24 minutes</li>
+                            <li><strong>Run time:</strong> 2 hours 30 minutes</li>
+                            <li><strong>Difference:</strong> 150 minutes minus 144 minutes = 6 minutes</li>
+                            <li><strong>Size of the gap:</strong> 6 minutes against 60 minutes, so below one hour</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Taking a fixed share of a promised window is older than the service contracts that now depend on it. Railway companies in the 1840s were the first to face the problem at scale, since a published timetable created a promise that had to be measured against clocks that disagreed from town to town, and Greenwich time spread across Britain because operations needed one base before any share of it meant anything.</p>
+
+                <p>The base itself remains a convention rather than a fact of nature. A day measured by the rotation of the Earth is not exactly 86,400 seconds, which is why leap seconds were inserted from 1972 onward, and why the General Conference on Weights and Measures resolved in 2022 to stop inserting them by 2035. Computing drove that decision, since irregular seconds broke timestamps and scheduled jobs. The 24 hour window used in the problem holds because the world agreed to keep clocks steady rather than follow the planet.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script takes any service window, any target percent, and any run time, then reports whether the run was over or under target and whether the gap sits below one hour.</p>
+
+<pre><code># What this does: checks whether a batch job beat the team's time target.
+# Where it came from: a provider promises results within 24 hours, and the team set its own target at 10 percent of that.
+# The math idea: take a percent of a total, then compare two times.
+# You type in: the window in hours, the target percent, and how long the batch took.
+# It prints: whether the batch was over or under target, and by how many minutes.
+
+# This function does all the math and hands back three things.
+def check_batch(window_hours, target_percent, run_hours, run_minutes):
+    # Turn the percent into a part of one. So 10 becomes 0.10.
+    target_part = target_percent / 100
+    # Take that part of the window. This is the target, still in hours.
+    target_hours = window_hours * target_part
+    # Change the target into minutes so both times use the same unit.
+    target_total_minutes = target_hours * 60
+    # Change the run time into minutes too.
+    run_total_minutes = run_hours * 60 + run_minutes
+    # How far the run was from the target. Positive means it went over.
+    gap = run_total_minutes - target_total_minutes
+    return target_total_minutes, run_total_minutes, gap
+
+# Tell the reader what we will figure out.
+print("Let's check the batch job against the time target.")
+
+# Ask how long the provider window is.
+window_hours = float(input("Provider window in hours: "))
+
+# Ask for the target percent.
+target_percent = float(input("Target as a percent of the window: "))
+
+# Ask how long the batch took, in two parts.
+run_hours = float(input("Hours the batch took: "))
+run_minutes = float(input("Minutes the batch took: "))
+
+# Do the math.
+target_total_minutes, run_total_minutes, gap = check_batch(window_hours, target_percent, run_hours, run_minutes)
+
+# Say the target in whole hours plus leftover minutes, which is easier to read.
+target_hours_part = int(target_total_minutes // 60)
+target_minutes_part = target_total_minutes % 60
+target_minutes_part = int(target_minutes_part) if target_minutes_part.is_integer() else round(target_minutes_part, 1)
+
+# Print the target.
+print("Target time:", target_hours_part, "hours", target_minutes_part, "minutes")
+
+# Work out the size of the gap, ignoring which side it falls on.
+size = abs(gap)
+size = int(size) if float(size).is_integer() else round(size, 1)
+
+# Over target, under target, or right on it.
+if gap &gt; 0:
+    print("The batch ran OVER target by", size, "minutes.")
+elif gap &lt; 0:
+    print("The batch ran UNDER target by", size, "minutes.")
+else:
+    print("The batch hit the target exactly.")
+
+# Say whether the gap is smaller or bigger than one hour.
+if abs(gap) &lt; 60:
+    print("The gap is below one hour.")
+elif abs(gap) &gt; 60:
+    print("The gap is above one hour.")
+else:
+    print("The gap is exactly one hour.")
+</code></pre>
+
+                <p>Paste it into a Python prompt, then type 24, 10, 2, and 30 to see a target of 2 hours 24 minutes and an overrun of 6 minutes, below one hour.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-percent-word-problems/v/percent-word-problems" target="_blank" rel="noopener">Khan Academy — Percent of a Number</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

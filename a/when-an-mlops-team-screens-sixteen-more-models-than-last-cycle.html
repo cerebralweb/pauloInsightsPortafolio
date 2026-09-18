@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="An MLOps team screened 80 candidate models one cycle and 96 the next. A justified proof of the growth figure, the historical origin of the comparison, a reusable Python script, and a Claude skill file.">
+    <meta name="keywords" content="percent increase, MLOps, model screening, growth rate, business math, justified proof, Python, Claude skills, year over year comparison">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/when-an-mlops-team-screens-sixteen-more-models-than-last-cycle.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/when-an-mlops-team-screens-sixteen-more-models-than-last-cycle.html" />
+
+    <title>When an MLOps Team Screens Sixteen More Models Than Last Cycle</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    WHEN AN MLOPS TEAM SCREENS SIXTEEN MORE MODELS THAN LAST CYCLE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    A growth figure means something only when the base is named. Companies compare volume from one cycle to the next to judge capacity, staffing, and the pace of demand, and the same count reads as progress or as noise depending on what it sits against. <dfn>This problem shows how a comparison between two period counts collapses into one figure, and how that figure can be packaged as a tool that outlives the single case.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>An MLOps team screened 80 candidate models during last year's evaluation cycle. This year it screened 96.</p>
+                <p>By what percentage did the number of models screened increase over last year?</p>
+                <ul>
+                    <li>a) 20 %</li>
+                    <li>b) 16.6 %</li>
+                    <li>c) 83 %</li>
+                    <li>d) 5 %</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 20 % ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The extra volume is 16 models, so the task is to <strong>divide</strong> that change by last year's 80, the base the question names. Since 16 / 80 <strong>reduces</strong> to 1 / 5, the increase is 20 %.</p>
+
+                    <p class="insight"><em>Every point of growth here is worth 0.8 models, which is why a swing of 16 lands on a round 20 %.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Prior cycle volume:</strong> 80 models screened, the base</li>
+                            <li><strong>Current cycle volume:</strong> 96 models screened</li>
+                            <li><strong>Change:</strong> 96 minus 80 = 16 models</li>
+                            <li><strong>Change over base:</strong> 16 / 80 = 1 / 5</li>
+                            <li><strong>Part of one:</strong> 1 ÷ 5 = 0.20</li>
+                            <li><strong>Stated as a percent:</strong> 0.20 = 20 %</li>
+                            <li><strong>Cross check:</strong> 96 / 80 = 1.20, which stands 20 % above the base</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Justified Proof</h2>
+
+                <p><strong>Setup.</strong> Let p be the prior cycle volume, so p = 80 models. Let c be the current cycle volume, so c = 96 models. Let r be the increase as a part of one, measured against p. The question names last year as the reference, so the governing equation is c = p + rp, that is 96 = 80 + 80r.</p>
+
+                <ol>
+                    <li>The extra volume is 16 models. Subtraction property of equality. Subtract 80 from both sides of 96 = 80 + 80r, which leaves 16 = 80r.</li>
+                    <li>r equals the quotient 16 / 80. Division property of equality. Divide both sides of 16 = 80r by 80.</li>
+                    <li>16 / 80 reduces to 1 / 5. Cancellation, b times a over b equals a. Write 16 = 16(1) and 80 = 16(5), then cancel the shared factor 16.</li>
+                    <li>r = 0.20. Definition of a rational number as a quotient. Carry out 1 ÷ 5 = 0.20.</li>
+                    <li>r = 20 %. Definition of percent as parts per hundred. 0.20 = 20 / 100, which is written 20 %.</li>
+                    <li>The base is p and not c. FLAG. This move rests on reading the question, which asks for the change relative to last year, rather than on a named theorem.</li>
+                    <li>An independent route returns the same r. Substitution. From c = p(1 + r), divide by p to get 96 / 80 = 6 / 5 = 1.20, so 1 + r = 1.20 and r = 0.20.</li>
+                </ol>
+
+                <p><strong>Verification.</strong> Put r = 0.20 back into c = p + rp. Then 80(0.20) = 16 and 80 + 16 = 96. The right side equals the stated current volume, so both sides match.</p>
+
+                <p><strong>Answer.</strong> The MLOps team screened 20 % more candidate models this cycle than last, which is option a.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Rates per hundred entered commercial practice through Roman lending, where the monthly charge known as the centesima fixed one part in a hundred and gave later merchants a shared unit. Italian trade manuals of the fifteenth century carried the habit into bookkeeping, setting profit against outlay so that two ventures of different size could be ranked on one scale. Statistical offices of the nineteenth century then turned the same comparison into the period over period growth rate for prices, output, and population, and firms now apply that inherited form to counts as ordinary as the models a team puts through evaluation.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script holds the base in one place and reports the growth between any two period counts, e.g. tickets opened, licenses sold, or seats activated.</p>
+
+<pre><code># What this does: works out how much bigger this year's number is, as a percent.
+# Where it came from: an MLOps team screened 80 candidate models one year and 96 the next.
+# The math idea: find the extra amount, then see what part of the old number it is.
+# You type in: last year's count and this year's count.
+# It prints: the percent increase from last year to this year.
+
+# This function does the math.
+def percent_increase(prior_count, current_count):
+    # Find how many more models were screened this year.
+    extra = current_count - prior_count
+    # See what part of last year's count that extra amount is, then turn it into a percent.
+    return (extra / prior_count) * 100
+
+# Tell the reader what we will figure out.
+print("Let's find the percent increase in models screened.")
+
+# Ask for last year's count.
+prior_count = float(input("Models screened last cycle: "))
+
+# Ask for this year's count.
+current_count = float(input("Models screened this cycle: "))
+
+# Do the math.
+result = percent_increase(prior_count, current_count)
+
+# Show a whole number when the answer has no decimals.
+result = int(result) if result.is_integer() else round(result, 2)
+
+# Print the answer with words that fit the scenario.
+print("Increase in models screened versus last cycle:", str(result) + " %")
+</code></pre>
+
+                <p>Paste it into a Python session, enter 80 and then 96, and it returns 20 %.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+<pre class="md-code"><code>---
+name: percent-increase-calculator
+description: Computes the percentage increase between a prior count and a current count, then reports the result with business wording. Trigger this skill whenever the user compares two counts across periods and wants the growth expressed as a percentage, e.g. models screened last cycle versus this cycle, tickets opened last month versus this month, or licenses sold last quarter versus this quarter, even if they don't use technical language.
+---
+
+<span class="md-heading"># Percent Increase Calculator</span>
+
+This skill takes two counts from two periods and reports how much the later count grew over the earlier one, stated as a percentage of the earlier count. It expects one number for the prior period and one number for the current period. It returns a single percentage figure phrased in the wording of the scenario the user described.
+
+---
+
+<span class="md-heading">## Dependencies</span>
+
+None. Basic arithmetic covers the whole calculation.
+
+---
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Prior period count**</span>. The quantity recorded in the earlier period. Any number greater than zero, since it serves as the base of the comparison.
+- <span class="md-bold">**Current period count**</span>. The quantity recorded in the later period. Any number, whole or decimal.
+
+---
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1 — Collect the two counts</span>
+
+Ask the user for the prior period count and the current period count, one at a time, using prompts that name the scenario rather than generic labels. Accept decimals as well as whole numbers.
+
+<span class="md-heading">### Step 2 — Validate the base</span>
+
+Check that the prior period count is not zero. If it is zero, stop and tell the user that a percentage increase has no base to compare against, then ask for a nonzero prior count.
+
+<span class="md-heading">### Step 3 — Find the change</span>
+
+Subtract the prior period count from the current period count. This gives the extra amount added between the two periods. A negative result means the quantity fell rather than grew.
+
+<span class="md-heading">### Step 4 — Express the change as a share of the base</span>
+
+Divide the change by the prior period count. This gives the change as a part of one. Multiply by 100 to state it as a percentage.
+
+<span class="md-heading">### Step 5 — Format the figure</span>
+
+If the percentage lands on a whole number, show it without decimals. Otherwise round it to two decimals.
+
+<span class="md-heading">### Step 6 — Report the result</span>
+
+Print the percentage with wording that names the quantity and the comparison, e.g. "Increase in models screened versus last cycle, 20 %". If the result is negative, phrase it as a decrease rather than an increase. Do not print the intermediate change or the division result unless the user asks.
+
+---
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "We screened 80 models last year and 96 this year, how much did that grow?"
+- "Support tickets went from 240 to 300, what is the percent increase?"
+- "Tell me the year over year growth in licenses sold"
+- "Our headcount rose from 45 to 52, by what percentage?"
+</code></pre>
+
+                <p>The skill file states the same procedure as instructions rather than code, so the calculation runs inside a conversation with no Python session open. The result stays tied to the scenario, which means the figure arrives named rather than bare.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/xb4832e56:percentages" target="_blank" rel="noopener">Khan Academy — Percentages and Percent Change</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

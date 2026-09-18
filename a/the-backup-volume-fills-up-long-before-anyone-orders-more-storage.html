@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud storage volume loses a fixed share of its free capacity with every backup snapshot. The article works out what remains, step by step, and names the property behind each move.">
+    <meta name="keywords" content="cloud storage capacity, backup snapshots, percentages, distributivity, associativity of addition, business math, capacity planning">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-backup-volume-fills-up-long-before-anyone-orders-more-storage.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-backup-volume-fills-up-long-before-anyone-orders-more-storage.html" />
+
+    <title>The Backup Volume Fills Up Long Before Anyone Orders More Storage</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>2026-09-08 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE BACKUP VOLUME FILLS UP LONG BEFORE ANYONE ORDERS MORE STORAGE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Storage capacity is one of the few resources an operations team spends without ever
+                    signing an order. Every routine backup consumes a share of the same volume, and the
+                    team notices the cost only when a write fails and the recovery plan stops working.
+                    <dfn>This problem shows how a repeated share of a fixed capacity turns into a
+                    planning figure, and how the arithmetic behind that figure can be named property by
+                    property.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Every week, Adriana writes backup snapshots of a production database to a cloud storage
+                volume. Each snapshot uses 3.5% of the volume capacity. At the moment, 62% of the volume
+                capacity is free.</p>
+
+                <p>If Adriana wrote 5 snapshots this week, how much free capacity remains on the volume?</p>
+
+                <ul>
+                    <li>a) 217 megabytes</li>
+                    <li>b) 17.8%</li>
+                    <li>c) 44.5%</li>
+                    <li>d) 45%</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 44.5% ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Five snapshots at 3.5% of capacity each consume <strong>5 × 3.5 = 17.5</strong> of
+                    the free share, so the remaining free capacity is <strong>62 − 17.5 = 44.5</strong>.
+                    Both figures stay in percent of the same volume, which is what makes the subtraction
+                    valid.</p>
+
+                    <p class="insight"><em>The volume loses 17.5 points of free capacity a week, so the
+                    free share reaches zero in under four weeks at this write rate.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Capacity per snapshot:</strong> 3.5% of the volume</li>
+                            <li><strong>Snapshots written:</strong> 5</li>
+                            <li><strong>Distributivity of multiplication over addition:</strong> 5(3 + 0.5) = 5(3) + 5(0.5) = 15 + 2.5 = 17.5</li>
+                            <li><strong>Substitution:</strong> free capacity remaining = 62 − 17.5</li>
+                            <li><strong>Associativity of addition:</strong> 62 − 17.5 = (62 − 17) − 0.5 = 45 − 0.5 = 44.5</li>
+                            <li><strong>Verification:</strong> 44.5 + 17.5 = 62, which returns the starting free share</li>
+                            <li><strong>Conclusion:</strong> 44.5% of the volume capacity stays free</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Solution With Named Properties</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let f be the free capacity before this week's writes, u the
+                capacity one snapshot consumes, n the number of snapshots written, and F the free capacity
+                that remains. Each write removes u from the free capacity, so n writes remove nu.
+                Therefore F = f − nu, with f = 62, u = 3.5 and n = 5. All quantities are percentages of
+                the same volume.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>f is the free capacity before the writes, 62 in percent.</li>
+                    <li>u is the capacity one snapshot consumes, 3.5 in percent.</li>
+                    <li>n is the number of snapshots written this week, 5.</li>
+                    <li>nu is the total capacity the week's writes consume.</li>
+                    <li>F is the free capacity remaining, the unknown, in percent.</li>
+                    <li>⇒ reads implies.</li>
+                </ul>
+
+                <h3>Step 1 — Distributivity of multiplication over addition</h3>
+
+                <p><strong>Property.</strong> Distributivity. x(y + z) = xy + xz.</p>
+                <p><strong>Inference.</strong> nu = 5(3 + 0.5) = 5(3) + 5(0.5) = 15 + 2.5 = 17.5.</p>
+
+                <h3>Step 2 — Substitution</h3>
+
+                <p><strong>Property.</strong> Substitution. x = y ⇒ x may replace y.</p>
+                <p><strong>Inference.</strong> F = 62 − 17.5. From line 1.</p>
+
+                <h3>Step 3 — Associativity of addition</h3>
+
+                <p><strong>Property.</strong> Associativity of addition. (x + y) + z = x + (y + z), so a
+                subtraction may be split into parts.</p>
+                <p><strong>Inference.</strong> 62 − 17.5 = (62 − 17) − 0.5 = 45 − 0.5 = 44.5.</p>
+
+                <h3>Step 4 — Transitivity of equality</h3>
+
+                <p><strong>Property.</strong> Transitivity of equality. x = y and y = z ⇒ x = z.</p>
+                <p><strong>Inference.</strong> F = 44.5. From lines 2 and 3.</p>
+
+                <h3>Verification</h3>
+
+                <p>F + nu = 44.5 + 17.5 = 62 = f. Both sides match.</p>
+
+                <h3>Answer</h3>
+
+                <p>F = 44.5, option c. About 44.5% of the volume capacity stays free after the five
+                snapshots.</p>
+
+                <p class="insight"><em>Option a is stated in megabytes. The problem fixes no total
+                capacity, so that option cannot be evaluated by computation, only ruled out by unit
+                mismatch.</em></p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Counting in hundredths is a fiscal habit before it is a mathematical one. Rome levied
+                the <em>centesima rerum venalium</em>, a hundredth on goods sold at auction, and clerks
+                learned to state a levy as so much per hundred rather than as a fraction of an unknown
+                total.</p>
+
+                <p>Italian merchant houses of the fifteenth century carried the habit into ledgers,
+                where interest, freight and losses were all quoted per hundred so that accounts of very
+                different sizes could be compared on one page. The modern capacity dashboard inherits
+                that convention, which is why a storage volume reports a share rather than a raw count of
+                bytes.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script turns the weekly write pattern into a reusable capacity check, so the same
+                function answers the question for any snapshot size, any write count and any starting free
+                share.</p>
+
+<pre><code>def remaining_free_capacity(free_percent, percent_per_write, writes):
+    """Return the free capacity left, in percent, after a batch of writes."""
+    consumed = percent_per_write * writes
+    return round(free_percent - consumed, 2)
+
+
+def weeks_until_full(free_percent, percent_per_write, writes):
+    """Return how many further weeks of writes the free share supports."""
+    per_week = percent_per_write * writes
+    return int(free_percent // per_week)
+
+
+if __name__ == "__main__":
+    free = 62.0
+    per_write = 3.5
+    writes = 5
+
+    print(remaining_free_capacity(free, per_write, writes))
+    print(weeks_until_full(free, per_write, writes))
+</code></pre>
+
+                <p>Run it with <code>python capacity.py</code>. It prints 44.5, the free capacity in
+                percent after this week, and 3, the number of further weeks the current free share
+                supports at the same write rate.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/arithmetic/arith-review-percent" target="_blank" rel="noopener">Khan Academy — Percentages</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 8, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A stated share of one quantity fixes a second quantity, and the gap between the two stays constant over time. Worked solution, named properties, and a reusable Python function.">
+    <meta name="keywords" content="percent of a quantity, constant difference, age problems, proportional reasoning, step by step solution, python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/two-accounts-grow-at-one-pace-and-the-fixed-gap-recovers-any-past-balance.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/two-accounts-grow-at-one-pace-and-the-fixed-gap-recovers-any-past-balance.html" />
+
+    <title>Two Accounts Grow at One Pace, and the Fixed Gap Recovers Any Past Balance</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 14, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    TWO ACCOUNTS GROW AT ONE PACE, AND THE FIXED GAP RECOVERS ANY PAST BALANCE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Two quantities that advance at the same pace keep a gap that never moves, and that fixed gap is often the only stable fact available for planning. Once a stated share ties one quantity to the other, a single earlier or later moment can be recovered without tracking every step between. <dfn>This problem shows how a share of a quantity plus an unchanging difference determine a past value, and how a short Python function turns that reasoning into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>Diana is 24 years old. Her brother Jaime is 125 % of her age.</p>
+                <p>How old was Diana when Jaime was 12 years old?</p>
+                <ul>
+                    <li>a) 5.6 years</li>
+                    <li>b) 9.6 years</li>
+                    <li>c) 5 years</li>
+                    <li>d) 6 years</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 6 years ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The stated share fixes Jaime at <strong>(125/100)(24) = 30</strong>, so the difference between the two ages is <strong>30 − 24 = 6</strong>. That difference holds at every moment, so at the point where Jaime was 12 Diana was <strong>12 − 6 = 6</strong>.</p>
+
+                    <p class="insight"><em>The share is only a device for finding the gap, and it is the gap that answers the question.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Share applied:</strong> J = (125/100)(24)</li>
+                            <li><strong>Second age fixed:</strong> J = 3000/100 = 30</li>
+                            <li><strong>Difference taken:</strong> J − D = 30 − 24 = 6</li>
+                            <li><strong>Difference held constant:</strong> 12 − d = 6</li>
+                            <li><strong>Unknown isolated:</strong> d = 12 − 6 = 6</li>
+                            <li><strong>Check:</strong> d = 6, elapsed 18, so 12 + 18 = 30 and (125/100)(24) = 30</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="proof-version">Step by Step With Named Properties</h2>
+
+                <p>Each line below states a finding and names the property, definition, or law that licenses it.</p>
+
+                <h3>Setup</h3>
+
+                <p>Let D be Diana's age now and J Jaime's age now. The problem fixes D at 24 and states that J is 125 % of D. Let d be Diana's age at the earlier moment when Jaime was 12, and let t be the years between that moment and now. Both ages advance over the same t, so D = d + t and J = 12 + t.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>D is Diana's age now in years, 24.</li>
+                    <li>J is Jaime's age now in years, 30 once Step 2 fixes it.</li>
+                    <li>d is Diana's age when Jaime was 12, the unknown, a positive rational.</li>
+                    <li>t is the years elapsed from that earlier moment to now, a positive number that cancels in Step 4.</li>
+                    <li>125 % is the fraction 125/100 applied to D.</li>
+                    <li>12 is Jaime's age at the earlier moment.</li>
+                    <li>⇒ reads implies.</li>
+                </ul>
+
+                <h3>Solution</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> p % of x = (p/100)x. Therefore J = (125/100)(24).</li>
+                    <li><strong>Cancellation law.</strong> For y ≠ 0, (yx)/y = x. Therefore J = (125)(24)/100 = 3000/100 = (100)(30)/100 = 30. From line 1.</li>
+                    <li><strong>Subtraction property of equality.</strong> x = y and u = v ⇒ x − u = y − v. Therefore J − D = (12 + t) − (d + t). From Setup.</li>
+                    <li><strong>Additive inverse and additive identity.</strong> x + (−x) = 0 and x + 0 = x. Therefore (12 + t) − (d + t) = (12 − d) + (t − t) = 12 − d. From line 3.</li>
+                    <li><strong>Substitution.</strong> x = y ⇒ x may replace y. Therefore 12 − d = 30 − 24 = 6. From lines 2 and 4.</li>
+                    <li><strong>Addition property of equality.</strong> x = y ⇒ x + c = y + c. Therefore (12 − d) + d = 6 + d ⇒ 12 = 6 + d. From line 5.</li>
+                    <li><strong>Subtraction property of equality.</strong> As in line 3. Therefore 12 − 6 = (6 + d) − 6 ⇒ d = 6. From line 6.</li>
+                </ol>
+
+                <h3>Verification</h3>
+
+                <p>d = 6 ⇒ t = 24 − 6 = 18, so J = 12 + 18 = 30, and (125/100)(24) = 30. Both sides match, so d = 6 years.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Problems that pair a stated share with an unchanging difference are among the oldest exercises in practical arithmetic. The Nine Chapters on the Mathematical Art, compiled in Han dynasty China, devotes long passages to dividing grain, wages, and tax burdens in stated proportions, and its methods for proportional parts were taught to officials who had to settle real claims. Later merchant manuals in medieval and Renaissance Europe carried the same structure into partnership accounts, where each partner held a share of a total while the spread between two contributions stayed fixed across the life of the venture.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script recovers an earlier value of one quantity from a stated share and a single known value of the other, so any variant of the problem runs through the same three lines.</p>
+
+                <pre><code>def earlier_age(current_age, percent, other_age_then):
+    other_now = current_age * percent / 100
+    gap = other_now - current_age
+    return other_age_then - gap
+
+
+print(earlier_age(24, 125, 12))</code></pre>
+
+                <p>Run it with <code>python earlier_age.py</code> and it returns 6.0, the age of the first person at the moment the second reached the given age.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra" target="_blank" rel="noopener">Khan Academy — Percents and Proportional Reasoning</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 14, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

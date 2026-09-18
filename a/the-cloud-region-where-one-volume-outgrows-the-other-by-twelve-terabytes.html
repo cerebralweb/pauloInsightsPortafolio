@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A storage provisioning problem solved step by step, with every inference named, plus why associativity of addition and associativity of multiplication are two separate axioms.">
+    <meta name="keywords" content="associativity, field axioms, linear equation, cloud storage provisioning, multiplicative inverse, distributivity, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-cloud-region-where-one-volume-outgrows-the-other-by-twelve-terabytes.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-cloud-region-where-one-volume-outgrows-the-other-by-twelve-terabytes.html" />
+
+    <title>The Cloud Region Where One Volume Outgrows the Other by Twelve Terabytes</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 11, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE CLOUD REGION WHERE ONE VOLUME OUTGROWS THE OTHER BY TWELVE TERABYTES
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity planning fails quietly. A team sizes two volumes, records the gap between them, and then discovers months later that the gap was never derived, only assumed. <dfn>This problem shows how a single fractional measurement fixes an unknown capacity, and how naming the property behind each step turns an answer into something auditable.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud provider is provisioning block storage in a new region. The capacity is split into two volumes. One volume is 12 TB larger than the other. Three quarters of the smaller volume equals 120 TB.</p>
+                <p>How large is the larger volume?</p>
+                <ul>
+                    <li>a) 172 TB</li>
+                    <li>b) 160 TB</li>
+                    <li>c) 108 TB</li>
+                    <li>d) 120 TB</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 172 TB ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Three quarters of the smaller volume equals 120 TB, so <strong>multiplying both sides by four thirds</strong> fixes the smaller volume at 160 TB. The gap is then <strong>added</strong>, which puts the larger volume at 172 TB.</p>
+
+                    <p class="insight"><em>The fraction points backward. The 120 TB figure is not a volume, it is three quarters of one, so the smaller volume is larger than the figure the report shows.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Multiplication property of equality:</strong> both sides of (3/4)S = 120 take the factor 4/3</li>
+                            <li><strong>Associativity of multiplication:</strong> (4/3)((3/4)S) regroups as ((4/3)(3/4))S</li>
+                            <li><strong>Multiplicative inverse and identity:</strong> (4/3)(3/4) collapses to 1, and (1)S leaves S</li>
+                            <li><strong>Cancellation law:</strong> (4/3)(120) reduces to (4)(3)(40)/3, which is 160</li>
+                            <li><strong>Transitivity of equality:</strong> the smaller volume is 160 TB</li>
+                            <li><strong>Substitution:</strong> the larger volume equals 160 plus 12</li>
+                            <li><strong>Associativity of addition:</strong> 160 + (10 + 2) regroups as (160 + 10) + 2, which is 172</li>
+                            <li><strong>Verification:</strong> three quarters of 160 is 120, and 172 minus 160 is 12</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Scribes were solving problems of this shape long before anyone wrote an equation. A quantity is unknown, a stated fraction of it is known, and the task is to recover the whole. The Rhind Mathematical Papyrus carries dozens of such exercises, worked through unit fractions and a method of false position, where a convenient guess is scaled to fit the measurement.</p>
+
+                <p>The named properties arrived far later. Regrouping and reordering were used freely for centuries as obvious facts about numbers, and only in the nineteenth century, as mathematicians built structures where the obvious facts failed, were associativity and commutativity separated out and stated as axioms rather than habits.</p>
+
+                <h2 id="proof-version">The Proof, Property by Property</h2>
+
+                <p><strong>Mode.</strong> Compute.</p>
+
+                <p><strong>Setup.</strong> Let S be the length of the smaller volume and L the larger, both in TB. The split fixes L at S plus 12. Three quarters of the smaller volume measures 120 TB, so (3/4)S = 120 and L = S + 12.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>S is the capacity of the smaller volume in TB, an unknown at the start, fixed at 160 by Step 5.</li>
+                    <li>L is the capacity of the larger volume in TB, the unknown asked for.</li>
+                    <li>3/4 is the fraction of the smaller volume that measures 120 TB.</li>
+                    <li>4/3 is the multiplicative inverse of 3/4.</li>
+                    <li>12 is the TB by which the larger volume exceeds the smaller one.</li>
+                    <li>120 is the TB measured by three quarters of the smaller volume.</li>
+                    <li>x, y, z, c are any real numbers, used to state a property in general form.</li>
+                    <li>⇒ reads implies.</li>
+                </ul>
+
+                <h3>Step 1 — Multiplication property of equality</h3>
+                <p><strong>Property.</strong> Multiplication property of equality. x = y ⇒ cx = cy.</p>
+                <p><strong>Inference.</strong> (4/3)((3/4)S) = (4/3)(120).</p>
+
+                <h3>Step 2 — Associativity of multiplication</h3>
+                <p><strong>Property.</strong> Associativity of multiplication. (xy)z = x(yz).</p>
+                <p><strong>Inference.</strong> (4/3)((3/4)S) = ((4/3)(3/4))S. From line 1.</p>
+
+                <h3>Step 3 — Multiplicative inverse and multiplicative identity</h3>
+                <p><strong>Property.</strong> Multiplicative inverse and multiplicative identity. For x ≠ 0, (1/x)x = 1 and 1y = y.</p>
+                <p><strong>Inference.</strong> ((4/3)(3/4))S = (1)S = S. From line 2.</p>
+
+                <h3>Step 4 — Cancellation law</h3>
+                <p><strong>Property.</strong> Cancellation law. For y ≠ 0, (yx)/y = x.</p>
+                <p><strong>Inference.</strong> (4/3)(120) = (4)(120)/3 = (4)(3)(40)/3 = 160.</p>
+
+                <h3>Step 5 — Transitivity of equality</h3>
+                <p><strong>Property.</strong> Transitivity of equality. x = y and y = z ⇒ x = z.</p>
+                <p><strong>Inference.</strong> S = 160. From lines 3 and 4.</p>
+
+                <h3>Step 6 — Substitution</h3>
+                <p><strong>Property.</strong> Substitution. x = y ⇒ x may replace y.</p>
+                <p><strong>Inference.</strong> L = S + 12 and S = 160, so L = 160 + 12. From line 5.</p>
+
+                <h3>Step 7 — Associativity of addition</h3>
+                <p><strong>Property.</strong> Associativity of addition. (x + y) + z = x + (y + z).</p>
+                <p><strong>Inference.</strong> 160 + 12 = 160 + (10 + 2) = (160 + 10) + 2 = 172. From line 6.</p>
+
+                <h3>Step 8 — Transitivity of equality</h3>
+                <p><strong>Property.</strong> Transitivity of equality, as in Step 5.</p>
+                <p><strong>Inference.</strong> L = 172. From lines 6 and 7.</p>
+
+                <h3>Verification</h3>
+                <p>(3/4)(160) = 120 and 172 = 160 + 12. Both constraints match.</p>
+
+                <h3>Answer</h3>
+                <p>L = 172. The larger volume holds 172 TB, option a.</p>
+
+                <h2 id="associativity-compared">Two Regroupings, Two Axioms</h2>
+
+                <p>Steps 2 and 7 above both regroup three terms, and both leave the value unchanged. The shared form invites a natural question. Do associativity of addition and associativity of multiplication behave the same way?</p>
+
+                <p>They share a shape. Regrouping three terms under one operation changes nothing, which is what allows a long sum or a long product to be written without parentheses at all.</p>
+
+                <p>They part on four counts. Neither one implies the other, and each is assumed separately in the field axioms, so a structure can hold one and lose the other. The octonions add associatively and multiply without associativity. Each also pairs with a different identity and inverse. Addition pairs with 0 and the negative, and asks no permission. Multiplication pairs with 1 and the reciprocal, and the reciprocal does not exist at 0, which is why step 3 above carried a condition and step 7 carried none. Distributivity links the two in one direction alone, since x(y + z) equals xy + xz while x + yz does not equal (x + y)(x + z). The inverse operations inherit nothing, since (8 − 3) − 2 is 3 while 8 − (3 − 2) is 7.</p>
+
+                <h2 id="dialogue-section">Interlude in the Room of Requirement</h2>
+
+                <p><strong>Ron.</strong> The pipe from Hogsmeade to the lake got cut in two. One piece is 12 feet longer than the other, and three quarters of the short piece is 120 feet. How long is the long piece?</p>
+
+                <p><strong>Hermione.</strong> Take four thirds of both sides. Three quarters of S is 120, so S is 160. Add 12. The long piece is 172 feet.</p>
+
+                <p><strong>Ron.</strong> You did that without parchment.</p>
+
+                <p><strong>Hermione.</strong> I did that without a wand.</p>
+
+                <p><strong>Draco.</strong> Father says pipes are for house elves. Say it in cloud storage and I might listen.</p>
+
+                <p><strong>Hermione.</strong> Two volumes. One is 12 TB larger. Three quarters of the smaller is 120 TB. The larger is 172 TB. Same numbers, better robes.</p>
+
+                <p><strong>Snape.</strong> Miss Granger. You arrived at 160 by some private arithmetic. Name the property that licensed each move, or the answer is worth nothing.</p>
+
+                <p><strong>Hermione.</strong> Multiplication property of equality, associativity of multiplication, multiplicative inverse and identity, cancellation law, transitivity of equality, substitution, associativity of addition, and transitivity once more for the finding.</p>
+
+                <p><strong>Snape.</strong> Eight steps for a pipe.</p>
+
+                <p><strong>Hermione.</strong> Eight steps that hold for every pipe, Professor.</p>
+
+                <p><strong>Ron.</strong> Wait. You used associativity twice. Does it behave the same both times?</p>
+
+                <p><strong>Hermione.</strong> Same shape, different axioms. Neither one implies the other. The octonions add associatively and multiply any way they please.</p>
+
+                <p><strong>Luna.</strong> They live past the quaternions. Nobody feeds them.</p>
+
+                <p><strong>Hermione.</strong> The identities differ too. Addition keeps 0 and the negative. Multiplication keeps 1 and the reciprocal, and the reciprocal refuses to exist at 0.</p>
+
+                <p><strong>Luna.</strong> Subtraction is worse. Eight minus 3 minus 2 is 3 if you group left and 7 if you group right. It depends on where you stand.</p>
+
+                <p><strong>Ron.</strong> That is the whole reason I fail Arithmancy.</p>
+
+                <p><strong>Hermione.</strong> That is the whole reason we write the parentheses.</p>
+
+                <p><strong>Snape.</strong> Five points. For the parentheses.</p>
+
+                <h2 id="interactive-graphs">Four Pictures</h2>
+
+                <p>Lengths, areas and a number line, redrawn as you move the sliders. Panel one never changes its verdict. The others do.</p>
+
+                <div style="display:flex;flex-wrap:wrap;gap:20px;margin:18px 0 8px">
+                    <div style="flex:1 1 160px;display:flex;align-items:center;gap:10px"><label for="sx" style="font-family:Georgia,serif;font-style:italic;width:12px">x</label><input id="sx" type="range" min="0" max="6" step="1" value="4" style="flex:1;accent-color:#1D4E89"><output id="ox" style="width:14px;text-align:right">4</output></div>
+                    <div style="flex:1 1 160px;display:flex;align-items:center;gap:10px"><label for="sy" style="font-family:Georgia,serif;font-style:italic;width:12px">y</label><input id="sy" type="range" min="0" max="6" step="1" value="3" style="flex:1;accent-color:#D99B2B"><output id="oy" style="width:14px;text-align:right">3</output></div>
+                    <div style="flex:1 1 160px;display:flex;align-items:center;gap:10px"><label for="sz" style="font-family:Georgia,serif;font-style:italic;width:12px">z</label><input id="sz" type="range" min="0" max="6" step="1" value="2" style="flex:1;accent-color:#4F6B2E"><output id="oz" style="width:14px;text-align:right">2</output></div>
+                </div>
+
+                <figure style="margin:26px 0">
+                    <div id="vgA"></div>
+                    <figcaption style="font-size:14px;line-height:1.5;margin-top:6px">Three lengths, two groupings. The right edge lands on the same tick either way, which is associativity of addition.</figcaption>
+                </figure>
+
+                <figure style="margin:26px 0">
+                    <div id="vgB"></div>
+                    <figcaption style="font-size:14px;line-height:1.5;margin-top:6px">The same product drawn twice. Shape changes, area holds, which is associativity of multiplication. A separate axiom with the same effect.</figcaption>
+                </figure>
+
+                <figure style="margin:26px 0">
+                    <div id="vgC"></div>
+                    <figcaption style="font-size:14px;line-height:1.5;margin-top:6px" id="capC"></figcaption>
+                </figure>
+
+                <figure style="margin:26px 0">
+                    <div id="vgD"></div>
+                    <figcaption style="font-size:14px;line-height:1.5;margin-top:6px" id="capD"></figcaption>
+                </figure>
+
+                <script>
+                (function(){
+                var INK='#2F2A24',MUT='#8A8272',C1='#1D4E89',C2='#D99B2B',C3='#4F6B2E',RD='#A32D2D',GR='#FBF7EF';
+                var F='font-family:Georgia,serif';
+                function g(k){return document.getElementById(k)}
+                function open_(w,h){return '<svg viewBox="0 0 '+w+' '+h+'" width="100%" role="img" style="display:block;background:'+GR+';border-radius:4px">'}
+                function tx(px,py,s,o){o=o||{};return '<text x="'+px+'" y="'+py+'" font-size="'+(o.s||13)+'" fill="'+(o.c||INK)+'" text-anchor="'+(o.a||'start')+'" style="'+F+(o.i?';font-style:italic':'')+'">'+s+'</text>'}
+                function bar(px,cy,w,c){return w<=0?'':'<rect x="'+px+'" y="'+(cy-11)+'" width="'+w+'" height="22" fill="'+c+'" opacity="0.88"/>'}
+                function brace(x1,x2,py,lab,c){
+                    if(x2-x1<1){return ''}
+                    return '<path d="M'+x1+' '+(py+7)+' L'+x1+' '+py+' L'+x2+' '+py+' L'+x2+' '+(py+7)+'" fill="none" stroke="'+c+'" stroke-width="1.2"/>'+tx((x1+x2)/2,py-6,lab,{a:'middle',s:12,c:c});
+                }
+                function draw(){
+                    var x=+g('sx').value,y=+g('sy').value,z=+g('sz').value;
+                    g('ox').value=x;g('oy').value=y;g('oz').value=z;
+                    var t=x+y+z,pr=x*y*z;
+
+                    var u=Math.min(34,470/Math.max(t,1)),X=132,E=X+t*u,s='';
+                    s+=open_(640,196);
+                    s+='<line x1="'+E+'" y1="34" x2="'+E+'" y2="176" stroke="'+MUT+'" stroke-width="1" stroke-dasharray="3 4"/>';
+                    s+=tx(X,52,'left grouping',{s:12,c:MUT})+tx(X,126,'right grouping',{s:12,c:MUT});
+                    s+=bar(X,86,x*u,C1)+bar(X+x*u,86,y*u,C2)+bar(X+(x+y)*u,86,z*u,C3);
+                    s+=brace(X,X+(x+y)*u,64,'(x + y)',C1);
+                    s+=bar(X,160,x*u,C1)+bar(X+x*u,160,y*u,C2)+bar(X+(x+y)*u,160,z*u,C3);
+                    s+=brace(X+x*u,E,138,'(y + z)',C3);
+                    s+=tx(20,91,'('+x+' + '+y+') + '+z,{s:14})+tx(20,165,x+' + ('+y+' + '+z+')',{s:14});
+                    s+=tx(E+8,91,'= '+t,{s:14})+tx(E+8,165,'= '+t,{s:14});
+                    s+='</svg>';
+                    g('vgA').innerHTML=s;
+
+                    var w1=x*y,h1=z,w2=x,h2=y*z;
+                    var k=Math.min(150/Math.max(w1,w2,1),86/Math.max(h1,h2,1));
+                    var b=176,s2=open_(640,216);
+                    s2+='<rect x="70" y="'+(b-h1*k)+'" width="'+(w1*k)+'" height="'+(h1*k)+'" fill="'+C1+'" opacity="0.2" stroke="'+C1+'" stroke-width="1.2"/>';
+                    s2+='<rect x="380" y="'+(b-h2*k)+'" width="'+(w2*k)+'" height="'+(h2*k)+'" fill="'+C2+'" opacity="0.25" stroke="'+C2+'" stroke-width="1.2"/>';
+                    s2+=tx(70,42,'('+x+'\u00b7'+y+')\u00b7'+z,{s:15})+tx(380,42,x+'\u00b7('+y+'\u00b7'+z+')',{s:15});
+                    s2+=tx(70,64,'sides '+w1+' and '+h1,{s:12,c:MUT})+tx(380,64,'sides '+w2+' and '+h2,{s:12,c:MUT});
+                    s2+=tx(70,b+24,'area '+pr,{s:13})+tx(380,b+24,'area '+pr,{s:13});
+                    s2+=tx(320,204,'same area, '+pr,{a:'middle',s:13,c:C3});
+                    s2+='</svg>';
+                    g('vgB').innerHTML=s2;
+
+                    var L=x*(y+z),L2=x+y*z,R2=(x+y)*(x+z);
+                    var q=Math.min(250/Math.max(y+z,1),84/Math.max(x,1)),bb=168,s3=open_(640,244);
+                    s3+='<rect x="150" y="'+(bb-x*q)+'" width="'+(y*q)+'" height="'+(x*q)+'" fill="'+C2+'" opacity="0.28" stroke="'+C2+'" stroke-width="1.2"/>';
+                    s3+='<rect x="'+(150+y*q)+'" y="'+(bb-x*q)+'" width="'+(z*q)+'" height="'+(x*q)+'" fill="'+C3+'" opacity="0.24" stroke="'+C3+'" stroke-width="1.2"/>';
+                    s3+=brace(150,150+(y+z)*q,bb-x*q-16,x+'\u00b7('+y+' + '+z+') = '+L,C1);
+                    s3+=tx(150+(y*q)/2,bb+20,x+'\u00b7'+y+' = '+x*y,{a:'middle',s:13})+tx(150+y*q+(z*q)/2,bb+20,x+'\u00b7'+z+' = '+x*z,{a:'middle',s:13});
+                    s3+=tx(20,44,'forward, the split holds',{s:12,c:MUT});
+                    s3+=tx(20,228,'reverse, '+x+' + '+y+'\u00b7'+z+' = '+L2+' against ('+x+' + '+y+')\u00b7('+x+' + '+z+') = '+R2,{s:13,c:(L2===R2?C3:RD)});
+                    s3+='</svg>';
+                    g('vgC').innerHTML=s3;
+                    g('capC').textContent=(L2===R2?'These values agree by accident. Move a slider and the reverse form breaks.':'Distributivity runs one way. The product splits over a sum, the sum does not split over a product.');
+
+                    var a=(x-y)-z,bv=x-(y-z),lo=Math.min(a,bv,0),hi=Math.max(a,bv,0);
+                    if(hi===lo){hi=lo+1}
+                    var m=function(v){return 70+(v-lo)/(hi-lo)*500},s4=open_(640,140);
+                    s4+='<line x1="60" y1="84" x2="600" y2="84" stroke="'+INK+'" stroke-width="1"/>';
+                    for(var i=Math.ceil(lo);i<=Math.floor(hi);i++){
+                        s4+='<line x1="'+m(i)+'" y1="79" x2="'+m(i)+'" y2="89" stroke="'+MUT+'" stroke-width="1"/>';
+                        if((hi-lo)<=12||i%2===0){s4+=tx(m(i),106,String(i),{a:'middle',s:11,c:MUT})}
+                    }
+                    s4+='<circle cx="'+m(a)+'" cy="84" r="6" fill="'+RD+'"/>'+tx(m(a),64,'('+x+' \u2212 '+y+') \u2212 '+z+' = '+a,{a:'middle',s:13,c:RD});
+                    s4+='<circle cx="'+m(bv)+'" cy="84" r="6" fill="'+C1+'"/>'+tx(m(bv),132,x+' \u2212 ('+y+' \u2212 '+z+') = '+bv,{a:'middle',s:13,c:C1});
+                    s4+='</svg>';
+                    g('vgD').innerHTML=s4;
+                    g('capD').textContent=(a===bv?'These values hide the failure. Change z and the two markers separate.':'Subtraction inherits nothing. The two groupings land on different points, '+a+' and '+bv+'.');
+                }
+                ['sx','sy','sz'].forEach(function(k){g(k).addEventListener('input',draw)});
+                draw();
+                })();
+                </script>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-arith-prop" target="_blank" rel="noopener">Khan Academy — Arithmetic Properties</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Associative.html" target="_blank" rel="noopener">Wolfram MathWorld — Associativity</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/associativity" target="_blank" rel="noopener">Mathematics Stack Exchange — Associativity</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 11, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

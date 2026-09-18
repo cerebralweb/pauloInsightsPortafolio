@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud licensing scenario where a reserved pool, an assigned share and a small unassigned remainder recover the size of the original order, with a named property proof and five diagrams.">
+    <meta name="keywords" content="percent of a remainder, fraction of a fraction, product rule for fractions, license allocation, cloud capacity, bar model, working backward">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-licenses-a-cloud-team-never-assigned-and-what-they-reveal.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-licenses-a-cloud-team-never-assigned-and-what-they-reveal.html" />
+
+    <title>The Licenses a Cloud Team Never Assigned, and What They Reveal</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 18, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE LICENSES A CLOUD TEAM NEVER ASSIGNED, AND WHAT THEY REVEAL
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article &#10087; </span>
+                    Capacity rarely stays where it was bought. A share goes into a reserved commitment, another share reaches the teams that asked for it, and what nobody claimed sits in a pool that finance still paid for. <dfn>That small unclaimed remainder is often the only number on record, and it is enough to recover the size of the original order.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A company ordered a batch of virtual machine licenses for the year. It placed 75 percent of the licenses into a reserved pool in the primary region and assigned 80 percent of the remaining licenses to business units from the shared pool. 25 licenses in the shared pool are still unassigned.</p>
+                <p>How many licenses were ordered originally?</p>
+                <ul>
+                    <li>a) 250</li>
+                    <li>b) 600</li>
+                    <li>c) 400</li>
+                    <li>d) 500</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) 500 &#9989;</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The shared pool is <strong>one quarter</strong> of the order, and what stays unassigned is <strong>one fifth</strong> of that shared pool, so the 25 licenses are <strong>one twentieth</strong> of the order. <strong>Multiplying 25 by 20</strong> recovers the full batch.</p>
+
+                    <p class="insight"><em>A fraction of a fraction multiplies, which is why two clean cuts of 4 and 5 produce 20 equal parts instead of 9.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Shared pool share:</strong> 25% = 25/100 = 1/4 of the order</li>
+                            <li><strong>Assigned share of that pool:</strong> 80% = 80/100 = 4/5</li>
+                            <li><strong>Partition of that pool:</strong> 4/5 + u = 1, assigned and unassigned only</li>
+                            <li><strong>Unassigned share of that pool:</strong> u = 5/5 &minus; 4/5 = 1/5</li>
+                            <li><strong>Unassigned share of the order:</strong> (1/5)(1/4) = 1/20</li>
+                            <li><strong>Equation in one unknown:</strong> (1/20)T = 25</li>
+                            <li><strong>Inverse step:</strong> (20)((1/20)T) = (20)(25)</li>
+                            <li><strong>Order size:</strong> T = 500 licenses</li>
+                            <li><strong>Check:</strong> reserved 375, shared 125, assigned 100, unassigned 25</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="transformation">From School Exercise to Licensing Decision</h2>
+
+                <p>The source exercise counted notebooks stored in a warehouse and sold in a school store. The numbers, the relationships and the answer logic stay untouched. Only the actors change, from notebooks to virtual machine licenses, from a warehouse to a reserved pool in the primary region, from a school store to a shared pool drawn down by business units.</p>
+
+                <p>Candidate business topics were ranked by how naturally the structure fits, from a fixed batch that splits into a reserved commitment and an assignable remainder, down to topics where the second percentage reads awkwardly.</p>
+
+                <ol>
+                    <li><strong>IaaS capacity reservation:</strong> a fixed batch of provisioned units splits cleanly into a reserved pool and an assignable remainder</li>
+                    <li><strong>Cloud cost management:</strong> committed spend units are parked in a discount plan first, then drawn down</li>
+                    <li><strong>Storage:</strong> allocated volumes split into archive tiers and active tiers with a leftover balance</li>
+                    <li><strong>MLOps:</strong> a batch of GPU job slots divides between scheduled training runs and ad hoc requests</li>
+                    <li><strong>GenAI token credits:</strong> a purchased credit block reserves most capacity and releases the rest to users</li>
+                    <li><strong>Serverless:</strong> a concurrency quota partitions across environments, though the units feel less countable</li>
+                    <li><strong>Computer vision:</strong> annotation batches split across pipelines, yet the second percentage reads awkwardly as a sale</li>
+                </ol>
+
+                <p>The mathematics topic is a percentage of a remainder, solved by working backward to a total. The quantities are the reserved pool at 75 percent of the order, the shared pool as the remaining 25 percent, the assigned share of that pool at 80 percent, the 25 licenses left unassigned, and the order quantity as the unknown.</p>
+
+                <h2 id="proof-version">The Proof, Property by Property</h2>
+
+                <p>Compute mode. Let T be the licenses ordered. The reserved pool takes 75 percent of T. The shared pool keeps the remaining 25 percent of T. Of that shared pool, 80 percent is assigned to business units, and the pool holds assigned and unassigned licenses only. What stays unassigned is 25 licenses. Find T.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>T is the licenses ordered, the unknown, a positive integer.</li>
+                    <li>% reads per hundred, so p% = p/100.</li>
+                    <li>25% is the share of T kept in the shared pool.</li>
+                    <li>80% is the share of the shared pool that is assigned.</li>
+                    <li>25 is the licenses still unassigned in the shared pool.</li>
+                    <li>(1/4)T is one quarter of T, the shared pool.</li>
+                    <li>u is the unassigned share of the shared pool, produced in Step 5, a fraction between 0 and 1.</li>
+                    <li>1 stands for the shared pool taken as one whole, used in Step 5.</li>
+                    <li>c is any number subtracted from both sides, used in Step 6.</li>
+                    <li>1/20 is the share of T that stays unassigned, produced in Step 11.</li>
+                    <li>&rArr; reads implies.</li>
+                </ul>
+
+                <h3>Solution</h3>
+
+                <ol>
+                    <li><strong>Definition of percent.</strong> p% = p/100. Inference. 25% = 25/100.</li>
+                    <li><strong>Cancellation law.</strong> For y &ne; 0, (yx)/y = x. Inference. 25/100 = (25)(1)/(25)(4) = 1/4, so the shared pool is (1/4)T. From line 1.</li>
+                    <li><strong>Definition of percent, as in Step 1.</strong> p% = p/100. Inference. 80% = 80/100.</li>
+                    <li><strong>Cancellation law, as in Step 2.</strong> For y &ne; 0, (yx)/y = x. Inference. 80/100 = (20)(4)/(20)(5) = 4/5. From line 3.</li>
+                    <li><strong>FLAG, partition assumption.</strong> No standard property licenses this move. It rests on the stated assumption that the shared pool holds assigned and unassigned licenses only. Inference. 4/5 + u = 1. From line 4.</li>
+                    <li><strong>Subtraction property of equality.</strong> x = y &rArr; x &minus; c = y &minus; c. Inference. (4/5 + u) &minus; 4/5 = 1 &minus; 4/5. From line 5.</li>
+                    <li><strong>Additive inverse and additive identity.</strong> x + (&minus;x) = 0 and x + 0 = x. Inference. (4/5 + u) &minus; 4/5 = u + 0 = u. From line 6.</li>
+                    <li><strong>Multiplicative identity and the difference rule for fractions.</strong> 1x = x, and a/c &minus; b/c = (a &minus; b)/c. Inference. 1 &minus; 4/5 = 5/5 &minus; 4/5 = 1/5, so u = 1/5. From lines 6 and 7.</li>
+                    <li><strong>Definition of a fraction of a quantity.</strong> (a/b) of x = (a/b)x. Inference. (1/5)((1/4)T) = 25. From lines 2 and 8.</li>
+                    <li><strong>Associativity of multiplication.</strong> (xy)z = x(yz). Inference. (1/5)((1/4)T) = ((1/5)(1/4))T. From line 9.</li>
+                    <li><strong>Product rule for fractions.</strong> (a/b)(c/d) = (ac)/(bd). Inference. (1/5)(1/4) = 1/20 &rArr; (1/20)T = 25. From lines 9 and 10.</li>
+                    <li><strong>Multiplication property of equality.</strong> x = y &rArr; cx = cy. Inference. (20)((1/20)T) = (20)(25). From line 11.</li>
+                    <li><strong>Multiplicative inverse and multiplicative identity.</strong> For x &ne; 0, (1/x)x = 1 and 1x = x. Inference. T = 500. From line 12.</li>
+                </ol>
+
+                <h3>Verification</h3>
+
+                <p>(1/4)(500) = 125. (4/5)(125) = 100. 125 &minus; 100 = 25. Both sides match.</p>
+
+                <h3>Answer</h3>
+
+                <p>T = 500. The company ordered 500 licenses.</p>
+
+                <h2 id="properties-in-action">Properties in Action</h2>
+
+                <p>Four panels, one per property that carries the deduction.</p>
+
+                <svg width="100%" viewBox="0 0 680 700" role="img" aria-label="Four panels showing the cancellation law, the subtraction property of equality, the product rule for fractions and the multiplication property of equality acting on this problem.">
+                <text x="40" y="40" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Cancellation law, (yx)/y = x</text>
+                <rect x="40" y="60" width="150" height="90" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="190" y="60" width="150" height="90" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="340" y="60" width="150" height="90" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="490" y="60" width="150" height="90" rx="4" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+                <text x="565" y="110" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#04342C">25/100 = 1/4</text>
+                <line x1="40" y1="178" x2="640" y2="178" stroke="#D3D1C7" stroke-width="1"/>
+
+                <text x="40" y="212" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Subtraction property of equality, x = y &#8658; x &#8722; c = y &#8722; c</text>
+                <rect x="40" y="232" width="120" height="96" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <text x="100" y="286" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">4/5 assigned</text>
+                <rect x="40" y="328" width="120" height="24" rx="4" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+                <text x="180" y="330" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#2C2C2A">(4/5 + u) &#8722; 4/5 = 1 &#8722; 4/5</text>
+                <text x="180" y="352" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#2C2C2A">u = 5/5 &#8722; 4/5 = 1/5</text>
+                <line x1="40" y1="386" x2="640" y2="386" stroke="#D3D1C7" stroke-width="1"/>
+
+                <text x="40" y="420" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Product rule for fractions, (a/b)(c/d) = (ac)/(bd)</text>
+                <rect x="40" y="440" width="150" height="100" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="190" y="440" width="150" height="100" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="340" y="440" width="150" height="100" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <rect x="490" y="440" width="150" height="100" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+                <line x1="490" y1="460" x2="640" y2="460" stroke="#888780" stroke-width="0.5"/>
+                <line x1="490" y1="480" x2="640" y2="480" stroke="#888780" stroke-width="0.5"/>
+                <line x1="490" y1="500" x2="640" y2="500" stroke="#888780" stroke-width="0.5"/>
+                <line x1="490" y1="520" x2="640" y2="520" stroke="#888780" stroke-width="0.5"/>
+                <rect x="491" y="521" width="148" height="18" rx="2" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+                <text x="340" y="564" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#2C2C2A">(1/5)(1/4) = 1/20, and that cell holds 25</text>
+                <line x1="40" y1="590" x2="640" y2="590" stroke="#D3D1C7" stroke-width="1"/>
+
+                <text x="40" y="624" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Multiplication property of equality, x = y &#8658; cx = cy</text>
+                <text x="40" y="652" style="font:400 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">(1/20)T = 25</text>
+                <text x="240" y="652" style="font:400 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">(20)((1/20)T) = (20)(25)</text>
+                <rect x="470" y="634" width="110" height="26" rx="4" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+                <text x="525" y="652" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#04342C">T = 500</text>
+                <line x1="180" y1="646" x2="228" y2="646" stroke="#5F5E5A" stroke-width="1.5"/>
+                <path d="M222 641L230 646L222 651" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+                <line x1="432" y1="646" x2="460" y2="646" stroke="#5F5E5A" stroke-width="1.5"/>
+                <path d="M454 641L462 646L454 651" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+                </svg>
+
+                <h2 id="graphs">The Diagrams</h2>
+
+                <p>Four views of the same order. The first two respond to clicks and to the slider, the third walks the stages, the fourth is the sheet the solution came from.</p>
+
+                <h3>Bar Model, Five Stages</h3>
+
+                <svg width="100%" viewBox="0 0 680 520" role="img" aria-label="A square divided into a 75 percent reserved pool and a 25 percent shared pool, the shared pool split into 80 percent assigned and 20 percent unassigned.">
+                <path d="M140 44V34H540V44" fill="none" stroke="#888780" stroke-width="0.5"/>
+                <text id="bm-total" x="340" y="24" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Order total, ?</text>
+                <g id="bm-res">
+                <rect x="140" y="60" width="300" height="400" rx="4" fill="#E4E2DA" stroke="#5F5E5A" stroke-width="0.5"/>
+                <text x="290" y="244" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Reserved pool</text>
+                <text x="290" y="266" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">75 percent of order</text>
+                <text id="bm-v-res" x="290" y="292" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">375</text>
+                </g>
+                <g id="bm-asg">
+                <rect x="440" y="60" width="100" height="320" rx="4" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+                <text x="490" y="196" text-anchor="middle" style="font:500 14px 'Source Sans Pro',sans-serif;fill:#04342C">Assigned</text>
+                <text x="490" y="216" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#085041">80 percent</text>
+                <text id="bm-v-asg" x="490" y="240" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#04342C">100</text>
+                </g>
+                <g id="bm-una">
+                <rect x="440" y="380" width="100" height="80" rx="4" fill="#FAC775" stroke="#854F0B" stroke-width="0.5"/>
+                <text x="490" y="410" text-anchor="middle" style="font:500 14px 'Source Sans Pro',sans-serif;fill:#412402">Unassigned</text>
+                <text id="bm-v-una" x="490" y="434" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#412402">25</text>
+                </g>
+                <g id="bm-sh">
+                <rect x="440" y="60" width="100" height="400" rx="4" fill="none" stroke="#185FA5" stroke-width="1.5"/>
+                <path d="M440 476V486H540V476" fill="none" stroke="#888780" stroke-width="0.5"/>
+                <text id="bm-lb-sh" x="490" y="504" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">Shared pool, 25 percent, 125</text>
+                </g>
+                </svg>
+
+                <p>
+                    <button type="button" onclick="bmBack()">Back</button>
+                    <button type="button" onclick="bmNext()">Next</button>
+                    <span id="bm-cap"><em>Whole order, quantity unknown</em></span>
+                </p>
+                <p>
+                    <label for="bm-u">Unassigned licenses left </label>
+                    <input type="range" id="bm-u" min="5" max="50" step="5" value="25" oninput="bmSetU(this.value)">
+                    <span id="bm-out">25 &rarr; 500</span>
+                </p>
+
+                <h3>Twenty Equal Parts, Cubist</h3>
+
+                <p>Four quarters, five slivers inside each one. Click any sliver to tally parts, the fraction of the order and the license value.</p>
+
+                <svg width="100%" viewBox="0 0 680 380" role="img" aria-label="Four quarter panels, each split into five slivers, twenty parts in total, one part worth 25 licenses.">
+                <text x="60" y="44" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">5 slivers inside every quarter</text>
+                <g id="cg-cells"></g>
+                <path d="M60 316V326H620V316" fill="none" stroke="#888780" stroke-width="0.5"/>
+                <text x="340" y="348" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">4 quarters, each 25 percent of the order</text>
+                </svg>
+
+                <p>
+                    <button type="button" onclick="cgPick(1)">1 sliver</button>
+                    <button type="button" onclick="cgPick(5)">1 quarter</button>
+                    <button type="button" onclick="cgPick(20)">Whole order</button>
+                    <span id="cg-out"><em>1 part, 1/20 of the order, 25 licenses</em></span>
+                </p>
+
+                <h3>The Pools, Cubist</h3>
+
+                <svg width="100%" viewBox="0 0 680 470" role="img" aria-label="Cubist planes for the reserved pool at 75 percent and the shared column at 25 percent, split into assigned and unassigned.">
+                <path d="M80 46V36H564V44" fill="none" stroke="#888780" stroke-width="0.5"/>
+                <text id="cp-total" x="322" y="26" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Order total, ?</text>
+                <g id="cp-res">
+                <polygon points="80,64 440,56 434,398 86,406" fill="#D3D1C7" stroke="#2C2C2A" stroke-width="3"/>
+                <path d="M200 60V402M320 58V400M80 230H437" fill="none" stroke="#2C2C2A" stroke-width="1" opacity="0.45"/>
+                <text x="258" y="216" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">Reserved pool</text>
+                <text x="258" y="238" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">75 percent of order</text>
+                <text id="cp-v-res" x="258" y="264" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#2C2C2A">375</text>
+                </g>
+                <g id="cp-asg">
+                <polygon points="440,56 564,66 558,322 434,314" fill="#9FE1CB" stroke="#2C2C2A" stroke-width="3"/>
+                <path d="M502 60V318" fill="none" stroke="#2C2C2A" stroke-width="1" opacity="0.45"/>
+                <text x="499" y="180" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#04342C">Assigned</text>
+                <text x="499" y="200" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#085041">80 percent</text>
+                <text id="cp-v-asg" x="499" y="224" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#04342C">100</text>
+                </g>
+                <g id="cp-una">
+                <polygon points="434,314 558,322 564,400 440,398" fill="#FAC775" stroke="#2C2C2A" stroke-width="3"/>
+                <text x="499" y="348" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#412402">Unassigned</text>
+                <text id="cp-v-una" x="499" y="372" text-anchor="middle" style="font:500 15px 'Source Sans Pro',sans-serif;fill:#412402">25</text>
+                </g>
+                <g id="cp-sh">
+                <polygon points="440,56 564,66 564,400 440,398" fill="none" stroke="#185FA5" stroke-width="2"/>
+                <path d="M440 418V428H564V418" fill="none" stroke="#888780" stroke-width="0.5"/>
+                <text id="cp-lb-sh" x="502" y="448" text-anchor="middle" style="font:400 13px 'Source Sans Pro',sans-serif;fill:#444441">Shared pool, 25 percent, 125</text>
+                </g>
+                </svg>
+
+                <p>
+                    <button type="button" onclick="cpBack()">Back</button>
+                    <button type="button" onclick="cpNext()">Next</button>
+                    <span id="cp-cap"><em>Whole order, quantity unknown</em></span>
+                </p>
+                <p>
+                    <label for="cp-u">Unassigned licenses left </label>
+                    <input type="range" id="cp-u" min="5" max="50" step="5" value="25" oninput="cpSetU(this.value)">
+                    <span id="cp-out">25 &rarr; 500</span>
+                </p>
+
+                <h3>The Original Sheet</h3>
+
+                <svg width="100%" viewBox="0 0 680 490" role="img" aria-label="Replica of the handwritten worksheet, with a square cut by dotted lines into a 75 percent region and a narrow column, brackets to 500L, and a four by five grid with 5 times 4 equals 20 written below.">
+                <rect x="0" y="0" width="680" height="490" fill="#FAF7F0"/>
+                <path d="M14 14Q340 8 668 16" fill="none" stroke="#243075" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M16 16Q12 80 18 140" fill="none" stroke="#243075" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M52 47Q176 42 300 46Q303 126 300 205Q176 210 53 205Q49 126 52 47Z" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M114 54V196" fill="none" stroke="#243075" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round"/>
+                <path d="M152 52V198" fill="none" stroke="#243075" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round"/>
+                <path d="M190 54V196" fill="none" stroke="#243075" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round"/>
+                <path d="M228 48Q231 126 228 204" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M229 95Q264 92 299 95" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <rect x="234" y="108" width="62" height="26" rx="3" fill="#1B2568"/>
+                <text x="76" y="82" style="font:600 26px Caveat,cursive;fill:#243075">PR</text>
+                <text x="78" y="122" style="font:600 34px Caveat,cursive;fill:#243075">75%</text>
+                <text x="240" y="82" style="font:600 24px Caveat,cursive;fill:#243075">25L</text>
+                <text x="232" y="158" style="font:600 22px Caveat,cursive;fill:#243075">0.8(0.25)</text>
+                <path d="M330 76H352" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <path d="M356 78H376" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <text x="360" y="70" style="font:600 22px Caveat,cursive;fill:#243075">1</text>
+                <text x="358" y="100" style="font:600 22px Caveat,cursive;fill:#243075">5</text>
+                <path d="M336 42Q398 38 400 44Q403 118 398 188Q370 191 340 189" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M404 44Q440 14 472 18" fill="none" stroke="#243075" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M462 12L474 18L463 26" fill="none" stroke="#243075" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M484 30H508" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <text x="490" y="24" style="font:600 22px Caveat,cursive;fill:#243075">1</text>
+                <text x="486" y="54" style="font:600 22px Caveat,cursive;fill:#243075">20</text>
+                <path d="M52 214V226Q176 231 300 225V213" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <text x="120" y="266" style="font:600 36px Caveat,cursive;fill:#243075">500L</text>
+                <text x="452" y="118" style="font:600 28px Caveat,cursive;fill:#243075">125L</text>
+                <text x="410" y="212" style="font:600 22px Caveat,cursive;fill:#243075">25%</text>
+                <path d="M406 222Q480 218 558 223" fill="none" stroke="#243075" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M406 232Q482 228 558 233Q561 270 558 306Q482 311 406 306Q403 270 406 232Z" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M444 230V308" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <path d="M482 229V307" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <path d="M520 230V308" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <path d="M521 245H558M521 259H559M520 273H558M521 288H559" fill="none" stroke="#243075" stroke-width="1.6"/>
+                <path d="M566 232V246" fill="none" stroke="#243075" stroke-width="1.6"/>
+                <path d="M572 240H590" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <text x="576" y="234" style="font:600 19px Caveat,cursive;fill:#243075">1</text>
+                <text x="576" y="260" style="font:600 19px Caveat,cursive;fill:#243075">5</text>
+                <path d="M600 230Q604 268 600 308" fill="none" stroke="#243075" stroke-width="1.6"/>
+                <text x="612" y="278" style="font:600 24px Caveat,cursive;fill:#243075">5</text>
+                <path d="M406 314V326Q482 331 558 325V313" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <text x="474" y="356" style="font:600 26px Caveat,cursive;fill:#243075">4</text>
+                <path d="M400 362Q520 357 642 363Q645 420 642 470Q520 475 401 470Q397 416 400 362Z" fill="none" stroke="#243075" stroke-width="2.2" stroke-linecap="round"/>
+                <text x="414" y="392" style="font:600 24px Caveat,cursive;fill:#243075">5</text>
+                <text x="466" y="392" style="font:600 24px Caveat,cursive;fill:#243075">x</text>
+                <text x="516" y="392" style="font:600 24px Caveat,cursive;fill:#243075">4</text>
+                <text x="552" y="392" style="font:600 24px Caveat,cursive;fill:#243075">= 20</text>
+                <text x="414" y="428" style="font:600 22px Caveat,cursive;fill:#243075">if each part = 25L</text>
+                <text x="414" y="458" style="font:600 22px Caveat,cursive;fill:#243075">then 20 parts = .</text>
+                <path d="M94 340H140" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <text x="102" y="334" style="font:600 24px Caveat,cursive;fill:#243075">75</text>
+                <text x="96" y="368" style="font:600 24px Caveat,cursive;fill:#243075">100</text>
+                <path d="M236 340H282" fill="none" stroke="#243075" stroke-width="2.2"/>
+                <text x="246" y="334" style="font:600 24px Caveat,cursive;fill:#243075">25</text>
+                <text x="238" y="368" style="font:600 24px Caveat,cursive;fill:#243075">100</text>
+                <ellipse cx="112" cy="398" rx="9" ry="8" fill="#1B2568"/>
+                <ellipse cx="156" cy="398" rx="8" ry="8" fill="#1B2568"/>
+                </svg>
+
+                <p>The dotted verticals came from the cancellation law, since 25/100 reduces to 1/4. The five slices inside the last division came from the additive inverse, since what is left after 4/5 is 1/5. The two crossing cuts, four one way and five the other, are the product rule for fractions, which is why 20 cells appear and one of them is 1/20. Writing 500L under the whole square was the multiplication property of equality.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Working backward from a leftover is older than the percent sign. Scribes in ancient Egypt solved quantity puzzles by the method later called false position, guessing a whole, following it through the cuts, then scaling the guess by the ratio between the result and the figure on record. Merchant manuscripts in fifteenth century Italy pushed the same habit into commerce, where the phrase per cento became a standing way to express a share of a cargo, a tax or a profit. Both traditions answer the question a finance team asks about a cloud commitment, namely what the whole must have been for this remainder to appear.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra" target="_blank" rel="noopener">Khan Academy &mdash; Percents and Fractions of Fractions</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld &mdash; Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange &mdash; Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 18, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+<script>
+var bmStep = 0, bmU = 25;
+var bmCaps = [
+    "Whole order, quantity unknown",
+    "75 percent goes to the reserved pool",
+    "25 percent stays in the shared pool",
+    "80 percent of the shared pool is assigned",
+    "The fifth left is one twentieth of the order"
+];
+function bmDim(id, on) {
+    document.getElementById(id).setAttribute("opacity", on ? "1" : "0.18");
+}
+function bmRender() {
+    var T = bmU * 20;
+    document.getElementById("bm-v-res").textContent = Math.round(T * 0.75);
+    document.getElementById("bm-v-asg").textContent = Math.round(T * 0.2);
+    document.getElementById("bm-v-una").textContent = Math.round(bmU);
+    document.getElementById("bm-lb-sh").textContent = "Shared pool, 25 percent, " + Math.round(T * 0.25);
+    document.getElementById("bm-total").textContent = bmStep === 0 ? "Order total, ?" : "Order total, " + Math.round(T);
+    document.getElementById("bm-out").textContent = Math.round(bmU) + " \u2192 " + Math.round(T);
+    bmDim("bm-res", bmStep === 0 || bmStep === 1);
+    bmDim("bm-sh", bmStep === 0 || bmStep >= 2);
+    bmDim("bm-asg", bmStep === 0 || bmStep === 3);
+    bmDim("bm-una", bmStep === 0 || bmStep >= 3);
+    document.getElementById("bm-cap").innerHTML = "<em>" + bmCaps[bmStep] + "</em>";
+}
+function bmNext() { bmStep = (bmStep + 1) % 5; bmRender(); }
+function bmBack() { bmStep = (bmStep + 4) % 5; bmRender(); }
+function bmSetU(v) { bmU = Number(v); bmRender(); }
+
+var cgSel = 1;
+function cgPoly(q, s) {
+    var x0 = 60 + q * 140 + s * 28;
+    var t = 60 + q * 3 + (s % 2) * 5;
+    var b = 300 - q * 2 - ((s + 1) % 2) * 6;
+    return (x0 + 5) + "," + t + " " + (x0 + 33) + "," + (t + 3) + " " + (x0 + 28) + "," + b + " " + x0 + "," + (b - 3);
+}
+function cgDraw() {
+    var h = "", n = 0;
+    for (var q = 0; q < 4; q++) {
+        for (var s = 0; s < 5; s++) {
+            n++;
+            var on = n <= cgSel;
+            var fill = on ? (n === cgSel && cgSel < 20 ? "#EF9F27" : "#FAC775") : (q % 2 ? "#D3D1C7" : "#F1EFE8");
+            h += '<polygon points="' + cgPoly(q, s) + '" fill="' + fill + '" stroke="#2C2C2A" stroke-width="2.5" style="cursor:pointer" onclick="cgPick(' + n + ')"></polygon>';
+        }
+    }
+    document.getElementById("cg-cells").innerHTML = h;
+    document.getElementById("cg-out").innerHTML = "<em>" + cgSel + (cgSel === 1 ? " part, " : " parts, ") + cgSel + "/20 of the order, " + (cgSel * 25) + " licenses</em>";
+}
+function cgPick(n) { cgSel = n; cgDraw(); }
+
+var cpStep = 0, cpU = 25;
+function cpDim(id, on) {
+    document.getElementById(id).setAttribute("opacity", on ? "1" : "0.18");
+}
+function cpRender() {
+    var T = cpU * 20;
+    document.getElementById("cp-v-res").textContent = Math.round(T * 0.75);
+    document.getElementById("cp-v-asg").textContent = Math.round(T * 0.2);
+    document.getElementById("cp-v-una").textContent = Math.round(cpU);
+    document.getElementById("cp-lb-sh").textContent = "Shared pool, 25 percent, " + Math.round(T * 0.25);
+    document.getElementById("cp-total").textContent = cpStep === 0 ? "Order total, ?" : "Order total, " + Math.round(T);
+    document.getElementById("cp-out").textContent = Math.round(cpU) + " \u2192 " + Math.round(T);
+    cpDim("cp-res", cpStep === 0 || cpStep === 1);
+    cpDim("cp-sh", cpStep === 0 || cpStep >= 2);
+    cpDim("cp-asg", cpStep === 0 || cpStep === 3);
+    cpDim("cp-una", cpStep === 0 || cpStep >= 3);
+    document.getElementById("cp-cap").innerHTML = "<em>" + bmCaps[cpStep] + "</em>";
+}
+function cpNext() { cpStep = (cpStep + 1) % 5; cpRender(); }
+function cpBack() { cpStep = (cpStep + 4) % 5; cpRender(); }
+function cpSetU(v) { cpU = Number(v); cpRender(); }
+
+bmRender();
+cgDraw();
+cpRender();
+</script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

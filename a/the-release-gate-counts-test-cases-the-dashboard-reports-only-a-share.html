@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="An MLOps team sees a pass rate on the dashboard but needs a count of test cases to clear the release gate. Recovering the whole from a part and a share, with four solution routes.">
+    <meta name="keywords" content="percent problems, finding the whole, rule of three, MLOps benchmark, release gate, pass rate, business math">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-release-gate-counts-test-cases-the-dashboard-reports-only-a-share.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-release-gate-counts-test-cases-the-dashboard-reports-only-a-share.html" />
+
+    <title>The Release Gate Counts Test Cases, the Dashboard Reports Only a Share</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 18, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE RELEASE GATE COUNTS TEST CASES, THE DASHBOARD REPORTS ONLY A SHARE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Monitoring tools report shares, while approval rules are written on counts. A team that cannot move from one to the other stalls at the very gate it built, because the figure on screen never answers the question the policy asks. <dfn>This problem shows how a reported share is turned back into the countable base it came from, and why the route chosen decides whether the answer survives a live review.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>An MLOps team runs the regression benchmark for a new model before release. The model passed 91 test cases. The evaluation dashboard reports that as a pass rate of 65 % of the suite. The release gate allows no more than 40 failing cases, and the gate is written on counts, not on shares.</p>
+                <p>How many test cases does the suite contain?</p>
+                <ul>
+                    <li>a) 140</li>
+                    <li>b) 182</li>
+                    <li>c) 139</li>
+                    <li>d) 136</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: a) 140 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The reported share and the full suite share a <strong>common factor of 5 %</strong>, so the suite splits into 20 blocks of equal size, of which 13 passed. <strong>Dividing 91 by 13</strong> fixes one block at 7 test cases, and <strong>multiplying 7 by 20</strong> returns the whole suite. The failures follow by <strong>subtraction</strong>, which puts the release over its gate.</p>
+
+                    <p class="insight"><em>Each 5 % of this suite is worth exactly 7 test cases, and every route to the answer is a way of counting those blocks.</em></p>
+
+                </details>
+
+                <div class="bannerTwitero">
+                    <h2 id="step-by-step">Step by Step Mathematical Breakdown</h2>
+                    <p>Four routes reach the suite size. The first two run on multiplication tables alone.</p>
+
+                    <h3>Route 1, common factor between the two shares</h3>
+                    <ol>
+                        <li><strong>Shared factor:</strong> 65 % and 100 % both split by 5 %, so 5 % becomes the working block</li>
+                        <li><strong>Blocks passed:</strong> 65 ÷ 5 = 13, so the passing cases form 13 blocks</li>
+                        <li><strong>Cases per block:</strong> 91 ÷ 13 = 7, so each 5 % of the suite is 7 test cases</li>
+                        <li><strong>Blocks in the suite:</strong> 100 ÷ 5 = 20, and 20 × 7 = 140</li>
+                        <li><strong>Same result from the gap:</strong> 100 − 65 = 35 %, which is 7 blocks, so 7 × 7 = 49 and 91 + 49 = 140</li>
+                    </ol>
+
+                    <h3>Route 2, value of one percent</h3>
+                    <ol>
+                        <li><strong>Block value:</strong> 7 cases per 5 %, so 7 ÷ 5 = 1.4</li>
+                        <li><strong>Unit value:</strong> 1 % of the suite is 1.4 cases</li>
+                        <li><strong>Full suite:</strong> 1.4 × 100 = 140</li>
+                    </ol>
+
+                    <h3>Route 3, the equation</h3>
+                    <ol>
+                        <li><strong>Statement:</strong> 91 = 0.65N</li>
+                        <li><strong>Solve:</strong> N = 91 ÷ 0.65 = 140</li>
+                    </ol>
+
+                    <h3>Route 4, halving, which fails here</h3>
+                    <ol>
+                        <li><strong>Half the share:</strong> 65 % ÷ 2 = 32.5 %, and 91 ÷ 2 = 45.5, not 46</li>
+                        <li><strong>Share check:</strong> 65 % + 32.5 % = 97.5 %, short of the suite by 2.5 %</li>
+                        <li><strong>Why it breaks:</strong> the route stops at 97.5 % of the suite and rounds 45.5 up, so 137 and the adjusted 139 both miss, since the two errors compound rather than cancel</li>
+                    </ol>
+
+                    <p><strong>Verification:</strong> 140 × 0.65 = 91, so the reported share reproduces the reported count.</p>
+                    <p><strong>Conclusion:</strong> the suite holds 140 test cases, 49 of them failing, so the release misses a gate set at 40.</p>
+                </div>
+
+                <h2 id="business-relevance">Why This Matters for the Business Problem</h2>
+
+                <p>The dashboard reports a share. The release gate is written on counts, so the reported figure never answers the policy question on its own. Recovering the whole from a part and a share is the operation that converts a monitoring rate into a countable base. Once the suite size is known, the failure count follows by subtraction, and the gate becomes checkable.</p>
+
+                <p>The route matters as much as the answer. Analysts read these dashboards in release reviews, where a route that runs on multiplication tables beats one that needs a calculator. Two of the four routes below need only 65 ÷ 5, 91 ÷ 13 and 20 × 7.</p>
+
+                <h2 id="formal-proof">The Solution, Property by Property</h2>
+
+                <h3>Mode</h3>
+
+                <p>Compute.</p>
+
+                <h3>Setup</h3>
+
+                <p>Let N be the size of the benchmark suite in test cases. The run fixes the passing cases at 91. The dashboard fixes the passing share of the suite at 65 %. A count of passes is the share taken of the suite, so (65 %)N = 91.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>N is the size of the benchmark suite in test cases, the unknown, a positive rational.</li>
+                    <li>91 is the count of test cases the model passed.</li>
+                    <li>% reads per hundred, so p % is p/100.</li>
+                    <li>65 % is the share of the suite that passed.</li>
+                    <li>13/20 is 65 % in lowest terms, produced in Step 2.</li>
+                    <li>20/13 is the multiplicative inverse of 13/20.</li>
+                    <li>⇒ reads implies.</li>
+                    <li>≠ reads is not equal to.</li>
+                </ul>
+
+                <h3>Solution</h3>
+
+                <h4>Step 1, definition of percent</h4>
+                <p>Property. Percent. p % = p/100.</p>
+                <p>Inference. 65 % = 65/100.</p>
+
+                <h4>Step 2, cancellation law for fractions</h4>
+                <p>Property. Cancellation law for fractions. For y ≠ 0 and z ≠ 0, (yx)/(yz) = x/z.</p>
+                <p>Inference. 65/100 = (5)(13)/(5)(20) = 13/20. From line 1.</p>
+
+                <h4>Step 3, substitution</h4>
+                <p>Property. Substitution. x = y ⇒ x may replace y.</p>
+                <p>Inference. (65 %)N = 91 and 65 % = 13/20, so (13/20)N = 91. From line 2.</p>
+
+                <h4>Step 4, multiplication property of equality</h4>
+                <p>Property. Multiplication property of equality. x = y ⇒ cx = cy.</p>
+                <p>Inference. (20/13)(13/20)N = (20/13)(91). From line 3.</p>
+
+                <h4>Step 5, multiplicative inverse and multiplicative identity</h4>
+                <p>Property. Multiplicative inverse and multiplicative identity. For x ≠ 0, (1/x)x = 1 and 1x = x.</p>
+                <p>Inference. (20/13)(13/20)N = (1)N = N. From line 4.</p>
+
+                <h4>Step 6, cancellation law</h4>
+                <p>Property. Cancellation law. For y ≠ 0, (yx)/y = x.</p>
+                <p>Inference. (20/13)(91) = (20)(13)(7)/13 = (20)(7) = 140. From line 4.</p>
+
+                <h4>Step 7, transitivity of equality</h4>
+                <p>Property. Transitivity of equality. x = y and y = z ⇒ x = z.</p>
+                <p>Inference. N = 140. From lines 5 and 6.</p>
+
+                <h3>Verification</h3>
+
+                <p>(13/20)(140) = (13)(7) = 91, and 91/140 = 13/20 = 65/100 = 65 %. Both sides match.</p>
+
+                <h3>Answer</h3>
+
+                <p>N = 140. The benchmark suite holds 140 test cases, so 49 cases failed and the release misses a gate set at 40.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Recovering a whole from a part and a share is the oldest commercial procedure still in daily use. Brahmagupta set it out in India in 628, naming the three known quantities and the place of the unknown, and Arabic and Italian merchant manuals carried it into Europe as the golden rule, taught to traders who priced goods and converted currencies long before algebra reached the counting house. The habit of quoting a share out of one hundred is older still and also fiscal in origin, since Roman auction duties under Augustus were levied per hundred, which is the sense the word percent still carries on a dashboard.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-percent-problems/" target="_blank" rel="noopener">Khan Academy — Percent Problems</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 18, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

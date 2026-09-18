@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A platform team adds compute nodes when incoming workloads pass a set share of a cluster's current load. Three ways to run that test, plus a reusable Python script.">
+    <meta name="keywords" content="capacity planning, autoscaling, percent comparison, threshold rule, cluster capacity, Python, business math, public cloud">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-workloads-moving-into-cluster-b-and-the-nodes-they-will-cost.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-workloads-moving-into-cluster-b-and-the-nodes-they-will-cost.html" />
+
+    <title>The Workloads Moving Into Cluster B, and the Nodes They Will Cost</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 16, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE WORKLOADS MOVING INTO CLUSTER B, AND THE NODES THEY WILL COST
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Platform teams write rules that fire when incoming demand passes a share of what a system already carries, so the budget moves on evidence rather than on instinct, and so nobody argues about the trigger after the fact. <dfn>This problem shows how one comparison between two counts turns raw volume into a decision, and how Python can hold that rule for any future cluster.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A platform lead set a capacity rule. If the workloads scheduled to migrate from Cluster A into Cluster B next year exceed 110% of Cluster B's current workload count, the team will add compute nodes to Cluster B. Cluster A currently runs 750 workloads. Cluster B currently runs 625 workloads.</p>
+                <p>Will the team have to add nodes to Cluster B next year?</p>
+                <ul>
+                    <li>a) Yes, because Cluster A is 115% larger than Cluster B.</li>
+                    <li>b) No, because Cluster B is 105% larger than Cluster B.</li>
+                    <li>c) Yes, because Cluster A is 120% larger than Cluster B.</li>
+                    <li>d) Yes, because Cluster A is 111% larger than Cluster B.</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) Yes, 120% ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p><strong>Divide</strong> the incoming count by the current count, 750 over 625, which gives 1.20, then <strong>convert</strong> that to 120%. The result sits above the 110% trigger, so the team adds nodes.</p>
+
+                    <p class="insight"><em>The base in the rule is Cluster B, not Cluster A, and every reading of the result depends on that choice.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Reference base:</strong> Cluster B runs 625 workloads today, the denominator for the comparison</li>
+                            <li><strong>Trigger in absolute terms:</strong> 625 × 1.10 = 687.5 workloads</li>
+                            <li><strong>Incoming volume:</strong> Cluster A runs 750 workloads, the numerator</li>
+                            <li><strong>Ratio:</strong> 750 ÷ 625 = 1.20, so the incoming volume is 120% of the current load</li>
+                            <li><strong>Comparison:</strong> 1.20 &gt; 1.10, and 750 &gt; 687.5, so both forms of the test agree</li>
+                            <li><strong>Margin:</strong> 750 − 687.5 = 62.5 workloads above the trigger</li>
+                            <li><strong>Decision:</strong> add compute nodes to Cluster B</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>Three Routes to the Same Decision</h2>
+
+                <p><strong>Route A, the gap route.</strong> Compare the gap between the two clusters against 10% of the base. The gap is 750 − 625 = 125 workloads. Ten percent of the base is 625 ÷ 10 = 62.5. Since 125 = 2 × 62.5, the gap equals 20% of Cluster B's load, so the incoming volume reaches 120% and clears the trigger by 10 points. Use this one in a standup, because it needs no division beyond a move of the decimal point.</p>
+
+                <p><strong>Route B, the share route.</strong> Ask what share of Cluster B's current load the incoming volume represents. Write 750 = p × 625, then p = 750 ÷ 625 = 1 + 1/5 = 1.20, which is 120%. Use this one in a capacity model, where the ratio feeds a formula rather than a conversation.</p>
+
+                <p><strong>Route C, the unit route.</strong> Build a percent point and count how many fit. The whole is 625, the base named in the rule, and it is smaller than 750, so the result exceeds 100% before any arithmetic runs. Split the base into 100 units, 625 ÷ 100 = 6.25 workloads per percent point, then count the units in the incoming volume, 750 ÷ 6.25 = 120 percent points. The reverse check runs the conversion the other way, 100 ÷ 625 = 0.16 percent points per workload, then 750 × 0.16 = 120. Use this one when writing the policy document, since it names the unit the threshold is measured in.</p>
+
+                <p>All three routes return 120% and the same decision. The team adds nodes to Cluster B. One caution on the reverse check in Route C, the factor 0.16 converts workloads into percent points, so it applies to the count of 750 and not to the result of 120.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Comparing a quantity against a base period is one of the oldest habits in commerce, and the twentieth century turned it into a discipline. Irving Fisher published The Making of Index Numbers in 1922, which examined how such comparisons behave and showed that competing formulas for the same question can disagree, a finding that still shapes how statistical agencies build price indexes. The same reasoning moved into operations research after the Second World War, where factory managers set reorder and expansion triggers as a share of current throughput rather than as fixed counts. Cloud capacity planning inherited that pattern intact, and a modern autoscaling policy is a threshold written against a baseline.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script holds the capacity rule itself, so any cluster, any incoming volume, and any threshold can be tested without rewriting the logic.</p>
+
+<pre><code># What this does: checks if a cluster needs more compute nodes next year.
+# Where it came from: a platform team adds nodes when the workloads moving in
+# pass a set percent of the cluster's current load.
+# The math idea: divide one count by the other, then turn it into a percent.
+# You type in: the incoming workload count, the current workload count, and
+# the threshold percent.
+# It prints: the percent reached and whether the team adds nodes.
+
+# This function does the math.
+def capacity_check(incoming_workloads, current_workloads, threshold_percent):
+    # Work out what percent the incoming count is of the current count.
+    reached_percent = (incoming_workloads / current_workloads) * 100
+    # Work out the count that would sit right at the threshold.
+    trigger_count = current_workloads * (threshold_percent / 100)
+    # Say yes only when the incoming count is above that trigger.
+    needs_nodes = incoming_workloads &gt; trigger_count
+    return reached_percent, trigger_count, needs_nodes
+
+# Tell the reader what we will figure out.
+print("Let's find out if Cluster B needs more nodes next year.")
+
+# Ask for the workloads moving in from Cluster A.
+incoming_workloads = float(input("Workloads moving in from Cluster A: "))
+
+# Ask for the workloads Cluster B runs today.
+current_workloads = float(input("Workloads on Cluster B today: "))
+
+# Ask for the percent that triggers new nodes.
+threshold_percent = float(input("Threshold percent that triggers new nodes: "))
+
+# Do the math.
+reached_percent, trigger_count, needs_nodes = capacity_check(
+    incoming_workloads, current_workloads, threshold_percent
+)
+
+# Show the percent with two decimals, and no decimals when it is whole.
+reached_percent = round(reached_percent, 2)
+reached_percent = int(reached_percent) if float(reached_percent).is_integer() else reached_percent
+
+# Show the trigger count the same way.
+trigger_count = round(trigger_count, 2)
+trigger_count = int(trigger_count) if float(trigger_count).is_integer() else trigger_count
+
+# Print the answer with words that fit the scenario.
+print("Incoming volume reaches", str(reached_percent) + "% of Cluster B's current load.")
+print("The trigger point sits at", trigger_count, "workloads.")
+
+# Print the decision in plain words.
+if needs_nodes:
+    print("Decision: add compute nodes to Cluster B.")
+else:
+    print("Decision: no new nodes needed for Cluster B.")
+</code></pre>
+
+                <p>Paste it into a Python session, type 750, then 625, then 110, and it returns 120%, a trigger point of 687.5 workloads, and the instruction to add nodes.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-percent-word-problems" target="_blank" rel="noopener">Khan Academy — Percent Word Problems</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Percent.html" target="_blank" rel="noopener">Wolfram MathWorld — Percent</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/percentages" target="_blank" rel="noopener">Mathematics Stack Exchange — Percentages</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 16, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
