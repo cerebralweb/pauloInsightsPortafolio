@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A planning tool picks 2 digits at random to form a group size for 64 AI training jobs. Find the chance the size splits the jobs into equal groups, with Python code and a Claude skill.">
+    <meta name="keywords" content="probability, factors of 64, AI training jobs, cloud, group size, Python, Claude skill">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-group-sizes-that-fit-64-ai-training-jobs-with-none-left-over.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-group-sizes-that-fit-64-ai-training-jobs-with-none-left-over.html" />
+
+    <title>The Group Sizes That Fit 64 AI Training Jobs With None Left Over</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Sep 30, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE GROUP SIZES THAT FIT 64 AI TRAINING JOBS WITH NONE LEFT OVER
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud teams split work into groups so each server carries the same load. When a tool sets group sizes at random, the team needs the share of sizes that fit the work with nothing left over. <dfn>This problem shows how counting outcomes gives that share, and how Python and a Claude skill turn the count into a tool the team can reuse.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A company runs 64 AI training jobs in the cloud. A planning tool picks 2 digits at random from 0 to 9, inclusive, to form a group size. The same digit can be picked twice, and the first digit can be 0.</p>
+                <p>What is the probability that the group size splits the 64 jobs into equal groups with none left over?</p>
+                <ul>
+                    <li>a) 1 %</li>
+                    <li>b) 4 %</li>
+                    <li>c) 7 %</li>
+                    <li>d) 8 %</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>The correct answer is c) 7 % ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The tool can form <strong>10 × 10 = 100</strong> group sizes. Seven of them are factors of 64, so the probability is <strong>7 / 100 = 7 %</strong>.</p>
+
+                    <p class="insight"><em>Count all the sizes first, then count the sizes that fit, and divide the second count by the first.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step by Step Breakdown</h2>
+                        <p>The following sequence shows how the probability is derived.</p>
+                        <ol>
+                            <li><strong>Possible sizes.</strong> 10 choices × 10 choices → 100 sizes, from 00 to 99.</li>
+                            <li><strong>Factors of 64.</strong> 64 = 2 × 2 × 2 × 2 × 2 × 2 → factors are 1, 2, 4, 8, 16, 32, 64.</li>
+                            <li><strong>Sizes that match.</strong> 01, 02, 04, 08, 16, 32, 64 → 7 sizes. A first digit of 0 counts, e.g. 04 is 4.</li>
+                            <li><strong>Probability.</strong> 7 / 100 → 0.07 → 7 %.</li>
+                            <li><strong>Conclusion.</strong> The tool forms a size that splits the 64 jobs into equal groups in 7 % of its picks, which is option c.</li>
+                        </ol>
+                    </div>
+
+                    <h2>How to Reason Through It</h2>
+
+                    <p>I ask how many digits the tool can pick. There are 10, from 0 to 9. I ask how many positions the group size has. There are 2. Each position has 10 options, so there are 10 × 10 = 100 group sizes. That is my denominator.</p>
+
+                    <p>I ask how many of those sizes are factors of 64. There are 7. So 7 of the 100 sizes work, which is 7 in 100, or 7/100.</p>
+
+                    <p>The factors of 64 that the tool can form are 01, 02, 04, 08, 16, 32 and 64.</p>
+
+                    <p>The ratio 7/100 is the probability that the tool forms one of those 7 sizes. So the probability is 0.07, or 7 %.</p>
+
+                    <h3>Possible Traps</h3>
+
+                    <p>If you count 1, 2, 4 and 8 and forget that the tool forms 2 digit numbers, you choose b) 4 %. If you forget that the question asks for the factors of 64, and count 64 alone, you choose a) 1 %.</p>
+                </details>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Gerolamo Cardano, a physician and gambler in Renaissance Italy, wrote the Book on Games of Chance around 1564. It was one of the first texts to measure chance as the outcomes that win against all the outcomes that can occur. In 1654, Blaise Pascal and Pierre de Fermat used the same idea in letters on how to split the stakes of a game that stopped before its end, a question of payment between players.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>This script counts every group size the tool can form and works out the share that fits the jobs, for any job count and digit range.</p>
+
+<pre><code># This program works out the chance that a random group size splits the jobs into equal groups.
+# It comes from a company that runs 64 AI training jobs, where a tool picks 2 digits to form a group size.
+# The math idea is probability, which is the sizes that work divided by all the sizes the tool can form.
+# You type in the number of jobs, the smallest digit, and the largest digit.
+# It prints the chance, as a percent, that the group size leaves no job left over.
+
+# This function does the math.
+def chance_of_equal_groups(jobs, smallest_digit, largest_digit):
+    # Start both counts at zero.
+    all_sizes = 0
+    good_sizes = 0
+    # Try every first digit.
+    for first_digit in range(smallest_digit, largest_digit + 1):
+        # Try every second digit. The same digit can come up twice.
+        for second_digit in range(smallest_digit, largest_digit + 1):
+            # Join the 2 digits into one number. So 1 and 6 become 16.
+            group_size = first_digit * 10 + second_digit
+            # Count this size.
+            all_sizes = all_sizes + 1
+            # Count it as good if it splits the jobs with none left over. A size of 0 holds no jobs.
+            if group_size &gt; 0 and jobs % group_size == 0:
+                good_sizes = good_sizes + 1
+    # Divide the good sizes by all sizes and turn the result into a percent.
+    return good_sizes * 100 / all_sizes
+
+# Tell the reader what we will figure out.
+print("What is the chance the group size splits the jobs into equal groups?")
+
+# Ask for the number of jobs.
+jobs = int(input("Number of AI training jobs? "))
+
+# Ask for the smallest digit the tool can pick.
+smallest_digit = int(input("Smallest digit the tool can pick? "))
+
+# Ask for the largest digit the tool can pick.
+largest_digit = int(input("Largest digit the tool can pick? "))
+
+# Do the math.
+result = chance_of_equal_groups(jobs, smallest_digit, largest_digit)
+
+# Show a whole number when the percent has no decimals.
+result = int(result) if result.is_integer() else round(result, 2)
+
+# Print the answer with words that fit the scenario.
+print("Chance the group size splits the", jobs, "jobs with none left over is", result, "%")</code></pre>
+
+                <p>Paste it into Python in Windows Terminal, type 64, 0 and 9, and it returns 7 %.</p>
+
+                <h2 id="skill-file">Claude Skills Version</h2>
+
+                <p>The skill below gives Claude the same steps as the script, written as plain instructions.</p>
+
+<pre class="md-code"><code>---
+name: group-size-probability
+description: Works out the chance that a group size formed from 2 random digits splits a number of jobs into equal groups with none left over, when the user gives a job count and a range of digits. Trigger this skill whenever the user wants to know how often a random 2 digit number divides a given number, even if they don't use technical language.
+---
+
+<span class="md-heading"># Equal Groups Chance Calculator</span>
+
+This skill finds the chance that a tool, picking 2 digits at random, forms a group size that splits a set of jobs into equal groups with none left over. It takes the number of jobs, the smallest digit, and the largest digit the tool can pick. It returns one sentence with the chance as a percent.
+
+<span class="md-heading">## Dependencies</span>
+
+No outside libraries or tools. Basic arithmetic is enough.
+
+<span class="md-heading">## Inputs</span>
+
+- <span class="md-bold">**Number of jobs.**</span> A whole number above 0, e.g. 64.
+- <span class="md-bold">**Smallest digit.**</span> A whole number from 0 to 9, e.g. 0.
+- <span class="md-bold">**Largest digit.**</span> A whole number from 0 to 9, equal to or above the smallest digit, e.g. 9.
+
+<span class="md-heading">## Steps</span>
+
+<span class="md-heading">### Step 1. State the question</span>
+
+Tell the user the question to answer. What is the chance the group size splits the jobs into equal groups?
+
+<span class="md-heading">### Step 2. Collect the inputs</span>
+
+Ask for the number of AI training jobs, then the smallest digit the tool can pick, then the largest digit. Check that each value is a whole number.
+
+<span class="md-heading">### Step 3. List every group size</span>
+
+Pair each first digit, from the smallest to the largest, with each second digit in the same range. The same digit can appear twice. Join each pair into one number by taking the first digit times 10 and adding the second digit, e.g. 1 and 6 become 16, and 0 and 4 become 4. Count every size formed.
+
+<span class="md-heading">### Step 4. Count the sizes that work</span>
+
+If a size is above 0 and divides the number of jobs with no remainder, count it as a size that works. If not, skip it. A size of 0 holds no jobs, so it never counts.
+
+<span class="md-heading">### Step 5. Work out the chance</span>
+
+Multiply the count of sizes that work by 100, then divide by the count of all sizes. The result is the chance as a percent.
+
+<span class="md-heading">### Step 6. Report the result</span>
+
+If the percent is a whole number, show it with no decimals. If not, round it to 2 decimals. Return one sentence in the chat in this form. "Chance the group size splits the [number of jobs] jobs with none left over is [result] %". For 64 jobs and digits from 0 to 9, the result is 7 %. Save no file.
+
+<span class="md-heading">## Example Trigger Prompts</span>
+
+- "A tool picks 2 digits to make a group size. How often does it split my 64 jobs into equal groups?"
+- "What is the chance a 2 digit number made from random digits is a factor of 64?"
+- "How often do random team sizes fit my workload with nothing left over?"
+- "Check the odds that a random group size divides my training jobs."</code></pre>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/probability-library" target="_blank" rel="noopener">Khan Academy — Probability</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Probability.html" target="_blank" rel="noopener">Wolfram MathWorld — Probability</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/probability" target="_blank" rel="noopener">Mathematics Stack Exchange — Probability</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 30, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

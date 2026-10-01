@@ -7,6 +7,46 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Two Chatbots Before Launch, And The Odds Both Answers Earn Top Marks",
+            articleDescription: "AI teams review samples of chatbot output before a launch. A single sample tells little",
+            articleHref: "/a/two-chatbots-before-launch-and-the-odds-both-answers-earn-top-marks.html"
+        },
+        {
+            articleTitle: "27 Models In The Registry, And Where The Review Time Goes",
+            articleDescription: "A governance review has to decide where scarce attention goes before anyone opens a dashboard",
+            articleHref: "/a/27-models-in-the-registry-and-where-the-review-time-goes.html"
+        },
+        {
+            articleTitle: "The Second Discount A Cloud Buyer Only Sees After The First",
+            articleDescription: "This problem shows how discounts applied in sequence combine by multiplication rather than by addition, and how each step of that reasoning can be justified by a named algebraic property",
+            articleHref: "/a/the-second-discount-a-cloud-buyer-only-sees-after-the-first.html"
+        },
+        {
+            articleTitle: "The Group Sizes That Fit 64 AI Training Jobs With None Left Over",
+            articleDescription: "Cloud teams split work into groups so each server carries the same load",
+            articleHref: "/a/the-group-sizes-that-fit-64-ai-training-jobs-with-none-left-over.html"
+        },
+        {
+            articleTitle: "Three Regions, One Fleet, And The Machines The Primary Site Must Hold",
+            articleDescription: "Capacity records rarely arrive complete. A cloud team often knows the share held by one site, the balance between two others, and the count at a single location, and has to recover everything else from those fragments",
+            articleHref: "/a/three-regions-one-fleet-and-the-machines-the-primary-site-must-hold.html"
+        },
+        {
+            articleTitle: "The GenAI Pilot Survey That Sets The Code Assistant License Order",
+            articleDescription: "Companies seldom roll out an AI tool to every employee at once. A pilot group tests the options first, and the share of users who prefer each tool guides how many licenses to buy and where to spend on training. This problem shows how a count from a survey becomes a probability, and how that probability supports a license decision",
+            articleHref: "/a/the-genai-pilot-survey-that-sets-the-code-assistant-license-order.html"
+        },
+        {
+            articleTitle: "A Prepaid Cloud Commitment, And What The Finance Team Gets Back Each Month",
+            articleDescription: "This problem shows how a rate stated for one time unit is converted into the unit in which money actually moves, and why that conversion carries the whole decision",
+            articleHref: "/a/a-prepaid-cloud-commitment-and-what-the-finance-team-gets-back-each-month.html"
+        },
+        {
+            articleTitle: "When A Benchmark Result Sets The Baseline For A Rival Model",
+            articleDescription: "Vendor benchmarks rarely publish both sides of a comparison",
+            articleHref: "/a/when-a-benchmark-result-sets-the-baseline-for-a-rival-model.html"
+        },
+        {
             articleTitle: "The Licenses A Cloud Team Never Assigned, And What They Reveal",
             articleDescription: "That small unclaimed remainder is often the only number on record, and it is enough to recover the size of the original order",
             articleHref: "/a/the-licenses-a-cloud-team-never-assigned-and-what-they-reveal.html"

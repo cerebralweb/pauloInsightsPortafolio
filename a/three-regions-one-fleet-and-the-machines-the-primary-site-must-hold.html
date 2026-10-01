@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A cloud operations team knows the share held by one site, the ratio between two others, and the machine count at a single location. Three routes recover the primary region count, each step licensed by a named property.">
+    <meta name="keywords" content="percentages, ratios, greatest common divisor, Euclidean algorithm, cloud capacity planning, fleet allocation, proportional reasoning, business math, proof">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/three-regions-one-fleet-and-the-machines-the-primary-site-must-hold.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/three-regions-one-fleet-and-the-machines-the-primary-site-must-hold.html" />
+
+    <title>Three Regions, One Fleet, and the Machines the Primary Site Must Hold</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>September 21, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THREE REGIONS, ONE FLEET, AND THE MACHINES THE PRIMARY SITE MUST HOLD
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Capacity records rarely arrive complete. A cloud team often knows the share held by one site, the balance between two others, and the count at a single location, and has to recover everything else from those fragments. <dfn>This problem shows how a share, a ratio, and one observed count fix an entire fleet, and how the quantity that carries the inference is a block size shared by both the ratio and the percentages.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A cloud operations team manages a fleet of virtual machines across three regions. 40% of the fleet runs in the primary region. The remainder runs in two secondary regions, Frankfurt and Sydney. For every 4 machines in Frankfurt there are 5 machines in Sydney.</p>
+                <p>If Sydney runs 30 machines, how many machines run in the primary region?</p>
+                <ul>
+                    <li>a) 8.1</li>
+                    <li>b) 36</li>
+                    <li>c) 81</li>
+                    <li>d) 48</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: b) 36 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>The Sydney count <strong>divides</strong> by 5 to give a ratio block of 6, which <strong>multiplies</strong> by 4 to give Frankfurt 24, so the two secondary regions hold 54. That 54 is 60% of the fleet, so the fleet is 90 and the primary region holds 40% of it.</p>
+
+                    <p class="insight"><em>One observed count fixes two block sizes at once, 6 machines per ratio block and 9 machines per 10% of the fleet.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Ratio block:</strong> 30 ÷ 5 = 6 machines</li>
+                            <li><strong>Frankfurt count:</strong> 4 × 6 = 24 machines</li>
+                            <li><strong>Secondary regions combined:</strong> 24 + 30 = 54 machines</li>
+                            <li><strong>Share held by the secondary regions:</strong> 100% − 40% = 60%</li>
+                            <li><strong>Total fleet:</strong> 54 ÷ 0.60 = 90 machines</li>
+                            <li><strong>Primary region:</strong> 0.40 × 90 = 36 machines</li>
+                            <li><strong>Check:</strong> 36 + 24 + 30 = 90, and 24 ÷ 30 = 4 ÷ 5</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2>The Fleet in Blocks</h2>
+
+                <p>The top row divides the fleet into five blocks of 20%, each worth 18 machines. Three blocks belong to the secondary regions, two to the primary region. The bottom row takes the 54 machines of the secondary regions and splits them into 4 blocks and 5 blocks of 6.</p>
+
+                <svg width="100%" viewBox="0 0 680 320" role="img" xmlns="http://www.w3.org/2000/svg" font-family="Source Sans Pro, Arial, sans-serif"><title>Fleet split into five blocks of 20 percent worth 18 machines each</title><desc>The top row shows five equal blocks of 18 machines. Three blocks are the secondary regions at 60 percent, totalling 54 machines. Two blocks are the primary region at 40 percent, totalling 36 machines. The bottom row splits the 54 machines into Frankfurt 24 and Sydney 30, four blocks to five blocks of six.</desc>
+                <text x="96" y="60" text-anchor="middle" font-size="12" fill="#6b7280">20%</text>
+                <text x="216" y="60" text-anchor="middle" font-size="12" fill="#6b7280">20%</text>
+                <text x="336" y="60" text-anchor="middle" font-size="12" fill="#6b7280">20%</text>
+                <text x="456" y="60" text-anchor="middle" font-size="12" fill="#6b7280">20%</text>
+                <text x="576" y="60" text-anchor="middle" font-size="12" fill="#6b7280">20%</text>
+                <rect x="40" y="70" width="112" height="48" rx="4" fill="#1d9e75"/>
+                <rect x="160" y="70" width="112" height="48" rx="4" fill="#1d9e75"/>
+                <rect x="280" y="70" width="112" height="48" rx="4" fill="#1d9e75"/>
+                <rect x="400" y="70" width="112" height="48" rx="4" fill="#888780"/>
+                <rect x="520" y="70" width="112" height="48" rx="4" fill="#888780"/>
+                <text x="96" y="99" text-anchor="middle" font-size="14" fill="#ffffff">18</text>
+                <text x="216" y="99" text-anchor="middle" font-size="14" fill="#ffffff">18</text>
+                <text x="336" y="99" text-anchor="middle" font-size="14" fill="#ffffff">18</text>
+                <text x="456" y="99" text-anchor="middle" font-size="14" fill="#ffffff">18</text>
+                <text x="576" y="99" text-anchor="middle" font-size="14" fill="#ffffff">18</text>
+                <path d="M40 128 L40 138 L392 138 L392 128" fill="none" stroke="#1d9e75" stroke-width="1"/>
+                <text x="216" y="158" text-anchor="middle" font-size="12" fill="#1d9e75">Frankfurt + Sydney = 60% = 54</text>
+                <path d="M400 128 L400 138 L632 138 L632 128" fill="none" stroke="#888780" stroke-width="1"/>
+                <text x="516" y="158" text-anchor="middle" font-size="12" fill="#888780">Primary region = 40% = 36</text>
+                <rect x="50" y="200" width="240" height="48" rx="4" fill="#f89c08"/>
+                <rect x="290" y="200" width="300" height="48" rx="4" fill="#1d9e75"/>
+                <text x="170" y="229" text-anchor="middle" font-size="14" fill="#ffffff">Frankfurt = 24</text>
+                <text x="440" y="229" text-anchor="middle" font-size="14" fill="#ffffff">Sydney = 30</text>
+                <text x="170" y="278" text-anchor="middle" font-size="12" fill="#6b7280">4 blocks</text>
+                <text x="440" y="278" text-anchor="middle" font-size="12" fill="#6b7280">5 blocks</text>
+                <text x="600" y="229" font-size="12" fill="#111827">block = 6</text>
+                </svg>
+
+                <p>The two rows share one fact. Since 30 ÷ 5 = 6, and 60 ÷ 10 = 6, the ratio block and the block of 10% are the same size. The observed Sydney count fixes both.</p>
+
+                <h2>Proof in Business Terms</h2>
+
+                <p>Let T be the total machine count in the fleet, P the count in the primary region, F the count in Frankfurt, S the count in Sydney, and k the size of one ratio block shared by Frankfurt and Sydney. The primary region holds two fifths of the fleet, so P = (2/5)T. The two secondary regions hold what remains, so F + S = T − P. The ratio gives F = 4k and S = 5k. The observation gives S = 30. The letters x, y, c, m, n, z stand for any numbers, used to state a property in general form.</p>
+
+                <ol>
+                    <li><strong>Substitution.</strong> If x = y then x may replace y. S = 5k and S = 30, so 5k = 30.</li>
+                    <li><strong>Cancellation law.</strong> For y ≠ 0, (yx)/y = x. So k = 30/5 = (5)(6)/5 = 6. Each ratio block holds 6 machines.</li>
+                    <li><strong>Substitution.</strong> F = 4k = 4(6) = 24. Frankfurt runs 24 machines.</li>
+                    <li><strong>Closure under addition.</strong> If x and y are integers then x + y is an integer. F + S = 24 + 30 = 54, the two secondary regions combined.</li>
+                    <li><strong>Distributivity of multiplication over addition.</strong> (x − y)z = xz − yz. So T − P = T − (2/5)T = (1 − 2/5)T = (3/5)T.</li>
+                    <li><strong>Substitution.</strong> F + S = T − P, F + S = 54, and T − P = (3/5)T, so (3/5)T = 54.</li>
+                    <li><strong>Multiplication property of equality.</strong> If x = y then cx = cy. So (5/3)[(3/5)T] = (5/3)(54).</li>
+                    <li><strong>Multiplicative inverse and multiplicative identity.</strong> For x ≠ 0, (1/x)x = 1, and 1y = y. So (5/3)[(3/5)T] = (1)T = T.</li>
+                    <li><strong>Cancellation law.</strong> (5/3)(54) = 5(54)/3 = 5(18) = 90.</li>
+                    <li><strong>Transitivity of equality.</strong> If x = y and y = z then x = z. So T = 90. The fleet runs 90 machines.</li>
+                    <li><strong>Substitution and cancellation.</strong> P = (2/5)T = (2/5)(90) = 2(90)/5 = 2(18) = 36.</li>
+                </ol>
+
+                <p>Verification. P + F + S = 36 + 24 + 30 = 90 = T. P/T = 36/90 = 2/5. F/S = 24/30 = 4/5. Every constraint holds. The primary region runs 36 virtual machines, which is option b.</p>
+
+                <h2>Three Routes to the Same Count</h2>
+
+                <p>The proof above computes the fleet total on the way to the answer. Two other routes reach 36 without it, and each exposes a different structure in the same data.</p>
+
+                <h3>Route A. The visual route</h3>
+
+                <p>The clue that one block of 10% equals 4 + 5 is the Sydney count.</p>
+
+                <ol>
+                    <li><strong>Cancellation law.</strong> k = 30/5 = (5)(6)/5 = 6.</li>
+                    <li><strong>Distributivity.</strong> xz + yz = (x + y)z, so F + S = 4k + 5k = (4 + 5)k = 9k.</li>
+                    <li><strong>Substitution.</strong> F + S = 9(6) = 54.</li>
+                    <li><strong>Substitution.</strong> (60/100)T = 54.</li>
+                    <li><strong>Greatest common divisor, factoring both sides.</strong> If gcd(x, y) = z then x = zm and y = zn for integers m, n. Since gcd(60, 54) = 6, the equation reads 6[(10/100)T] = 6(9), so (10/100)T = 9 = 4 + 5.</li>
+                    <li><strong>Associativity of multiplication.</strong> (xy)z = x(yz), so (20/100)T = 2[(10/100)T] = 2(9) = 18.</li>
+                    <li><strong>Associativity of multiplication.</strong> P = (40/100)T = 2[(20/100)T] = 2(18) = 36.</li>
+                </ol>
+
+                <h3>Route B. The numeric route</h3>
+
+                <p>The comparison is 60% against 40%, the secondary regions against the primary region.</p>
+
+                <ol>
+                    <li><strong>Bezout's identity.</strong> gcd(m, n) = 1 if and only if mx + ny = 1 for some integers x, y. Since 3(1) + 2(−1) = 1, gcd(3, 2) = 1.</li>
+                    <li><strong>Distributive property of the greatest common divisor.</strong> gcd(mz, nz) = z gcd(m, n) for z &gt; 0. So gcd(60, 40) = gcd(20(3), 20(2)) = 20 gcd(3, 2) = 20. The shared block is 20%.</li>
+                    <li><strong>Distributivity.</strong> (60/100)T = 3[(20/100)T] = 54.</li>
+                    <li><strong>Cancellation law.</strong> (20/100)T = 54/3 = (3)(18)/3 = 18.</li>
+                    <li><strong>Associativity of multiplication.</strong> P = (40/100)T = 2[(20/100)T] = 2(18) = 36.</li>
+                </ol>
+
+                <h3>Route C. The route by organizing the information</h3>
+
+                <ol>
+                    <li><strong>Substitution.</strong> S/F = 5/4 and S = 30.</li>
+                    <li><strong>Equivalent fractions, by the cancellation law.</strong> For z ≠ 0, (xz)/(yz) = x/y. So 5(6)/4(6) = 30/24, which gives F = 24.</li>
+                    <li><strong>Closure under addition.</strong> F + S = 24 + 30 = 54.</li>
+                    <li><strong>Multiplication property of equality.</strong> (100/60)[(60/100)T] = (100/60)(54), so T = 100(54)/60 = 90.</li>
+                    <li><strong>Subtraction property of equality.</strong> If x = y then x − z = y − z. So P = T − (F + S) = 90 − 54 = 36.</li>
+                </ol>
+
+                <p>All three routes agree, and all three rest on the same observation. The count at one site fixes a block size, and every other quantity follows from it.</p>
+
+                <h2>Why the Greatest Common Divisor Earns Its Place</h2>
+
+                <p>With 60 and 40 the shared block of 20 is visible without any work, so the divisor looks like ceremony. The value shows up when the shares share no obvious factor. A fleet split 68% and 32% yields a block of 4% in three divisions of the Euclidean algorithm, and no mental arithmetic is needed. The algorithm also proves that no larger block exists, which is what licenses the step in Route B that divides 54 by 3.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Splitting a quantity by a fixed ratio is one of the oldest recorded commercial operations. Babylonian scribes divided estates and harvests among heirs by assigned shares, and the Rhind Mathematical Papyrus works through the division of loaves among unequal ranks of workers, reducing each share to a sum of unit fractions. The method traveled into medieval merchant manuals as the rule of company, where partners recovered profit in proportion to the capital each had put in. Its modern descendants are capacity allocation, cost apportionment across business units, and reconciliation of partial inventory records, all of which recover a whole from one observed part and a stated proportion.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates" target="_blank" rel="noopener">Khan Academy — Ratios, Rates, and Percentages</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Ratio.html" target="_blank" rel="noopener">Wolfram MathWorld — Ratio</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/ratio" target="_blank" rel="noopener">Mathematics Stack Exchange — Ratio</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">September 21, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
