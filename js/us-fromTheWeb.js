@@ -1,6 +1,6 @@
 //SIRVE lista de contenido hot EN ESPAÑOL
 const infoDeLa_web = ` 
-<h4>AI in Arxiv </h4>
+<h4>Hot Math</h4>
 
 
 <p>Cloud Storage</p>
@@ -11,10 +11,10 @@ href="https://www.clpalacios.in/a/the-three-divisions-behind-one-tray-of-1512-bl
 Data in cubic blocks
 </a>
 
-<p>AI Decisions</p>
+<p>Probability Applied</p>
 <a 
 class="class1"
-href="https://arxiv.org/abs/2510.13465"
+href="https://www.clpalacios.in/a/five-cloud-accounts-twelve-months-and-the-renewals-that-collide.html"
 >
 Algorithmic decision-making
 </a>

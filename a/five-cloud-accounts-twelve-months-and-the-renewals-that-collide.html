@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A FinOps team groups cloud accounts and asks the chance that two renewals share a month. The article picks a simulation model, builds the exact chance step by step with interactive graphs and a formal solution, and gives a reusable Python tool.">
+    <meta name="keywords" content="FinOps, cloud renewals, cloud commitments, probability, birthday problem, simulation, opposite event, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/five-cloud-accounts-twelve-months-and-the-renewals-that-collide.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/five-cloud-accounts-twelve-months-and-the-renewals-that-collide.html" />
+
+    <title>Five Cloud Accounts, Twelve Months, and the Renewals That Collide</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>Oct 6, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    FIVE CLOUD ACCOUNTS, TWELVE MONTHS, AND THE RENEWALS THAT COLLIDE
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Cloud commitments renew on a calendar, and finance teams plan cash and review work around those dates. Two renewals in the same month concentrate payments and approvals, so the chance of a shared month shapes how a team groups its accounts. <dfn>This article builds that chance one account at a time, shows each step in an interactive graph, proves the result with a named property for each step, and turns it into a reusable Python tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>A FinOps team manages the 35 cloud accounts of Region 9. The team splits the accounts into groups of 5 to plan commitment renewals across the fiscal year.</p>
+                <p>The team asks what would be the best way to estimate the probability that in each group at least 2 accounts renew in the same month.</p>
+                <ul>
+                    <li>a) flipping a coin 35 times to record whether each account renews in an even or an odd month</li>
+                    <li>b) using a random number generator with the range 01 to 05, one number for each possible account</li>
+                    <li>c) putting 5 cards in a bag, one for each account in a group, and drawing one card for each account that matches another account</li>
+                    <li>d) dividing a spinner into 12 equal sectors, one for each month, and spinning it 5 times for each trial the team wants to record</li>
+                </ul>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: d) A spinner with 12 equal sectors, spun 5 times per trial ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Each spin gives one account a month with a chance of 1/12, so <strong>5 spins</strong> model one group of 5 accounts. Counting the ways all 5 months differ, <strong>12 × 11 × 10 × 9 × 8 = 95,040</strong> out of <strong>12⁵ = 248,832</strong>, and taking the <strong>opposite event</strong> gives the value the spinner trials approach, 89/144 ≈ 61.8%.</p>
+
+                    <p class="insight"><em>The opposite event, all months different, stays one case at any group size, while a shared month splits into more patterns with each account added.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Model choice:</strong> The spinner gives 12 equal outcomes, one per month. Option a gives 2 outcomes, option b draws accounts, and option c has no months.</li>
+                            <li><strong>One trial:</strong> 5 spins, one per account in the group.</li>
+                            <li><strong>Sample space:</strong> 12⁵ = 248,832 outcomes for a group of 5.</li>
+                            <li><strong>All months different:</strong> 12 × 11 × 10 × 9 × 8 = 95,040 outcomes.</li>
+                            <li><strong>Chance all months differ:</strong> 95,040/248,832 = 55/144 ≈ 38.2%.</li>
+                            <li><strong>Chance of a shared month:</strong> 1 − 55/144 = 89/144 ≈ 61.8%.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="scaffolding">The Scaffolding, Step by Step</h2>
+
+                <p>A FinOps team splits 35 cloud accounts into groups of 5. Each account renews its cloud commitment once a year, in one of 12 months, and each month has the same chance. Two renewals in one month concentrate payments and review work in that month. The team wants the chance that at least 2 accounts in a group renew in the same month.</p>
+                <p>This section builds the answer from one account to five, one problem at a time.</p>
+
+                <h3>Method</h3>
+                <p>Three questions come first.</p>
+                <ol>
+                    <li>What are the possible outcomes? Their list is the sample space.</li>
+                    <li>Which outcomes does the question ask about? That set is the event.</li>
+                    <li>Which outcomes remain? That set is the opposite event. An event and its opposite event add to 1.</li>
+                </ol>
+
+                <h3>Definitions</h3>
+                <ul>
+                    <li><strong>Outcome.</strong> One possible result, e.g. account A renews in March.</li>
+                    <li><strong>Sample space.</strong> The set of all possible outcomes, written S. For one account, S holds 12 months.</li>
+                    <li><strong>Event.</strong> A set of outcomes that the question asks about, written E, e.g. E = {March}.</li>
+                    <li><strong>Opposite event.</strong> The outcomes in S that are not in E, written "not E." Its other name is the complement.</li>
+                    <li><strong>Probability.</strong> The number of outcomes in E divided by the number of outcomes in S, when each outcome has the same chance. Written P(E).</li>
+                    <li><strong>Complement rule.</strong> P(E) + P(not E) = 1. It reads "the probability of E plus the probability of not E equals 1," e.g. 1/12 + 11/12 = 1.</li>
+                    <li><strong>Parameter.</strong> A value the method takes as input and that changes the result, e.g. the number of accounts.</li>
+                    <li><strong>Independent events.</strong> Events where one outcome does not change the chance of the other. When independent events must both happen, you multiply their chances.</li>
+                    <li><strong>Mutually exclusive events.</strong> Events that cannot happen together. To find the chance that one of them happens, you add their chances.</li>
+                </ul>
+
+                <h3>One account</h3>
+                <p><strong>Step 1.</strong> One account has 12 possible outcomes, one for each month.</p>
+                <p><strong>Step 2.</strong> The first question is what the possible outcomes are. Their list is the sample space. For one account, the sample space holds 12 months. One of them is March.</p>
+                <p>1/12 ≈ 0.083 ≈ 8.3%</p>
+                <p><strong>Step 3.</strong> Eleven of the 12 outcomes are months other than March.</p>
+                <p>11/12 ≈ 0.917 ≈ 91.7%</p>
+                <p>1/12 + 11/12 = 1. An event and its opposite event add to 1, since one of the two always happens.</p>
+
+                <h3>Two accounts</h3>
+                <p><strong>Step 4.</strong> For two accounts, the sample space holds 144 outcomes.</p>
+                <p>12 × 12 = 144</p>
+                <p>When one choice has 12 options and a second choice has 12, the pair has 12 × 12 outcomes. This is the multiplication rule for counting.</p>
+                <p><strong>Step 5.</strong> One outcome has both A and B in March.</p>
+                <p>1/144 ≈ 0.007 ≈ 0.7%</p>
+                <p>A second route gives the same number.</p>
+                <p>1/12 × 1/12 = 1/144</p>
+                <p>For n accounts, the chance that all renew in March is (1/12)ⁿ. Each account added multiplies the chance by 1/12.</p>
+                <p><strong>Step 6.</strong> Twelve outcomes have A and B in the same month, one for each month.</p>
+                <p>12/144 = 1/12 ≈ 8.3%</p>
+                <p>A second route. Each month case has a chance of 1/144. The 12 cases cannot happen together, since A renews in one month. So their chances add.</p>
+                <p>12 × 1/144 = 1/12</p>
+                <p><strong>Step 7.</strong> "Different months" is the opposite event of "same month."</p>
+                <p>1 − 12/144 = 132/144 = 11/12 ≈ 91.7%</p>
+                <p>Counting gives the same result. 144 − 12 = 132 outcomes with different months.</p>
+                <p>A third route. A takes any month. B takes one of the 11 months A did not take.</p>
+                <p>12/12 × 11/12 = 11/12</p>
+
+                <h3>Three accounts</h3>
+                <p><strong>Step 8.</strong> For three accounts, the sample space holds 1,728 outcomes.</p>
+                <p>12³ = 12 × 12 × 12 = 1,728</p>
+                <p><strong>Step 9.</strong> Twelve outcomes have A, B, and C in the same month, one for each month.</p>
+                <p>12/12³ = 1/12² = 1/144 ≈ 0.7%</p>
+                <p>A second route. A takes any month. B must match A, and C must match A.</p>
+                <p>1 × 1/12 × 1/12 = 1/144</p>
+                <p><strong>Step 10.</strong> Three pairs of accounts can share a month. A with B, A with C, and B with C.</p>
+                <p>For the pair A with B, 132 outcomes have A and B in one month and C in another.</p>
+                <p>132/1,728 ≈ 7.6%</p>
+                <p>Three pairs, 132 outcomes each.</p>
+                <p>3 × 132/1,728 = 396/1,728 ≈ 22.9%</p>
+                <p><strong>Step 11.</strong> For 3 accounts, the chance that at least 2 share a month is 408/1,728 ≈ 23.6%. The two cases are mutually exclusive, so their chances add.</p>
+                <p>(12 + 396)/1,728 = 408/1,728 ≈ 23.6%</p>
+                <p><strong>Step 12.</strong> For 3 accounts, the chance that all 3 renew in different months is 1,320/1,728 ≈ 76.4%. "All different" is the opposite event of "at least 2 share," so their chances add to 1.</p>
+                <p>408/1,728 + 1,320/1,728 = 1,728/1,728 = 1</p>
+                <p>A second count, one account at a time. A has 12 months, B has 11, and C has 10.</p>
+                <p>12 × 11 × 10 = 1,320</p>
+                <p>This count needs no cases. The case count for "at least 2 share" grows with each account. This product grows by one factor.</p>
+
+                <h3>Five accounts</h3>
+                <p><strong>Step 13.</strong> For 5 accounts, 95,040 outcomes have all 5 in different months. Each account excludes the months the earlier accounts took.</p>
+                <p>12 × 11 × 10 × 9 × 8 = 95,040</p>
+                <p>The chance that all 5 renew in different months is 95,040/248,832 ≈ 38.2%.</p>
+                <p>The chance that at least 2 of the 5 accounts renew in the same month is 1 − 0.382 = 0.618 ≈ 61.8%.</p>
+
+                <h3>Model Assumptions</h3>
+                <p>Each account renews independent of the others. Each month has the same chance. Real renewals can cluster, e.g. at fiscal year end. Unequal chances raise the chance of a shared month above the model's result.</p>
+
+                <h3>Concepts and Tools Used</h3>
+                <p>The scaffolding uses ratios, not rates. A ratio compares two quantities of the same kind, e.g. 12 outcomes to 144 outcomes. Each probability here is a ratio of outcomes. A rate compares quantities with different units, e.g. renewals per month.</p>
+                <p>Fraction properties used.</p>
+                <ul>
+                    <li>Reducing, e.g. 12/144 = 1/12 and 132/144 = 11/12.</li>
+                    <li>Multiplying fractions, e.g. 1/12 × 1/12 = 1/144.</li>
+                    <li>Multiplying a fraction by a whole number, e.g. 12 × 1/144 = 1/12.</li>
+                    <li>Adding fractions with a common denominator, e.g. (12 + 396)/1,728.</li>
+                    <li>Subtracting from 1, with 1 written as 12/12 or 1,728/1,728.</li>
+                    <li>Converting fractions to decimals and percents.</li>
+                </ul>
+                <p>Other tools used.</p>
+                <ul>
+                    <li>Powers, e.g. 12³, and the power of a fraction, (1/12)ⁿ = 1/12ⁿ.</li>
+                    <li>The multiplication rule for counting.</li>
+                    <li>Order of operations, e.g. the parentheses in step 11.</li>
+                    <li>Two counting ideas used without their names. The 3 pairs from A, B, and C are combinations, selections where order does not matter. The product 12 × 11 × 10 × 9 × 8 counts permutations, arrangements where order matters and no month repeats.</li>
+                </ul>
+
+                <h2 id="graphs">The Scaffolding in Six Graphs</h2>
+
+                <p>Each graph pairs a picture with a number sentence. Tap, slide, or spin to change the inputs.</p>
+
+<div id="rg">
+<style>
+#rg{--paper:#ffffff;--ink:#000000;--c:#00AEEF;--m:#EC008C;--y:#FFF200;--cm:#2E3192;--e:#E6E6E6;--faint:#F4F4F4;--k20:#C4C4C4;--k50:#7A7A7A;--muted:#454545;background:var(--paper);color:var(--ink);line-height:1.6;margin:8px 0 24px}
+#rg *,#rg *::before,#rg *::after{box-sizing:border-box}
+#rg section{margin-top:56px}
+#rg section:first-of-type{margin-top:24px}
+#rg .head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+#rg .chip{flex:none;width:44px;height:44px;display:grid;place-items:center;font-weight:700;font-size:1.35rem;color:#000;border:2px solid var(--ink)}
+#rg .chip.c{background:var(--c)} #rg .chip.m{background:var(--m)} #rg .chip.y{background:var(--y)}
+#rg .chip.k{background:var(--ink);color:var(--paper)}
+#rg h3{font-size:1.4rem;line-height:1.2;margin:0;font-weight:600}
+#rg p{max-width:62ch;margin:.5rem 0 1rem}
+#rg .note{color:var(--muted);font-size:.95rem}
+#rg .sentence{font-size:1.1rem;font-weight:600;font-variant-numeric:tabular-nums;border-left:8px solid var(--y);padding:.35rem 0 .35rem .9rem;margin:18px 0 0;max-width:none}
+#rg .readout{font-variant-numeric:tabular-nums;min-height:1.6em;margin:.6rem 0}
+#rg .controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+#rg .btn,#rg .month{font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:8px;cursor:pointer;margin:0;box-shadow:none;text-transform:none}
+#rg .btn{font-size:.95rem;padding:.5rem .85rem;display:inline-flex;align-items:center;gap:8px}
+#rg .btn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+#rg .btn:disabled{opacity:.45;cursor:default}
+#rg .btn:focus-visible,#rg .month:focus-visible,#rg input[type=range]:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+#rg .months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin:14px 0}
+#rg .month{font-size:.88rem;padding:.55rem 0}
+#rg .month[aria-pressed="true"]{background:var(--m);color:#000}
+#rg .pick-a .month[aria-pressed="true"]{background:var(--c)}
+#rg .pick-b .month[aria-pressed="true"]{background:var(--m)}
+#rg .pick-label{font-size:.95rem;font-weight:600;margin:12px 0 -6px}
+@media (max-width:640px){#rg .months{grid-template-columns:repeat(6,1fr)}}
+#rg .bm{margin:20px 0 6px}
+#rg .bm-text{font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+#rg .bm-text.right{text-align:right}
+#rg .brk{height:10px;border:2px solid var(--ink)}
+#rg .brk.top{border-bottom:0;margin-top:3px}
+#rg .brk.bottom{border-top:0;margin-left:auto;margin-bottom:3px}
+#rg .bm-bar{display:flex;height:48px;border:2px solid var(--ink)}
+#rg .bm-unit{flex:1 1 0;border-right:2px solid var(--ink)}
+#rg .bm-unit:last-child{border-right:0}
+#rg .u-c{background:var(--c)} #rg .u-m{background:var(--m)} #rg .u-y{background:var(--y)}
+#rg .u-k{background:var(--ink)} #rg .u-e{background:var(--paper)}
+#rg .sw{display:inline-block;width:16px;height:16px;border:1.5px solid var(--ink);flex:none}
+#rg .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.92rem;margin:8px 0}
+#rg .legend span{display:inline-flex;align-items:center;gap:6px}
+#rg svg.fig{display:block;width:100%;height:auto;max-width:520px;margin:6px 0}
+#rg svg.fig.wide{max-width:600px}
+#rg svg text{fill:var(--ink);font-family:inherit}
+#rg .tick,#rg .tick-sm{font-size:11px} #rg .axis{font-size:12.5px;font-weight:600}
+#rg .f-c{fill:var(--c)} #rg .f-m{fill:var(--m)} #rg .f-y{fill:var(--y)} #rg .f-k{fill:var(--ink)}
+#rg .f-e{fill:var(--e)} #rg .f-faint{fill:var(--faint)} #rg .f-k50{fill:var(--k50)} #rg .f-cm{fill:var(--cm)}
+#rg .cell{cursor:pointer}
+#rg .gridline{stroke:var(--k20);stroke-width:1}
+#rg .acct{display:grid;grid-template-columns:6.5rem minmax(0,360px) 5rem;align-items:center;gap:10px;padding:3px 0;font-size:.92rem;font-variant-numeric:tabular-nums}
+#rg .squares{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+#rg .sq{aspect-ratio:1;border:1.5px solid var(--ink);border-radius:3px}
+#rg .sq.free{background:var(--c)}
+#rg .sq.taken{background:repeating-linear-gradient(45deg,var(--k50) 0 2px,transparent 2px 6px)}
+@media (max-width:520px){#rg .acct{grid-template-columns:5.2rem minmax(0,1fr) 3.8rem;gap:6px;font-size:.82rem}}
+#rg .slider{display:flex;align-items:center;gap:14px;margin:16px 0;font-weight:600;flex-wrap:wrap}
+#rg .slider input{width:min(340px,100%);accent-color:var(--m)}
+#rg .facts{list-style:none;padding:0;margin:14px 0;font-variant-numeric:tabular-nums}
+#rg .facts li{padding:2px 0}
+#rg .spin-wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:680px){#rg .spin-wrap{grid-template-columns:1fr}}
+#rg-wheel{transform-box:view-box;transform-origin:150px 160px}
+#rg .board{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+#rg .slot{border:2px solid var(--ink);border-radius:8px;padding:6px 4px;min-height:60px;text-align:center;font-size:.85rem}
+#rg .slot.one{background:var(--c);color:#000}
+#rg .slot.shared{background:var(--cm);color:#fff}
+#rg .dots{display:flex;justify-content:center;flex-wrap:wrap;gap:3px;margin-top:4px}
+#rg .dot{width:18px;height:18px;border-radius:50%;background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);font-size:.7rem;line-height:15px;font-weight:600}
+@media (prefers-reduced-motion: reduce){#rg-wheel{transition:none !important}}
+</style>
+<section id="rg-s1" aria-labelledby="rg-h1s">
+    <div class="head"><span class="chip c">1</span><h3 id="rg-h1s">One account</h3></div>
+    <p>The sample space holds 12 months. Tap months to build an event. The months you leave out form the opposite event.</p>
+    <div class="months" id="rg-m1" role="group" aria-label="Months in the event"></div>
+    <div class="bm" aria-live="polite">
+      <div class="bm-text" id="rg-t1top"></div>
+      <div class="brk top" id="rg-b1top"></div>
+      <div class="bm-bar" id="rg-bar1"></div>
+      <div class="brk bottom" id="rg-b1bot"></div>
+      <div class="bm-text right" id="rg-t1bot"></div>
+    </div>
+    <p class="readout" id="rg-ev1"></p>
+    <p class="sentence" id="rg-ns1"></p>
+  </section>
+
+  <section id="rg-s2" aria-labelledby="rg-h2s">
+    <div class="head"><span class="chip m">2</span><h3 id="rg-h2s">Two accounts</h3></div>
+    <p>Each cell is one outcome. A's month runs down the side and B's month runs across the top. The grid holds 12 × 12 = 144 outcomes.</p>
+    <div class="controls" id="rg-c2" role="group" aria-label="Event"></div>
+    <svg class="fig" id="rg-g2" role="img" aria-label="A 12 by 12 grid of outcomes for accounts A and B"></svg>
+    <p class="readout" id="rg-hover2">Tap a cell to read its outcome.</p>
+    <p class="readout" id="rg-r2"></p>
+    <p class="sentence" id="rg-ns2"></p>
+  </section>
+
+  <section id="rg-s3" aria-labelledby="rg-h3s">
+    <div class="head"><span class="chip y">3</span><h3 id="rg-h3s">Chances multiply</h3></div>
+    <p>Pick a month for each account, or tap a cell. A's row holds 1/12 of the grid. B's column holds 1/12 of the grid. They cross at one cell.</p>
+    <div class="pick-label">Account A</div>
+    <div class="months pick-a" id="rg-pa" role="group" aria-label="Month for account A"></div>
+    <div class="pick-label">Account B</div>
+    <div class="months pick-b" id="rg-pb" role="group" aria-label="Month for account B"></div>
+    <div class="legend">
+      <span><i class="sw u-c"></i>A in its month</span>
+      <span><i class="sw u-m"></i>B in its month</span>
+      <span><i class="sw" style="background:var(--cm)"></i>Both</span>
+    </div>
+    <svg class="fig" id="rg-g3" role="img" aria-label="Grid with A's row and B's column marked"></svg>
+    <p class="readout" id="rg-r3"></p>
+    <p class="sentence">1/12 × 1/12 = 1/144 ≈ 0.7%</p>
+  </section>
+
+  <section id="rg-s4" aria-labelledby="rg-h4s">
+    <div class="head"><span class="chip k">4</span><h3 id="rg-h4s">Three accounts</h3></div>
+    <p>Each small grid fixes C's month, with A down the side and B across the top. The 12 grids hold 12³ = 1,728 outcomes. Colors mark which accounts share a month. Tap a key to show one case.</p>
+    <div class="controls" id="rg-c4" role="group" aria-label="Case"></div>
+    <svg class="fig wide" id="rg-g4" role="img" aria-label="Twelve grids of outcomes for accounts A, B, and C"></svg>
+    <p class="readout" id="rg-r4"></p>
+    <div class="bm">
+      <div class="bm-text">At least 2 share, 408 of 1,728 ≈ 23.6%</div>
+      <div class="brk top" style="width:23.611%"></div>
+      <div class="bm-bar">
+        <div class="u-c" style="flex:0 0 7.639%;border-right:2px solid var(--ink)"></div>
+        <div class="u-m" style="flex:0 0 7.639%;border-right:2px solid var(--ink)"></div>
+        <div class="u-y" style="flex:0 0 7.639%;border-right:2px solid var(--ink)"></div>
+        <div class="u-k" style="flex:0 0 0.694%"></div>
+        <div class="u-e" style="flex:1 1 auto;border-left:2px solid var(--ink)"></div>
+      </div>
+      <div class="brk bottom" style="width:76.389%"></div>
+      <div class="bm-text right">All different, 1,320 of 1,728 ≈ 76.4%</div>
+    </div>
+    <p class="sentence">12 + 132 + 132 + 132 = 408, and 408 + 1,320 = 1,728</p>
+  </section>
+
+  <section id="rg-s5" aria-labelledby="rg-h5s">
+    <div class="head"><span class="chip c">5</span><h3 id="rg-h5s">One account at a time</h3></div>
+    <p>Each account takes a month that the earlier accounts did not take. Striped squares are months already taken. Move the slider to add accounts.</p>
+    <div class="slider">
+      <label for="rg-n5">Accounts in the group</label>
+      <input type="range" id="rg-n5" min="1" max="13" step="1" value="5">
+      <output id="rg-o5" for="rg-n5">5</output>
+    </div>
+    <div id="rg-rows5"></div>
+    <ul class="facts" id="rg-f5"></ul>
+    <p class="note">Chance that at least 2 accounts share a month, by group size. Tap a bar to change the group size.</p>
+    <svg class="fig" id="rg-g5" role="img" aria-label="Bar chart of the chance of a shared month for 1 to 13 accounts"></svg>
+    <p class="sentence" id="rg-ns5"></p>
+  </section>
+
+  <section id="rg-s6" aria-labelledby="rg-h6s">
+    <div class="head"><span class="chip m">6</span><h3 id="rg-h6s">Spin to estimate</h3></div>
+    <p>This is option d. A spinner with 12 equal sectors, spun 5 times per trial, one spin per account. The share of trials with a shared month moves toward the exact value as trials add up.</p>
+    <div class="spin-wrap">
+      <svg id="rg-spinner" viewBox="0 0 300 310" role="img" aria-label="Spinner with 12 month sectors" style="width:100%;max-width:300px;height:auto;display:block"></svg>
+      <div>
+        <div class="board" id="rg-board" aria-live="polite"></div>
+        <p class="readout" id="rg-trial6">Spin to run a trial.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" type="button" id="rg-spin1">Spin 5 times</button>
+      <button class="btn" type="button" id="rg-run100">Run 100 trials</button>
+      <button class="btn" type="button" id="rg-run1000">Run 1,000 trials</button>
+      <button class="btn" type="button" id="rg-reset6">Reset</button>
+    </div>
+    <p class="readout" id="rg-stats6"></p>
+    <svg class="fig" id="rg-g6" role="img" aria-label="Running estimate against the exact value"></svg>
+  </section>
+<script>
+(function(){
+  "use strict";
+  const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const NS='http://www.w3.org/2000/svg';
+  const fmt=n=>n.toLocaleString('en-US');
+  const pct=x=>(x*100).toFixed(1)+'%';
+  const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){const t=b;b=a%b;a=t;}return a;};
+  function reduce(a,b){if(a===0)return '0';if(a===b)return '1';const g=gcd(a,b);return fmt(a/g)+'/'+fmt(b/g);}
+  function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+  const SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  const sup=n=>String(n).split('').map(d=>SUP[d]).join('');
+  const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $=id=>document.getElementById('rg-'+id);
+
+  function monthButtons(wrap,isPressed,onClick){
+    const btns=[];
+    MONTHS.forEach((m,i)=>{
+      const b=document.createElement('button');
+      b.type='button';b.className='month';b.textContent=m;
+      b.setAttribute('aria-pressed',String(isPressed(i)));
+      b.addEventListener('click',()=>onClick(i));
+      wrap.appendChild(b);btns.push(b);
+    });
+    return btns;
+  }
+
+  function makeGrid(svg,onCell){
+    const L=46,T=42,S=30,W=L+12*S+6,H=T+12*S+6;
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    el('text',{x:L+6*S,y:14,'text-anchor':'middle',class:'axis'},svg).textContent='Account B';
+    const cy=T+6*S;
+    el('text',{x:12,y:cy,'text-anchor':'middle',class:'axis',transform:'rotate(-90 12 '+cy+')'},svg).textContent='Account A';
+    MONTHS.forEach((m,i)=>{
+      el('text',{x:L+i*S+(S-2)/2,y:T-9,'text-anchor':'middle',class:'tick'},svg).textContent=m;
+      el('text',{x:L-6,y:T+i*S+(S-2)/2+4,'text-anchor':'end',class:'tick'},svg).textContent=m;
+    });
+    const cells=[];
+    for(let a=0;a<12;a++){
+      cells[a]=[];
+      for(let b=0;b<12;b++){
+        const r=el('rect',{x:L+b*S,y:T+a*S,width:S-2,height:S-2,rx:3,class:'cell f-e'},svg);
+        r.addEventListener('pointerenter',()=>onCell(a,b,false));
+        r.addEventListener('click',()=>onCell(a,b,true));
+        cells[a][b]=r;
+      }
+    }
+    return cells;
+  }
+
+  /* Step 1 */
+  (function(){
+    const picked=new Set([2]);
+    const btns=monthButtons($('m1'),i=>picked.has(i),i=>{
+      if(picked.has(i))picked.delete(i);else picked.add(i);
+      btns[i].setAttribute('aria-pressed',String(picked.has(i)));
+      draw();
+    });
+    function draw(){
+      const k=picked.size,bar=$('bar1');
+      bar.innerHTML='';
+      for(let i=0;i<12;i++){const u=document.createElement('div');u.className='bm-unit '+(i<k?'u-m':'u-c');bar.appendChild(u);}
+      $('b1top').style.width=(k/12*100)+'%';
+      $('b1top').style.visibility=k===0?'hidden':'visible';
+      $('b1bot').style.width=((12-k)/12*100)+'%';
+      $('b1bot').style.visibility=k===12?'hidden':'visible';
+      $('t1top').textContent=k?('Event, '+k+'/12 ≈ '+pct(k/12)):'The event is empty';
+      $('t1bot').textContent=k<12?('Opposite event, '+(12-k)+'/12 ≈ '+pct((12-k)/12)):'The opposite event is empty';
+      const names=[...picked].sort((a,b)=>a-b).map(i=>MONTHS[i]);
+      $('ev1').textContent=k===0?'Tap a month to add it to the event.':'Event {'+names.join(', ')+'}. The opposite event holds the other '+(12-k)+(12-k===1?' month.':' months.');
+      $('ns1').textContent=k+'/12 + '+(12-k)+'/12 = 12/12 = 1';
+    }
+    draw();
+  })();
+
+  /* Step 2 */
+  (function(){
+    const EV={
+      march:{label:'Both in March',test:(a,b)=>a===2&&b===2,sentence:'1 of 144 outcomes, 1/144 ≈ 0.7%'},
+      same:{label:'Same month',test:(a,b)=>a===b,sentence:'12 × 1/144 = 12/144 = 1/12 ≈ 8.3%'},
+      diff:{label:'Different months',test:(a,b)=>a!==b,sentence:'1 − 12/144 = 132/144 = 11/12 ≈ 91.7%'}
+    };
+    let ev='same';
+    const cells=makeGrid($('g2'),(a,b)=>{
+      $('hover2').textContent='A '+MONTHS[a]+', B '+MONTHS[b]+'. '+(EV[ev].test(a,b)?'In the event.':'Outside the event.');
+    });
+    const btns={};
+    Object.keys(EV).forEach(k=>{
+      const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=EV[k].label;
+      b.addEventListener('click',()=>{ev=k;paint();});
+      $('c2').appendChild(b);btns[k]=b;
+    });
+    function paint(){
+      let n=0;
+      for(let a=0;a<12;a++)for(let b=0;b<12;b++){
+        const inE=EV[ev].test(a,b);if(inE)n++;
+        cells[a][b].setAttribute('class','cell '+(inE?'f-m':'f-e'));
+      }
+      Object.keys(btns).forEach(k=>btns[k].setAttribute('aria-pressed',String(k===ev)));
+      $('r2').textContent=fmt(n)+' of 144 outcomes are in the event.';
+      $('ns2').textContent=EV[ev].sentence;
+    }
+    paint();
+  })();
+
+  /* Step 3 */
+  (function(){
+    let A=2,B=6;
+    const ba=monthButtons($('pa'),i=>i===A,i=>{A=i;paint();});
+    const bb=monthButtons($('pb'),i=>i===B,i=>{B=i;paint();});
+    const cells=makeGrid($('g3'),(a,b,click)=>{if(click){A=a;B=b;paint();}});
+    function paint(){
+      for(let a=0;a<12;a++)for(let b=0;b<12;b++){
+        let cls='f-e';
+        if(a===A&&b===B)cls='f-cm';else if(a===A)cls='f-c';else if(b===B)cls='f-m';
+        cells[a][b].setAttribute('class','cell '+cls);
+      }
+      ba.forEach((x,i)=>x.setAttribute('aria-pressed',String(i===A)));
+      bb.forEach((x,i)=>x.setAttribute('aria-pressed',String(i===B)));
+      $('r3').textContent='A in '+MONTHS[A]+', 12 of 144 cells, 1/12. B in '+MONTHS[B]+', 12 of 144 cells, 1/12. Both, 1 cell, 1/144.';
+    }
+    paint();
+  })();
+
+  /* Step 4 */
+  (function(){
+    const svg=$('g4');
+    const S=7,G=20,TT=16,COLS=4,span=12*S;
+    svg.setAttribute('viewBox','0 0 '+(COLS*span+(COLS-1)*G)+' '+(3*(TT+span)+2*G));
+    const cat=(a,b,c)=>(a===b&&b===c)?'all':(a===b)?'ab':(a===c)?'ac':(b===c)?'bc':'diff';
+    const CLS={ab:'f-c',ac:'f-m',bc:'f-y',all:'f-k',diff:'f-e'};
+    const SW={ab:'u-c',ac:'u-m',bc:'u-y',all:'u-k',diff:'u-e'};
+    const LABEL={every:'All cases',ab:'A and B share, C differs',ac:'A and C share, B differs',bc:'B and C share, A differs',all:'All 3 share',diff:'All different'};
+    const counts={ab:0,ac:0,bc:0,all:0,diff:0};
+    const rects=[];
+    for(let c=0;c<12;c++){
+      const col=c%COLS,row=Math.floor(c/COLS),ox=col*(span+G),oy=row*(TT+span+G);
+      el('text',{x:ox,y:oy+11,class:'tick-sm'},svg).textContent='C in '+MONTHS[c];
+      for(let a=0;a<12;a++)for(let b=0;b<12;b++){
+        const k=cat(a,b,c);counts[k]++;
+        rects.push([el('rect',{x:ox+b*S,y:oy+TT+a*S,width:S-1,height:S-1},svg),k]);
+      }
+    }
+    let show='every';
+    const btns={};
+    ['every','ab','ac','bc','all','diff'].forEach(k=>{
+      const b=document.createElement('button');b.type='button';b.className='btn';
+      if(k!=='every'){const s=document.createElement('i');s.className='sw '+SW[k];b.appendChild(s);}
+      b.appendChild(document.createTextNode(k==='every'?LABEL[k]:LABEL[k]+', '+fmt(counts[k])));
+      b.addEventListener('click',()=>{show=k;paint();});
+      $('c4').appendChild(b);btns[k]=b;
+    });
+    function paint(){
+      for(const [r,k] of rects){
+        let cls;
+        if(show==='every')cls=CLS[k];
+        else if(k===show)cls=(k==='diff')?'f-k50':CLS[k];
+        else cls='f-faint';
+        r.setAttribute('class',cls);
+      }
+      Object.keys(btns).forEach(k=>btns[k].setAttribute('aria-pressed',String(k===show)));
+      if(show==='every')$('r4').textContent='408 of 1,728 outcomes have a shared month. 1,320 have all months different.';
+      else{const n=counts[show];$('r4').textContent=LABEL[show]+'. '+fmt(n)+' of 1,728 outcomes, '+reduce(n,1728)+' ≈ '+pct(n/1728)+'.';}
+    }
+    paint();
+  })();
+
+  /* Step 5 */
+  (function(){
+    const PART=[1,2,3,5,7,11,15,22,30,42,56,77,101];
+    const input=$('n5'),out=$('o5'),rows=$('rows5'),facts=$('f5'),svg=$('g5');
+    const prob=n=>{let p=1;for(let k=0;k<n;k++)p*=(12-k)/12;return 1-p;};
+    const L=40,R=430,T=16,B=190,H=B-T;
+    svg.setAttribute('viewBox','0 0 440 232');
+    function chart(n){
+      svg.innerHTML='';
+      [0,.25,.5,.75,1].forEach(v=>{
+        const y=B-v*H;
+        el('line',{x1:L,x2:R,y1:y,y2:y,class:'gridline'},svg);
+        el('text',{x:L-6,y:y+4,'text-anchor':'end',class:'tick'},svg).textContent=(v*100)+'%';
+      });
+      const band=(R-L)/13,bw=band*0.66;
+      for(let k=1;k<=13;k++){
+        const p=prob(k),x=L+(k-1)*band+(band-bw)/2,h=p*H;
+        const r=el('rect',{x:x,y:B-h,width:bw,height:Math.max(h,0),class:k===n?'f-m':'f-c',style:'cursor:pointer'},svg);
+        r.addEventListener('click',()=>{input.value=k;update();});
+        const hit=el('rect',{x:L+(k-1)*band,y:T,width:band,height:H,fill:'transparent',style:'cursor:pointer'},svg);
+        hit.addEventListener('click',()=>{input.value=k;update();});
+        el('text',{x:x+bw/2,y:B+15,'text-anchor':'middle',class:'tick'},svg).textContent=k;
+        if(k===n){el('text',{x:x+bw/2,y:B-h-6,'text-anchor':'middle',class:'axis'},svg).textContent=pct(p);}
+      }
+      el('text',{x:(L+R)/2,y:226,'text-anchor':'middle',class:'axis'},svg).textContent='Accounts in the group';
+    }
+    function update(){
+      const n=Number(input.value);out.textContent=n;
+      rows.innerHTML='';
+      const factors=[];
+      for(let k=1;k<=n;k++){
+        const taken=Math.min(k-1,12),left=12-taken;factors.push(left);
+        const row=document.createElement('div');row.className='acct';
+        const name=document.createElement('span');name.textContent='Account '+k;
+        const sq=document.createElement('div');sq.className='squares';sq.setAttribute('aria-hidden','true');
+        for(let i=0;i<12;i++){const s=document.createElement('span');s.className='sq '+(i<taken?'taken':'free');sq.appendChild(s);}
+        const cnt=document.createElement('span');cnt.textContent=left+' left';
+        row.appendChild(name);row.appendChild(sq);row.appendChild(cnt);rows.appendChild(row);
+      }
+      const prod=factors.reduce((x,y)=>x*y,1),total=Math.pow(12,n);
+      const pAll=prod/total,pM=1-pAll;
+      const lines=[
+        factors.join(' × ')+' = '+fmt(prod)+' ways to give each account its own month',
+        '12'+sup(n)+' = '+fmt(total)+' outcomes in the sample space',
+        'All different, '+fmt(prod)+'/'+fmt(total)+' = '+reduce(prod,total)+' ≈ '+pct(pAll),
+        'At least 2 share, 1 − '+reduce(prod,total)+' = '+reduce(total-prod,total)+' ≈ '+pct(pM),
+        'Patterns for at least 2 share, '+(PART[n-1]-1)+'. Patterns for all different, 1.'
+      ];
+      if(n===13)lines.push('Account 13 finds no month left, so a shared month is certain.');
+      facts.innerHTML='';
+      lines.forEach(t=>{const li=document.createElement('li');li.textContent=t;facts.appendChild(li);});
+      $('ns5').textContent='1 − '+factors.join(' × ')+'/12'+sup(n)+' ≈ '+pct(pM);
+      chart(n);
+    }
+    input.addEventListener('input',update);
+    update();
+  })();
+
+  /* Step 6 */
+  (function(){
+    const svg=$('spinner'),CX=150,CY=160,RAD=128;
+    const COLORS=['#00AEEF','#EC008C','#FFF200'];
+    const wheel=el('g',{id:'rg-wheel'},svg);
+    const pt=(deg,r)=>{const a=deg*Math.PI/180;return [CX+r*Math.cos(a),CY+r*Math.sin(a)];};
+    for(let i=0;i<12;i++){
+      const a0=i*30-90,a1=a0+30,p0=pt(a0,RAD),p1=pt(a1,RAD);
+      el('path',{d:'M'+CX+' '+CY+' L'+p0[0]+' '+p0[1]+' A'+RAD+' '+RAD+' 0 0 1 '+p1[0]+' '+p1[1]+' Z',fill:COLORS[i%3],stroke:'#000','stroke-width':2},wheel);
+      const mid=a0+15,lp=pt(mid,RAD*0.72);
+      el('text',{x:lp[0],y:lp[1]+4,'text-anchor':'middle',transform:'rotate('+(mid+90)+' '+lp[0]+' '+lp[1]+')',style:'fill:#000;font-size:13px;font-weight:600'},wheel).textContent=MONTHS[i];
+    }
+    el('circle',{cx:CX,cy:CY,r:12,fill:'#000'},wheel);
+    el('path',{d:'M138 14 L162 14 L150 38 Z',class:'f-k'},svg);
+    let rot=0;
+    function spinTo(m,animate){
+      const target=(((-(m*30+15))%360)+360)%360;
+      const cur=((rot%360)+360)%360;
+      let delta=target-cur;if(delta<0)delta+=360;
+      rot+=(animate&&!reduceMotion?720:0)+delta;
+      wheel.style.transition=(animate&&!reduceMotion)?'transform 560ms cubic-bezier(.15,.8,.25,1)':'none';
+      wheel.style.transform='rotate('+rot+'deg)';
+    }
+    const board=$('board'),slots=[];
+    MONTHS.forEach(m=>{
+      const s=document.createElement('div');s.className='slot';
+      const t=document.createElement('div');t.textContent=m;
+      const d=document.createElement('div');d.className='dots';
+      s.appendChild(t);s.appendChild(d);board.appendChild(s);slots.push({s:s,d:d,n:0});
+    });
+    function clearBoard(){slots.forEach(x=>{x.n=0;x.d.innerHTML='';x.s.className='slot';});}
+    function addToken(m,k){
+      const x=slots[m];x.n++;
+      const dot=document.createElement('span');dot.className='dot';dot.textContent=k;x.d.appendChild(dot);
+      x.s.className='slot '+(x.n>=2?'shared':'one');
+    }
+    let trials=0,matches=0;const hist=[];
+    const draw5=()=>{const d=[];for(let i=0;i<5;i++)d.push(Math.floor(Math.random()*12));return d;};
+    const hasShared=d=>new Set(d).size<d.length;
+    function record(d){trials++;if(hasShared(d))matches++;hist.push(matches/trials);}
+    function trialText(d){
+      return 'Months drawn '+d.map(m=>MONTHS[m]).join(', ')+'. '+(hasShared(d)?'At least 2 accounts share a month.':'All 5 months differ.');
+    }
+    function stats(){
+      $('stats6').textContent=trials===0?'No trials yet. Exact value 89/144 ≈ 61.8%.':
+        'Trials '+fmt(trials)+'. With a shared month '+fmt(matches)+'. Estimate '+pct(matches/trials)+'. Exact value 89/144 ≈ 61.8%.';
+      chart();
+    }
+    const g6=$('g6'),L=40,R=430,T=14,B=168,H=B-T;
+    g6.setAttribute('viewBox','0 0 440 206');
+    function chart(){
+      g6.innerHTML='';
+      [0,.25,.5,.75,1].forEach(v=>{
+        const y=B-v*H;
+        el('line',{x1:L,x2:R,y1:y,y2:y,class:'gridline'},g6);
+        el('text',{x:L-6,y:y+4,'text-anchor':'end',class:'tick'},g6).textContent=(v*100)+'%';
+      });
+      const ey=B-(89/144)*H;
+      el('line',{x1:L,x2:R,y1:ey,y2:ey,style:'stroke:var(--m);stroke-width:2;stroke-dasharray:6 4'},g6);
+      el('text',{x:R,y:ey-6,'text-anchor':'end',class:'axis'},g6).textContent='Exact 61.8%';
+      if(hist.length>0){
+        const step=Math.max(1,Math.ceil(hist.length/400)),pts=[];
+        for(let i=0;i<hist.length;i+=step)pts.push([i,hist[i]]);
+        if(pts[pts.length-1][0]!==hist.length-1)pts.push([hist.length-1,hist[hist.length-1]]);
+        const span=Math.max(hist.length-1,1);
+        const d=pts.map(p=>(L+(p[0]/span)*(R-L)).toFixed(1)+','+(B-p[1]*H).toFixed(1)).join(' ');
+        el('polyline',{points:d,style:'fill:none;stroke:var(--ink);stroke-width:2'},g6);
+      }
+      el('text',{x:L,y:B+16,class:'tick'},g6).textContent='1';
+      el('text',{x:R,y:B+16,'text-anchor':'end',class:'tick'},g6).textContent=fmt(Math.max(trials,1));
+      el('text',{x:(L+R)/2,y:B+34,'text-anchor':'middle',class:'axis'},g6).textContent='Trials';
+    }
+    const btns=['spin1','run100','run1000','reset6'].map($);
+    const busy=v=>btns.forEach(b=>b.disabled=v);
+    const wait=ms=>new Promise(r=>setTimeout(r,ms));
+    $('spin1').addEventListener('click',async()=>{
+      busy(true);clearBoard();
+      const d=draw5();
+      for(let s=0;s<5;s++){
+        $('trial6').textContent='Spin '+(s+1)+' of 5';
+        spinTo(d[s],true);
+        await wait(reduceMotion?0:620);
+        addToken(d[s],s+1);
+      }
+      record(d);$('trial6').textContent=trialText(d);stats();busy(false);
+    });
+    function bulk(n){
+      let d=null;
+      for(let i=0;i<n;i++){d=draw5();record(d);}
+      clearBoard();d.forEach((m,i)=>addToken(m,i+1));spinTo(d[4],false);
+      $('trial6').textContent='Last trial. '+trialText(d);stats();
+    }
+    $('run100').addEventListener('click',()=>bulk(100));
+    $('run1000').addEventListener('click',()=>bulk(1000));
+    $('reset6').addEventListener('click',()=>{trials=0;matches=0;hist.length=0;clearBoard();$('trial6').textContent='Spin to run a trial.';stats();});
+    stats();
+  })();
+})();
+</script>
+</div>
+
+                <h2 id="proof">Formal Solution</h2>
+
+                <p>Every step below names the property that licenses it, states the property in general form, and shows it acting on the numbers.</p>
+
+                <h3>Mode</h3>
+                <p>Compute.</p>
+
+                <h3>Setup</h3>
+                <p>A group holds 5 accounts. Each account renews in one of 12 months. Each month has the same chance for each account, and the accounts renew independent of one another. An outcome lists the renewal month of each account in order. M is the event that at least 2 accounts renew in the same month. P(M) is the unknown. The route counts the complement of M, then subtracts its probability from 1.</p>
+
+                <h3>Notation</h3>
+                <ul>
+                    <li>S is the sample space, every ordered list of 5 months with one month per account.</li>
+                    <li>ω is one outcome in S, one such list.</li>
+                    <li>|X| is the number of outcomes in a set X.</li>
+                    <li>M is the event that at least 2 of the 5 accounts renew in the same month.</li>
+                    <li>Mᶜ is the complement of M, the event that the 5 accounts renew in 5 different months.</li>
+                    <li>P(X) is the probability of an event X. P(M) is the unknown.</li>
+                    <li>k is the position of an account in the list, from 1 to 5.</li>
+                    <li>12 is the number of months, and 5 is the number of accounts in a group.</li>
+                    <li>x, y, z, w are any numbers, and X, Y are any events, used to state a property in general form.</li>
+                    <li>r is a number of successive choices, and c₁, …, cᵣ are the options at each choice, used in general form.</li>
+                    <li>xⁿ is x multiplied by itself n times, n a positive integer.</li>
+                    <li>X ∩ Y is the event that X and Y both happen.</li>
+                    <li>⇒ reads implies.</li>
+                    <li>≠ reads is not equal to.</li>
+                    <li>≈ reads is about equal to.</li>
+                </ul>
+
+                <h3>Step 1. Multiplication Rule for Counting</h3>
+                <p>Property. Multiplication rule for counting. r successive choices with c₁, …, cᵣ options give (c₁)(c₂)…(cᵣ) outcomes.</p>
+                <p>Inference. |S| = (12)(12)(12)(12)(12).</p>
+
+                <h3>Step 2. Definition of a Power</h3>
+                <p>Property. Definition of a power. xⁿ = (x)(x)…(x), with n factors.</p>
+                <p>Inference. |S| = 12⁵ = 248,832. From line 1.</p>
+
+                <h3>Step 3. Multiplication Rule for Independent Events</h3>
+                <p>Property. Multiplication rule for independent events. P(X ∩ Y) = P(X)P(Y).</p>
+                <p>Inference. P(ω) = (1/12)(1/12)(1/12)(1/12)(1/12) = (1/12)⁵.</p>
+
+                <h3>Step 4. Power of a Quotient</h3>
+                <p>Property. Power of a quotient. (x/y)ⁿ = xⁿ/yⁿ, for y ≠ 0.</p>
+                <p>Inference. P(ω) = 1⁵/12⁵ = 1/248,832, the same for every ω. From lines 2 and 3.</p>
+
+                <h3>Step 5. Multiplication Rule for Counting, Again</h3>
+                <p>Property. Multiplication rule for counting, as in Step 1.</p>
+                <p>Inference. Account k avoids the k − 1 months taken before it, so |Mᶜ| = (12)(11)(10)(9)(8).</p>
+
+                <h3>Step 6. Associativity of Multiplication</h3>
+                <p>Property. Associativity of multiplication. (xy)z = x(yz).</p>
+                <p>Inference. |Mᶜ| = ((12)(11))((10)(9))(8) = (132)(90)(8) = 95,040. From line 5.</p>
+
+                <h3>Step 7. Classical Definition of Probability</h3>
+                <p>Property. Classical definition of probability. When every outcome has the same chance, P(X) = |X|/|S|.</p>
+                <p>Inference. P(Mᶜ) = 95,040/248,832. From lines 2, 4, and 6.</p>
+
+                <h3>Step 8. Cancellation Law</h3>
+                <p>Property. Cancellation law. (yx)/(yz) = x/z, for y ≠ 0 and z ≠ 0.</p>
+                <p>Inference. P(Mᶜ) = (1,728)(55)/((1,728)(144)) = 55/144. From line 7.</p>
+
+                <h3>Step 9. Complement Rule</h3>
+                <p>Property. Complement rule. P(X) + P(Xᶜ) = 1.</p>
+                <p>Inference. P(M) + 55/144 = 1. From line 8.</p>
+
+                <h3>Step 10. Subtraction Property of Equality</h3>
+                <p>Property. Subtraction property of equality. x = y ⇒ x − z = y − z.</p>
+                <p>Inference. P(M) = 1 − 55/144. From line 9.</p>
+
+                <h3>Step 11. Multiplicative Inverse</h3>
+                <p>Property. Multiplicative inverse. y(1/y) = y/y = 1, for y ≠ 0.</p>
+                <p>Inference. P(M) = 144/144 − 55/144. From line 10.</p>
+
+                <h3>Step 12. Distributive Law</h3>
+                <p>Property. Distributive law. x(1/z) − y(1/z) = (x − y)(1/z).</p>
+                <p>Inference. P(M) = (144 − 55)/144 = 89/144. From line 11.</p>
+
+                <h3>Step 13. Division Algorithm</h3>
+                <p>Property. Division algorithm. For integers x ≥ 0 and y &gt; 0, x = qy + w with integers q and 0 ≤ w &lt; y.</p>
+                <p>Inference. 890,000 = (6,180)(144) + 80 ⇒ 89/144 = 0.6180 + 80/1,440,000 ≈ 0.618. From line 12.</p>
+
+                <h3>Verification</h3>
+                <p>P(M) + P(Mᶜ) = 89/144 + 55/144 = 144/144 = 1.</p>
+                <p>|M| = 248,832 − 95,040 = 153,792 = (1,728)(89), and 153,792/248,832 = 89/144.</p>
+
+                <h3>Answer</h3>
+                <p>P(M) = 89/144 ≈ 0.618. In a group of 5 accounts, the chance that at least 2 renew in the same month is about 61.8%.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>The question of shared dates is known as the birthday problem, and Richard von Mises published the first version of it in 1939. In the late 1940s, Stanislaw Ulam and John von Neumann used repeated random trials at Los Alamos to estimate outcomes too complex to count, a method that took the name Monte Carlo. The same logic sizes collision risk in scheduling, payment calendars, and data systems.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script returns the exact chance of a shared renewal month for any group size and any number of months, then checks it with a spinner test, so the same file serves the next portfolio.</p>
+
+<pre><code># What this does. Works out the exact chance that at least 2 accounts in a group renew in the same month, then checks it with a spinner test.
+# Where it came from. A FinOps team split 35 cloud accounts into groups of 5, and each account renews in one of 12 months.
+# The math idea. Count the ways every account gets its own month, divide by all the ways, take that from 1, then compare with spins.
+# You type in. How many accounts are in a group, how many months an account can renew in, and how many spinner tests to run.
+# It prints. The exact chance as a fraction and a percent, and the share of spinner tests with a shared month.
+
+import math
+import random
+from fractions import Fraction
+
+# This function finds the exact chance.
+def exact_chance(accounts, months):
+    # Count the ways every account gets its own month, e.g. 12 x 11 x 10 x 9 x 8.
+    all_different_ways = math.perm(months, accounts)
+    # Count every way the accounts can pick months, e.g. 12 to the power 5.
+    all_ways = months ** accounts
+    # Keep the chance as a fraction, then take it away from 1.
+    return 1 - Fraction(all_different_ways, all_ways)
+
+# This function spins a wheel with one slot per month, many times.
+def spinner_test(accounts, months, tests):
+    # Count the tests where 2 or more accounts land on the same month.
+    shared = 0
+    for _ in range(tests):
+        # Spin once for each account.
+        spins = [random.randrange(months) for _ in range(accounts)]
+        # If a month came up twice, the list of different months is shorter.
+        if len(set(spins)) &lt; accounts:
+            shared = shared + 1
+    # The share of tests with a shared month.
+    return shared / tests
+
+# This function asks the questions and prints the answers.
+def run():
+    # Tell the reader what we will figure out.
+    print("Let's find the chance that 2 renewals fall in the same month.")
+    # Ask for the number of accounts in one group.
+    accounts = int(input("How many accounts are in a group? "))
+    # Ask for the number of months an account can renew in.
+    months = int(input("How many months can an account renew in? "))
+    # Ask how many spinner tests to run.
+    tests = int(input("How many spinner tests should we run? "))
+    # Run at least 1 test, so the share makes sense.
+    tests = max(tests, 1)
+    # Do the exact math.
+    exact = exact_chance(accounts, months)
+    # Run the spinner tests.
+    estimate = spinner_test(accounts, months, tests)
+    # Print the exact answer as a fraction and a percent.
+    print(f"Exact chance that at least 2 of {accounts} accounts share a renewal month is {exact}, about {round(float(exact) * 100, 1)}%.")
+    # Print what the spinner tests found.
+    print(f"Spinner tests with a shared month came to {round(estimate * 100, 1)}% of {tests} tests.")
+
+# Start the program.
+run()</code></pre>
+
+                <p>Paste the script into Python in Windows Terminal, enter 5 accounts, 12 months, and a number of tests, and it returns 89/144, about 61.8%, beside the spinner estimate.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/probability-library" target="_blank" rel="noopener">Khan Academy — Probability</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/BirthdayProblem.html" target="_blank" rel="noopener">Wolfram MathWorld — Birthday Problem</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/probability" target="_blank" rel="noopener">Mathematics Stack Exchange — Probability</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">October 6, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>

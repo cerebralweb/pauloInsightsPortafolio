@@ -7,8 +7,18 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "Why A Cloud Team Cannot Spread 35 Patch Windows Across The Year",
+            articleDescription: "Probability. Operations teams assume that a large pool of time slots keeps their maintenance windows apart",
+            articleHref: "/a/why-a-cloud-team-cannot-spread-35-patch-windows-across-the-year.html"
+        },
+        {
+            articleTitle: "Five Cloud Accounts, Twelve Months, And The Renewals That Collide",
+            articleDescription: "Probability. Cloud commitments renew on a calendar, and finance teams plan cash and review work around those dates",
+            articleHref: "/a/five-cloud-accounts-twelve-months-and-the-renewals-that-collide.html"
+        },
+        {
             articleTitle: "Two Chatbots Before Launch, And The Odds Both Answers Earn Top Marks",
-            articleDescription: "AI teams review samples of chatbot output before a launch. A single sample tells little",
+            articleDescription: "Probability. AI teams review samples of chatbot output before a launch. A single sample tells little",
             articleHref: "/a/two-chatbots-before-launch-and-the-odds-both-answers-earn-top-marks.html"
         },
         {
