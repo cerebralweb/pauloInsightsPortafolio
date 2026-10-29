@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="A cloud operations team assigns 35 virtual machines one patch day each out of 365. The chance that two land on the same day is 81.44 percent, and the complement rule shows why.">
-    <meta name="keywords" content="complement rule, birthday problem, probability, patch scheduling, cloud operations, permutations, counting principle, Python probability">
+    <meta name="description"
+        content="A cloud operations team assigns 35 virtual machines one patch day each out of 365. The chance that two land on the same day is 81.44 percent, and the complement rule shows why.">
+    <meta name="keywords"
+        content="complement rule, birthday problem, probability, patch scheduling, cloud operations, permutations, counting principle, Python probability">
     <meta name="author" content="C. L. Palacios" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
@@ -18,11 +21,16 @@
 
     <link rel="stylesheet" href="/css/postStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
 
     <script>let myCanonical = "https://www.clpalacios.in/a/why-a-cloud-team-cannot-spread-35-patch-windows-across-the-year.html";</script>
-    <link rel="canonical" href="https://www.clpalacios.in/a/why-a-cloud-team-cannot-spread-35-patch-windows-across-the-year.html" />
+    <link rel="canonical"
+        href="https://www.clpalacios.in/a/why-a-cloud-team-cannot-spread-35-patch-windows-across-the-year.html" />
 
     <title>Why a Cloud Team Cannot Spread 35 Patch Windows Across the Year</title>
 
@@ -58,8 +66,8 @@
                 <h3>October 13, 2026 <code id="my_social_media"></code></h3>
                 <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
                     WHY A CLOUD TEAM CANNOT SPREAD 35 PATCH WINDOWS ACROSS THE YEAR
-                    
-                    
+
+
                 </h1>
             </div>
         </div>
@@ -80,18 +88,24 @@
             </div>
             <script src="/js/us-newsletter.js"></script>
 
-            <article itemscope itemtype="http://schema.org/Article"
-                itemprop="articleBody" class="articleInTheFlexContainer">
+            <article itemscope itemtype="http://schema.org/Article" itemprop="articleBody"
+                class="articleInTheFlexContainer">
 
                 <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
-                    Operations teams assume that a large pool of time slots keeps their maintenance windows apart. That assumption fails faster than most planners expect, because collisions depend on the pairs of assets being compared, not on the size of the pool alone. <dfn>This problem shows how counting the opposite event turns an unmanageable set of cases into one product, and how Python turns that logic into a reusable tool.</dfn></em></p>
+                        Operations teams assume that a large pool of time slots keeps their maintenance windows apart.
+                        That assumption fails faster than most planners expect, because collisions depend on the pairs
+                        of assets being compared, not on the size of the pool alone. <dfn>This problem shows how
+                            counting the opposite event turns an unmanageable set of cases into one product, and how
+                            Python turns that logic into a reusable tool.</dfn></em></p>
 
                 <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
                 <script src="/js/us-publicidadEnArticulo.js"></script>
 
                 <h2 id="math-answer">The Problem</h2>
 
-                <p>A cloud operations team manages 35 virtual machines. Each machine receives one of the 365 days of the year for its annual security patch, and every day is equally likely. Leap days are ignored, and each machine is assigned independently of the others.</p>
+                <p>A cloud operations team manages 35 virtual machines. Each machine receives one of the 365 days of the
+                    year for its annual security patch, and every day is equally likely. Leap days are ignored, and each
+                    machine is assigned independently of the others.</p>
                 <p>What is the probability that at least two of the 35 machines are patched on the same day?</p>
                 <ul>
                     <li>a) 9.59%</li>
@@ -107,33 +121,44 @@
 
                     <h2>Math Solution</h2>
 
-                    <p>Counting the shared days directly means counting many separate cases, so the route runs through the opposite event. <strong>Count the assignments where all 35 days differ</strong>, divide by the whole sample space, then <strong>subtract that result from 1</strong>.</p>
+                    <p>Counting the shared days directly means counting many separate cases, so the route runs through
+                        the opposite event. <strong>Count the assignments where all 35 days differ</strong>, divide by
+                        the whole sample space, then <strong>subtract that result from 1</strong>.</p>
 
-                    <p class="insight"><em>35 machines form 595 distinct pairs, and every pair is a chance to collide, which is why 35 out of 365 understates the risk by a factor of eight.</em></p>
+                    <p class="insight"><em>35 machines form 595 distinct pairs, and every pair is a chance to collide,
+                            which is why 35 out of 365 understates the risk by a factor of eight.</em></p>
 
                     <div class="bannerTwitero">
                         <h2>Step-by-Step Breakdown</h2>
                         <p>The following sequence shows how the final amount is derived:</p>
                         <ol>
-                            <li><strong>Sample space:</strong> each machine has 365 options, so 365<sup>35</sup> assignments exist</li>
-                            <li><strong>No match count:</strong> 365 × 364 × 363 × ... × 331, the options shrinking by one per machine</li>
+                            <li><strong>Sample space:</strong> each machine has 365 options, so 365<sup>35</sup>
+                                assignments exist</li>
+                            <li><strong>No match count (neither update matches others):</strong> 365 × 364 × 363 × ... ×
+                                331, the options shrinking by one per machine, because the 1st machine has 365 choices,
+                                the 2nd has 364, and so on.</li>
                             <li><strong>Last factor:</strong> 365 − 34 = 331</li>
-                            <li><strong>No match probability:</strong> (365 × 364 × ... × 331) / 365<sup>35</sup> = 0.1856</li>
+                            <li><strong>No match probability:</strong> (365 × 364 × ... × 331) / 365<sup>35</sup> =
+                                0.1856</li>
                             <li><strong>Complement:</strong> 1 − 0.1856 = 0.8144</li>
-                            <li><strong>Conclusion:</strong> about 81.44% of such schedules put two or more machines on the same day</li>
+                            <li><strong>Conclusion:</strong> about 81.44% of such schedules put two or more machines on
+                                the same day</li>
                         </ol>
                     </div>
                 </details>
 
                 <h2 id="proof-version">Step by Step With Named Properties</h2>
 
-                <p>Each step below names the property that licenses it, then shows that property acting on the numbers.</p>
+                <p>Each step below names the property that licenses it, then shows that property acting on the numbers.
+                </p>
 
                 <h3>Mode</h3>
                 <p>Compute.</p>
 
                 <h3>Setup</h3>
-                <p>Let n be the machines, d the available days, S the sample space size, N the count of assignments with all days distinct, and P the probability that at least two machines share a day. The constraint is that a shared day and all days distinct are complementary events.</p>
+                <p>Let n be the machines, d the available days, S the sample space size, N the count of assignments with
+                    all days distinct, and P the probability that at least two machines share a day. The constraint is
+                    that a shared day and all days distinct are complementary events.</p>
 
                 <h3>Notation</h3>
                 <ul>
@@ -159,23 +184,35 @@
                 <h3>Solution</h3>
 
                 <h4>Step 1 — Multiplication principle of counting</h4>
-                <p>Property. Multiplication principle. If a choice has x options and a later independent choice has y options, the pair has xy options, extending to any finite number of choices.</p>
+                <p>Property. Multiplication principle. If a choice has x options and a <strong>later
+                        independent</strong> choice has y options, the pair has xy options, extending to any finite
+                    number of choices.</p>
                 <p>Inference. S = (365)(365)...(365) = 365<sup>35</sup>, with 35 factors.</p>
 
                 <h4>Step 2 — Permutation count</h4>
-                <p>Property. Permutation count. P(d, n) = d(d − 1)(d − 2)...(d − n + 1), the options shrinking by one at each successive choice.</p>
+                <p>Property. Permutation count. P(d, n) = d(d − 1)(d − 2)...(d − n + 1), the options shrinking by one at
+                    each successive choice.</p>
                 <p>Inference. N = P(365, 35) = (365)(364)(363)...(331), with 365 − 35 + 1 = 331 the last factor.</p>
+                <p> <strong>Note:</strong>The word "permutation" comes from the Latin permutare, “to change” or “to
+                    exchange.” In mathematics it first meant a rearrangement, the different orders in which you can line
+                    up a set of objects. E.g. A, B, C can line up as ABC, ACB, BAC, BCA, CAB, CBA, six permutations.
+
+                    This problem uses the word in a wider sense. You line up 35 of the 365 days in order, one for
+                    machine 1, one for machine 2, and so on. The permutation is one ordered list of days, e.g. machine 1 on 4 March, machine 2 on 9 July, machine 3 on 2 January, and so on to machine 35. 
+                    Each ordered list counts as one permutation. </p>
 
                 <h4>Step 3 — Classical definition of probability</h4>
                 <p>Property. Classical probability. For a finite Ω with equally likely outcomes, P(E) = |E| / |Ω|.</p>
                 <p>Inference. P(A<sup>c</sup>) = N / S = (365)(364)...(331) / 365<sup>35</sup>. From lines 1 and 2.</p>
 
                 <h4>Step 4 — Cancellation law</h4>
-                <p>Property. Cancellation law. For y ≠ 0, (yx) / y = x, so a product over a product may be split into factors.</p>
+                <p>Property. Cancellation law. For y ≠ 0, (yx) / y = x, so a product over a product may be split into
+                    factors.</p>
                 <p>Inference. P(A<sup>c</sup>) = (365/365)(364/365)...(331/365) ≈ 0.1856. From line 3.</p>
 
                 <h4>Step 5 — Complement rule</h4>
-                <p>Property. Complement rule. A ∪ A<sup>c</sup> = Ω and A ∩ A<sup>c</sup> = ∅ ⇒ P(A) = 1 − P(A<sup>c</sup>).</p>
+                <p>Property. Complement rule. A ∪ A<sup>c</sup> = Ω and A ∩ A<sup>c</sup> = ∅ ⇒ P(A) = 1 −
+                    P(A<sup>c</sup>).</p>
                 <p>Inference. P(A) = 1 − (365)(364)...(331) / 365<sup>35</sup>. From line 3.</p>
 
                 <h4>Step 6 — Subtraction property of equality</h4>
@@ -183,43 +220,213 @@
                 <p>Inference. P(A) = 1 − 0.1856 ≈ 0.8144. From lines 4 and 5.</p>
 
                 <h3>Verification</h3>
-                <p>P(A) + P(A<sup>c</sup>) ≈ 0.8144 + 0.1856 = 1.0000. The two events exhaust Ω, so the sum must be 1. Both sides match.</p>
-                <p>A second check on the structure. With n = 3 and d = 3, Step 1 gives S = 3<sup>3</sup> = 27, Step 2 gives N = (3)(2)(1) = 6, and Step 5 gives P(A) = 1 − 6/27 = 21/27 ≈ 0.7778, which matches a direct enumeration of the 27 assignments.</p>
+                <p>P(A) + P(A<sup>c</sup>) ≈ 0.8144 + 0.1856 = 1.0000. The two events exhaust Ω, so the sum must be 1.
+                    Both sides match.</p>
+                <p>A second check on the structure. With n = 3 and d = 3, Step 1 gives S = 3<sup>3</sup> = 27, Step 2
+                    gives N = (3)(2)(1) = 6, and Step 5 gives P(A) = 1 − 6/27 = 21/27 ≈ 0.7778, which matches a direct
+                    enumeration of the 27 assignments.</p>
 
                 <h3>Answer</h3>
-                <p>P(A) = 1 − (365)(364)...(331) / 365<sup>35</sup> ≈ 0.8144. The chance that at least two of the 35 machines are patched on the same day is about 81.44%.</p>
+                <p>P(A) = 1 − (365)(364)...(331) / 365<sup>35</sup> ≈ 0.8144. The chance that at least two of the 35
+                    machines are patched on the same day is about 81.44%.</p>
 
                 <h2 id="visual-version">Properties in Action</h2>
 
-                <p>Seven stages, in bar model form. Stages 4, 6 and 7 carry sliders, so the same structure can be tested at any size. Set 23 machines against 365 days to watch the shared bar cross half the whole bar.</p>
+                <p>Seven stages, in bar model form. Stages 4, 6 and 7 carry sliders, so the same structure can be tested
+                    at any size. Set 23 machines against 365 days to watch the shared bar cross half the whole bar.</p>
 
                 <style>
-                #pdv-app{--pdv-ink:#1b1b1a;--pdv-muted:#5f6160;--pdv-line:#d8d8d4;--pdv-teal:#0f7a73;--pdv-teal-soft:#cfe7e4;--pdv-red:#a8322c;--pdv-red-soft:#f0d5d2;--pdv-gray:#9a9c9a;--pdv-gray-soft:#eeeeeb;font-family:'Source Sans Pro',Arial,Helvetica,sans-serif;color:var(--pdv-ink);border:1px solid var(--pdv-line);border-radius:12px;padding:16px;margin:0 0 24px}
-                #pdv-app *{box-sizing:border-box}
-                #pdv-rail{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-                #pdv-rail button{border:1px solid var(--pdv-line);background:transparent;color:var(--pdv-muted);border-radius:999px;padding:5px 11px;font-size:.8rem;cursor:pointer;font-family:inherit}
-                #pdv-rail button[aria-current="true"]{border-color:var(--pdv-teal);background:var(--pdv-teal-soft);color:var(--pdv-ink)}
-                #pdv-stepno{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pdv-teal);margin:0 0 4px}
-                #pdv-title{font-size:1.05rem;margin:0 0 6px;font-weight:600}
-                #pdv-story{margin:0 0 12px;font-size:.95rem}
-                #pdv-figure{overflow-x:auto;margin:0 0 12px}
-                #pdv-figure svg{display:block;width:100%;height:auto;font-family:Arial,Helvetica,sans-serif}
-                #pdv-app .t{font-size:13px;fill:var(--pdv-ink)}
-                #pdv-app .ts{font-size:11px;fill:var(--pdv-muted)}
-                #pdv-app .th{font-size:14px;font-weight:bold;fill:var(--pdv-ink)}
-                #pdv-math{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--pdv-gray-soft);border-radius:8px;padding:10px 12px;font-size:.85rem;overflow-x:auto;margin:0 0 12px;white-space:pre}
-                #pdv-ask{border-left:3px solid var(--pdv-teal);padding:4px 0 4px 12px;margin:0 0 10px;font-size:.93rem}
-                #pdv-reveal{border:1px solid var(--pdv-line);background:transparent;color:var(--pdv-ink);border-radius:8px;padding:7px 14px;font-size:.85rem;cursor:pointer;font-family:inherit}
-                #pdv-answer{display:none;margin-top:10px;font-size:.93rem}
-                #pdv-answer.pdv-open{display:block}
-                #pdv-nav{display:flex;gap:10px;margin-top:14px}
-                #pdv-nav button{flex:1;border:1px solid var(--pdv-line);background:transparent;color:var(--pdv-ink);border-radius:8px;padding:10px 14px;font-size:.9rem;cursor:pointer;font-family:inherit}
-                #pdv-nav button:disabled{opacity:.4;cursor:default}
-                #pdv-controls{font-size:.88rem;color:var(--pdv-muted);margin:0 0 12px}
-                #pdv-controls label{display:block;margin-bottom:10px}
-                #pdv-controls input[type=range]{width:100%;max-width:340px;display:block;margin-top:4px;accent-color:var(--pdv-teal)}
-                #pdv-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--pdv-muted);margin:0 0 12px}
-                #pdv-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+                    #pdv-app {
+                        --pdv-ink: #1b1b1a;
+                        --pdv-muted: #5f6160;
+                        --pdv-line: #d8d8d4;
+                        --pdv-teal: #0f7a73;
+                        --pdv-teal-soft: #cfe7e4;
+                        --pdv-red: #a8322c;
+                        --pdv-red-soft: #f0d5d2;
+                        --pdv-gray: #9a9c9a;
+                        --pdv-gray-soft: #eeeeeb;
+                        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+                        color: var(--pdv-ink);
+                        border: 1px solid var(--pdv-line);
+                        border-radius: 12px;
+                        padding: 16px;
+                        margin: 0 0 24px
+                    }
+
+                    #pdv-app * {
+                        box-sizing: border-box
+                    }
+
+                    #pdv-rail {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 6px;
+                        margin-bottom: 14px
+                    }
+
+                    #pdv-rail button {
+                        border: 1px solid var(--pdv-line);
+                        background: transparent;
+                        color: var(--pdv-muted);
+                        border-radius: 999px;
+                        padding: 5px 11px;
+                        font-size: .8rem;
+                        cursor: pointer;
+                        font-family: inherit
+                    }
+
+                    #pdv-rail button[aria-current="true"] {
+                        border-color: var(--pdv-teal);
+                        background: var(--pdv-teal-soft);
+                        color: var(--pdv-ink)
+                    }
+
+                    #pdv-stepno {
+                        font-size: .75rem;
+                        letter-spacing: .06em;
+                        text-transform: uppercase;
+                        color: var(--pdv-teal);
+                        margin: 0 0 4px
+                    }
+
+                    #pdv-title {
+                        font-size: 1.05rem;
+                        margin: 0 0 6px;
+                        font-weight: 600
+                    }
+
+                    #pdv-story {
+                        margin: 0 0 12px;
+                        font-size: .95rem
+                    }
+
+                    #pdv-figure {
+                        overflow-x: auto;
+                        margin: 0 0 12px
+                    }
+
+                    #pdv-figure svg {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        font-family: Arial, Helvetica, sans-serif
+                    }
+
+                    #pdv-app .t {
+                        font-size: 13px;
+                        fill: var(--pdv-ink)
+                    }
+
+                    #pdv-app .ts {
+                        font-size: 11px;
+                        fill: var(--pdv-muted)
+                    }
+
+                    #pdv-app .th {
+                        font-size: 14px;
+                        font-weight: bold;
+                        fill: var(--pdv-ink)
+                    }
+
+                    #pdv-math {
+                        font-family: ui-monospace, Menlo, Consolas, monospace;
+                        background: var(--pdv-gray-soft);
+                        border-radius: 8px;
+                        padding: 10px 12px;
+                        font-size: .85rem;
+                        overflow-x: auto;
+                        margin: 0 0 12px;
+                        white-space: pre
+                    }
+
+                    #pdv-ask {
+                        border-left: 3px solid var(--pdv-teal);
+                        padding: 4px 0 4px 12px;
+                        margin: 0 0 10px;
+                        font-size: .93rem
+                    }
+
+                    #pdv-reveal {
+                        border: 1px solid var(--pdv-line);
+                        background: transparent;
+                        color: var(--pdv-ink);
+                        border-radius: 8px;
+                        padding: 7px 14px;
+                        font-size: .85rem;
+                        cursor: pointer;
+                        font-family: inherit
+                    }
+
+                    #pdv-answer {
+                        display: none;
+                        margin-top: 10px;
+                        font-size: .93rem
+                    }
+
+                    #pdv-answer.pdv-open {
+                        display: block
+                    }
+
+                    #pdv-nav {
+                        display: flex;
+                        gap: 10px;
+                        margin-top: 14px
+                    }
+
+                    #pdv-nav button {
+                        flex: 1;
+                        border: 1px solid var(--pdv-line);
+                        background: transparent;
+                        color: var(--pdv-ink);
+                        border-radius: 8px;
+                        padding: 10px 14px;
+                        font-size: .9rem;
+                        cursor: pointer;
+                        font-family: inherit
+                    }
+
+                    #pdv-nav button:disabled {
+                        opacity: .4;
+                        cursor: default
+                    }
+
+                    #pdv-controls {
+                        font-size: .88rem;
+                        color: var(--pdv-muted);
+                        margin: 0 0 12px
+                    }
+
+                    #pdv-controls label {
+                        display: block;
+                        margin-bottom: 10px
+                    }
+
+                    #pdv-controls input[type=range] {
+                        width: 100%;
+                        max-width: 340px;
+                        display: block;
+                        margin-top: 4px;
+                        accent-color: var(--pdv-teal)
+                    }
+
+                    #pdv-legend {
+                        display: flex;
+                        gap: 16px;
+                        flex-wrap: wrap;
+                        font-size: .8rem;
+                        color: var(--pdv-muted);
+                        margin: 0 0 12px
+                    }
+
+                    #pdv-legend i {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 3px;
+                        margin-right: 5px;
+                        vertical-align: -1px
+                    }
                 </style>
 
                 <div id="pdv-app">
@@ -241,197 +448,255 @@
                 </div>
 
                 <script>
-                (function(){
-                var W=680;
-                function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-                function bar(x,y,w,h,fill,stroke){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="4" fill="'+fill+'" stroke="'+stroke+'" stroke-width="1"/>';}
-                function label(x,y,text,cls,anchor){return '<text x="'+x+'" y="'+y+'" class="'+(cls||'t')+'" text-anchor="'+(anchor||'middle')+'">'+esc(text)+'</text>';}
-                function brace(x1,x2,y,text){var mid=(x1+x2)/2;return '<line x1="'+x1+'" y1="'+y+'" x2="'+x1+'" y2="'+(y+7)+'" stroke="var(--pdv-gray)" stroke-width="1"/>'+'<line x1="'+x2+'" y1="'+y+'" x2="'+x2+'" y2="'+(y+7)+'" stroke="var(--pdv-gray)" stroke-width="1"/>'+'<line x1="'+x1+'" y1="'+y+'" x2="'+x2+'" y2="'+y+'" stroke="var(--pdv-gray)" stroke-width="1"/>'+label(mid,y-6,text,'ts');}
-                function noMatch(n,d){if(n>d)return 0;var p=1;for(var k=0;k<n;k++)p=p*(d-k)/d;return p;}
+                    (function () {
+                        var W = 680;
+                        function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+                        function bar(x, y, w, h, fill, stroke) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="4" fill="' + fill + '" stroke="' + stroke + '" stroke-width="1"/>'; }
+                        function label(x, y, text, cls, anchor) { return '<text x="' + x + '" y="' + y + '" class="' + (cls || 't') + '" text-anchor="' + (anchor || 'middle') + '">' + esc(text) + '</text>'; }
+                        function brace(x1, x2, y, text) { var mid = (x1 + x2) / 2; return '<line x1="' + x1 + '" y1="' + y + '" x2="' + x1 + '" y2="' + (y + 7) + '" stroke="var(--pdv-gray)" stroke-width="1"/>' + '<line x1="' + x2 + '" y1="' + y + '" x2="' + x2 + '" y2="' + (y + 7) + '" stroke="var(--pdv-gray)" stroke-width="1"/>' + '<line x1="' + x1 + '" y1="' + y + '" x2="' + x2 + '" y2="' + y + '" stroke="var(--pdv-gray)" stroke-width="1"/>' + label(mid, y - 6, text, 'ts'); }
+                        function noMatch(n, d) { if (n > d) return 0; var p = 1; for (var k = 0; k < n; k++)p = p * (d - k) / d; return p; }
 
-                function figOne(){var x0=40,y=56,w=600,h=44,seg=w/365;
-                  var s='<svg viewBox="0 0 '+W+' 170" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'One machine, 365 possible days','th','start');
-                  s+=bar(x0,y,w,h,'var(--pdv-gray-soft)','var(--pdv-line)');
-                  s+=bar(x0+120*seg,y,Math.max(seg,2.5),h,'var(--pdv-red)','var(--pdv-red)');
-                  s+=label(x0+120*seg,y-6,'day 121','ts');
-                  s+=brace(x0,x0+w,y+h+22,'365 days, all equally likely');
-                  s+=label(40,150,'The sliver is 1 of 365.','ts','start');
-                  return s+'</svg>';}
+                        function figOne() {
+                            var x0 = 40, y = 56, w = 600, h = 44, seg = w / 365;
+                            var s = '<svg viewBox="0 0 ' + W + ' 170" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, 'One machine, 365 possible days', 'th', 'start');
+                            s += bar(x0, y, w, h, 'var(--pdv-gray-soft)', 'var(--pdv-line)');
+                            s += bar(x0 + 120 * seg, y, Math.max(seg, 2.5), h, 'var(--pdv-red)', 'var(--pdv-red)');
+                            s += label(x0 + 120 * seg, y - 6, 'day 121', 'ts');
+                            s += brace(x0, x0 + w, y + h + 22, '365 days, all equally likely');
+                            s += label(40, 150, 'The sliver is 1 of 365.', 'ts', 'start');
+                            return s + '</svg>';
+                        }
 
-                function figComp(){var x0=40,y=60,w=600,h=44,one=w/365;
-                  var s='<svg viewBox="0 0 '+W+' 200" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'An event and its opposite fill the whole bar','th','start');
-                  s+=bar(x0,y,one*6,h,'var(--pdv-red-soft)','var(--pdv-red)');
-                  s+=bar(x0+one*6,y,w-one*6,h,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                  s+=label(x0+one*3,y+h+18,'day 121','ts');
-                  s+=label(x0+one*6+(w-one*6)/2,y+h/2+5,'any other day, 364/365','t');
-                  s+=brace(x0,x0+w,y-14,'whole bar = 1');
-                  s+=label(40,180,'1/365 + 364/365 = 1','ts','start');
-                  return s+'</svg>';}
+                        function figComp() {
+                            var x0 = 40, y = 60, w = 600, h = 44, one = w / 365;
+                            var s = '<svg viewBox="0 0 ' + W + ' 200" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, 'An event and its opposite fill the whole bar', 'th', 'start');
+                            s += bar(x0, y, one * 6, h, 'var(--pdv-red-soft)', 'var(--pdv-red)');
+                            s += bar(x0 + one * 6, y, w - one * 6, h, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                            s += label(x0 + one * 3, y + h + 18, 'day 121', 'ts');
+                            s += label(x0 + one * 6 + (w - one * 6) / 2, y + h / 2 + 5, 'any other day, 364/365', 't');
+                            s += brace(x0, x0 + w, y - 14, 'whole bar = 1');
+                            s += label(40, 180, '1/365 + 364/365 = 1', 'ts', 'start');
+                            return s + '</svg>';
+                        }
 
-                function figTwoTwo(){var y=70,h=40,x0=40,w=600;
-                  var s='<svg viewBox="0 0 '+W+' 230" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'2 machines, 2 days, 4 outcomes','th','start');
-                  var cells=[['1,1',1],['1,2',0],['2,1',0],['2,2',1]],cw=w/4;
-                  for(var i=0;i<4;i++){var sm=cells[i][1];
-                    s+=bar(x0+i*cw,y,cw-6,h,sm?'var(--pdv-red-soft)':'var(--pdv-teal-soft)',sm?'var(--pdv-red)':'var(--pdv-teal)');
-                    s+=label(x0+i*cw+(cw-6)/2,y+h/2+5,cells[i][0],'t');}
-                  s+=brace(x0,x0+w-6,y+h+26,'4 outcomes in all');
-                  var y2=160;
-                  s+=bar(x0,y2,w/2-3,h,'var(--pdv-red-soft)','var(--pdv-red)');
-                  s+=bar(x0+w/2,y2,w/2-3,h,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                  s+=label(x0+(w/2-3)/2,y2+h/2+5,'same day, 2/4','t');
-                  s+=label(x0+w/2+(w/2-3)/2,y2+h/2+5,'different days, 2/4','t');
-                  return s+'</svg>';}
+                        function figTwoTwo() {
+                            var y = 70, h = 40, x0 = 40, w = 600;
+                            var s = '<svg viewBox="0 0 ' + W + ' 230" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, '2 machines, 2 days, 4 outcomes', 'th', 'start');
+                            var cells = [['1,1', 1], ['1,2', 0], ['2,1', 0], ['2,2', 1]], cw = w / 4;
+                            for (var i = 0; i < 4; i++) {
+                                var sm = cells[i][1];
+                                s += bar(x0 + i * cw, y, cw - 6, h, sm ? 'var(--pdv-red-soft)' : 'var(--pdv-teal-soft)', sm ? 'var(--pdv-red)' : 'var(--pdv-teal)');
+                                s += label(x0 + i * cw + (cw - 6) / 2, y + h / 2 + 5, cells[i][0], 't');
+                            }
+                            s += brace(x0, x0 + w - 6, y + h + 26, '4 outcomes in all');
+                            var y2 = 160;
+                            s += bar(x0, y2, w / 2 - 3, h, 'var(--pdv-red-soft)', 'var(--pdv-red)');
+                            s += bar(x0 + w / 2, y2, w / 2 - 3, h, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                            s += label(x0 + (w / 2 - 3) / 2, y2 + h / 2 + 5, 'same day, 2/4', 't');
+                            s += label(x0 + w / 2 + (w / 2 - 3) / 2, y2 + h / 2 + 5, 'different days, 2/4', 't');
+                            return s + '</svg>';
+                        }
 
-                function figGrid(d){var s='<svg viewBox="0 0 '+W+' '+(90+d*46)+'" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'2 machines, '+d+' days, '+(d*d)+' outcomes','th','start');
-                  var cell=44,x0=90,y0=50;
-                  for(var i=0;i<d;i++){s+=label(x0-14,y0+i*cell+cell/2+5,'M1='+(i+1),'ts','end');
-                    for(var j=0;j<d;j++){if(i===0)s+=label(x0+j*cell+cell/2,y0-8,'M2='+(j+1),'ts');
-                      var sm=(i===j);
-                      s+=bar(x0+j*cell+2,y0+i*cell+2,cell-6,cell-6,sm?'var(--pdv-red-soft)':'var(--pdv-teal-soft)',sm?'var(--pdv-red)':'var(--pdv-teal)');}}
-                  s+=label(40,y0+d*cell+30,'different days: '+d+' x '+(d-1)+' = '+(d*d-d)+' of '+(d*d)+'   |   same day: '+d+' of '+(d*d),'ts','start');
-                  return s+'</svg>';}
+                        function figGrid(d) {
+                            var s = '<svg viewBox="0 0 ' + W + ' ' + (90 + d * 46) + '" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, '2 machines, ' + d + ' days, ' + (d * d) + ' outcomes', 'th', 'start');
+                            var cell = 44, x0 = 90, y0 = 50;
+                            for (var i = 0; i < d; i++) {
+                                s += label(x0 - 14, y0 + i * cell + cell / 2 + 5, 'M1=' + (i + 1), 'ts', 'end');
+                                for (var j = 0; j < d; j++) {
+                                    if (i === 0) s += label(x0 + j * cell + cell / 2, y0 - 8, 'M2=' + (j + 1), 'ts');
+                                    var sm = (i === j);
+                                    s += bar(x0 + j * cell + 2, y0 + i * cell + 2, cell - 6, cell - 6, sm ? 'var(--pdv-red-soft)' : 'var(--pdv-teal-soft)', sm ? 'var(--pdv-red)' : 'var(--pdv-teal)');
+                                }
+                            }
+                            s += label(40, y0 + d * cell + 30, 'different days: ' + d + ' x ' + (d - 1) + ' = ' + (d * d - d) + ' of ' + (d * d) + '   |   same day: ' + d + ' of ' + (d * d), 'ts', 'start');
+                            return s + '</svg>';
+                        }
 
-                function figThree(){var s='<svg viewBox="0 0 '+W+' 250" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'3 machines, 3 days: the choices shrink','th','start');
-                  var x0=40,y=60,h=42,w=600,parts=[[3,'M1 picks: 3 days free'],[2,'M2 picks: 2 left'],[1,'M3 picks: 1 left']],cx=x0;
-                  for(var i=0;i<3;i++){var pw=w*parts[i][0]/6;
-                    s+=bar(cx,y,pw-5,h,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                    s+=label(cx+(pw-5)/2,y+h/2+5,parts[i][0],'th');
-                    s+=label(cx+(pw-5)/2,y+h+18,parts[i][1],'ts');cx+=pw;}
-                  s+=brace(x0,x0+w-5,y-14,'3 x 2 x 1 = 6 no match outcomes');
-                  var y2=160,frac=6/27;
-                  s+=bar(x0,y2,w*frac,h,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                  s+=bar(x0+w*frac,y2,w*(1-frac),h,'var(--pdv-red-soft)','var(--pdv-red)');
-                  s+=label(x0+w*frac/2,y2+h+18,'no match 6/27','ts');
-                  s+=label(x0+w*frac+w*(1-frac)/2,y2+h/2+5,'at least two share, 21/27','t');
-                  s+=brace(x0,x0+w,y2-14,'all 27 outcomes = 1');
-                  return s+'</svg>';}
+                        function figThree() {
+                            var s = '<svg viewBox="0 0 ' + W + ' 250" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, '3 machines, 3 days: the choices shrink', 'th', 'start');
+                            var x0 = 40, y = 60, h = 42, w = 600, parts = [[3, 'M1 picks: 3 days free'], [2, 'M2 picks: 2 left'], [1, 'M3 picks: 1 left']], cx = x0;
+                            for (var i = 0; i < 3; i++) {
+                                var pw = w * parts[i][0] / 6;
+                                s += bar(cx, y, pw - 5, h, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                                s += label(cx + (pw - 5) / 2, y + h / 2 + 5, parts[i][0], 'th');
+                                s += label(cx + (pw - 5) / 2, y + h + 18, parts[i][1], 'ts'); cx += pw;
+                            }
+                            s += brace(x0, x0 + w - 5, y - 14, '3 x 2 x 1 = 6 no match outcomes');
+                            var y2 = 160, frac = 6 / 27;
+                            s += bar(x0, y2, w * frac, h, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                            s += bar(x0 + w * frac, y2, w * (1 - frac), h, 'var(--pdv-red-soft)', 'var(--pdv-red)');
+                            s += label(x0 + w * frac / 2, y2 + h + 18, 'no match 6/27', 'ts');
+                            s += label(x0 + w * frac + w * (1 - frac) / 2, y2 + h / 2 + 5, 'at least two share, 21/27', 't');
+                            s += brace(x0, x0 + w, y2 - 14, 'all 27 outcomes = 1');
+                            return s + '</svg>';
+                        }
 
-                function figShrink(n,d){var s='<svg viewBox="0 0 '+W+' 240" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,'Each machine avoids the days already taken','th','start');
-                  var x0=40,w=600,top=52,h=120,shown=Math.min(n,12),cw=w/shown;
-                  for(var i=0;i<shown;i++){var free=d-i,bh=h*free/d;
-                    s+=bar(x0+i*cw+2,top+(h-bh),cw-6,bh,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                    if(shown<=8||i%2===0)s+=label(x0+i*cw+cw/2,top+h+16,String(free),'ts');}
-                  s+=label(40,top+h+38,(n>12?'first 12 of '+n+' machines shown. ':'')+'Last machine has '+(d-n+1)+' days left.','ts','start');
-                  var p=noMatch(n,d);
-                  s+=label(40,top+h+62,'no match = ('+d+'/'+d+') x ('+(d-1)+'/'+d+') x ... x ('+(d-n+1)+'/'+d+') = '+(p*100).toFixed(2)+'%','ts','start');
-                  return s+'</svg>';}
+                        function figShrink(n, d) {
+                            var s = '<svg viewBox="0 0 ' + W + ' 240" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, 'Each machine avoids the days already taken', 'th', 'start');
+                            var x0 = 40, w = 600, top = 52, h = 120, shown = Math.min(n, 12), cw = w / shown;
+                            for (var i = 0; i < shown; i++) {
+                                var free = d - i, bh = h * free / d;
+                                s += bar(x0 + i * cw + 2, top + (h - bh), cw - 6, bh, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                                if (shown <= 8 || i % 2 === 0) s += label(x0 + i * cw + cw / 2, top + h + 16, String(free), 'ts');
+                            }
+                            s += label(40, top + h + 38, (n > 12 ? 'first 12 of ' + n + ' machines shown. ' : '') + 'Last machine has ' + (d - n + 1) + ' days left.', 'ts', 'start');
+                            var p = noMatch(n, d);
+                            s += label(40, top + h + 62, 'no match = (' + d + '/' + d + ') x (' + (d - 1) + '/' + d + ') x ... x (' + (d - n + 1) + '/' + d + ') = ' + (p * 100).toFixed(2) + '%', 'ts', 'start');
+                            return s + '</svg>';
+                        }
 
-                function figFinal(n,d){var p=noMatch(n,d),q=1-p;
-                  var s='<svg viewBox="0 0 '+W+' 220" xmlns="http://www.w3.org/2000/svg">';
-                  s+=label(40,30,n+' machines, '+d+' days','th','start');
-                  var x0=40,w=600,y=60,h=52,wp=Math.max(w*p,0.5);
-                  s+=bar(x0,y,wp,h,'var(--pdv-teal-soft)','var(--pdv-teal)');
-                  s+=bar(x0+wp,y,w-wp,h,'var(--pdv-red-soft)','var(--pdv-red)');
-                  if(p>0.12)s+=label(x0+wp/2,y+h/2+5,'no match','t');else s+=label(x0+wp/2,y-8,'no match','ts');
-                  if(q>0.12)s+=label(x0+wp+(w-wp)/2,y+h/2+5,'at least two share a day','t');
-                  s+=label(x0,y+h+22,'no match '+(p*100).toFixed(2)+'%','ts','start');
-                  s+=label(x0+w,y+h+22,'shared '+(q*100).toFixed(2)+'%','ts','end');
-                  s+=brace(x0,x0+w,y-16,'whole bar = 1');
-                  s+=label(40,170,'1 - '+(p*100).toFixed(2)+'% = '+(q*100).toFixed(2)+'%','th','start');
-                  s+=label(40,196,'The unknown bar is the one you want, so subtract the one you can count.','ts','start');
-                  return s+'</svg>';}
+                        function figFinal(n, d) {
+                            var p = noMatch(n, d), q = 1 - p;
+                            var s = '<svg viewBox="0 0 ' + W + ' 220" xmlns="http://www.w3.org/2000/svg">';
+                            s += label(40, 30, n + ' machines, ' + d + ' days', 'th', 'start');
+                            var x0 = 40, w = 600, y = 60, h = 52, wp = Math.max(w * p, 0.5);
+                            s += bar(x0, y, wp, h, 'var(--pdv-teal-soft)', 'var(--pdv-teal)');
+                            s += bar(x0 + wp, y, w - wp, h, 'var(--pdv-red-soft)', 'var(--pdv-red)');
+                            if (p > 0.12) s += label(x0 + wp / 2, y + h / 2 + 5, 'no match', 't'); else s += label(x0 + wp / 2, y - 8, 'no match', 'ts');
+                            if (q > 0.12) s += label(x0 + wp + (w - wp) / 2, y + h / 2 + 5, 'at least two share a day', 't');
+                            s += label(x0, y + h + 22, 'no match ' + (p * 100).toFixed(2) + '%', 'ts', 'start');
+                            s += label(x0 + w, y + h + 22, 'shared ' + (q * 100).toFixed(2) + '%', 'ts', 'end');
+                            s += brace(x0, x0 + w, y - 16, 'whole bar = 1');
+                            s += label(40, 170, '1 - ' + (p * 100).toFixed(2) + '% = ' + (q * 100).toFixed(2) + '%', 'th', 'start');
+                            s += label(40, 196, 'The unknown bar is the one you want, so subtract the one you can count.', 'ts', 'start');
+                            return s + '</svg>';
+                        }
 
-                var legendBoth='<span><i style="background:var(--pdv-teal-soft);border:1px solid var(--pdv-teal)"></i>no match</span><span><i style="background:var(--pdv-red-soft);border:1px solid var(--pdv-red)"></i>shared day</span>';
+                        var legendBoth = '<span><i style="background:var(--pdv-teal-soft);border:1px solid var(--pdv-teal)"></i>no match</span><span><i style="background:var(--pdv-red-soft);border:1px solid var(--pdv-red)"></i>shared day</span>';
 
-                var stages=[
-                {pip:'1. One machine',title:'One machine, one chosen day',
-                 story:'A single virtual machine gets one patch day out of 365. Every day is equally likely.',
-                 fig:figOne,math:'P(day 121) = 1/365 = 0.274%',
-                 ask:'Why is the sliver so thin?',
-                 answer:'The bar holds 365 equal parts and only one of them is day 121. One favourable part over 365 parts gives 1/365.',legend:''},
-                {pip:'2. Opposite event',title:'The opposite event fills the rest of the bar',
-                 story:'Day 121 or any other day. No third option exists, and the two cannot both happen.',
-                 fig:figComp,math:'P(any other day) = 1 - 1/365 = 364/365 = 99.73%',
-                 ask:'What makes this a complement?',
-                 answer:'The two events cover every outcome and overlap in none. So their parts fill the bar and their probabilities add to 1. Subtracting one from 1 gives the other.',legend:''},
-                {pip:'3. Two machines, two days',title:'Two machines, two days, four outcomes',
-                 story:'Strip the problem down. Machine 1 picks a day, then machine 2 picks a day, so the outcomes are pairs.',
-                 fig:figTwoTwo,math:'sample space = 2 x 2 = 2^2 = 4\nsame day = 2/4        different days = 2/4',
-                 ask:'Why 4 outcomes and not 2?',
-                 answer:'Machine 1 has 2 choices, and for each of those machine 2 has 2 choices. You multiply because one choice follows the other. The base is the days and the exponent is the machines.',legend:legendBoth},
-                {pip:'4. Two machines, more days',title:'Two machines, with the days adjustable',
-                 story:'Move the slider. The red diagonal is the shared day, the teal cells are the no match outcomes.',
-                 controls:[{id:'d4',label:'Days available',min:2,max:8,value:3}],
-                 fig:function(st){return figGrid(st.d4);},
-                 math:function(st){var d=st.d4,all=d*d,diff=d*(d-1);
-                   return 'sample space = '+d+'^2 = '+all+'\nno match = '+d+' x '+(d-1)+' = '+diff+'  ->  '+diff+'/'+all+'\nshared  = 1 - '+diff+'/'+all+' = '+d+'/'+all+' = '+((d/all)*100).toFixed(2)+'%';},
-                 ask:'Why does machine 2 have one fewer choice?',
-                 answer:'For no match, machine 2 must avoid the single day machine 1 already took. That removes exactly one of the days, whatever the first machine chose. The red diagonal cells are the ones it must avoid.',legend:legendBoth},
-                {pip:'5. Three machines',title:'Three machines, three days',
-                 story:'Add a machine. Each new machine must avoid every day already taken, so the choices shrink by one each time.',
-                 fig:figThree,math:'sample space = 3^3 = 27\nno match = 3 x 2 x 1 = 6  ->  6/27 = 22.22%\nshared  = 1 - 6/27 = 21/27 = 77.78%',
-                 ask:'Why count no match instead of counting the matches?',
-                 answer:'Matches split into many cases: exactly two sharing, exactly three sharing, and so on. No match is a single product, because each machine just avoids the days already used. Count the easy one, then subtract from 1.',legend:legendBoth},
-                {pip:'6. Shrinking choices',title:'The same pattern at full size',
-                 story:'Each bar is the days still free when that machine picks. Move the sliders to see the pattern hold at any size.',
-                 controls:[{id:'n6',label:'Machines',min:2,max:50,value:35},{id:'d6',label:'Days',min:5,max:365,value:365}],
-                 fig:function(st){return figShrink(Math.min(st.n6,st.d6),st.d6);},
-                 math:function(st){var n=Math.min(st.n6,st.d6),d=st.d6,p=noMatch(n,d);
-                   return 'last factor = '+d+' - '+(n-1)+' = '+(d-n+1)+'\nno match = ('+d+' x '+(d-1)+' x ... x '+(d-n+1)+') / '+d+'^'+n+' = '+(p*100).toFixed(2)+'%';},
-                 ask:'Where does the last factor come from?',
-                 answer:'Machine 1 has all the days, machine 2 has one fewer, machine 3 two fewer. Machine n has d - (n - 1) days left. With 35 machines and 365 days that is 365 - 34 = 331.',legend:''},
-                {pip:'7. The answer',title:'Subtract from 1',
-                 story:'The whole bar is 1. The teal part is no match, which you counted. The red part is the answer.',
-                 controls:[{id:'n7',label:'Machines',min:2,max:60,value:35},{id:'d7',label:'Days',min:5,max:365,value:365}],
-                 fig:function(st){return figFinal(Math.min(st.n7,st.d7),st.d7);},
-                 math:function(st){var n=Math.min(st.n7,st.d7),d=st.d7,p=noMatch(n,d);
-                   return 'P(no match) = ('+d+' x '+(d-1)+' x ... x '+(d-n+1)+') / '+d+'^'+n+' = '+p.toFixed(4)+'\nP(at least two share) = 1 - '+p.toFixed(4)+' = '+(1-p).toFixed(4)+' = '+((1-p)*100).toFixed(2)+'%';},
-                 ask:'Try 23 machines with 365 days. What do you see?',
-                 answer:'At 23 machines the shared bar passes half the whole bar, 50.73%. At 35 machines it reaches 81.44%. The jump comes from pairs: 35 machines make 35 x 34 / 2 = 595 pairs that could match, which is why 35/365 is far too small an estimate.',legend:legendBoth}];
+                        var stages = [
+                            {
+                                pip: '1. One machine', title: 'One machine, one chosen day',
+                                story: 'A single virtual machine gets one patch day out of 365. Every day is equally likely.',
+                                fig: figOne, math: 'P(day 121) = 1/365 = 0.274%',
+                                ask: 'Why is the sliver so thin?',
+                                answer: 'The bar holds 365 equal parts and only one of them is day 121. One favourable part over 365 parts gives 1/365.', legend: ''
+                            },
+                            {
+                                pip: '2. Opposite event', title: 'The opposite event fills the rest of the bar',
+                                story: 'Day 121 or any other day. No third option exists, and the two cannot both happen.',
+                                fig: figComp, math: 'P(any other day) = 1 - 1/365 = 364/365 = 99.73%',
+                                ask: 'What makes this a complement?',
+                                answer: 'The two events cover every outcome and overlap in none. So their parts fill the bar and their probabilities add to 1. Subtracting one from 1 gives the other.', legend: ''
+                            },
+                            {
+                                pip: '3. Two machines, two days', title: 'Two machines, two days, four outcomes',
+                                story: 'Strip the problem down. Machine 1 picks a day, then machine 2 picks a day, so the outcomes are pairs.',
+                                fig: figTwoTwo, math: 'sample space = 2 x 2 = 2^2 = 4\nsame day = 2/4        different days = 2/4',
+                                ask: 'Why 4 outcomes and not 2?',
+                                answer: 'Machine 1 has 2 choices, and for each of those machine 2 has 2 choices. You multiply because one choice follows the other. The base is the days and the exponent is the machines.', legend: legendBoth
+                            },
+                            {
+                                pip: '4. Two machines, more days', title: 'Two machines, with the days adjustable',
+                                story: 'Move the slider. The red diagonal is the shared day, the teal cells are the no match outcomes.',
+                                controls: [{ id: 'd4', label: 'Days available', min: 2, max: 8, value: 3 }],
+                                fig: function (st) { return figGrid(st.d4); },
+                                math: function (st) {
+                                    var d = st.d4, all = d * d, diff = d * (d - 1);
+                                    return 'sample space = ' + d + '^2 = ' + all + '\nno match = ' + d + ' x ' + (d - 1) + ' = ' + diff + '  ->  ' + diff + '/' + all + '\nshared  = 1 - ' + diff + '/' + all + ' = ' + d + '/' + all + ' = ' + ((d / all) * 100).toFixed(2) + '%';
+                                },
+                                ask: 'Why does machine 2 have one fewer choice?',
+                                answer: 'For no match, machine 2 must avoid the single day machine 1 already took. That removes exactly one of the days, whatever the first machine chose. The red diagonal cells are the ones it must avoid.', legend: legendBoth
+                            },
+                            {
+                                pip: '5. Three machines', title: 'Three machines, three days',
+                                story: 'Add a machine. Each new machine must avoid every day already taken, so the choices shrink by one each time.',
+                                fig: figThree, math: 'sample space = 3^3 = 27\nno match = 3 x 2 x 1 = 6  ->  6/27 = 22.22%\nshared  = 1 - 6/27 = 21/27 = 77.78%',
+                                ask: 'Why count no match instead of counting the matches?',
+                                answer: 'Matches split into many cases: exactly two sharing, exactly three sharing, and so on. No match is a single product, because each machine just avoids the days already used. Count the easy one, then subtract from 1.', legend: legendBoth
+                            },
+                            {
+                                pip: '6. Shrinking choices', title: 'The same pattern at full size',
+                                story: 'Each bar is the days still free when that machine picks. Move the sliders to see the pattern hold at any size.',
+                                controls: [{ id: 'n6', label: 'Machines', min: 2, max: 50, value: 35 }, { id: 'd6', label: 'Days', min: 5, max: 365, value: 365 }],
+                                fig: function (st) { return figShrink(Math.min(st.n6, st.d6), st.d6); },
+                                math: function (st) {
+                                    var n = Math.min(st.n6, st.d6), d = st.d6, p = noMatch(n, d);
+                                    return 'last factor = ' + d + ' - ' + (n - 1) + ' = ' + (d - n + 1) + '\nno match = (' + d + ' x ' + (d - 1) + ' x ... x ' + (d - n + 1) + ') / ' + d + '^' + n + ' = ' + (p * 100).toFixed(2) + '%';
+                                },
+                                ask: 'Where does the last factor come from?',
+                                answer: 'Machine 1 has all the days, machine 2 has one fewer, machine 3 two fewer. Machine n has d - (n - 1) days left. With 35 machines and 365 days that is 365 - 34 = 331.', legend: ''
+                            },
+                            {
+                                pip: '7. The answer', title: 'Subtract from 1',
+                                story: 'The whole bar is 1. The teal part is no match, which you counted. The red part is the answer.',
+                                controls: [{ id: 'n7', label: 'Machines', min: 2, max: 60, value: 35 }, { id: 'd7', label: 'Days', min: 5, max: 365, value: 365 }],
+                                fig: function (st) { return figFinal(Math.min(st.n7, st.d7), st.d7); },
+                                math: function (st) {
+                                    var n = Math.min(st.n7, st.d7), d = st.d7, p = noMatch(n, d);
+                                    return 'P(no match) = (' + d + ' x ' + (d - 1) + ' x ... x ' + (d - n + 1) + ') / ' + d + '^' + n + ' = ' + p.toFixed(4) + '\nP(at least two share) = 1 - ' + p.toFixed(4) + ' = ' + (1 - p).toFixed(4) + ' = ' + ((1 - p) * 100).toFixed(2) + '%';
+                                },
+                                ask: 'Try 23 machines with 365 days. What do you see?',
+                                answer: 'At 23 machines the shared bar passes half the whole bar, 50.73%. At 35 machines it reaches 81.44%. The jump comes from pairs: 35 machines make 35 x 34 / 2 = 595 pairs that could match, which is why 35/365 is far too small an estimate.', legend: legendBoth
+                            }];
 
-                var state={};
-                stages.forEach(function(s){(s.controls||[]).forEach(function(c){state[c.id]=c.value;});});
-                var idx=0,rail=document.getElementById('pdv-rail');
-                stages.forEach(function(s,i){var b=document.createElement('button');b.textContent=s.pip;b.onclick=function(){idx=i;render();};rail.appendChild(b);});
+                        var state = {};
+                        stages.forEach(function (s) { (s.controls || []).forEach(function (c) { state[c.id] = c.value; }); });
+                        var idx = 0, rail = document.getElementById('pdv-rail');
+                        stages.forEach(function (s, i) { var b = document.createElement('button'); b.textContent = s.pip; b.onclick = function () { idx = i; render(); }; rail.appendChild(b); });
 
-                function draw(){var s=stages[idx];
-                  document.getElementById('pdv-figure').innerHTML=(typeof s.fig==='function'?s.fig(state):s.fig);
-                  document.getElementById('pdv-math').textContent=(typeof s.math==='function'?s.math(state):s.math);}
+                        function draw() {
+                            var s = stages[idx];
+                            document.getElementById('pdv-figure').innerHTML = (typeof s.fig === 'function' ? s.fig(state) : s.fig);
+                            document.getElementById('pdv-math').textContent = (typeof s.math === 'function' ? s.math(state) : s.math);
+                        }
 
-                function render(){var s=stages[idx];
-                  Array.prototype.forEach.call(rail.children,function(b,i){b.setAttribute('aria-current',i===idx?'true':'false');});
-                  document.getElementById('pdv-stepno').textContent='Stage '+(idx+1)+' of '+stages.length;
-                  document.getElementById('pdv-title').innerHTML='<strong>'+s.title+'</strong>';
-                  document.getElementById('pdv-story').textContent=s.story;
-                  document.getElementById('pdv-legend').innerHTML=s.legend||'';
-                  var cEl=document.getElementById('pdv-controls');cEl.innerHTML='';
-                  if(s.controls){s.controls.forEach(function(c){
-                    var lab=document.createElement('label');
-                    lab.innerHTML=c.label+': <code id="pdv_v_'+c.id+'">'+state[c.id]+'</code>';
-                    var inp=document.createElement('input');inp.type='range';inp.min=c.min;inp.max=c.max;inp.value=state[c.id];
-                    inp.oninput=function(){state[c.id]=parseInt(inp.value,10);document.getElementById('pdv_v_'+c.id).textContent=state[c.id];draw();};
-                    lab.appendChild(inp);cEl.appendChild(lab);});}
-                  draw();
-                  var ans=document.getElementById('pdv-answer');ans.textContent=s.answer;ans.classList.remove('pdv-open');
-                  document.getElementById('pdv-reveal').textContent='Show the reasoning';
-                  document.getElementById('pdv-ask').textContent=s.ask;
-                  document.getElementById('pdv-prev').disabled=(idx===0);
-                  document.getElementById('pdv-next').disabled=(idx===stages.length-1);}
+                        function render() {
+                            var s = stages[idx];
+                            Array.prototype.forEach.call(rail.children, function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+                            document.getElementById('pdv-stepno').textContent = 'Stage ' + (idx + 1) + ' of ' + stages.length;
+                            document.getElementById('pdv-title').innerHTML = '<strong>' + s.title + '</strong>';
+                            document.getElementById('pdv-story').textContent = s.story;
+                            document.getElementById('pdv-legend').innerHTML = s.legend || '';
+                            var cEl = document.getElementById('pdv-controls'); cEl.innerHTML = '';
+                            if (s.controls) {
+                                s.controls.forEach(function (c) {
+                                    var lab = document.createElement('label');
+                                    lab.innerHTML = c.label + ': <code id="pdv_v_' + c.id + '">' + state[c.id] + '</code>';
+                                    var inp = document.createElement('input'); inp.type = 'range'; inp.min = c.min; inp.max = c.max; inp.value = state[c.id];
+                                    inp.oninput = function () { state[c.id] = parseInt(inp.value, 10); document.getElementById('pdv_v_' + c.id).textContent = state[c.id]; draw(); };
+                                    lab.appendChild(inp); cEl.appendChild(lab);
+                                });
+                            }
+                            draw();
+                            var ans = document.getElementById('pdv-answer'); ans.textContent = s.answer; ans.classList.remove('pdv-open');
+                            document.getElementById('pdv-reveal').textContent = 'Show the reasoning';
+                            document.getElementById('pdv-ask').textContent = s.ask;
+                            document.getElementById('pdv-prev').disabled = (idx === 0);
+                            document.getElementById('pdv-next').disabled = (idx === stages.length - 1);
+                        }
 
-                document.getElementById('pdv-reveal').onclick=function(){var a=document.getElementById('pdv-answer');a.classList.toggle('pdv-open');this.textContent=a.classList.contains('pdv-open')?'Hide the reasoning':'Show the reasoning';};
-                document.getElementById('pdv-prev').onclick=function(){if(idx>0){idx--;render();}};
-                document.getElementById('pdv-next').onclick=function(){if(idx<stages.length-1){idx++;render();}};
-                render();
-                })();
+                        document.getElementById('pdv-reveal').onclick = function () { var a = document.getElementById('pdv-answer'); a.classList.toggle('pdv-open'); this.textContent = a.classList.contains('pdv-open') ? 'Hide the reasoning' : 'Show the reasoning'; };
+                        document.getElementById('pdv-prev').onclick = function () { if (idx > 0) { idx--; render(); } };
+                        document.getElementById('pdv-next').onclick = function () { if (idx < stages.length - 1) { idx++; render(); } };
+                        render();
+                    })();
                 </script>
 
                 <h2 id="history-version">Historical Background</h2>
 
-                <p>The question first circulated among actuaries and insurance clerks, who needed to know how often two policies or two claims would fall on the same date, and found the answer far higher than their intuition allowed. Richard von Mises put the problem into print in 1939 while working on the foundations of probability, and it spread through statistics teaching as a demonstration that intuition misjudges collisions.</p>
+                <p>The question first circulated among actuaries and insurance clerks, who needed to know how often two
+                    policies or two claims would fall on the same date, and found the answer far higher than their
+                    intuition allowed. Richard von Mises put the problem into print in 1939 while working on the
+                    foundations of probability, and it spread through statistics teaching as a demonstration that
+                    intuition misjudges collisions.</p>
 
-                <p>The same count now governs scheduling and storage in computing. Engineers use it to size identifiers so that two records do not receive the same key, and operations teams use it to decide whether randomly assigned maintenance windows need a scheduler to keep them apart.</p>
+                <p>The same count now governs scheduling and storage in computing. Engineers use it to size identifiers
+                    so that two records do not receive the same key, and operations teams use it to decide whether
+                    randomly assigned maintenance windows need a scheduler to keep them apart.</p>
 
                 <h2 id="python-version">Python Version</h2>
 
-                <p>The script takes any fleet size and any pool of days, so the same logic covers patch windows, hash keys, or shift rosters.</p>
+                <p>The script takes any fleet size and any pool of days, so the same logic covers patch windows, hash
+                    keys, or shift rosters.</p>
 
-<pre><code># What this does: works out the chance that two or more machines get the same patch day.
+                <pre><code># What this does: works out the chance that two or more machines get the same patch day.
 # Where it came from: a cloud team gave each of 35 machines one patch day out of 365.
 # The math idea: count the chance of no match, then take it away from 1.
 # You type in: how many machines and how many days are available.
@@ -471,9 +736,10 @@ print("Chance that at least two machines share a patch day:", str(percent) + "%"
 
                 <p>Run it in a terminal, enter 35 and 365, and it returns 81.44%.</p>
 
-                <p>A shorter version uses the standard library, where <code>math.perm</code> counts the no match arrangements in one call.</p>
+                <p>A shorter version uses the standard library, where <code>math.perm</code> counts the no match
+                    arrangements in one call.</p>
 
-<pre><code># What this does: works out the chance that two or more machines get the same patch day.
+                <pre><code># What this does: works out the chance that two or more machines get the same patch day.
 # Where it came from: a cloud team gave each of 35 machines one patch day out of 365.
 # The math idea: count the chance of no match, then take it away from 1.
 # You type in: how many machines and how many days are available.
@@ -513,14 +779,19 @@ percent = round(result * 100, 2)
 print("Chance that at least two machines share a patch day:", str(percent) + "%")
 </code></pre>
 
-                <p>Both versions return the same value, and the second one matches the written formula factor for factor.</p>
+                <p>Both versions return the same value, and the second one matches the written formula factor for
+                    factor.</p>
 
                 <h2 id="further-reading">Go Deeper</h2>
 
                 <ul>
-                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/probability-library" target="_blank" rel="noopener">Khan Academy — Probability and the Complement Rule</a></li>
-                    <li><a class="class2" href="https://mathworld.wolfram.com/BirthdayProblem.html" target="_blank" rel="noopener">Wolfram MathWorld — Birthday Problem</a></li>
-                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/birthday-problem" target="_blank" rel="noopener">Mathematics Stack Exchange — Birthday Problem</a></li>
+                    <li><a class="class2"
+                            href="https://www.khanacademy.org/math/statistics-probability/probability-library"
+                            target="_blank" rel="noopener">Khan Academy — Probability and the Complement Rule</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/BirthdayProblem.html" target="_blank"
+                            rel="noopener">Wolfram MathWorld — Birthday Problem</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/birthday-problem"
+                            target="_blank" rel="noopener">Mathematics Stack Exchange — Birthday Problem</a></li>
                 </ul>
 
                 <span id="insight"></span>
@@ -553,4 +824,5 @@ print("Chance that at least two machines share a patch day:", str(percent) + "%"
 </body>
 <script src="/js/us-shareInFlex.js"></script>
 <script src="/js/before_body_scripts.js"></script>
+
 </html>

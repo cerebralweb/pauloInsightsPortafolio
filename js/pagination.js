@@ -7,6 +7,11 @@
 
     const articlesDataBase = [
         {
+            articleTitle: "The Routing Choice That Sends Most Requests To The Paid Tier Endpoint",
+            articleDescription: "Cloud teams route traffic to a paid tier endpoint, and the routing choice decides how many requests land there",
+            articleHref: "/a/the-routing-choice-that-sends-most-requests-to-the-paid-tier-endpoint.html"
+        },
+        {
             articleTitle: "Why A Cloud Team Cannot Spread 35 Patch Windows Across The Year",
             articleDescription: "Probability. Operations teams assume that a large pool of time slots keeps their maintenance windows apart",
             articleHref: "/a/why-a-cloud-team-cannot-spread-35-patch-windows-across-the-year.html"

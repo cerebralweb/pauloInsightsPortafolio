@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A routing graph with four endpoints sends 42 percent of inference requests to the endpoint serving the paid model tier. How the share is estimated from logged traces and why capacity planning depends on it.">
+    <meta name="keywords" content="experimental probability, theoretical probability, routing graph, agentic AI, capacity planning, two stage tree, probability estimate, Python">
+    <meta name="author" content="C. L. Palacios" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EN9K2MZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1EN9K2MZT9');
+    </script>
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,900;1,900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>let myCanonical = "https://www.clpalacios.in/a/the-routing-choice-that-sends-most-requests-to-the-paid-tier-endpoint.html";</script>
+    <link rel="canonical" href="https://www.clpalacios.in/a/the-routing-choice-that-sends-most-requests-to-the-paid-tier-endpoint.html" />
+
+    <title>The Routing Choice That Sends Most Requests to the Paid Tier Endpoint</title>
+
+    <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.clpalacios.in/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.clpalacios.in/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.clpalacios.in/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.clpalacios.in/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://www.clpalacios.in/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="https://www.clpalacios.in/favicon/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="https://www.clpalacios.in">
+        <meta name="application-name" content="https://www.clpalacios.in">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-config" content="https://www.clpalacios.in/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </div>
+</head>
+
+<body>
+    <header id="us-hexis-top-Nav"></header>
+    <script src="/js/us-hexis-top-Nav.js"></script>
+
+    <main class="contenedorMain">
+
+        <div class="titleFlexContainer">
+            <div class="shareInTitleFlex" id="randomQuote">
+                <p><a id="shareTweet" class="class2" target="_blank" href=""> Tweet it! </a></p>
+                <p id="quoteIntoHtml"> </p>
+                <a id="newQuote" class="class2" href=""> New Quote </a>
+                <script src="/js/randomQuote.js"></script>
+            </div>
+            <div class="articleTitleInFlex">
+                <h3>October 27, 2026 <code id="my_social_media"></code></h3>
+                <h1 itemtype="about" itemtype="headline" class="titulosMainForArticles">
+                    THE ROUTING CHOICE THAT SENDS MOST REQUESTS TO THE PAID TIER ENDPOINT
+                    
+                    
+                </h1>
+            </div>
+        </div>
+
+        <div class="articleFlexContainer">
+
+            <div class="flex_LeftColumnContainerInArticle">
+                <div class="articleInfoInTheFlexContainer" id="us-infoArticle"></div>
+                <div class="webInfoInTheFlexContainer" id="us-fromTheWeb"></div>
+                <script src="/js/us-fromTheWeb.js"></script>
+                <div class="extraInfoInTheFlexContainerIzq" id="contenedorOcultoIzquierda"></div>
+            </div>
+            <script src="/js/us-infoArticle.js"></script>
+
+            <div class="flex_RightColumnContainerInArticle">
+                <div class="newsletterInTheFlexContainer" id="us-newsletter"></div>
+                <div class="extraInfoInTheFlexContainerDerecha" id="contenedorOcultoDerecha"></div>
+            </div>
+            <script src="/js/us-newsletter.js"></script>
+
+            <article itemscope itemtype="http://schema.org/Article"
+                itemprop="articleBody" class="articleInTheFlexContainer">
+
+                <p id="business-problem"><em><span style="color: rgb(248, 156, 8);">In this article ❧ </span>
+                    Traffic in a service never spreads itself evenly, and the shape of the routing layer decides where the load lands. Teams that size every endpoint alike discover the imbalance in production, when one service saturates while its neighbours sit idle. <dfn>This problem shows how a share of traffic can be estimated from logged traces, checked against the share the topology predicts, and turned into a reusable tool.</dfn></em></p>
+
+                <div class="publicidadEnArticulo" id="oculto_publicidadEnArticulo"></div>
+                <script src="/js/us-publicidadEnArticulo.js"></script>
+
+                <h2 id="math-answer">The Problem</h2>
+
+                <p>One at a time, inference requests enter the routing graph of an agentic AI service. Four endpoints terminate the graph, A, B, C, and D. At each node where the router must pick a next hop, assume every available hop is equally likely. A request never returns to a node it already passed. From the entry node the request takes either the left branch to node 2 or the right branch to node 3. Node 2 offers three hops, left to A, straight to B, right to C. Node 3 offers two hops, left to C, right to D. Endpoint C serves the paid model tier, and endpoints A, B, and D serve no paid traffic.</p>
+
+                <p>Fifty traces were logged, each recorded as two hops where L stands for left, R for right, and S for straight. The log holds 6 traces of LL, 8 of LS, 10 of LR, 11 of RL, and 15 of RR. Using these traces, what is the estimated probability that a request reaches endpoint C?</p>
+                <ul>
+                    <li>a) 0.12</li>
+                    <li>b) 0.25</li>
+                    <li>c) 0.42</li>
+                    <li>d) 0.30</li>
+                </ul>
+
+                <div id="rg-wrap" style="margin:1.5rem 0;font-family:monospace">
+                    <svg id="rg-maze" width="100%" viewBox="0 0 680 300" role="img" style="display:block;max-width:680px;margin:0 auto">
+                        <title>Routing graph</title>
+                        <desc>The entry node splits left to node 2 and right to node 3. Node 2 reaches endpoints A, B and C. Node 3 reaches endpoints C and D.</desc>
+                        <g id="rg-edges"></g>
+                        <g id="rg-nodes"></g>
+                        <g id="rg-sprite" opacity="0"></g>
+                        <text x="120" y="48" text-anchor="middle" style="font:500 14px monospace;fill:#5F5E5A">A</text>
+                        <text x="230" y="48" text-anchor="middle" style="font:500 14px monospace;fill:#5F5E5A">B</text>
+                        <text x="340" y="48" text-anchor="middle" style="font:500 14px monospace;fill:#0F6E56">C</text>
+                        <text x="560" y="48" text-anchor="middle" style="font:500 14px monospace;fill:#5F5E5A">D</text>
+                        <text x="374" y="48" style="font:400 11px monospace;fill:#0F6E56">paid tier</text>
+                        <text x="230" y="200" text-anchor="middle" style="font:400 12px monospace;fill:#888780">node 2</text>
+                        <text x="450" y="200" text-anchor="middle" style="font:400 12px monospace;fill:#888780">node 3</text>
+                        <text x="340" y="290" text-anchor="middle" style="font:400 12px monospace;fill:#888780">entry</text>
+                    </svg>
+
+                    <div style="display:flex;gap:8px;align-items:center;margin:1rem 0;flex-wrap:wrap">
+                        <button type="button" id="rg-one" style="font-family:monospace;font-size:13px;padding:6px 12px;cursor:pointer">Release 1</button>
+                        <button type="button" id="rg-fifty" style="font-family:monospace;font-size:13px;padding:6px 12px;cursor:pointer">Release 50</button>
+                        <button type="button" id="rg-reset" style="font-family:monospace;font-size:13px;padding:6px 12px;cursor:pointer">Reset</button>
+                        <span id="rg-trace" style="font-size:13px;color:#5F5E5A">waiting</span>
+                    </div>
+
+                    <div id="rg-bars" style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem"></div>
+
+                    <p style="font-size:13px;color:#5F5E5A;margin:0">Released <span id="rg-n">0</span>. Estimated share for the paid tier <span id="rg-pc" style="color:#0F6E56">0.000</span>, against a predicted 0.417.</p>
+                </div>
+
+                <script>
+                (function(){
+                var NS='http://www.w3.org/2000/svg', S=10, GR='#888780', TL='#1D9E75';
+                var N={entry:[340,255],n2:[230,165],n3:[450,165],A:[120,65],B:[230,65],C:[340,65],D:[560,65]};
+                var E=[['entry','n2','g'],['entry','n3','g'],['n2','A','g'],['n2','B','g'],['n2','C','t'],['n3','C','t'],['n3','D','g']];
+                function rect(x,y,c,w){var r=document.createElementNS(NS,'rect');
+                r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',w||S);r.setAttribute('height',w||S);
+                r.setAttribute('fill',c);return r;}
+                function line(a,b,c,g){var x0=Math.round(a[0]/S),y0=Math.round(a[1]/S),x1=Math.round(b[0]/S),y1=Math.round(b[1]/S);
+                var dx=Math.abs(x1-x0),dy=-Math.abs(y1-y0),sx=x0<x1?1:-1,sy=y0<y1?1:-1,err=dx+dy,pts=[];
+                while(true){pts.push([x0*S,y0*S]);if(x0===x1&&y0===y1)break;var e2=2*err;
+                if(e2>=dy){err+=dy;x0+=sx;}if(e2<=dx){err+=dx;y0+=sy;}}
+                pts.forEach(function(p){g.appendChild(rect(p[0]-S/2,p[1]-S/2,c));});return pts;}
+                var eg=document.getElementById('rg-edges'),ng=document.getElementById('rg-nodes'),sg=document.getElementById('rg-sprite');
+                var paths={},nodeBlocks={};
+                E.forEach(function(e){paths[e[0]+e[1]]=line(N[e[0]],N[e[1]],e[2]==='t'?TL:GR,eg);});
+                Object.keys(N).forEach(function(k){var arr=[],base=k==='C'?TL:GR;
+                for(var i=-1;i<2;i++)for(var j=-1;j<2;j++){var r=rect(N[k][0]-S/2+i*S,N[k][1]-S/2+j*S,base);ng.appendChild(r);arr.push(r);}
+                nodeBlocks[k]={r:arr,c:base};});
+
+                var P=4,BODY='#D85A30',DARK='#4A1B0C',EAR='#F5C4B3';
+                var F1=['0030300','0311130','3122213','3111113','3111113','0311130','0300030'];
+                var F2=['0030300','0311130','3122213','3111113','3111113','0311130','0030300'];
+                function build(map,dy){var g=document.createElementNS(NS,'g');
+                map.forEach(function(row,y){row.split('').forEach(function(v,x){if(v==='0')return;
+                g.appendChild(rect(x*P,y*P+dy,v==='2'?DARK:v==='3'?EAR:BODY,P));});});return g;}
+                var fr=[build(F1,0),build(F2,2)];
+                fr.forEach(function(g,i){g.setAttribute('opacity',i?'0':'1');sg.appendChild(g);});
+                function frame(i){fr.forEach(function(g,j){g.setAttribute('opacity',j===i?'1':'0');});}
+                function place(p){sg.setAttribute('transform','translate('+(p[0]-14)+','+(p[1]-16)+')');}
+                place(N.entry);
+
+                var count={A:0,B:0,C:0,D:0},total=0,busy=false,rows={},bars=document.getElementById('rg-bars');
+                ['A','B','C','D'].forEach(function(k){
+                var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px';
+                var lab=document.createElement('span');lab.textContent=k;
+                lab.style.cssText='font-size:13px;width:14px;color:'+(k==='C'?'#0F6E56':'#5F5E5A');
+                var cells=document.createElement('div');cells.style.cssText='display:flex;gap:1px;flex:1';
+                var arr=[];for(var i=0;i<50;i++){var c=document.createElement('span');
+                c.style.cssText='width:8px;height:12px;background:#D3D1C7';cells.appendChild(c);arr.push(c);}
+                var num=document.createElement('span');num.textContent='0';
+                num.style.cssText='font-size:13px;width:62px;text-align:right;color:#5F5E5A';
+                row.appendChild(lab);row.appendChild(cells);row.appendChild(num);bars.appendChild(row);
+                rows[k]={cells:arr,num:num};});
+
+                function draw(){
+                document.getElementById('rg-n').textContent=total;
+                document.getElementById('rg-pc').textContent=total?(count.C/total).toFixed(3):'0.000';
+                ['A','B','C','D'].forEach(function(k){var r=rows[k],fill=Math.min(50,count[k]);
+                for(var i=0;i<50;i++)r.cells[i].style.background=i<fill?(k==='C'?TL:GR):'#D3D1C7';
+                r.num.textContent=count[k]+(total?' '+(count[k]/total).toFixed(2):'');});}
+
+                function sample(){var a=Math.random()<0.5?'L':'R',b,end;
+                if(a==='L'){var r=Math.floor(Math.random()*3);b=['L','S','R'][r];end=['A','B','C'][r];}
+                else{var q=Math.floor(Math.random()*2);b=['L','R'][q];end=['C','D'][q];}
+                return {code:a+b,end:end,mid:a==='L'?'n2':'n3'};}
+
+                function cheer(k,done){var nb=nodeBlocks[k],t=0;
+                var id=setInterval(function(){t++;nb.r.forEach(function(r){r.setAttribute('fill',t%2?'#EF9F27':nb.c);});
+                frame(t%2?1:0);if(t>5){clearInterval(id);nb.r.forEach(function(r){r.setAttribute('fill',nb.c);});
+                frame(0);sg.setAttribute('opacity','0');done();}},150);}
+
+                function run(s,done){
+                var seq=paths['entry'+s.mid].concat(paths[s.mid+s.end]),i=0,t=0;
+                sg.setAttribute('opacity','1');
+                var id=setInterval(function(){
+                if(i>=seq.length){clearInterval(id);cheer(s.end,done);return;}
+                place(seq[i]);t++;frame(t%4<2?0:1);i++;},70);}
+
+                document.getElementById('rg-one').onclick=function(){if(busy)return;busy=true;
+                var s=sample();document.getElementById('rg-trace').textContent='routing '+s.code;
+                run(s,function(){count[s.end]++;total++;
+                document.getElementById('rg-trace').textContent=s.code+' reached '+s.end;draw();busy=false;});};
+                document.getElementById('rg-fifty').onclick=function(){if(busy)return;
+                for(var i=0;i<50;i++){var s=sample();count[s.end]++;total++;}
+                document.getElementById('rg-trace').textContent='50 traces logged';draw();};
+                document.getElementById('rg-reset').onclick=function(){if(busy)return;
+                count={A:0,B:0,C:0,D:0};total=0;document.getElementById('rg-trace').textContent='waiting';draw();};
+                draw();})();
+                </script>
+
+                <details>
+                    <summary><strong>Click to Reveal the Answer</strong></summary>
+
+                    <p><strong>Correct Answer: c) 0.42 ✅</strong></p>
+
+                    <h2>Math Solution</h2>
+
+                    <p>Endpoint C has two inbound routes, so the success traces are LR and RL, and <strong>adding</strong> their counts gives 21. <strong>Dividing</strong> 21 by the 50 logged traces returns 0.42, close to the 5/12 the topology predicts.</p>
+
+                    <p class="insight"><em>C leads not because any hop favours it, but because it is the only endpoint fed by two hops, and one of them is the wide slice from the node with fewer choices.</em></p>
+
+                    <div class="bannerTwitero">
+                        <h2>Step-by-Step Breakdown</h2>
+                        <p>The following sequence shows how the final amount is derived:</p>
+                        <ol>
+                            <li><strong>Success traces:</strong> LR and RL, the two inbound routes to endpoint C</li>
+                            <li><strong>Count of LR:</strong> 10 traces</li>
+                            <li><strong>Count of RL:</strong> 11 traces</li>
+                            <li><strong>Total successes:</strong> 10 + 11 = 21 traces</li>
+                            <li><strong>Estimated share:</strong> 21 / 50 = 0.42</li>
+                            <li><strong>Theoretical share:</strong> (1/2)(1/3) + (1/2)(1/2) = 1/6 + 1/4 = 5/12 = 0.417</li>
+                            <li><strong>Gap:</strong> 0.42 − 0.417 = 0.003, well inside the sampling error for 50 traces</li>
+                            <li><strong>Remaining endpoints:</strong> A 0.12, B 0.16, D 0.30, against predictions of 0.167, 0.167, and 0.250</li>
+                            <li><strong>Conclusion:</strong> the equal share model of 0.25 per endpoint fails, and the model built from the topology holds</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <h2 id="math-proof">The Proof</h2>
+
+                <p>The estimate above comes from the log. The value it is tested against comes from the topology, and that value can be established step by step, every move carrying the name of the property that licenses it.</p>
+
+                <h3>Claim</h3>
+
+                <p>Given the routing graph, where the entry node offers two hops, node 2 offers three hops, node 3 offers two hops, and every hop available at a node is equally likely, the probability that a request reaches endpoint C equals 5/12, and the four endpoints are therefore not equally likely.</p>
+
+                <h3>Notation</h3>
+
+                <ul>
+                    <li>P(X) is the probability of event X, a number between 0 and 1.</li>
+                    <li>Ω is the sample space, the set of the five complete routes through the graph.</li>
+                    <li>L₁ is the event that the first hop goes left, so the request arrives at node 2.</li>
+                    <li>R₁ is the event that the first hop goes right, so the request arrives at node 3.</li>
+                    <li>L₂, S₂, R₂ are the events that the second hop goes left, straight, or right, the subscript 2 marking the second hop.</li>
+                    <li>A, B, C, D are the events that the request ends at that endpoint.</li>
+                    <li>P(X | Y) is the probability of X once Y has occurred, read the probability of X given Y.</li>
+                    <li>∩ reads and, the joint occurrence of two events.</li>
+                    <li>∪ reads or, the occurrence of at least one of two events.</li>
+                    <li>∅ is the empty set, an event that cannot occur.</li>
+                    <li>≠ reads is not equal to, and &gt; reads is greater than.</li>
+                    <li>⇒ reads implies, and ⇔ reads if and only if.</li>
+                    <li>k is the number of hops available at a node, 2 at the entry node, 3 at node 2, and 2 at node 3.</li>
+                    <li>x, y are any events, used to state a property in general form.</li>
+                </ul>
+
+                <h3>Method</h3>
+
+                <p>Direct proof. The claim is a value for P(C), reachable by a chain from the uniform hop assumption through the multiplication rule and the addition rule.</p>
+
+                <h3>Step 1 — Classical definition of probability on a finite equiprobable space</h3>
+                <p><strong>Property.</strong> Classical probability. If a trial has k equally likely outcomes, each outcome x has P(x) = 1/k.</p>
+                <p><strong>Inference.</strong> At the entry node k = 2, so P(L₁) = 1/2 and P(R₁) = 1/2.</p>
+
+                <h3>Step 2 — Classical definition of probability, applied at the second node</h3>
+                <p><strong>Property.</strong> Classical probability, as in Step 1.</p>
+                <p><strong>Inference.</strong> At node 2, k = 3, so P(R₂ | L₁) = 1/3. At node 3, k = 2, so P(L₂ | R₁) = 1/2.</p>
+
+                <h3>Step 3 — Definition of an event by its routes</h3>
+                <p><strong>Property.</strong> Event decomposition. An event is the set of outcomes that realize it, so x ⇔ the union of its outcomes.</p>
+                <p><strong>Inference.</strong> C = (L₁ ∩ R₂) ∪ (R₁ ∩ L₂).</p>
+
+                <h3>Step 4 — General multiplication rule</h3>
+                <p><strong>Property.</strong> General multiplication rule. P(x ∩ y) = P(x)P(y | x).</p>
+                <p><strong>Inference.</strong> P(L₁ ∩ R₂) = (1/2)(1/3) = 1/6. From lines 1 and 2.</p>
+
+                <h3>Step 5 — General multiplication rule, again</h3>
+                <p><strong>Property.</strong> General multiplication rule, as in Step 4.</p>
+                <p><strong>Inference.</strong> P(R₁ ∩ L₂) = (1/2)(1/2) = 1/4. From lines 1 and 2.</p>
+
+                <h3>Step 6 — Definition of mutually exclusive events</h3>
+                <p><strong>Property.</strong> Mutually exclusive events. x ∩ y = ∅ ⇔ x and y cannot both occur.</p>
+                <p><strong>Inference.</strong> L₁ ∩ R₁ = ∅, so (L₁ ∩ R₂) ∩ (R₁ ∩ L₂) = ∅. From line 3.</p>
+
+                <h3>Step 7 — Addition rule for mutually exclusive events</h3>
+                <p><strong>Property.</strong> Addition rule. x ∩ y = ∅ ⇒ P(x ∪ y) = P(x) + P(y).</p>
+                <p><strong>Inference.</strong> P(C) = 1/6 + 1/4 = 2/12 + 3/12 = 5/12. From lines 4, 5, and 6.</p>
+
+                <h3>Step 8 — Normalization axiom with finite additivity</h3>
+                <p><strong>Property.</strong> Normalization and finite additivity. P(Ω) = 1, and for a partition of Ω the probabilities of its parts sum to 1.</p>
+                <p><strong>Inference.</strong> P(A) = (1/2)(1/3) = 1/6, P(B) = (1/2)(1/3) = 1/6, P(D) = (1/2)(1/2) = 1/4, and 1/6 + 1/6 + 5/12 + 1/4 = 2/12 + 2/12 + 5/12 + 3/12 = 1. From lines 1, 2, and 7.</p>
+
+                <h3>Step 9 — Trichotomy</h3>
+                <p><strong>Property.</strong> Trichotomy. For any x, y exactly one of x &lt; y, x = y, x &gt; y holds.</p>
+                <p><strong>Inference.</strong> 5/12 &gt; 3/12 = 1/4, so P(C) ≠ 1/4. From lines 7 and 8.</p>
+
+                <h3>Conclusion</h3>
+                <p>P(C) = 5/12, and since 5/12 ≠ 1/4 the four endpoints are not equally likely. QED.</p>
+
+                <h2 id="history-version">Historical Background</h2>
+
+                <p>Estimating a probability by running trials instead of deriving it took its modern form in 1946, when Stanislaw Ulam, recovering from an illness and playing solitaire, asked what fraction of layouts could be won and concluded that dealing many hands beat working out the combinatorics. He raised the idea with John von Neumann, and the two ran the first large simulations of neutron diffusion on ENIAC in 1948.</p>
+
+                <p>Nicholas Metropolis named the method after the casino in Monaco and published the first account of it with Ulam in 1949. The practice spread from weapons physics into queueing theory, insurance pricing, and eventually capacity planning for computing systems, where a traffic share is read off a log of trials rather than solved in closed form.</p>
+
+                <h2 id="python-version">Python Version</h2>
+
+                <p>The script turns the trace counts into an estimated share for the paid tier endpoint and compares it against the share the routing graph predicts, so it works for any log, not only for the fifty traces shown in the problem.</p>
+
+                <h3>Option 1, pure Python</h3>
+
+<pre><code># What this does: works out how often requests reached the paid tier endpoint.
+# Where it came from: logged traces from a routing graph with four endpoints, A, B, C and D.
+# The math idea: count the hits, divide by the total, then compare with the expected share.
+# You type in: how many traces reached each of the four endpoints.
+# It prints: the share that reached the paid tier and how it compares with the expected share.
+
+# This function does the math.
+def paid_tier_share(hits_a, hits_b, hits_c, hits_d):
+    # Add up all the traces.
+    total = hits_a + hits_b + hits_c + hits_d
+    # If nothing was logged, there is nothing to divide by.
+    if total == 0:
+        return None, 0
+    # Divide the paid tier hits by the total.
+    return hits_c / total, total
+
+# Tell the reader what we will figure out.
+print("Let's find how often requests reached the paid tier endpoint C.")
+
+# Ask for the traces that ended at each endpoint.
+hits_a = int(input("Traces that reached A: "))
+hits_b = int(input("Traces that reached B: "))
+hits_c = int(input("Traces that reached C, the paid tier: "))
+hits_d = int(input("Traces that reached D: "))
+
+# Do the math.
+share, total = paid_tier_share(hits_a, hits_b, hits_c, hits_d)
+
+# Stop early if no traces were entered.
+if share is None:
+    print("No traces were logged, so there is nothing to estimate.")
+else:
+    # The graph predicts 5 out of 12 for this endpoint.
+    expected = 5 / 12
+    # Round both numbers to three decimals so they are easy to read.
+    share = round(share, 3)
+    expected = round(expected, 3)
+    # Find how far the logs sit from the expected share.
+    gap = round(share - expected, 3)
+    # Print the answer with words that fit the scenario.
+    print("Traces logged:", total)
+    print("Share that reached the paid tier:", share)
+    print("Share the routing graph predicts:", expected)
+    print("Gap between the logs and the prediction:", gap)
+</code></pre>
+
+                <p>Open a terminal, type python, paste the script, and enter the four counts. It returns the logged share, the predicted share, and the gap between them, which is the number an operations team watches for drift.</p>
+
+                <h3>Option 2, with the fractions module</h3>
+
+                <p>The fractions module keeps the predicted share as the exact value 5/12 instead of a rounded decimal, so the comparison stays honest for any number of traces.</p>
+
+<pre><code># What this does: works out how often requests reached the paid tier endpoint.
+# Where it came from: logged traces from a routing graph with four endpoints, A, B, C and D.
+# The math idea: count the hits, divide by the total, then compare with the expected share.
+# You type in: how many traces reached each of the four endpoints.
+# It prints: the share that reached the paid tier, as a fraction and as a decimal.
+
+# Bring in a tool that keeps fractions exact.
+from fractions import Fraction
+
+# This function does the math.
+def paid_tier_share(hits_a, hits_b, hits_c, hits_d):
+    # Add up all the traces.
+    total = hits_a + hits_b + hits_c + hits_d
+    # If nothing was logged, there is nothing to divide by.
+    if total == 0:
+        return None, 0
+    # Keep the share as an exact fraction.
+    return Fraction(hits_c, total), total
+
+# Tell the reader what we will figure out.
+print("Let's find how often requests reached the paid tier endpoint C.")
+
+# Ask for the traces that ended at each endpoint.
+hits_a = int(input("Traces that reached A: "))
+hits_b = int(input("Traces that reached B: "))
+hits_c = int(input("Traces that reached C, the paid tier: "))
+hits_d = int(input("Traces that reached D: "))
+
+# Do the math.
+share, total = paid_tier_share(hits_a, hits_b, hits_c, hits_d)
+
+# Stop early if no traces were entered.
+if share is None:
+    print("No traces were logged, so there is nothing to estimate.")
+else:
+    # The graph predicts 5 out of 12 for this endpoint.
+    expected = Fraction(5, 12)
+    # Work out the gap, still as an exact fraction.
+    gap = share - expected
+    # Print the answer with words that fit the scenario.
+    print("Traces logged:", total)
+    print("Share that reached the paid tier:", share, "which is", round(float(share), 3))
+    print("Share the routing graph predicts:", expected, "which is", round(float(expected), 3))
+    print("Gap between the logs and the prediction:", round(float(gap), 3))
+</code></pre>
+
+                <p>Entering 6, 8, 21 and 15 returns the share as 21/50 against the predicted 5/12, which is the same comparison the first script makes in decimals.</p>
+
+                <h2 id="further-reading">Go Deeper</h2>
+
+                <ul>
+                    <li><a class="class2" href="https://www.khanacademy.org/math/statistics-probability/probability-library" target="_blank" rel="noopener">Khan Academy — Experimental and Theoretical Probability</a></li>
+                    <li><a class="class2" href="https://mathworld.wolfram.com/Probability.html" target="_blank" rel="noopener">Wolfram MathWorld — Probability</a></li>
+                    <li><a class="class2" href="https://math.stackexchange.com/questions/tagged/probability" target="_blank" rel="noopener">Mathematics Stack Exchange — Probability</a></li>
+                </ul>
+
+                <span id="insight"></span>
+
+                <div itemtype="backstory" class="author">
+                    <h2>Bibliographic Information</h2>
+                    <span>Author: <a class="class2" href="" itemprop="author">C. L. Palacios</a>,</span>
+                    <time itemprop="datePublished">
+                        <span itemtype="datePublished">October 27, 2026</span>
+                        | <span itemtype="wordCount">free</span>
+                    </time> | <span itemtype="isAccessibleForFree">Open Access</span>
+                    | <span itemtype="isBasedOn">Sources: CL Palacios</span> |
+                    <span id="comments" itemtype="keywords">Sources: Original problem solving</span>
+                </div>
+
+                <div id="recommended"></div>
+
+            </article>
+        </div>
+
+        <div id="us-content_strap_tecnology"></div>
+        <script src="/js/us-content_strap_tecnology.js"></script>
+
+    </main>
+
+    <footer class="contenedorFooter" id="us-footer"></footer>
+    <div class="copyRights" id="copyRights"></div>
+    <script src="/js/us-footer.js"></script>
+
+</body>
+<script src="/js/us-shareInFlex.js"></script>
+<script src="/js/before_body_scripts.js"></script>
+</html>
